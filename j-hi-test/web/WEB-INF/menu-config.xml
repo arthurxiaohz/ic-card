@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MenuConfig>
+
+  <Displayers>
+    <Displayer   name="DropDown"
+                 type="net.sf.navigator.displayer.DropDownMenuDisplayer"/>
+    <Displayer   name="Simple"
+                 type="net.sf.navigator.displayer.SimpleMenuDisplayer"/>
+    <Displayer   name="CoolMenu"
+                 type="net.sf.navigator.displayer.CoolMenuDisplayer"/>
+    <Displayer   name="CoolMenu4"
+                 type="net.sf.navigator.displayer.CoolMenuDisplayer4"/>
+    <Displayer   name="MenuForm"
+                 type="net.sf.navigator.example.PermissionsFormMenuDisplayer"/>
+    <Displayer   name="ListMenu"
+                 type="net.sf.navigator.displayer.ListMenuDisplayer"/>
+    <Displayer   name="TabbedMenu"
+                 type="net.sf.navigator.displayer.TabbedMenuDisplayer"/>
+    <Displayer   name="Velocity"
+                 type="net.sf.navigator.displayer.VelocityMenuDisplayer"/>
+    <Displayer   name="XtreeMenu"
+                 type="net.sf.navigator.displayer.XtreeMenuDisplayer"/>
+    <Displayer   name="CSSListMenu"
+                 type="net.sf.navigator.displayer.CSSListMenuDisplayer"/>
+  </Displayers>
+
+  <Menus>
+
+    <Menu  name="indexMenu"  title="Examples">
+        <!-- page attribute indicating a context relative resource.
+             The context path will be prepended to the value. -->
+        <Item  name="indexMenu1"  title="Basic Example"
+               toolTip="Shows usage of the menu displayers using defaults."
+               page="/menutest1.jsp"/>
+        <Item  name="indexMenu2"  title="Advanced Example"
+               toolTip="Shows customized menu displays."
+               page="/menutest2.jsp"/>
+        <Item  name="indexMenu3"  title="CoolMenu Example"
+               toolTip="Shows menu using CoolMenu3"
+               page="/coolmenu1.jsp"/>
+        <Item  name="indexMenu4"  title="CoolMenu Example - With Form"
+               toolTip="Shows menu using CoolMenu3 with forms."
+               page="/coolmenu2.jsp"/>
+        <Item  name="indexMenu5"  title="Permissions Example"
+               toolTip="Example use of menu disable and permission checking with CoolMenus."
+               page="/permissionsForm.jsp"/>
+        <Item  name="indexMenu6"  title="CoolMenu4 Example"
+               toolTip="Shows menu using CoolMenu4"
+               page="/coolmenu4.jsp"/>
+        <Item  name="indexMenu7"  title="Expandable DHTML List Example"
+               toolTip="Shows Expandable DHTML list"
+               page="/dhtmlExpandable.jsp"/>
+        <Item  name="indexMenu7"  title="Dropdown DHTML List Example"
+               toolTip="Shows Dropdown DHTML list"
+               page="/dhtmlDropdown.jsp"/>
+        <Item  name="indexMenu8"  title="Roles Menu Example"
+               toolTip="Shows Menus based on user's role"
+               page="/rolesMenu.jsp"/>
+        <Item  name="indexMenu9"  title="Tabbed Menu Example"
+               toolTip="Shows Tabbed-based Menu"
+               forward="tabbedMenu"/>
+        <Item  title="Velocity Template Menu"
+               toolTip="Shows very simple Velocity generated Menu"
+               page="/velocity.jsp"/>
+        <Item  title="Velocity CoolMenus Menu"
+               toolTip="Shows Velocity generated CoolMenu"
+               page="/velocity-coolmenu4.jsp"/>
+        <Item  title="Velocity XTree Menu"
+               toolTip="Shows Velocity generated XTree"
+               page="/velocity-xtree.jsp"/>
+        <Item  title="Velocity Tabbed Menu"
+               toolTip="Shows Velocity generated Tabbed Menu"
+               page="/velocity-tabs.jsp?Home"/>
+        <Item  title="Nice Looking Tabbed Menu"
+               toolTip="Shows Velocity generated Tabbed Menu"
+               page="/velocity-nicetabs.jsp?Home"/>
+        <Item  title="EL (Expression Language) enabled Menu"
+               toolTip="Shows very simple Velocity EL Menu"
+               page="/velocity-el.jsp"/>
+        <Item  title="Dynamic, Databased-driven Menu"
+               toolTip="Shows very simple menu built from a database table"
+               page="/dynamicMenu.jsp"/>
+        <Item  title="CSS-based Drop-down Menu: Horizontal [New!]"
+               toolTip="CSS-only Horizontal drop-down menu"
+               page="/cssHorizontal.jsp"/>
+        <Item  title="CSS-based Drop-down: Vertical [New!]"
+               toolTip="CSS-only Vertical drop-down menu"
+               page="/cssVertical.jsp"/>
+        <Item  title="Velocity-based CSS Drop-down Menu: Horizontal [New!]"
+               toolTip="Velocity-based CSS Horizontal drop-down menu"
+               page="/cssHorizontal.jsp?velocity=true"/>
+        <Item  title="Velocity-based CSS Drop-down: Vertical [New!]"
+               toolTip="Velocity-based CSS Vertical drop-down menu"
+               page="/cssVertical.jsp?velocity=true"/>
+    </Menu>
+
+    <Menu name="projectMenu" title="Project Menu">
+        <Item title="Home" toolTip="Return to List of Menus" page="/index.jsp"/>
+        <Item title="Documentation" toolTip="View Project Documentation"
+            location="http://struts-menu.sf.net"/>
+        <Item title="FAQs" toolTip="View Frequenty Asked Questions"
+            location="http://struts-menu.sf.net/faq.html"/>
+        <Item title="Mailing Lists" toolTip="Subscribe to Mailing Lists"
+            location="http://sourceforge.net/mail/?group_id=48726"/>
+        <Item title="Mailing List Archives"
+            toolTip="Search the Mailing List Archives"
+            location="http://www.mail-archive.com/index.php?hunt=struts-menu"/>
+    </Menu>
+
+  <!-- ====================   To Do List Menus   =========================== -->
+    <Menu  name="ToDoListMenuFile"  title="FILE"  description="test" width="50">
+       <Item   name="TDLnew"   title="NEW">
+           <Item   name="TDLnewcase"   title="CASE"    image="images/case-new.png"
+                   location="NewCase.jsp"/>
+           <Item   name="TDLnewitem"    title="ITEM"   image="images/item-new.png"
+                   location="index.jsp"/>
+           <Item   name="TDLnewparty"   title="PARTY"  image="images/party-new.png"
+                   location="index.jsp"/>
+       </Item>
+       <Item   name="TDLopen"   title="OPEN">
+           <Item   name="TDLopencase"    title="CASE"   image="images/case-open.png"
+                    location="index.jsp"/>
+           <Item   name="TDLopenitem"   title="ITEM"    image="images/item-open.png"
+                    location="index.jsp"/>
+           <Item   name="TDLopenparty"  title="PARTY"   image="images/party-open.png"
+                    location="index.jsp"/>
+       </Item>
+       <Item    name="TDLexit"  title="EXIT"
+                image="images/exit.png"   location="index.jsp"/>
+    </Menu>
+
+    <Menu  name="ToDoListMenuEdit"  title="EDIT">
+         <Item  name="TDLselect" title="SELECT_ALL"       image="images/select-all.png"
+                    location="index.jsp" width="100" />
+         <Item  name="TDLprefs"  title="USER_PREFERENCES" image="images/prefs.png"
+                    location="index.jsp" width="150" />
+    </Menu>
+
+    <Menu  name="ToDoListMenuTools"  title="TOOLS">
+         <Item  name="TDLreports"  title="REPORTS"   image="images/reports.png"/>
+         <Item  name="TDLfind"     title="FIND"      image="images/find.png"/>
+         <Item  name="TDLsubscr"   title="SUBSCRIBE" image="images/assign.png"/>
+    </Menu>
+
+    <Menu  name="ToDoListMenuWindows" title="WINDOW">
+         <Item  name="TDLlibr"  title="LIBRARY" image="images/library.png"/>
+    </Menu>
+
+    <Menu  name="ToDoListMenuHelp"   title="HELP">
+         <Item  name="TDLhelp"   title="ONLINE_HELP"    image="images/help.png"/>
+         <Item  name="TDLabout"  title="ABOUT_TRACKER"  image="images/trackernet.png"/>
+    </Menu>
+
+    <!-- New Menu for Tabbed Displayer -->
+    <Menu name="TabbedHome" title="Home" location="?Home" target="_blank"/>
+    <Menu name="TabbedAbout" title="About"> <!-- No location, uses first item's location (People) -->
+        <Item name="People" title="People" location="?People"/>
+        <Item name="Careers" title="Careers" location="?Careers" target="_blank"/>
+        <Item name="Press" title="Press" location="?Press" 
+            onclick="alert('This item has an onclick handler in menu-config.xml.')"/>
+        <Item name="Locations" title="Locations" location="?Locations"/>
+    </Menu>
+
+    <Menu name="TabbedContact" title="Contact" location="?Contact">
+        <Item name="EMail" title="E-Mail" location="?EMail"/>
+        <Item name="Phone" title="Phone" location="?Phone"/>
+        <Item name="CarrierPigeon" title="Carrier Pigeon" location="?Pigeon"/>
+    </Menu>
+    <Menu name="TabbedExit" title="Exit" page="/index.jsp"/>
+
+  <!-- ====================   Case View  Menus   =========================== -->
+    <!-- FILE -->
+    <Menu  name="CaseDetailMenuFile"  title="FILE"  description="test">
+         <Item   name="CDnew"   title="NEW">
+              <Item   name="CDnewcase"   title="CASE"     image="images/case-new.png"
+                      location="index.jsp"/>
+              <Item   name="CDLnewitem"    title="ITEM"    image="images/item-new.png"
+                      location="index.jsp"/>
+              <Item   name="CDnewparty"   title="PARTY"   image="images/party-new.png"
+                      location="index.jsp"/>
+         </Item>
+         <Item   name="CDopen"   title="OPEN">
+              <Item   name="CDopencase"    title="CASE"   image="images/case-open.png"
+                      location="index.jsp"/>
+              <Item   name="CDopenitem"   title="ITEM"    image="images/item-open.png"
+                      location="index.jsp"/>
+              <Item   name="CDopenparty"  title="PARTY"   image="images/party-open.png"
+                      location="index.jsp"/>
+         </Item>
+         <Item   name="CDclose"  title="CLOSE"    location="index.jsp"/>
+         <Item   name="CDexit"   title="EXIT"
+                 image="images/exit.png"   location="index.jsp"/>
+    </Menu>
+
+    <!-- EDIT -->
+    <Menu  name="CaseDetailMenuEdit"   title="EDIT">
+         <Item  name="CDundo"   title="UNDO"  image="images/undo.png"/>
+         <Item  name="CDcut"    title="CUT"   image="images/cut.png"/>
+         <Item  name="CDcopy"   title="COPY"  image="images/copy.png"/>
+         <Item  name="CDpaste"  title="PASTE" image="images/paste.png"/>x`
+         <Item  name="CDclear"  title="CLEAR" image="images/clear.png"/>
+         <Item  name="CDselect" title="CLEAR" image="images/select-all.png"/>
+         <Item  name="CDprefs"  title="USER_PREFERENCES" image="images/prefs.png"/>
+    </Menu>
+
+    <!-- CASE -->
+    <Menu  name="CaseDetailMenuCase"   title="CASE">
+         <Item  name="CDadd"    title="ADD">
+              <Item   name="CDaddparty"    title="PARTY"      image="images/party-add.png"/>
+              <Item   name="CDadditem"     title="ITEM"       image="images/item-add.png"/>
+              <Item   name="CDaddcomments" title="COMMENTS"   image="images/comments.png"/>
+              <Item   name="CDadddoc"      title="DOCUMENTS"  image="images/documents.png"/>
+              <Item   name="CDaddposition" title="POSITION"   image="images/positions.png"/>
+         </Item>
+         <Item  name="CDopen"   title="OPEN">
+              <Item   name="CDopenparty"    title="PARTY"      image="images/party-open.png"/>
+              <Item   name="CDopenitem"     title="ITEM"       image="images/item-open.png"/>
+              <Item   name="CDopencomments" title="COMMENTS"   image="images/comments.png"/>
+              <Item   name="CDopendoc"      title="DOCUMENTS"  image="images/documents.png"/>
+              <Item   name="CDopenposition" title="POSITION"   image="images/positions.png"/>
+              <Item   name="CDopenhistory"  title="HISTORY"    image="images/history.png"/>
+         </Item>
+         <Item  name="CDassign"    title="ASSIGN"           image="images/assign.png"/>
+         <Item  name="CDactivate"  title="ACTIVATE"         image="images/activate.png"/>
+         <Item  name="CDpublish"   title="PUBLISH"          image="images/case-pub.png"/>
+         <Item  name="CDescalate"  title="ESCALATE"         image="images/escalate.png"/>
+         <Item  name="CDdecide"    title="DECIDE"           image="images/decide.png"/>
+         <Item  name="CDgenlicen"  title="GENERATE_LICENSE" image="images/genlicense.png"/>
+    </Menu>
+
+    <Menu  name="Countries" title="Countries">
+        <Item title="COUNTRY_AU" image="images/australia2.gif"/>
+        <Item title="COUNTRY_CZ" image="images/czech2.gif"/>
+        <Item title="COUNTRY_CN" image="images/china2.gif"/>
+        <Item title="COUNTRY_DK" image="images/denmark2.gif"/>
+        <Item title="COUNTRY_FI" image="images/finland2.gif"/>
+        <Item title="COUNTRY_FR" image="images/france2.gif"/>
+        <Item title="COUNTRY_JP" image="images/japan2.gif"/>
+        <Item title="COUNTRY_RU" image="images/russia2.gif"/>
+        <Item title="COUNTRY_US" image="images/usa2.gif"/>
+        <Item title="COUNTRY_CH" image="images/switzlnd2.gif"/>
+    </Menu>
+
+    <Menu  name="Permissions" title="Permissions" roles="tomcat,role1">
+        <Item title="Change" location="permissionsForm.jsp"/>
+    </Menu>
+
+    <Menu name="Standalone" title="Standalone Test" location="?Self"/>
+
+  </Menus>
+</MenuConfig>
