@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.hi.base.menu.model.MenuLink" table="MenuLink" >
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <version name="version" type="integer" column="version"/>
+        <property name="linkUrl" type="string">
+            <column name="linkUrl" length="200" not-null="true"/>
+        </property>
+        <property name="displayRef" type="string">
+            <column name="displayRef" length="200"/>
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="200"/>
+        </property>
+        <many-to-one name="authority" class="org.hi.framework.security.model.Authority" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="authority"  not-null="false"/>
+        </many-to-one>
+        <property name="sequence" type="double">
+            <column name="sequence" length="18"/>
+        </property>
+        <many-to-one name="menu" class="org.hi.base.menu.model.Menu" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="menu"  not-null="false"/>
+        </many-to-one>
+        <property name="menuLinkType" type="integer">
+            <column name="menuLinkType" />
+        </property>
+        <many-to-one name="creator" class="org.hi.base.organization.model.HiUser" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="creator"  not-null="false"/>
+        </many-to-one>
+    
+    </class>
+</hibernate-mapping>

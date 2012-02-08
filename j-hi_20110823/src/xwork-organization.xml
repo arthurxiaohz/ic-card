@@ -1,0 +1,91 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+	<package name="organization" extends="hi" >
+
+	  <action name="hiOrgList"
+			class="org.hi.base.organization.action.webwork.HiOrgListAction">
+			<result name="success">/organization/HiOrgList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiOrgSave"
+			class="org.hi.base.organization.action.webwork.HiOrgSaveAction">
+			<result name="success" type="redirect-action">hiOrgList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiOrgEdit"
+			class="org.hi.base.organization.action.webwork.HiOrgViewAction">
+			<result name="success">/organization/HiOrgEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiOrgView"
+			class="org.hi.base.organization.action.webwork.HiOrgViewAction">
+			<result name="success">/organization/HiOrgView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="hiOrgRemove"
+			class="org.hi.base.organization.action.webwork.HiOrgRemoveAction">
+			<result name="success" type="redirect-action">hiOrgList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiOrgRemoveAll"
+			class="org.hi.base.organization.action.webwork.HiOrgRemoveAllAction">
+			<result name="success" type="redirect-action">hiOrgList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="hiOrgLookup"
+			class="org.hi.base.organization.action.webwork.HiOrgListAction">
+			<result name="success">/organization/HiOrgList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="hiUserList"
+			class="org.hi.base.organization.action.webwork.HiUserListAction">
+			<result name="success">/organization/HiUserList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiUserSave"
+			class="org.hi.base.organization.action.webwork.HiUserSaveAction">
+			<result name="success" type="redirect-action">hiUserList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiUserEdit"
+			class="org.hi.base.organization.action.webwork.HiUserViewAction">
+			<result name="success">/organization/HiUserEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiUserView"
+			class="org.hi.base.organization.action.webwork.HiUserViewAction">
+			<result name="success">/organization/HiUserView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="hiUserRemove"
+			class="org.hi.base.organization.action.webwork.HiUserRemoveAction">
+			<result name="success" type="redirect-action">hiUserList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiUserRemoveAll"
+			class="org.hi.base.organization.action.webwork.HiUserRemoveAllAction">
+			<result name="success" type="redirect-action">hiUserList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="hiUserLookup"
+			class="org.hi.base.organization.action.webwork.HiUserListAction">
+			<result name="success">/organization/HiUserList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</xwork>

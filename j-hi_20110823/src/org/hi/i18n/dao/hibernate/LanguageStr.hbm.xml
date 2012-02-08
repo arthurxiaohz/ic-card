@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.hi.i18n.model.LanguageStr" table="HI_languageStr" >
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <version name="version" type="integer" column="version"/>
+        <many-to-one name="language" class="org.hi.i18n.model.Language" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="language"  not-null="false"/>
+        </many-to-one>
+        <property name="languageCode" type="string">
+            <column name="languageCode" length="50"/>
+        </property>
+        <property name="value" type="string">
+            <column name="value" length="255"/>
+        </property>
+        <many-to-one name="creator" class="org.hi.base.organization.model.HiUser" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="creator"  not-null="false"/>
+        </many-to-one>
+    
+    </class>
+</hibernate-mapping>

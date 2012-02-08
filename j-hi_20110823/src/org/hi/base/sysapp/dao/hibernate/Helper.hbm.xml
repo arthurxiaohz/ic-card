@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.hi.base.sysapp.model.Helper" table="Hi_Helper" >
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <version name="version" type="integer" column="version"/>
+        <property name="helperCode" type="string">
+            <column name="helperCode" length="30"/>
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="50"/>
+        </property>
+        <property name="urlAction" type="string">
+            <column name="urlAction" length="200"/>
+        </property>
+        <property name="helpContent" type="org.hi.framework.dao.hibernate.StringClobType">
+            <column name="helpContent" />
+        </property>
+        <property name="isWithPara" type="integer">
+            <column name="isWithPara" />
+        </property>
+        <property name="activeHelp" type="integer">
+            <column name="activeHelp" />
+        </property>
+        <property name="activeCode" type="integer">
+            <column name="activeCode" />
+        </property>
+
+        <bag name="helperRefs" cascade="all,delete-orphan"  order-by="id" >
+            <key foreign-key="none">
+                <column name="helper" not-null="false"/>
+            </key>
+            <one-to-many class="org.hi.base.sysapp.model.HelperRef" />
+        </bag>    
+    </class>
+</hibernate-mapping>
