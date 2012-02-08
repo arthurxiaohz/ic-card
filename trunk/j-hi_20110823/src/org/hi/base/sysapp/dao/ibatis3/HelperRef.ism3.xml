@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="HelperRef"> 
+
+
+	<resultMap id="HelperRef" type="org.hi.base.sysapp.model.HelperRef">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<association property="refHelper" column="refHelper" select="Helper.select_inner_Helper"/>
+		<association property="helper" column="helper" select="Helper.select_inner_Helper"/>
+	</resultMap>
+    
+    <select id="select_inner_HelperRef" resultMap="HelperRef" parameterType="int">  
+       SELECT * FROM Hi_HelperRef  WHERE id = #{value}
+    </select>
+  
+	<select id="getHelperRef" resultMap="HelperRef">
+		select * from Hi_HelperRef WHERE id = #{id}
+	</select>
+	<select id="listHelperRef" resultMap="HelperRef">#</select>
+  
+	<select id="countHelperRef" resultType="int">#</select> 
+	
+	<insert id="insHelperRef" parameterType="java.util.HashMap">    
+    	insert into Hi_HelperRef (id, version, refHelper, helper) 
+		values (#{id,jdbcType=NUMERIC}, 1, #{refHelper,jdbcType=NUMERIC}, #{helper,jdbcType=NUMERIC})
+		<selectKey resultType="int"  keyProperty="id"/>   
+	</insert>
+	
+	<update id="updateHelperRef" parameterType="java.util.HashMap">
+		update Hi_HelperRef set
+            version = #{version} +1,
+			refHelper = #{refHelper,jdbcType=NUMERIC},
+			helper = #{helper,jdbcType=NUMERIC}
+    where    
+      id = #{id}    
+	</update>    
+   
+	<delete id="delHelperRef" parameterType="int">    
+		delete from Hi_HelperRef where id = #{id}
+	</delete>
+
+</mapper>    

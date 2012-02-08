@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="PrivilegeResource"> 
+
+
+	<resultMap id="PrivilegeResource" type="org.hi.framework.security.model.PrivilegeResource">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="authorityName" column="authorityName"/>
+		<result property="viewLayer" column="viewLayer"/>
+		<result property="veiwExtAuthNames" column="veiwExtAuthNames"/>
+		<result property="businessLayer" column="businessLayer"/>
+		<result property="bizExtAuthNames" column="bizExtAuthNames"/>
+	</resultMap>
+    
+    <select id="select_inner_PrivilegeResource" resultMap="PrivilegeResource" parameterType="int">  
+       SELECT * FROM HI_PrivilegeResource  WHERE id = #{value}
+    </select>
+  
+	<select id="getPrivilegeResource" resultMap="PrivilegeResource">
+		select * from HI_PrivilegeResource WHERE id = #{id}
+	</select>
+	<select id="listPrivilegeResource" resultMap="PrivilegeResource">#</select>
+  
+	<select id="countPrivilegeResource" resultType="int">#</select> 
+	
+	<insert id="insPrivilegeResource" parameterType="java.util.HashMap">    
+    	insert into HI_PrivilegeResource (id, version, authorityName, viewLayer, veiwExtAuthNames, businessLayer, bizExtAuthNames) 
+		values (#{id,jdbcType=NUMERIC}, 1, #{authorityName,jdbcType=LONGVARCHAR}, #{viewLayer,jdbcType=LONGVARCHAR}, #{veiwExtAuthNames,jdbcType=LONGVARCHAR}, #{businessLayer,jdbcType=LONGVARCHAR}, #{bizExtAuthNames,jdbcType=LONGVARCHAR})
+		<selectKey resultType="int"  keyProperty="id"/>   
+	</insert>
+	
+	<update id="updatePrivilegeResource" parameterType="java.util.HashMap">
+		update HI_PrivilegeResource set
+            version = #{version} +1,
+			authorityName = #{authorityName,jdbcType=LONGVARCHAR},
+			viewLayer = #{viewLayer,jdbcType=LONGVARCHAR},
+			veiwExtAuthNames = #{veiwExtAuthNames,jdbcType=LONGVARCHAR},
+			businessLayer = #{businessLayer,jdbcType=LONGVARCHAR},
+			bizExtAuthNames = #{bizExtAuthNames,jdbcType=LONGVARCHAR}
+    where    
+      id = #{id}    
+	</update>    
+   
+	<delete id="delPrivilegeResource" parameterType="int">    
+		delete from HI_PrivilegeResource where id = #{id}
+	</delete>
+
+</mapper>    

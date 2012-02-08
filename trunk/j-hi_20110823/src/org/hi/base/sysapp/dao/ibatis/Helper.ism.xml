@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="Helper" type="org.hi.base.sysapp.model.Helper"/>
+
+	<resultMap id="Helper" class="Helper">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="helperCode" column="helperCode"/>
+		<result property="title" column="title"/>
+		<result property="urlAction" column="urlAction"/>
+		<result property="helpContent" column="helpContent"/>
+		<result property="isWithPara" column="isWithPara"/>
+		<result property="activeHelp" column="activeHelp"/>
+		<result property="activeCode" column="activeCode"/>
+		<result property="helperRefs" column="id" select="select_inner_HelperRefs"/>
+	</resultMap>
+    
+    <select id="select_inner_Helper" resultMap="Helper" parameterClass="int">  
+       SELECT * FROM Hi_Helper  WHERE id =#value#
+    </select>
+
+    <select id="select_inner_HelperRefs" resultMap="HelperRef" parameterClass="int">   
+       SELECT * FROM Hi_HelperRef WHERE helper =#value#    
+    </select>  
+  
+	<select id="getHelper" resultMap="Helper">
+		select * from Hi_Helper WHERE id = #id# 
+	</select>
+	
+	<insert id="insHelper" parameterClass="java.util.HashMap">    
+    	insert into Hi_Helper (id, version, helperCode, title, urlAction, helpContent, isWithPara, activeHelp, activeCode) 
+		values (#id#, 1, #helperCode#, #title#, #urlAction#, #helpContent#, #isWithPara#, #activeHelp#, #activeCode#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateHelper" parameterClass="java.util.HashMap">    
+		update Hi_Helper set
+            version = #version# +1,
+			helperCode = #helperCode#,
+			title = #title#,
+			urlAction = #urlAction#,
+			helpContent = #helpContent#,
+			isWithPara = #isWithPara#,
+			activeHelp = #activeHelp#,
+			activeCode = #activeCode#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delHelper" parameterClass="int">    
+		delete from Hi_Helper where id = #id#   
+	</delete>
+    
+	<selectExt id="listHelper" resultMap="Helper"/> 
+  
+	<selectExt id="countHelper" resultClass="int"/> 
+
+</sqlMap>    
