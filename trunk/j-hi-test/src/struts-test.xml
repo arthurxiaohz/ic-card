@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="test" extends="hi" >
+		<!-- ============= staff对应的StaffAction============ --> 
+		<action name="staff" class="org.hi.test.action.struts.StaffAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="staffList"
+			class="org.hi.test.action.struts.StaffAction" method="staffList">
+			<result name="success">/test/StaffList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="staffSave"
+			class="org.hi.test.action.struts.StaffAction" method="saveStaff">
+			<result name="success" type="redirect-action">staffList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="staffEdit"
+			class="org.hi.test.action.struts.StaffAction" method="viewStaff">
+			<result name="success">/test/StaffEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="staffView"
+			class="org.hi.test.action.struts.StaffAction" method="viewStaff">
+			<result name="success">/test/StaffView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="staffRemove"
+			class="org.hi.test.action.struts.StaffAction" method="removeStaff">
+			<result name="success" type="redirect-action">staffList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="staffRemoveAll"
+			class="org.hi.test.action.struts.StaffAction" method="removeAllStaff">
+			<result name="success" type="redirect-action">staffList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="staffLookup"
+			class="org.hi.test.action.struts.StaffAction" method="staffList">
+			<result name="success">/test/StaffList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= Nation对应的NationAction============ --> 
+		<action name="nation" class="org.hi.test.action.struts.NationAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="nationList"
+			class="org.hi.test.action.struts.NationAction" method="nationList">
+			<result name="success">/test/NationList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="nationSave"
+			class="org.hi.test.action.struts.NationAction" method="saveNation">
+			<result name="success" type="redirect-action">nationList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="nationEdit"
+			class="org.hi.test.action.struts.NationAction" method="viewNation">
+			<result name="success">/test/NationEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="nationView"
+			class="org.hi.test.action.struts.NationAction" method="viewNation">
+			<result name="success">/test/NationView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="nationRemove"
+			class="org.hi.test.action.struts.NationAction" method="removeNation">
+			<result name="success" type="redirect-action">nationList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="nationRemoveAll"
+			class="org.hi.test.action.struts.NationAction" method="removeAllNation">
+			<result name="success" type="redirect-action">nationList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="nationLookup"
+			class="org.hi.test.action.struts.NationAction" method="nationList">
+			<result name="success">/test/NationList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= JobPosition对应的JobPositionAction============ --> 
+		<action name="jobPosition" class="org.hi.test.action.struts.JobPositionAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="jobPositionList"
+			class="org.hi.test.action.struts.JobPositionAction" method="jobPositionList">
+			<result name="success">/test/JobPositionList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="jobPositionSave"
+			class="org.hi.test.action.struts.JobPositionAction" method="saveJobPosition">
+			<result name="success" type="redirect-action">jobPositionList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="jobPositionEdit"
+			class="org.hi.test.action.struts.JobPositionAction" method="viewJobPosition">
+			<result name="success">/test/JobPositionEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="jobPositionView"
+			class="org.hi.test.action.struts.JobPositionAction" method="viewJobPosition">
+			<result name="success">/test/JobPositionView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="jobPositionRemove"
+			class="org.hi.test.action.struts.JobPositionAction" method="removeJobPosition">
+			<result name="success" type="redirect-action">jobPositionList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="jobPositionRemoveAll"
+			class="org.hi.test.action.struts.JobPositionAction" method="removeAllJobPosition">
+			<result name="success" type="redirect-action">jobPositionList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="jobPositionLookup"
+			class="org.hi.test.action.struts.JobPositionAction" method="jobPositionList">
+			<result name="success">/test/JobPositionList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= Experience对应的ExperienceAction============ --> 
+		<action name="experience" class="org.hi.test.action.struts.ExperienceAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="experienceList"
+			class="org.hi.test.action.struts.ExperienceAction" method="experienceList">
+			<result name="success">/test/ExperienceList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="experienceSave"
+			class="org.hi.test.action.struts.ExperienceAction" method="saveExperience">
+			<result name="success" type="redirect-action">experienceList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="experienceEdit"
+			class="org.hi.test.action.struts.ExperienceAction" method="viewExperience">
+			<result name="success">/test/ExperienceEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="experienceView"
+			class="org.hi.test.action.struts.ExperienceAction" method="viewExperience">
+			<result name="success">/test/ExperienceView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="experienceRemove"
+			class="org.hi.test.action.struts.ExperienceAction" method="removeExperience">
+			<result name="success" type="redirect-action">experienceList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="experienceRemoveAll"
+			class="org.hi.test.action.struts.ExperienceAction" method="removeAllExperience">
+			<result name="success" type="redirect-action">experienceList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="experienceLookup"
+			class="org.hi.test.action.struts.ExperienceAction" method="experienceList">
+			<result name="success">/test/ExperienceList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</struts>
