@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="Staff" type="org.hi.test.model.Staff"/>
+
+	<resultMap id="Staff" class="Staff">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="useNum" column="useNum"/>
+		<result property="nativePlace" column="nativePlace"/>
+		<result property="degree" column="degree"/>
+		<result property="specialty" column="specialty"/>
+		<result property="jobDate" column="jobDate"/>
+		<result property="marry" column="marry"/>
+		<result property="interest" column="interest"/>
+		<result property="jobPosition" column="jobPosition" select="select_inner_JobPosition"/>
+		<result property="photo_attachment" column="photo_attachment" select="select_inner_Attachment"/>
+		<result property="employedStatus" column="employedStatus"/>
+		<result property="nation" column="nation" select="select_inner_Nation"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="experiences" column="id" select="select_inner_Experiences"/>
+	</resultMap>
+    
+    <select id="select_inner_Staff" resultMap="Staff" parameterClass="int">  
+       SELECT * FROM Staff  WHERE id =#value#
+    </select>
+
+    <select id="select_inner_Experiences" resultMap="Experience" parameterClass="int">   
+       SELECT * FROM Experience WHERE staff =#value#    
+    </select>  
+  
+	<select id="getStaff" resultMap="Staff">
+		select * from Staff WHERE id = #id# 
+	</select>
+	
+	<insert id="insStaff" parameterClass="java.util.HashMap">    
+    	insert into Staff (id, version, useNum, nativePlace, degree, specialty, jobDate, marry, interest, jobPosition, photo_attachment, employedStatus, nation, creator) 
+		values (#id#, 1, #useNum#, #nativePlace#, #degree#, #specialty#, #jobDate#, #marry#, #interest#, #jobPosition#, #photo_attachment#, #employedStatus#, #nation#, #creator#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateStaff" parameterClass="java.util.HashMap">    
+		update Staff set
+            version = #version# +1,
+			useNum = #useNum#,
+			nativePlace = #nativePlace#,
+			degree = #degree#,
+			specialty = #specialty#,
+			jobDate = #jobDate#,
+			marry = #marry#,
+			interest = #interest#,
+			jobPosition = #jobPosition#,
+			photo_attachment = #photo_attachment#,
+			employedStatus = #employedStatus#,
+			nation = #nation#,
+			creator = #creator#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delStaff" parameterClass="int">    
+		delete from Staff where id = #id#   
+	</delete>
+    
+	<selectExt id="listStaff" resultMap="Staff"/> 
+  
+	<selectExt id="countStaff" resultClass="int"/> 
+
+</sqlMap>    
