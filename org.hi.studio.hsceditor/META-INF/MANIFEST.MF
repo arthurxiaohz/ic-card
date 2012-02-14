@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %plugin.name
+Bundle-SymbolicName: org.hi.studio.hsceditor;singleton:=true
+Bundle-Version: 5.1.8
+Bundle-ClassPath: .,lib/commons-collections-3.1.jar,lib/velocity-1.5-d
+ ev.jar,lib/commons-logging-1.1.jar,lib/fisshplate-0.1.3.jar,lib/log4j
+ -1.2.12.jar,lib/ognl-2.6.9-patch-20070908.jar,lib/poi-3.0.1-FINAL.jar
+ ,lib/jdom-1.0.jar
+Bundle-Activator: org.hi.studio.hsceditor.DBPlugin
+Bundle-Vendor: java-hi
+Bundle-Localization: plugin
+Export-Package: org.hi.studio.hsceditor,org.hi.studio.hsceditor.dialec
+ t,org.hi.studio.hsceditor.editorinput,org.hi.studio.hsceditor.prefere
+ nce,org.hi.studio.hsceditor.util,org.hi.studio.hsceditor.validator,or
+ g.hi.studio.hsceditor.visual.action,org.hi.studio.hsceditor.visual.di
+ alog,org.hi.studio.hsceditor.visual.editor,org.hi.studio.hsceditor.vi
+ sual.editpart,org.hi.studio.hsceditor.visual.editpart.tree,org.hi.stu
+ dio.hsceditor.visual.generate,org.hi.studio.hsceditor.visual.model,or
+ g.hi.studio.hsceditor.wizard
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.ge
+ f,org.eclipse.ui.views,org.eclipse.core.resources,org.eclipse.ui.edit
+ ors,org.eclipse.jface.text,org.eclipse.ui.ide,org.apache.ant,org.ecli
+ pse.jdt.ui,org.hi.studio.core,org.eclipse.help,org.hi.studio.generato
+ r
+Eclipse-LazyStart: true
+Created-By: 10.0-b22 (Sun Microsystems Inc.)
+Ant-Version: Apache Ant 1.7.0
+

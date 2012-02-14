@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HiValidator>
+		
+		<validatorItem name=""><![CDATA[无校验]]></validatorItem>
+		<validatorItem name="integer"><![CDATA[整形校验]]></validatorItem>
+		<validatorItem name="float"><![CDATA[浮点校验]]></validatorItem>
+		<validatorItem name="email"><![CDATA[邮件类型校验]]></validatorItem>
+		<validatorItem name="phone"><![CDATA[电话校验]]></validatorItem>
+		<validatorItem name="mobile"><![CDATA[手机校验]]></validatorItem>
+		
+</HiValidator>
+
