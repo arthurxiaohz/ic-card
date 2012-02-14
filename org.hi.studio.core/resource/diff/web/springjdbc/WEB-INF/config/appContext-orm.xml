@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="sessionFactory" class="org.hi.framework.dao.springjdbc.SpringJDBCHiSessionFactory">
+    	<property name="sqlShow" value="true"/>
+    	<property name="dataSource" ref="DataSource" />
+		<property name="properties">
+			<props>
+				 <prop key="springjdbc.dialect">${connection.dialect}</prop>
+		    </props>
+		</property>	     	
+    </bean>
+    
+    <bean id="transactionManager" class="org.hi.framework.dao.springjdbc.SpringJDBCTransactionManager">
+    	<property name="dataSource" ref="DataSource"/>
+    	<property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+	<bean id="org.hi.framework.dao.springjdbc.BaseDAOSpringJDBC" class="org.hi.framework.dao.springjdbc.BaseDAOSpringJDBC">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+    <bean id="org.hi.framework.dao.DAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="org.hi.framework.dao.DAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>org.hi.framework.dao.springjdbc.BaseDAOSpringJDBC</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>

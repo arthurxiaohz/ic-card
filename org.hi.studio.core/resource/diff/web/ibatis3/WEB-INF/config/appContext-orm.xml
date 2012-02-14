@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <bean id="sessionFactory" class="org.hi.framework.dao.ibatis3.SpringSqlSessionFactoryBuilder">
+    		<property name="mappingLocations">
+				<value>classpath*:/**/*.ism3.xml</value>
+			</property>
+    		<property name="configLocation" value="/WEB-INF/config/sqlMapConfig.xml"/>
+    		<property name="dataSource" ref="DataSource" />
+    		<property name="sqlShow" value="false"/>
+		<property name="properties">
+			<props>
+				 <prop key="ibatis.dialect">${connection.dialect}</prop>
+		    </props>
+		</property>		
+    </bean>	
+ 
+
+
+    <bean id="transactionManager" class="org.hi.framework.dao.ibatis3.Ibatis3TransactionManager">
+    	<property name="dataSource" ref="DataSource"/>
+    	<property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+	<bean id="org.hi.framework.dao.ibatis3.BaseDAOIbatis" class="org.hi.framework.dao.ibatis3.BaseDAOIbatis">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+    <bean id="org.hi.framework.dao.DAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="org.hi.framework.dao.DAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>org.hi.framework.dao.ibatis3.BaseDAOIbatis</value>
+            </list>
+        </property>
+    </bean>
+</beans>
