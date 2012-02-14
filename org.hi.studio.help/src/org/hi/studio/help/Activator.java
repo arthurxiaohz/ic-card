@@ -1,50 +1,40 @@
-package org.hi.studio.help;
+/*    */ package org.hi.studio.help;
+/*    */ 
+/*    */ import org.eclipse.jface.resource.ImageDescriptor;
+/*    */ import org.eclipse.ui.plugin.AbstractUIPlugin;
+/*    */ import org.osgi.framework.BundleContext;
+/*    */ 
+/*    */ public class Activator extends AbstractUIPlugin
+/*    */ {
+/*    */   public static final String PLUGIN_ID = "org.hi.studio.help";
+/*    */   private static Activator plugin;
+/*    */ 
+/*    */   public void start(BundleContext context)
+/*    */     throws Exception
+/*    */   {
+/* 29 */     super.start(context);
+/* 30 */     plugin = this;
+/*    */   }
+/*    */ 
+/*    */   public void stop(BundleContext context)
+/*    */     throws Exception
+/*    */   {
+/* 38 */     plugin = null;
+/* 39 */     super.stop(context);
+/*    */   }
+/*    */ 
+/*    */   public static Activator getDefault()
+/*    */   {
+/* 48 */     return plugin;
+/*    */   }
+/*    */ 
+/*    */   public static ImageDescriptor getImageDescriptor(String path)
+/*    */   {
+/* 59 */     return imageDescriptorFromPlugin("org.hi.studio.help", path);
+/*    */   }
+/*    */ }
 
-import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.osgi.framework.BundleContext;
-
-/**
- * The activator class controls the plug-in life cycle
+/* Location:           C:\Users\Angi\Desktop\org.hi.studio.help_5.1.8.zip
+ * Qualified Name:     org.hi.studio.help.Activator
+ * JD-Core Version:    0.6.0
  */
-public class Activator extends AbstractUIPlugin {
-
-	// The plug-in ID
-	public static final String PLUGIN_ID = "org.hi.studio.help";
-
-	// The shared instance
-	private static Activator plugin;
-	
-	/**
-	 * The constructor
-	 */
-	public Activator() {
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
-	 */
-	public void start(BundleContext context) throws Exception {
-		super.start(context);
-		plugin = this;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
-	 */
-	public void stop(BundleContext context) throws Exception {
-		plugin = null;
-		super.stop(context);
-	}
-
-	/**
-	 * Returns the shared instance
-	 *
-	 * @return the shared instance
-	 */
-	public static Activator getDefault() {
-		return plugin;
-	}
-
-}
