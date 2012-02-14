@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+   <!-- ======================== FILTER CHAIN ======================= -->
+	<!--  if you wish to use channel security, add "channelProcessingFilter," in front
+	      of "httpSessionContextIntegrationFilter" in the list below -->
+	<bean id="filterChainProxy" class="org.acegisecurity.util.FilterChainProxy">
+      <property name="filterInvocationDefinitionSource">
+         <value>
+		    CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+		    PATTERN_TYPE_APACHE_ANT
+              /**=httpSessionContextIntegrationFilter,authenticationProcessingFilter,logoutFilter,securityContextHolderAwareRequestFilter,anonymousProcessingFilter,exceptionTranslationFilter,filterInvocationInterceptor
+         </value>
+      </property>
+    </bean>
+
+  <bean id="httpSessionContextIntegrationFilter" class="org.acegisecurity.context.HttpSessionContextIntegrationFilter">
+     <property name="context"><value>org.acegisecurity.context.SecurityContextImpl</value></property>
+  </bean>
+
+ <bean id="securityContextHolderAwareRequestFilter" class="org.acegisecurity.wrapper.SecurityContextHolderAwareRequestFilter"/>
+
+   <!-- ======================== AUTHENTICATION ======================= -->
+   <bean id="authenticationManager" class="org.acegisecurity.providers.ProviderManager">
+      <property name="providers">
+         <list>
+            <ref local="daoAuthenticationProvider"/>
+           <ref local="anonymousAuthenticationProvider"/>
+         </list>
+      </property>
+   </bean>
+   
+ 
+  <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"/>
+
+  <bean id="userCacheBackend" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+     <property name="cacheManager"> <ref local="cacheManager"/> </property>
+     <property name="cacheName"> <value>userCache</value> </property>
+  </bean>
+
+  <bean id="userCache" class="org.acegisecurity.providers.dao.cache.EhCacheBasedUserCache">
+     <property name="cache"><ref local="userCacheBackend"/></property>
+  </bean>
+
+   <bean id="passwordEncoder" class="org.acegisecurity.providers.encoding.Md5PasswordEncoder"/>
+   
+   <bean id="daoAuthenticationProvider" class="org.hi.framework.security.acegi.DaoAuthenticationUserDetailProvider">
+      <property name="userDetailsService"><ref local="userContextSerivce"/></property>
+      <property name="userCache"><ref local="userCache"/></property>
+      <property name="passwordEncoder"><ref local="passwordEncoder"/></property>
+   </bean>
+	
+	<bean id="userContextSerivce" class="org.hi.framework.security.context.UserContextService">
+	<property name="securityManager"><ref local="securityManager"/></property>
+	</bean>
+	
+	<bean id="securityManager" parent="txProxyTemplate">
+	   <property name="target">
+          <bean class="org.hi.framework.security.service.impl.SecurityManagerImpl">               
+                <property name="DAO" ref="org.hi.framework.dao.DAO"/>
+                <property name="userClass" value="org.hi.base.organization.model.HiUser"/>
+                <property name="userAuthorityClass" value="org.hi.framework.security.model.UserAuthority"/>
+           </bean>
+       </property>
+	</bean>
+	
+	
+   <!-- Automatically receives AuthenticationEvent messages from DaoAuthenticationProvider -->
+   <bean id="loggerListener" class="org.acegisecurity.event.authentication.LoggerListener"/>
+
+  <bean id="anonymousProcessingFilter" class="org.acegisecurity.providers.anonymous.AnonymousProcessingFilter">
+     <property name="key"><value>foobar</value></property>
+     <property name="userAttribute"><value>anonymousUser,AUTH_ANONYMOUS</value></property>
+  </bean>
+
+  <bean id="anonymousAuthenticationProvider" class="org.acegisecurity.providers.anonymous.AnonymousAuthenticationProvider">
+     <property name="key"><value>foobar</value></property>
+  </bean>
+
+
+
+   <!-- ===================== HTTP REQUEST SECURITY ==================== -->
+   <bean id="authenticationProcessingFilter" class="org.acegisecurity.ui.webapp.AuthenticationProcessingFilter">
+      <property name="authenticationManager"><ref bean="authenticationManager"/></property>
+      <property name="authenticationFailureUrl"><value>/login.jsp?login_error=1</value></property>
+      <property name="defaultTargetUrl"><value>/index.jsp</value></property>
+      <property name="filterProcessesUrl"><value>/j_security_check</value></property>
+   </bean>
+   
+   <bean id="logoutFilter" class="org.acegisecurity.ui.logout.LogoutFilter">
+		<constructor-arg value="/login.jsp" />
+		<constructor-arg>
+			<list>
+				<bean class="org.acegisecurity.ui.logout.SecurityContextLogoutHandler" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+  <bean id="exceptionTranslationFilter" class="org.hi.framework.security.acegi.ExceptionTranslationFilter">
+     <property name="authenticationEntryPoint"><ref local="authenticationProcessingFilterEntryPoint"/></property>
+     <property name="accessDeniedHandler"><ref local="accessDeniedHandler"/></property>
+     <property name="encoding"><value>UTF-8</value></property>
+     <property name="createSessionAllowed"><value>false</value></property>
+  </bean>
+
+   <bean id="authenticationProcessingFilterEntryPoint" class="org.hi.framework.acgei.AuthenticationProcessingFilterEntryPoint">
+      <property name="loginFormUrl"><value>/login.jsp</value></property>
+      <property name="forceHttps"><value>false</value></property>
+   </bean>
+	<bean id="accessDeniedHandler" class="org.acegisecurity.ui.AccessDeniedHandlerImpl">
+		<property name="errorPage" value ="/common/accessDeniedPage.jsp"/>
+	</bean>
+
+   <!-- Note the order that entries are placed against the objectDefinitionSource is critical.
+        The FilterSecurityInterceptor will work from the top of the list down to the FIRST pattern that matches the request URL.
+        Accordingly, you should place MOST SPECIFIC (ie a/b/c/d.*) expressions first, with LEAST SPECIFIC (ie a/.*) expressions last -->
+
+ 
+   <bean id="filterInvocationInterceptor" class="org.hi.framework.security.acegi.ResourceBindleFilterSecurityInterceptor">
+      <property name="authenticationManager"><ref bean="authenticationManager"/></property>
+      <property name="accessDecisionManager"><ref local="accessDecisionManager"/></property>
+      <property name="mappingLocations"><value>classpath*:/**/*-security.properties</value></property>
+      <property name="alwaysReauthenticate" value="true"/>
+      <property name="runAsManager"><ref bean="runAsManager"/></property>
+   </bean>
+
+  <bean id="contactManagerSecurity" class="org.hi.framework.security.acegi.ResourceBindleMethodSecurityInterceptor">
+     <property name="authenticationManager"><ref bean="authenticationManager"/></property>
+     <property name="accessDecisionManager"><ref bean="accessDecisionManager"/></property>
+     <property name="mappingLocations"><value>classpath*:/**/*-security.properties</value></property>
+	 <property name="runAsManager"><ref bean="runAsManager"/></property>
+  </bean>
+
+ <!--
+   <bean id="filterInvocationInterceptor" class="org.hi.framework.security.acegi.DataBaseFilterSecurityInterceptor">
+      <property name="authenticationManager"><ref bean="authenticationManager"/></property>
+      <property name="accessDecisionManager"><ref local="accessDecisionManager"/></property>
+      <property name="alwaysReauthenticate" value="true"/>
+      <property name="load" value="true"/>
+      <property name="runAsManager"><ref bean="runAsManager"/></property>
+   </bean>
+  <bean id="contactManagerSecurity" class="org.hi.framework.security.acegi.DataMethodSecurityInterceptor">
+     <property name="authenticationManager"><ref bean="authenticationManager"/></property>
+     <property name="accessDecisionManager"><ref bean="accessDecisionManager"/></property>
+      <property name="load" value="true"/>
+	 <property name="runAsManager"><ref bean="runAsManager"/></property>
+  </bean>
+ -->   
+  
+  <bean id="runAsManager" class="org.hi.framework.security.acegi.MethodConfigAttributeDefHolder"/>
+  <bean id="accessDecisionManager" class="org.hi.framework.security.acegi.AffirmativeBased">
+     <property name="allowIfAllAbstainDecisions"><value>false</value></property>
+     <property name="managerSecurity"><value>false</value></property>
+     <property name="decisionVoters">
+        <list>
+           <ref local="supperManagerVoter"/>
+           <ref local="roleVoter"/>
+        </list>
+     </property>
+  </bean>
+  
+  <!-- An access decision voter that reads AUTH_* configuration settings -->
+  <bean id="roleVoter" class="org.acegisecurity.vote.RoleVoter">
+    <!-- set that this voter can only used for AUTH_ started roles! -->
+    <property name="rolePrefix"><value></value></property>
+  </bean>
+  
+    <!-- An access decision voter that user is supperManager -->
+  <bean id="supperManagerVoter" class="org.hi.framework.security.acegi.SupperManagerVoter"/>
+  
+  
+   <!-- ===================== SECURITY BASE MANAGER AND DAO==================== -->  
+  	<!-- Authority dao and manager configuration -->
+  	<bean id="org.hi.framework.security.dao.AuthorityDAOImpl" class="org.hi.framework.security.dao.${hi.orm.package}.AuthorityDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="org.hi.framework.security.dao.AuthorityDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="org.hi.framework.security.dao.AuthorityDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>org.hi.framework.security.dao.AuthorityDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+  
+    <bean id="org.hi.framework.security.model.Authority" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.hi.framework.security.service.impl.AuthorityManagerImpl">
+                <property name="DAO" ref="org.hi.framework.security.dao.AuthorityDAO"/>
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="org.hi.framework.security.acegi.NotAttributeListener" class="org.hi.framework.security.acegi.NotAttributeListener">
+    	<property name="filterSecurityInterceptor" ref="filterInvocationInterceptor"/>
+    	<property name="methodSecurityInterceptor" ref="contactManagerSecurity"/>
+    </bean>
+    
+</beans>

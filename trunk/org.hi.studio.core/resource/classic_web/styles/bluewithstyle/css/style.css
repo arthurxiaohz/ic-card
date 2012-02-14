@@ -1,0 +1,369 @@
+* {
+	margin: 0; padding:0
+}
+body {
+	margin: 5px;
+	padding: 0px;
+	font-size: 12px;
+}
+
+a:link {
+	color: #336699;
+	text-decoration: none;
+	font-size: 12px;
+}
+a:visited {
+	font-size: 12px;
+	color: #336699;
+	text-decoration: none;
+}
+a:hover {
+	font-size: 12px;
+	color: #FF6600;
+	text-decoration: none;
+}
+
+.SearchTableTop{
+	line-height: 20px;
+	background-image: url(../images/searchtop.gif);
+	background-repeat: no-repeat;
+	width: 120px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding-top: 2px;
+	padding-left: 15px;
+	letter-spacing: 2px;
+}
+
+<!--border_color -->
+.SearchForm {
+	border: 1px solid #A4B4CA;
+}
+<!--table_margin -->
+.SearchTable {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+<!--table_height -->
+.SearchTableLabel {
+	line-height: 22px;
+	text-align: right;
+	font-size:12px;
+}
+
+.SearchTableData {
+	line-height: 22px;
+	text-align: left;
+	font-size:12px;
+}
+
+
+.SearchTableDataText {
+	border: 1px solid #7D7D7D;
+	margin-left: 2px;
+}
+
+.SearchTableData_Date {
+	border: 1px solid #7D7D7D;
+	margin-left: 2px;
+	width: 73px;
+}
+
+
+.ListTableHeader {
+	line-height: 23px;
+	background-image: url(../images/listheader.gif);
+	background-repeat: repeat-x;
+	text-align: center;
+}
+
+.ListTableHeaderText {
+	font-size: 13px;
+	line-height: 23px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+}
+<!--border -->
+.ListTableBody {
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #93A6C1;
+	border-left-color: #93A6C1;
+}
+<!--bg_color -->
+.ListTableBodyLabel {
+	line-height: 20px;
+	background-color: #dddddd;
+	text-align: center;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-bottom-color: #93A6C1;
+	border-left-color: #FFFFFF;
+	font-size:12px;
+}
+<!--bg_t_coler -->
+.ListTableBodyData {
+	line-height: 20px;
+	text-align: center;
+	font-size:12px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-bottom-color: #D5D5D5;
+	border-left-color: #D5D5D5;
+}
+.ListTableBodyTrOdd {
+	background-color: #f0f0f0;
+}
+ListTableBodyTrEven{
+	background-color:white;
+}
+<!--bg_d_img -->
+.EditTableHeader {
+	font-size: 13px;
+	line-height: 23px;
+	color: #FFFFFF;
+	background-image: url(../images/listheader.gif);
+	background-repeat: repeat-x;
+	text-align: center;
+	font-weight: bold;
+}
+.PageInfoLabel {
+	background-color: #efefef;
+	line-height: 25px;
+	font-size: 12px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #a5b5cc;
+	border-bottom-color: #a5b5cc;
+	padding-left: 10px;
+	color: #336699;
+}
+
+<!-- table_borber -->
+.EditTable {
+	background-color: #FFFFFF;
+	border: 1px solid #9d9684;
+	margin-top: 5px;
+	color: #000000;
+}
+
+.EditTableBackground {
+	background-color: #efefef;
+}
+
+.EditTableLabel {
+	line-height: 25px;
+	font-size: 12px;	
+	text-align: right;
+	color: #000000;
+}
+
+.EditTableKeyLabel{
+  	line-height: 25px;
+	font-size: 12px;  	
+	text-align: right;
+  	color: red;
+   
+}
+
+.EditTableData {
+	
+}
+
+<!-- text_borber -->
+.EditTableDataText {
+	border: 1px solid #7D7D7D;
+	margin-left: 2px;
+	
+}
+
+.EditTableDataEnum {
+	line-height: 25px;
+	font-size: 12px;	
+	text-align: right;
+	color: #000000;
+}
+
+.EditTableSubmit {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	line-height: 22px;
+	text-align: center;
+}
+
+.EditTableSubmitImage {
+	font-size: 12px;
+	width: 80PX;
+	height:22px;
+	border:0px;	
+}
+.Button {
+	font-size: 12px;
+	color: #00317B;
+	background-image: url(../images/button.gif);
+	text-align: center;
+	font-family: "Arial";
+	font-size: 12px;
+	cursor: pointer;
+	border: 1px solid #6699CC;
+	padding-top: 2px;
+	height: 23px;
+	width: 84px;
+}
+
+.Button1 {
+	font-size: 12px;
+	color: #00317B;
+	background-image: url(../images/button.gif);
+	text-align: center;
+	font-family: "Arial";
+	font-size: 12px;
+	cursor: pointer;
+	border: 1px solid #6699CC;
+	padding-top: 2px;
+	height: 23px;
+	width: 84px;
+}
+
+.Button2 {
+	font-size: 12px;
+	background-image: url(../images/button2.gif);
+	text-align: center;
+	font-family: "Arial";
+	font-size: 12px;
+	cursor: pointer;
+	padding-top: 2px;
+	height: 23px;
+	width: 84px;
+	
+	border-top-width: 1px;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	
+	border-top-style: solid;
+	border-left-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	
+	border-top-color: #dfcdb7;
+	border-left-color: #dfcdb7;
+	border-right-color: #fbb874;
+	border-bottom-color: #fbb874;
+}
+
+.DetailTable {
+	margin-top: 7px;
+	margin-bottom: 7px;
+	border: 1px solid #95D5FF;
+
+}
+.DetailTableLable {	
+	background-color: #D7EFFF;
+	border: 1px solid #95D5FF;
+	font-size: 12px;
+	line-height: 20px;
+	color: #000000;
+	text-align: center;
+}
+.DetailTableData {	
+	border: 1px solid #95D5FF;
+	font-size: 12px;
+	line-height: 20px;
+	color: #000000;
+	text-align: center;
+	text-decoration: none;
+}
+.PageText {
+	height: 18px;
+	line-height: 16px;
+	border: 1px solid #969696;
+	font-size: 12px;
+	text-align: center;
+}
+.PageButton {
+	height: 18px;
+	line-height: 16px;
+	border: 1px solid #A5B5CC;
+	font-size: 12px;
+	background-color: #FAFAFA;
+	color: #336699;
+}
+
+.PageLabe{
+	color:red;
+}
+
+.ViewTable {
+	background-color: #FFFFFF;
+	border: 1px solid #9d9684;
+	margin-top: 5px;
+	color: #000000;
+}
+
+.ViewTableBackground {
+	background-color: #efefef;
+}
+
+.ViewTableHeader {
+	font-size: 13px;
+	line-height: 23px;
+	color: #FFFFFF;
+	background-image: url(../images/listheader.gif);
+	background-repeat: repeat-x;
+	text-align: center;
+	font-weight: bold;
+}
+
+.ViewTableLabel {
+	line-height: 25px;
+	font-size: 12px;  	
+	text-align: right;
+	color: #000000;
+	
+}
+
+.ViewTableKeyLabel{
+  	line-height: 25px;
+  	font-size: 12px;  	
+	text-align: right;
+  	color: red;
+   
+}
+
+.ViewTableData {
+	font-size: 12px;  	
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #cfcfcf;
+	padding-top: 4px;
+	
+}
+
+.ViewTableDataText {
+	padding-top: 10px;
+}
+
+.ViewTableSubmit {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	line-height: 22px;
+	text-align: center;
+}
+
+.ViewTableSubmitImage {
+	font-size: 12px;
+	width: 80PX;
+	height:22px;
+	border:0px;	
+}

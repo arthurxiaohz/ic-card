@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<environment dir="web/WEB-INF/metadata">
+    <database>
+        <dbtype>ORACLE</dbtype>
+        <connection>
+            <username>sa</username>
+            <password>sa</password>
+            <url>jdbc:jtds:sqlserver://localhost:1433/tuigy</url>
+            <driverClass>net.sourceforge.jtds.jdbc.Driver</driverClass>
+        </connection>
+    </database>
+    <javaEnvironment>
+        <homePath></homePath>
+        <libraryDir>E:/platform/generater/lib</libraryDir>
+    </javaEnvironment>
+    <generate>
+    	<appName>hi</appName>
+        <orgPackage>org.hi</orgPackage>
+        <templetDir>E:/platform/generater/generater/templates</templetDir>
+        <srcOutput>c:/RFID/workspace/printFactory/src</srcOutput>
+        <standardOutput>E:/platform/generater/generater/generated</standardOutput>
+    </generate>
+</environment>
