@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service>
+    <serviceName>$model.getServiceName()</serviceName>
+    <description>$model.getDescription()</description>
+    <baseData>$model.getBaseData()</baseData>    
+    <packageName>$model.getPackageName()</packageName>
+    
+    #foreach($table in $model.children)
+    
+    #if($util.isEnumeration($table))
+    
+    <entity>
+		<entityName>$table.getEnumName()</entityName>
+		<entityType>2</entityType>
+		<tableName></tableName>
+		<entityLabel>$table.getEnumDesc()</entityLabel>
+		<entityBaseData>$table.entityBaseData</entityBaseData>
+		#foreach($column in $table.columns)
+		<enumeration>
+			<enuValue>$column.getEnumValue()</enuValue>
+			<enuLabel>$column.getEnumLabel()</enuLabel>
+			<enuCode>$column.getEnumCode()</enuCode>
+		</enumeration>
+		#end
+	</entity>
+    
+    #else
+    <entity>
+        <entityName>$table.getLogicalName()</entityName>
+        #if($table.getExtendEntityName().trim() == "")
+        <entityType>1</entityType>
+        #else
+        <entityType>3</entityType>
+        #end
+        <tableName>$table.tableName</tableName>
+        <entityLabel>$table.description</entityLabel>
+        <entityBaseData>$table.entityBaseData</entityBaseData>
+        
+        #foreach($connection in $table.getModelTargetConnections())
+        
+          <childEntity>
+			<childServiceName>$model.getServiceName()</childServiceName>
+			<childEntityName>$connection.source.getLogicalName()</childEntityName>
+			<childForeignKey>$connection.getForeignColumnName()</childForeignKey>
+		  </childEntity>
+        #end
+        
+        <extendEntity>
+			<extendServiceName>$table.getExtendServiceName()</extendServiceName>
+			<extendEntityName>$table.getExtendEntityName()</extendEntityName>
+		</extendEntity> 
+		
+        #foreach($column in $table.columns)
+         #if($column.getHiDataType() == 8)
+             ##枚举类型
+             <field>
+            <fieldName>${column.columnName}_attachment</fieldName>
+            <fieldLabel>附件</fieldLabel>
+            <isPrimaryKey>false</isPrimaryKey>
+            <isReadOnly>false</isReadOnly>
+            <isSearch>false</isSearch>
+            <isHidden>true</isHidden>
+            <isFull>false</isFull>
+            <isMainLookup>false</isMainLookup>
+            <fieldType>8</fieldType>
+            <length>0</length>
+            <scale>0</scale>
+            <lookupEntity>
+                <lkServiceName>attachment</lkServiceName>
+                <lkEntityName>Attachment</lkEntityName>
+                <isLkForeignKey>true</isLkForeignKey>
+                <mainLkFieldName>id</mainLkFieldName>
+            </lookupEntity>
+          </field>
+          <field>
+            <fieldName>${column.columnName}</fieldName>
+            <fieldLabel>$column.description</fieldLabel>
+            <isPrimaryKey>false</isPrimaryKey>
+            <isReadOnly>false</isReadOnly>
+            #if($column.isSearch() == true)
+            <isSearch>true</isSearch>
+            #else
+            <isSearch>false</isSearch>
+            #end
+            #if($column.isListDisplay() == true)
+            <isListDisplay>true</isListDisplay>
+            #else
+            <isListDisplay>false</isListDisplay>
+            #end
+            <isHidden>false</isHidden>
+            #if($column.isFull() == true)
+            <isFull>true</isFull>
+            #else
+            <isFull>false</isFull>
+            #end
+            <isMainLookup>true</isMainLookup>
+            <fieldType>8</fieldType>
+            <length>0</length>
+            <scale>0</scale>
+            <lookupEntity>
+                <lkServiceName>attachment</lkServiceName>
+                <lkEntityName>Attachment</lkEntityName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <mainLkFieldName>fileName</mainLkFieldName>
+            </lookupEntity>
+           </field>
+         #else
+            <field>
+            <fieldName>$column.columnName</fieldName>
+            <fieldLabel>$column.description</fieldLabel>
+            #if($column.isPrimaryKey() == true)
+            <isPrimaryKey>true</isPrimaryKey>
+            #else
+            <isPrimaryKey>false</isPrimaryKey>
+            #end
+            #if($column.isSearch() == true)
+            <isSearch>true</isSearch>
+            #else
+            <isSearch>false</isSearch>
+            #end
+            #if($column.isListDisplay() == true)
+            <isListDisplay>true</isListDisplay>
+            #else
+            <isListDisplay>false</isListDisplay>
+            #end
+            #if($column.isReadOnly() == true)
+            <isReadOnly>true</isReadOnly>
+            #else
+            <isReadOnly>false</isReadOnly>
+            #end
+            #if($column.isHidden() == true)
+            <isHidden>true</isHidden>
+            #else
+            <isHidden>false</isHidden>
+            #end
+            #if($column.isFull() == true)
+            <isFull>true</isFull>
+            #else
+            <isFull>false</isFull>
+            #end
+            #if($column.isMainLookup() == true)
+            <isMainLookup>true</isMainLookup>
+            #else
+            <isMainLookup>false</isMainLookup>
+            #end
+            <defaultValue>$column.defaultValue</defaultValue> 
+            <validator>$column.hiValidator</validator>  
+            <length>$column.size</length>
+            <scale>$column.scale</scale>
+            #if($column.isParent() == true)
+            <isParent>true</isParent>
+            <fieldType>6</fieldType>
+            <lookupEntity>
+                <lkServiceName>$model.getServiceName()</lkServiceName>
+                <lkEntityName>$column.getMainEntityName()</lkEntityName>
+                <isLkForeignKey>true</isLkForeignKey>
+                <mainLkFieldName>id</mainLkFieldName>
+            </lookupEntity>
+            #else
+            <isParent>false</isParent>
+            <fieldType>$column.getHiDataType()</fieldType>
+            
+            #if($column.getHiDataType() == 7)
+             <enumerationEntity>$column.lkEntityName</enumerationEntity>
+            #else
+            <lookupEntity>
+                <lkServiceName>$column.lkServiceName</lkServiceName>
+                <lkEntityName>$column.lkEntityName</lkEntityName>
+                <isLkForeignKey>$column.isLkForeignKey()</isLkForeignKey>
+                <mainLkFieldName>$column.lkFieldName</mainLkFieldName>
+            </lookupEntity>
+            #end
+            
+            #end
+           </field>
+         #end
+            
+        
+        
+       #end
+       
+       ##默认创建Creator字段 modify by xinfeng.yang 修改为随用户需求改变状态
+       #if($table.isCreator())
+		 <field>
+            <fieldName>creator</fieldName>
+            <fieldLabel>创建人</fieldLabel>
+            <isPrimaryKey>false</isPrimaryKey>
+            <isReadOnly>false</isReadOnly>
+            <isSearch>false</isSearch>
+            <isHidden>true</isHidden>
+            <isListDisplay>false</isListDisplay>
+            <isFull>false</isFull>
+            <isMainLookup>false</isMainLookup>
+            <fieldType>6</fieldType>
+            <length>0</length>
+            <scale>0</scale>
+            <defaultValue>org.hi.framework.security.context.UserContextHelper.getUser()</defaultValue>
+            <lookupEntity>
+                <lkServiceName>organization</lkServiceName>
+                <lkEntityName>HiUser</lkEntityName>
+                <isLkForeignKey>true</isLkForeignKey>
+                <mainLkFieldName>id</mainLkFieldName>
+            </lookupEntity>
+        </field>
+       #end
+       #if($table.isDeleted())
+       
+         <field>
+            <fieldName>deleted</fieldName>
+            <fieldLabel>删除标识</fieldLabel>
+            <isPrimaryKey>false</isPrimaryKey>
+            <isReadOnly>false</isReadOnly>
+            <isSearch>false</isSearch>
+            <isHidden>true</isHidden>
+            <isFull>false</isFull>
+            <isMainLookup>false</isMainLookup>
+            <fieldType>2</fieldType>
+            <length></length>
+            <scale>0</scale>
+			<defaultValue>0</defaultValue>            
+            <lookupEntity>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <mainLkFieldName></mainLkFieldName>
+            </lookupEntity>
+        </field>
+       
+       #end
+       
+    </entity>
+    
+    #end   ##else end
+    #end 
+
+</service>

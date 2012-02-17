@@ -1,0 +1,38 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Generator Plug-in
+Bundle-SymbolicName: org.hi.studio.generator; singleton:=true
+Bundle-Version: 5.1.8
+Bundle-Activator: org.hi.studio.generator.Activator
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.co
+ re.resources,org.hi.studio.core
+Eclipse-LazyStart: true
+Export-Package: javax.xml.bind,org.hi.common.tools,org.hi.common.util,
+ org.hi.generator,org.hi.generator.ant,org.hi.generator.context.servic
+ e.tools,org.hi.generator.impl,org.hi.generator.template,org.hi.genera
+ tor.template.freemarker,org.hi.metadata.hsc,org.hi.metadata.hsc.const
+ ant,org.hi.metadata.hsc.context,org.hi.metadata.hsc.context.environme
+ nt,org.hi.metadata.hsc.context.service,org.hi.metadata.hsc.util,org.h
+ i.studio.generator,org.hi.studio.generator.db,org.hi.studio.generator
+ .dialog,org.hi.studio.generator.utils
+Bundle-ClassPath: .,lib/ant.jar,lib/ant-apache-log4j.jar,lib/commons-l
+ ogging-1.1.jar,lib/freemarker.jar,lib/hi-common.jar,lib/jaxb1-impl.ja
+ r,lib/jaxb-api.jar,lib/jaxb-impl.jar,lib/jaxb-xjc.jar,lib/spring.jar,
+ lib/activation.jar,lib/ant-antlr.jar,lib/ant-apache-bcel.jar,lib/ant-
+ apache-bsf.jar,lib/ant-apache-oro.jar,lib/ant-apache-regexp.jar,lib/a
+ nt-apache-resolver.jar,lib/ant-commons-logging.jar,lib/ant-commons-ne
+ t.jar,lib/ant-jai.jar,lib/ant-javamail.jar,lib/ant-jdepend.jar,lib/an
+ t-jmf.jar,lib/ant-jsch.jar,lib/ant-junit.jar,lib/ant-launcher.jar,lib
+ /antlr-2.7.6.jar,lib/ant-netrexx.jar,lib/ant-nodeps.jar,lib/ant-start
+ eam.jar,lib/ant-stylebook.jar,lib/ant-swing.jar,lib/ant-trax.jar,lib/
+ ant-weblogic.jar,lib/c3p0-0.8.5.2.jar,lib/commons-beanutils.jar,lib/c
+ ommons-codec.jar,lib/commons-collections.jar,lib/commons-collections-
+ 3.1.jar,lib/commons-dbcp.jar,lib/commons-digester.jar,lib/commons-fil
+ eupload.jar,lib/commons-io.jar,lib/commons-lang.jar,lib/commons-lang-
+ 2.0.jar,lib/commons-pool.jar,lib/dom4j-1.6.1.jar,lib/hibernate3.jar,l
+ ib/hibernate-tools.jar,lib/jsr173_1.0_api.jar,lib/jta.jar,lib/jtds-1.
+ 2.jar,lib/junit.jar,lib/mysql-connector-java-5.0.0-beta-bin.jar,lib/o
+ jdbc14.jar,lib/hi-metadata.jar,lib/jdom.jar,lib/jaxen-1.1-beta-8.jar,
+ lib/servlet-api.jar,lib/ognl.jar
+Bundle-Vendor: java-hi
+

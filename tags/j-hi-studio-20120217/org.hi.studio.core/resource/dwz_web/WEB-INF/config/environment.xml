@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<environment dir="web/WEB-INF/metadata">
+    <database>
+        <dbtype>MSSQL</dbtype>
+        <connection>
+            <username>sa</username>
+            <password>sasa</password>
+            <url>jdbc:jtds:sqlserver://localhost:1433;DatabaseName=hi-dwz</url>
+            <driverClass>net.sourceforge.jtds.jdbc.Driver</driverClass>
+        </connection>
+    </database>
+    <javaEnvironment>
+        <homePath></homePath>
+        <libraryDir>E:/platform/generater/lib</libraryDir>
+    </javaEnvironment>
+    <generate>
+        <appName>hi</appName>
+        <orgPackage>org.hi</orgPackage>
+        <templetDir>templates</templetDir>
+        <srcOutput>src</srcOutput>
+        <standardOutput>web1</standardOutput>
+        <ormType>hibernate</ormType>
+        <viewType>webwork</viewType>
+        <pageFrameType>classic</pageFrameType>
+    </generate>
+</environment>
