@@ -1,7 +1,0 @@
-package org.hi.base.enumeration.dao.ibatis3;
-
-import org.hi.framework.dao.ibatis3.BaseDAOIbatis;
-import org.hi.base.enumeration.dao.EnumerationValueDAO;
-public class EnumerationValueDAOIbatis3 extends BaseDAOIbatis implements EnumerationValueDAO{
-
-}
