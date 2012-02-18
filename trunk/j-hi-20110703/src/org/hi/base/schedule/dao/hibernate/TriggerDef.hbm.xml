@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.hi.base.schedule.model.TriggerDef" table="HI_TriggerDef" >
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <version name="version" type="integer" column="version"/>
+        <property name="triggerName" type="string">
+            <column name="triggerName" length="80" not-null="true"/>
+        </property>
+        <property name="triggerGroup" type="string">
+            <column name="triggerGroup" length="80"/>
+        </property>
+        <many-to-one name="jobDetail" class="org.hi.base.schedule.model.JobDetailDef" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="jobDetail"  not-null="false"/>
+        </many-to-one>
+        <property name="volatiled" type="integer">
+            <column name="volatiled" />
+        </property>
+        <property name="nextFireTime" type="timestamp">
+            <column name="nextFireTime" />
+        </property>
+        <property name="prevFireTime" type="timestamp">
+            <column name="prevFireTime" />
+        </property>
+        <property name="priority" type="integer">
+            <column name="priority" />
+        </property>
+        <property name="triggerStats" type="integer">
+            <column name="triggerStats" />
+        </property>
+        <property name="startTime" type="timestamp">
+            <column name="startTime" />
+        </property>
+        <property name="endTime" type="timestamp">
+            <column name="endTime" />
+        </property>
+        <property name="misfireInstr" type="integer">
+            <column name="misfireInstr" />
+        </property>
+        <property name="cronExpression" type="string">
+            <column name="cronExpression" length="80" not-null="true"/>
+        </property>
+        <property name="enabled" type="integer">
+            <column name="enabled" />
+        </property>
+        <property name="timeZone" type="integer">
+            <column name="timeZone" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="300"/>
+        </property>
+        <many-to-one name="creator" class="org.hi.base.organization.model.HiUser" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="creator"  not-null="false"/>
+        </many-to-one>
+    
+    </class>
+</hibernate-mapping>
