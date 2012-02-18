@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.hi.base.report.excel.model.ExcelCell" table="HI_ExcelCell" >
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <version name="version" type="integer" column="version"/>
+        <many-to-one name="excelSheet" class="org.hi.base.report.excel.model.ExcelSheet" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="excelSheet"  not-null="false"/>
+        </many-to-one>
+        <property name="cellColumn" type="string">
+            <column name="cellColumn" length="10" not-null="true"/>
+        </property>
+        <property name="cellRow" type="integer">
+            <column name="cellRow"  not-null="true"/>
+        </property>
+        <property name="variableName" type="string">
+            <column name="variableName" length="100"/>
+        </property>
+        <property name="constant" type="string">
+            <column name="constant" length="100"/>
+        </property>
+        <property name="isEnumeration" type="integer">
+            <column name="isEnumeration" />
+        </property>
+        <property name="reportDataType" type="integer">
+            <column name="reportDataType" />
+        </property>
+        <property name="stretchingType" type="integer">
+            <column name="stretchingType" />
+        </property>
+        <property name="conditionCell" type="string">
+            <column name="conditionCell" length="500"/>
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="200"/>
+        </property>
+    
+    </class>
+</hibernate-mapping>

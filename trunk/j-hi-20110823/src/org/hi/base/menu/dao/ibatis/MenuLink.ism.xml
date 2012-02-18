@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="MenuLink" type="org.hi.base.menu.model.MenuLink"/>
+
+	<resultMap id="MenuLink" class="MenuLink">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="linkUrl" column="linkUrl"/>
+		<result property="displayRef" column="displayRef"/>
+		<result property="description" column="description"/>
+		<result property="authority" column="authority" select="select_inner_Authority"/>
+		<result property="sequence" column="sequence"/>
+		<result property="menu" column="menu" select="select_inner_Menu"/>
+		<result property="menuLinkType" column="menuLinkType"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+	</resultMap>
+    
+    <select id="select_inner_MenuLink" resultMap="MenuLink" parameterClass="int">  
+       SELECT * FROM MenuLink  WHERE id =#value#
+    </select>
+  
+	<select id="getMenuLink" resultMap="MenuLink">
+		select * from MenuLink WHERE id = #id# 
+	</select>
+	
+	<insert id="insMenuLink" parameterClass="java.util.HashMap">    
+    	insert into MenuLink (id, version, linkUrl, displayRef, description, authority, sequence, menu, menuLinkType, creator) 
+		values (#id#, 1, #linkUrl#, #displayRef#, #description#, #authority#, #sequence#, #menu#, #menuLinkType#, #creator#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateMenuLink" parameterClass="java.util.HashMap">    
+		update MenuLink set
+            version = #version# +1,
+			linkUrl = #linkUrl#,
+			displayRef = #displayRef#,
+			description = #description#,
+			authority = #authority#,
+			sequence = #sequence#,
+			menu = #menu#,
+			menuLinkType = #menuLinkType#,
+			creator = #creator#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delMenuLink" parameterClass="int">    
+		delete from MenuLink where id = #id#   
+	</delete>
+    
+	<selectExt id="listMenuLink" resultMap="MenuLink"/> 
+  
+	<selectExt id="countMenuLink" resultClass="int"/> 
+
+</sqlMap>    

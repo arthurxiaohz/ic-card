@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="HiOrg"> 
+
+
+	<resultMap id="HiOrg" type="org.hi.base.organization.model.HiOrg">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="orgName" column="orgName"/>
+		<result property="orgNum" column="orgNum"/>
+		<result property="address" column="address"/>
+		<result property="description" column="description"/>
+		<result property="deleted" column="deleted"/>
+		<association property="manager" column="manager" select="HiUser.select_inner_HiUser"/>
+		<association property="parentOrg" column="parentOrg" select="HiOrg.select_inner_HiOrg"/>
+		<association property="creator" column="creator" select="HiUser.select_inner_HiUser"/>
+	</resultMap>
+    
+    <select id="select_inner_HiOrg" resultMap="HiOrg" parameterType="int">  
+       SELECT * FROM HI_Org  WHERE id = #{value}
+    </select>
+  
+	<select id="getHiOrg" resultMap="HiOrg">
+		select * from HI_Org WHERE id = #{id}
+	</select>
+	<select id="listHiOrg" resultMap="HiOrg">#</select>
+  
+	<select id="countHiOrg" resultType="int">#</select> 
+	
+	<insert id="insHiOrg" parameterType="java.util.HashMap">    
+    	insert into HI_Org (id, version, orgName, orgNum, manager, parentOrg, address, description, creator, deleted) 
+		values (#{id,jdbcType=NUMERIC}, 1, #{orgName,jdbcType=LONGVARCHAR}, #{orgNum,jdbcType=LONGVARCHAR}, #{manager,jdbcType=NUMERIC}, #{parentOrg,jdbcType=NUMERIC}, #{address,jdbcType=LONGVARCHAR}, #{description,jdbcType=LONGVARCHAR}, #{creator,jdbcType=NUMERIC}, #{deleted,jdbcType=NUMERIC})
+		<selectKey resultType="int"  keyProperty="id"/>   
+	</insert>
+	
+	<update id="updateHiOrg" parameterType="java.util.HashMap">
+		update HI_Org set
+            version = #{version} +1,
+			orgName = #{orgName,jdbcType=LONGVARCHAR},
+			orgNum = #{orgNum,jdbcType=LONGVARCHAR},
+			manager = #{manager,jdbcType=NUMERIC},
+			parentOrg = #{parentOrg,jdbcType=NUMERIC},
+			address = #{address,jdbcType=LONGVARCHAR},
+			description = #{description,jdbcType=LONGVARCHAR},
+			creator = #{creator,jdbcType=NUMERIC},
+			deleted = #{deleted,jdbcType=NUMERIC}
+    where    
+      id = #{id}    
+	</update>    
+   
+	<delete id="delHiOrg" parameterType="int">    
+		delete from HI_Org where id = #{id}
+	</delete>
+
+</mapper>    

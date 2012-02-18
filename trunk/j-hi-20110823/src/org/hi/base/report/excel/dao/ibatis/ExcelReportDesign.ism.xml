@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="ExcelReportDesign" type="org.hi.base.report.excel.model.ExcelReportDesign"/>
+
+	<resultMap id="ExcelReportDesign" class="ExcelReportDesign">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="reportName" column="reportName"/>
+		<result property="reportNum" column="reportNum"/>
+		<result property="template" column="template"/>
+		<result property="createDate" column="createDate"/>
+		<result property="enabled" column="enabled"/>
+		<result property="actionName" column="actionName"/>
+		<result property="description" column="description"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="excelSheets" column="id" select="select_inner_ExcelSheets"/>
+	</resultMap>
+    
+    <select id="select_inner_ExcelReportDesign" resultMap="ExcelReportDesign" parameterClass="int">  
+       SELECT * FROM HI_ExcelReportDesign  WHERE id =#value#
+    </select>
+
+    <select id="select_inner_ExcelSheets" resultMap="ExcelSheet" parameterClass="int">   
+       SELECT * FROM HI_ExcelSheet WHERE excelReportDesign =#value#    
+    </select>  
+  
+	<select id="getExcelReportDesign" resultMap="ExcelReportDesign">
+		select * from HI_ExcelReportDesign WHERE id = #id# 
+	</select>
+	
+	<insert id="insExcelReportDesign" parameterClass="java.util.HashMap">    
+    	insert into HI_ExcelReportDesign (id, version, reportName, reportNum, template, createDate, enabled, actionName, description, creator) 
+		values (#id#, 1, #reportName#, #reportNum#, #template#, #createDate#, #enabled#, #actionName#, #description#, #creator#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateExcelReportDesign" parameterClass="java.util.HashMap">    
+		update HI_ExcelReportDesign set
+            version = #version# +1,
+			reportName = #reportName#,
+			reportNum = #reportNum#,
+			template = #template#,
+			createDate = #createDate#,
+			enabled = #enabled#,
+			actionName = #actionName#,
+			description = #description#,
+			creator = #creator#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delExcelReportDesign" parameterClass="int">    
+		delete from HI_ExcelReportDesign where id = #id#   
+	</delete>
+    
+	<selectExt id="listExcelReportDesign" resultMap="ExcelReportDesign"/> 
+  
+	<selectExt id="countExcelReportDesign" resultClass="int"/> 
+
+</sqlMap>    

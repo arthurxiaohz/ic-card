@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="HelperRef" type="org.hi.base.sysapp.model.HelperRef"/>
+
+	<resultMap id="HelperRef" class="HelperRef">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="refHelper" column="refHelper" select="select_inner_Helper"/>
+		<result property="helper" column="helper" select="select_inner_Helper"/>
+	</resultMap>
+    
+    <select id="select_inner_HelperRef" resultMap="HelperRef" parameterClass="int">  
+       SELECT * FROM Hi_HelperRef  WHERE id =#value#
+    </select>
+  
+	<select id="getHelperRef" resultMap="HelperRef">
+		select * from Hi_HelperRef WHERE id = #id# 
+	</select>
+	
+	<insert id="insHelperRef" parameterClass="java.util.HashMap">    
+    	insert into Hi_HelperRef (id, version, refHelper, helper) 
+		values (#id#, 1, #refHelper#, #helper#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateHelperRef" parameterClass="java.util.HashMap">    
+		update Hi_HelperRef set
+            version = #version# +1,
+			refHelper = #refHelper#,
+			helper = #helper#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delHelperRef" parameterClass="int">    
+		delete from Hi_HelperRef where id = #id#   
+	</delete>
+    
+	<selectExt id="listHelperRef" resultMap="HelperRef"/> 
+  
+	<selectExt id="countHelperRef" resultClass="int"/> 
+
+</sqlMap>    
