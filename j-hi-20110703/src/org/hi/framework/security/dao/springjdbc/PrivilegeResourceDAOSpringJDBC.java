@@ -1,7 +1,0 @@
-package org.hi.framework.security.dao.springjdbc;
-
-import org.hi.framework.dao.springjdbc.BaseDAOSpringJDBC;
-import org.hi.framework.security.dao.PrivilegeResourceDAO;
-public class PrivilegeResourceDAOSpringJDBC extends BaseDAOSpringJDBC implements PrivilegeResourceDAO{
-
-}
