@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.hi.base.sysapp.model.Message" table="Hi_Message" >
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <version name="version" type="integer" column="version"/>
+        <property name="receivers" type="string">
+            <column name="receivers" length="2000" not-null="true"/>
+        </property>
+        <property name="receiverNames" type="string">
+            <column name="receiverNames" length="2000"/>
+        </property>
+        <property name="sender" type="string">
+            <column name="sender" length="50"/>
+        </property>
+        <property name="messageType" type="integer">
+            <column name="messageType" />
+        </property>
+        <property name="messageText" type="string">
+            <column name="messageText" length="3000"/>
+        </property>
+        <property name="createDate" type="timestamp">
+            <column name="createDate" />
+        </property>
+        <property name="sendDate" type="timestamp">
+            <column name="sendDate" />
+        </property>
+        <property name="isSent" type="integer">
+            <column name="isSent" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="200"/>
+        </property>
+        <many-to-one name="creator" class="org.hi.base.organization.model.HiUser" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="creator"  not-null="false"/>
+        </many-to-one>
+
+        <bag name="messageParameters" cascade="all"  order-by="id" lazy="false">
+            <key foreign-key="none">
+                <column name="message" not-null="false"/>
+            </key>
+            <one-to-many class="org.hi.base.sysapp.model.MessageParameter" />
+        </bag>    
+    </class>
+</hibernate-mapping>

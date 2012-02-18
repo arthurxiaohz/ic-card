@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="HiLog" type="org.hi.base.sysapp.model.HiLog"/>
+
+	<resultMap id="HiLog" class="HiLog">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="operator" column="operator" select="select_inner_HiUser"/>
+		<result property="operateDate" column="operateDate"/>
+		<result property="action" column="action"/>
+		<result property="actionContext" column="actionContext"/>
+	</resultMap>
+    
+    <select id="select_inner_HiLog" resultMap="HiLog" parameterClass="int">  
+       SELECT * FROM Hi_Log  WHERE id =#value#
+    </select>
+  
+	<select id="getHiLog" resultMap="HiLog">
+		select * from Hi_Log WHERE id = #id# 
+	</select>
+	
+	<insert id="insHiLog" parameterClass="java.util.HashMap">    
+    	insert into Hi_Log (id, version, operator, operateDate, action, actionContext) 
+		values (#id#, 1, #operator#, #operateDate#, #action#, #actionContext#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateHiLog" parameterClass="java.util.HashMap">    
+		update Hi_Log set
+            version = #version# +1,
+			operator = #operator#,
+			operateDate = #operateDate#,
+			action = #action#,
+			actionContext = #actionContext#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delHiLog" parameterClass="int">    
+		delete from Hi_Log where id = #id#   
+	</delete>
+    
+	<selectExt id="listHiLog" resultMap="HiLog"/> 
+  
+	<selectExt id="countHiLog" resultClass="int"/> 
+
+</sqlMap>    

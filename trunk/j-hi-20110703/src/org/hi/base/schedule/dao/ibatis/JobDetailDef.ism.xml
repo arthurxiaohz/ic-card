@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="JobDetailDef" type="org.hi.base.schedule.model.JobDetailDef"/>
+
+	<resultMap id="JobDetailDef" class="JobDetailDef">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="jobName" column="jobName"/>
+		<result property="jobGroup" column="jobGroup"/>
+		<result property="jobClassName" column="jobClassName"/>
+		<result property="durable" column="durable"/>
+		<result property="volatiled" column="volatiled"/>
+		<result property="shouldRecover" column="shouldRecover"/>
+		<result property="description" column="description"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+	</resultMap>
+    
+    <select id="select_inner_JobDetailDef" resultMap="JobDetailDef" parameterClass="int">  
+       SELECT * FROM HI_JobDetailDef  WHERE id =#value#
+    </select>
+  
+	<select id="getJobDetailDef" resultMap="JobDetailDef">
+		select * from HI_JobDetailDef WHERE id = #id# 
+	</select>
+	
+	<insert id="insJobDetailDef" parameterClass="java.util.HashMap">    
+    	insert into HI_JobDetailDef (id, version, jobName, jobGroup, jobClassName, durable, volatiled, shouldRecover, description, creator) 
+		values (#id#, 1, #jobName#, #jobGroup#, #jobClassName#, #durable#, #volatiled#, #shouldRecover#, #description#, #creator#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateJobDetailDef" parameterClass="java.util.HashMap">    
+		update HI_JobDetailDef set
+            version = #version# +1,
+			jobName = #jobName#,
+			jobGroup = #jobGroup#,
+			jobClassName = #jobClassName#,
+			durable = #durable#,
+			volatiled = #volatiled#,
+			shouldRecover = #shouldRecover#,
+			description = #description#,
+			creator = #creator#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delJobDetailDef" parameterClass="int">    
+		delete from HI_JobDetailDef where id = #id#   
+	</delete>
+    
+	<selectExt id="listJobDetailDef" resultMap="JobDetailDef"/> 
+  
+	<selectExt id="countJobDetailDef" resultClass="int"/> 
+
+</sqlMap>    

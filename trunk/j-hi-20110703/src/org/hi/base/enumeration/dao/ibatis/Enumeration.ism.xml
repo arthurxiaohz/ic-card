@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="Enumeration" type="org.hi.base.enumeration.model.Enumeration"/>
+
+	<resultMap id="Enumeration" class="Enumeration">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="enName" column="enName"/>
+		<result property="displayRef" column="displayRef"/>
+		<result property="description" column="description"/>
+		<result property="enumerationType" column="enumerationType"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="enumerationValues" column="id" select="select_inner_EnumerationValues"/>
+	</resultMap>
+    
+    <select id="select_inner_Enumeration" resultMap="Enumeration" parameterClass="int">  
+       SELECT * FROM Enumeration  WHERE id =#value#
+    </select>
+
+    <select id="select_inner_EnumerationValues" resultMap="EnumerationValue" parameterClass="int">   
+       SELECT * FROM EnumerationValue WHERE enumeration =#value#    
+    </select>  
+  
+	<select id="getEnumeration" resultMap="Enumeration">
+		select * from Enumeration WHERE id = #id# 
+	</select>
+	
+	<insert id="insEnumeration" parameterClass="java.util.HashMap">    
+    	insert into Enumeration (id, version, enName, displayRef, description, enumerationType, creator) 
+		values (#id#, 1, #enName#, #displayRef#, #description#, #enumerationType#, #creator#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateEnumeration" parameterClass="java.util.HashMap">    
+		update Enumeration set
+            version = #version# +1,
+			enName = #enName#,
+			displayRef = #displayRef#,
+			description = #description#,
+			enumerationType = #enumerationType#,
+			creator = #creator#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delEnumeration" parameterClass="int">    
+		delete from Enumeration where id = #id#   
+	</delete>
+    
+	<selectExt id="listEnumeration" resultMap="Enumeration"/> 
+  
+	<selectExt id="countEnumeration" resultClass="int"/> 
+
+</sqlMap>    
