@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.hi.common.attachment.model.Attachment" table="HI_Attachment" >
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <version name="version" type="integer" column="version"/>
+        <property name="fileName" type="string">
+            <column name="fileName" length="100"/>
+        </property>
+        <property name="fileType" type="string">
+            <column name="fileType" length="100"/>
+        </property>
+        <property name="fileSize" type="double">
+            <column name="fileSize" length="18"/>
+        </property>
+        <property name="attachmentType" type="integer">
+            <column name="attachmentType" />
+        </property>
+        <property name="attachmentPath" type="string">
+            <column name="attachmentPath" length="200"/>
+        </property>
+        <property name="attachDesc" type="string">
+            <column name="attachDesc" length="200"/>
+        </property>
+    
+    </class>
+</hibernate-mapping>
