@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="ExcelSheet" type="org.hi.base.report.excel.model.ExcelSheet"/>
+
+	<resultMap id="ExcelSheet" class="ExcelSheet">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="excelReportDesign" column="excelReportDesign" select="select_inner_ExcelReportDesign"/>
+		<result property="sheetName" column="sheetName"/>
+		<result property="sequence" column="sequence"/>
+		<result property="description" column="description"/>
+		<result property="excelCells" column="id" select="select_inner_ExcelCells"/>
+	</resultMap>
+    
+    <select id="select_inner_ExcelSheet" resultMap="ExcelSheet" parameterClass="int">  
+       SELECT * FROM HI_ExcelSheet  WHERE id =#value#
+    </select>
+
+    <select id="select_inner_ExcelCells" resultMap="ExcelCell" parameterClass="int">   
+       SELECT * FROM HI_ExcelCell WHERE excelSheet =#value#    
+    </select>  
+  
+	<select id="getExcelSheet" resultMap="ExcelSheet">
+		select * from HI_ExcelSheet WHERE id = #id# 
+	</select>
+	
+	<insert id="insExcelSheet" parameterClass="java.util.HashMap">    
+    	insert into HI_ExcelSheet (id, version, excelReportDesign, sheetName, sequence, description) 
+		values (#id#, 1, #excelReportDesign#, #sheetName#, #sequence#, #description#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateExcelSheet" parameterClass="java.util.HashMap">    
+		update HI_ExcelSheet set
+            version = #version# +1,
+			excelReportDesign = #excelReportDesign#,
+			sheetName = #sheetName#,
+			sequence = #sequence#,
+			description = #description#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delExcelSheet" parameterClass="int">    
+		delete from HI_ExcelSheet where id = #id#   
+	</delete>
+    
+	<selectExt id="listExcelSheet" resultMap="ExcelSheet"/> 
+  
+	<selectExt id="countExcelSheet" resultClass="int"/> 
+
+</sqlMap>    

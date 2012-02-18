@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.hi.base.sysapp.model.AppSetting" table="Hi_AppSetting" >
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <version name="version" type="integer" column="version"/>
+        <property name="appGroup" type="string">
+            <column name="appGroup" length="30" not-null="true"/>
+        </property>
+        <property name="appName" type="string">
+            <column name="appName" length="30" not-null="true"/>
+        </property>
+        <property name="appValue" type="string">
+            <column name="appValue" length="100" not-null="true"/>
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="500"/>
+        </property>
+        <many-to-one name="creator" class="org.hi.base.organization.model.HiUser" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="creator"  not-null="false"/>
+        </many-to-one>
+    
+    </class>
+</hibernate-mapping>

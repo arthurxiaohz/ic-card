@@ -1,0 +1,15 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+	<package name="report-customer" extends="hi" >
+		
+		<action name="excelReportDesignSave"
+			class="org.hi.base.report.excel.action.webwork.ExcelReportDesignSaveAction">
+			<result name="success" type="redirect-action">excelReportDesignList</result>
+			<interceptor-ref name="fileUpload"/>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+				
+</package>
+</xwork>
