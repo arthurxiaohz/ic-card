@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="Attachment"> 
+
+
+	<resultMap id="Attachment" type="org.hi.common.attachment.model.Attachment">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="fileName" column="fileName"/>
+		<result property="fileType" column="fileType"/>
+		<result property="fileSize" column="fileSize"/>
+		<result property="attachmentType" column="attachmentType"/>
+		<result property="attachmentPath" column="attachmentPath"/>
+		<result property="attachDesc" column="attachDesc"/>
+	</resultMap>
+    
+    <select id="select_inner_Attachment" resultMap="Attachment" parameterType="int">  
+       SELECT * FROM HI_Attachment  WHERE id = #{value}
+    </select>
+  
+	<select id="getAttachment" resultMap="Attachment">
+		select * from HI_Attachment WHERE id = #{id}
+	</select>
+	<select id="listAttachment" resultMap="Attachment">#</select>
+  
+	<select id="countAttachment" resultType="int">#</select> 
+	
+	<insert id="insAttachment" parameterType="java.util.HashMap">    
+    	insert into HI_Attachment (id, version, fileName, fileType, fileSize, attachmentType, attachmentPath, attachDesc) 
+		values (#{id,jdbcType=NUMERIC}, 1, #{fileName,jdbcType=LONGVARCHAR}, #{fileType,jdbcType=LONGVARCHAR}, #{fileSize,jdbcType=NUMERIC}, #{attachmentType,jdbcType=NUMERIC}, #{attachmentPath,jdbcType=LONGVARCHAR}, #{attachDesc,jdbcType=LONGVARCHAR})
+		<selectKey resultType="int"  keyProperty="id"/>   
+	</insert>
+	
+	<update id="updateAttachment" parameterType="java.util.HashMap">
+		update HI_Attachment set
+            version = #{version} +1,
+			fileName = #{fileName,jdbcType=LONGVARCHAR},
+			fileType = #{fileType,jdbcType=LONGVARCHAR},
+			fileSize = #{fileSize,jdbcType=NUMERIC},
+			attachmentType = #{attachmentType,jdbcType=NUMERIC},
+			attachmentPath = #{attachmentPath,jdbcType=LONGVARCHAR},
+			attachDesc = #{attachDesc,jdbcType=LONGVARCHAR}
+    where    
+      id = #{id}    
+	</update>    
+   
+	<delete id="delAttachment" parameterType="int">    
+		delete from HI_Attachment where id = #{id}
+	</delete>
+
+</mapper>    

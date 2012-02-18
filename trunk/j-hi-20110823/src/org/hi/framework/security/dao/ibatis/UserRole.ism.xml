@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="UserRole" type="org.hi.framework.security.model.UserRole"/>
+
+	<resultMap id="UserRole" class="UserRole">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="securityUser" column="securityUser" select="select_inner_HiUser"/>
+		<result property="role" column="role" select="select_inner_Role"/>
+	</resultMap>
+    
+    <select id="select_inner_UserRole" resultMap="UserRole" parameterClass="int">  
+       SELECT * FROM HI_UserRole  WHERE id =#value#
+    </select>
+  
+	<select id="getUserRole" resultMap="UserRole">
+		select * from HI_UserRole WHERE id = #id# 
+	</select>
+	
+	<insert id="insUserRole" parameterClass="java.util.HashMap">    
+    	insert into HI_UserRole (id, version, securityUser, role) 
+		values (#id#, 1, #securityUser#, #role#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateUserRole" parameterClass="java.util.HashMap">    
+		update HI_UserRole set
+            version = #version# +1,
+			securityUser = #securityUser#,
+			role = #role#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delUserRole" parameterClass="int">    
+		delete from HI_UserRole where id = #id#   
+	</delete>
+    
+	<selectExt id="listUserRole" resultMap="UserRole"/> 
+  
+	<selectExt id="countUserRole" resultClass="int"/> 
+
+</sqlMap>    

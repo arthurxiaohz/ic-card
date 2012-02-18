@@ -1,0 +1,135 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+	<package name="himailext" extends="hi" >
+
+	   	<action name="toHiMail"
+			class="org.hi.framework.web.webwork.RedirectNothingAction">
+			<result name="success" type="redirect" >/mailIndex.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="inBoxView"
+			class="org.hi.himail.action.webwork.cust.InBoxViewAction">
+			<result name="success">/himail/InBoxView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="inBoxList"
+			class="org.hi.himail.action.webwork.cust.InBoxListAction">
+			<result name="success">/himail/InBoxList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		 <action name="draftList"
+			class="org.hi.himail.action.webwork.cust.DraftListAction">
+			<result name="success">/himail/DraftList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		<action name="junkList"
+			class="org.hi.himail.action.webwork.cust.JunkListAction">
+			<result name="success">/himail/JunkList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+ 		<action name="sendBoxList"
+			class="org.hi.himail.action.webwork.cust.SendBoxListAction">
+			<result name="success">/himail/SendBoxList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		<action name="mailAccountList"
+			class="org.hi.himail.action.webwork.cust.MailAccountListAction">
+			<result name="success">/himail/MailAccountList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		<action name="mailAddressBookList"
+			class="org.hi.himail.action.webwork.cust.MailAddressBookListAction">
+			<result name="success">/himail/MailAddressBookList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		
+	   	<action name="receiveMail"
+			class="org.hi.himail.action.webwork.cust.ReceiveMailAction">
+			<result name="success" type="redirect" >inBoxList.action?mailAccount.id=${mailAccount.id}</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="inBoxRemove"
+			class="org.hi.himail.action.webwork.cust.InBoxRemoveAction">
+			<result name="success" type="redirect" >inBoxList.action?mailAccount.id=${mailAccount.id}</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="inBoxRemoveAll"
+			class="org.hi.himail.action.webwork.cust.InBoxRemoveAllAction">
+			<result name="success" type="redirect" >inBoxList.action?mailAccount.id=${mailAccount.id}</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="newEmail"
+			class="org.hi.himail.action.webwork.cust.NewMailAction">
+			<result name="success">/himail/DraftEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="sendEmail"
+			class="org.hi.himail.action.webwork.cust.SendMailAction">
+			<result name="success">/himail/sendSuccess.jsp</result>
+			<result name="error">/himail/sendError.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		
+		<action name="draftSave"
+			class="org.hi.himail.action.webwork.DraftSaveAction">
+			<result name="success">/himail/DraftEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		
+		</action>
+		
+		<action name="replyEmail"
+			class="org.hi.himail.action.webwork.cust.ReplyEMailAction">
+			<result name="success">/himail/DraftEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="replyAllEmail"
+			class="org.hi.himail.action.webwork.cust.ReplyAllEMailAction">
+			<result name="success">/himail/DraftEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="forwardEmail"
+			class="org.hi.himail.action.webwork.cust.ForwardEMailAction">
+			<result name="success">/himail/DraftEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="sendMailTo"
+			class="org.hi.himail.action.webwork.cust.SendMailToAction">
+			<result name="success">/himail/DraftEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="reSendEmail"
+			class="org.hi.himail.action.webwork.cust.ReSendEMailAction">
+			<result name="success">/himail/DraftEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="forwardSendedEmail"
+			class="org.hi.himail.action.webwork.cust.ForwardSendedEMailAction">
+			<result name="success">/himail/DraftEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="junkMail"
+			class="org.hi.himail.action.webwork.cust.JunkMailAction">
+			<result name="success"  type="redirect"  >inBoxList.action?mailAccount.id=${mailAccount.id}</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		
+
+   </package>
+</xwork>
