@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+   <!-- ===================== JobDetailDef Manager And DAO Configration==================== -->  
+    <bean id="org.hi.base.schedule.dao.JobDetailDefDAOImpl" class="org.hi.base.schedule.dao.${hi.orm.package}.JobDetailDefDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="org.hi.base.schedule.dao.JobDetailDefDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="org.hi.base.schedule.dao.JobDetailDefDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>org.hi.base.schedule.dao.JobDetailDefDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="org.hi.base.schedule.model.JobDetailDef" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.hi.base.schedule.service.impl.JobDetailDefManagerImpl">
+                <property name="DAO" ref="org.hi.base.schedule.dao.JobDetailDefDAO"/>
+                <property name="modelClass" value="org.hi.base.schedule.model.JobDetailDef"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TriggerDef Manager And DAO Configration==================== -->  
+    <bean id="org.hi.base.schedule.dao.TriggerDefDAOImpl" class="org.hi.base.schedule.dao.${hi.orm.package}.TriggerDefDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="org.hi.base.schedule.dao.TriggerDefDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="org.hi.base.schedule.dao.TriggerDefDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>org.hi.base.schedule.dao.TriggerDefDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="org.hi.base.schedule.model.TriggerDef" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.hi.base.schedule.service.impl.TriggerDefManagerImpl">
+                <property name="DAO" ref="org.hi.base.schedule.dao.TriggerDefDAO"/>
+                <property name="modelClass" value="org.hi.base.schedule.model.TriggerDef"/>
+            </bean>
+        </property>
+    </bean>
+</beans>

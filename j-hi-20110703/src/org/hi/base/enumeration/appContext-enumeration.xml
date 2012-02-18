@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+   <!-- ===================== Enumeration Manager And DAO Configration==================== -->  
+    <bean id="org.hi.base.enumeration.dao.EnumerationDAOImpl" class="org.hi.base.enumeration.dao.${hi.orm.package}.EnumerationDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="org.hi.base.enumeration.dao.EnumerationDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="org.hi.base.enumeration.dao.EnumerationDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>org.hi.base.enumeration.dao.EnumerationDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="org.hi.base.enumeration.model.Enumeration" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.hi.base.enumeration.service.impl.EnumerationManagerImpl">
+                <property name="DAO" ref="org.hi.base.enumeration.dao.EnumerationDAO"/>
+                <property name="modelClass" value="org.hi.base.enumeration.model.Enumeration"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== EnumerationValue Manager And DAO Configration==================== -->  
+    <bean id="org.hi.base.enumeration.dao.EnumerationValueDAOImpl" class="org.hi.base.enumeration.dao.${hi.orm.package}.EnumerationValueDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="org.hi.base.enumeration.dao.EnumerationValueDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="org.hi.base.enumeration.dao.EnumerationValueDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>org.hi.base.enumeration.dao.EnumerationValueDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="org.hi.base.enumeration.model.EnumerationValue" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.hi.base.enumeration.service.impl.EnumerationValueManagerImpl">
+                <property name="DAO" ref="org.hi.base.enumeration.dao.EnumerationValueDAO"/>
+                <property name="modelClass" value="org.hi.base.enumeration.model.EnumerationValue"/>
+            </bean>
+        </property>
+    </bean>
+</beans>

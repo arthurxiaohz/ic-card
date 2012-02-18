@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="GroupRole" type="org.hi.framework.security.model.GroupRole"/>
+
+	<resultMap id="GroupRole" class="GroupRole">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="securityGroup" column="securityGroup" select="select_inner_SecurityGroup"/>
+		<result property="role" column="role" select="select_inner_Role"/>
+	</resultMap>
+    
+    <select id="select_inner_GroupRole" resultMap="GroupRole" parameterClass="int">  
+       SELECT * FROM HI_GroupRole  WHERE id =#value#
+    </select>
+  
+	<select id="getGroupRole" resultMap="GroupRole">
+		select * from HI_GroupRole WHERE id = #id# 
+	</select>
+	
+	<insert id="insGroupRole" parameterClass="java.util.HashMap">    
+    	insert into HI_GroupRole (id, version, securityGroup, role) 
+		values (#id#, 1, #securityGroup#, #role#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateGroupRole" parameterClass="java.util.HashMap">    
+		update HI_GroupRole set
+            version = #version# +1,
+			securityGroup = #securityGroup#,
+			role = #role#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delGroupRole" parameterClass="int">    
+		delete from HI_GroupRole where id = #id#   
+	</delete>
+    
+	<selectExt id="listGroupRole" resultMap="GroupRole"/> 
+  
+	<selectExt id="countGroupRole" resultClass="int"/> 
+
+</sqlMap>    

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.hi.framework.security.model.SecurityGroup" table="HI_SecurityGroup" >
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <version name="version" type="integer" column="version"/>
+        <property name="groupName" type="string">
+            <column name="groupName" length="200" not-null="true"/>
+        </property>
+        <property name="displayRef" type="string">
+            <column name="displayRef" length="200"/>
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="500"/>
+        </property>
+    
+    </class>
+</hibernate-mapping>
