@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.hi.framework.security.model.UserRole" table="HI_UserRole" >
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <version name="version" type="integer" column="version"/>
+        <many-to-one name="securityUser" class="org.hi.base.organization.model.HiUser" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="securityUser"  not-null="false"/>
+        </many-to-one>
+        <many-to-one name="role" class="org.hi.framework.security.model.Role" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="role"  not-null="false"/>
+        </many-to-one>
+    
+    </class>
+</hibernate-mapping>

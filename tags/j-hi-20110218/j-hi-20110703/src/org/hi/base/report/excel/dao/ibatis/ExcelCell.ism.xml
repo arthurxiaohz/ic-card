@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="ExcelCell" type="org.hi.base.report.excel.model.ExcelCell"/>
+
+	<resultMap id="ExcelCell" class="ExcelCell">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="excelSheet" column="excelSheet" select="select_inner_ExcelSheet"/>
+		<result property="cellColumn" column="cellColumn"/>
+		<result property="cellRow" column="cellRow"/>
+		<result property="variableName" column="variableName"/>
+		<result property="constant" column="constant"/>
+		<result property="isEnumeration" column="isEnumeration"/>
+		<result property="reportDataType" column="reportDataType"/>
+		<result property="stretchingType" column="stretchingType"/>
+		<result property="conditionCell" column="conditionCell"/>
+		<result property="description" column="description"/>
+	</resultMap>
+    
+    <select id="select_inner_ExcelCell" resultMap="ExcelCell" parameterClass="int">  
+       SELECT * FROM HI_ExcelCell  WHERE id =#value#
+    </select>
+  
+	<select id="getExcelCell" resultMap="ExcelCell">
+		select * from HI_ExcelCell WHERE id = #id# 
+	</select>
+	
+	<insert id="insExcelCell" parameterClass="java.util.HashMap">    
+    	insert into HI_ExcelCell (id, version, excelSheet, cellColumn, cellRow, variableName, constant, isEnumeration, reportDataType, stretchingType, conditionCell, description) 
+		values (#id#, 1, #excelSheet#, #cellColumn#, #cellRow#, #variableName#, #constant#, #isEnumeration#, #reportDataType#, #stretchingType#, #conditionCell#, #description#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateExcelCell" parameterClass="java.util.HashMap">    
+		update HI_ExcelCell set
+            version = #version# +1,
+			excelSheet = #excelSheet#,
+			cellColumn = #cellColumn#,
+			cellRow = #cellRow#,
+			variableName = #variableName#,
+			constant = #constant#,
+			isEnumeration = #isEnumeration#,
+			reportDataType = #reportDataType#,
+			stretchingType = #stretchingType#,
+			conditionCell = #conditionCell#,
+			description = #description#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delExcelCell" parameterClass="int">    
+		delete from HI_ExcelCell where id = #id#   
+	</delete>
+    
+	<selectExt id="listExcelCell" resultMap="ExcelCell"/> 
+  
+	<selectExt id="countExcelCell" resultClass="int"/> 
+
+</sqlMap>    

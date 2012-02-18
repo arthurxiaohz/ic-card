@@ -1,0 +1,15 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+<package name="i18next" extends="hi" >
+
+
+	<action name="languageEdit"
+		class="org.hi.i18n.action.webwork.cust.LanguageViewAction">
+		<result name="success">/i18n/LanguageEdit.jsp</result>
+		<interceptor-ref name="modelParamsStack" />
+	</action>
+	  	
+ 
+</package>
+</xwork>
