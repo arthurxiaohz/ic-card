@@ -1,0 +1,469 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+	<package name="himail" extends="hi" >
+
+	  <action name="mailAccountList"
+			class="org.hi.himail.action.webwork.MailAccountListAction">
+			<result name="success">/himail/MailAccountList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="mailAccountSave"
+			class="org.hi.himail.action.webwork.MailAccountSaveAction">
+			<result name="success" type="redirect-action">mailAccountList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="mailAccountEdit"
+			class="org.hi.himail.action.webwork.MailAccountViewAction">
+			<result name="success">/himail/MailAccountEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="mailAccountView"
+			class="org.hi.himail.action.webwork.MailAccountViewAction">
+			<result name="success">/himail/MailAccountView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="mailAccountRemove"
+			class="org.hi.himail.action.webwork.MailAccountRemoveAction">
+			<result name="success" type="redirect-action">mailAccountList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="mailAccountRemoveAll"
+			class="org.hi.himail.action.webwork.MailAccountRemoveAllAction">
+			<result name="success" type="redirect-action">mailAccountList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="mailAccountLookup"
+			class="org.hi.himail.action.webwork.MailAccountListAction">
+			<result name="success">/himail/MailAccountList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="inBoxList"
+			class="org.hi.himail.action.webwork.InBoxListAction">
+			<result name="success">/himail/InBoxList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="inBoxSave"
+			class="org.hi.himail.action.webwork.InBoxSaveAction">
+			<result name="success" type="redirect-action">inBoxList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="inBoxEdit"
+			class="org.hi.himail.action.webwork.InBoxViewAction">
+			<result name="success">/himail/InBoxEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="inBoxView"
+			class="org.hi.himail.action.webwork.InBoxViewAction">
+			<result name="success">/himail/InBoxView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="inBoxRemove"
+			class="org.hi.himail.action.webwork.InBoxRemoveAction">
+			<result name="success" type="redirect-action">inBoxList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="inBoxRemoveAll"
+			class="org.hi.himail.action.webwork.InBoxRemoveAllAction">
+			<result name="success" type="redirect-action">inBoxList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="inBoxLookup"
+			class="org.hi.himail.action.webwork.InBoxListAction">
+			<result name="success">/himail/InBoxList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="inBoxAttachmentList"
+			class="org.hi.himail.action.webwork.InBoxAttachmentListAction">
+			<result name="success">/himail/InBoxAttachmentList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="inBoxAttachmentSave"
+			class="org.hi.himail.action.webwork.InBoxAttachmentSaveAction">
+			<result name="success" type="redirect-action">inBoxAttachmentList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="inBoxAttachmentEdit"
+			class="org.hi.himail.action.webwork.InBoxAttachmentViewAction">
+			<result name="success">/himail/InBoxAttachmentEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="inBoxAttachmentView"
+			class="org.hi.himail.action.webwork.InBoxAttachmentViewAction">
+			<result name="success">/himail/InBoxAttachmentView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="inBoxAttachmentRemove"
+			class="org.hi.himail.action.webwork.InBoxAttachmentRemoveAction">
+			<result name="success" type="redirect-action">inBoxAttachmentList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="inBoxAttachmentRemoveAll"
+			class="org.hi.himail.action.webwork.InBoxAttachmentRemoveAllAction">
+			<result name="success" type="redirect-action">inBoxAttachmentList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="inBoxAttachmentLookup"
+			class="org.hi.himail.action.webwork.InBoxAttachmentListAction">
+			<result name="success">/himail/InBoxAttachmentList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="mailAttachList"
+			class="org.hi.himail.action.webwork.MailAttachListAction">
+			<result name="success">/himail/MailAttachList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="mailAttachSave"
+			class="org.hi.himail.action.webwork.MailAttachSaveAction">
+			<result name="success" type="redirect-action">mailAttachList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="mailAttachEdit"
+			class="org.hi.himail.action.webwork.MailAttachViewAction">
+			<result name="success">/himail/MailAttachEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="mailAttachView"
+			class="org.hi.himail.action.webwork.MailAttachViewAction">
+			<result name="success">/himail/MailAttachView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="mailAttachRemove"
+			class="org.hi.himail.action.webwork.MailAttachRemoveAction">
+			<result name="success" type="redirect-action">mailAttachList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="mailAttachRemoveAll"
+			class="org.hi.himail.action.webwork.MailAttachRemoveAllAction">
+			<result name="success" type="redirect-action">mailAttachList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="mailAttachLookup"
+			class="org.hi.himail.action.webwork.MailAttachListAction">
+			<result name="success">/himail/MailAttachList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="sendBoxList"
+			class="org.hi.himail.action.webwork.SendBoxListAction">
+			<result name="success">/himail/SendBoxList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="sendBoxSave"
+			class="org.hi.himail.action.webwork.SendBoxSaveAction">
+			<result name="success" type="redirect-action">sendBoxList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="sendBoxEdit"
+			class="org.hi.himail.action.webwork.SendBoxViewAction">
+			<result name="success">/himail/SendBoxEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="sendBoxView"
+			class="org.hi.himail.action.webwork.SendBoxViewAction">
+			<result name="success">/himail/SendBoxView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="sendBoxRemove"
+			class="org.hi.himail.action.webwork.SendBoxRemoveAction">
+			<result name="success" type="redirect-action">sendBoxList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="sendBoxRemoveAll"
+			class="org.hi.himail.action.webwork.SendBoxRemoveAllAction">
+			<result name="success" type="redirect-action">sendBoxList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="sendBoxLookup"
+			class="org.hi.himail.action.webwork.SendBoxListAction">
+			<result name="success">/himail/SendBoxList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="sendBoxAttachmentList"
+			class="org.hi.himail.action.webwork.SendBoxAttachmentListAction">
+			<result name="success">/himail/SendBoxAttachmentList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="sendBoxAttachmentSave"
+			class="org.hi.himail.action.webwork.SendBoxAttachmentSaveAction">
+			<result name="success" type="redirect-action">sendBoxAttachmentList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="sendBoxAttachmentEdit"
+			class="org.hi.himail.action.webwork.SendBoxAttachmentViewAction">
+			<result name="success">/himail/SendBoxAttachmentEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="sendBoxAttachmentView"
+			class="org.hi.himail.action.webwork.SendBoxAttachmentViewAction">
+			<result name="success">/himail/SendBoxAttachmentView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="sendBoxAttachmentRemove"
+			class="org.hi.himail.action.webwork.SendBoxAttachmentRemoveAction">
+			<result name="success" type="redirect-action">sendBoxAttachmentList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="sendBoxAttachmentRemoveAll"
+			class="org.hi.himail.action.webwork.SendBoxAttachmentRemoveAllAction">
+			<result name="success" type="redirect-action">sendBoxAttachmentList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="sendBoxAttachmentLookup"
+			class="org.hi.himail.action.webwork.SendBoxAttachmentListAction">
+			<result name="success">/himail/SendBoxAttachmentList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="draftList"
+			class="org.hi.himail.action.webwork.DraftListAction">
+			<result name="success">/himail/DraftList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="draftSave"
+			class="org.hi.himail.action.webwork.DraftSaveAction">
+			<result name="success" type="redirect-action">draftList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="draftEdit"
+			class="org.hi.himail.action.webwork.DraftViewAction">
+			<result name="success">/himail/DraftEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="draftView"
+			class="org.hi.himail.action.webwork.DraftViewAction">
+			<result name="success">/himail/DraftView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="draftRemove"
+			class="org.hi.himail.action.webwork.DraftRemoveAction">
+			<result name="success" type="redirect-action">draftList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="draftRemoveAll"
+			class="org.hi.himail.action.webwork.DraftRemoveAllAction">
+			<result name="success" type="redirect-action">draftList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="draftLookup"
+			class="org.hi.himail.action.webwork.DraftListAction">
+			<result name="success">/himail/DraftList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="draftAttachmentList"
+			class="org.hi.himail.action.webwork.DraftAttachmentListAction">
+			<result name="success">/himail/DraftAttachmentList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="draftAttachmentSave"
+			class="org.hi.himail.action.webwork.DraftAttachmentSaveAction">
+			<result name="success" type="redirect-action">draftAttachmentList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="draftAttachmentEdit"
+			class="org.hi.himail.action.webwork.DraftAttachmentViewAction">
+			<result name="success">/himail/DraftAttachmentEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="draftAttachmentView"
+			class="org.hi.himail.action.webwork.DraftAttachmentViewAction">
+			<result name="success">/himail/DraftAttachmentView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="draftAttachmentRemove"
+			class="org.hi.himail.action.webwork.DraftAttachmentRemoveAction">
+			<result name="success" type="redirect-action">draftAttachmentList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="draftAttachmentRemoveAll"
+			class="org.hi.himail.action.webwork.DraftAttachmentRemoveAllAction">
+			<result name="success" type="redirect-action">draftAttachmentList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="draftAttachmentLookup"
+			class="org.hi.himail.action.webwork.DraftAttachmentListAction">
+			<result name="success">/himail/DraftAttachmentList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="junkList"
+			class="org.hi.himail.action.webwork.JunkListAction">
+			<result name="success">/himail/JunkList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="junkSave"
+			class="org.hi.himail.action.webwork.JunkSaveAction">
+			<result name="success" type="redirect-action">junkList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="junkEdit"
+			class="org.hi.himail.action.webwork.JunkViewAction">
+			<result name="success">/himail/JunkEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="junkView"
+			class="org.hi.himail.action.webwork.JunkViewAction">
+			<result name="success">/himail/JunkView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="junkRemove"
+			class="org.hi.himail.action.webwork.JunkRemoveAction">
+			<result name="success" type="redirect-action">junkList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="junkRemoveAll"
+			class="org.hi.himail.action.webwork.JunkRemoveAllAction">
+			<result name="success" type="redirect-action">junkList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="junkLookup"
+			class="org.hi.himail.action.webwork.JunkListAction">
+			<result name="success">/himail/JunkList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="junkAttachmentList"
+			class="org.hi.himail.action.webwork.JunkAttachmentListAction">
+			<result name="success">/himail/JunkAttachmentList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="junkAttachmentSave"
+			class="org.hi.himail.action.webwork.JunkAttachmentSaveAction">
+			<result name="success" type="redirect-action">junkAttachmentList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="junkAttachmentEdit"
+			class="org.hi.himail.action.webwork.JunkAttachmentViewAction">
+			<result name="success">/himail/JunkAttachmentEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="junkAttachmentView"
+			class="org.hi.himail.action.webwork.JunkAttachmentViewAction">
+			<result name="success">/himail/JunkAttachmentView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="junkAttachmentRemove"
+			class="org.hi.himail.action.webwork.JunkAttachmentRemoveAction">
+			<result name="success" type="redirect-action">junkAttachmentList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="junkAttachmentRemoveAll"
+			class="org.hi.himail.action.webwork.JunkAttachmentRemoveAllAction">
+			<result name="success" type="redirect-action">junkAttachmentList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="junkAttachmentLookup"
+			class="org.hi.himail.action.webwork.JunkAttachmentListAction">
+			<result name="success">/himail/JunkAttachmentList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="mailAddressBookList"
+			class="org.hi.himail.action.webwork.MailAddressBookListAction">
+			<result name="success">/himail/MailAddressBookList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="mailAddressBookSave"
+			class="org.hi.himail.action.webwork.MailAddressBookSaveAction">
+			<result name="success" type="redirect-action">mailAddressBookList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="mailAddressBookEdit"
+			class="org.hi.himail.action.webwork.MailAddressBookViewAction">
+			<result name="success">/himail/MailAddressBookEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="mailAddressBookView"
+			class="org.hi.himail.action.webwork.MailAddressBookViewAction">
+			<result name="success">/himail/MailAddressBookView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="mailAddressBookRemove"
+			class="org.hi.himail.action.webwork.MailAddressBookRemoveAction">
+			<result name="success" type="redirect-action">mailAddressBookList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="mailAddressBookRemoveAll"
+			class="org.hi.himail.action.webwork.MailAddressBookRemoveAllAction">
+			<result name="success" type="redirect-action">mailAddressBookList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="mailAddressBookLookup"
+			class="org.hi.himail.action.webwork.MailAddressBookListAction">
+			<result name="success">/himail/MailAddressBookList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</xwork>

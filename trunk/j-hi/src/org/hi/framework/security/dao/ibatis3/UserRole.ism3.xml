@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="UserRole"> 
+
+
+	<resultMap id="UserRole" type="org.hi.framework.security.model.UserRole">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<association property="securityUser" column="securityUser" select="HiUser.select_inner_HiUser"/>
+		<association property="role" column="role" select="Role.select_inner_Role"/>
+	</resultMap>
+    
+    <select id="select_inner_UserRole" resultMap="UserRole" parameterType="int">  
+       SELECT * FROM HI_UserRole  WHERE id = #{value}
+    </select>
+  
+	<select id="getUserRole" resultMap="UserRole">
+		select * from HI_UserRole WHERE id = #{id}
+	</select>
+	<select id="listUserRole" resultMap="UserRole">#</select>
+  
+	<select id="countUserRole" resultType="int">#</select> 
+	
+	<insert id="insUserRole" parameterType="java.util.HashMap">    
+    	insert into HI_UserRole (id, version, securityUser, role) 
+		values (#{id,jdbcType=NUMERIC}, 1, #{securityUser,jdbcType=NUMERIC}, #{role,jdbcType=NUMERIC})
+		<selectKey resultType="int"  keyProperty="id"/>   
+	</insert>
+	
+	<update id="updateUserRole" parameterType="java.util.HashMap">
+		update HI_UserRole set
+            version = #{version} +1,
+			securityUser = #{securityUser,jdbcType=NUMERIC},
+			role = #{role,jdbcType=NUMERIC}
+    where    
+      id = #{id}    
+	</update>    
+   
+	<delete id="delUserRole" parameterType="int">    
+		delete from HI_UserRole where id = #{id}
+	</delete>
+
+</mapper>    

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.hi.base.schedule.model.JobDetailDef" table="HI_JobDetailDef" >
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <version name="version" type="integer" column="version"/>
+        <property name="jobName" type="string">
+            <column name="jobName" length="80" not-null="true"/>
+        </property>
+        <property name="jobGroup" type="string">
+            <column name="jobGroup" length="80"/>
+        </property>
+        <property name="jobClassName" type="string">
+            <column name="jobClassName" length="128" not-null="true"/>
+        </property>
+        <property name="durable" type="integer">
+            <column name="durable" />
+        </property>
+        <property name="volatiled" type="integer">
+            <column name="volatiled" />
+        </property>
+        <property name="shouldRecover" type="integer">
+            <column name="shouldRecover" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="300"/>
+        </property>
+        <many-to-one name="creator" class="org.hi.base.organization.model.HiUser" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="creator"  not-null="false"/>
+        </many-to-one>
+    
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,385 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+	<package name="security" extends="hi" >
+
+	  <action name="authorityList"
+			class="org.hi.framework.security.action.webwork.AuthorityListAction">
+			<result name="success">/security/AuthorityList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="authoritySave"
+			class="org.hi.framework.security.action.webwork.AuthoritySaveAction">
+			<result name="success" type="redirect-action">authorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="authorityEdit"
+			class="org.hi.framework.security.action.webwork.AuthorityViewAction">
+			<result name="success">/security/AuthorityEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="authorityView"
+			class="org.hi.framework.security.action.webwork.AuthorityViewAction">
+			<result name="success">/security/AuthorityView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="authorityRemove"
+			class="org.hi.framework.security.action.webwork.AuthorityRemoveAction">
+			<result name="success" type="redirect-action">authorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="authorityRemoveAll"
+			class="org.hi.framework.security.action.webwork.AuthorityRemoveAllAction">
+			<result name="success" type="redirect-action">authorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="authorityLookup"
+			class="org.hi.framework.security.action.webwork.AuthorityListAction">
+			<result name="success">/security/AuthorityList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="roleList"
+			class="org.hi.framework.security.action.webwork.RoleListAction">
+			<result name="success">/security/RoleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="roleSave"
+			class="org.hi.framework.security.action.webwork.RoleSaveAction">
+			<result name="success" type="redirect-action">roleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="roleEdit"
+			class="org.hi.framework.security.action.webwork.RoleViewAction">
+			<result name="success">/security/RoleEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="roleView"
+			class="org.hi.framework.security.action.webwork.RoleViewAction">
+			<result name="success">/security/RoleView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="roleRemove"
+			class="org.hi.framework.security.action.webwork.RoleRemoveAction">
+			<result name="success" type="redirect-action">roleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="roleRemoveAll"
+			class="org.hi.framework.security.action.webwork.RoleRemoveAllAction">
+			<result name="success" type="redirect-action">roleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="roleLookup"
+			class="org.hi.framework.security.action.webwork.RoleListAction">
+			<result name="success">/security/RoleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="securityGroupList"
+			class="org.hi.framework.security.action.webwork.SecurityGroupListAction">
+			<result name="success">/security/SecurityGroupList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="securityGroupSave"
+			class="org.hi.framework.security.action.webwork.SecurityGroupSaveAction">
+			<result name="success" type="redirect-action">securityGroupList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="securityGroupEdit"
+			class="org.hi.framework.security.action.webwork.SecurityGroupViewAction">
+			<result name="success">/security/SecurityGroupEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="securityGroupView"
+			class="org.hi.framework.security.action.webwork.SecurityGroupViewAction">
+			<result name="success">/security/SecurityGroupView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="securityGroupRemove"
+			class="org.hi.framework.security.action.webwork.SecurityGroupRemoveAction">
+			<result name="success" type="redirect-action">securityGroupList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="securityGroupRemoveAll"
+			class="org.hi.framework.security.action.webwork.SecurityGroupRemoveAllAction">
+			<result name="success" type="redirect-action">securityGroupList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="securityGroupLookup"
+			class="org.hi.framework.security.action.webwork.SecurityGroupListAction">
+			<result name="success">/security/SecurityGroupList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="userAuthorityList"
+			class="org.hi.framework.security.action.webwork.UserAuthorityListAction">
+			<result name="success">/security/UserAuthorityList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userAuthoritySave"
+			class="org.hi.framework.security.action.webwork.UserAuthoritySaveAction">
+			<result name="success" type="redirect-action">userAuthorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userAuthorityEdit"
+			class="org.hi.framework.security.action.webwork.UserAuthorityViewAction">
+			<result name="success">/security/UserAuthorityEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userAuthorityView"
+			class="org.hi.framework.security.action.webwork.UserAuthorityViewAction">
+			<result name="success">/security/UserAuthorityView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="userAuthorityRemove"
+			class="org.hi.framework.security.action.webwork.UserAuthorityRemoveAction">
+			<result name="success" type="redirect-action">userAuthorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userAuthorityRemoveAll"
+			class="org.hi.framework.security.action.webwork.UserAuthorityRemoveAllAction">
+			<result name="success" type="redirect-action">userAuthorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="userAuthorityLookup"
+			class="org.hi.framework.security.action.webwork.UserAuthorityListAction">
+			<result name="success">/security/UserAuthorityList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="userRoleList"
+			class="org.hi.framework.security.action.webwork.UserRoleListAction">
+			<result name="success">/security/UserRoleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userRoleSave"
+			class="org.hi.framework.security.action.webwork.UserRoleSaveAction">
+			<result name="success" type="redirect-action">userRoleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userRoleEdit"
+			class="org.hi.framework.security.action.webwork.UserRoleViewAction">
+			<result name="success">/security/UserRoleEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userRoleView"
+			class="org.hi.framework.security.action.webwork.UserRoleViewAction">
+			<result name="success">/security/UserRoleView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="userRoleRemove"
+			class="org.hi.framework.security.action.webwork.UserRoleRemoveAction">
+			<result name="success" type="redirect-action">userRoleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userRoleRemoveAll"
+			class="org.hi.framework.security.action.webwork.UserRoleRemoveAllAction">
+			<result name="success" type="redirect-action">userRoleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="userRoleLookup"
+			class="org.hi.framework.security.action.webwork.UserRoleListAction">
+			<result name="success">/security/UserRoleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="userGroupList"
+			class="org.hi.framework.security.action.webwork.UserGroupListAction">
+			<result name="success">/security/UserGroupList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userGroupSave"
+			class="org.hi.framework.security.action.webwork.UserGroupSaveAction">
+			<result name="success" type="redirect-action">userGroupList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userGroupEdit"
+			class="org.hi.framework.security.action.webwork.UserGroupViewAction">
+			<result name="success">/security/UserGroupEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userGroupView"
+			class="org.hi.framework.security.action.webwork.UserGroupViewAction">
+			<result name="success">/security/UserGroupView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="userGroupRemove"
+			class="org.hi.framework.security.action.webwork.UserGroupRemoveAction">
+			<result name="success" type="redirect-action">userGroupList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userGroupRemoveAll"
+			class="org.hi.framework.security.action.webwork.UserGroupRemoveAllAction">
+			<result name="success" type="redirect-action">userGroupList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="userGroupLookup"
+			class="org.hi.framework.security.action.webwork.UserGroupListAction">
+			<result name="success">/security/UserGroupList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="roleAuthorityList"
+			class="org.hi.framework.security.action.webwork.RoleAuthorityListAction">
+			<result name="success">/security/RoleAuthorityList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="roleAuthoritySave"
+			class="org.hi.framework.security.action.webwork.RoleAuthoritySaveAction">
+			<result name="success" type="redirect-action">roleAuthorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="roleAuthorityEdit"
+			class="org.hi.framework.security.action.webwork.RoleAuthorityViewAction">
+			<result name="success">/security/RoleAuthorityEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="roleAuthorityView"
+			class="org.hi.framework.security.action.webwork.RoleAuthorityViewAction">
+			<result name="success">/security/RoleAuthorityView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="roleAuthorityRemove"
+			class="org.hi.framework.security.action.webwork.RoleAuthorityRemoveAction">
+			<result name="success" type="redirect-action">roleAuthorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="roleAuthorityRemoveAll"
+			class="org.hi.framework.security.action.webwork.RoleAuthorityRemoveAllAction">
+			<result name="success" type="redirect-action">roleAuthorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="roleAuthorityLookup"
+			class="org.hi.framework.security.action.webwork.RoleAuthorityListAction">
+			<result name="success">/security/RoleAuthorityList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="groupRoleList"
+			class="org.hi.framework.security.action.webwork.GroupRoleListAction">
+			<result name="success">/security/GroupRoleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="groupRoleSave"
+			class="org.hi.framework.security.action.webwork.GroupRoleSaveAction">
+			<result name="success" type="redirect-action">groupRoleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="groupRoleEdit"
+			class="org.hi.framework.security.action.webwork.GroupRoleViewAction">
+			<result name="success">/security/GroupRoleEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="groupRoleView"
+			class="org.hi.framework.security.action.webwork.GroupRoleViewAction">
+			<result name="success">/security/GroupRoleView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="groupRoleRemove"
+			class="org.hi.framework.security.action.webwork.GroupRoleRemoveAction">
+			<result name="success" type="redirect-action">groupRoleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="groupRoleRemoveAll"
+			class="org.hi.framework.security.action.webwork.GroupRoleRemoveAllAction">
+			<result name="success" type="redirect-action">groupRoleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="groupRoleLookup"
+			class="org.hi.framework.security.action.webwork.GroupRoleListAction">
+			<result name="success">/security/GroupRoleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="privilegeResourceList"
+			class="org.hi.framework.security.action.webwork.PrivilegeResourceListAction">
+			<result name="success">/security/PrivilegeResourceList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="privilegeResourceSave"
+			class="org.hi.framework.security.action.webwork.PrivilegeResourceSaveAction">
+			<result name="success" type="redirect-action">privilegeResourceList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="privilegeResourceEdit"
+			class="org.hi.framework.security.action.webwork.PrivilegeResourceViewAction">
+			<result name="success">/security/PrivilegeResourceEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="privilegeResourceView"
+			class="org.hi.framework.security.action.webwork.PrivilegeResourceViewAction">
+			<result name="success">/security/PrivilegeResourceView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="privilegeResourceRemove"
+			class="org.hi.framework.security.action.webwork.PrivilegeResourceRemoveAction">
+			<result name="success" type="redirect-action">privilegeResourceList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="privilegeResourceRemoveAll"
+			class="org.hi.framework.security.action.webwork.PrivilegeResourceRemoveAllAction">
+			<result name="success" type="redirect-action">privilegeResourceList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="privilegeResourceLookup"
+			class="org.hi.framework.security.action.webwork.PrivilegeResourceListAction">
+			<result name="success">/security/PrivilegeResourceList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</xwork>

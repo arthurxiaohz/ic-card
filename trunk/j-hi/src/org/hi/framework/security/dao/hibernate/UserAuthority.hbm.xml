@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.hi.framework.security.model.UserAuthority" table="HI_UserAuthority" >
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <version name="version" type="integer" column="version"/>
+        <many-to-one name="securityUser" class="org.hi.base.organization.model.HiUser" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="securityUser"  not-null="false"/>
+        </many-to-one>
+        <many-to-one name="authority" class="org.hi.framework.security.model.Authority" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="authority"  not-null="false"/>
+        </many-to-one>
+        <many-to-one name="org" class="org.hi.base.organization.model.HiOrg" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="org"  not-null="false"/>
+        </many-to-one>
+        <property name="scope" type="integer">
+            <column name="scope" />
+        </property>
+        <many-to-one name="roleAuthority" class="org.hi.framework.security.model.RoleAuthority" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="roleAuthority"  not-null="false"/>
+        </many-to-one>
+        <property name="privilegeProcessor" type="string">
+            <column name="privilegeProcessor" length="200"/>
+        </property>
+    
+    </class>
+</hibernate-mapping>
