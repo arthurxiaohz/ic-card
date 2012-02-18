@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="JobDetailDef"> 
+
+
+	<resultMap id="JobDetailDef" type="org.hi.base.schedule.model.JobDetailDef">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="jobName" column="jobName"/>
+		<result property="jobGroup" column="jobGroup"/>
+		<result property="jobClassName" column="jobClassName"/>
+		<result property="durable" column="durable"/>
+		<result property="volatiled" column="volatiled"/>
+		<result property="shouldRecover" column="shouldRecover"/>
+		<result property="description" column="description"/>
+		<association property="creator" column="creator" select="HiUser.select_inner_HiUser"/>
+	</resultMap>
+    
+    <select id="select_inner_JobDetailDef" resultMap="JobDetailDef" parameterType="int">  
+       SELECT * FROM HI_JobDetailDef  WHERE id = #{value}
+    </select>
+  
+	<select id="getJobDetailDef" resultMap="JobDetailDef">
+		select * from HI_JobDetailDef WHERE id = #{id}
+	</select>
+	<select id="listJobDetailDef" resultMap="JobDetailDef">#</select>
+  
+	<select id="countJobDetailDef" resultType="int">#</select> 
+	
+	<insert id="insJobDetailDef" parameterType="java.util.HashMap">    
+    	insert into HI_JobDetailDef (id, version, jobName, jobGroup, jobClassName, durable, volatiled, shouldRecover, description, creator) 
+		values (#{id,jdbcType=NUMERIC}, 1, #{jobName,jdbcType=LONGVARCHAR}, #{jobGroup,jdbcType=LONGVARCHAR}, #{jobClassName,jdbcType=LONGVARCHAR}, #{durable,jdbcType=NUMERIC}, #{volatiled,jdbcType=NUMERIC}, #{shouldRecover,jdbcType=NUMERIC}, #{description,jdbcType=LONGVARCHAR}, #{creator,jdbcType=NUMERIC})
+		<selectKey resultType="int"  keyProperty="id"/>   
+	</insert>
+	
+	<update id="updateJobDetailDef" parameterType="java.util.HashMap">
+		update HI_JobDetailDef set
+            version = #{version} +1,
+			jobName = #{jobName,jdbcType=LONGVARCHAR},
+			jobGroup = #{jobGroup,jdbcType=LONGVARCHAR},
+			jobClassName = #{jobClassName,jdbcType=LONGVARCHAR},
+			durable = #{durable,jdbcType=NUMERIC},
+			volatiled = #{volatiled,jdbcType=NUMERIC},
+			shouldRecover = #{shouldRecover,jdbcType=NUMERIC},
+			description = #{description,jdbcType=LONGVARCHAR},
+			creator = #{creator,jdbcType=NUMERIC}
+    where    
+      id = #{id}    
+	</update>    
+   
+	<delete id="delJobDetailDef" parameterType="int">    
+		delete from HI_JobDetailDef where id = #{id}
+	</delete>
+
+</mapper>    

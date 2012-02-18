@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+  <include file="webwork-default.xml" />
+  <package name="hi" extends="webwork-default">
+    <result-types>
+      <result-type name="excel" class="org.hi.framework.web.webwork.ExcelResult" default="false" />
+    </result-types>
+    <interceptors>
+      <interceptor name="exception" class="org.hi.framework.web.webwork.ExceptionMappingInterceptor" />
+      <interceptor name="loadobject" class="org.hi.framework.web.webwork.NothingInterceptor" />
+      <interceptor name="params" class="org.hi.framework.web.webwork.ParametersInterceptor" />
+      <interceptor-stack name="modelParamsStack">
+        <interceptor-ref name="exception" />
+        <interceptor-ref name="params" />
+        <interceptor-ref name="loadobject" />
+      </interceptor-stack>
+    </interceptors>
+    <global-results>
+      <result name="exceptionPage" type="dispatcher">
+        <param name="location">/common/exceptionPage.jsp</param>
+      </result>
+      <result name="download" type="stream">
+        <param name="inputName">inputStream</param>
+        <param name="contentType">${contentType}</param>
+        <param name="contentDisposition">attachment;filename="${fileName}"</param>
+        <param name="bufferSize">2048</param>
+      </result>
+      <result name="auto">/${proxy.config.packageName}/${proxy.method}.jsp</result>
+      <result name="ajaxDone">/ajaxDone.jsp</result>
+      <result name="json">/common/json.jsp</result>
+    </global-results>
+    <global-exception-mappings>
+      <exception-mapping exception="org.hi.framework.web.BusinessException" result="exceptionPage" />
+      <exception-mapping exception="org.acegisecurity.AccessDeniedException" result="exceptionPage" />
+    </global-exception-mappings>
+    <!-- /XXtree.action?menuName=menuName(himenu-config.xml)&type=nextforwardName -->
+    <action name="sysmenu" class="org.hi.base.menu.action.webwork.actionExt.SysMenuAction">
+      <result name="sysmenu">/menu/menu.jsp</result>
+    </action>
+    <action name="tree" class="org.hi.base.menu.action.webwork.actionExt.CommonTreeAction">
+      <result name="commonxtree">/common/sampleCommonTree.jsp</result>
+    </action>
+    <action name="loadTree" class="org.hi.base.menu.action.webwork.actionExt.CommonLoadTreeAction">
+      <result name="commonloadxtree">/common/sampleCommonLoadTree.jsp</result>
+      <result name="subMenu">/common/subMenu.jsp</result>
+    </action>
+  </package>
+  <include file="xwork-organization.xml" />
+  <include file="xwork-organization-customer.xml" />
+  <include file="xwork-enumeration.xml" />
+  <include file="xwork-menu.xml" />
+  <include file="xwork-security.xml" />
+  <include file="xwork-security-customer.xml" />
+  <include file="xwork-schedule.xml" />
+  <include file="xwork-report.xml" />
+  <include file="xwork-report-customer.xml" />
+  <include file="xwork-sysapp.xml" />
+  <include file="xwork-attachment-customer.xml" />
+  <include file="xwork-i18n.xml" />
+  <include file="xwork-i18n-cust.xml" />
+</xwork>
+
