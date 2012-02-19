@@ -38,6 +38,11 @@ public abstract class FriendsAbstract extends BaseObject implements Serializable
  	protected  Integer age;
 
  	 /**
+	 * ÐÔ±ð
+	 */	
+ 	protected  Integer gentle;
+
+ 	 /**
 	 * staff
 	 */	
  	protected  Staff staff;
@@ -103,6 +108,19 @@ public abstract class FriendsAbstract extends BaseObject implements Serializable
         		this.oldValues.put("age", this.age);
         	}
         this.age = age;
+    }
+    
+    public Integer getGentle() {
+        return this.gentle;
+    }
+    
+    public void setGentle(Integer gentle) {
+    		if((gentle != null && this.gentle == null) || 
+				this.gentle != null && (!this.gentle.equals(gentle) || gentle == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("gentle", this.gentle);
+        	}
+        this.gentle = gentle;
     }
     
     public Staff getStaff() {

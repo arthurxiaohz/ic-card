@@ -15,6 +15,8 @@ public class FriendsPageInfo extends PageInfoView{
  	protected  String  f_name_op;
 	protected  Integer  f_age;
  	protected  String  f_age_op;
+	protected  Integer  f_gentle;
+ 	protected  String  f_gentle_op;
 	protected  Integer  f_deleted;
  	protected  String  f_deleted_op;
 
@@ -67,6 +69,22 @@ public class FriendsPageInfo extends PageInfoView{
     
     public void setF_age_op(String f_age_op) {
         this.f_age_op = f_age_op;
+    }
+   
+    public Integer getF_gentle() {
+        return this.f_gentle;
+    }
+    
+    public void setF_gentle(Integer f_gentle) {
+        this.f_gentle = f_gentle;
+    }
+    
+    public String getF_gentle_op() {
+        return this.f_gentle_op;
+    }
+    
+    public void setF_gentle_op(String f_gentle_op) {
+        this.f_gentle_op = f_gentle_op;
     }
    
     public Integer getF_deleted() {

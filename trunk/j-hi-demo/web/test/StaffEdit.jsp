@@ -130,6 +130,7 @@
 							<tr>
 								<th type="text" class=" required" name="name" size="12" maxlength="30"><hi:text key="姓名" entity="Friends"/></th>
 								<th type="text" class=" required integer" name="age" size="12"><hi:text key="年龄" entity="Friends"/></th>
+								<th type="enum" name="gentle" enumName="gender" size="12"><hi:text key="性别" entity="Friends"/></th>
 								<th type="del" width="60"><hi:text key="操作"/></th>
 							</tr>
 						</thead>
@@ -143,6 +144,9 @@
 								</td>
 								<td>
 									<input type="text" class=" required integer" name="staff.friendss[${s.index}].age" value="${item.age}" size="12" alt="<hi:text key="请输入整数"/>"/>
+								</td>
+								<td>
+									<hi:select emu="gender" name="staff.friendss[${s.index}].gentle" />
 								</td>
 								<td><a href="<hi:url>friendsRemove.action?ajax=1&friends.id=${item.id}</hi:url>" class="btnDel" title="<hi:text key="确定要删除吗?"/>">删除</a></td>
 							</tr>

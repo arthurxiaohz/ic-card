@@ -533,3 +533,7 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(1
 delete from HI_Language where ID = 101002;
 --
 insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101002, 0, 'ÄêÁä', 'Friends', 1, 0);
+--
+delete from HI_Language where ID = 101003;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101003, 0, 'ÐÔ±ð', 'Friends', 1, 0);

@@ -84,6 +84,7 @@ CREATE TABLE Friends (
     version int NOT NULL ,
     name nvarchar (30) NOT NULL,
     age int  NOT NULL,
+    gentle int   NULL,
     staff int  NULL,
     creator int  NULL,
     deleted int   NULL,

@@ -9,6 +9,7 @@
 		<result property="version" column="version"/>
 		<result property="name" column="name"/>
 		<result property="age" column="age"/>
+		<result property="gentle" column="gentle"/>
 		<result property="staff" column="staff" select="select_inner_Staff"/>
 		<result property="creator" column="creator" select="select_inner_HiUser"/>
 		<result property="deleted" column="deleted"/>
@@ -23,8 +24,8 @@
 	</select>
 	
 	<insert id="insFriends" parameterClass="java.util.HashMap">    
-    	insert into Friends (id, version, name, age, staff, creator, deleted) 
-		values (#id#, 1, #name#, #age#, #staff#, #creator#, #deleted#)
+    	insert into Friends (id, version, name, age, gentle, staff, creator, deleted) 
+		values (#id#, 1, #name#, #age#, #gentle#, #staff#, #creator#, #deleted#)
 		<selectKey resultClass="int"  keyProperty="id" />   
 	</insert>    
    
@@ -34,6 +35,7 @@
             version = #version# +1,
 			name = #name#,
 			age = #age#,
+			gentle = #gentle#,
 			staff = #staff#,
 			creator = #creator#,
 			deleted = #deleted#

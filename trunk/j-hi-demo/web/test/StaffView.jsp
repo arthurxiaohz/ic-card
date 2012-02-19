@@ -89,6 +89,7 @@
 							<tr>
 								<th><hi:text key="姓名" entity="Friends"/></th>
 								<th><hi:text key="年龄" entity="Friends"/></th>
+								<th><hi:text key="性别" entity="Friends"/></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -96,6 +97,7 @@
 							<tr>						
 								<td>${item.name}</td>
 								<td>${item.age}</td>
+				        		<td><hi:select emu="gender" name="item.gentle" isLabel="true"/></td>
 							</tr>
 							</c:forEach>
 						</tbody>

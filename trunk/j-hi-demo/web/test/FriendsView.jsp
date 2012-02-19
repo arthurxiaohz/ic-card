@@ -12,6 +12,9 @@
 		<dl>
 			<dt><hi:text key="年龄" entity="Friends"/>：</dt><dd>${friends.age}</dd>
 		</dl>
+		<dl>
+			<dt><hi:text key="性别" entity="Friends"/>：</dt><dd><hi:select emu="gender" name="friends.gentle" isLabel="true"/></dd>
+		</dl>
 
 		<div class="divider"></div>
 			</div>

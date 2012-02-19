@@ -1357,6 +1357,29 @@
         
         
                             <field>
+            <fieldName>gentle</fieldName>
+            <fieldLabel>性别</fieldLabel>
+                        <isPrimaryKey>false</isPrimaryKey>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>true</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
+                                    <isHidden>false</isHidden>
+                                    <isFull>false</isFull>
+                                    <isMainLookup>false</isMainLookup>
+                        <defaultValue></defaultValue> 
+            <validator></validator>  
+            <length></length>
+            <scale></scale>
+                        <isParent>false</isParent>
+            <fieldType>7</fieldType>
+            
+                         <enumerationEntity>Gender</enumerationEntity>
+                        
+                       </field>
+                     
+        
+        
+                            <field>
             <fieldName>staff</fieldName>
             <fieldLabel>staff</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>

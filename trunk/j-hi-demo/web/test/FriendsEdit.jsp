@@ -11,6 +11,9 @@
 		<dl>
 			<dt><hi:text key="年龄" entity="Friends"/>：</dt><dd><input type="text" name="friends.age" class="textInput required integer" value="${friends.age}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
+		<dl>
+			<dt><hi:text key="性别" entity="Friends"/>：</dt><dd><hi:select emu="gender" name="friends.gentle"/></dd>			
+		</dl>
 				<input type="hidden" name="friends.id" value="${friends.id}"/>
 				<input type="hidden" name="friends.staff.id" value="${friends.staff.id}"/>
 				<input type="hidden" name="friends.creator.id" value="${friends.creator.id}"/>
