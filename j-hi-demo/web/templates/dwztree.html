@@ -1,0 +1,66 @@
+## displayMenu is defined in WEB-INF/classes/globalMacros.vm
+#macro(digui)
+	#set ($s_parent = $s_owner.parent)
+	#set( $count = $s_parent.components.size() - 1)
+	#if($s_parent.components.get($count) == $s_owner)
+		</ul></li>
+		#set ($s_owner = $s_owner.parent)
+		#digui()
+	#end
+#end
+
+#macro( menuItem $menu $level )
+  ## set title
+  #set ($title = $displayer.getMessage($menu.title))
+  #if ($level == 0)
+  	<li> <a href="javascript:void(0)">${title}</a>
+  		<ul>
+  #else
+    <li>
+    #if ($menu.components.size() > 0) 
+   	#set ($numItems = $menu.components.size())
+    	 <a #if($menu.action)href="$!menu.action"#end #if($menu.jsFunctionName)onclick="$!menu.jsFunctionName" href="javascript:void(0)"#end target="#if($menu.target)$!menu.target#end">${title}</a>
+      <ul>
+    #else
+   		 <a #if($menu.define.checkbox) tname="hi_checkbox_common" tvalue="$!menu.checkbox"#end" #if($menu.action)href="$!menu.action"#end #if($menu.jsFunctionName)onclick="$!menu.jsFunctionName" href="javascript:void(0)"#end target="#if($menu.target)$!menu.target#end">${title}</a>
+    #end
+    #if($menu.components.size() == 0)
+  	</li>
+  	#end
+  	#if ($level != 0 && $velocityCount == $menu.parent.components.size() && $menu.components.size() == 0)
+	   	#set ($s_owner = $menu)
+		#digui()
+	#end
+  #end
+#end
+
+ <script type="text/javascript">
+${menu.define.javascript}
+#if($menu.define.checkbox)
+	function selectedcb(button){
+	var checkeds = jQuery(button).parent().find(".tree :checkbox").filter(":checked").filter("[name]");
+	var ids = new Array();
+	var texts = new Array();
+	checkeds.each(function(i){
+		var input = jQuery(this);
+		ids[i] = input.val();
+		texts[i] = input.attr("text");
+	});
+	var result = new Array();
+	if(ids.length == 0) 
+		return result;
+	result[0] = ids;result[1] = texts;
+	return result;
+}
+#end
+ </script>
+
+<div style=" float:left; display:block; margin:10px; overflow:auto; width:200px; height:300px; border:solid 1px #CCC; line-height:21px; background:#FFF;#if($cssStyle)$!cssStyle#end">  
+	<ul class="tree treeFolder collapse#if($menu.define.checkbox) treeCheck#end">
+#displayMenu($menu 0)
+</ul>
+#if($menu.define.checkbox)
+<input type='button' name='button1' value='带回'  onclick='bringBackCheckBox(selectedcb(this))'/ >
+#end
+</div>
+
