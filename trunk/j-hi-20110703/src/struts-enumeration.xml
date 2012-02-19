@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="enumeration" extends="hi" >
+		<!-- ============= 枚举实体对应的EnumerationAction============ --> 
+	  <action name="enumeration" class="org.hi.base.enumeration.action.struts.EnumerationAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  <action name="enumerationList"
+			class="org.hi.base.enumeration.action.struts.EnumerationAction" method="enumerationList">
+			<result name="success">/enumeration/EnumerationList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="enumerationSave"
+			class="org.hi.base.enumeration.action.struts.EnumerationAction" method="saveEnumeration">
+			<result name="success" type="redirect-action">enumerationList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="enumerationEdit"
+			class="org.hi.base.enumeration.action.struts.EnumerationAction" method="viewEnumeration">
+			<result name="success">/enumeration/EnumerationEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="enumerationView"
+			class="org.hi.base.enumeration.action.struts.EnumerationAction" method="viewEnumeration">
+			<result name="success">/enumeration/EnumerationView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="enumerationRemove"
+			class="org.hi.base.enumeration.action.struts.EnumerationAction" method="removeEnumeration">
+			<result name="success" type="redirect-action">enumerationList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="enumerationRemoveAll"
+			class="org.hi.base.enumeration.action.struts.EnumerationAction" method="removeAllEnumeration">
+			<result name="success" type="redirect-action">enumerationList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="enumerationLookup"
+			class="org.hi.base.enumeration.action.struts.EnumerationAction" method="enumerationList">
+			<result name="success">/enumeration/EnumerationList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+	
+		<!-- ============= 枚举值对应的EnumerationValueAction============ --> 
+	  <action name="enumerationValue" class="org.hi.base.enumeration.action.struts.EnumerationValueAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  <action name="enumerationValueList"
+			class="org.hi.base.enumeration.action.struts.EnumerationValueAction" method="enumerationValueList">
+			<result name="success">/enumeration/EnumerationValueList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="enumerationValueSave"
+			class="org.hi.base.enumeration.action.struts.EnumerationValueAction" method="saveEnumerationValue">
+			<result name="success" type="redirect-action">enumerationValueList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="enumerationValueEdit"
+			class="org.hi.base.enumeration.action.struts.EnumerationValueAction" method="viewEnumerationValue">
+			<result name="success">/enumeration/EnumerationValueEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="enumerationValueView"
+			class="org.hi.base.enumeration.action.struts.EnumerationValueAction" method="viewEnumerationValue">
+			<result name="success">/enumeration/EnumerationValueView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="enumerationValueRemove"
+			class="org.hi.base.enumeration.action.struts.EnumerationValueAction" method="removeEnumerationValue">
+			<result name="success" type="redirect-action">enumerationValueList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="enumerationValueRemoveAll"
+			class="org.hi.base.enumeration.action.struts.EnumerationValueAction" method="removeAllEnumerationValue">
+			<result name="success" type="redirect-action">enumerationValueList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="enumerationValueLookup"
+			class="org.hi.base.enumeration.action.struts.EnumerationValueAction" method="enumerationValueList">
+			<result name="success">/enumeration/EnumerationValueList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</struts>

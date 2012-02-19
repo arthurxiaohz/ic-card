@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="i18next" extends="hi" >
+		
+		<action name="languageEdit"
+		class="org.hi.i18n.action.struts.cust.LanguageViewAction">
+		<result name="success">/i18n/LanguageEdit.jsp</result>
+		<interceptor-ref name="modelParamsStack" />
+	</action>
+	 
+</package>
+</struts>

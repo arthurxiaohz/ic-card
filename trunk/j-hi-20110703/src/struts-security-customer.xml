@@ -1,0 +1,82 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+	<package name="security-customer" extends="hi" >
+
+	  <action name="batchAuthority"
+			class="org.hi.framework.security.action.struts.UserAuthorityBatchViewAction">
+			<result name="success">/security/UserAuthorityBatch.jsp</result>
+	  </action>
+		
+	  <action name="batchAuthoritySave"
+			class="org.hi.framework.security.action.struts.UserAuthorityBatchSaveAction">
+			<result name="success" type="redirect-action">userAuthorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+	  </action>
+
+	  <action name="singleBatchAuthority"
+			class="org.hi.framework.security.action.struts.UserAuthoritySingleBatchViewAction">
+			<result name="success">/security/UserAuthoritySingleBatch.jsp</result>
+	  </action>	
+	  <action name="singleBatchAuthoritySave"
+			class="org.hi.framework.security.action.struts.UserAuthoritySingleBatchSaveAction">
+			<result name="success" type="redirect-action">userAuthorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+	  </action>	
+	  
+		<action name="roleView"
+			class="org.hi.framework.security.action.struts.RoleAssignViewAction">
+			<result name="success">/security/RoleView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>	
+	  
+	  <action name="roleAssignView"
+			class="org.hi.framework.security.action.struts.RoleAssignViewAction">
+			<result name="success">/security/RoleAssign.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+	  </action>		
+	  
+	  <action name="roleAssignSave"
+			class="org.hi.framework.security.action.struts.RoleAssignSaveAction">
+			<result name="success" type="redirect-action">roleList</result>
+			<interceptor-ref name="modelParamsStack" />
+	  </action>	    
+	  
+	  <action name="securityUserList"
+			class="org.hi.base.organization.action.struts.HiUserAction" method="hiUserList">
+			<result name="success">/security/HiUserList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+	 </action>	
+	 <action name="securityUserSave"
+			class="org.hi.base.organization.action.struts.HiUserAction" method="saveUserPassword">
+			<result name="success" type="redirect-action">securityUserList</result>
+			<interceptor-ref name="modelParamsStack" />
+	 </action>
+		
+	 <action name="securityUserEdit"
+			class="org.hi.base.organization.action.struts.HiUserAction" method="viewHiUser">
+			<result name="success">/security/HiUserEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+	 </action>
+	 
+	<action name="securityUserRemove"
+			class="org.hi.base.organization.action.struts.HiUserAction" method="removeHiUser">
+			<result name="success" type="redirect-action">securityUserList</result>
+			<interceptor-ref name="modelParamsStack" />
+	</action>	
+	
+	  <action name="roleList"
+			class="org.hi.framework.security.action.struts.RoleListAction">
+			<result name="success">/security/RoleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+	</action>
+	
+			<action name="roleSave"
+			class="org.hi.framework.security.action.struts.RoleSaveAction">
+			<result name="success" type="redirect-action">roleList</result>
+			<interceptor-ref name="exception"/>						
+			<interceptor-ref name="params" />
+
+	</action>	 	   		  	
+</package>
+</xwork>

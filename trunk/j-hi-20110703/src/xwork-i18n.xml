@@ -1,0 +1,175 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+	<package name="i18n" extends="hi" >
+
+	  <action name="languageList"
+			class="org.hi.i18n.action.webwork.LanguageListAction">
+			<result name="success">/i18n/LanguageList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageSave"
+			class="org.hi.i18n.action.webwork.LanguageSaveAction">
+			<result name="success" type="redirect-action">languageList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageEdit"
+			class="org.hi.i18n.action.webwork.LanguageViewAction">
+			<result name="success">/i18n/LanguageEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageView"
+			class="org.hi.i18n.action.webwork.LanguageViewAction">
+			<result name="success">/i18n/LanguageView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="languageRemove"
+			class="org.hi.i18n.action.webwork.LanguageRemoveAction">
+			<result name="success" type="redirect-action">languageList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageRemoveAll"
+			class="org.hi.i18n.action.webwork.LanguageRemoveAllAction">
+			<result name="success" type="redirect-action">languageList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="languageLookup"
+			class="org.hi.i18n.action.webwork.LanguageListAction">
+			<result name="success">/i18n/LanguageList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="languageCodeList"
+			class="org.hi.i18n.action.webwork.LanguageCodeListAction">
+			<result name="success">/i18n/LanguageCodeList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageCodeSave"
+			class="org.hi.i18n.action.webwork.LanguageCodeSaveAction">
+			<result name="success" type="redirect-action">languageCodeList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageCodeEdit"
+			class="org.hi.i18n.action.webwork.LanguageCodeViewAction">
+			<result name="success">/i18n/LanguageCodeEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageCodeView"
+			class="org.hi.i18n.action.webwork.LanguageCodeViewAction">
+			<result name="success">/i18n/LanguageCodeView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="languageCodeRemove"
+			class="org.hi.i18n.action.webwork.LanguageCodeRemoveAction">
+			<result name="success" type="redirect-action">languageCodeList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageCodeRemoveAll"
+			class="org.hi.i18n.action.webwork.LanguageCodeRemoveAllAction">
+			<result name="success" type="redirect-action">languageCodeList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="languageCodeLookup"
+			class="org.hi.i18n.action.webwork.LanguageCodeListAction">
+			<result name="success">/i18n/LanguageCodeList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="languageStrList"
+			class="org.hi.i18n.action.webwork.LanguageStrListAction">
+			<result name="success">/i18n/LanguageStrList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageStrSave"
+			class="org.hi.i18n.action.webwork.LanguageStrSaveAction">
+			<result name="success" type="redirect-action">languageStrList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageStrEdit"
+			class="org.hi.i18n.action.webwork.LanguageStrViewAction">
+			<result name="success">/i18n/LanguageStrEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageStrView"
+			class="org.hi.i18n.action.webwork.LanguageStrViewAction">
+			<result name="success">/i18n/LanguageStrView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="languageStrRemove"
+			class="org.hi.i18n.action.webwork.LanguageStrRemoveAction">
+			<result name="success" type="redirect-action">languageStrList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageStrRemoveAll"
+			class="org.hi.i18n.action.webwork.LanguageStrRemoveAllAction">
+			<result name="success" type="redirect-action">languageStrList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="languageStrLookup"
+			class="org.hi.i18n.action.webwork.LanguageStrListAction">
+			<result name="success">/i18n/LanguageStrList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="timezoneList"
+			class="org.hi.i18n.action.webwork.TimezoneListAction">
+			<result name="success">/i18n/TimezoneList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="timezoneSave"
+			class="org.hi.i18n.action.webwork.TimezoneSaveAction">
+			<result name="success" type="redirect-action">timezoneList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="timezoneEdit"
+			class="org.hi.i18n.action.webwork.TimezoneViewAction">
+			<result name="success">/i18n/TimezoneEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="timezoneView"
+			class="org.hi.i18n.action.webwork.TimezoneViewAction">
+			<result name="success">/i18n/TimezoneView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="timezoneRemove"
+			class="org.hi.i18n.action.webwork.TimezoneRemoveAction">
+			<result name="success" type="redirect-action">timezoneList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="timezoneRemoveAll"
+			class="org.hi.i18n.action.webwork.TimezoneRemoveAllAction">
+			<result name="success" type="redirect-action">timezoneList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="timezoneLookup"
+			class="org.hi.i18n.action.webwork.TimezoneListAction">
+			<result name="success">/i18n/TimezoneList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</xwork>

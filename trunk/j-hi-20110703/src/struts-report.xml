@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="report" extends="hi" >
+		<!-- ============= Excel报表设计对应的ExcelReportDesignAction============ --> 
+	  <action name="excelReportDesign" class="org.hi.base.report.excel.action.struts.ExcelReportDesignAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  <action name="excelReportDesignList"
+			class="org.hi.base.report.excel.action.struts.ExcelReportDesignAction" method="excelReportDesignList">
+			<result name="success">/report/ExcelReportDesignList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="excelReportDesignSave"
+			class="org.hi.base.report.excel.action.struts.ExcelReportDesignAction" method="saveExcelReportDesign">
+			<result name="success" type="redirect-action">excelReportDesignList</result>
+			<interceptor-ref name="fileUpload"/>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="excelReportDesignEdit"
+			class="org.hi.base.report.excel.action.struts.ExcelReportDesignAction" method="viewExcelReportDesign">
+			<result name="success">/report/ExcelReportDesignEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="excelReportDesignView"
+			class="org.hi.base.report.excel.action.struts.ExcelReportDesignAction" method="viewExcelReportDesign">
+			<result name="success">/report/ExcelReportDesignView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="excelReportDesignRemove"
+			class="org.hi.base.report.excel.action.struts.ExcelReportDesignAction" method="removeExcelReportDesign">
+			<result name="success" type="redirect-action">excelReportDesignList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="excelReportDesignRemoveAll"
+			class="org.hi.base.report.excel.action.struts.ExcelReportDesignAction" method="removeAllExcelReportDesign">
+			<result name="success" type="redirect-action">excelReportDesignList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="excelReportDesignLookup"
+			class="org.hi.base.report.excel.action.struts.ExcelReportDesignAction" method="excelReportDesignList">
+			<result name="success">/report/ExcelReportDesignList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 工作表对应的ExcelSheetAction============ --> 
+
+	  <action name="excelSheetList"
+			class="org.hi.base.report.excel.action.struts.ExcelSheetAction" method="excelSheetList">
+			<result name="success">/report/ExcelSheetList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="excelSheetSave"
+			class="org.hi.base.report.excel.action.struts.ExcelSheetAction" method="saveExcelSheet">
+			<result name="success" type="redirect-action">excelSheetList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="excelSheetEdit"
+			class="org.hi.base.report.excel.action.struts.ExcelSheetAction" method="viewExcelSheet">
+			<result name="success">/report/ExcelSheetEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="excelSheetView"
+			class="org.hi.base.report.excel.action.struts.ExcelSheetAction" method="viewExcelSheet">
+			<result name="success">/report/ExcelSheetView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="excelSheetRemove"
+			class="org.hi.base.report.excel.action.struts.ExcelSheetAction" method="removeExcelSheet">
+			<result name="success" type="redirect-action">excelSheetList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="excelSheetRemoveAll"
+			class="org.hi.base.report.excel.action.struts.ExcelSheetAction" method="removeAllExcelSheet">
+			<result name="success" type="redirect-action">excelSheetList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="excelSheetLookup"
+			class="org.hi.base.report.excel.action.struts.ExcelSheetAction" method="excelSheetList">
+			<result name="success">/report/ExcelSheetList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 单元格对应的ExcelCellAction============ --> 
+
+	  <action name="excelCellList"
+			class="org.hi.base.report.excel.action.struts.ExcelCellAction" method="excelCellList">
+			<result name="success">/report/ExcelCellList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="excelCellSave"
+			class="org.hi.base.report.excel.action.struts.ExcelCellAction" method="saveExcelCell">
+			<result name="success" type="redirect-action">excelCellList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="excelCellEdit"
+			class="org.hi.base.report.excel.action.struts.ExcelCellAction" method="viewExcelCell">
+			<result name="success">/report/ExcelCellEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="excelCellView"
+			class="org.hi.base.report.excel.action.struts.ExcelCellAction" method="viewExcelCell">
+			<result name="success">/report/ExcelCellView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="excelCellRemove"
+			class="org.hi.base.report.excel.action.struts.ExcelCellAction" method="removeExcelCell">
+			<result name="success" type="redirect-action">excelCellList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="excelCellRemoveAll"
+			class="org.hi.base.report.excel.action.struts.ExcelCellAction" method="removeAllExcelCell">
+			<result name="success" type="redirect-action">excelCellList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="excelCellLookup"
+			class="org.hi.base.report.excel.action.struts.ExcelCellAction" method="excelCellList">
+			<result name="success">/report/ExcelCellList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</struts>
