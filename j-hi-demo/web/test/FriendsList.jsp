@@ -37,7 +37,7 @@
 				<authz:authorize ifAnyGranted="FRIENDS_DEL"><li><a class="delete" href="<hi:url>friendsRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', name:'',age:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', name:'',age:'',gentle:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -50,6 +50,7 @@
 				</c:if>
 				<th orderField="name" class="${pageInfo.sorterName eq 'name' ? pageInfo.sorterDirection : ''}"><hi:text key="姓名" entity="Friends"/></th>
 				<th orderField="age" class="${pageInfo.sorterName eq 'age' ? pageInfo.sorterDirection : ''}"><hi:text key="年龄" entity="Friends"/></th>
+				<th orderField="gentle" class="${pageInfo.sorterName eq 'gentle' ? pageInfo.sorterDirection : ''}"><hi:text key="性别" entity="Friends"/></th>
 				<th width="90">
 					<c:choose>
 						<c:when test="${empty lookup}"><hi:text key="操作"/></c:when>
@@ -66,6 +67,7 @@
 				</c:if>			
 				    <td>${item.name}</td>
 				    <td>${item.age}</td>
+				    <td><hi:select emu="gender" name="friendss[${s.index}].gentle" isLabel="true"/></td>
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
@@ -80,7 +82,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', name:'${item.name}',age:'${item.age}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', name:'${item.name}',age:'${item.age}',gentle:'<hi:select emu="gender" name="friendss[${s.index}].gentle" isLabel="true"/>'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

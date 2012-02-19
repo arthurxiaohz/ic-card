@@ -769,7 +769,56 @@
                 <isMainLookup>false</isMainLookup>
                 <isParent>false</isParent>
               </org.hi.studio.hsceditor.visual.model.ColumnModel>
-              <org.hi.studio.hsceditor.visual.model.ColumnModel reference="../../../foreignKeyColumn"/>
+              <org.hi.studio.hsceditor.visual.model.ColumnModel>
+                <columnName>gentle</columnName>
+                <logicalName>column5</logicalName>
+                <size></size>
+                <scale></scale>
+                <notNull>false</notNull>
+                <primaryKey>false</primaryKey>
+                <description>性别</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+                <mainEntityName></mainEntityName>
+                <hiValidator></hiValidator>
+                <lkServiceName></lkServiceName>
+                <lkEntityName>Gender</lkEntityName>
+                <lkFieldName></lkFieldName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <hiDataType>7</hiDataType>
+                <isSearch>false</isSearch>
+                <isListDisplay>true</isListDisplay>
+                <isReadOnly>false</isReadOnly>
+                <isHidden>false</isHidden>
+                <isFull>false</isFull>
+                <isMainLookup>false</isMainLookup>
+                <isParent>false</isParent>
+              </org.hi.studio.hsceditor.visual.model.ColumnModel>
+              <org.hi.studio.hsceditor.visual.model.ColumnModel>
+                <columnName>staff</columnName>
+                <logicalName>staff</logicalName>
+                <size></size>
+                <scale></scale>
+                <notNull>false</notNull>
+                <primaryKey>false</primaryKey>
+                <description>staff</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+                <mainEntityName>Staff</mainEntityName>
+                <hiValidator></hiValidator>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <lkFieldName></lkFieldName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <hiDataType>2</hiDataType>
+                <isSearch>false</isSearch>
+                <isListDisplay>false</isListDisplay>
+                <isReadOnly>false</isReadOnly>
+                <isHidden>true</isHidden>
+                <isFull>false</isFull>
+                <isMainLookup>false</isMainLookup>
+                <isParent>true</isParent>
+              </org.hi.studio.hsceditor.visual.model.ColumnModel>
             </columns>
             <indices/>
             <backgroundColor>
