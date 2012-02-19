@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="MchtSettleFee" type="org.hi.test.model.MchtSettleFee"/>
+
+	<resultMap id="MchtSettleFee" class="MchtSettleFee" extends="MbMchtInf">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="byRate" column="byRate"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="deleted" column="deleted"/>
+	</resultMap>
+    
+    <select id="select_inner_MchtSettleFee" resultMap="MchtSettleFee" parameterClass="int">  
+       SELECT * FROM MchtSettleFee  WHERE id =#value#
+    </select>
+  
+	<select id="getMchtSettleFee" resultMap="MchtSettleFee">
+		select * from MchtSettleFee WHERE id = #id# 
+	</select>
+	
+	<insert id="insMchtSettleFee" parameterClass="java.util.HashMap">    
+    	insert into MchtSettleFee (id, byRate, creator, deleted) 
+		values (#id#, #byRate#, #creator#, #deleted#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateMchtSettleFee" parameterClass="java.util.HashMap">    
+		update MchtSettleFee set
+
+			byRate = #byRate#,
+			creator = #creator#,
+			deleted = #deleted#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delMchtSettleFee" parameterClass="int">    
+		delete from MchtSettleFee where id = #id#   
+	</delete>
+    
+	<selectExt id="listMchtSettleFee" resultMap="MchtSettleFee"/> 
+  
+	<selectExt id="countMchtSettleFee" resultClass="int"/> 
+
+</sqlMap>    
