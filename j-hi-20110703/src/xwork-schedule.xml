@@ -1,0 +1,93 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+	<package name="schedule" extends="hi" >
+
+				<!-- for JobDetailDef Action -->
+	  <action name="jobDetailDefList"
+			class="org.hi.base.schedule.action.webwork.JobDetailDefListAction">
+			<result name="success">/schedule/JobDetailDefList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="jobDetailDefSave"
+			class="org.hi.base.schedule.action.webwork.JobDetailDefSaveAction">
+			<result name="success" type="redirect-action">jobDetailDefList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="jobDetailDefEdit"
+			class="org.hi.base.schedule.action.webwork.JobDetailDefViewAction">
+			<result name="success">/schedule/JobDetailDefEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="jobDetailDefView"
+			class="org.hi.base.schedule.action.webwork.JobDetailDefViewAction">
+			<result name="success">/schedule/JobDetailDefView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="jobDetailDefRemove"
+			class="org.hi.base.schedule.action.webwork.JobDetailDefRemoveAction">
+			<result name="success" type="redirect-action">jobDetailDefList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="jobDetailDefRemoveAll"
+			class="org.hi.base.schedule.action.webwork.JobDetailDefRemoveAllAction">
+			<result name="success" type="redirect-action">jobDetailDefList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="jobDetailDefLookup"
+			class="org.hi.base.schedule.action.webwork.JobDetailDefListAction">
+			<result name="success">/schedule/JobDetailDefList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+				<!-- for TriggerDef Action -->
+	  <action name="triggerDefList"
+			class="org.hi.base.schedule.action.webwork.TriggerDefListAction">
+			<result name="success">/schedule/TriggerDefList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="triggerDefSave"
+			class="org.hi.base.schedule.action.webwork.TriggerDefSaveAction">
+			<result name="success" type="redirect-action">triggerDefList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="triggerDefEdit"
+			class="org.hi.base.schedule.action.webwork.TriggerDefViewAction">
+			<result name="success">/schedule/TriggerDefEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="triggerDefView"
+			class="org.hi.base.schedule.action.webwork.TriggerDefViewAction">
+			<result name="success">/schedule/TriggerDefView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="triggerDefRemove"
+			class="org.hi.base.schedule.action.webwork.TriggerDefRemoveAction">
+			<result name="success" type="redirect-action">triggerDefList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="triggerDefRemoveAll"
+			class="org.hi.base.schedule.action.webwork.TriggerDefRemoveAllAction">
+			<result name="success" type="redirect-action">triggerDefList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="triggerDefLookup"
+			class="org.hi.base.schedule.action.webwork.TriggerDefListAction">
+			<result name="success">/schedule/TriggerDefList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</xwork>

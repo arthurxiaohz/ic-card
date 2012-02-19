@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="organization" extends="hi" >
+		<!-- ============= 部门对应的HiOrgAction============ --> 
+	  <action name="hiOrg" class="org.hi.base.organization.action.struts.HiOrgAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  <action name="hiOrgList"
+			class="org.hi.base.organization.action.struts.HiOrgAction" method="hiOrgList">
+			<result name="success">/organization/HiOrgList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiOrgSave"
+			class="org.hi.base.organization.action.struts.HiOrgAction" method="saveHiOrg">
+			<result name="success" type="redirect-action">hiOrgList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		<action name="hiOrgEdit"
+			class="org.hi.base.organization.action.struts.HiOrgAction" method="viewHiOrg">
+			<result name="success">/organization/HiOrgEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiOrgView"
+			class="org.hi.base.organization.action.struts.HiOrgAction" method="viewHiOrg">
+			<result name="success">/organization/HiOrgView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="hiOrgRemove"
+			class="org.hi.base.organization.action.struts.HiOrgAction" method="removeHiOrg">
+			<result name="success" type="redirect-action">hiOrgList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiOrgRemoveAll"
+			class="org.hi.base.organization.action.struts.HiOrgAction" method="removeAllHiOrg">
+			<result name="success" type="redirect-action">hiOrgList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="hiOrgLookup"
+			class="org.hi.base.organization.action.struts.HiOrgAction" method="hiOrgList">
+			<result name="success">/organization/HiOrgList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 人员对应的HiUserAction============ --> 
+	  <action name="hiUser" class="org.hi.base.organization.action.struts.HiUserAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  <action name="hiUserList"
+			class="org.hi.base.organization.action.struts.HiUserAction" method="hiUserList">
+			<result name="success">/organization/HiUserList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiUserSave"
+			class="org.hi.base.organization.action.struts.HiUserAction" method="saveHiUser">
+			<result name="success" type="redirect-action">hiUserList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="hiUserEdit"
+			class="org.hi.base.organization.action.struts.HiUserAction" method="viewHiUser">
+			<result name="success">/organization/HiUserEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiUserView"
+			class="org.hi.base.organization.action.struts.HiUserAction" method="viewHiUser">
+			<result name="success">/organization/HiUserView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="hiUserRemove"
+			class="org.hi.base.organization.action.struts.HiUserAction" method="removeHiUser">
+			<result name="success" type="redirect-action">hiUserList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiUserRemoveAll"
+			class="org.hi.base.organization.action.struts.HiUserAction" method="removeAllHiUser">
+			<result name="success" type="redirect-action">hiUserList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="hiUserLookup"
+			class="org.hi.base.organization.action.struts.HiUserAction" method="hiUserList">
+			<result name="success">/organization/HiUserList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</struts>

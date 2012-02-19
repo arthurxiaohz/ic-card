@@ -1,0 +1,23 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+	<package name="organization-customer" extends="hi" >
+		
+		<action name="personalSettingView"
+			class="org.hi.base.organization.action.struts.HiUserAction" method="currentUser">
+			<result name="success">/organization/PersonalSetting.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		<action name="personalSettingSave"
+			class="org.hi.base.organization.action.struts.HiUserAction" method="saveUserPassword">
+			<result name="success">/organization/PersonalSetting.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+	  <action name="hiUserBatchList"
+			class="org.hi.base.organization.action.struts.HiUserAction" method="hiUserList">
+			<result name="success">/organization/HiUserBatchList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+</package>
+</xwork>

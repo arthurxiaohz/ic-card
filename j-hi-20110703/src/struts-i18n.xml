@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="i18n" extends="hi" >
+		<!-- ============= 多语言信息对应的LanguageAction============ --> 
+	  <action name="language" class="org.hi.i18n.action.struts.LanguageAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  <action name="languageList"
+			class="org.hi.i18n.action.struts.LanguageAction" method="languageList">
+			<result name="success">/i18n/LanguageList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageSave"
+			class="org.hi.i18n.action.struts.LanguageAction" method="saveLanguage">
+			<result name="success" type="redirect-action">languageList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="languageEdit"
+			class="org.hi.i18n.action.struts.LanguageAction" method="viewLanguage">
+			<result name="success">/i18n/LanguageEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageView"
+			class="org.hi.i18n.action.struts.LanguageAction" method="viewLanguage">
+			<result name="success">/i18n/LanguageView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="languageRemove"
+			class="org.hi.i18n.action.struts.LanguageAction" method="removeLanguage">
+			<result name="success" type="redirect-action">languageList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageRemoveAll"
+			class="org.hi.i18n.action.struts.LanguageAction" method="removeAllLanguage">
+			<result name="success" type="redirect-action">languageList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="languageLookup"
+			class="org.hi.i18n.action.struts.LanguageAction" method="languageList">
+			<result name="success">/i18n/LanguageList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 语言编码对应的LanguageCodeAction============ --> 
+	  <action name="languageCode" class="org.hi.i18n.action.struts.LanguageCodeAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  <action name="languageCodeList"
+			class="org.hi.i18n.action.struts.LanguageCodeAction" method="languageCodeList">
+			<result name="success">/i18n/LanguageCodeList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageCodeSave"
+			class="org.hi.i18n.action.struts.LanguageCodeAction" method="saveLanguageCode">
+			<result name="success" type="redirect-action">languageCodeList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="languageCodeEdit"
+			class="org.hi.i18n.action.struts.LanguageCodeAction" method="viewLanguageCode">
+			<result name="success">/i18n/LanguageCodeEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageCodeView"
+			class="org.hi.i18n.action.struts.LanguageCodeAction" method="viewLanguageCode">
+			<result name="success">/i18n/LanguageCodeView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="languageCodeRemove"
+			class="org.hi.i18n.action.struts.LanguageCodeAction" method="removeLanguageCode">
+			<result name="success" type="redirect-action">languageCodeList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageCodeRemoveAll"
+			class="org.hi.i18n.action.struts.LanguageCodeAction" method="removeAllLanguageCode">
+			<result name="success" type="redirect-action">languageCodeList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="languageCodeLookup"
+			class="org.hi.i18n.action.struts.LanguageCodeAction" method="languageCodeList">
+			<result name="success">/i18n/LanguageCodeList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 多语言值对应的LanguageStrAction============ --> 
+	  <action name="languageStr" class="org.hi.i18n.action.struts.LanguageStrAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  <action name="languageStrList"
+			class="org.hi.i18n.action.struts.LanguageStrAction" method="languageStrList">
+			<result name="success">/i18n/LanguageStrList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageStrSave"
+			class="org.hi.i18n.action.struts.LanguageStrAction" method="saveLanguageStr">
+			<result name="success" type="redirect-action">languageStrList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="languageStrEdit"
+			class="org.hi.i18n.action.struts.LanguageStrAction" method="viewLanguageStr">
+			<result name="success">/i18n/LanguageStrEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageStrView"
+			class="org.hi.i18n.action.struts.LanguageStrAction" method="viewLanguageStr">
+			<result name="success">/i18n/LanguageStrView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="languageStrRemove"
+			class="org.hi.i18n.action.struts.LanguageStrAction" method="removeLanguageStr">
+			<result name="success" type="redirect-action">languageStrList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="languageStrRemoveAll"
+			class="org.hi.i18n.action.struts.LanguageStrAction" method="removeAllLanguageStr">
+			<result name="success" type="redirect-action">languageStrList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="languageStrLookup"
+			class="org.hi.i18n.action.struts.LanguageStrAction" method="languageStrList">
+			<result name="success">/i18n/LanguageStrList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 时区对应的TimezoneAction============ --> 
+	  <action name="timezone" class="org.hi.i18n.action.struts.TimezoneAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  <action name="timezoneList"
+			class="org.hi.i18n.action.struts.TimezoneAction" method="timezoneList">
+			<result name="success">/i18n/TimezoneList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="timezoneSave"
+			class="org.hi.i18n.action.struts.TimezoneAction" method="saveTimezone">
+			<result name="success" type="redirect-action">timezoneList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="timezoneEdit"
+			class="org.hi.i18n.action.struts.TimezoneAction" method="viewTimezone">
+			<result name="success">/i18n/TimezoneEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="timezoneView"
+			class="org.hi.i18n.action.struts.TimezoneAction" method="viewTimezone">
+			<result name="success">/i18n/TimezoneView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="timezoneRemove"
+			class="org.hi.i18n.action.struts.TimezoneAction" method="removeTimezone">
+			<result name="success" type="redirect-action">timezoneList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="timezoneRemoveAll"
+			class="org.hi.i18n.action.struts.TimezoneAction" method="removeAllTimezone">
+			<result name="success" type="redirect-action">timezoneList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="timezoneLookup"
+			class="org.hi.i18n.action.struts.TimezoneAction" method="timezoneList">
+			<result name="success">/i18n/TimezoneList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</struts>

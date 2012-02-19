@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="menu" extends="hi" >
+		<!-- ============= 菜单项对应的MenuAction============ --> 
+	  <action name="menu" class="org.hi.base.menu.action.struts.MenuAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  <action name="menuList"
+			class="org.hi.base.menu.action.struts.MenuAction" method="menuList">
+			<result name="success">/menu/MenuList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="menuSave"
+			class="org.hi.base.menu.action.struts.MenuAction" method="saveMenu">
+			<result name="success" type="redirect-action">menuList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="menuEdit"
+			class="org.hi.base.menu.action.struts.MenuAction" method="viewMenu">
+			<result name="success">/menu/MenuEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="menuView"
+			class="org.hi.base.menu.action.struts.MenuAction" method="viewMenu">
+			<result name="success">/menu/MenuView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="menuRemove"
+			class="org.hi.base.menu.action.struts.MenuAction" method="removeMenu">
+			<result name="success" type="redirect-action">menuList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="menuRemoveAll"
+			class="org.hi.base.menu.action.struts.MenuAction" method="removeAllMenu">
+			<result name="success" type="redirect-action">menuList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="menuLookup"
+			class="org.hi.base.menu.action.struts.MenuAction" method="menuList">
+			<result name="success">/menu/MenuList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 菜单链接对应的MenuLinkAction============ --> 
+	  <action name="menuLink" class="org.hi.base.menu.action.struts.MenuLinkAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  <action name="menuLinkList"
+			class="org.hi.base.menu.action.struts.MenuLinkAction" method="menuLinkList">
+			<result name="success">/menu/MenuLinkList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="menuLinkSave"
+			class="org.hi.base.menu.action.struts.MenuLinkAction" method="saveMenuLink">
+			<result name="success" type="redirect-action">menuLinkList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="menuLinkEdit"
+			class="org.hi.base.menu.action.struts.MenuLinkAction" method="viewMenuLink">
+			<result name="success">/menu/MenuLinkEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="menuLinkView"
+			class="org.hi.base.menu.action.struts.MenuLinkAction" method="viewMenuLink">
+			<result name="success">/menu/MenuLinkView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="menuLinkRemove"
+			class="org.hi.base.menu.action.struts.MenuLinkAction" method="removeMenuLink">
+			<result name="success" type="redirect-action">menuLinkList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="menuLinkRemoveAll"
+			class="org.hi.base.menu.action.struts.MenuLinkAction" method="removeAllMenuLink">
+			<result name="success" type="redirect-action">menuLinkList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="menuLinkLookup"
+			class="org.hi.base.menu.action.struts.MenuLinkAction" method="menuLinkList">
+			<result name="success">/menu/MenuLinkList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</struts>
