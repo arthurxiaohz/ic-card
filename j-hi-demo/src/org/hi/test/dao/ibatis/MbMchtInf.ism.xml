@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="MbMchtInf" type="org.hi.test.model.MbMchtInf"/>
+
+	<resultMap id="MbMchtInf" class="MbMchtInf">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="mchtCd" column="mchtCd"/>
+		<result property="mchtName" column="mchtName"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="deleted" column="deleted"/>
+	</resultMap>
+    
+    <select id="select_inner_MbMchtInf" resultMap="MbMchtInf" parameterClass="int">  
+       SELECT * FROM MbMchtInf  WHERE id =#value#
+    </select>
+  
+	<select id="getMbMchtInf" resultMap="MbMchtInf">
+		select * from MbMchtInf WHERE id = #id# 
+	</select>
+	
+	<insert id="insMbMchtInf" parameterClass="java.util.HashMap">    
+    	insert into MbMchtInf (id, version, mchtCd, mchtName, creator, deleted) 
+		values (#id#, 1, #mchtCd#, #mchtName#, #creator#, #deleted#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateMbMchtInf" parameterClass="java.util.HashMap">    
+		update MbMchtInf set
+            version = #version# +1,
+			mchtCd = #mchtCd#,
+			mchtName = #mchtName#,
+			creator = #creator#,
+			deleted = #deleted#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delMbMchtInf" parameterClass="int">    
+		delete from MbMchtInf where id = #id#   
+	</delete>
+    
+	<selectExt id="listMbMchtInf" resultMap="MbMchtInf"/> 
+  
+	<selectExt id="countMbMchtInf" resultClass="int"/> 
+
+</sqlMap>    
