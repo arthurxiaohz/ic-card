@@ -1,7 +1,7 @@
 		<thead>
 			<tr>
 				<c:if test="<#noparse>${empty lookup}</#noparse>">
-				<th width="22"><input type="checkbox" group="orderIndexs" class="checkboxCtrl"></th>
+				<th width="28"><input type="checkbox" group="orderIndexs" class="checkboxCtrl"></th>
 				</c:if>
 <#list serviceTool.getDisplayFields(entity) as field><#assign label = field.fieldLabel>				
 				<th orderField="<#if field.fieldType == 6 || field.fieldType == 8>${serviceTool.getLookupFKFiled(entity,field).fieldName?uncap_first}.${field.lookupEntity.mainLkFieldName?uncap_first}<#else>${field.fieldName?uncap_first}</#if>" <#noparse>class="${pageInfo.sorterName eq '</#noparse><#if field.fieldType == 6 || field.fieldType == 8>${serviceTool.getLookupFKFiled(entity,field).fieldName?uncap_first}.${field.lookupEntity.mainLkFieldName?uncap_first}<#else>${field.fieldName?uncap_first}</#if><#noparse>' ? pageInfo.sorterDirection : ''}"</#noparse>><hi:text key="${label}" entity="${entity.entityName}"/></th>
