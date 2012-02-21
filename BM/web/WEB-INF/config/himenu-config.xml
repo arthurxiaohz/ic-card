@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.4.2_03" class="java.beans.XMLDecoder"> 
+ <object class="java.util.HashMap">   
+  <void method="put"> 
+   <string>himenu</string> 
+   <object class="org.hi.base.menu.strutsmenu.WebDynamicMenuDefine"> 
+    <void property="keymap"> 
+     <object class="java.util.HashMap"> 
+      <void method="put"> 
+       <string>id</string> 
+       <string>parentMenu</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void property="parent"> 
+     <string>id</string> 
+    </void> 
+    <void property="child"> 
+     <string>parentMenu</string> 
+    </void> 
+    <void property="childValue"> 
+     <string>0</string> 
+    </void> 
+    <void property="menuName"> 
+     <string>himenu</string> 
+    </void> 
+    <void property="beanName"> 
+     <string>org.hi.base.menu.model.Menu</string> 
+    </void> 
+    <void property="submenuName"> 
+     <string>himenu,menulink</string> 
+    </void> 
+    <void property="title"> 
+     <string>系统菜单</string> 
+    </void> 
+    <void property="titleField"> 
+     <string>display</string> 
+    </void> 
+    <void property="needShow"> 
+     <boolean>true</boolean> 
+    </void> 
+    <void property="sort"> 
+     <string>sequence</string> 
+    </void> 
+    <void property="security"> 
+     <boolean>true</boolean> 
+    </void>   
+    <void property="filter"> 
+     <string>org.hi.base.menu.filter.HiMenuMenuLinkCollectionProcessor</string> 
+    </void>
+   </object> 
+  </void> 
+  
+  <void method="put"> 
+   <string>menulink</string> 
+   <object class="org.hi.base.menu.strutsmenu.WebDynamicMenuDefine"> 
+    <void property="keymap"> 
+     <object class="java.util.HashMap"> 
+      <void method="put"> 
+       <string>menu</string> 
+       <string>id</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void property="parent"> 
+     <string>id</string> 
+    </void> 
+    <void property="child"> 
+     <string>menu</string> 
+    </void> 
+    <void property="childValue"> 
+     <string>0</string> 
+    </void> 
+    <void property="menuName"> 
+     <string>menulink</string> 
+    </void> 
+    <void property="beanName"> 
+     <string>org.hi.base.menu.model.MenuLink</string> 
+    </void> 
+    <void property="submenuName"> 
+     <string></string> 
+    </void> 
+    <void property="title"> 
+     <string>菜单项</string> 
+    </void> 
+    <void property="titleField"> 
+     <string>display</string> 
+    </void> 
+    <void property="needShow"> 
+     <boolean>true</boolean> 
+    </void> 
+    <void property="sort"> 
+     <string>sequence</string> 
+    </void>
+    <void property="action"> 
+     <string>{property}linkUrl</string> 
+    </void>
+    <void property="target"> 
+     <string>main</string> 
+    </void> 
+    <void property="security"> 
+     <boolean>true</boolean> 
+    </void>   
+   </object>
+  </void> 
+  
+   <!-- 人员\部门编辑页面的部门树   -->
+  <void method="put"> 
+   <string>userOrgEditByOrg</string> 
+   <object class="org.hi.base.menu.strutsmenu.WebDynamicMenuDefine"> 
+    <void property="keymap"> 
+     <object class="java.util.HashMap"> 
+      <void method="put"> 
+       <string>id</string> 
+       <string>parentOrg</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void property="parent"> 
+     <string>id</string> 
+    </void> 
+    <void property="child"> 
+     <string>parentOrg</string> 
+    </void> 
+    <void property="childValue"> 
+     <string>0</string> 
+    </void> 
+    <void property="menuName"> 
+     <string>userOrgEditByOrg</string> 
+    </void> 
+    <void property="beanName"> 
+     <string>org.hi.base.organization.model.HiOrg</string> 
+    </void> 
+    <void property="submenuName"> 
+     <string>userOrgEditByOrg</string> 
+    </void> 
+    <void property="title"> 
+     <string>部门</string> 
+    </void> 
+    <void property="titleField"> 
+     <string>orgName</string> 
+    </void> 
+    <void property="needShow"> 
+     <boolean>true</boolean> 
+    </void> 
+    <void property="javascript">
+     <string>
+    	function backAgent(id,orgName){
+			$.bringBack({id:id,orgName:orgName});
+		}
+     </string> 
+    </void>
+    <void property="action"> 
+     <string>{js}backAgent([#id],'[#orgName]');</string> 
+    </void>
+   </object> 
+  </void>
+
+   <!-- 部门编辑页面的人员树   -->
+  <void method="put"> 
+   <string>orgEditByUser</string> 
+   <object class="org.hi.base.menu.strutsmenu.WebDynamicMenuDefine"> 
+    <void property="keymap"> 
+     <object class="java.util.HashMap"> 
+      <void method="put"> 
+       <string>id</string> 
+       <string>parentOrg</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void property="parent"> 
+     <string>id</string> 
+    </void> 
+    <void property="child"> 
+     <string>parentOrg</string> 
+    </void> 
+    <void property="childValue"> 
+     <string>0</string> 
+    </void> 
+    <void property="menuName"> 
+     <string>orgEditByUser</string> 
+    </void> 
+    <void property="beanName"> 
+     <string>org.hi.base.organization.model.HiOrg</string> 
+    </void> 
+    <void property="submenuName"> 
+     <string>orgEditByUser,userTreeLookup</string> 
+    </void> 
+    <void property="title"> 
+     <string>部门</string> 
+    </void> 
+    <void property="titleField"> 
+     <string>orgName</string> 
+    </void> 
+    <void property="needShow"> 
+     <boolean>true</boolean> 
+    </void> 
+    <void property="javascript">
+     <string>
+		function userChange(id,userName){
+			$.bringBack({id:id,fullName:userName});
+		}
+     </string> 
+    </void>
+   </object> 
+  </void>
+
+    <!-- 角色分派人的部门树   --> 
+  <void method="put"> 
+   <string>roleUserListByOrg</string> 
+   <object class="org.hi.base.menu.strutsmenu.WebDynamicMenuDefine"> 
+    <void property="keymap"> 
+     <object class="java.util.HashMap"> 
+      <void method="put"> 
+       <string>id</string> 
+       <string>parentOrg</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void property="parent"> 
+     <string>id</string> 
+    </void> 
+    <void property="child"> 
+     <string>parentOrg</string> 
+    </void> 
+    <void property="childValue"> 
+     <string>0</string> 
+    </void> 
+    <void property="menuName"> 
+     <string>roleUserListByOrg</string> 
+    </void> 
+    <void property="beanName"> 
+     <string>org.hi.base.organization.model.HiOrg</string> 
+    </void> 
+    <void property="submenuName"> 
+     <string>roleUserListByOrg</string> 
+    </void> 
+    <void property="title"> 
+     <string>部门</string> 
+    </void> 
+    <void property="titleField"> 
+     <string>orgName</string> 
+    </void> 
+    <void property="needShow"> 
+     <boolean>true</boolean> 
+    </void> 
+    
+    <void property="action"> 
+     <string>{js}getUsers([#id]);</string> 
+    </void>
+   </object> 
+  </void>
+  
+  
+   <!-- 单用户授权中的人员树   -->
+  <void method="put"> 
+   <string>userPrivilegeList</string> 
+   <object class="org.hi.base.menu.strutsmenu.WebDynamicMenuDefine"> 
+    <void property="keymap"> 
+     <object class="java.util.HashMap"> 
+      <void method="put"> 
+       <string>id</string> 
+       <string>parentOrg</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void property="parent"> 
+     <string>id</string> 
+    </void> 
+    <void property="child"> 
+     <string>parentOrg</string> 
+    </void> 
+    <void property="childValue"> 
+     <string>0</string> 
+    </void> 
+    <void property="menuName"> 
+     <string>orgEditByUser</string> 
+    </void> 
+    <void property="beanName"> 
+     <string>org.hi.base.organization.model.HiOrg</string> 
+    </void> 
+    <void property="submenuName"> 
+     <string>orgEditByUser,userTreeLookup</string> 
+    </void> 
+    <void property="title"> 
+     <string>部门</string> 
+    </void> 
+    <void property="titleField"> 
+     <string>orgName</string> 
+    </void> 
+    <void property="needShow"> 
+     <boolean>true</boolean> 
+    </void> 
+    <void property="javascript">
+      
+    </void>
+   </object> 
+  </void>
+  <!-- 人员树   -->
+  <void method="put"> 
+   <string>userTreeLookup</string> 
+   <object class="org.hi.base.menu.strutsmenu.WebDynamicMenuDefine"> 
+    <void property="keymap"> 
+     <object class="java.util.HashMap"> 
+      <void method="put"> 
+       <string>org</string> 
+       <string>id</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void property="parent"> 
+     <string>id</string> 
+    </void> 
+    <void property="child"> 
+     <string>org</string> 
+    </void> 
+    <void property="childValue"> 
+     <string>0</string> 
+    </void> 
+    <void property="menuName"> 
+     <string>userTreeLookup</string> 
+    </void> 
+    <void property="beanName"> 
+     <string>org.hi.base.organization.model.HiUser</string> 
+    </void> 
+    <void property="submenuName"> 
+     <string></string> 
+    </void> 
+    <void property="title"> 
+     <string>人员</string> 
+    </void> 
+    <void property="titleField"> 
+     <string>fullName</string> 
+    </void> 
+    <void property="needShow"> 
+     <boolean>true</boolean> 
+    </void> 
+    <void property="action"> 
+     <string>{js}userChange([#id],'[#fullName]','[#userMgrType]');</string> 
+    </void>    
+   </object> 
+  </void>  
+  
+    
+ </object> 
+</java> 
+
+
+
+
+
+
