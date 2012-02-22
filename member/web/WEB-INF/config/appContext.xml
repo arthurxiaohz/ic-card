@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+   <!-- For Hi system settings and future properties files -->
+   	<bean class="org.hi.SpringContextHolder"/>
+   	
+   	<bean id="hiConfig" class="org.hi.framework.context.HiFrameworkConfig">
+   		<property name="location" value="/WEB-INF/classes/hiFrameworkConfig.properties"></property>
+   	</bean>
+   	
+    <!-- For connection settings and future properties files -->
+	<bean id="baseConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="/WEB-INF/config/hiconnection.properties"></property>
+	</bean>
+
+    <!-- JNDI DataSource for J2EE environments -->
+    <!--
+	<bean id="DataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+	  <property name="jndiName">
+	   <value>java:comp/env/hi</value>
+	  </property>
+	</bean>
+    -->	
+    
+    <!-- using c3p0 connection pool -->
+     <!-- 
+    <bean id="DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close" lazy-init="true"> 
+       	<property name="driverClass" value="${connection.driver_class}" /> 
+        <property name="jdbcUrl" value="${connection.url}" />   
+    	<property name="user" value="${connection.username}" />   
+    	<property name="password" value="${connection.password}" />   
+    	<property name="minPoolSize" value="10" />   
+    	<property name="maxPoolSize" value="20" />   
+    	<property name="maxIdleTime" value="1800" />   
+    	<property name="acquireIncrement" value="2" />   
+    	<property name="initialPoolSize" value="2" />   
+    	<property name="acquireRetryAttempts" value="30" />   
+    	<property name="breakAfterAcquireFailure" value="true" /> 
+    	<property name="preferredTestQuery" value="${connection.testsql}" />
+    	<property name="idleConnectionTestPeriod" value="1800" />   
+    	<property name="testConnectionOnCheckin" value="true" />
+    	<property name="testConnectionOnCheckout" value="true" />
+    </bean>
+    	-->
+    <!-- using dbcp connection pool -->
+    
+	<bean id="DataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${connection.driver_class}"/>
+		<property name="url" value="${connection.url}" />
+		<property name="username" value="${connection.username}" />
+		<property name="password" value="${connection.password}" />
+	 	<property name="maxActive" value="40" />
+	  	<property name="maxIdle" value="3" />
+		<property name="timeBetweenEvictionRunsMillis" value="300000"/>
+		<property name="validationQuery" value="${connection.testsql}"/>
+	</bean>
+	
+	<bean id="saveLogAnalysisor" class="org.hi.base.sysapp.interceptor.LogSaveAnalysisor"/>
+	<bean id="removeLogAnalysisor" class="org.hi.base.sysapp.interceptor.LogRemoveAnalysisor"/>
+	<bean id="searchLogAnalysisor" class="org.hi.base.sysapp.interceptor.LogSearchAnalysisor"/>
+	<bean id="noknowLogAnalysisor" class="org.hi.base.sysapp.interceptor.LogNoknowAnalysisor"/>
+	<bean id="saveProcessor" class="org.hi.base.sysapp.interceptor.LogDataBaseProcessor"/>
+	<bean id="cacheProcessor" class="org.hi.base.sysapp.interceptor.LogSizeCacheProcessor">
+		<property name="size" value="10"/>
+	</bean>
+	<!-- 
+	 <bean id="cacheProcessor" class="org.hi.base.sysapp.interceptor.LogTimerCacheProcessor">
+		<property name="period" value="1"/>
+	</bean>
+		 <bean id="cacheProcessor" class="org.hi.base.sysapp.interceptor.LogLengthCacheProcessor">
+		<property name="length" value="10"/>
+	</bean>
+	 -->
+	<bean id="methodLogInterceptor" class="org.hi.base.sysapp.interceptor.MethodLogInterceptor">
+		<property name="saveProcessor" ref="saveProcessor"/>
+		<property name="cacheProcessor" ref="cacheProcessor"/>
+		<property name="unincludeMethodNames">
+			<value>getEnumerations</value>
+		</property>
+		<property name="analysisors">
+			<list>
+				<ref bean="saveLogAnalysisor"/>
+			</list>
+		</property>
+	</bean>
+	
+    <!-- Transaction template for Managers -->
+    <bean id="txProxyTemplate" abstract="true"
+       class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+       <property name="transactionManager" ref="transactionManager"/>
+       <property name="transactionAttributes">
+           <props>
+           	   <prop key="affirm*">PROPAGATION_REQUIRED</prop>
+           	   <prop key="gen*">PROPAGATION_REQUIRED</prop>
+               <prop key="save*">PROPAGATION_REQUIRED</prop>
+               <prop key="update*">PROPAGATION_REQUIRED</prop>
+               <prop key="create*">PROPAGATION_REQUIRED</prop>
+               <prop key="process*">PROPAGATION_REQUIRED</prop>                               
+               <prop key="delete*">PROPAGATION_REQUIRED</prop>               
+               <prop key="remove*">PROPAGATION_REQUIRED</prop>
+               <prop key="send*">PROPAGATION_REQUIRED</prop>
+			   <prop key="upload*">PROPAGATION_REQUIRED</prop>               
+               <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+           </props>
+       </property>
+       <property name="preInterceptors">
+       		<list>
+       			<ref bean="contactManagerSecurity"/>
+       		</list>
+       </property>
+       <property name="postInterceptors">
+       		<list>
+       			<ref bean="methodLogInterceptor"/>
+       		</list>       		
+       </property>
+   </bean>
+
+<!--   
+   <bean id="org.hi.framework.service.PreSaveObjectCallback" class="org.hi.framework.service.impl.SimplePreSaveObjectCallback"/>
+   <bean id="org.hi.framework.service.PostRemoveObjectCallback" class="org.hi.framework.service.impl.SimplePostRemoveObjectCallback"/>
+-->   
+    <!-- ===================== Message Provider Configration==================== -->  
+    <!-- 
+   <bean id="org.hi.message.MessageProviderManager" class="org.hi.base.sysapp.message.MessageProviderManager">
+   	<property name="cache" value="true"/>
+   	<property name="providers">
+   		<map>
+   			<entry key="5302">
+   				<bean class="org.hi.base.sysapp.message.mail.JavaMailMessageProvider">
+   					<property name="messageType" value="5302" />
+   					<property name="remove" value="false" />
+   					<property name="host" value="smtp.cltc.com.cn" />
+   					<property name="encoding" value="UTF-8" />
+   					<property name="port" value="25" />
+   					<property name="userName" value="zhanghao" />
+   					<property name="password" value="111111" />
+   					<property name="from" value="zhanghao@cltc.com.cn" />
+   				</bean>
+   			</entry>
+   		</map>
+   	</property>
+   </bean>
+  -->  
+   	 <!-- ===================== Base Manager And Base DAO Configration==================== -->  
+    <bean id="org.hi.framework.service.Manager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.hi.framework.service.impl.ManagerImpl">
+                <property name="DAO" ref="org.hi.framework.dao.DAO"/>
+				<property name="modelClass" value="org.hi.base.organization.model.HiOrg"/>                
+            </bean>
+        </property>
+        <property name="proxyTargetClass" value="true"/>
+    </bean>
+</beans>
