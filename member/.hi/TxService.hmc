@@ -863,7 +863,7 @@
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>lastUpdatedBy</columnName>
           <logicalName>column36</logicalName>
-          <size>30</size>
+          <size></size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
@@ -871,12 +871,12 @@
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
+          <hiValidator>integer</hiValidator>
           <lkServiceName></lkServiceName>
           <lkEntityName></lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
+          <hiDataType>2</hiDataType>
           <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
@@ -1475,7 +1475,7 @@
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>lastUpdatedBy</columnName>
           <logicalName>column36</logicalName>
-          <size>30</size>
+          <size></size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
@@ -1483,12 +1483,12 @@
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
+          <hiValidator>integer</hiValidator>
           <lkServiceName></lkServiceName>
           <lkEntityName></lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
+          <hiDataType>2</hiDataType>
           <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
@@ -1733,7 +1733,7 @@
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>lastUpdatedBy</columnName>
           <logicalName>column9</logicalName>
-          <size>30</size>
+          <size></size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
@@ -1741,12 +1741,12 @@
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
+          <hiValidator>integer</hiValidator>
           <lkServiceName></lkServiceName>
           <lkEntityName></lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
+          <hiDataType>2</hiDataType>
           <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
@@ -2145,7 +2145,7 @@
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>lastUpdatedBy</columnName>
           <logicalName>column36</logicalName>
-          <size>30</size>
+          <size></size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
@@ -2153,12 +2153,12 @@
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
+          <hiValidator>integer</hiValidator>
           <lkServiceName></lkServiceName>
           <lkEntityName></lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
+          <hiDataType>2</hiDataType>
           <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
@@ -2553,7 +2553,7 @@
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>lastUpdatedBy</columnName>
           <logicalName>column36</logicalName>
-          <size>30</size>
+          <size></size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
@@ -2561,12 +2561,12 @@
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
+          <hiValidator>integer</hiValidator>
           <lkServiceName></lkServiceName>
           <lkEntityName></lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
+          <hiDataType>2</hiDataType>
           <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
@@ -3011,7 +3011,7 @@
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>lastUpdatedBy</columnName>
           <logicalName>column36</logicalName>
-          <size>30</size>
+          <size></size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
@@ -3019,12 +3019,12 @@
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
+          <hiValidator>integer</hiValidator>
           <lkServiceName></lkServiceName>
           <lkEntityName></lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
+          <hiDataType>2</hiDataType>
           <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
@@ -3519,7 +3519,7 @@
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>lastUpdatedBy</columnName>
           <logicalName>column36</logicalName>
-          <size>30</size>
+          <size></size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
@@ -3527,12 +3527,12 @@
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
+          <hiValidator>integer</hiValidator>
           <lkServiceName></lkServiceName>
           <lkEntityName></lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
+          <hiDataType>2</hiDataType>
           <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
