@@ -7,7 +7,7 @@
 	<!-- Context Configuration locations for Spring XML files -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/config/appContext*.xml,classpath*:/org/**/appContext*.xml,classpath*:/test/**/appContext*.xml,classpath*:/com/**/appContext*.xml,classpath*:/org/bpmwf/**/appContext*.xml</param-value>
+		<param-value>/WEB-INF/config/appContext*.xml,classpath*:/org/**/appContext*.xml,classpath*:/test/**/appContext*.xml,classpath*:/com/**/appContext*.xml,classpath*:/org/bpmwf/**/appContext*.xml,classpath*:/cn/**/appContext*.xml</param-value>
 	</context-param>
 	<context-param>
 		<param-name>contextClass</param-name>
