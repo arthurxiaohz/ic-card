@@ -1787,8 +1787,8 @@
   <jdbcSchema></jdbcSchema>
   <jdbcCatalog></jdbcCatalog>
   <includeView>false</includeView>
-  <packageName>cn.net.iccard.bm.mchtConfig</packageName>
-  <serviceName>mchtConfig</serviceName>
+  <packageName>cn.net.iccard.bm.mchtconfig</packageName>
+  <serviceName>mchtconfig</serviceName>
   <baseData>100000</baseData>
   <description>商户配置</description>
   <listeners serialization="custom">
