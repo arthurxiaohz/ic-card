@@ -2544,8 +2544,8 @@
   <jdbcSchema></jdbcSchema>
   <jdbcCatalog></jdbcCatalog>
   <includeView>false</includeView>
-  <packageName>cn.net.iccard.bm.memberconfig</packageName>
-  <serviceName>memberconfig</serviceName>
+  <packageName>cn.net.iccard.bm.memberConfig</packageName>
+  <serviceName>memberConfig</serviceName>
   <baseData>300000</baseData>
   <description>会员管理</description>
   <listeners serialization="custom">
