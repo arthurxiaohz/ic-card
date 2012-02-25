@@ -880,7 +880,7 @@
     <org.hi.studio.hsceditor.visual.model.TableModel>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>TblMbPointExchangeRule</tableName>
+      <tableName>Tbl_Mb_Point_Exchange_Rule</tableName>
       <logicalName>TblMbPointExchangeRule</logicalName>
       <description>会员积分兑换规则</description>
       <isDeleted>true</isDeleted>
@@ -1117,7 +1117,7 @@
     <org.hi.studio.hsceditor.visual.model.TableModel>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>TblMbCoupon</tableName>
+      <tableName>Tbl_Mb_Coupon</tableName>
       <logicalName>TblMbCoupon</logicalName>
       <description>会员优惠券</description>
       <isDeleted>true</isDeleted>
@@ -1404,7 +1404,7 @@
     <org.hi.studio.hsceditor.visual.model.TableModel>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>TblMbCouponDetail</tableName>
+      <tableName>Tbl_Mb_Coupon_Detail</tableName>
       <logicalName>TblMbCouponDetail</logicalName>
       <description>会员优惠券明细</description>
       <isDeleted>true</isDeleted>
@@ -1616,7 +1616,7 @@
     <org.hi.studio.hsceditor.visual.model.TableModel>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>TblMbCouponRule</tableName>
+      <tableName>Tbl_Mb_Coupon_Rule</tableName>
       <logicalName>TblMbCouponRule</logicalName>
       <description>会员优惠券规则</description>
       <isDeleted>true</isDeleted>

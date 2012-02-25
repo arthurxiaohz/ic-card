@@ -122,7 +122,7 @@
     <org.hi.studio.hsceditor.visual.model.TableModel>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>TblMchtInfo</tableName>
+      <tableName>Tbl_Mcht_Info</tableName>
       <logicalName>TblMchtInfo</logicalName>
       <description>商户</description>
       <isDeleted>true</isDeleted>
@@ -627,10 +627,10 @@
           <source class="org.hi.studio.hsceditor.visual.model.TableModel">
             <error></error>
             <linkedPath></linkedPath>
-            <tableName>TblMchtSettleCycleCconfig</tableName>
+            <tableName>Tbl_Mcht_Settle_Cycle_Cconfig</tableName>
             <logicalName>TblMchtSettleCycleCconfig</logicalName>
             <description>商户结算周期配置</description>
-            <isDeleted>false</isDeleted>
+            <isDeleted>true</isDeleted>
             <isCreator>true</isCreator>
             <columns>
               <org.hi.studio.hsceditor.visual.model.ColumnModel>
@@ -733,7 +733,31 @@
                 <isMainLookup>false</isMainLookup>
                 <isParent>false</isParent>
               </org.hi.studio.hsceditor.visual.model.ColumnModel>
-              <org.hi.studio.hsceditor.visual.model.ColumnModel reference="../../../foreignKeyColumn"/>
+              <org.hi.studio.hsceditor.visual.model.ColumnModel>
+                <columnName>tblMchtInfo</columnName>
+                <logicalName>tblMchtInfo</logicalName>
+                <size></size>
+                <scale></scale>
+                <notNull>false</notNull>
+                <primaryKey>false</primaryKey>
+                <description>tblMchtInfo</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+                <mainEntityName>TblMchtInfo</mainEntityName>
+                <hiValidator></hiValidator>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <lkFieldName></lkFieldName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <hiDataType>2</hiDataType>
+                <isSearch>false</isSearch>
+                <isListDisplay>false</isListDisplay>
+                <isReadOnly>false</isReadOnly>
+                <isHidden>true</isHidden>
+                <isFull>false</isFull>
+                <isMainLookup>false</isMainLookup>
+                <isParent>true</isParent>
+              </org.hi.studio.hsceditor.visual.model.ColumnModel>
             </columns>
             <indices/>
             <backgroundColor>
@@ -888,7 +912,31 @@
                 <isMainLookup>false</isMainLookup>
                 <isParent>false</isParent>
               </org.hi.studio.hsceditor.visual.model.ColumnModel>
-              <org.hi.studio.hsceditor.visual.model.ColumnModel reference="../../../foreignKeyColumn"/>
+              <org.hi.studio.hsceditor.visual.model.ColumnModel>
+                <columnName>tblMchtInfo</columnName>
+                <logicalName>tblMchtInfo</logicalName>
+                <size></size>
+                <scale></scale>
+                <notNull>false</notNull>
+                <primaryKey>false</primaryKey>
+                <description>tblMchtInfo</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+                <mainEntityName>TblMchtInfo</mainEntityName>
+                <hiValidator></hiValidator>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <lkFieldName></lkFieldName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <hiDataType>2</hiDataType>
+                <isSearch>false</isSearch>
+                <isListDisplay>false</isListDisplay>
+                <isReadOnly>false</isReadOnly>
+                <isHidden>true</isHidden>
+                <isFull>false</isFull>
+                <isMainLookup>false</isMainLookup>
+                <isParent>true</isParent>
+              </org.hi.studio.hsceditor.visual.model.ColumnModel>
             </columns>
             <indices/>
             <backgroundColor>
@@ -1218,7 +1266,31 @@
                 <isMainLookup>false</isMainLookup>
                 <isParent>false</isParent>
               </org.hi.studio.hsceditor.visual.model.ColumnModel>
-              <org.hi.studio.hsceditor.visual.model.ColumnModel reference="../../../foreignKeyColumn"/>
+              <org.hi.studio.hsceditor.visual.model.ColumnModel>
+                <columnName>tblMchtInfo</columnName>
+                <logicalName>tblMchtInfo</logicalName>
+                <size></size>
+                <scale></scale>
+                <notNull>false</notNull>
+                <primaryKey>false</primaryKey>
+                <description>tblMchtInfo</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+                <mainEntityName>TblMchtInfo</mainEntityName>
+                <hiValidator></hiValidator>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <lkFieldName></lkFieldName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <hiDataType>2</hiDataType>
+                <isSearch>false</isSearch>
+                <isListDisplay>false</isListDisplay>
+                <isReadOnly>false</isReadOnly>
+                <isHidden>true</isHidden>
+                <isFull>false</isFull>
+                <isMainLookup>false</isMainLookup>
+                <isParent>true</isParent>
+              </org.hi.studio.hsceditor.visual.model.ColumnModel>
             </columns>
             <indices/>
             <backgroundColor>
