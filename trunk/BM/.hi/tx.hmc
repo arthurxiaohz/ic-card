@@ -12,8 +12,8 @@
   <jdbcSchema></jdbcSchema>
   <jdbcCatalog></jdbcCatalog>
   <includeView>false</includeView>
-  <packageName>cn.net.iccard.bm.txquery</packageName>
-  <serviceName>txquery</serviceName>
+  <packageName>cn.net.iccard.bm.tx</packageName>
+  <serviceName>tx</serviceName>
   <baseData>200000</baseData>
   <description>交易查询</description>
   <listeners serialization="custom">
