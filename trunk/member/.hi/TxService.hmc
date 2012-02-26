@@ -4154,7 +4154,7 @@
   <includeView>false</includeView>
   <packageName>cn.net.iccard.tx</packageName>
   <serviceName>txservice</serviceName>
-  <baseData>100000</baseData>
+  <baseData>200000</baseData>
   <description>交易查询</description>
   <listeners serialization="custom">
     <java.beans.PropertyChangeSupport>
