@@ -511,7 +511,7 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>tx_Body</columnName>
+          <columnName>txBody</columnName>
           <logicalName>column21</logicalName>
           <size>400</size>
           <scale></scale>
