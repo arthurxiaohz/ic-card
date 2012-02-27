@@ -4,8 +4,8 @@
     <org.hi.studio.hsceditor.visual.model.TableModel>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>TBL_STL_ORGANIZATION</tableName>
-      <logicalName>TBLSTLORGANIZATION</logicalName>
+      <tableName>Tbl_Stl_Organization</tableName>
+      <logicalName>TblStlOrganization</logicalName>
       <description>发卡行支持表</description>
       <isDeleted>true</isDeleted>
       <isCreator>true</isCreator>
@@ -386,8 +386,8 @@
     <org.hi.studio.hsceditor.visual.model.TableModel>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>TBL_STL_CHECK_ORGANIZATION_CONTROL</tableName>
-      <logicalName>TBLSTLCHECKORGANIZATIONCONTROL</logicalName>
+      <tableName>Tbl_Stl_Check_Organization_Control</tableName>
+      <logicalName>TblStlCheckOrganizationControl</logicalName>
       <description>对账任务控制表</description>
       <isDeleted>true</isDeleted>
       <isCreator>true</isCreator>
@@ -879,8 +879,8 @@
     <org.hi.studio.hsceditor.visual.model.TableModel>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>TBL_STL_CHECK_DETAIL</tableName>
-      <logicalName>TBLSTLCHECKDETAIL</logicalName>
+      <tableName>Tbl_Stl_Check_Detail</tableName>
+      <logicalName>TblStlCheckDetail</logicalName>
       <description>对账明细记录表</description>
       <isDeleted>true</isDeleted>
       <isCreator>true</isCreator>
@@ -1303,10 +1303,10 @@
     <org.hi.studio.hsceditor.visual.model.TableModel>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>TBL_STL_ERROR_DETAIL</tableName>
-      <logicalName>TBLSTLERRORDETAIL</logicalName>
+      <tableName>Tbl_Stl_Error_Detail</tableName>
+      <logicalName>TblStlErrorDetail</logicalName>
       <description>差错明细表</description>
-      <isDeleted>false</isDeleted>
+      <isDeleted>true</isDeleted>
       <isCreator>true</isCreator>
       <columns>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
@@ -1706,8 +1706,8 @@
     <org.hi.studio.hsceditor.visual.model.TableModel>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>TBL_STL_ADJUST_DETAIL</tableName>
-      <logicalName>TBLSTLADJUSTDETAIL</logicalName>
+      <tableName>Tbl_Stl_Adjust_Detail</tableName>
+      <logicalName>TblStlAdjustDetail</logicalName>
       <description>调账申请表</description>
       <isDeleted>true</isDeleted>
       <isCreator>true</isCreator>

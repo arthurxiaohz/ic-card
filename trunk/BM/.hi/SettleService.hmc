@@ -4,10 +4,10 @@
     <org.hi.studio.hsceditor.visual.model.TableModel>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>TBL_STL_CLEANING_DETAIL</tableName>
-      <logicalName>TBLSTLCLEANINGDETAIL</logicalName>
+      <tableName>Tbl_Stl_Cleaning_Detail</tableName>
+      <logicalName>TblStlCleaningDetail</logicalName>
       <description>清分流水表</description>
-      <isDeleted>false</isDeleted>
+      <isDeleted>true</isDeleted>
       <isCreator>true</isCreator>
       <columns>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
@@ -1089,8 +1089,8 @@
     <org.hi.studio.hsceditor.visual.model.TableModel>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>TBL_STL_SETTLE_BATCH</tableName>
-      <logicalName>TBLSTLSETTLEBATCH</logicalName>
+      <tableName>Tbl_Stl_Settle_Batch</tableName>
+      <logicalName>TblStlSettleBatch</logicalName>
       <description>结算批次</description>
       <isDeleted>true</isDeleted>
       <isCreator>true</isCreator>
