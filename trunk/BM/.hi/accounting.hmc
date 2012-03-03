@@ -2603,8 +2603,8 @@
   <jdbcSchema></jdbcSchema>
   <jdbcCatalog></jdbcCatalog>
   <includeView>false</includeView>
-  <packageName>cn.net.iccard.bm.accouting</packageName>
-  <serviceName>accouting</serviceName>
+  <packageName>cn.net.iccard.bm.accounting</packageName>
+  <serviceName>accounting</serviceName>
   <baseData>600000</baseData>
   <description>账务</description>
   <listeners serialization="custom">
