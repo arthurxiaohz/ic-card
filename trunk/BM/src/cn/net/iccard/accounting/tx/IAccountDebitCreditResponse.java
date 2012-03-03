@@ -1,5 +1,5 @@
 package cn.net.iccard.accounting.tx;
 
-public interface IAccountDebitCreditResponse extends ICommonAccountResponse {
+public interface IAccountDebitCreditResponse extends IAccountTxResponse {
 
 }

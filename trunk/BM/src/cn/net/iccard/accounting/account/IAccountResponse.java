@@ -1,26 +1,12 @@
 package cn.net.iccard.accounting.account;
 
-import java.io.Serializable;
+import cn.net.iccard.accounting.ICommonAccountResponse;
 
 /**
- * 账务操作通用响应
+ * 账务之账户操作通用响应
  * 
  * @author Angi
  * 
  */
-public interface IAccountResponse extends Serializable {
-
-	/**
-	 * 响应码
-	 * 
-	 * @return
-	 */
-	String getRespCode();
-
-	/**
-	 * 响应描述
-	 * 
-	 * @return
-	 */
-	String getRespMsg();
+public interface IAccountResponse extends ICommonAccountResponse {
 }

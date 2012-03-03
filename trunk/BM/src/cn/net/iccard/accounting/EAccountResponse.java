@@ -1,4 +1,4 @@
-package cn.net.iccard.accounting.tx;
+package cn.net.iccard.accounting;
 
 /**
  * 账户处理响应

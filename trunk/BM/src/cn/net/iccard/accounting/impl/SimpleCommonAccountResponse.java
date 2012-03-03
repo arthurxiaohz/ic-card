@@ -1,14 +1,9 @@
-package cn.net.iccard.accounting.tx.impl;
+package cn.net.iccard.accounting.impl;
 
-import cn.net.iccard.accounting.tx.EAccountResponse;
-import cn.net.iccard.accounting.tx.ICommonAccountResponse;
+import cn.net.iccard.accounting.EAccountResponse;
+import cn.net.iccard.accounting.ICommonAccountResponse;
 
 public class SimpleCommonAccountResponse implements ICommonAccountResponse {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6017528031238937260L;
 
 	/**
 	 * ÏìÓ¦Âë
@@ -23,13 +18,6 @@ public class SimpleCommonAccountResponse implements ICommonAccountResponse {
 	 * @return
 	 */
 	private String respMsg;
-
-	/**
-	 * Æ¾Ö¤ºÅ
-	 * 
-	 * @return
-	 */
-	private String voucherNo;
 
 	public SimpleCommonAccountResponse() {
 		super();
@@ -56,14 +44,6 @@ public class SimpleCommonAccountResponse implements ICommonAccountResponse {
 
 	public void setRespMsg(String respMsg) {
 		this.respMsg = respMsg;
-	}
-
-	public String getVoucherNo() {
-		return voucherNo;
-	}
-
-	public void setVoucherNo(String voucherNo) {
-		this.voucherNo = voucherNo;
 	}
 
 }

@@ -2,6 +2,6 @@ package cn.net.iccard.accounting.tx.impl;
 
 import cn.net.iccard.accounting.tx.IAccountDebitCreditResponse;
 
-public class AccountDebitCreditResponse extends SimpleCommonAccountResponse
+public class AccountDebitCreditResponse extends AccountTxResponse
 		implements IAccountDebitCreditResponse {
 }

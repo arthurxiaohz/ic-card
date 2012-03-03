@@ -1,4 +1,4 @@
-package cn.net.iccard.accounting.tx;
+package cn.net.iccard.accounting;
 
 import java.io.Serializable;
 
@@ -23,11 +23,4 @@ public interface ICommonAccountResponse extends Serializable {
 	 * @return
 	 */
 	String getRespMsg();
-
-	/**
-	 * Æ¾Ö¤ºÅ
-	 * 
-	 * @return
-	 */
-	String getVoucherNo();
 }
