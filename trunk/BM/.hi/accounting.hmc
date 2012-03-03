@@ -4,8 +4,8 @@
     <org.hi.studio.hsceditor.visual.model.TableModel>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>Tbl_Act_Acount_Inf</tableName>
-      <logicalName>TblActAcountInf</logicalName>
+      <tableName>Tbl_Act_Account_Inf</tableName>
+      <logicalName>TblActAccountInf</logicalName>
       <description>账户</description>
       <isDeleted>true</isDeleted>
       <isCreator>true</isCreator>
@@ -360,7 +360,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>id</lkFieldName>
           <isLkForeignKey>true</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -385,7 +385,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>accountNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -410,7 +410,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>accountCatalog</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -435,7 +435,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>accountPartyType</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -460,7 +460,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>accountParty</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -485,7 +485,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>accountName</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -722,7 +722,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>id</lkFieldName>
           <isLkForeignKey>true</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -747,7 +747,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>accountNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -772,7 +772,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>accountCatalog</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -797,7 +797,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>accountPartyType</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -822,7 +822,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>accountParty</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -847,7 +847,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>accountName</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -1284,7 +1284,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>id</lkFieldName>
           <isLkForeignKey>true</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -1309,7 +1309,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>accountNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -1621,7 +1621,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>id</lkFieldName>
           <isLkForeignKey>true</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -1646,7 +1646,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>accountNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -1671,7 +1671,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>id</lkFieldName>
           <isLkForeignKey>true</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -1696,7 +1696,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAcountInf</lkEntityName>
+          <lkEntityName>TblActAccountInf</lkEntityName>
           <lkFieldName>accountNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -2333,8 +2333,36 @@
       <isCreator>true</isCreator>
       <columns>
         <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
-          <enumValue>mchtFee</enumValue>
-          <enumLabel>商户手续费</enumLabel>
+          <enumValue>feeAccount</enumValue>
+          <enumLabel>手续费账户</enumLabel>
+          <enumCode></enumCode>
+          <columnName></columnName>
+          <logicalName></logicalName>
+          <size></size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description></description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>0</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
+        <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
+          <enumValue>virtualAccount</enumValue>
+          <enumLabel>虚拟账户</enumLabel>
           <enumCode></enumCode>
           <columnName></columnName>
           <logicalName></logicalName>
