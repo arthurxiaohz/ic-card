@@ -1,40 +1,25 @@
 package cn.net.iccard.accounting.account.impl;
 
+import cn.net.iccard.accounting.EAccountResponse;
 import cn.net.iccard.accounting.account.IAccountOpenResponse;
+import cn.net.iccard.accounting.impl.SimpleCommonAccountResponse;
 
-public class SimpleAccountOpenResponse implements IAccountOpenResponse {
-	/**
-	 * œÏ”¶¬Î
-	 * 
-	 * @return
-	 */
-	private String respCode;
-
-	/**
-	 * œÏ”¶√Ë ˆ
-	 * 
-	 * @return
-	 */
-	private String respMsg;
+public class SimpleAccountOpenResponse extends SimpleCommonAccountResponse
+		implements IAccountOpenResponse {
 
 	private int accountId;
 
 	private String accountNo;
 
-	public String getRespCode() {
-		return respCode;
+	public SimpleAccountOpenResponse() {
+		super();
 	}
 
-	public void setRespCode(String respCode) {
-		this.respCode = respCode;
-	}
-
-	public String getRespMsg() {
-		return respMsg;
-	}
-
-	public void setRespMsg(String respMsg) {
-		this.respMsg = respMsg;
+	public SimpleAccountOpenResponse(EAccountResponse eAccountResponse,
+			int accountId, String accountNo) {
+		super(eAccountResponse);
+		this.accountId = accountId;
+		this.accountNo = accountNo;
 	}
 
 	public int getAccountId() {
