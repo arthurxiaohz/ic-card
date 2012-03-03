@@ -52,9 +52,9 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>1</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
-          <isReadOnly>false</isReadOnly>
+          <isReadOnly>true</isReadOnly>
           <isHidden>false</isHidden>
           <isFull>false</isFull>
           <isMainLookup>false</isMainLookup>
@@ -77,7 +77,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -102,7 +102,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -127,7 +127,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>1</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -152,7 +152,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>1</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -177,7 +177,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>1</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -202,7 +202,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>5</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -227,7 +227,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>5</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -364,7 +364,7 @@
           <lkFieldName>accountNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -389,7 +389,7 @@
           <lkFieldName>accountCatalog</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -414,7 +414,7 @@
           <lkFieldName>accountPartyType</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -439,7 +439,7 @@
           <lkFieldName>accountParty</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -464,7 +464,7 @@
           <lkFieldName>accountName</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -489,7 +489,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>2</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -726,7 +726,7 @@
           <lkFieldName>accountNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -751,7 +751,7 @@
           <lkFieldName>accountCatalog</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -801,7 +801,7 @@
           <lkFieldName>accountParty</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -826,7 +826,7 @@
           <lkFieldName>accountName</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -851,7 +851,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -876,7 +876,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>1</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -901,7 +901,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>2</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -926,7 +926,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -951,6 +951,31 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>2</hiDataType>
+          <isSearch>true</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>remark</columnName>
+          <logicalName>column20</logicalName>
+          <size>30</size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>备注</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>1</hiDataType>
           <isSearch>false</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
@@ -976,7 +1001,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>4</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1001,7 +1026,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1026,7 +1051,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>5</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1213,7 +1238,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>1</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1263,7 +1288,7 @@
           <lkFieldName>accountNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1288,7 +1313,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>2</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1313,7 +1338,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1338,7 +1363,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1363,7 +1388,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>2</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1413,7 +1438,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>5</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1600,7 +1625,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>1</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1650,7 +1675,7 @@
           <lkFieldName>accountNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1700,7 +1725,7 @@
           <lkFieldName>accountNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1725,7 +1750,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>2</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1750,7 +1775,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1775,7 +1800,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>2</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1825,7 +1850,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>5</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
