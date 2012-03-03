@@ -42,7 +42,7 @@
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
-          <description>账户</description>
+          <description>账号</description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
@@ -86,19 +86,19 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>accountType</columnName>
+          <columnName>accountPartyType</columnName>
           <logicalName>column3</logicalName>
           <size></size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
-          <description>账户类型</description>
+          <description>开户方类型</description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName></lkServiceName>
-          <lkEntityName>AccountType</lkEntityName>
+          <lkEntityName>AccountPartyType</lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
@@ -260,56 +260,6 @@
           <isMainLookup>false</isMainLookup>
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
-        <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>lastUpdatedByUserName</columnName>
-          <logicalName>userName</logicalName>
-          <size>30</size>
-          <scale></scale>
-          <notNull>false</notNull>
-          <primaryKey>false</primaryKey>
-          <description>帐号</description>
-          <autoIncrement>false</autoIncrement>
-          <defaultValue></defaultValue>
-          <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
-          <lkServiceName>organization</lkServiceName>
-          <lkEntityName>HiUser</lkEntityName>
-          <lkFieldName>userName</lkFieldName>
-          <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>6</hiDataType>
-          <isSearch>false</isSearch>
-          <isListDisplay>false</isListDisplay>
-          <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
-          <isFull>false</isFull>
-          <isMainLookup>true</isMainLookup>
-          <isParent>false</isParent>
-        </org.hi.studio.hsceditor.visual.model.ColumnModel>
-        <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>lastUpdatedByFullName</columnName>
-          <logicalName>fullName</logicalName>
-          <size>30</size>
-          <scale></scale>
-          <notNull>false</notNull>
-          <primaryKey>false</primaryKey>
-          <description>姓名</description>
-          <autoIncrement>false</autoIncrement>
-          <defaultValue></defaultValue>
-          <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
-          <lkServiceName>organization</lkServiceName>
-          <lkEntityName>HiUser</lkEntityName>
-          <lkFieldName>fullName</lkFieldName>
-          <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>6</hiDataType>
-          <isSearch>false</isSearch>
-          <isListDisplay>false</isListDisplay>
-          <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
-          <isFull>false</isFull>
-          <isMainLookup>false</isMainLookup>
-          <isParent>false</isParent>
-        </org.hi.studio.hsceditor.visual.model.ColumnModel>
       </columns>
       <indices/>
       <backgroundColor>
@@ -404,7 +354,7 @@
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
-          <description>账户</description>
+          <description>账号</description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
@@ -419,7 +369,7 @@
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
           <isFull>false</isFull>
-          <isMainLookup>false</isMainLookup>
+          <isMainLookup>true</isMainLookup>
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
@@ -444,24 +394,24 @@
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
           <isFull>false</isFull>
-          <isMainLookup>true</isMainLookup>
+          <isMainLookup>false</isMainLookup>
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>accountType</columnName>
-          <logicalName>accountType</logicalName>
+          <columnName>accountPartyType</columnName>
+          <logicalName>accountPartyType</logicalName>
           <size>0</size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
-          <description>账户类型</description>
+          <description>开户方类型</description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accouting</lkServiceName>
           <lkEntityName>TblActAcountInf</lkEntityName>
-          <lkFieldName>accountType</lkFieldName>
+          <lkFieldName>accountPartyType</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
           <isSearch>false</isSearch>
@@ -766,7 +716,7 @@
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
-          <description>账户</description>
+          <description>账号</description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
@@ -781,7 +731,7 @@
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
           <isFull>false</isFull>
-          <isMainLookup>false</isMainLookup>
+          <isMainLookup>true</isMainLookup>
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
@@ -806,24 +756,24 @@
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
           <isFull>false</isFull>
-          <isMainLookup>true</isMainLookup>
+          <isMainLookup>false</isMainLookup>
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>accountType</columnName>
-          <logicalName>accountType</logicalName>
+          <columnName>accountPartyType</columnName>
+          <logicalName>accountPartyType</logicalName>
           <size>0</size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
-          <description>账户类型</description>
+          <description>开户方类型</description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accouting</lkServiceName>
           <lkEntityName>TblActAcountInf</lkEntityName>
-          <lkFieldName>accountType</lkFieldName>
+          <lkFieldName>accountPartyType</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
           <isSearch>false</isSearch>
@@ -1303,7 +1253,7 @@
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
-          <description>账户</description>
+          <description>账号</description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
@@ -1690,7 +1640,7 @@
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
-          <description>出账账户</description>
+          <description>出账账号</description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
@@ -1740,7 +1690,7 @@
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
-          <description>入账账户</description>
+          <description>入账账号</description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
@@ -2012,8 +1962,8 @@
       </listeners>
     </org.hi.studio.hsceditor.visual.model.TableModel>
     <org.hi.studio.hsceditor.visual.model.EnumerationModel>
-      <enumName>AccountType</enumName>
-      <enumDesc>账户类型</enumDesc>
+      <enumName>AccountPartyType</enumName>
+      <enumDesc>开户方类型</enumDesc>
       <error></error>
       <linkedPath></linkedPath>
       <tableName></tableName>
