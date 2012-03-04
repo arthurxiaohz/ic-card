@@ -65,9 +65,8 @@ public class AccountTxService implements IAccountTxService {
 				"yyyyMMddHHmmssSSS")
 				+ getNextSeq());
 
-		tblActDebitCreditVoucher.setTblActAccountInf(tblActAccountBalanceMgr
-				.getTblActAccountInfById(accountDebitCreditRequest
-						.getAccountId()));
+		tblActDebitCreditVoucher.setActAccount(tblActAccountBalanceMgr
+				.getActAccountById(accountDebitCreditRequest.getAccountId()));
 
 		tblActDebitCreditVoucher.setAmount(accountDebitCreditRequest
 				.getAmount());
@@ -101,12 +100,10 @@ public class AccountTxService implements IAccountTxService {
 		tblActTransferVoucher.setVoucherNo(DateUtils.format(new Date(),
 				"yyyyMMddHHmmssSSS")
 				+ getNextSeq());
-		tblActTransferVoucher.setTblActAccountInfFrom(tblActAccountBalanceMgr
-				.getTblActAccountInfById(accountTransferRequest
-						.getAccountIdFrom()));
-		tblActTransferVoucher.setTblActAccountInfTo(tblActAccountBalanceMgr
-				.getTblActAccountInfById(accountTransferRequest
-						.getAccountIdTo()));
+		tblActTransferVoucher.setActAccountFrom(tblActAccountBalanceMgr
+				.getActAccountById(accountTransferRequest.getAccountIdFrom()));
+		tblActTransferVoucher.setActAccountTo(tblActAccountBalanceMgr
+				.getActAccountById(accountTransferRequest.getAccountIdTo()));
 
 		tblActTransferVoucher.setAmount(accountTransferRequest.getAmount());
 		tblActTransferVoucher.setBizType(accountTransferRequest.getBizType());
@@ -166,8 +163,8 @@ public class AccountTxService implements IAccountTxService {
 
 		// Ã÷Ï¸ÕË
 		TblActAccountDetail tblActAccountDetail = new TblActAccountDetail();
-		tblActAccountDetail.setTblActAccountInf(tblActAccountBalanceMgr
-				.getTblActAccountInfById(accountId));
+		tblActAccountDetail.setActAccount(tblActAccountBalanceMgr
+				.getActAccountById(accountId));
 		tblActAccountDetail.setVoucherType(voucherType);
 		tblActAccountDetail.setVoucherNo(voucherNo);
 		tblActAccountDetail.setAmount(amount);
