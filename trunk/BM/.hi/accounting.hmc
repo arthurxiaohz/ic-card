@@ -4,8 +4,8 @@
     <org.hi.studio.hsceditor.visual.model.TableModel>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>Tbl_Act_Account_Inf</tableName>
-      <logicalName>TblActAccountInf</logicalName>
+      <tableName>Act_Account</tableName>
+      <logicalName>ActAccount</logicalName>
       <description>账户</description>
       <isDeleted>true</isDeleted>
       <isCreator>true</isCreator>
@@ -380,7 +380,7 @@
         <blue>206</blue>
       </backgroundColor>
       <extendServiceName>accounting</extendServiceName>
-      <extendEntityName>TblActAccountInf</extendEntityName>
+      <extendEntityName>ActAccount</extendEntityName>
       <entityBaseData>600300</entityBaseData>
       <constraint>
         <x>378</x>
@@ -435,7 +435,7 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>tblActAccountInf</columnName>
+          <columnName>actAccount</columnName>
           <logicalName>column2</logicalName>
           <size></size>
           <scale></scale>
@@ -447,7 +447,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAccountInf</lkEntityName>
+          <lkEntityName>ActAccount</lkEntityName>
           <lkFieldName>id</lkFieldName>
           <isLkForeignKey>true</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -472,7 +472,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAccountInf</lkEntityName>
+          <lkEntityName>ActAccount</lkEntityName>
           <lkFieldName>accountNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -497,7 +497,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAccountInf</lkEntityName>
+          <lkEntityName>ActAccount</lkEntityName>
           <lkFieldName>accountCatalog</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -522,7 +522,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAccountInf</lkEntityName>
+          <lkEntityName>ActAccount</lkEntityName>
           <lkFieldName>accountPartyType</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -547,7 +547,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAccountInf</lkEntityName>
+          <lkEntityName>ActAccount</lkEntityName>
           <lkFieldName>accountParty</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -572,7 +572,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAccountInf</lkEntityName>
+          <lkEntityName>ActAccount</lkEntityName>
           <lkFieldName>accountName</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -997,7 +997,7 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>tblActAccountInf</columnName>
+          <columnName>actAccount</columnName>
           <logicalName>column13</logicalName>
           <size></size>
           <scale></scale>
@@ -1009,7 +1009,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAccountInf</lkEntityName>
+          <lkEntityName>ActAccount</lkEntityName>
           <lkFieldName>id</lkFieldName>
           <isLkForeignKey>true</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -1034,7 +1034,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAccountInf</lkEntityName>
+          <lkEntityName>ActAccount</lkEntityName>
           <lkFieldName>accountNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -1334,7 +1334,7 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>tblActAccountInfFrom</columnName>
+          <columnName>actAccountFrom</columnName>
           <logicalName>column3</logicalName>
           <size></size>
           <scale></scale>
@@ -1346,7 +1346,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAccountInf</lkEntityName>
+          <lkEntityName>ActAccount</lkEntityName>
           <lkFieldName>id</lkFieldName>
           <isLkForeignKey>true</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -1371,7 +1371,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAccountInf</lkEntityName>
+          <lkEntityName>ActAccount</lkEntityName>
           <lkFieldName>accountNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -1384,7 +1384,7 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>tblActAccountInfTo</columnName>
+          <columnName>actAccountTo</columnName>
           <logicalName>column4</logicalName>
           <size></size>
           <scale></scale>
@@ -1396,7 +1396,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAccountInf</lkEntityName>
+          <lkEntityName>ActAccount</lkEntityName>
           <lkFieldName>id</lkFieldName>
           <isLkForeignKey>true</isLkForeignKey>
           <hiDataType>6</hiDataType>
@@ -1421,7 +1421,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName>accounting</lkServiceName>
-          <lkEntityName>TblActAccountInf</lkEntityName>
+          <lkEntityName>ActAccount</lkEntityName>
           <lkFieldName>accountNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
