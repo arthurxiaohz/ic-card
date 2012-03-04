@@ -18,6 +18,10 @@ public class AccountTxResponse extends SimpleCommonAccountResponse implements
 		super();
 	}
 
+	public AccountTxResponse(EAccountResponse eAccountResponse) {
+		super(eAccountResponse);
+	}
+
 	public AccountTxResponse(EAccountResponse eAccountResponse, String voucherNo) {
 		super(eAccountResponse);
 		this.voucherNo = voucherNo;
