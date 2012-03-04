@@ -9,41 +9,49 @@ import cn.net.iccard.accounting.EAccountResponse;
 import cn.net.iccard.accounting.account.IAccountOpenRequest;
 import cn.net.iccard.accounting.account.IAccountResponse;
 import cn.net.iccard.accounting.account.IAccountService;
+import cn.net.iccard.bm.accounting.model.AccountStatus;
 import cn.net.iccard.bm.accounting.model.TblActAccountBalance;
-import cn.net.iccard.bm.accounting.model.TblActAccountInf;
 import cn.net.iccard.bm.accounting.service.TblActAccountBalanceManager;
-import cn.net.iccard.bm.accounting.service.TblActAccountInfManager;
 
 public class AccountService implements IAccountService {
 
 	public IAccountResponse openAccount(IAccountOpenRequest accountOpenRequest) {
-		TblActAccountInfManager tblActAcountInfMgr = (TblActAccountInfManager) SpringContextHolder
-				.getBean(TblActAccountInf.class);
-		TblActAccountInf tblActAccountInf = new TblActAccountInf();
-		tblActAccountInf.setAccountNo(DateUtils.format(new Date(),
-				"yyyyMMddHHmmssSSS")
-				+ getNextSeq());
-		tblActAccountInf.setAccountCatalog(accountOpenRequest
-				.getAccountCatalog());
-		tblActAccountInf.setAccountPartyType(accountOpenRequest
-				.getAccountPartyType());
-		tblActAccountInf.setAccountParty(accountOpenRequest.getAccountParty());
-		tblActAccountInf.setAccountName(accountOpenRequest.getAccountName());
-		tblActAccountInf.setRemark(accountOpenRequest.getRemark());
+		// TblActAccountInf和TblActAccountBalance由lookup关系修改为inheritance关系
 
-		tblActAcountInfMgr.saveTblActAccountInf(tblActAccountInf);
+		// TblActAccountInfManager tblActAcountInfMgr =
+		// (TblActAccountInfManager) SpringContextHolder
+		// .getBean(TblActAccountInf.class);
+		// TblActAccountInf tblActAccountInf = new TblActAccountInf();
+
+		// tblActAcountInfMgr.saveTblActAccountInf(tblActAccountInf);
 
 		TblActAccountBalanceManager tblActAccountBalanceMgr = (TblActAccountBalanceManager) SpringContextHolder
 				.getBean(TblActAccountBalance.class);
 
 		TblActAccountBalance tblActAccountBalance = new TblActAccountBalance();
-		tblActAccountBalance.setTblActAccountInf(tblActAccountInf);
-		tblActAccountBalance.setAvailableBalance(0);
+		// tblActAccountBalance.setTblActAccountInf(tblActAccountInf);
+		tblActAccountBalance.setAccountNo(DateUtils.format(new Date(),
+				"yyyyMMddHHmmssSSS")
+				+ getNextSeq());
+		tblActAccountBalance.setAccountCatalog(accountOpenRequest
+				.getAccountCatalog());
+		tblActAccountBalance.setAccountPartyType(accountOpenRequest
+				.getAccountPartyType());
+		tblActAccountBalance.setAccountParty(accountOpenRequest
+				.getAccountParty());
+		tblActAccountBalance
+				.setAccountName(accountOpenRequest.getAccountName());
+		tblActAccountBalance.setStatus(AccountStatus.ACCOUNTSTATUS_NORMAL);
+		tblActAccountBalance.setRemark(accountOpenRequest.getRemark());
+
+		tblActAccountBalance.setAvailableBalance(accountOpenRequest
+				.getAvailableBalance());
 
 		tblActAccountBalanceMgr.saveTblActAccountBalance(tblActAccountBalance);
 
 		return new SimpleAccountOpenResponse(EAccountResponse.S0000,
-				tblActAccountInf.getId(), tblActAccountInf.getAccountNo());
+				tblActAccountBalance.getId(), tblActAccountBalance
+						.getAccountNo());
 	}
 
 	private int seq = 0;

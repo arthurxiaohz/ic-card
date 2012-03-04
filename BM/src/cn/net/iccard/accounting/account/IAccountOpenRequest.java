@@ -35,11 +35,13 @@ public interface IAccountOpenRequest extends Serializable {
 	 * 
 	 * @return
 	 */
-	int getOperator();
+//	int getOperator();
 
 	/**
 	 * ±¸×¢
 	 */
 	String getRemark();
+
+	int getAvailableBalance();
 
 }

@@ -2,8 +2,7 @@ package cn.net.iccard.accounting.account.impl;
 
 import cn.net.iccard.accounting.account.IAccountOpenRequest;
 
-public class SimpleAccountOpenRequest implements
-		IAccountOpenRequest {
+public class SimpleAccountOpenRequest implements IAccountOpenRequest {
 
 	private int accountPartyType;
 
@@ -25,13 +24,22 @@ public class SimpleAccountOpenRequest implements
 	 */
 	private String accountName;
 
+	private int availableBalance;
+
+	public int getAvailableBalance() {
+		return availableBalance;
+	}
+
+	public void setAvailableBalance(int availableBalance) {
+		this.availableBalance = availableBalance;
+	}
+
 	/**
 	 * ²Ù×÷Ô±
 	 * 
 	 * @return
 	 */
-	private int operator;
-
+	// private int operator;
 	/**
 	 * ±¸×¢
 	 */
@@ -67,14 +75,6 @@ public class SimpleAccountOpenRequest implements
 
 	public void setAccountName(String accountName) {
 		this.accountName = accountName;
-	}
-
-	public int getOperator() {
-		return operator;
-	}
-
-	public void setOperator(int operator) {
-		this.operator = operator;
 	}
 
 	public String getRemark() {
