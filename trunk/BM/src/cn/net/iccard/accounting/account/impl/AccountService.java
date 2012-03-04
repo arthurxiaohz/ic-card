@@ -15,6 +15,9 @@ import cn.net.iccard.bm.accounting.service.TblActAccountBalanceManager;
 
 public class AccountService implements IAccountService {
 
+	private TblActAccountBalanceManager tblActAccountBalanceMgr = (TblActAccountBalanceManager) SpringContextHolder
+			.getBean(TblActAccountBalance.class);
+
 	public IAccountResponse openAccount(IAccountOpenRequest accountOpenRequest) {
 		// TblActAccountInf和TblActAccountBalance由lookup关系修改为inheritance关系
 
@@ -24,9 +27,6 @@ public class AccountService implements IAccountService {
 		// TblActAccountInf tblActAccountInf = new TblActAccountInf();
 
 		// tblActAcountInfMgr.saveTblActAccountInf(tblActAccountInf);
-
-		TblActAccountBalanceManager tblActAccountBalanceMgr = (TblActAccountBalanceManager) SpringContextHolder
-				.getBean(TblActAccountBalance.class);
 
 		TblActAccountBalance tblActAccountBalance = new TblActAccountBalance();
 		// tblActAccountBalance.setTblActAccountInf(tblActAccountInf);
