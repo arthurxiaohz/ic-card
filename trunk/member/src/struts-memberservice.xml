@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="memberservice" extends="hi" >
+		<!-- ============= 会员信息对应的TblMbInfoAction============ --> 
+		<action name="tblMbInfo" class="cn.net.iccard.member.action.struts.TblMbInfoAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMbInfoList"
+			class="cn.net.iccard.member.action.struts.TblMbInfoAction" method="tblMbInfoList">
+			<result name="success">/memberservice/TblMbInfoList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbInfoSave"
+			class="cn.net.iccard.member.action.struts.TblMbInfoAction" method="saveTblMbInfo">
+			<result name="success" type="redirect-action">tblMbInfoList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMbInfoEdit"
+			class="cn.net.iccard.member.action.struts.TblMbInfoAction" method="viewTblMbInfo">
+			<result name="success">/memberservice/TblMbInfoEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbInfoView"
+			class="cn.net.iccard.member.action.struts.TblMbInfoAction" method="viewTblMbInfo">
+			<result name="success">/memberservice/TblMbInfoView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMbInfoRemove"
+			class="cn.net.iccard.member.action.struts.TblMbInfoAction" method="removeTblMbInfo">
+			<result name="success" type="redirect-action">tblMbInfoList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbInfoRemoveAll"
+			class="cn.net.iccard.member.action.struts.TblMbInfoAction" method="removeAllTblMbInfo">
+			<result name="success" type="redirect-action">tblMbInfoList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMbInfoLookup"
+			class="cn.net.iccard.member.action.struts.TblMbInfoAction" method="tblMbInfoList">
+			<result name="success">/memberservice/TblMbInfoList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 充值订单对应的TblMbRechargeOrderAction============ --> 
+		<action name="tblMbRechargeOrder" class="cn.net.iccard.member.action.struts.TblMbRechargeOrderAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMbRechargeOrderList"
+			class="cn.net.iccard.member.action.struts.TblMbRechargeOrderAction" method="tblMbRechargeOrderList">
+			<result name="success">/memberservice/TblMbRechargeOrderList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbRechargeOrderSave"
+			class="cn.net.iccard.member.action.struts.TblMbRechargeOrderAction" method="saveTblMbRechargeOrder">
+			<result name="success" type="redirect-action">tblMbRechargeOrderList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMbRechargeOrderEdit"
+			class="cn.net.iccard.member.action.struts.TblMbRechargeOrderAction" method="viewTblMbRechargeOrder">
+			<result name="success">/memberservice/TblMbRechargeOrderEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbRechargeOrderView"
+			class="cn.net.iccard.member.action.struts.TblMbRechargeOrderAction" method="viewTblMbRechargeOrder">
+			<result name="success">/memberservice/TblMbRechargeOrderView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMbRechargeOrderRemove"
+			class="cn.net.iccard.member.action.struts.TblMbRechargeOrderAction" method="removeTblMbRechargeOrder">
+			<result name="success" type="redirect-action">tblMbRechargeOrderList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbRechargeOrderRemoveAll"
+			class="cn.net.iccard.member.action.struts.TblMbRechargeOrderAction" method="removeAllTblMbRechargeOrder">
+			<result name="success" type="redirect-action">tblMbRechargeOrderList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMbRechargeOrderLookup"
+			class="cn.net.iccard.member.action.struts.TblMbRechargeOrderAction" method="tblMbRechargeOrderList">
+			<result name="success">/memberservice/TblMbRechargeOrderList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 网关交易请求对应的TblMbTransactionRequestAction============ --> 
+		<action name="tblMbTransactionRequest" class="cn.net.iccard.member.action.struts.TblMbTransactionRequestAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMbTransactionRequestList"
+			class="cn.net.iccard.member.action.struts.TblMbTransactionRequestAction" method="tblMbTransactionRequestList">
+			<result name="success">/memberservice/TblMbTransactionRequestList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbTransactionRequestSave"
+			class="cn.net.iccard.member.action.struts.TblMbTransactionRequestAction" method="saveTblMbTransactionRequest">
+			<result name="success" type="redirect-action">tblMbTransactionRequestList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMbTransactionRequestEdit"
+			class="cn.net.iccard.member.action.struts.TblMbTransactionRequestAction" method="viewTblMbTransactionRequest">
+			<result name="success">/memberservice/TblMbTransactionRequestEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbTransactionRequestView"
+			class="cn.net.iccard.member.action.struts.TblMbTransactionRequestAction" method="viewTblMbTransactionRequest">
+			<result name="success">/memberservice/TblMbTransactionRequestView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMbTransactionRequestRemove"
+			class="cn.net.iccard.member.action.struts.TblMbTransactionRequestAction" method="removeTblMbTransactionRequest">
+			<result name="success" type="redirect-action">tblMbTransactionRequestList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbTransactionRequestRemoveAll"
+			class="cn.net.iccard.member.action.struts.TblMbTransactionRequestAction" method="removeAllTblMbTransactionRequest">
+			<result name="success" type="redirect-action">tblMbTransactionRequestList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMbTransactionRequestLookup"
+			class="cn.net.iccard.member.action.struts.TblMbTransactionRequestAction" method="tblMbTransactionRequestList">
+			<result name="success">/memberservice/TblMbTransactionRequestList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 网关交易结果对应的TblMbTransactionResponseAction============ --> 
+		<action name="tblMbTransactionResponse" class="cn.net.iccard.member.action.struts.TblMbTransactionResponseAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMbTransactionResponseList"
+			class="cn.net.iccard.member.action.struts.TblMbTransactionResponseAction" method="tblMbTransactionResponseList">
+			<result name="success">/memberservice/TblMbTransactionResponseList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbTransactionResponseSave"
+			class="cn.net.iccard.member.action.struts.TblMbTransactionResponseAction" method="saveTblMbTransactionResponse">
+			<result name="success" type="redirect-action">tblMbTransactionResponseList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMbTransactionResponseEdit"
+			class="cn.net.iccard.member.action.struts.TblMbTransactionResponseAction" method="viewTblMbTransactionResponse">
+			<result name="success">/memberservice/TblMbTransactionResponseEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbTransactionResponseView"
+			class="cn.net.iccard.member.action.struts.TblMbTransactionResponseAction" method="viewTblMbTransactionResponse">
+			<result name="success">/memberservice/TblMbTransactionResponseView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMbTransactionResponseRemove"
+			class="cn.net.iccard.member.action.struts.TblMbTransactionResponseAction" method="removeTblMbTransactionResponse">
+			<result name="success" type="redirect-action">tblMbTransactionResponseList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbTransactionResponseRemoveAll"
+			class="cn.net.iccard.member.action.struts.TblMbTransactionResponseAction" method="removeAllTblMbTransactionResponse">
+			<result name="success" type="redirect-action">tblMbTransactionResponseList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMbTransactionResponseLookup"
+			class="cn.net.iccard.member.action.struts.TblMbTransactionResponseAction" method="tblMbTransactionResponseList">
+			<result name="success">/memberservice/TblMbTransactionResponseList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</struts>

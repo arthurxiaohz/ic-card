@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblMbRechargeOrder" type="cn.net.iccard.member.model.TblMbRechargeOrder"/>
+
+	<resultMap id="TblMbRechargeOrder" class="TblMbRechargeOrder">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="plTxTraceNo" column="plTxTraceNo"/>
+		<result property="plNo" column="plNo"/>
+		<result property="accountType" column="accountType"/>
+		<result property="accountNo" column="accountNo"/>
+		<result property="pan" column="pan"/>
+		<result property="chinfo" column="chinfo"/>
+		<result property="txTypeId" column="txTypeId"/>
+		<result property="mchtTxTime" column="mchtTxTime"/>
+		<result property="txAmount" column="txAmount"/>
+		<result property="txIp" column="txIp"/>
+		<result property="plTxTime" column="plTxTime"/>
+		<result property="txStatus" column="txStatus"/>
+		<result property="errorCode" column="errorCode"/>
+		<result property="errorMsg" column="errorMsg"/>
+		<result property="settleBatchNo" column="settleBatchNo"/>
+		<result property="settleStatus" column="settleStatus"/>
+		<result property="settleDate" column="settleDate"/>
+		<result property="createdDatetime" column="createdDatetime"/>
+		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
+		<result property="lastUpdatedBy" column="lastUpdatedBy"/>
+		<result property="bankTxStatus" column="bankTxStatus"/>
+		<result property="checkBatchNo" column="checkBatchNo"/>
+		<result property="checkStatus" column="checkStatus"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="deleted" column="deleted"/>
+	</resultMap>
+    
+    <select id="select_inner_TblMbRechargeOrder" resultMap="TblMbRechargeOrder" parameterClass="int">  
+       SELECT * FROM Tbl_Mb_Recharge_Order  WHERE id =#value#
+    </select>
+  
+	<select id="getTblMbRechargeOrder" resultMap="TblMbRechargeOrder">
+		select * from Tbl_Mb_Recharge_Order WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblMbRechargeOrder" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Mb_Recharge_Order (id, version, plTxTraceNo, plNo, accountType, accountNo, pan, chinfo, txTypeId, mchtTxTime, txAmount, txIp, plTxTime, txStatus, errorCode, errorMsg, settleBatchNo, settleStatus, settleDate, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, bankTxStatus, checkBatchNo, checkStatus, creator, deleted) 
+		values (#id#, 1, #plTxTraceNo#, #plNo#, #accountType#, #accountNo#, #pan#, #chinfo#, #txTypeId#, #mchtTxTime#, #txAmount#, #txIp#, #plTxTime#, #txStatus#, #errorCode#, #errorMsg#, #settleBatchNo#, #settleStatus#, #settleDate#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #bankTxStatus#, #checkBatchNo#, #checkStatus#, #creator#, #deleted#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblMbRechargeOrder" parameterClass="java.util.HashMap">    
+		update Tbl_Mb_Recharge_Order set
+            version = #version# +1,
+			plTxTraceNo = #plTxTraceNo#,
+			plNo = #plNo#,
+			accountType = #accountType#,
+			accountNo = #accountNo#,
+			pan = #pan#,
+			chinfo = #chinfo#,
+			txTypeId = #txTypeId#,
+			mchtTxTime = #mchtTxTime#,
+			txAmount = #txAmount#,
+			txIp = #txIp#,
+			plTxTime = #plTxTime#,
+			txStatus = #txStatus#,
+			errorCode = #errorCode#,
+			errorMsg = #errorMsg#,
+			settleBatchNo = #settleBatchNo#,
+			settleStatus = #settleStatus#,
+			settleDate = #settleDate#,
+			createdDatetime = #createdDatetime#,
+			lastUpdatedDatetime = #lastUpdatedDatetime#,
+			lastUpdatedBy = #lastUpdatedBy#,
+			bankTxStatus = #bankTxStatus#,
+			checkBatchNo = #checkBatchNo#,
+			checkStatus = #checkStatus#,
+			creator = #creator#,
+			deleted = #deleted#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblMbRechargeOrder" parameterClass="int">    
+		delete from Tbl_Mb_Recharge_Order where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblMbRechargeOrder" resultMap="TblMbRechargeOrder"/> 
+  
+	<selectExt id="countTblMbRechargeOrder" resultClass="int"/> 
+
+</sqlMap>    

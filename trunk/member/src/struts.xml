@@ -71,5 +71,7 @@
  	<include file="struts-i18n.xml" />
   	<include file="struts-i18n-cust.xml" /> 
   	<include file="struts-framework-dwz.xml" />
+  	<include file="struts-memberservice.xml" />
+  	<include file="struts-txservice.xml" />
   	
 </struts>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblTxTransferRequest" type="cn.net.iccard.tx.model.TblTxTransferRequest"/>
+
+	<resultMap id="TblTxTransferRequest" class="TblTxTransferRequest">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="mchtTxTraceNo" column="mchtTxTraceNo"/>
+		<result property="mchtNo" column="mchtNo"/>
+		<result property="amount" column="amount"/>
+		<result property="cardBalance" column="cardBalance"/>
+		<result property="cardSequence" column="cardSequence"/>
+		<result property="cardNo" column="cardNo"/>
+		<result property="mchtTxTime" column="mchtTxTime"/>
+		<result property="txStatus" column="txStatus"/>
+		<result property="txTypeId" column="txTypeId"/>
+		<result property="msgext" column="msgext"/>
+		<result property="mchtRawMessage" column="mchtRawMessage"/>
+		<result property="createdDatetime" column="createdDatetime"/>
+		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
+		<result property="lastUpdatedBy" column="lastUpdatedBy"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="deleted" column="deleted"/>
+	</resultMap>
+    
+    <select id="select_inner_TblTxTransferRequest" resultMap="TblTxTransferRequest" parameterClass="int">  
+       SELECT * FROM Tbl_Tx_Transfer_Request  WHERE id =#value#
+    </select>
+  
+	<select id="getTblTxTransferRequest" resultMap="TblTxTransferRequest">
+		select * from Tbl_Tx_Transfer_Request WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblTxTransferRequest" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Tx_Transfer_Request (id, version, mchtTxTraceNo, mchtNo, amount, cardBalance, cardSequence, cardNo, mchtTxTime, txStatus, txTypeId, msgext, mchtRawMessage, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, creator, deleted) 
+		values (#id#, 1, #mchtTxTraceNo#, #mchtNo#, #amount#, #cardBalance#, #cardSequence#, #cardNo#, #mchtTxTime#, #txStatus#, #txTypeId#, #msgext#, #mchtRawMessage#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#, #deleted#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblTxTransferRequest" parameterClass="java.util.HashMap">    
+		update Tbl_Tx_Transfer_Request set
+            version = #version# +1,
+			mchtTxTraceNo = #mchtTxTraceNo#,
+			mchtNo = #mchtNo#,
+			amount = #amount#,
+			cardBalance = #cardBalance#,
+			cardSequence = #cardSequence#,
+			cardNo = #cardNo#,
+			mchtTxTime = #mchtTxTime#,
+			txStatus = #txStatus#,
+			txTypeId = #txTypeId#,
+			msgext = #msgext#,
+			mchtRawMessage = #mchtRawMessage#,
+			createdDatetime = #createdDatetime#,
+			lastUpdatedDatetime = #lastUpdatedDatetime#,
+			lastUpdatedBy = #lastUpdatedBy#,
+			creator = #creator#,
+			deleted = #deleted#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblTxTransferRequest" parameterClass="int">    
+		delete from Tbl_Tx_Transfer_Request where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblTxTransferRequest" resultMap="TblTxTransferRequest"/> 
+  
+	<selectExt id="countTblTxTransferRequest" resultClass="int"/> 
+
+</sqlMap>    

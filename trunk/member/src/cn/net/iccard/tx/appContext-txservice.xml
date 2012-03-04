@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+   <!-- ===================== TblTxPayMentOrder Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.tx.dao.TblTxPayMentOrderDAOImpl" class="cn.net.iccard.tx.dao.${hi.orm.package}.TblTxPayMentOrderDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.tx.dao.TblTxPayMentOrderDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.tx.dao.TblTxPayMentOrderDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.tx.dao.TblTxPayMentOrderDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.tx.model.TblTxPayMentOrder" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.tx.service.impl.TblTxPayMentOrderManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.tx.dao.TblTxPayMentOrderDAO"/>
+                <property name="modelClass" value="cn.net.iccard.tx.model.TblTxPayMentOrder"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblTxTransfer Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.tx.dao.TblTxTransferDAOImpl" class="cn.net.iccard.tx.dao.${hi.orm.package}.TblTxTransferDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.tx.dao.TblTxTransferDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.tx.dao.TblTxTransferDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.tx.dao.TblTxTransferDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.tx.model.TblTxTransfer" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.tx.service.impl.TblTxTransferManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.tx.dao.TblTxTransferDAO"/>
+                <property name="modelClass" value="cn.net.iccard.tx.model.TblTxTransfer"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblTxSmsLog Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.tx.dao.TblTxSmsLogDAOImpl" class="cn.net.iccard.tx.dao.${hi.orm.package}.TblTxSmsLogDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.tx.dao.TblTxSmsLogDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.tx.dao.TblTxSmsLogDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.tx.dao.TblTxSmsLogDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.tx.model.TblTxSmsLog" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.tx.service.impl.TblTxSmsLogManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.tx.dao.TblTxSmsLogDAO"/>
+                <property name="modelClass" value="cn.net.iccard.tx.model.TblTxSmsLog"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblTxTransferRequest Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.tx.dao.TblTxTransferRequestDAOImpl" class="cn.net.iccard.tx.dao.${hi.orm.package}.TblTxTransferRequestDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.tx.dao.TblTxTransferRequestDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.tx.dao.TblTxTransferRequestDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.tx.dao.TblTxTransferRequestDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.tx.model.TblTxTransferRequest" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.tx.service.impl.TblTxTransferRequestManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.tx.dao.TblTxTransferRequestDAO"/>
+                <property name="modelClass" value="cn.net.iccard.tx.model.TblTxTransferRequest"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblTxTransferResponse Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.tx.dao.TblTxTransferResponseDAOImpl" class="cn.net.iccard.tx.dao.${hi.orm.package}.TblTxTransferResponseDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.tx.dao.TblTxTransferResponseDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.tx.dao.TblTxTransferResponseDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.tx.dao.TblTxTransferResponseDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.tx.model.TblTxTransferResponse" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.tx.service.impl.TblTxTransferResponseManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.tx.dao.TblTxTransferResponseDAO"/>
+                <property name="modelClass" value="cn.net.iccard.tx.model.TblTxTransferResponse"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblTxPayMentRequest Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.tx.dao.TblTxPayMentRequestDAOImpl" class="cn.net.iccard.tx.dao.${hi.orm.package}.TblTxPayMentRequestDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.tx.dao.TblTxPayMentRequestDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.tx.dao.TblTxPayMentRequestDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.tx.dao.TblTxPayMentRequestDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.tx.model.TblTxPayMentRequest" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.tx.service.impl.TblTxPayMentRequestManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.tx.dao.TblTxPayMentRequestDAO"/>
+                <property name="modelClass" value="cn.net.iccard.tx.model.TblTxPayMentRequest"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblTxPayMentResponse Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.tx.dao.TblTxPayMentResponseDAOImpl" class="cn.net.iccard.tx.dao.${hi.orm.package}.TblTxPayMentResponseDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.tx.dao.TblTxPayMentResponseDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.tx.dao.TblTxPayMentResponseDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.tx.dao.TblTxPayMentResponseDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.tx.model.TblTxPayMentResponse" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.tx.service.impl.TblTxPayMentResponseManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.tx.dao.TblTxPayMentResponseDAO"/>
+                <property name="modelClass" value="cn.net.iccard.tx.model.TblTxPayMentResponse"/>
+            </bean>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+   <!-- ===================== TblMbInfo Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.member.dao.TblMbInfoDAOImpl" class="cn.net.iccard.member.dao.${hi.orm.package}.TblMbInfoDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.member.dao.TblMbInfoDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.member.dao.TblMbInfoDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.member.dao.TblMbInfoDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.member.model.TblMbInfo" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.member.service.impl.TblMbInfoManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.member.dao.TblMbInfoDAO"/>
+                <property name="modelClass" value="cn.net.iccard.member.model.TblMbInfo"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblMbRechargeOrder Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.member.dao.TblMbRechargeOrderDAOImpl" class="cn.net.iccard.member.dao.${hi.orm.package}.TblMbRechargeOrderDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.member.dao.TblMbRechargeOrderDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.member.dao.TblMbRechargeOrderDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.member.dao.TblMbRechargeOrderDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.member.model.TblMbRechargeOrder" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.member.service.impl.TblMbRechargeOrderManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.member.dao.TblMbRechargeOrderDAO"/>
+                <property name="modelClass" value="cn.net.iccard.member.model.TblMbRechargeOrder"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblMbTransactionRequest Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.member.dao.TblMbTransactionRequestDAOImpl" class="cn.net.iccard.member.dao.${hi.orm.package}.TblMbTransactionRequestDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.member.dao.TblMbTransactionRequestDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.member.dao.TblMbTransactionRequestDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.member.dao.TblMbTransactionRequestDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.member.model.TblMbTransactionRequest" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.member.service.impl.TblMbTransactionRequestManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.member.dao.TblMbTransactionRequestDAO"/>
+                <property name="modelClass" value="cn.net.iccard.member.model.TblMbTransactionRequest"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblMbTransactionResponse Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.member.dao.TblMbTransactionResponseDAOImpl" class="cn.net.iccard.member.dao.${hi.orm.package}.TblMbTransactionResponseDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.member.dao.TblMbTransactionResponseDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.member.dao.TblMbTransactionResponseDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.member.dao.TblMbTransactionResponseDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.member.model.TblMbTransactionResponse" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.member.service.impl.TblMbTransactionResponseManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.member.dao.TblMbTransactionResponseDAO"/>
+                <property name="modelClass" value="cn.net.iccard.member.model.TblMbTransactionResponse"/>
+            </bean>
+        </property>
+    </bean>
+</beans>

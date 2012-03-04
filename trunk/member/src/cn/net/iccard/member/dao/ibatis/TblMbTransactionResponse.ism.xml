@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblMbTransactionResponse" type="cn.net.iccard.member.model.TblMbTransactionResponse"/>
+
+	<resultMap id="TblMbTransactionResponse" class="TblMbTransactionResponse">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="responseId" column="responseId"/>
+		<result property="ordedId" column="ordedId"/>
+		<result property="orgId" column="orgId"/>
+		<result property="orgOrdedId" column="orgOrdedId"/>
+		<result property="amount" column="amount"/>
+		<result property="context" column="context"/>
+		<result property="state" column="state"/>
+		<result property="sourceIp" column="sourceIp"/>
+		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
+		<result property="lastUpdatedBy" column="lastUpdatedBy"/>
+		<result property="createdDatetime" column="createdDatetime"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="deleted" column="deleted"/>
+	</resultMap>
+    
+    <select id="select_inner_TblMbTransactionResponse" resultMap="TblMbTransactionResponse" parameterClass="int">  
+       SELECT * FROM Tbl_Mb_Transaction_Response  WHERE id =#value#
+    </select>
+  
+	<select id="getTblMbTransactionResponse" resultMap="TblMbTransactionResponse">
+		select * from Tbl_Mb_Transaction_Response WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblMbTransactionResponse" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Mb_Transaction_Response (id, version, responseId, ordedId, orgId, orgOrdedId, amount, context, state, sourceIp, lastUpdatedDatetime, lastUpdatedBy, createdDatetime, creator, deleted) 
+		values (#id#, 1, #responseId#, #ordedId#, #orgId#, #orgOrdedId#, #amount#, #context#, #state#, #sourceIp#, #lastUpdatedDatetime#, #lastUpdatedBy#, #createdDatetime#, #creator#, #deleted#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblMbTransactionResponse" parameterClass="java.util.HashMap">    
+		update Tbl_Mb_Transaction_Response set
+            version = #version# +1,
+			responseId = #responseId#,
+			ordedId = #ordedId#,
+			orgId = #orgId#,
+			orgOrdedId = #orgOrdedId#,
+			amount = #amount#,
+			context = #context#,
+			state = #state#,
+			sourceIp = #sourceIp#,
+			lastUpdatedDatetime = #lastUpdatedDatetime#,
+			lastUpdatedBy = #lastUpdatedBy#,
+			createdDatetime = #createdDatetime#,
+			creator = #creator#,
+			deleted = #deleted#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblMbTransactionResponse" parameterClass="int">    
+		delete from Tbl_Mb_Transaction_Response where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblMbTransactionResponse" resultMap="TblMbTransactionResponse"/> 
+  
+	<selectExt id="countTblMbTransactionResponse" resultClass="int"/> 
+
+</sqlMap>    
