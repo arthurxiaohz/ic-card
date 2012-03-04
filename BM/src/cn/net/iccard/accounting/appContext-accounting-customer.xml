@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
-
-<beans>
-    <bean id="cn.net.iccard.accounting.account.impl.AccountService" class="cn.net.iccard.accounting.account.impl.AccountService">
-    </bean>
-    <bean id="cn.net.iccard.accounting.tx.impl.AccountTxService" class="cn.net.iccard.accounting.tx.impl.AccountTxService">
-    </bean>
-</beans>
