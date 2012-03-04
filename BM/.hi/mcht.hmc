@@ -684,13 +684,13 @@
                 <isParent>false</isParent>
               </org.hi.studio.hsceditor.visual.model.ColumnModel>
               <org.hi.studio.hsceditor.visual.model.ColumnModel>
-                <columnName>interval</columnName>
+                <columnName>ruleValue</columnName>
                 <logicalName>column4</logicalName>
                 <size></size>
                 <scale></scale>
                 <notNull>false</notNull>
                 <primaryKey>false</primaryKey>
-                <description>间隔</description>
+                <description>参数值</description>
                 <autoIncrement>false</autoIncrement>
                 <defaultValue></defaultValue>
                 <mainEntityName></mainEntityName>
