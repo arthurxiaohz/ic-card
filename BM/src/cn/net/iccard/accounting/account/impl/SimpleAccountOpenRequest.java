@@ -4,6 +4,11 @@ import cn.net.iccard.accounting.account.IAccountOpenRequest;
 
 public class SimpleAccountOpenRequest implements IAccountOpenRequest {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6283829117313917422L;
+
 	private int accountPartyType;
 
 	private int accountCatalog;
@@ -24,7 +29,7 @@ public class SimpleAccountOpenRequest implements IAccountOpenRequest {
 	 */
 	private String accountName;
 
-	private int availableBalance;
+	private int availableBalance = 0;
 
 	public int getAvailableBalance() {
 		return availableBalance;
