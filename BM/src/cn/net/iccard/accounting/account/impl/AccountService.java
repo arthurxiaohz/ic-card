@@ -21,7 +21,7 @@ public class AccountService implements IAccountService {
 				.getBean(TblActAccountInf.class);
 		TblActAccountInf tblActAccountInf = new TblActAccountInf();
 		tblActAccountInf.setAccountNo(DateUtils.format(new Date(),
-				"yyyyMMddHHmmss")
+				"yyyyMMddHHmmssSSS")
 				+ getNextSeq());
 		tblActAccountInf.setAccountCatalog(accountOpenRequest
 				.getAccountCatalog());
@@ -47,11 +47,11 @@ public class AccountService implements IAccountService {
 	}
 
 	private int seq = 0;
-	private final int MAX_PER_SECOND = 99999;
+	private final int MAX_PER_SECOND = 99;
 
 	private synchronized int getNextSeq() {
 		seq++;
 		seq %= MAX_PER_SECOND;
-		return seq + 900000;
+		return seq + 100;
 	}
 }
