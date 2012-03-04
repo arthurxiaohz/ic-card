@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblTxPayMentRequest" type="cn.net.iccard.tx.model.TblTxPayMentRequest"/>
+
+	<resultMap id="TblTxPayMentRequest" class="TblTxPayMentRequest">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="mchtTxTraceNo" column="mchtTxTraceNo"/>
+		<result property="lastMchtTxTraceNo" column="lastMchtTxTraceNo"/>
+		<result property="mchtNo" column="mchtNo"/>
+		<result property="amount" column="amount"/>
+		<result property="lastMchtTxTime" column="lastMchtTxTime"/>
+		<result property="mchtTxTime" column="mchtTxTime"/>
+		<result property="txStatus" column="txStatus"/>
+		<result property="txTypeId" column="txTypeId"/>
+		<result property="msgext" column="msgext"/>
+		<result property="mchtRawMessage" column="mchtRawMessage"/>
+		<result property="createdDatetime" column="createdDatetime"/>
+		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
+		<result property="lastUpdatedBy" column="lastUpdatedBy"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="deleted" column="deleted"/>
+	</resultMap>
+    
+    <select id="select_inner_TblTxPayMentRequest" resultMap="TblTxPayMentRequest" parameterClass="int">  
+       SELECT * FROM Tbl_Tx_PayMent_Request  WHERE id =#value#
+    </select>
+  
+	<select id="getTblTxPayMentRequest" resultMap="TblTxPayMentRequest">
+		select * from Tbl_Tx_PayMent_Request WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblTxPayMentRequest" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Tx_PayMent_Request (id, version, mchtTxTraceNo, lastMchtTxTraceNo, mchtNo, amount, lastMchtTxTime, mchtTxTime, txStatus, txTypeId, msgext, mchtRawMessage, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, creator, deleted) 
+		values (#id#, 1, #mchtTxTraceNo#, #lastMchtTxTraceNo#, #mchtNo#, #amount#, #lastMchtTxTime#, #mchtTxTime#, #txStatus#, #txTypeId#, #msgext#, #mchtRawMessage#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#, #deleted#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblTxPayMentRequest" parameterClass="java.util.HashMap">    
+		update Tbl_Tx_PayMent_Request set
+            version = #version# +1,
+			mchtTxTraceNo = #mchtTxTraceNo#,
+			lastMchtTxTraceNo = #lastMchtTxTraceNo#,
+			mchtNo = #mchtNo#,
+			amount = #amount#,
+			lastMchtTxTime = #lastMchtTxTime#,
+			mchtTxTime = #mchtTxTime#,
+			txStatus = #txStatus#,
+			txTypeId = #txTypeId#,
+			msgext = #msgext#,
+			mchtRawMessage = #mchtRawMessage#,
+			createdDatetime = #createdDatetime#,
+			lastUpdatedDatetime = #lastUpdatedDatetime#,
+			lastUpdatedBy = #lastUpdatedBy#,
+			creator = #creator#,
+			deleted = #deleted#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblTxPayMentRequest" parameterClass="int">    
+		delete from Tbl_Tx_PayMent_Request where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblTxPayMentRequest" resultMap="TblTxPayMentRequest"/> 
+  
+	<selectExt id="countTblTxPayMentRequest" resultClass="int"/> 
+
+</sqlMap>    

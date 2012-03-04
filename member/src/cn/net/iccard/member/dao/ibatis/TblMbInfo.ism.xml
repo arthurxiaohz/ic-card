@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblMbInfo" type="cn.net.iccard.member.model.TblMbInfo"/>
+
+	<resultMap id="TblMbInfo" class="TblMbInfo">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="plNo" column="plNo"/>
+		<result property="userName" column="userName"/>
+		<result property="certificateTypeId" column="certificateTypeId"/>
+		<result property="certificateNo" column="certificateNo"/>
+		<result property="realName" column="realName"/>
+		<result property="sex" column="sex"/>
+		<result property="address" column="address"/>
+		<result property="zipCode" column="zipCode"/>
+		<result property="mobile" column="mobile"/>
+		<result property="phone" column="phone"/>
+		<result property="email" column="email"/>
+		<result property="password" column="password"/>
+		<result property="cardNo" column="cardNo"/>
+		<result property="realNameStatus" column="realNameStatus"/>
+		<result property="realNameTime" column="realNameTime"/>
+		<result property="registerTime" column="registerTime"/>
+		<result property="registerWay" column="registerWay"/>
+		<result property="createdDatetime" column="createdDatetime"/>
+		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
+		<result property="lastUpdatedBy" column="lastUpdatedBy"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="deleted" column="deleted"/>
+	</resultMap>
+    
+    <select id="select_inner_TblMbInfo" resultMap="TblMbInfo" parameterClass="int">  
+       SELECT * FROM Tbl_Mb_Info  WHERE id =#value#
+    </select>
+  
+	<select id="getTblMbInfo" resultMap="TblMbInfo">
+		select * from Tbl_Mb_Info WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblMbInfo" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Mb_Info (id, version, plNo, userName, certificateTypeId, certificateNo, realName, sex, address, zipCode, mobile, phone, email, password, cardNo, realNameStatus, realNameTime, registerTime, registerWay, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, creator, deleted) 
+		values (#id#, 1, #plNo#, #userName#, #certificateTypeId#, #certificateNo#, #realName#, #sex#, #address#, #zipCode#, #mobile#, #phone#, #email#, #password#, #cardNo#, #realNameStatus#, #realNameTime#, #registerTime#, #registerWay#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#, #deleted#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblMbInfo" parameterClass="java.util.HashMap">    
+		update Tbl_Mb_Info set
+            version = #version# +1,
+			plNo = #plNo#,
+			userName = #userName#,
+			certificateTypeId = #certificateTypeId#,
+			certificateNo = #certificateNo#,
+			realName = #realName#,
+			sex = #sex#,
+			address = #address#,
+			zipCode = #zipCode#,
+			mobile = #mobile#,
+			phone = #phone#,
+			email = #email#,
+			password = #password#,
+			cardNo = #cardNo#,
+			realNameStatus = #realNameStatus#,
+			realNameTime = #realNameTime#,
+			registerTime = #registerTime#,
+			registerWay = #registerWay#,
+			createdDatetime = #createdDatetime#,
+			lastUpdatedDatetime = #lastUpdatedDatetime#,
+			lastUpdatedBy = #lastUpdatedBy#,
+			creator = #creator#,
+			deleted = #deleted#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblMbInfo" parameterClass="int">    
+		delete from Tbl_Mb_Info where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblMbInfo" resultMap="TblMbInfo"/> 
+  
+	<selectExt id="countTblMbInfo" resultClass="int"/> 
+
+</sqlMap>    

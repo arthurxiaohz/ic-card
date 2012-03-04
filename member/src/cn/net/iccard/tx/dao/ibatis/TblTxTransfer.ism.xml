@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblTxTransfer" type="cn.net.iccard.tx.model.TblTxTransfer"/>
+
+	<resultMap id="TblTxTransfer" class="TblTxTransfer">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="plTxTraceNo" column="plTxTraceNo"/>
+		<result property="memberNO" column="memberNO"/>
+		<result property="txTypeId" column="txTypeId"/>
+		<result property="mchtNo" column="mchtNo"/>
+		<result property="mchtTxTime" column="mchtTxTime"/>
+		<result property="mchtTxTraceNo" column="mchtTxTraceNo"/>
+		<result property="txAmount" column="txAmount"/>
+		<result property="notifyUrl" column="notifyUrl"/>
+		<result property="txIp" column="txIp"/>
+		<result property="plTxTime" column="plTxTime"/>
+		<result property="txStatus" column="txStatus"/>
+		<result property="voucherNo" column="voucherNo"/>
+		<result property="errorCode" column="errorCode"/>
+		<result property="errorMsg" column="errorMsg"/>
+		<result property="settleBatchNo" column="settleBatchNo"/>
+		<result property="settleStatus" column="settleStatus"/>
+		<result property="settleDate" column="settleDate"/>
+		<result property="feeAmount" column="feeAmount"/>
+		<result property="hasCountFee" column="hasCountFee"/>
+		<result property="createdDatetime" column="createdDatetime"/>
+		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
+		<result property="lastUpdatedBy" column="lastUpdatedBy"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="deleted" column="deleted"/>
+	</resultMap>
+    
+    <select id="select_inner_TblTxTransfer" resultMap="TblTxTransfer" parameterClass="int">  
+       SELECT * FROM Tbl_Tx_Transfer  WHERE id =#value#
+    </select>
+  
+	<select id="getTblTxTransfer" resultMap="TblTxTransfer">
+		select * from Tbl_Tx_Transfer WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblTxTransfer" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Tx_Transfer (id, version, plTxTraceNo, memberNO, txTypeId, mchtNo, mchtTxTime, mchtTxTraceNo, txAmount, notifyUrl, txIp, plTxTime, txStatus, voucherNo, errorCode, errorMsg, settleBatchNo, settleStatus, settleDate, feeAmount, hasCountFee, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, creator, deleted) 
+		values (#id#, 1, #plTxTraceNo#, #memberNO#, #txTypeId#, #mchtNo#, #mchtTxTime#, #mchtTxTraceNo#, #txAmount#, #notifyUrl#, #txIp#, #plTxTime#, #txStatus#, #voucherNo#, #errorCode#, #errorMsg#, #settleBatchNo#, #settleStatus#, #settleDate#, #feeAmount#, #hasCountFee#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#, #deleted#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblTxTransfer" parameterClass="java.util.HashMap">    
+		update Tbl_Tx_Transfer set
+            version = #version# +1,
+			plTxTraceNo = #plTxTraceNo#,
+			memberNO = #memberNO#,
+			txTypeId = #txTypeId#,
+			mchtNo = #mchtNo#,
+			mchtTxTime = #mchtTxTime#,
+			mchtTxTraceNo = #mchtTxTraceNo#,
+			txAmount = #txAmount#,
+			notifyUrl = #notifyUrl#,
+			txIp = #txIp#,
+			plTxTime = #plTxTime#,
+			txStatus = #txStatus#,
+			voucherNo = #voucherNo#,
+			errorCode = #errorCode#,
+			errorMsg = #errorMsg#,
+			settleBatchNo = #settleBatchNo#,
+			settleStatus = #settleStatus#,
+			settleDate = #settleDate#,
+			feeAmount = #feeAmount#,
+			hasCountFee = #hasCountFee#,
+			createdDatetime = #createdDatetime#,
+			lastUpdatedDatetime = #lastUpdatedDatetime#,
+			lastUpdatedBy = #lastUpdatedBy#,
+			creator = #creator#,
+			deleted = #deleted#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblTxTransfer" parameterClass="int">    
+		delete from Tbl_Tx_Transfer where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblTxTransfer" resultMap="TblTxTransfer"/> 
+  
+	<selectExt id="countTblTxTransfer" resultClass="int"/> 
+
+</sqlMap>    
