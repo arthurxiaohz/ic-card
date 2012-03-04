@@ -2,8 +2,8 @@ package cn.net.iccard.accounting.tx.impl;
 
 import cn.net.iccard.accounting.tx.IAccountDebitCreditRequest;
 
-public class AccountDebitCreditRequest extends CommonAccountTxRequest
-		implements IAccountDebitCreditRequest {
+public class AccountDebitCreditRequest extends CommonAccountTxRequest implements
+		IAccountDebitCreditRequest {
 
 	private int accountId;
 
