@@ -2886,7 +2886,7 @@
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>txTypeId</columnName>
           <logicalName>column14</logicalName>
-          <size>1</size>
+          <size>4</size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>

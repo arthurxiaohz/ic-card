@@ -27,12 +27,12 @@ public class PhoneServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("--------CheckNameServlet----doGet-----start-------------");
-		response.setContentType("text/xml; charset=utf-8");// 设置字符编码和头部信息
+		System.out.println("--------PhoneServlet----doGet-----start-------------");
+		response.setContentType("text/xml; charset=GBK");// 设置字符编码和头部信息
 		response.setHeader("Cache-Control", "no-cache");
 		// 机构类型
-		String operatorId = request.getParameter("operatorId");
-		
+		String operatorId = request.getParameter("tblTxPayMentOrderid");
+		System.out.println(operatorId);
 		
 		String passed = "";
 		

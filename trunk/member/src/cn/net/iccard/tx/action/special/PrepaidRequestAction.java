@@ -52,7 +52,7 @@ public class PrepaidRequestAction extends BaseAction{
 		    } catch (Exception e) {
 		      //logger.error("", e);
 		    }
-			
+		    System.out.println("1111111111");
 		String msg = request.getParameter("TxInfo");			//报文域
 		String Signature = request.getParameter("Signature");	//报文签名
 		String TxType = request.getParameter("TxType");			//交易类型
@@ -162,6 +162,7 @@ public class PrepaidRequestAction extends BaseAction{
 //		tblTxPayMentOrderPageInfo.setF_mchtTxTraceNo(request.getParameter("plTxTraceNo"));
 		
 		
+		System.out.println("1111111111");
 		
 		Filter filter = FilterFactory.getSimpleFilter("mchtTxTraceNo",request.getParameter("plTxTraceNo"), Filter.OPERATOR_EQ);
 		
