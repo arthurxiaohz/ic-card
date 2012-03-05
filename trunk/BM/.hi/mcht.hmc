@@ -512,7 +512,7 @@
           <primaryKey>false</primaryKey>
           <description>创建时间</description>
           <autoIncrement>false</autoIncrement>
-          <defaultValue>new Date()</defaultValue>
+          <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue>
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName></lkServiceName>
@@ -792,7 +792,7 @@
                 <primaryKey>false</primaryKey>
                 <description>创建时间</description>
                 <autoIncrement>false</autoIncrement>
-                <defaultValue>new Date()</defaultValue>
+                <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue>
                 <mainEntityName></mainEntityName>
                 <hiValidator></hiValidator>
                 <lkServiceName></lkServiceName>
@@ -1121,7 +1121,7 @@
                 <primaryKey>false</primaryKey>
                 <description>创建时间</description>
                 <autoIncrement>false</autoIncrement>
-                <defaultValue>new Date()</defaultValue>
+                <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue>
                 <mainEntityName></mainEntityName>
                 <hiValidator></hiValidator>
                 <lkServiceName></lkServiceName>
@@ -1469,20 +1469,20 @@
               <org.hi.studio.hsceditor.visual.model.ColumnModel>
                 <columnName>createdDateTime</columnName>
                 <logicalName>column9</logicalName>
-                <size>30</size>
+                <size></size>
                 <scale></scale>
                 <notNull>false</notNull>
                 <primaryKey>false</primaryKey>
                 <description>创建时间</description>
                 <autoIncrement>false</autoIncrement>
-                <defaultValue>new Date()</defaultValue>
+                <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue>
                 <mainEntityName></mainEntityName>
                 <hiValidator></hiValidator>
                 <lkServiceName></lkServiceName>
                 <lkEntityName></lkEntityName>
                 <lkFieldName></lkFieldName>
                 <isLkForeignKey>false</isLkForeignKey>
-                <hiDataType>1</hiDataType>
+                <hiDataType>5</hiDataType>
                 <isSearch>false</isSearch>
                 <isListDisplay>true</isListDisplay>
                 <isReadOnly>false</isReadOnly>
@@ -1494,7 +1494,7 @@
               <org.hi.studio.hsceditor.visual.model.ColumnModel>
                 <columnName>lastUpdatedDatetime</columnName>
                 <logicalName>column10</logicalName>
-                <size>30</size>
+                <size></size>
                 <scale></scale>
                 <notNull>false</notNull>
                 <primaryKey>false</primaryKey>
@@ -1507,7 +1507,7 @@
                 <lkEntityName></lkEntityName>
                 <lkFieldName></lkFieldName>
                 <isLkForeignKey>false</isLkForeignKey>
-                <hiDataType>1</hiDataType>
+                <hiDataType>5</hiDataType>
                 <isSearch>false</isSearch>
                 <isListDisplay>true</isListDisplay>
                 <isReadOnly>false</isReadOnly>
@@ -1704,7 +1704,7 @@
                 <primaryKey>false</primaryKey>
                 <description>创建时间</description>
                 <autoIncrement>false</autoIncrement>
-                <defaultValue>new Date()</defaultValue>
+                <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue>
                 <mainEntityName></mainEntityName>
                 <hiValidator></hiValidator>
                 <lkServiceName></lkServiceName>
