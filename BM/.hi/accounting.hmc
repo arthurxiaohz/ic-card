@@ -219,7 +219,7 @@
           <primaryKey>false</primaryKey>
           <description>创建时间</description>
           <autoIncrement>false</autoIncrement>
-          <defaultValue>new Date()</defaultValue>
+          <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue>
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName></lkServiceName>
@@ -793,7 +793,7 @@
           <primaryKey>false</primaryKey>
           <description>创建时间</description>
           <autoIncrement>false</autoIncrement>
-          <defaultValue>new Date()</defaultValue>
+          <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue>
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName></lkServiceName>
@@ -1130,7 +1130,7 @@
           <primaryKey>false</primaryKey>
           <description>创建时间</description>
           <autoIncrement>false</autoIncrement>
-          <defaultValue>new Date()</defaultValue>
+          <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue>
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName></lkServiceName>
@@ -1492,7 +1492,7 @@
           <primaryKey>false</primaryKey>
           <description>创建时间</description>
           <autoIncrement>false</autoIncrement>
-          <defaultValue>new Date()</defaultValue>
+          <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue>
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName></lkServiceName>
