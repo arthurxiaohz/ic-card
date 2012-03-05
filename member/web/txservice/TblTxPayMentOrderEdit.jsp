@@ -31,14 +31,39 @@ function validate(){
        return false; 
     }else{
    // alert("date = "+date);
-	  var url = "tblTxPayMentOrderSms.action?tblTxPayMentOrder.id="+ orderid +"&phoneNo="+phoneNo;
+	  var url = "PhoneServlet?tblTxPayMentOrderid="+ orderid +"&phoneNo="+phoneNo;
 	 // alert("url = "+url);
 	  xmlHttp.open("GET",url,true);
 	  xmlHttp.onreadystatechange = callback;
 	  xmlHttp.send(null);
-	  
+	  validateCodeButtonWait()
     }
 	}
+	
+	//校验码每隔60秒点击一次
+function validateCodeButtonWait()
+{
+	var secs=60;
+    document.getElementById("validMobileId").value = "获取验证码 [" + secs + "]";
+    	document.getElementById("validMobileId").disabled = true;
+    for( I = 1; I <= secs; I++)
+    {
+      window.setTimeout("changeSeconds(" + I + ")", I*1000);
+	}
+    window.setTimeout("changeToClick()", secs*1000);
+}
+
+function changeSeconds(num)
+{
+     var print=60-num;
+     document.getElementById("validMobileId").value = "获取验证码 [" + print + "]";
+}
+
+function changeToClick()
+{
+	 document.getElementById("validMobileId").disabled = false;
+     document.getElementById("validMobileId").value = " 获取验证码 ";
+}
 	function callback(){
 	  
 	  if(xmlHttp.readyState == 4){
@@ -129,12 +154,16 @@ function validate(){
 														
 														
 														<dl>
-																	<dt><hi:text key="手机号码" entity="TblTxPayMentOrder"/>：</dt><dd><input id="payerPhone"   type="text" name="tblTxPayMentOrder.payerPhone" class="textInput" value="${tblTxPayMentOrder.payerPhone}" maxlength="13"/>
+																	<dt><hi:text key="手机号码" entity="TblTxPayMentOrder"/>：</dt><dd><input id="payerPhone"   type="text" name="tblTxPayMentOrder.payerPhone" class="textInput" value="" maxlength="13"/>
 														
 														
 															<INPUT type="button"  style="width:100px" name="validMobileId" id="validMobileId" onClick="validate(); " value="获取验证码" length="20"><span class="red" id="registerMobile"></span></dd>
 														</dl>
+														<dl>
+																	<dt><hi:text key="手机验证码" entity="TblTxPayMentOrder"/>：</dt><dd><input id="verifyCode"   type="text" name="tblTxPayMentOrder.verifyCode" class="textInput" value="" maxlength="13"/>
 														
+														
+														</dl>
 														
 														
 														<tr>

@@ -91,9 +91,18 @@
         <url-pattern>*.jsp</url-pattern>
     </filter-mapping>
 
-    
+   <servlet>
+    <servlet-name>PhoneServlet</servlet-name>
+		<servlet-class>
+			cn.net.iccard.tx.servlet.PhoneServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PhoneServlet</servlet-name>
+		<url-pattern>/PhoneServlet</url-pattern>
+	</servlet-mapping>
 
-<!--     
+   <!--  
    	<filter-mapping>
 		<filter-name>sessionTimeOutFilter</filter-name>
 		<url-pattern>/*</url-pattern>
