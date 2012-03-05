@@ -2307,7 +2307,7 @@
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
-            <length>1</length>
+            <length>4</length>
             <scale></scale>
                         <isParent>false</isParent>
             <fieldType>1</fieldType>
@@ -2760,7 +2760,7 @@
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
-            <length>1</length>
+            <length>4</length>
             <scale></scale>
                         <isParent>false</isParent>
             <fieldType>1</fieldType>
@@ -3778,7 +3778,7 @@
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
-            <length>1</length>
+            <length>4</length>
             <scale></scale>
                         <isParent>false</isParent>
             <fieldType>1</fieldType>
