@@ -4,19 +4,33 @@ import java.util.Date;
 
 import org.apache.tools.ant.util.DateUtils;
 import org.hi.SpringContextHolder;
+import org.hi.base.organization.model.HiUser;
+import org.hi.framework.dao.Filter;
+import org.hi.framework.dao.impl.FilterFactory;
 
 import cn.net.iccard.accounting.EAccountResponse;
 import cn.net.iccard.accounting.account.IAccountOpenRequest;
 import cn.net.iccard.accounting.account.IAccountResponse;
 import cn.net.iccard.accounting.account.IAccountService;
+import cn.net.iccard.bm.accounting.model.AccountPartyType;
 import cn.net.iccard.bm.accounting.model.AccountStatus;
 import cn.net.iccard.bm.accounting.model.TblActAccountBalance;
 import cn.net.iccard.bm.accounting.service.TblActAccountBalanceManager;
+import cn.net.iccard.member.model.TblMbInfo;
+import cn.net.iccard.member.model.TblMbPoint;
+import cn.net.iccard.member.service.TblMbInfoManager;
+import cn.net.iccard.member.service.TblMbPointManager;
 
 public class AccountService implements IAccountService {
 
 	private TblActAccountBalanceManager tblActAccountBalanceMgr = (TblActAccountBalanceManager) SpringContextHolder
 			.getBean(TblActAccountBalance.class);
+
+	private TblMbPointManager tblMbPointMgr = (TblMbPointManager) SpringContextHolder
+			.getBean(TblMbPoint.class);
+
+	private TblMbInfoManager tblMbInfoMgr = (TblMbInfoManager) SpringContextHolder
+			.getBean(TblMbInfo.class);
 
 	public IAccountResponse openAccount(IAccountOpenRequest accountOpenRequest) {
 		// TblActAccountInf和TblActAccountBalance由lookup关系修改为inheritance关系
@@ -48,6 +62,16 @@ public class AccountService implements IAccountService {
 				.getAvailableBalance());
 
 		tblActAccountBalanceMgr.saveTblActAccountBalance(tblActAccountBalance);
+
+		if (accountOpenRequest.getAccountPartyType() == AccountPartyType.ACCOUNTPARTYTYPE_MEMBER) {
+			TblMbPoint tblMbPoint = new TblMbPoint();
+			tblMbPoint.setTblMbInfo((HiUser) tblMbInfoMgr.getObjects(
+					FilterFactory.getSimpleFilter("userName",
+							accountOpenRequest.getAccountParty(),
+							Filter.OPERATOR_EQ)).get(0));
+			tblMbPoint.setBalance(0);
+			tblMbPointMgr.saveObject(tblMbPoint);
+		}
 
 		return new SimpleAccountOpenResponse(EAccountResponse.S0000,
 				tblActAccountBalance.getId(), tblActAccountBalance
