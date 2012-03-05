@@ -46,8 +46,8 @@ public class PrepaidRequestAction extends BaseAction{
 		HttpServletResponse response = getResponse();
 		
 		 try {
-		      request.setCharacterEncoding("GBK");
-		      String contentType = new StringBuffer("text/html; charset=").append("GBK").toString();
+		      request.setCharacterEncoding("UTF-8");
+		      String contentType = new StringBuffer("text/html; charset=").append("UTF-8").toString();
 		      response.setContentType(contentType);
 		    } catch (Exception e) {
 		      //logger.error("", e);
@@ -76,6 +76,7 @@ public class PrepaidRequestAction extends BaseAction{
 			String TxDate = tBankPlain.getProperty("TxDate");					//交易日期
 			String TxTime = tBankPlain.getProperty("TxTime");					///交易时间
 			String TxBody = tBankPlain.getProperty("TxBody");					//商品描述
+			System.out.println(TxBody);
 			String ShowUrl = tBankPlain.getProperty("ShowUrl");					//商品展示URL 
 			String UseCoupon = tBankPlain.getProperty("UseCoupon");				//	是否使用优惠券					
 			String CouponMsg = tBankPlain.getProperty("CouponMsg");					//	优惠券信息
@@ -96,7 +97,7 @@ public class PrepaidRequestAction extends BaseAction{
 			tblTxPayMentRequest.setAmount(TxAmount);				//交易金额
 			tblTxPayMentRequest.setMchtTxTime(TxTime);				//商户交易日期
 			tblTxPayMentRequest.setTxTypeId(TxType);				//交易类型
-			tblTxPayMentRequest.setMsgext(msg);						//原始交易报文
+			tblTxPayMentRequest.setMchtRawMessage(msg);						//原始交易报文
 			tblTxPayMentRequest.setCreatedDatetime(new Timestamp(System.currentTimeMillis())); //创建时间
 			//tblTxPayMentRequest.setLastUpdatedBy();     	//最后修改人
 			tblTxPayMentRequest.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));//最后修改时间
