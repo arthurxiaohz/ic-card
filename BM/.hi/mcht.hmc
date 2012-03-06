@@ -2228,7 +2228,7 @@
   <includeView>false</includeView>
   <packageName>cn.net.iccard.bm.mcht</packageName>
   <serviceName>mcht</serviceName>
-  <baseData>700000</baseData>
+  <baseData>300000</baseData>
   <description>商户配置</description>
   <listeners serialization="custom">
     <java.beans.PropertyChangeSupport>
