@@ -11,7 +11,8 @@ public enum EAccountNo {
 
 	String accountNo;
 
-	EAccountNo(int accountId, String acountNo) {
+	EAccountNo(int accountId, String accountNo) {
+		this.accountId = accountId;
 		this.accountNo = accountNo;
 	}
 }
