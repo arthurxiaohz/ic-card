@@ -3240,11 +3240,11 @@
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
-            <validator></validator>  
-            <length>18</length>
+            <validator>integer</validator>  
+            <length></length>
             <scale></scale>
                         <isParent>false</isParent>
-            <fieldType>1</fieldType>
+            <fieldType>2</fieldType>
             
                         <lookupEntity>
                 <lkServiceName></lkServiceName>
@@ -3694,17 +3694,12 @@
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
-            <length>1</length>
+            <length></length>
             <scale></scale>
                         <isParent>false</isParent>
-            <fieldType>1</fieldType>
+            <fieldType>7</fieldType>
             
-                        <lookupEntity>
-                <lkServiceName></lkServiceName>
-                <lkEntityName></lkEntityName>
-                <isLkForeignKey>false</isLkForeignKey>
-                <mainLkFieldName></mainLkFieldName>
-            </lookupEntity>
+                         <enumerationEntity>TxStatus</enumerationEntity>
                         
                        </field>
                      

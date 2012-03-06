@@ -17,7 +17,7 @@ public class NoteMessage {
 	 * @param trans
 	 * @return
 	 */
-	private String createSmsMessage(TblTxPayMentOrder trans){
+	public static String createSmsMessage(TblTxPayMentOrder trans){
 		String merchantOrderDate = DateUtil.date2showString(trans.getCreatedDatetime());
 		String merchantAmount = MoneyUtil.parseFromReadableAmountToRMB(trans.getTxAmount().toString());
 		String merchantOrderNo = trans.getMchtNo();
@@ -28,7 +28,7 @@ public class NoteMessage {
 	 * 发送日志
 	 * @param log
 	 */
-	private Boolean sendShortMessage(SmsBean sms){
+	public static Boolean sendShortMessage(SmsBean sms){
 		
 		
 		/*发送下行短信*/

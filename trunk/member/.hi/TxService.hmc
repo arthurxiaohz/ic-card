@@ -2811,7 +2811,7 @@
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>amount</columnName>
           <logicalName>column5</logicalName>
-          <size>18</size>
+          <size></size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
@@ -2819,12 +2819,12 @@
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
+          <hiValidator>integer</hiValidator>
           <lkServiceName></lkServiceName>
           <lkEntityName></lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
+          <hiDataType>2</hiDataType>
           <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
@@ -3194,7 +3194,7 @@
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>payResult</columnName>
           <logicalName>column6</logicalName>
-          <size>1</size>
+          <size></size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
@@ -3204,10 +3204,10 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName></lkServiceName>
-          <lkEntityName></lkEntityName>
+          <lkEntityName>TxStatus</lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
+          <hiDataType>7</hiDataType>
           <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
