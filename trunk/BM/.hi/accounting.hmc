@@ -2259,7 +2259,7 @@
   <packageName>cn.net.iccard.bm.accounting</packageName>
   <serviceName>accounting</serviceName>
   <baseData>600000</baseData>
-  <description>账务</description>
+  <description>账务服务</description>
   <listeners serialization="custom">
     <java.beans.PropertyChangeSupport>
       <default>
