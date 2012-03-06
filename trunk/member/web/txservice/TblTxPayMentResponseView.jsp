@@ -16,7 +16,7 @@
 			<dt><hi:text key="签名内容" entity="TblTxPayMentResponse"/>：</dt><dd>${tblTxPayMentResponse.signMsg}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="支付结果" entity="TblTxPayMentResponse"/>：</dt><dd>${tblTxPayMentResponse.payResult}</dd>
+			<dt><hi:text key="支付结果" entity="TblTxPayMentResponse"/>：</dt><dd><hi:select emu="txStatus" name="tblTxPayMentResponse.payResult" isLabel="true"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="商户号" entity="TblTxPayMentResponse"/>：</dt><dd>${tblTxPayMentResponse.mchtNo}</dd>

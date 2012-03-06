@@ -30,7 +30,7 @@
 			<dt><hi:text key="交易状态" entity="TblTxTransferRequest"/>：</dt><dd><input type="text" name="tblTxTransferRequest.txStatus" class="textInput" value="${tblTxTransferRequest.txStatus}" maxlength="1"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="交易类型" entity="TblTxTransferRequest"/>：</dt><dd><input type="text" name="tblTxTransferRequest.txTypeId" class="textInput" value="${tblTxTransferRequest.txTypeId}" maxlength="1"/></dd>
+			<dt><hi:text key="交易类型" entity="TblTxTransferRequest"/>：</dt><dd><input type="text" name="tblTxTransferRequest.txTypeId" class="textInput" value="${tblTxTransferRequest.txTypeId}" maxlength="4"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="附加信息" entity="TblTxTransferRequest"/>：</dt><dd><input type="text" name="tblTxTransferRequest.msgext" class="textInput" value="${tblTxTransferRequest.msgext}" maxlength="30"/></dd>

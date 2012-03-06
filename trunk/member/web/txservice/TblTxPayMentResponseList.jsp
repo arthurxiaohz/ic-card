@@ -27,7 +27,7 @@
 			</li>	  
 			<li>
 				<label><hi:text key="支付结果" entity="TblTxPayMentResponse"/>:</label>
-				<input type="text" name="pageInfo.f_payResult" value="${pageInfo.f_payResult}"/>
+				<hi:search name="pageInfo.f_payResult" emu="txStatus"/>
 			</li>	  
 			<li>
 				<label><hi:text key="商户号" entity="TblTxPayMentResponse"/>:</label>
@@ -147,7 +147,7 @@
 				    <td>${item.responseId}</td>
 				    <td>${item.versionNo}</td>
 				    <td>${item.signMsg}</td>
-				    <td>${item.payResult}</td>
+				    <td><hi:select emu="txStatus" name="tblTxPayMentResponses[${s.index}].payResult" isLabel="true"/></td>
 				    <td>${item.mchtNo}</td>
 				    <td>${item.merchantOrderNo}</td>
 				    <td>${item.orderAmount}</td>
@@ -176,7 +176,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', responseId:'${item.responseId}',versionNo:'${item.versionNo}',signMsg:'${item.signMsg}',payResult:'${item.payResult}',mchtNo:'${item.mchtNo}',merchantOrderNo:'${item.merchantOrderNo}',orderAmount:'${item.orderAmount}',txTypeId:'${item.txTypeId}',payAmount:'${item.payAmount}',payDatetime:'${item.payDatetime}',ext1:'${item.ext1}',ext2:'${item.ext2}',errorCode:'${item.errorCode}',context:'${item.context}',responseContent:'${item.responseContent}',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', responseId:'${item.responseId}',versionNo:'${item.versionNo}',signMsg:'${item.signMsg}',payResult:'<hi:select emu="txStatus" name="tblTxPayMentResponses[${s.index}].payResult" isLabel="true"/>',mchtNo:'${item.mchtNo}',merchantOrderNo:'${item.merchantOrderNo}',orderAmount:'${item.orderAmount}',txTypeId:'${item.txTypeId}',payAmount:'${item.payAmount}',payDatetime:'${item.payDatetime}',ext1:'${item.ext1}',ext2:'${item.ext2}',errorCode:'${item.errorCode}',context:'${item.context}',responseContent:'${item.responseContent}',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

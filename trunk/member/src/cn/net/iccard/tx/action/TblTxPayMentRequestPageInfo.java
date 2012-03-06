@@ -16,7 +16,7 @@ public class TblTxPayMentRequestPageInfo extends PageInfoView{
  	protected  String  f_lastMchtTxTraceNo_op;
 	protected  String  f_mchtNo;
  	protected  String  f_mchtNo_op;
-	protected  String  f_amount;
+	protected  Integer  f_amount;
  	protected  String  f_amount_op;
 	protected  String  f_lastMchtTxTime;
  	protected  String  f_lastMchtTxTime_op;
@@ -109,11 +109,11 @@ public class TblTxPayMentRequestPageInfo extends PageInfoView{
         this.f_mchtNo_op = f_mchtNo_op;
     }
    
-    public String getF_amount() {
+    public Integer getF_amount() {
         return this.f_amount;
     }
     
-    public void setF_amount(String f_amount) {
+    public void setF_amount(Integer f_amount) {
         this.f_amount = f_amount;
     }
     

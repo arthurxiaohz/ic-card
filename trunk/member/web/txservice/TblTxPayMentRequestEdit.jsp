@@ -15,7 +15,7 @@
 			<dt><hi:text key="商户号" entity="TblTxPayMentRequest"/>：</dt><dd><input type="text" name="tblTxPayMentRequest.mchtNo" class="textInput" value="${tblTxPayMentRequest.mchtNo}" maxlength="18"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="交易金额" entity="TblTxPayMentRequest"/>：</dt><dd><input type="text" name="tblTxPayMentRequest.amount" class="textInput" value="${tblTxPayMentRequest.amount}" maxlength="18"/></dd>
+			<dt><hi:text key="交易金额" entity="TblTxPayMentRequest"/>：</dt><dd><input type="text" name="tblTxPayMentRequest.amount" class="textInput integer" value="${tblTxPayMentRequest.amount}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="原始交易发生时间" entity="TblTxPayMentRequest"/>：</dt><dd><input type="text" name="tblTxPayMentRequest.lastMchtTxTime" class="textInput" value="${tblTxPayMentRequest.lastMchtTxTime}" maxlength="14"/></dd>
@@ -27,7 +27,7 @@
 			<dt><hi:text key="交易状态" entity="TblTxPayMentRequest"/>：</dt><dd><input type="text" name="tblTxPayMentRequest.txStatus" class="textInput" value="${tblTxPayMentRequest.txStatus}" maxlength="1"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="交易类型" entity="TblTxPayMentRequest"/>：</dt><dd><input type="text" name="tblTxPayMentRequest.txTypeId" class="textInput" value="${tblTxPayMentRequest.txTypeId}" maxlength="1"/></dd>
+			<dt><hi:text key="交易类型" entity="TblTxPayMentRequest"/>：</dt><dd><input type="text" name="tblTxPayMentRequest.txTypeId" class="textInput" value="${tblTxPayMentRequest.txTypeId}" maxlength="4"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="附加信息" entity="TblTxPayMentRequest"/>：</dt><dd><input type="text" name="tblTxPayMentRequest.msgext" class="textInput" value="${tblTxPayMentRequest.msgext}" maxlength="30"/></dd>

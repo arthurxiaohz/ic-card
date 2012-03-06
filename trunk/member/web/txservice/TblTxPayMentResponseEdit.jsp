@@ -15,7 +15,7 @@
 			<dt><hi:text key="签名内容" entity="TblTxPayMentResponse"/>：</dt><dd><input type="text" name="tblTxPayMentResponse.signMsg" class="textInput" value="${tblTxPayMentResponse.signMsg}" maxlength="1,024"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="支付结果" entity="TblTxPayMentResponse"/>：</dt><dd><input type="text" name="tblTxPayMentResponse.payResult" class="textInput" value="${tblTxPayMentResponse.payResult}" maxlength="1"/></dd>
+			<dt><hi:text key="支付结果" entity="TblTxPayMentResponse"/>：</dt><dd><hi:select emu="txStatus" name="tblTxPayMentResponse.payResult"/></dd>			
 		</dl>
 		<dl>
 			<dt><hi:text key="商户号" entity="TblTxPayMentResponse"/>：</dt><dd><input type="text" name="tblTxPayMentResponse.mchtNo" class="textInput" value="${tblTxPayMentResponse.mchtNo}" maxlength="18"/></dd>
@@ -27,7 +27,7 @@
 			<dt><hi:text key="商户订单金额" entity="TblTxPayMentResponse"/>：</dt><dd><input type="text" name="tblTxPayMentResponse.orderAmount" class="textInput integer" value="${tblTxPayMentResponse.orderAmount}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="交易类型" entity="TblTxPayMentResponse"/>：</dt><dd><input type="text" name="tblTxPayMentResponse.txTypeId" class="textInput" value="${tblTxPayMentResponse.txTypeId}" maxlength="1"/></dd>
+			<dt><hi:text key="交易类型" entity="TblTxPayMentResponse"/>：</dt><dd><input type="text" name="tblTxPayMentResponse.txTypeId" class="textInput" value="${tblTxPayMentResponse.txTypeId}" maxlength="4"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="在系统中的订单实际支付金额" entity="TblTxPayMentResponse"/>：</dt><dd><input type="text" name="tblTxPayMentResponse.payAmount" class="textInput integer" value="${tblTxPayMentResponse.payAmount}" alt="<hi:text key="请输入整数"/>"/></dd>

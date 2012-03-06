@@ -27,7 +27,7 @@
 			<dt><hi:text key="商户转账金额" entity="TblTxTransferResponse"/>：</dt><dd><input type="text" name="tblTxTransferResponse.transferAmount" class="textInput integer" value="${tblTxTransferResponse.transferAmount}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="交易类型" entity="TblTxTransferResponse"/>：</dt><dd><input type="text" name="tblTxTransferResponse.txTypeId" class="textInput" value="${tblTxTransferResponse.txTypeId}" maxlength="1"/></dd>
+			<dt><hi:text key="交易类型" entity="TblTxTransferResponse"/>：</dt><dd><input type="text" name="tblTxTransferResponse.txTypeId" class="textInput" value="${tblTxTransferResponse.txTypeId}" maxlength="4"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="支付完成时间" entity="TblTxTransferResponse"/>：</dt><dd><input type="text" name="tblTxTransferResponse.payDatetime" class="textInput" value="${tblTxTransferResponse.payDatetime}" maxlength="14"/></dd>

@@ -7,10 +7,10 @@ public class SettleStatus implements Serializable{
 	/**
 	 * Œ¥Ω·À„
 	 */
-	public static final int SETTLESTATUS_UNSETTLE = 101000;
+	public static final int SETTLESTATUS_UNSETTLE = 201000;
 	/**
 	 * “—Ω·À„
 	 */
-	public static final int SETTLESTATUS_SETTLE = 101001;
+	public static final int SETTLESTATUS_SETTLE = 201001;
 
 }
