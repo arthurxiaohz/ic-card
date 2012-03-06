@@ -885,6 +885,31 @@
           <isMainLookup>false</isMainLookup>
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>bgNotifyUrl</columnName>
+          <logicalName>column36</logicalName>
+          <size>256</size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>交易后台通知地址</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>1</hiDataType>
+          <isSearch>true</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
       </columns>
       <indices/>
       <backgroundColor>
