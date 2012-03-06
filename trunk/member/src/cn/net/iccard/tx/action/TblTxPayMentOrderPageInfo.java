@@ -82,6 +82,8 @@ public class TblTxPayMentOrderPageInfo extends PageInfoView{
 	protected  String  f_lastUpdatedDatetime01_op;
 	protected  Integer  f_lastUpdatedBy;
  	protected  String  f_lastUpdatedBy_op;
+	protected  String  f_bgNotifyUrl;
+ 	protected  String  f_bgNotifyUrl_op;
 	protected  Integer  f_deleted;
  	protected  String  f_deleted_op;
 
@@ -675,6 +677,22 @@ public class TblTxPayMentOrderPageInfo extends PageInfoView{
     
     public void setF_lastUpdatedBy_op(String f_lastUpdatedBy_op) {
         this.f_lastUpdatedBy_op = f_lastUpdatedBy_op;
+    }
+   
+    public String getF_bgNotifyUrl() {
+        return this.f_bgNotifyUrl;
+    }
+    
+    public void setF_bgNotifyUrl(String f_bgNotifyUrl) {
+        this.f_bgNotifyUrl = f_bgNotifyUrl;
+    }
+    
+    public String getF_bgNotifyUrl_op() {
+        return this.f_bgNotifyUrl_op;
+    }
+    
+    public void setF_bgNotifyUrl_op(String f_bgNotifyUrl_op) {
+        this.f_bgNotifyUrl_op = f_bgNotifyUrl_op;
     }
    
     public Integer getF_deleted() {
