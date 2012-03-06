@@ -4661,7 +4661,7 @@
   <packageName>cn.net.iccard.member</packageName>
   <serviceName>memberservice</serviceName>
   <baseData>100000</baseData>
-  <description>会员交易查询</description>
+  <description>会员服务</description>
   <listeners serialization="custom">
     <java.beans.PropertyChangeSupport>
       <default>
