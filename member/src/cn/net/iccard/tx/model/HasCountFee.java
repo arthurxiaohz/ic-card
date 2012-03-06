@@ -7,10 +7,10 @@ public class HasCountFee implements Serializable{
 	/**
 	 * Œ¥º∆À„
 	 */
-	public static final int HASCOUNTFEE_UNFEE = 101100;
+	public static final int HASCOUNTFEE_UNFEE = 201100;
 	/**
 	 * “—º∆À„
 	 */
-	public static final int HASCOUNTFEE_FEE = 101101;
+	public static final int HASCOUNTFEE_FEE = 201101;
 
 }

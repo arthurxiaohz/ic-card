@@ -44,7 +44,7 @@ public abstract class TblTxPayMentRequestAbstract extends BaseObject implements 
  	 /**
 	 * 交易金额
 	 */	
- 	protected  String amount;
+ 	protected  Integer amount;
 
  	 /**
 	 * 原始交易发生时间
@@ -167,11 +167,11 @@ public abstract class TblTxPayMentRequestAbstract extends BaseObject implements 
         this.mchtNo = mchtNo;
     }
     
-    public String getAmount() {
+    public Integer getAmount() {
         return this.amount;
     }
     
-    public void setAmount(String amount) {
+    public void setAmount(Integer amount) {
     		if((amount != null && this.amount == null) || 
 				this.amount != null && (!this.amount.equals(amount) || amount == null)){
         		this.setDirty(true);

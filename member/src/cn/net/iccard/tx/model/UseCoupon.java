@@ -7,10 +7,10 @@ public class UseCoupon implements Serializable{
 	/**
 	 * 使用
 	 */
-	public static final int USECOUPON_USE = 100900;
+	public static final int USECOUPON_USE = 200900;
 	/**
 	 * 不使用
 	 */
-	public static final int USECOUPON_UNUSE = 100901;
+	public static final int USECOUPON_UNUSE = 200901;
 
 }

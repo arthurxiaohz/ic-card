@@ -44,7 +44,7 @@ public abstract class TblTxPayMentResponseAbstract extends BaseObject implements
  	 /**
 	 * 支付结果
 	 */	
- 	protected  String payResult;
+ 	protected  Integer payResult;
 
  	 /**
 	 * 商户号
@@ -192,11 +192,11 @@ public abstract class TblTxPayMentResponseAbstract extends BaseObject implements
         this.signMsg = signMsg;
     }
     
-    public String getPayResult() {
+    public Integer getPayResult() {
         return this.payResult;
     }
     
-    public void setPayResult(String payResult) {
+    public void setPayResult(Integer payResult) {
     		if((payResult != null && this.payResult == null) || 
 				this.payResult != null && (!this.payResult.equals(payResult) || payResult == null)){
         		this.setDirty(true);
@@ -437,7 +437,6 @@ public abstract class TblTxPayMentResponseAbstract extends BaseObject implements
 		.append("responseId", this.responseId)
 		.append("versionNo", this.versionNo)
 		.append("signMsg", this.signMsg)
-		.append("payResult", this.payResult)
 		.append("mchtNo", this.mchtNo)
 		.append("merchantOrderNo", this.merchantOrderNo)
 		.append("orderAmount", this.orderAmount)

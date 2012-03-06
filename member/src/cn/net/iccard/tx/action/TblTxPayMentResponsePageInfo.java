@@ -16,7 +16,7 @@ public class TblTxPayMentResponsePageInfo extends PageInfoView{
  	protected  String  f_versionNo_op;
 	protected  String  f_signMsg;
  	protected  String  f_signMsg_op;
-	protected  String  f_payResult;
+	protected  Integer  f_payResult;
  	protected  String  f_payResult_op;
 	protected  String  f_mchtNo;
  	protected  String  f_mchtNo_op;
@@ -121,11 +121,11 @@ public class TblTxPayMentResponsePageInfo extends PageInfoView{
         this.f_signMsg_op = f_signMsg_op;
     }
    
-    public String getF_payResult() {
+    public Integer getF_payResult() {
         return this.f_payResult;
     }
     
-    public void setF_payResult(String f_payResult) {
+    public void setF_payResult(Integer f_payResult) {
         this.f_payResult = f_payResult;
     }
     
