@@ -1,5 +1,6 @@
 package cn.net.iccard.tx.action.special;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -16,15 +17,20 @@ import org.hi.framework.paging.PageInfo;
 import org.hi.framework.security.context.UserContextHelper;
 import org.hi.framework.web.PageInfoUtil;
 import org.hi.framework.web.struts.BaseAction;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import cn.net.iccard.tx.action.TblTxPayMentOrderPageInfo;
 import cn.net.iccard.tx.action.TblTxPayMentRequestPageInfo;
 import cn.net.iccard.tx.model.TblTxPayMentOrder;
 import cn.net.iccard.tx.model.TblTxPayMentRequest;
+import cn.net.iccard.tx.model.special.ThreadPool;
 import cn.net.iccard.tx.service.TblTxPayMentOrderManager;
 import cn.net.iccard.tx.service.TblTxPayMentRequestManager;
 import cn.net.iccard.tx.service.impl.TblTxPayMentOrderManagerImpl;
 import cn.net.iccard.tx.service.impl.TblTxPayMentRequestManagerImpl;
+import cn.net.iccard.util.Base64;
+import cn.net.iccard.util.ConnectionUtil;
+import cn.net.iccard.util.NotifyBean;
 import cn.net.iccard.util.PLTraceNoGererator;
 import cn.net.iccard.util.StringUtil;
 
@@ -32,11 +38,14 @@ import cn.net.iccard.util.StringUtil;
 
 public class PrepaidRequestAction extends BaseAction{
 
+	public static ThreadPoolTaskExecutor threadPool4Monitor;
 	
-	
+	static{
+		threadPool4Monitor = (ThreadPoolTaskExecutor)SpringContextHolder.getBean(ThreadPool.class);
+	}
 	
 	//接收商户请求处理
-	public void getMchtRequest() throws Exception {
+	public String getMchtRequest() throws Exception {
 		
 
 	   
@@ -45,17 +54,20 @@ public class PrepaidRequestAction extends BaseAction{
 		
 		HttpServletResponse response = getResponse();
 		
-		 try {
-		      request.setCharacterEncoding("UTF-8");
-		      String contentType = new StringBuffer("text/html; charset=").append("UTF-8").toString();
-		      response.setContentType(contentType);
-		    } catch (Exception e) {
-		      //logger.error("", e);
-		    }
-		    System.out.println("1111111111");
+//		 try {
+//		      request.setCharacterEncoding("UTF-8");
+//		      String contentType = new StringBuffer("text/html; charset=").append("UTF-8").toString();
+//		      response.setContentType(contentType);
+//		    } catch (Exception e) {
+//		      //logger.error("", e);
+//		    }
+		System.out.println("1111111111");
 		String msg = request.getParameter("TxInfo");			//报文域
 		String Signature = request.getParameter("Signature");	//报文签名
 		String TxType = request.getParameter("TxType");			//交易类型
+		
+		  byte[] tPlainByBase64 = Base64.decode(msg);
+	        msg = new String(tPlainByBase64,"UTF-8");
 		
 		// 解析银行回应交易结果字段
         String[] tPlainStr = StringUtil.split(msg, "|");
@@ -65,8 +77,7 @@ public class PrepaidRequestAction extends BaseAction{
             tStrTemp = StringUtil.split(tPlainStr[i], "=");
             tBankPlain.setProperty(tStrTemp[0], tStrTemp[1]);
         }
-		
-		
+      
 		if(TxType.equals("TX11")){
 			
 			//解析txinfo
@@ -128,7 +139,9 @@ public class PrepaidRequestAction extends BaseAction{
 			
 			//4.保存session
 			request.getSession(true).setAttribute("plTxTraceNo", plTxTraceNo);
+			
 		}
+		return SUCCESS;
 		
 	}
 	
@@ -157,14 +170,7 @@ public class PrepaidRequestAction extends BaseAction{
 		
 		//修改对应交易记录状态    
 		//先查询支付订单表
-		
-//		TblTxPayMentOrderPageInfo tblTxPayMentOrderPageInfo= new TblTxPayMentOrderPageInfo();
-//		
-//		tblTxPayMentOrderPageInfo.setF_mchtTxTraceNo(request.getParameter("plTxTraceNo"));
-		
-		
-		System.out.println("1111111111");
-		
+
 		Filter filter = FilterFactory.getSimpleFilter("mchtTxTraceNo",request.getParameter("plTxTraceNo"), Filter.OPERATOR_EQ);
 		
 		//Filter Filter = PageInfoUtil.populateFilter(tblTxPayMentOrderPageInfo);
@@ -178,11 +184,49 @@ public class PrepaidRequestAction extends BaseAction{
 		TblTxPayMentOrder.setLastUpdatedBy(Integer.valueOf(request.getParameter("username")));
 		
 		//记录支付结果通知表并通知商户
-		
+		NotifyBean notifyBean = new NotifyBean();
+//		notifyBean.setMchtTxURL(mchtTxURL)
+//		send();
 		
 		
 		}
 		
+	public static void main(String args[]){
+		String a = "MchtTxTraceNo=1221314|TxAmount=123|MerchantNo=2342|TxDate=20120202|TxTime=121212|TxBody=百度一下|ShowUrl=http://www.baidu.com|UseCoupon=|CouponMsg=|NotifyURL=|BGNotifyURL=";
+		try {
+			String tPlainByBase64 = Base64.encode(a.getBytes("UTF-8"));
+			
+			System.out.println(tPlainByBase64);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 发送消息
+	 * 
+	 * @param message
+	 */
+	public static void send(final NotifyBean message) {
+
+		try {
+			threadPool4Monitor.execute(new Runnable() {
+				public void run() {
+
+					ConnectionUtil.sendReqToMcht(message);
+				
+				}
+			});
+
+		} catch (Exception e) {
+			System.out.println("***Exception JmsSender.send() *** 发送消息发生异常: " + e.getMessage());
+		} catch (Throwable te) {
+			System.out.println("***Throwable JmsSender.send() *** 发送消息发生异常: " + te.getMessage());
+		}
+
+	}
+	
 	
 	
 }

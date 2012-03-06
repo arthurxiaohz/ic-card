@@ -337,7 +337,7 @@
 	
 		<action name="prepaidTxPayMentOrderList"
 			class="cn.net.iccard.tx.action.special.PrepaidRequestAction" method="getMchtRequest">
-			<result name="success">/txservice/TblTxPayMentOrderList.jsp</result>
+			<result name="success">/login.jsp</result>
 			<interceptor-ref name="modelParamsStack" />
 		</action>
 </package>

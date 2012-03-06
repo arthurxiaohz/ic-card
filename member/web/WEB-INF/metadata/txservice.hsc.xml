@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <service>
     <serviceName>txservice</serviceName>
-    <description>交易查询</description>
+    <description>交易服务</description>
     <baseData>200000</baseData>    
     <packageName>cn.net.iccard.tx</packageName>
     
@@ -11,7 +11,7 @@
                 <entityType>1</entityType>
                 <tableName>Tbl_Tx_PayMent_Order</tableName>
         <entityLabel>订单查询</entityLabel>
-        <entityBaseData>100100</entityBaseData>
+        <entityBaseData>200100</entityBaseData>
         
                 
         <extendEntity>
@@ -979,6 +979,34 @@
                      
         
         
+                            <field>
+            <fieldName>bgNotifyUrl</fieldName>
+            <fieldLabel>交易后台通知地址</fieldLabel>
+                        <isPrimaryKey>false</isPrimaryKey>
+                                    <isSearch>true</isSearch>
+                                    <isListDisplay>true</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
+                                    <isHidden>false</isHidden>
+                                    <isFull>false</isFull>
+                                    <isMainLookup>false</isMainLookup>
+                        <defaultValue></defaultValue> 
+            <validator></validator>  
+            <length>256</length>
+            <scale></scale>
+                        <isParent>false</isParent>
+            <fieldType>1</fieldType>
+            
+                        <lookupEntity>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <mainLkFieldName></mainLkFieldName>
+            </lookupEntity>
+                        
+                       </field>
+                     
+        
+        
               
               		 <field>
             <fieldName>creator</fieldName>
@@ -1032,7 +1060,7 @@
                 <entityType>1</entityType>
                 <tableName>Tbl_Tx_Transfer</tableName>
         <entityLabel>转账查询</entityLabel>
-        <entityBaseData>100200</entityBaseData>
+        <entityBaseData>200200</entityBaseData>
         
                 
         <extendEntity>
@@ -1722,7 +1750,7 @@
                 <entityType>1</entityType>
                 <tableName>Tbl_Tx_Sms_Log</tableName>
         <entityLabel>短信明细</entityLabel>
-        <entityBaseData>100300</entityBaseData>
+        <entityBaseData>200300</entityBaseData>
         
                 
         <extendEntity>
@@ -2035,7 +2063,7 @@
                 <entityType>1</entityType>
                 <tableName>Tbl_Tx_Transfer_Request</tableName>
         <entityLabel>转账请求原始报文</entityLabel>
-        <entityBaseData>100400</entityBaseData>
+        <entityBaseData>200400</entityBaseData>
         
                 
         <extendEntity>
@@ -2307,7 +2335,7 @@
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
-            <length>1</length>
+            <length>4</length>
             <scale></scale>
                         <isParent>false</isParent>
             <fieldType>1</fieldType>
@@ -2516,7 +2544,7 @@
                 <entityType>1</entityType>
                 <tableName>Tbl_Tx_Transfer_Response</tableName>
         <entityLabel>转账结果通知</entityLabel>
-        <entityBaseData>100500</entityBaseData>
+        <entityBaseData>200500</entityBaseData>
         
                 
         <extendEntity>
@@ -2760,7 +2788,7 @@
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
-            <length>1</length>
+            <length>4</length>
             <scale></scale>
                         <isParent>false</isParent>
             <fieldType>1</fieldType>
@@ -3081,7 +3109,7 @@
                 <entityType>1</entityType>
                 <tableName>Tbl_Tx_PayMent_Request</tableName>
         <entityLabel>商户请求原始报文</entityLabel>
-        <entityBaseData>100600</entityBaseData>
+        <entityBaseData>200600</entityBaseData>
         
                 
         <extendEntity>
@@ -3534,7 +3562,7 @@
                 <entityType>1</entityType>
                 <tableName>Tbl_Tx_PayMent_Response</tableName>
         <entityLabel>商户结果通知</entityLabel>
-        <entityBaseData>100700</entityBaseData>
+        <entityBaseData>200700</entityBaseData>
         
                 
         <extendEntity>
@@ -4128,7 +4156,7 @@
 		<entityType>2</entityType>
 		<tableName></tableName>
 		<entityLabel>交易状态</entityLabel>
-		<entityBaseData>100800</entityBaseData>
+		<entityBaseData>200800</entityBaseData>
 				<enumeration>
 			<enuValue>prepay</enuValue>
 			<enuLabel>待支付</enuLabel>
@@ -4163,7 +4191,7 @@
 		<entityType>2</entityType>
 		<tableName></tableName>
 		<entityLabel>是否使用优惠券</entityLabel>
-		<entityBaseData>100900</entityBaseData>
+		<entityBaseData>200900</entityBaseData>
 				<enumeration>
 			<enuValue>use</enuValue>
 			<enuLabel>使用</enuLabel>
@@ -4183,7 +4211,7 @@
 		<entityType>2</entityType>
 		<tableName></tableName>
 		<entityLabel>结算状态</entityLabel>
-		<entityBaseData>101000</entityBaseData>
+		<entityBaseData>201000</entityBaseData>
 				<enumeration>
 			<enuValue>unsettle</enuValue>
 			<enuLabel>未结算</enuLabel>
@@ -4203,7 +4231,7 @@
 		<entityType>2</entityType>
 		<tableName></tableName>
 		<entityLabel>结算状态</entityLabel>
-		<entityBaseData>101100</entityBaseData>
+		<entityBaseData>201100</entityBaseData>
 				<enumeration>
 			<enuValue>unfee</enuValue>
 			<enuLabel>未计算</enuLabel>
@@ -4223,7 +4251,7 @@
 		<entityType>2</entityType>
 		<tableName></tableName>
 		<entityLabel>结算状态</entityLabel>
-		<entityBaseData>101200</entityBaseData>
+		<entityBaseData>201200</entityBaseData>
 				<enumeration>
 			<enuValue>unfransfer</enuValue>
 			<enuLabel>待转帐</enuLabel>
