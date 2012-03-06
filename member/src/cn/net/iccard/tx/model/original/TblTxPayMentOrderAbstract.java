@@ -197,6 +197,11 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
  	protected  Integer lastUpdatedBy;
 
  	 /**
+	 * 交易后台通知地址
+	 */	
+ 	protected  String bgNotifyUrl;
+
+ 	 /**
 	 * 创建人
 	 */	
  	protected  HiUser creator = org.hi.framework.security.context.UserContextHelper.getUser();
@@ -675,6 +680,19 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
         this.lastUpdatedBy = lastUpdatedBy;
     }
     
+    public String getBgNotifyUrl() {
+        return this.bgNotifyUrl;
+    }
+    
+    public void setBgNotifyUrl(String bgNotifyUrl) {
+    		if((bgNotifyUrl != null && this.bgNotifyUrl == null) || 
+				this.bgNotifyUrl != null && (!this.bgNotifyUrl.equals(bgNotifyUrl) || bgNotifyUrl == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("bgNotifyUrl", this.bgNotifyUrl);
+        	}
+        this.bgNotifyUrl = bgNotifyUrl;
+    }
+    
     public HiUser getCreator() {
         return this.creator;
     }
@@ -750,6 +768,7 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
 		.append("settleDate", this.settleDate)
 		.append("feeAmount", this.feeAmount)
 		.append("lastUpdatedBy", this.lastUpdatedBy)
+		.append("bgNotifyUrl", this.bgNotifyUrl)
 		.append("deleted", this.deleted);
       
         return sb.toString();

@@ -41,6 +41,7 @@
 		<result property="createdDatetime" column="createdDatetime"/>
 		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
 		<result property="lastUpdatedBy" column="lastUpdatedBy"/>
+		<result property="bgNotifyUrl" column="bgNotifyUrl"/>
 		<result property="creator" column="creator" select="select_inner_HiUser"/>
 		<result property="deleted" column="deleted"/>
 	</resultMap>
@@ -54,8 +55,8 @@
 	</select>
 	
 	<insert id="insTblTxPayMentOrder" parameterClass="java.util.HashMap">    
-    	insert into Tbl_Tx_PayMent_Order (id, version, plTxTraceNo, memberNO, txTypeId, mchtNo, mchtTxTime, lastMchtTxTime, mchtTxTraceNo, lastMchtTxTraceNo, txAmount, notifyUrl, txIp, plTxTime, txStatus, voucherNo, backVoucherNo, useCoupon, couponMsg, resCouponMsg, showUrl, txBody, payerPhone, verifyCode, confirmCode, orderExpireDatetime, errorCode, errorMsg, settleBatchNo, settleStatus, settleDate, feeAmount, hasCountFee, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, creator, deleted) 
-		values (#id#, 1, #plTxTraceNo#, #memberNO#, #txTypeId#, #mchtNo#, #mchtTxTime#, #lastMchtTxTime#, #mchtTxTraceNo#, #lastMchtTxTraceNo#, #txAmount#, #notifyUrl#, #txIp#, #plTxTime#, #txStatus#, #voucherNo#, #backVoucherNo#, #useCoupon#, #couponMsg#, #resCouponMsg#, #showUrl#, #txBody#, #payerPhone#, #verifyCode#, #confirmCode#, #orderExpireDatetime#, #errorCode#, #errorMsg#, #settleBatchNo#, #settleStatus#, #settleDate#, #feeAmount#, #hasCountFee#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#, #deleted#)
+    	insert into Tbl_Tx_PayMent_Order (id, version, plTxTraceNo, memberNO, txTypeId, mchtNo, mchtTxTime, lastMchtTxTime, mchtTxTraceNo, lastMchtTxTraceNo, txAmount, notifyUrl, txIp, plTxTime, txStatus, voucherNo, backVoucherNo, useCoupon, couponMsg, resCouponMsg, showUrl, txBody, payerPhone, verifyCode, confirmCode, orderExpireDatetime, errorCode, errorMsg, settleBatchNo, settleStatus, settleDate, feeAmount, hasCountFee, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, bgNotifyUrl, creator, deleted) 
+		values (#id#, 1, #plTxTraceNo#, #memberNO#, #txTypeId#, #mchtNo#, #mchtTxTime#, #lastMchtTxTime#, #mchtTxTraceNo#, #lastMchtTxTraceNo#, #txAmount#, #notifyUrl#, #txIp#, #plTxTime#, #txStatus#, #voucherNo#, #backVoucherNo#, #useCoupon#, #couponMsg#, #resCouponMsg#, #showUrl#, #txBody#, #payerPhone#, #verifyCode#, #confirmCode#, #orderExpireDatetime#, #errorCode#, #errorMsg#, #settleBatchNo#, #settleStatus#, #settleDate#, #feeAmount#, #hasCountFee#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #bgNotifyUrl#, #creator#, #deleted#)
 		<selectKey resultClass="int"  keyProperty="id" />   
 	</insert>    
    
@@ -97,6 +98,7 @@
 			createdDatetime = #createdDatetime#,
 			lastUpdatedDatetime = #lastUpdatedDatetime#,
 			lastUpdatedBy = #lastUpdatedBy#,
+			bgNotifyUrl = #bgNotifyUrl#,
 			creator = #creator#,
 			deleted = #deleted#
     where    
