@@ -1,5 +1,6 @@
 package cn.net.iccard.util;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -25,23 +26,35 @@ public class test {
 		return null;
 	}
 	
+//	public static void main(String args[]){
+//		
+//		/*
+//		TblTxPayMentRequestPageInfo TblTxPayMentRequestPageInfo= new TblTxPayMentRequestPageInfo();
+//		
+//		TblTxPayMentRequestPageInfo.setF_amount_op("1002");
+//		
+//		Filter Filter = PageInfoUtil.populateFilter(TblTxPayMentRequestPageInfo);
+//		System.out.println(Filter);
+//		TblTxPayMentRequestManagerImpl TblTxPayMentRequestManagerImpl = new TblTxPayMentRequestManagerImpl();
+//		List list  = TblTxPayMentRequestManagerImpl.getObjects(TblTxPayMentRequest.class,Filter);
+//		
+//		System.out.println("111111111");
+//		System.out.println(Filter);
+//		*/
+//		Timestamp a = new Timestamp(System.currentTimeMillis());
+//		System.out.println(DateUtil.date2showString(a));
+//		
+//	}
+	
 	public static void main(String args[]){
-		
-		/*
-		TblTxPayMentRequestPageInfo TblTxPayMentRequestPageInfo= new TblTxPayMentRequestPageInfo();
-		
-		TblTxPayMentRequestPageInfo.setF_amount_op("1002");
-		
-		Filter Filter = PageInfoUtil.populateFilter(TblTxPayMentRequestPageInfo);
-		System.out.println(Filter);
-		TblTxPayMentRequestManagerImpl TblTxPayMentRequestManagerImpl = new TblTxPayMentRequestManagerImpl();
-		List list  = TblTxPayMentRequestManagerImpl.getObjects(TblTxPayMentRequest.class,Filter);
-		
-		System.out.println("111111111");
-		System.out.println(Filter);
-		*/
-		Timestamp a = new Timestamp(System.currentTimeMillis());
-		System.out.println(DateUtil.date2showString(a));
-		
+		String a = "MchtTxTraceNo=1221314|TxAmount=123|MerchantNo=2342|TxDate=20120202|TxTime=121212|TxBody=百度一下|ShowUrl=http://www.baidu.com|UseCoupon=|CouponMsg=|NotifyURL=|BGNotifyURL=";
+		try {
+			String tPlainByBase64 = Base64.encode(a.getBytes("UTF-8"));
+			
+			System.out.println(tPlainByBase64);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

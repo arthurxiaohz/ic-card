@@ -24,8 +24,8 @@ import javax.net.ssl.TrustManager;
  * 该类提供SSL连接的建立，数据收发
  */
 public class SSLConnectionManager {
-	static org.apache.commons.logging.Log logger =
-		org.apache.commons.logging.LogFactory.getLog(SSLConnectionManager.class.getName());
+//	static org.apache.commons.logging.Log logger =
+		//org.apache.commons.logging.LogFactory.getLog(SSLConnectionManager.class.getName());
     
     private static final String ibmJavaVmVendor  = "IBM Corporation";
    // private static final String sunJavaVmVendor  = "Sun Microsystems Inc.";
@@ -94,7 +94,7 @@ public class SSLConnectionManager {
      * @return 默认SSLSocketFactory对象
      */
     private static SSLSocketFactory initSSLSocketFactory() {
-		logger.debug("initSSLSocketFactory() start...");
+		System.out.println("initSSLSocketFactory() start...");
         SSLSocketFactory tSSLSocketFactory = null;
         //1、初始化SSL环境
         getVendorType();
@@ -114,11 +114,11 @@ public class SSLConnectionManager {
             tDefaultSSLContext.init(null, iTrustManager, null);
             tSSLSocketFactory = tDefaultSSLContext.getSocketFactory();
             
-			logger.debug("initSSLSocketFactory() end.");
+			System.out.println("initSSLSocketFactory() end.");
         }
         catch (Exception e) {
-			logger.fatal("SSLConnectionManager::initSSLSocketFactory() - Create SSLSocketFactory error:[" + e.getMessage() + "]");
-			logger.fatal("", e);
+			System.out.println("SSLConnectionManager::initSSLSocketFactory() - Create SSLSocketFactory error:[" + e.getMessage() + "]");
+			System.out.println(e);
         }
         
         return tSSLSocketFactory;
@@ -140,19 +140,19 @@ public class SSLConnectionManager {
     public String sendData(ArrayList aData, Properties aProp) throws PlHttpConnectionException {
         String tReturn = null;
         //1、检查发送数据
-        logger.debug("Verify request data......");
+        System.out.println("Verify request data......");
         if (aData == null || aData.size() < 1) {
             throw new PlHttpConnectionException("Request data invalid.");
         }
 
         //2、检查URL连接
-		logger.debug("Check if the server connection is created......");
+		System.out.println("Check if the server connection is created......");
         if (iOutputStream == null) {
             throw new PlHttpConnectionException("!!! Server connection is not created!!!");
         }
 
         //3、创建请求数据信息
-		logger.debug("Arrange request data......");
+		System.out.println("Arrange request data......");
         StringBuffer tSb = new StringBuffer();
         for (int i = 0; i < aData.size(); i++) {
             HttpPostObj tObj = (HttpPostObj) aData.get(i);
@@ -171,7 +171,7 @@ public class SSLConnectionManager {
 			byte[] b = tSb.toString().getBytes("UTF-8");
 
             //4、发送数据
-			logger.debug("Send request to server......");
+			System.out.println("Send request to server......");
             try {
                 sendRequest(b, aProp);
             }
@@ -181,7 +181,7 @@ public class SSLConnectionManager {
             }
     
             //5、接收服务器响应
-			logger.debug("Receive response message......");
+			System.out.println("Receive response message......");
             try {
                 tReturn = receiveResponse();
             }
@@ -193,11 +193,11 @@ public class SSLConnectionManager {
         }
         catch (Exception ex) {
             //6、发送成功接收失败视为超时
-			logger.error("", ex);
+			System.out.println(ex);
 			throw new PlHttpConnectionException(ex);
         }
         finally {
-			logger.debug("Received server response message=[" + tReturn + "]");
+			System.out.println("Received server response message=[" + tReturn + "]");
             closeConnection();
         }
        
@@ -225,11 +225,11 @@ public class SSLConnectionManager {
 
         try {
             //1、创建到服务器的连接
-			logger.debug("Create connection to server......");
+			System.out.println("Create connection to server......");
             createHttpsConnectionWithoutVerify(aServerUrl, aConnTimeOut, aReadTimeOut);
 
             //2、发送数据
-			logger.debug("Send request to server......");
+			System.out.println("Send request to server......");
             try {
                 sendRequest(aOutputData, aProp);
             }
@@ -238,7 +238,7 @@ public class SSLConnectionManager {
             }
     
             //3、接收服务器响应
-			logger.debug("Read server response message......");
+			System.out.println("Read server response message......");
             try {
                 tReturn = receiveResponse();
             }
@@ -249,11 +249,11 @@ public class SSLConnectionManager {
         }
         catch (Exception ex) {
             //4、发送成功接收失败视为超时
-			logger.error(ex);
+			System.out.println(ex);
 			throw new PlHttpConnectionException(ex);
         }
         finally {
-			logger.debug("Received server response message=[" + tReturn + "]");
+			System.out.println("Received server response message=[" + tReturn + "]");
             closeConnection();
         }
 
@@ -333,7 +333,7 @@ public class SSLConnectionManager {
         
         //1、读取响应码
         String tResponseCode = readLine(iBufferedInputStream);
-		logger.debug("HTML Response Code = [" + tResponseCode + "]");
+		System.out.println("HTML Response Code = [" + tResponseCode + "]");
         if ((tResponseCode == null) || 
 			((tResponseCode.indexOf("HTTP/1.1 100") != 0) && 
 			 (tResponseCode.indexOf("HTTP/1.1 200") != 0) && 
@@ -347,14 +347,14 @@ public class SSLConnectionManager {
             //2.1 读取完整HTTP Header
             while (true) {
                 String tTemp = readLine(iBufferedInputStream);
-				logger.debug("HTML HEAD = [" + tTemp + "]");
+				System.out.println("HTML HEAD = [" + tTemp + "]");
                 if ("".equals(tTemp))
                     break;
             }
             
             //2.2 读取正式响应码
             tResponseCode = readLine(iBufferedInputStream);
-			logger.debug("HTML Response Code = [" + tResponseCode + "]");
+			System.out.println("HTML Response Code = [" + tResponseCode + "]");
             if ((tResponseCode == null) || (tResponseCode.indexOf("HTTP/1.1 200") != 0))
                 throw new PlHttpConnectionException("Server response error code=[" + tResponseCode + "]"); 
         }
@@ -362,21 +362,21 @@ public class SSLConnectionManager {
         //3、读取HTTP Header
         while (true) {
             String tTemp = readLine(iBufferedInputStream);
-			logger.debug("HTML HEAD = [" + tTemp + "]");
+			System.out.println("HTML HEAD = [" + tTemp + "]");
             if ("".equals(tTemp))
                 break;
             if (tTemp.toLowerCase().indexOf("content-length: ") != -1) {
                 tContentLength = Integer.parseInt(tTemp.substring(16));
             }
         }
-		logger.debug("Content-Length = [" + tContentLength + "]");
+		System.out.println("Content-Length = [" + tContentLength + "]");
         
         //4、读取响应信息
         if (tContentLength != -1) {
             //4.1、HEAD中已经指定内容长度
             String tTemp = read(iBufferedInputStream, tContentLength);
-			logger.debug("HTML BODY = [" + tTemp + "]");
-			logger.debug("HTML BODY Len = [" + tTemp.length() + "]");
+			System.out.println("HTML BODY = [" + tTemp + "]");
+			System.out.println("HTML BODY Len = [" + tTemp.length() + "]");
             tReturnMsg.append(tTemp);
         }
         else {
@@ -384,14 +384,14 @@ public class SSLConnectionManager {
             while (true) {
                 //4.2.1、读取响应信息长度
                 int tLen = Integer.parseInt(readLine(iBufferedInputStream), 16);
-				logger.debug("HTML Length = [" + tLen + "]");
+				System.out.println("HTML Length = [" + tLen + "]");
                 if (tLen <= 0)
                     break;
         
                 //4.2.2、读取HTML Body
                 String tTemp = read(iBufferedInputStream, tLen);
-				logger.debug("HTML BODY = [" + tTemp + "]");
-				logger.debug("HTML BODY Len = [" + tTemp.length() + "]");
+				System.out.println("HTML BODY = [" + tTemp + "]");
+				System.out.println("HTML BODY Len = [" + tTemp.length() + "]");
                 tReturnMsg.append(tTemp);
                 
                 //4.2.3、读取空白行
@@ -484,7 +484,7 @@ public class SSLConnectionManager {
 			}
 		}
 		catch (Exception e) {
-			logger.error("", e);
+			System.out.println(e);
 			throw new PlHttpConnectionException("Init SSL env error: - " + e.getLocalizedMessage());
 		}
         
@@ -492,13 +492,13 @@ public class SSLConnectionManager {
 		//2、连线服务器
 		try {
 			iServerURL = new URL(aServerURL);
-			logger.info("URL = [" + aServerURL + "]");
+			System.out.println("URL = [" + aServerURL + "]");
 
 			int tPort = iServerURL.getDefaultPort();
 			if (iServerURL.getPort() != -1)
 				tPort = iServerURL.getPort();
             
-			logger.info("tPort = [" + tPort + "]");
+			System.out.println("tPort = [" + tPort + "]");
 			
 			if (iServerURL.getProtocol().equalsIgnoreCase("https")) {
 				InetSocketAddress tServerSocketAddress = new InetSocketAddress(InetAddress.getByName(iServerURL.getHost()), tPort);
@@ -521,7 +521,7 @@ public class SSLConnectionManager {
 			iOutputStream = iSocket.getOutputStream();
 		}
 		catch (Exception e) {
-			logger.error("", e);
+			System.out.println(e);
 			throw new PlHttpConnectionException("Connect to server error: - " + e.getLocalizedMessage());
 		}
 	}
@@ -563,7 +563,7 @@ public class SSLConnectionManager {
 //		  String tJvmVendor=tSysProperties.getProperty("java.vm.vendor");
 		String tJvmVendor=System.getProperty("java.vm.vendor");
 		
-		logger.debug("Current Jvm Vendor is :[" + tJvmVendor + "]");
+		System.out.println("Current Jvm Vendor is :[" + tJvmVendor + "]");
         
 		if (tJvmVendor.equals(ibmJavaVmVendor)) {
 			iProviderType = 1;
@@ -571,7 +571,7 @@ public class SSLConnectionManager {
 			iProviderType = 0;
 		}
         
-		logger.debug("Current Jvm Vendor Type is :[" + iProviderType + "]");
+		System.out.println("Current Jvm Vendor Type is :[" + iProviderType + "]");
         
 		return iProviderType;
 	}
