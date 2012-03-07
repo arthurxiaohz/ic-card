@@ -348,7 +348,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName></lkServiceName>
-          <lkEntityName>TxStatus</lkEntityName>
+          <lkEntityName>OrderTxStatus</lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
@@ -3591,7 +3591,7 @@
       </listeners>
     </org.hi.studio.hsceditor.visual.model.TableModel>
     <org.hi.studio.hsceditor.visual.model.EnumerationModel>
-      <enumName>TxStatus</enumName>
+      <enumName>OrderTxStatus</enumName>
       <enumDesc>交易状态</enumDesc>
       <error></error>
       <linkedPath></linkedPath>
