@@ -1146,9 +1146,34 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>mchtNo</columnName>
+          <columnName>tblMchtInfo</columnName>
           <logicalName>column11</logicalName>
-          <size>30</size>
+          <size></size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>商户</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName>mcht</lkServiceName>
+          <lkEntityName>TblMchtInfo</lkEntityName>
+          <lkFieldName>id</lkFieldName>
+          <isLkForeignKey>true</isLkForeignKey>
+          <hiDataType>6</hiDataType>
+          <isSearch>true</isSearch>
+          <isListDisplay>false</isListDisplay>
+          <isReadOnly>true</isReadOnly>
+          <isHidden>true</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>mchtNo</columnName>
+          <logicalName>mchtNo</logicalName>
+          <size>18</size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
@@ -1156,12 +1181,12 @@
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
-          <hiValidator>integer</hiValidator>
-          <lkServiceName></lkServiceName>
-          <lkEntityName></lkEntityName>
-          <lkFieldName></lkFieldName>
+          <hiValidator></hiValidator>
+          <lkServiceName>mcht</lkServiceName>
+          <lkEntityName>TblMchtInfo</lkEntityName>
+          <lkFieldName>mchtNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
+          <hiDataType>6</hiDataType>
           <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
@@ -1172,8 +1197,8 @@
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>mchtName</columnName>
-          <logicalName>column4</logicalName>
-          <size>50</size>
+          <logicalName>mchtName</logicalName>
+          <size>30</size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
@@ -1182,17 +1207,117 @@
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
-          <lkServiceName></lkServiceName>
-          <lkEntityName>AdjustStatus</lkEntityName>
-          <lkFieldName></lkFieldName>
+          <lkServiceName>mcht</lkServiceName>
+          <lkEntityName>TblMchtInfo</lkEntityName>
+          <lkFieldName>mchtName</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
-          <isSearch>true</isSearch>
+          <hiDataType>6</hiDataType>
+          <isSearch>false</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
           <isFull>false</isFull>
           <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>bankNo</columnName>
+          <logicalName>bankNo</logicalName>
+          <size>30</size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>开户行行号</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName>mcht</lkServiceName>
+          <lkEntityName>TblMchtInfo</lkEntityName>
+          <lkFieldName>bankNo</lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>6</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>bankName</columnName>
+          <logicalName>bankName</logicalName>
+          <size>30</size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>开户行名称</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName>mcht</lkServiceName>
+          <lkEntityName>TblMchtInfo</lkEntityName>
+          <lkFieldName>bankName</lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>6</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>bankAccountNo</columnName>
+          <logicalName>bankAccountNo</logicalName>
+          <size>30</size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>银行账户账号</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName>mcht</lkServiceName>
+          <lkEntityName>TblMchtInfo</lkEntityName>
+          <lkFieldName>bankAccountNo</lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>6</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>bankAccountName</columnName>
+          <logicalName>bankAccountName</logicalName>
+          <size>30</size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>银行账户名称</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName>mcht</lkServiceName>
+          <lkEntityName>TblMchtInfo</lkEntityName>
+          <lkFieldName>bankAccountName</lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>6</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>true</isMainLookup>
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
@@ -1256,17 +1381,17 @@
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
-          <hiValidator>integer</hiValidator>
-          <lkServiceName></lkServiceName>
-          <lkEntityName></lkEntityName>
-          <lkFieldName></lkFieldName>
-          <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>2</hiDataType>
+          <hiValidator></hiValidator>
+          <lkServiceName>organization</lkServiceName>
+          <lkEntityName>HiUser</lkEntityName>
+          <lkFieldName>id</lkFieldName>
+          <isLkForeignKey>true</isLkForeignKey>
+          <hiDataType>6</hiDataType>
           <isSearch>true</isSearch>
-          <isListDisplay>true</isListDisplay>
-          <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
-          <isFull>true</isFull>
+          <isListDisplay>false</isListDisplay>
+          <isReadOnly>true</isReadOnly>
+          <isHidden>true</isHidden>
+          <isFull>false</isFull>
           <isMainLookup>false</isMainLookup>
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
@@ -1346,7 +1471,7 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>backCount</columnName>
+          <columnName>refundCount</columnName>
           <logicalName>column11</logicalName>
           <size></size>
           <scale></scale>
@@ -1371,7 +1496,7 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>backBalance</columnName>
+          <columnName>refundBalance</columnName>
           <logicalName>column12</logicalName>
           <size>30</size>
           <scale></scale>
@@ -1396,7 +1521,7 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>backFee</columnName>
+          <columnName>refundFee</columnName>
           <logicalName>column13</logicalName>
           <size>30</size>
           <scale></scale>
@@ -1427,7 +1552,7 @@
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
-          <description>清算金额</description>
+          <description>结算金额</description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
@@ -1438,31 +1563,6 @@
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>1</hiDataType>
           <isSearch>true</isSearch>
-          <isListDisplay>true</isListDisplay>
-          <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
-          <isFull>false</isFull>
-          <isMainLookup>false</isMainLookup>
-          <isParent>false</isParent>
-        </org.hi.studio.hsceditor.visual.model.ColumnModel>
-        <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>transType</columnName>
-          <logicalName>column30</logicalName>
-          <size>30</size>
-          <scale></scale>
-          <notNull>false</notNull>
-          <primaryKey>false</primaryKey>
-          <description>交易类型</description>
-          <autoIncrement>false</autoIncrement>
-          <defaultValue></defaultValue>
-          <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
-          <lkServiceName></lkServiceName>
-          <lkEntityName></lkEntityName>
-          <lkFieldName></lkFieldName>
-          <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
-          <isSearch>false</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
