@@ -23,7 +23,7 @@ import org.apache.commons.logging.LogFactory;
  */
 public class DateTimeUtil {
 	
-	private static Log logger = LogFactory.getLog(DateTimeUtil.class);
+	//private static Log logger = LogFactory.getLog(DateTimeUtil.class);
 	
 	/** 格式转换类型: yyyyMMdd ==> yyyy/MM/dd */
 	public final static int FORMAT_TRANS_D8_D10_S   = 1;
@@ -350,7 +350,7 @@ public class DateTimeUtil {
         try {
             date = df.parse(strDate);
         } catch (ParseException pe) {
-        	logger.error("ParseException: " + pe);
+        	System.out.println("ParseException: " + pe);
         	return null;
         }
 
@@ -369,7 +369,7 @@ public class DateTimeUtil {
         String returnValue = "";
 
         if (aDate == null) {
-            logger.error("aDate is null!");
+            System.out.println("aDate is null!");
         } else {
             df = new SimpleDateFormat(aMask);
             returnValue = df.format(aDate);
@@ -395,7 +395,7 @@ public class DateTimeUtil {
     public static String getCharForteenToDate(String sDate){
     	String str="";
     	if(sDate==null){
-    		logger.error("aDate is null!");
+    		System.out.println("aDate is null!");
     	}else{
     		 String sform=format(sDate, FORMAT_TRANS_DT14_DT19_ML);
     		 String[] yMonthDay=StringUtil.split(sform, " ");

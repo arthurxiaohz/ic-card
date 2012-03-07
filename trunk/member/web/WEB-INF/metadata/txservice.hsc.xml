@@ -400,7 +400,7 @@
                         <isParent>false</isParent>
             <fieldType>7</fieldType>
             
-                         <enumerationEntity>TxStatus</enumerationEntity>
+                         <enumerationEntity>OrderTxStatus</enumerationEntity>
                         
                        </field>
                      
@@ -4147,7 +4147,7 @@
                
         
     <entity>
-		<entityName>TxStatus</entityName>
+		<entityName>OrderTxStatus</entityName>
 		<entityType>2</entityType>
 		<tableName></tableName>
 		<entityLabel>交易状态</entityLabel>

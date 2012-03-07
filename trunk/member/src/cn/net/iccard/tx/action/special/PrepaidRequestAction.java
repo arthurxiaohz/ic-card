@@ -15,14 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.hi.SpringContextHolder;
 import org.hi.framework.dao.Filter;
 import org.hi.framework.dao.impl.FilterFactory;
-import org.hi.framework.paging.PageInfo;
-import org.hi.framework.security.context.UserContextHelper;
-import org.hi.framework.web.PageInfoUtil;
 import org.hi.framework.web.struts.BaseAction;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import cn.net.iccard.tx.action.TblTxPayMentOrderPageInfo;
-import cn.net.iccard.tx.action.TblTxPayMentRequestPageInfo;
 import cn.net.iccard.tx.model.TblTxPayMentOrder;
 import cn.net.iccard.tx.model.TblTxPayMentRequest;
 import cn.net.iccard.tx.model.TblTxPayMentResponse;
@@ -33,7 +28,6 @@ import cn.net.iccard.tx.service.TblTxPayMentRequestManager;
 import cn.net.iccard.tx.service.TblTxPayMentResponseManager;
 import cn.net.iccard.tx.service.TblTxSmsLogManager;
 import cn.net.iccard.tx.service.impl.TblTxPayMentOrderManagerImpl;
-import cn.net.iccard.tx.service.impl.TblTxPayMentRequestManagerImpl;
 import cn.net.iccard.util.BankComService;
 import cn.net.iccard.util.Base64;
 import cn.net.iccard.util.ConnectionUtil;
@@ -188,7 +182,7 @@ public class PrepaidRequestAction extends BaseAction{
 		//修改对应交易记录状态    
 		//先查询支付订单表
 
-		Filter filter = FilterFactory.getSimpleFilter("mchtTxTraceNo",request.getParameter("plTxTraceNo"), Filter.OPERATOR_EQ);
+		Filter filter = FilterFactory.getSimpleFilter("mchtTxTraceNo",request.getParameter("tblTxPayMentOrder.id"), Filter.OPERATOR_EQ);
 		
 		//Filter Filter = PageInfoUtil.populateFilter(tblTxPayMentOrderPageInfo);
 		System.out.println(filter);
@@ -310,18 +304,6 @@ public class PrepaidRequestAction extends BaseAction{
 			
 		send(smsBean);
 		
-	}
-		
-	public static void main(String args[]){
-		String a = "MchtTxTraceNo=1221314|TxAmount=123|MerchantNo=2342|TxDate=20120202|TxTime=121212|TxBody=百度一下|ShowUrl=http://www.baidu.com|UseCoupon=|CouponMsg=|NotifyURL=|BGNotifyURL=";
-		try {
-			String tPlainByBase64 = Base64.encode(a.getBytes("UTF-8"));
-			
-			System.out.println(tPlainByBase64);
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	
 	/**
