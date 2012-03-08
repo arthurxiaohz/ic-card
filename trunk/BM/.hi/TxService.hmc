@@ -3663,7 +3663,7 @@
         <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
           <enumValue>backsuccess</enumValue>
           <enumLabel>已退款</enumLabel>
-          <enumCode>4</enumCode>
+          <enumCode>7</enumCode>
           <columnName></columnName>
           <logicalName></logicalName>
           <size></size>
@@ -3692,6 +3692,62 @@
           <enumValue>revocationsuccess</enumValue>
           <enumLabel>已撤销</enumLabel>
           <enumCode>5</enumCode>
+          <columnName></columnName>
+          <logicalName></logicalName>
+          <size></size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description></description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>0</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
+        <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
+          <enumValue>waitrevocation</enumValue>
+          <enumLabel>待撤销</enumLabel>
+          <enumCode>4</enumCode>
+          <columnName></columnName>
+          <logicalName></logicalName>
+          <size></size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description></description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>0</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
+        <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
+          <enumValue>waitback</enumValue>
+          <enumLabel>待退款</enumLabel>
+          <enumCode>6</enumCode>
           <columnName></columnName>
           <logicalName></logicalName>
           <size></size>
