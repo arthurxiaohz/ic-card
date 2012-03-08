@@ -7,9 +7,7 @@ import org.hi.framework.paging.PageInfo;
 import org.hi.framework.service.impl.ManagerImpl;
 
 import cn.net.iccard.accounting.account.impl.AccountService;
-import cn.net.iccard.accounting.account.impl.SimpleAccountOpenRequest;
-import cn.net.iccard.bm.accounting.model.AccountCatalog;
-import cn.net.iccard.bm.accounting.model.AccountPartyType;
+import cn.net.iccard.accounting.account.impl.SimpleAccountForOrgOpenRequest;
 import cn.net.iccard.bm.mcht.model.TblMchtInfo;
 import cn.net.iccard.bm.mcht.service.TblMchtInfoManager;
 
@@ -41,16 +39,13 @@ public class TblMchtInfoManagerImpl extends ManagerImpl implements
 		// ¿ª»§
 		AccountService accountService = (AccountService) SpringContextHolder
 				.getBean(AccountService.class);
-		SimpleAccountOpenRequest simpleAccountOpenRequest = new SimpleAccountOpenRequest();
-		simpleAccountOpenRequest
-				.setAccountCatalog(AccountCatalog.ACCOUNTCATALOG_VIRTUALACCOUNT);
-		simpleAccountOpenRequest
-				.setAccountPartyType(AccountPartyType.ACCOUNTPARTYTYPE_MCHT);
-		simpleAccountOpenRequest.setAccountParty(tblMchtInfo.getMchtNo());
-		simpleAccountOpenRequest.setAccountName(tblMchtInfo.getMchtName());
+		SimpleAccountForOrgOpenRequest simpleAccountForOrgOpenRequest = new SimpleAccountForOrgOpenRequest();
+		simpleAccountForOrgOpenRequest.setAccountParty(tblMchtInfo.getMchtNo());
+		simpleAccountForOrgOpenRequest
+				.setAccountName(tblMchtInfo.getMchtName());
 		// simpleAccountOpenRequest.setAvailableBalance(0);
 		// simpleAccountOpenRequest.setRemark();
-		accountService.openAccount(simpleAccountOpenRequest);
+		accountService.openAccountForMcht(simpleAccountForOrgOpenRequest);
 	}
 
 	public void removeTblMchtInfoById(Integer id) {
