@@ -55,8 +55,6 @@ public class RechargeRequestAction extends BaseAction{
 	//接收持卡人请求处理
 	public void getMemberRequest() throws Exception {
 		
-
-	   
 		//1.取得持卡人请求
 		HttpServletRequest request = getRequest();
 		

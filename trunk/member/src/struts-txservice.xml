@@ -340,5 +340,10 @@
 			<result name="success">/login.jsp</result>
 			<interceptor-ref name="modelParamsStack" />
 		</action>
+		
+		<action name="prepaidTxPayMentOrderFinish"
+			class="cn.net.iccard.tx.action.special.PrepaidRequestAction" method="upfrontCostAffirm">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
 </package>
 </struts>
