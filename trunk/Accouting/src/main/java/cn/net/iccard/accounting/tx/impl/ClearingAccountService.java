@@ -50,7 +50,7 @@ public class ClearingAccountService implements IClearingAccountService {
 				BizType.BIZTYPE_PREPAID, originalBizLogId,
 				BizType.BIZTYPE_CONFIRMPAY, paymentClearingAccountRequest
 						.getBizLogId());
-		// begin：更新之前的预支付状态，同时担保账户出账
+		// end：更新之前的预支付状态，同时担保账户出账
 
 		// begin：商户手续费
 		AccountDebitCreditRequest accountDebitCreditRequest = new AccountDebitCreditRequest();
