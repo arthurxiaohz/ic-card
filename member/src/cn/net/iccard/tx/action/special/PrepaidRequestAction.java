@@ -5,7 +5,10 @@ import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.servlet.ServletOutputStream;
@@ -15,9 +18,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.hi.SpringContextHolder;
 import org.hi.framework.dao.Filter;
 import org.hi.framework.dao.impl.FilterFactory;
+import org.hi.framework.security.context.UserContextHelper;
 import org.hi.framework.web.struts.BaseAction;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+import cn.net.iccard.tx.model.OrderTxStatus;
 import cn.net.iccard.tx.model.TblTxPayMentOrder;
 import cn.net.iccard.tx.model.TblTxPayMentRequest;
 import cn.net.iccard.tx.model.TblTxPayMentResponse;
@@ -156,7 +161,7 @@ public class PrepaidRequestAction extends BaseAction{
 			TblTxPayMentOrder.setNotifyUrl(NotifyURL);
 			TblTxPayMentOrder.setShowUrl(ShowUrl);
 			TblTxPayMentOrder.setTxBody(TxBody);
-			TblTxPayMentOrder.setTxStatus(1);
+			TblTxPayMentOrder.setTxStatus(OrderTxStatus.ORDERTXSTATUS_PREPAY);
 			TblTxPayMentOrder.setBgNotifyUrl(BGNotifyURL);
 			TblTxPayMentOrder.setCreatedDatetime(new Timestamp(System.currentTimeMillis())); //创建时间
 			TblTxPayMentOrder.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));//最后修改时间
@@ -166,6 +171,13 @@ public class PrepaidRequestAction extends BaseAction{
 			//4.保存session
 			request.getSession(true).setAttribute("plTxTraceNo", plTxTraceNo);
 			
+		}else if(TxType.equals("TX21")){
+			//撤销
+			//解析
+			//校验
+			//记录
+		}else if(TxType.equals("TX23")){
+			//退款
 		}
 		return SUCCESS;
 		
@@ -179,38 +191,44 @@ public class PrepaidRequestAction extends BaseAction{
 		
 		HttpServletResponse response = getResponse();
 		
+		
+		//getRecvMap(request);
 		//修改对应交易记录状态    
 		//先查询支付订单表
-
-		Filter filter = FilterFactory.getSimpleFilter("mchtTxTraceNo",request.getParameter("tblTxPayMentOrder.id"), Filter.OPERATOR_EQ);
 		
-		//Filter Filter = PageInfoUtil.populateFilter(tblTxPayMentOrderPageInfo);
-		System.out.println(filter);
-		TblTxPayMentOrderManagerImpl TblTxPayMentOrderManagerImpl = new TblTxPayMentOrderManagerImpl();
-		List list  = TblTxPayMentOrderManagerImpl.getObjects(TblTxPayMentOrder.class,filter);
+		System.out.println(request.getParameter("orderId"));
+		TblTxPayMentOrderManager tblTxPayMentOrderManagerImpl = (TblTxPayMentOrderManager)SpringContextHolder.getBean(TblTxPayMentOrder.class);
+		TblTxPayMentOrder tblTxPayMentOrder  = (TblTxPayMentOrder) tblTxPayMentOrderManagerImpl.getObjectById(request.getParameter("orderId"));
 		
 		//更新支付订单表
 		String PlTxTime = DateTimeUtil.getCurrDateTime();
-		TblTxPayMentOrder TblTxPayMentOrder = (TblTxPayMentOrder)list.get(0);
-		TblTxPayMentOrder.setTxStatus(2);
-		TblTxPayMentOrder.setPlTxTime(PlTxTime);
-		TblTxPayMentOrder.setErrorCode("0000");
-		TblTxPayMentOrder.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));
-		TblTxPayMentOrder.setLastUpdatedBy(Integer.valueOf(request.getParameter("username")));
+		if(tblTxPayMentOrder.getTxStatus()==OrderTxStatus.ORDERTXSTATUS_PREPAY){
+			tblTxPayMentOrder.setTxStatus(OrderTxStatus.ORDERTXSTATUS_PREPAYSUCCESS);
+			tblTxPayMentOrder.setErrorCode("0001");		//预支付成功
+		}else{
+			tblTxPayMentOrder.setTxStatus(OrderTxStatus.ORDERTXSTATUS_PAYSUCCESS);
+			tblTxPayMentOrder.setErrorCode("0002");		//预支付成功
+		}
 		
-		TblTxPayMentOrderManagerImpl.saveTblTxPayMentOrder(TblTxPayMentOrder);
+		tblTxPayMentOrder.setPlTxTime(PlTxTime);
+		
+		
+		tblTxPayMentOrder.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));
+		tblTxPayMentOrder.setLastUpdatedBy(UserContextHelper.getUser().getId());
+		
+		tblTxPayMentOrderManagerImpl.saveTblTxPayMentOrder(tblTxPayMentOrder);
 		
 		//组装返回
 		 StringBuffer tPlain = new StringBuffer(400);
-		 tPlain.append("PlTxTraceNo="+TblTxPayMentOrder.getPlTxTraceNo()+"|"+
-					"MchtTxTraceNo=" +TblTxPayMentOrder.getMchtTxTraceNo()+"|" +
-					"MerchantNo=" + TblTxPayMentOrder.getMchtNo()+"|" +
+		 tPlain.append("PlTxTraceNo="+tblTxPayMentOrder.getPlTxTraceNo()+"|"+
+					"MchtTxTraceNo=" +tblTxPayMentOrder.getMchtTxTraceNo()+"|" +
+					"MerchantNo=" + tblTxPayMentOrder.getMchtNo()+"|" +
 					"PlTxDate=" + PlTxTime.substring(0, 8)+"|" +
 					"PlTxTime=" + PlTxTime.substring(8, 14)+"|" +
-					"TxDate=" + TblTxPayMentOrder.getMchtTxTime().substring(0, 8)+"|" +
-					"TxTime=" + TblTxPayMentOrder.getMchtTxTime().substring(8,12)+"|" +
-					"ResponseCode="+TblTxPayMentOrder.getErrorCode()+"|" +
-					"TxAmount="+new BigDecimal(TblTxPayMentOrder.getTxAmount()).movePointLeft(2));
+					"TxDate=" + tblTxPayMentOrder.getMchtTxTime().substring(0, 8)+"|" +
+					"TxTime=" + tblTxPayMentOrder.getMchtTxTime().substring(8,12)+"|" +
+					"ResponseCode="+tblTxPayMentOrder.getErrorCode()+"|" +
+					"TxAmount="+new BigDecimal(tblTxPayMentOrder.getTxAmount()).movePointLeft(2));
 		
 		 
 		 String sendMsg = Base64.encode(tPlain.toString().getBytes("UTF-8"));
@@ -221,11 +239,12 @@ public class PrepaidRequestAction extends BaseAction{
 		 TblTxPayMentResponse  tblTxPayMentResponse= new  TblTxPayMentResponse();
 			
 			//String plTxTraceNo = PLTraceNoGererator.generatePLTraceNo("00");
-			tblTxPayMentResponse.setTxTypeId(TblTxPayMentOrder.getTxTypeId());
-			tblTxPayMentResponse.setMchtNo(TblTxPayMentOrder.getMchtNo());
-			tblTxPayMentResponse.setPayDatetime(TblTxPayMentOrder.getPlTxTime());				//商户交易日期
-			tblTxPayMentResponse.setMerchantOrderNo(TblTxPayMentOrder.getMchtTxTraceNo());
-			tblTxPayMentResponse.setOrderAmount(new BigDecimal(TblTxPayMentOrder.getTxAmount()).movePointLeft(2).intValue());		//精确到分
+		 	tblTxPayMentResponse.setResponseId(tblTxPayMentOrder.getPlTxTraceNo());
+			tblTxPayMentResponse.setTxTypeId(tblTxPayMentOrder.getTxTypeId());
+			tblTxPayMentResponse.setMchtNo(tblTxPayMentOrder.getMchtNo());
+			tblTxPayMentResponse.setPayDatetime(tblTxPayMentOrder.getPlTxTime());				//商户交易日期
+			tblTxPayMentResponse.setMerchantOrderNo(tblTxPayMentOrder.getMchtTxTraceNo());
+			tblTxPayMentResponse.setOrderAmount(new BigDecimal(tblTxPayMentOrder.getTxAmount()).movePointLeft(2).intValue());		//精确到分
 
 			tblTxPayMentResponse.setCreatedDatetime(new Timestamp(System.currentTimeMillis())); //创建时间
 			tblTxPayMentResponse.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));//最后修改时间
@@ -233,18 +252,18 @@ public class PrepaidRequestAction extends BaseAction{
 			tblTxPayMentResponseMan.saveTblTxPayMentResponse(tblTxPayMentResponse);
 		 
 		 //记录支付结果通知表并通知商户
-		if(TblTxPayMentOrder.getBgNotifyUrl()!= null &&!TblTxPayMentOrder.getBgNotifyUrl().equals("")){
+		if(tblTxPayMentOrder.getBgNotifyUrl()!= null &&!tblTxPayMentOrder.getBgNotifyUrl().equals("")){
 		
 			NotifyBean notifyBean = new NotifyBean();
-			notifyBean.setMchtTxURL(TblTxPayMentOrder.getBgNotifyUrl());
+			notifyBean.setMchtTxURL(tblTxPayMentOrder.getBgNotifyUrl());
 			notifyBean.setSendMsg(sendMsg);
 			notifyBean.setSignature("");
-			notifyBean.setTxType(TblTxPayMentOrder.getTxTypeId());
+			notifyBean.setTxType(tblTxPayMentOrder.getTxTypeId());
 			send(notifyBean);
 		 
 		}
 		
-		if(TblTxPayMentOrder.getNotifyUrl()!= null &&!TblTxPayMentOrder.getNotifyUrl().equals("")){
+		if(tblTxPayMentOrder.getNotifyUrl()!= null &&!tblTxPayMentOrder.getNotifyUrl().equals("")){
 			
 			Properties tInputParams = new Properties();
 			
@@ -252,26 +271,45 @@ public class PrepaidRequestAction extends BaseAction{
 			BankComService tBankCom = new BankComService();
 			
 			tInputParams.setProperty("Version", "V1.0");
-		    tInputParams.setProperty("TxType", TblTxPayMentOrder.getTxTypeId());
+		    tInputParams.setProperty("TxType", tblTxPayMentOrder.getTxTypeId());
 		    tInputParams.setProperty("TxInfo",sendMsg);
 		    tInputParams.setProperty("Signature","");			//TODO 签名
 	        // 组成没有name属性,没有ID属性的form表单
-	        StringBuffer tFormBuffer = tBankCom.buildForm(TblTxPayMentOrder.getNotifyUrl(), tInputParams);
+	        StringBuffer tFormBuffer = tBankCom.buildForm(tblTxPayMentOrder.getNotifyUrl(), tInputParams);
 			
 			//将浏览器导向商户接收交易结果地址
-			redirect(response , TblTxPayMentOrder.getNotifyUrl() , tFormBuffer.toString());	
+			redirect(response , tblTxPayMentOrder.getNotifyUrl() , tFormBuffer.toString());	
 		}
 		
 		return SUCCESS;
 		}
 
-	
+	protected Map<String, String> getRecvMap(final HttpServletRequest request) {
+		Map<String, String> receiverMap = request.getParameterMap();
+		Map<String, String> resultMap = new HashMap<String, String>();
+		Iterator<String> it = receiverMap.keySet().iterator();
+		StringBuffer stf = new StringBuffer();
+		stf.append("\n =============== request map start ====");
+		while (it.hasNext()) {
+			String key = it.next();
+			Object value = receiverMap.get(key);
+			if (value instanceof String[]) {
+				String temp = ((String[]) value)[0];
+				resultMap.put(key, temp);
+				
+				stf.append("\n " + key + "	=" + temp);
+			}
+		}
+		stf.append("\n =============== request map end =======\n");
+		System.out.println(stf.toString());
+		return resultMap;
+	}
 	//记录短信信息，并发送
 	public void saveSms(String id,String phoneNo) throws Exception {
 		
 		//先查询支付订单表
 
-		TblTxPayMentOrderManagerImpl TblTxPayMentOrderManagerImpl = new TblTxPayMentOrderManagerImpl();
+		TblTxPayMentOrderManager TblTxPayMentOrderManagerImpl = (TblTxPayMentOrderManager)SpringContextHolder.getBean(TblTxPayMentOrderManager.class);
 		TblTxPayMentOrder tblTxPayMentOrder  = (TblTxPayMentOrder)TblTxPayMentOrderManagerImpl.getObjectById(id);
 		
 		//更新支付订单表

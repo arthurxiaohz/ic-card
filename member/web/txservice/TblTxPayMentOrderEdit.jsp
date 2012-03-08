@@ -101,14 +101,13 @@ function changeToClick()
 	}
 </script>
 <h2 class="contentTitle"><hi:text key="编辑页面" parameterLanguageKeys="订单查询"/></h2>
-<form action="tblTxPayMentOrderSave.action?navTabId=tblTxPayMentOrderList&callbackType=closeCurrent&ajax=1" method="post" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
+<form action="prepaidTxPayMentOrderFinish.action?navTabId=tblTxPayMentOrderList&callbackType=closeCurrent&ajax=1" method="post" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
 <div class="pageContent">
 	
-		<dl>
-			<dt><hi:text key="交易状态" entity="TblTxPayMentOrder"/>：</dt><dd><hi:select emu="orderTxStatus" name="tblTxPayMentOrder.txStatus" isLabel="true"/></dd>
-		</dl>
+	
 
 		<input type="hidden" name="functionCode" id="orderid" value="${tblTxPayMentOrder.id}"/>
+		<input type="hidden" name="orderId" id="orderid" value="${tblTxPayMentOrder.id}"/>
 		<input type="hidden" name="TxStatus" id="TxStatus" value="${tblTxPayMentOrder.txStatus}"/>
 							<div class="goumaitijiao">
 							<ul>
@@ -156,7 +155,7 @@ function changeToClick()
 																style="font-weight: bold; padding-left: 10px; width: 200px;text-align: left;"
 																bgcolor="#ffffff" colspan="5">
 																<dl>
-			<dt><hi:text key="交易状态" entity="TblTxPayMentOrder"/>：</dt><dd><hi:select emu="txStatus" name="tblTxPayMentOrder.txStatus" isLabel="true"/></dd>
+			<dt><hi:text key="交易状态" entity="TblTxPayMentOrder"/>：</dt><dd><hi:select emu="orderTxStatus" name="tblTxPayMentOrder.txStatus" isLabel="true"/></dd>
 		</dl>
 															</td>
 														</tr>
