@@ -9,6 +9,8 @@ public class RefundClearingAccountRequest implements
 
 	private String userName;
 
+	private int mchtOrderAmount;
+
 	private int amount;
 
 	private int mchtFee;
@@ -39,6 +41,14 @@ public class RefundClearingAccountRequest implements
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public int getMchtOrderAmount() {
+		return mchtOrderAmount;
+	}
+
+	public void setMchtOrderAmount(int mchtOrderAmount) {
+		this.mchtOrderAmount = mchtOrderAmount;
 	}
 
 	public int getAmount() {

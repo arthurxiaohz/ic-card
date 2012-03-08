@@ -59,7 +59,7 @@ public class ClearingAccountService implements IClearingAccountService {
 				FilterFactory.getSimpleFilter("accountPartyType",
 						AccountPartyType.ACCOUNTPARTYTYPE_MCHT).addCondition(
 						"accountParty",
-						paymentClearingAccountRequest.getUserName())
+						paymentClearingAccountRequest.getMchtNo())
 						.addCondition("accountCatalog",
 								AccountCatalog.ACCOUNTCATALOG_FEEACCOUNT)).get(
 				0)).getId();
@@ -79,7 +79,7 @@ public class ClearingAccountService implements IClearingAccountService {
 				FilterFactory.getSimpleFilter("accountPartyType",
 						AccountPartyType.ACCOUNTPARTYTYPE_MCHT).addCondition(
 						"accountParty",
-						paymentClearingAccountRequest.getUserName())
+						paymentClearingAccountRequest.getMchtNo())
 						.addCondition("accountCatalog",
 								AccountCatalog.ACCOUNTCATALOG_VIRTUALACCOUNT))
 				.get(0)).getId();
@@ -102,7 +102,8 @@ public class ClearingAccountService implements IClearingAccountService {
 		accountDebitCreditRequest.setBizLogId(refundClearingAccountRequest
 				.getBizLogId());
 		// 商户应退金额
-		int mchtReturnAmount = refundClearingAccountRequest.getAmount();
+		int mchtReturnAmount = refundClearingAccountRequest
+				.getMchtOrderAmount();
 
 		TblStlCleaningDetail tblStlCleaningDetail = (TblStlCleaningDetail) tblStlCleaningDetailManager
 				.getObjectById(refundClearingAccountRequest.getBizLogId());
@@ -179,12 +180,12 @@ public class ClearingAccountService implements IClearingAccountService {
 		// 商户虚拟账户
 		int mchtVirtualAccountId = ((ActAccount) actAccountManager.getObjects(
 				FilterFactory.getSimpleFilter("accountPartyType",
-						AccountPartyType.ACCOUNTPARTYTYPE_MEMBER).addCondition(
+						AccountPartyType.ACCOUNTPARTYTYPE_MCHT).addCondition(
 						"accountParty",
-						refundClearingAccountRequest.getUserName())
-						.addCondition("accountCatalog",
-								AccountCatalog.ACCOUNTCATALOG_VIRTUALACCOUNT))
-				.get(0)).getId();
+						refundClearingAccountRequest.getMchtNo()).addCondition(
+						"accountCatalog",
+						AccountCatalog.ACCOUNTCATALOG_VIRTUALACCOUNT)).get(0))
+				.getId();
 
 		accountDebitCreditRequest.setAccountId(mchtVirtualAccountId);
 		accountDebitCreditRequest.setAmount(mchtReturnAmount);
