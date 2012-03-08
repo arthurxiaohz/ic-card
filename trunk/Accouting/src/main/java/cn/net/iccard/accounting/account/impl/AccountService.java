@@ -5,7 +5,6 @@ import java.util.Date;
 import org.apache.tools.ant.util.DateUtils;
 import org.hi.SpringContextHolder;
 import org.hi.base.organization.model.HiUser;
-import org.hi.framework.dao.Filter;
 import org.hi.framework.dao.impl.FilterFactory;
 
 import cn.net.iccard.accounting.EAccountResponse;
@@ -97,8 +96,7 @@ public class AccountService implements IAccountService {
 		TblMbPoint tblMbPoint = new TblMbPoint();
 		tblMbPoint.setTblMbInfo((HiUser) tblMbInfoMgr.getObjects(
 				FilterFactory.getSimpleFilter("userName",
-						accountOpenForOrgRequest.getAccountParty(),
-						Filter.OPERATOR_EQ)).get(0));
+						accountOpenForOrgRequest.getAccountParty())).get(0));
 		tblMbPoint.setBalance(0);
 		tblMbPointMgr.saveObject(tblMbPoint);
 
