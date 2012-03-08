@@ -12,10 +12,12 @@ public interface IPaymentClearingAccountRequest extends Serializable {
 
 	String getMchtNo();
 
+	String getUserName();
+
 	int getMchtFee();
 
 	int getAmount();
 
-	int getTxLogId();
+	int getBizLogId();
 
 }

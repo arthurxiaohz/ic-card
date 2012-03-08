@@ -6,6 +6,11 @@ import cn.net.iccard.accounting.ICommonAccountResponse;
 public class SimpleCommonAccountResponse implements ICommonAccountResponse {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6891766487333165514L;
+
+	/**
 	 * ÏìÓ¦Âë
 	 * 
 	 * @return

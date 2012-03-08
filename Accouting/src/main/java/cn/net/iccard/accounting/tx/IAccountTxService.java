@@ -37,4 +37,26 @@ public interface IAccountTxService {
 	IAccountTransferResponse transfer(
 			IAccountTransferRequest accountTransferRequest);
 
+	/**
+	 * 应付转账
+	 * 
+	 * 例如：预支付成功（由会员虚拟账户转账到会员担保账户（应付））
+	 * 
+	 * @param accountTransferRequest
+	 * @return
+	 */
+	IAccountTransferResponse transfer(
+			IAccountPayableTransferRequest accountRcvOrPabTransferRequest);
+
+	/**
+	 * 实付转账
+	 * 
+	 * 例如：预支付确认（由会员担保账户（应付）转账到商户虚拟账户）
+	 * 
+	 * @param accountTransferRequest
+	 * @return
+	 */
+	IAccountTransferResponse transfer(
+			IAccountPaidTransferRequest accountPaidTransferRequest);
+
 }
