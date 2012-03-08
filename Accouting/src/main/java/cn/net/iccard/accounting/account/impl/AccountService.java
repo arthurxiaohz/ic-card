@@ -68,23 +68,12 @@ public class AccountService implements IAccountService {
 
 		tblActAccountBalanceMgr.saveTblActAccountBalance(tblActAccountBalance);
 
-		if (accountOpenRequest.getAccountPartyType() == AccountPartyType.ACCOUNTPARTYTYPE_MEMBER) {
-			// 会员积分
-			TblMbPoint tblMbPoint = new TblMbPoint();
-			tblMbPoint.setTblMbInfo((HiUser) tblMbInfoMgr.getObjects(
-					FilterFactory.getSimpleFilter("userName",
-							accountOpenRequest.getAccountParty(),
-							Filter.OPERATOR_EQ)).get(0));
-			tblMbPoint.setBalance(0);
-			tblMbPointMgr.saveObject(tblMbPoint);
-		}
-
 		return new SimpleAccountOpenResponse(EAccountResponse.S0000,
 				tblActAccountBalance.getId(), tblActAccountBalance
 						.getAccountNo());
 	}
 
-	public ICommonAccountResponse openAccountForMcht(
+	public ICommonAccountResponse openAccountForMember(
 			IAccountOpenForOrgRequest accountOpenForOrgRequest) {
 
 		SimpleAccountOpenRequest simpleAccountOpenRequest = new SimpleAccountOpenRequest();
@@ -103,10 +92,20 @@ public class AccountService implements IAccountService {
 		simpleAccountOpenRequest
 				.setAccountCatalog(AccountCatalog.ACCOUNTCATALOG_GUARANTEEACCOUNT);
 		openAccount(simpleAccountOpenRequest);
+
+		// 会员积分
+		TblMbPoint tblMbPoint = new TblMbPoint();
+		tblMbPoint.setTblMbInfo((HiUser) tblMbInfoMgr.getObjects(
+				FilterFactory.getSimpleFilter("userName",
+						accountOpenForOrgRequest.getAccountParty(),
+						Filter.OPERATOR_EQ)).get(0));
+		tblMbPoint.setBalance(0);
+		tblMbPointMgr.saveObject(tblMbPoint);
+
 		return new SimpleCommonAccountResponse(EAccountResponse.S0000);
 	}
 
-	public ICommonAccountResponse openAccountForMemeber(
+	public ICommonAccountResponse openAccountForMcht(
 			IAccountOpenForOrgRequest accountOpenForOrgRequest) {
 
 		SimpleAccountOpenRequest simpleAccountOpenRequest = new SimpleAccountOpenRequest();
