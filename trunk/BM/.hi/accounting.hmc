@@ -737,7 +737,7 @@
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>expiredDate</columnName>
           <logicalName>column12</logicalName>
-          <size></size>
+          <size>8</size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
@@ -750,7 +750,7 @@
           <lkEntityName></lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>4</hiDataType>
+          <hiDataType>1</hiDataType>
           <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
