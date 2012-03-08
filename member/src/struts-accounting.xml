@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="accounting" extends="hi" >
+		<!-- ============= 账户对应的ActAccountAction============ --> 
+		<action name="actAccount" class="cn.net.iccard.bm.accounting.action.struts.ActAccountAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="actAccountList"
+			class="cn.net.iccard.bm.accounting.action.struts.ActAccountAction" method="actAccountList">
+			<result name="success">/accounting/ActAccountList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="actAccountSave"
+			class="cn.net.iccard.bm.accounting.action.struts.ActAccountAction" method="saveActAccount">
+			<result name="success" type="redirect-action">actAccountList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="actAccountEdit"
+			class="cn.net.iccard.bm.accounting.action.struts.ActAccountAction" method="viewActAccount">
+			<result name="success">/accounting/ActAccountEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="actAccountView"
+			class="cn.net.iccard.bm.accounting.action.struts.ActAccountAction" method="viewActAccount">
+			<result name="success">/accounting/ActAccountView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="actAccountRemove"
+			class="cn.net.iccard.bm.accounting.action.struts.ActAccountAction" method="removeActAccount">
+			<result name="success" type="redirect-action">actAccountList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="actAccountRemoveAll"
+			class="cn.net.iccard.bm.accounting.action.struts.ActAccountAction" method="removeAllActAccount">
+			<result name="success" type="redirect-action">actAccountList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="actAccountLookup"
+			class="cn.net.iccard.bm.accounting.action.struts.ActAccountAction" method="actAccountList">
+			<result name="success">/accounting/ActAccountList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 账户余额对应的TblActAccountBalanceAction============ --> 
+		<action name="tblActAccountBalance" class="cn.net.iccard.bm.accounting.action.struts.TblActAccountBalanceAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblActAccountBalanceList"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActAccountBalanceAction" method="tblActAccountBalanceList">
+			<result name="success">/accounting/TblActAccountBalanceList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblActAccountBalanceSave"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActAccountBalanceAction" method="saveTblActAccountBalance">
+			<result name="success" type="redirect-action">tblActAccountBalanceList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblActAccountBalanceEdit"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActAccountBalanceAction" method="viewTblActAccountBalance">
+			<result name="success">/accounting/TblActAccountBalanceEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblActAccountBalanceView"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActAccountBalanceAction" method="viewTblActAccountBalance">
+			<result name="success">/accounting/TblActAccountBalanceView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblActAccountBalanceRemove"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActAccountBalanceAction" method="removeTblActAccountBalance">
+			<result name="success" type="redirect-action">tblActAccountBalanceList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblActAccountBalanceRemoveAll"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActAccountBalanceAction" method="removeAllTblActAccountBalance">
+			<result name="success" type="redirect-action">tblActAccountBalanceList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblActAccountBalanceLookup"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActAccountBalanceAction" method="tblActAccountBalanceList">
+			<result name="success">/accounting/TblActAccountBalanceList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 账户明细对应的TblActAccountDetailAction============ --> 
+		<action name="tblActAccountDetail" class="cn.net.iccard.bm.accounting.action.struts.TblActAccountDetailAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblActAccountDetailList"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActAccountDetailAction" method="tblActAccountDetailList">
+			<result name="success">/accounting/TblActAccountDetailList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblActAccountDetailSave"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActAccountDetailAction" method="saveTblActAccountDetail">
+			<result name="success" type="redirect-action">tblActAccountDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblActAccountDetailEdit"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActAccountDetailAction" method="viewTblActAccountDetail">
+			<result name="success">/accounting/TblActAccountDetailEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblActAccountDetailView"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActAccountDetailAction" method="viewTblActAccountDetail">
+			<result name="success">/accounting/TblActAccountDetailView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblActAccountDetailRemove"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActAccountDetailAction" method="removeTblActAccountDetail">
+			<result name="success" type="redirect-action">tblActAccountDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblActAccountDetailRemoveAll"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActAccountDetailAction" method="removeAllTblActAccountDetail">
+			<result name="success" type="redirect-action">tblActAccountDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblActAccountDetailLookup"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActAccountDetailAction" method="tblActAccountDetailList">
+			<result name="success">/accounting/TblActAccountDetailList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 借贷凭证对应的TblActDebitCreditVoucherAction============ --> 
+		<action name="tblActDebitCreditVoucher" class="cn.net.iccard.bm.accounting.action.struts.TblActDebitCreditVoucherAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblActDebitCreditVoucherList"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActDebitCreditVoucherAction" method="tblActDebitCreditVoucherList">
+			<result name="success">/accounting/TblActDebitCreditVoucherList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblActDebitCreditVoucherSave"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActDebitCreditVoucherAction" method="saveTblActDebitCreditVoucher">
+			<result name="success" type="redirect-action">tblActDebitCreditVoucherList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblActDebitCreditVoucherEdit"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActDebitCreditVoucherAction" method="viewTblActDebitCreditVoucher">
+			<result name="success">/accounting/TblActDebitCreditVoucherEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblActDebitCreditVoucherView"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActDebitCreditVoucherAction" method="viewTblActDebitCreditVoucher">
+			<result name="success">/accounting/TblActDebitCreditVoucherView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblActDebitCreditVoucherRemove"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActDebitCreditVoucherAction" method="removeTblActDebitCreditVoucher">
+			<result name="success" type="redirect-action">tblActDebitCreditVoucherList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblActDebitCreditVoucherRemoveAll"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActDebitCreditVoucherAction" method="removeAllTblActDebitCreditVoucher">
+			<result name="success" type="redirect-action">tblActDebitCreditVoucherList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblActDebitCreditVoucherLookup"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActDebitCreditVoucherAction" method="tblActDebitCreditVoucherList">
+			<result name="success">/accounting/TblActDebitCreditVoucherList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 转账凭证对应的TblActTransferVoucherAction============ --> 
+		<action name="tblActTransferVoucher" class="cn.net.iccard.bm.accounting.action.struts.TblActTransferVoucherAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblActTransferVoucherList"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActTransferVoucherAction" method="tblActTransferVoucherList">
+			<result name="success">/accounting/TblActTransferVoucherList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblActTransferVoucherSave"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActTransferVoucherAction" method="saveTblActTransferVoucher">
+			<result name="success" type="redirect-action">tblActTransferVoucherList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblActTransferVoucherEdit"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActTransferVoucherAction" method="viewTblActTransferVoucher">
+			<result name="success">/accounting/TblActTransferVoucherEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblActTransferVoucherView"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActTransferVoucherAction" method="viewTblActTransferVoucher">
+			<result name="success">/accounting/TblActTransferVoucherView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblActTransferVoucherRemove"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActTransferVoucherAction" method="removeTblActTransferVoucher">
+			<result name="success" type="redirect-action">tblActTransferVoucherList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblActTransferVoucherRemoveAll"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActTransferVoucherAction" method="removeAllTblActTransferVoucher">
+			<result name="success" type="redirect-action">tblActTransferVoucherList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblActTransferVoucherLookup"
+			class="cn.net.iccard.bm.accounting.action.struts.TblActTransferVoucherAction" method="tblActTransferVoucherList">
+			<result name="success">/accounting/TblActTransferVoucherList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</struts>

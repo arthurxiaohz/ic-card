@@ -14,10 +14,6 @@
 	<div class="searchBar">
 		<ul class="searchContent">	
 			<li>
-				<label><hi:text key="通知记录id标识" entity="TblMbTransactionResponse"/>:</label>
-				<input type="text" name="pageInfo.f_responseId" value="${pageInfo.f_responseId}"/>
-			</li>	  
-			<li>
 				<label><hi:text key="对应的系统订单号" entity="TblMbTransactionResponse"/>:</label>
 				<input type="text" name="pageInfo.f_ordedId" value="${pageInfo.f_ordedId}"/>
 			</li>	  
@@ -63,9 +59,6 @@
 				<input type="text" name="pageInfo.f_createdDatetime01" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_createdDatetime01}' pattern='yyyy-MM-dd'/>"/>
 				<input type="hidden" name="pageInfo.f_createdDatetime01_op" value="&lt;=">
 			</li>	  
-			<li>
-
-			</li>	  
 		</ul>
 		<div class="subBar">
 			<div class="buttonActive"><div class="buttonContent"><button type="submit"><hi:text key="查询"/></button></div></div>
@@ -82,7 +75,7 @@
 				<authz:authorize ifAnyGranted="TBLMBTRANSACTIONRESPONSE_DEL"><li><a class="delete" href="<hi:url>tblMbTransactionResponseRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', responseId:'',ordedId:'',orgId:'',orgOrdedId:'',amount:'',context:'',state:'',sourceIp:'',lastUpdatedDatetime:'',lastUpdatedBy:'',createdDatetime:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', ordedId:'',orgId:'',orgOrdedId:'',amount:'',context:'',state:'',sourceIp:'',lastUpdatedDatetime:'',lastUpdatedBy:'',createdDatetime:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -93,7 +86,6 @@
 				<c:if test="${empty lookup}">
 				<th width="28"><input type="checkbox" group="orderIndexs" class="checkboxCtrl"></th>
 				</c:if>
-				<th orderField="responseId" class="${pageInfo.sorterName eq 'responseId' ? pageInfo.sorterDirection : ''}"><hi:text key="通知记录id标识" entity="TblMbTransactionResponse"/></th>
 				<th orderField="ordedId" class="${pageInfo.sorterName eq 'ordedId' ? pageInfo.sorterDirection : ''}"><hi:text key="对应的系统订单号" entity="TblMbTransactionResponse"/></th>
 				<th orderField="orgId" class="${pageInfo.sorterName eq 'orgId' ? pageInfo.sorterDirection : ''}"><hi:text key="交易系统的机构号" entity="TblMbTransactionResponse"/></th>
 				<th orderField="orgOrdedId" class="${pageInfo.sorterName eq 'orgOrdedId' ? pageInfo.sorterDirection : ''}"><hi:text key="交易系统的交易流水号" entity="TblMbTransactionResponse"/></th>
@@ -118,7 +110,6 @@
 				<c:if test="${empty lookup}">
 				<td><input name="orderIndexs" value="${item.id}" type="checkbox"></td>
 				</c:if>			
-				    <td>${item.responseId}</td>
 				    <td>${item.ordedId}</td>
 				    <td>${item.orgId}</td>
 				    <td>${item.orgOrdedId}</td>
@@ -143,7 +134,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', responseId:'${item.responseId}',ordedId:'${item.ordedId}',orgId:'${item.orgId}',orgOrdedId:'${item.orgOrdedId}',amount:'${item.amount}',context:'${item.context}',state:'${item.state}',sourceIp:'${item.sourceIp}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}',createdDatetime:'${item.createdDatetime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', ordedId:'${item.ordedId}',orgId:'${item.orgId}',orgOrdedId:'${item.orgOrdedId}',amount:'${item.amount}',context:'${item.context}',state:'${item.state}',sourceIp:'${item.sourceIp}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}',createdDatetime:'${item.createdDatetime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

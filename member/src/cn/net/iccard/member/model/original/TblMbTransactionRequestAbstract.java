@@ -27,11 +27,6 @@ public abstract class TblMbTransactionRequestAbstract extends BaseObject impleme
  	protected  Integer version;
 
  	 /**
-	 * 请求号
-	 */	
- 	protected  String requestId;
-
- 	 /**
 	 * 交易代码
 	 */	
  	protected  String trancode;
@@ -64,7 +59,7 @@ public abstract class TblMbTransactionRequestAbstract extends BaseObject impleme
  	 /**
 	 * 创建时间
 	 */	
- 	protected  Timestamp createdDatetime;
+ 	protected  Timestamp createdDatetime = new Timestamp(System.currentTimeMillis());
 
  	 /**
 	 * 最后修改时间
@@ -74,7 +69,7 @@ public abstract class TblMbTransactionRequestAbstract extends BaseObject impleme
  	 /**
 	 * 最后修改人
 	 */	
- 	protected  String lastUpdatedBy;
+ 	protected  Integer lastUpdatedBy;
 
  	 /**
 	 * 持卡人卡号
@@ -146,19 +141,6 @@ public abstract class TblMbTransactionRequestAbstract extends BaseObject impleme
         		this.oldValues.put("version", this.version);
         	}
         this.version = version;
-    }
-    
-    public String getRequestId() {
-        return this.requestId;
-    }
-    
-    public void setRequestId(String requestId) {
-    		if((requestId != null && this.requestId == null) || 
-				this.requestId != null && (!this.requestId.equals(requestId) || requestId == null)){
-        		this.setDirty(true);
-        		this.oldValues.put("requestId", this.requestId);
-        	}
-        this.requestId = requestId;
     }
     
     public String getTrancode() {
@@ -265,11 +247,11 @@ public abstract class TblMbTransactionRequestAbstract extends BaseObject impleme
         this.lastUpdatedDatetime = lastUpdatedDatetime;
     }
     
-    public String getLastUpdatedBy() {
+    public Integer getLastUpdatedBy() {
         return this.lastUpdatedBy;
     }
     
-    public void setLastUpdatedBy(String lastUpdatedBy) {
+    public void setLastUpdatedBy(Integer lastUpdatedBy) {
     		if((lastUpdatedBy != null && this.lastUpdatedBy == null) || 
 				this.lastUpdatedBy != null && (!this.lastUpdatedBy.equals(lastUpdatedBy) || lastUpdatedBy == null)){
         		this.setDirty(true);
@@ -416,7 +398,6 @@ public abstract class TblMbTransactionRequestAbstract extends BaseObject impleme
    public String toString() {
        ToStringBuilder sb = new ToStringBuilder(this, ToStringStyle.DEFAULT_STYLE);
        sb.append("id", this.id)
-		.append("requestId", this.requestId)
 		.append("trancode", this.trancode)
 		.append("mchtNo", this.mchtNo)
 		.append("amount", this.amount)

@@ -9,7 +9,7 @@
 			<dt><hi:text key="平台交易流水号" entity="TblTxTransfer"/>：</dt><dd><input type="text" name="tblTxTransfer.plTxTraceNo" class="textInput required" value="${tblTxTransfer.plTxTraceNo}" maxlength="20"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="平台会员号" entity="TblTxTransfer"/>：</dt><dd><input type="text" name="tblTxTransfer.memberNO" class="textInput" value="${tblTxTransfer.memberNO}" maxlength="18"/></dd>
+			<dt><hi:text key="平台会员号" entity="TblTxTransfer"/>：</dt><dd><input type="text" name="tblTxTransfer.userName" class="textInput" value="${tblTxTransfer.userName}" maxlength="30"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="交易类型" entity="TblTxTransfer"/>：</dt><dd><input type="text" name="tblTxTransfer.txTypeId" class="textInput" value="${tblTxTransfer.txTypeId}" maxlength="4"/></dd>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblMchtPaymentConfig" type="cn.net.iccard.bm.mcht.model.TblMchtPaymentConfig"/>
+
+	<resultMap id="TblMchtPaymentConfig" class="TblMchtPaymentConfig">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="tblMchtInfo" column="tblMchtInfo" select="select_inner_TblMchtInfo"/>
+		<result property="authorized" column="authorized"/>
+		<result property="createdDateTime" column="createdDateTime"/>
+		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
+		<result property="lastUpdatedBy" column="lastUpdatedBy" select="select_inner_HiUser"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+	</resultMap>
+    
+    <select id="select_inner_TblMchtPaymentConfig" resultMap="TblMchtPaymentConfig" parameterClass="int">  
+       SELECT * FROM Tbl_Mcht_Payment_Config  WHERE id =#value#
+    </select>
+  
+	<select id="getTblMchtPaymentConfig" resultMap="TblMchtPaymentConfig">
+		select * from Tbl_Mcht_Payment_Config WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblMchtPaymentConfig" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Mcht_Payment_Config (id, version, tblMchtInfo, authorized, createdDateTime, lastUpdatedDatetime, lastUpdatedBy, creator) 
+		values (#id#, 1, #tblMchtInfo#, #authorized#, #createdDateTime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblMchtPaymentConfig" parameterClass="java.util.HashMap">    
+		update Tbl_Mcht_Payment_Config set
+            version = #version# +1,
+			tblMchtInfo = #tblMchtInfo#,
+			authorized = #authorized#,
+			createdDateTime = #createdDateTime#,
+			lastUpdatedDatetime = #lastUpdatedDatetime#,
+			lastUpdatedBy = #lastUpdatedBy#,
+			creator = #creator#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblMchtPaymentConfig" parameterClass="int">    
+		delete from Tbl_Mcht_Payment_Config where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblMchtPaymentConfig" resultMap="TblMchtPaymentConfig"/> 
+  
+	<selectExt id="countTblMchtPaymentConfig" resultClass="int"/> 
+
+</sqlMap>    

@@ -6,9 +6,6 @@
 <div class="pageContent">
 	<div class="pageFormContent" layoutH="97">
 		<dl>
-			<dt><hi:text key="通知记录id标识" entity="TblMbTransactionResponse"/>：</dt><dd><input type="text" name="tblMbTransactionResponse.responseId" class="textInput required" value="${tblMbTransactionResponse.responseId}" maxlength="20"/></dd>
-		</dl>
-		<dl>
 			<dt><hi:text key="对应的系统订单号" entity="TblMbTransactionResponse"/>：</dt><dd><input type="text" name="tblMbTransactionResponse.ordedId" class="textInput" value="${tblMbTransactionResponse.ordedId}" maxlength="50"/></dd>
 		</dl>
 		<dl>
@@ -38,7 +35,7 @@
 			</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="最后修改人" entity="TblMbTransactionResponse"/>：</dt><dd><input type="text" name="tblMbTransactionResponse.lastUpdatedBy" class="textInput" value="${tblMbTransactionResponse.lastUpdatedBy}" maxlength="30"/></dd>
+			<dt><hi:text key="最后修改人" entity="TblMbTransactionResponse"/>：</dt><dd><input type="text" name="tblMbTransactionResponse.lastUpdatedBy" class="textInput integer" value="${tblMbTransactionResponse.lastUpdatedBy}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="创建时间" entity="TblMbTransactionResponse"/>：</dt>

@@ -10,8 +10,6 @@ public class TblMbTransactionRequestPageInfo extends PageInfoView{
 
 	protected  Integer  f_id;
  	protected  String  f_id_op;
-	protected  String  f_requestId;
- 	protected  String  f_requestId_op;
 	protected  String  f_trancode;
  	protected  String  f_trancode_op;
 	protected  String  f_mchtNo;
@@ -32,7 +30,7 @@ public class TblMbTransactionRequestPageInfo extends PageInfoView{
  	protected  String  f_lastUpdatedDatetime_op;
 	protected  Timestamp  f_lastUpdatedDatetime01;
 	protected  String  f_lastUpdatedDatetime01_op;
-	protected  String  f_lastUpdatedBy;
+	protected  Integer  f_lastUpdatedBy;
  	protected  String  f_lastUpdatedBy_op;
 	protected  String  f_pan;
  	protected  String  f_pan_op;
@@ -67,22 +65,6 @@ public class TblMbTransactionRequestPageInfo extends PageInfoView{
     
     public void setF_id_op(String f_id_op) {
         this.f_id_op = f_id_op;
-    }
-   
-    public String getF_requestId() {
-        return this.f_requestId;
-    }
-    
-    public void setF_requestId(String f_requestId) {
-        this.f_requestId = f_requestId;
-    }
-    
-    public String getF_requestId_op() {
-        return this.f_requestId_op;
-    }
-    
-    public void setF_requestId_op(String f_requestId_op) {
-        this.f_requestId_op = f_requestId_op;
     }
    
     public String getF_trancode() {
@@ -243,11 +225,11 @@ public class TblMbTransactionRequestPageInfo extends PageInfoView{
         this.f_lastUpdatedDatetime01_op = f_lastUpdatedDatetime01_op;
     }
    
-    public String getF_lastUpdatedBy() {
+    public Integer getF_lastUpdatedBy() {
         return this.f_lastUpdatedBy;
     }
     
-    public void setF_lastUpdatedBy(String f_lastUpdatedBy) {
+    public void setF_lastUpdatedBy(Integer f_lastUpdatedBy) {
         this.f_lastUpdatedBy = f_lastUpdatedBy;
     }
     

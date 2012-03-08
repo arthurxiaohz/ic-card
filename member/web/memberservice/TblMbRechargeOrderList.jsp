@@ -18,8 +18,8 @@
 				<input type="text" name="pageInfo.f_plTxTraceNo" value="${pageInfo.f_plTxTraceNo}"/>
 			</li>	  
 			<li>
-				<label><hi:text key="平台会员号" entity="TblMbRechargeOrder"/>:</label>
-				<input type="text" name="pageInfo.f_plNo" value="${pageInfo.f_plNo}"/>
+				<label><hi:text key="账号" entity="TblMbRechargeOrder"/>:</label>
+				<input type="text" name="pageInfo.f_userName" value="${pageInfo.f_userName}"/>
 			</li>	  
 			<li>
 				<label><hi:text key="账户类型" entity="TblMbRechargeOrder"/>:</label>
@@ -59,7 +59,7 @@
 			</li>	  
 			<li>
 				<label><hi:text key="交易状态" entity="TblMbRechargeOrder"/>:</label>
-				<input type="text" name="pageInfo.f_txStatus" value="${pageInfo.f_txStatus}"/>
+				<hi:search name="pageInfo.f_txStatus" emu="rechargeTxStatus"/>
 			</li>	  
 			<li>
 				<label><hi:text key="异常代码" entity="TblMbRechargeOrder"/>:</label>
@@ -75,7 +75,7 @@
 			</li>	  
 			<li>
 				<label><hi:text key="结算状态" entity="TblMbRechargeOrder"/>:</label>
-				<input type="text" name="pageInfo.f_settleStatus" value="${pageInfo.f_settleStatus}"/>
+				<hi:search name="pageInfo.f_settleStatus" emu="rechargeSettleStatus"/>
 			</li>	  
 			<li>
 				<label><hi:text key="结算日期" entity="TblMbRechargeOrder"/>:</label>
@@ -101,7 +101,7 @@
 			</li>	  
 			<li>
 				<label><hi:text key="银行交易状态" entity="TblMbRechargeOrder"/>:</label>
-				<input type="text" name="pageInfo.f_bankTxStatus" value="${pageInfo.f_bankTxStatus}"/>
+				<hi:search name="pageInfo.f_bankTxStatus" emu="bankTxStatus"/>
 			</li>	  
 			<li>
 				<label><hi:text key="对账批次号" entity="TblMbRechargeOrder"/>:</label>
@@ -109,7 +109,7 @@
 			</li>	  
 			<li>
 				<label><hi:text key="对账状态" entity="TblMbRechargeOrder"/>:</label>
-				<input type="text" name="pageInfo.f_checkStatus" value="${pageInfo.f_checkStatus}"/>
+				<hi:search name="pageInfo.f_checkStatus" emu="checkStatus"/>
 			</li>	  
 			<li>
 
@@ -130,7 +130,7 @@
 				<authz:authorize ifAnyGranted="TBLMBRECHARGEORDER_DEL"><li><a class="delete" href="<hi:url>tblMbRechargeOrderRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', plTxTraceNo:'',plNo:'',accountType:'',accountNo:'',pan:'',chinfo:'',txTypeId:'',mchtTxTime:'',txAmount:'',txIp:'',plTxTime:'',txStatus:'',errorCode:'',errorMsg:'',settleBatchNo:'',settleStatus:'',settleDate:'',createdDatetime:'',lastUpdatedDatetime:'',lastUpdatedBy:'',bankTxStatus:'',checkBatchNo:'',checkStatus:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', plTxTraceNo:'',userName:'',accountType:'',accountNo:'',pan:'',chinfo:'',txTypeId:'',mchtTxTime:'',txAmount:'',txIp:'',plTxTime:'',txStatus:'',errorCode:'',errorMsg:'',settleBatchNo:'',settleStatus:'',settleDate:'',createdDatetime:'',lastUpdatedDatetime:'',lastUpdatedBy:'',bankTxStatus:'',checkBatchNo:'',checkStatus:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -142,7 +142,7 @@
 				<th width="28"><input type="checkbox" group="orderIndexs" class="checkboxCtrl"></th>
 				</c:if>
 				<th orderField="plTxTraceNo" class="${pageInfo.sorterName eq 'plTxTraceNo' ? pageInfo.sorterDirection : ''}"><hi:text key="平台交易流水号" entity="TblMbRechargeOrder"/></th>
-				<th orderField="plNo" class="${pageInfo.sorterName eq 'plNo' ? pageInfo.sorterDirection : ''}"><hi:text key="平台会员号" entity="TblMbRechargeOrder"/></th>
+				<th orderField="userName" class="${pageInfo.sorterName eq 'userName' ? pageInfo.sorterDirection : ''}"><hi:text key="账号" entity="TblMbRechargeOrder"/></th>
 				<th orderField="accountType" class="${pageInfo.sorterName eq 'accountType' ? pageInfo.sorterDirection : ''}"><hi:text key="账户类型" entity="TblMbRechargeOrder"/></th>
 				<th orderField="accountNo" class="${pageInfo.sorterName eq 'accountNo' ? pageInfo.sorterDirection : ''}"><hi:text key="账户号码" entity="TblMbRechargeOrder"/></th>
 				<th orderField="pan" class="${pageInfo.sorterName eq 'pan' ? pageInfo.sorterDirection : ''}"><hi:text key="持卡人卡号" entity="TblMbRechargeOrder"/></th>
@@ -179,7 +179,7 @@
 				<td><input name="orderIndexs" value="${item.id}" type="checkbox"></td>
 				</c:if>			
 				    <td>${item.plTxTraceNo}</td>
-				    <td>${item.plNo}</td>
+				    <td>${item.userName}</td>
 				    <td>${item.accountType}</td>
 				    <td>${item.accountNo}</td>
 				    <td>${item.pan}</td>
@@ -189,18 +189,18 @@
 				    <td>${item.txAmount}</td>
 				    <td>${item.txIp}</td>
 				    <td>${item.plTxTime}</td>
-				    <td>${item.txStatus}</td>
+				    <td><hi:select emu="rechargeTxStatus" name="tblMbRechargeOrders[${s.index}].txStatus" isLabel="true"/></td>
 				    <td>${item.errorCode}</td>
 				    <td>${item.errorMsg}</td>
 				    <td>${item.settleBatchNo}</td>
-				    <td>${item.settleStatus}</td>
+				    <td><hi:select emu="rechargeSettleStatus" name="tblMbRechargeOrders[${s.index}].settleStatus" isLabel="true"/></td>
 				    <td>${item.settleDate}</td>
 				    <td><fmt:formatDate value="${item.createdDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 				    <td><fmt:formatDate value="${item.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 				    <td>${item.lastUpdatedBy}</td>
-				    <td>${item.bankTxStatus}</td>
+				    <td><hi:select emu="bankTxStatus" name="tblMbRechargeOrders[${s.index}].bankTxStatus" isLabel="true"/></td>
 				    <td>${item.checkBatchNo}</td>
-				    <td>${item.checkStatus}</td>
+				    <td><hi:select emu="checkStatus" name="tblMbRechargeOrders[${s.index}].checkStatus" isLabel="true"/></td>
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
@@ -215,7 +215,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', plTxTraceNo:'${item.plTxTraceNo}',plNo:'${item.plNo}',accountType:'${item.accountType}',accountNo:'${item.accountNo}',pan:'${item.pan}',chinfo:'${item.chinfo}',txTypeId:'${item.txTypeId}',mchtTxTime:'${item.mchtTxTime}',txAmount:'${item.txAmount}',txIp:'${item.txIp}',plTxTime:'${item.plTxTime}',txStatus:'${item.txStatus}',errorCode:'${item.errorCode}',errorMsg:'${item.errorMsg}',settleBatchNo:'${item.settleBatchNo}',settleStatus:'${item.settleStatus}',settleDate:'${item.settleDate}',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}',bankTxStatus:'${item.bankTxStatus}',checkBatchNo:'${item.checkBatchNo}',checkStatus:'${item.checkStatus}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', plTxTraceNo:'${item.plTxTraceNo}',userName:'${item.userName}',accountType:'${item.accountType}',accountNo:'${item.accountNo}',pan:'${item.pan}',chinfo:'${item.chinfo}',txTypeId:'${item.txTypeId}',mchtTxTime:'${item.mchtTxTime}',txAmount:'${item.txAmount}',txIp:'${item.txIp}',plTxTime:'${item.plTxTime}',txStatus:'<hi:select emu="rechargeTxStatus" name="tblMbRechargeOrders[${s.index}].txStatus" isLabel="true"/>',errorCode:'${item.errorCode}',errorMsg:'${item.errorMsg}',settleBatchNo:'${item.settleBatchNo}',settleStatus:'<hi:select emu="rechargeSettleStatus" name="tblMbRechargeOrders[${s.index}].settleStatus" isLabel="true"/>',settleDate:'${item.settleDate}',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}',bankTxStatus:'<hi:select emu="bankTxStatus" name="tblMbRechargeOrders[${s.index}].bankTxStatus" isLabel="true"/>',checkBatchNo:'${item.checkBatchNo}',checkStatus:'<hi:select emu="checkStatus" name="tblMbRechargeOrders[${s.index}].checkStatus" isLabel="true"/>'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

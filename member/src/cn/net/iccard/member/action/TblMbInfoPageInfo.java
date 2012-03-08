@@ -10,30 +10,10 @@ public class TblMbInfoPageInfo extends PageInfoView{
 
 	protected  Integer  f_id;
  	protected  String  f_id_op;
-	protected  String  f_plNo;
- 	protected  String  f_plNo_op;
 	protected  String  f_userName;
  	protected  String  f_userName_op;
 	protected  String  f_certificateTypeId;
  	protected  String  f_certificateTypeId_op;
-	protected  String  f_certificateNo;
- 	protected  String  f_certificateNo_op;
-	protected  String  f_realName;
- 	protected  String  f_realName_op;
-	protected  String  f_sex;
- 	protected  String  f_sex_op;
-	protected  String  f_address;
- 	protected  String  f_address_op;
-	protected  String  f_zipCode;
- 	protected  String  f_zipCode_op;
-	protected  String  f_mobile;
- 	protected  String  f_mobile_op;
-	protected  String  f_phone;
- 	protected  String  f_phone_op;
-	protected  String  f_email;
- 	protected  String  f_email_op;
-	protected  String  f_password;
- 	protected  String  f_password_op;
 	protected  String  f_cardNo;
  	protected  String  f_cardNo_op;
 	protected  String  f_realNameStatus;
@@ -52,11 +32,10 @@ public class TblMbInfoPageInfo extends PageInfoView{
  	protected  String  f_lastUpdatedDatetime_op;
 	protected  Timestamp  f_lastUpdatedDatetime01;
 	protected  String  f_lastUpdatedDatetime01_op;
-	protected  String  f_lastUpdatedBy;
- 	protected  String  f_lastUpdatedBy_op;
 	protected  Integer  f_deleted;
  	protected  String  f_deleted_op;
 
+ 	protected  HiUserPageInfo lastUpdatedBy;
  	protected  HiUserPageInfo creator;
 
     public Integer getF_id() {
@@ -73,22 +52,6 @@ public class TblMbInfoPageInfo extends PageInfoView{
     
     public void setF_id_op(String f_id_op) {
         this.f_id_op = f_id_op;
-    }
-   
-    public String getF_plNo() {
-        return this.f_plNo;
-    }
-    
-    public void setF_plNo(String f_plNo) {
-        this.f_plNo = f_plNo;
-    }
-    
-    public String getF_plNo_op() {
-        return this.f_plNo_op;
-    }
-    
-    public void setF_plNo_op(String f_plNo_op) {
-        this.f_plNo_op = f_plNo_op;
     }
    
     public String getF_userName() {
@@ -121,150 +84,6 @@ public class TblMbInfoPageInfo extends PageInfoView{
     
     public void setF_certificateTypeId_op(String f_certificateTypeId_op) {
         this.f_certificateTypeId_op = f_certificateTypeId_op;
-    }
-   
-    public String getF_certificateNo() {
-        return this.f_certificateNo;
-    }
-    
-    public void setF_certificateNo(String f_certificateNo) {
-        this.f_certificateNo = f_certificateNo;
-    }
-    
-    public String getF_certificateNo_op() {
-        return this.f_certificateNo_op;
-    }
-    
-    public void setF_certificateNo_op(String f_certificateNo_op) {
-        this.f_certificateNo_op = f_certificateNo_op;
-    }
-   
-    public String getF_realName() {
-        return this.f_realName;
-    }
-    
-    public void setF_realName(String f_realName) {
-        this.f_realName = f_realName;
-    }
-    
-    public String getF_realName_op() {
-        return this.f_realName_op;
-    }
-    
-    public void setF_realName_op(String f_realName_op) {
-        this.f_realName_op = f_realName_op;
-    }
-   
-    public String getF_sex() {
-        return this.f_sex;
-    }
-    
-    public void setF_sex(String f_sex) {
-        this.f_sex = f_sex;
-    }
-    
-    public String getF_sex_op() {
-        return this.f_sex_op;
-    }
-    
-    public void setF_sex_op(String f_sex_op) {
-        this.f_sex_op = f_sex_op;
-    }
-   
-    public String getF_address() {
-        return this.f_address;
-    }
-    
-    public void setF_address(String f_address) {
-        this.f_address = f_address;
-    }
-    
-    public String getF_address_op() {
-        return this.f_address_op;
-    }
-    
-    public void setF_address_op(String f_address_op) {
-        this.f_address_op = f_address_op;
-    }
-   
-    public String getF_zipCode() {
-        return this.f_zipCode;
-    }
-    
-    public void setF_zipCode(String f_zipCode) {
-        this.f_zipCode = f_zipCode;
-    }
-    
-    public String getF_zipCode_op() {
-        return this.f_zipCode_op;
-    }
-    
-    public void setF_zipCode_op(String f_zipCode_op) {
-        this.f_zipCode_op = f_zipCode_op;
-    }
-   
-    public String getF_mobile() {
-        return this.f_mobile;
-    }
-    
-    public void setF_mobile(String f_mobile) {
-        this.f_mobile = f_mobile;
-    }
-    
-    public String getF_mobile_op() {
-        return this.f_mobile_op;
-    }
-    
-    public void setF_mobile_op(String f_mobile_op) {
-        this.f_mobile_op = f_mobile_op;
-    }
-   
-    public String getF_phone() {
-        return this.f_phone;
-    }
-    
-    public void setF_phone(String f_phone) {
-        this.f_phone = f_phone;
-    }
-    
-    public String getF_phone_op() {
-        return this.f_phone_op;
-    }
-    
-    public void setF_phone_op(String f_phone_op) {
-        this.f_phone_op = f_phone_op;
-    }
-   
-    public String getF_email() {
-        return this.f_email;
-    }
-    
-    public void setF_email(String f_email) {
-        this.f_email = f_email;
-    }
-    
-    public String getF_email_op() {
-        return this.f_email_op;
-    }
-    
-    public void setF_email_op(String f_email_op) {
-        this.f_email_op = f_email_op;
-    }
-   
-    public String getF_password() {
-        return this.f_password;
-    }
-    
-    public void setF_password(String f_password) {
-        this.f_password = f_password;
-    }
-    
-    public String getF_password_op() {
-        return this.f_password_op;
-    }
-    
-    public void setF_password_op(String f_password_op) {
-        this.f_password_op = f_password_op;
     }
    
     public String getF_cardNo() {
@@ -409,22 +228,6 @@ public class TblMbInfoPageInfo extends PageInfoView{
         this.f_lastUpdatedDatetime01_op = f_lastUpdatedDatetime01_op;
     }
    
-    public String getF_lastUpdatedBy() {
-        return this.f_lastUpdatedBy;
-    }
-    
-    public void setF_lastUpdatedBy(String f_lastUpdatedBy) {
-        this.f_lastUpdatedBy = f_lastUpdatedBy;
-    }
-    
-    public String getF_lastUpdatedBy_op() {
-        return this.f_lastUpdatedBy_op;
-    }
-    
-    public void setF_lastUpdatedBy_op(String f_lastUpdatedBy_op) {
-        this.f_lastUpdatedBy_op = f_lastUpdatedBy_op;
-    }
-   
     public Integer getF_deleted() {
         return this.f_deleted;
     }
@@ -441,6 +244,13 @@ public class TblMbInfoPageInfo extends PageInfoView{
         this.f_deleted_op = f_deleted_op;
     }
    
+	public HiUserPageInfo getLastUpdatedBy() {
+		return lastUpdatedBy;
+	}
+
+	public void setLastUpdatedBy(HiUserPageInfo lastUpdatedBy) {
+		this.lastUpdatedBy = lastUpdatedBy;
+	}
 	public HiUserPageInfo getCreator() {
 		return creator;
 	}

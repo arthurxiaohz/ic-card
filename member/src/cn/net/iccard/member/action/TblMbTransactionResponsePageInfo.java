@@ -10,8 +10,6 @@ public class TblMbTransactionResponsePageInfo extends PageInfoView{
 
 	protected  Integer  f_id;
  	protected  String  f_id_op;
-	protected  String  f_responseId;
- 	protected  String  f_responseId_op;
 	protected  String  f_ordedId;
  	protected  String  f_ordedId_op;
 	protected  Integer  f_orgId;
@@ -30,7 +28,7 @@ public class TblMbTransactionResponsePageInfo extends PageInfoView{
  	protected  String  f_lastUpdatedDatetime_op;
 	protected  Timestamp  f_lastUpdatedDatetime01;
 	protected  String  f_lastUpdatedDatetime01_op;
-	protected  String  f_lastUpdatedBy;
+	protected  Integer  f_lastUpdatedBy;
  	protected  String  f_lastUpdatedBy_op;
 	protected  Timestamp  f_createdDatetime;
  	protected  String  f_createdDatetime_op;
@@ -55,22 +53,6 @@ public class TblMbTransactionResponsePageInfo extends PageInfoView{
     
     public void setF_id_op(String f_id_op) {
         this.f_id_op = f_id_op;
-    }
-   
-    public String getF_responseId() {
-        return this.f_responseId;
-    }
-    
-    public void setF_responseId(String f_responseId) {
-        this.f_responseId = f_responseId;
-    }
-    
-    public String getF_responseId_op() {
-        return this.f_responseId_op;
-    }
-    
-    public void setF_responseId_op(String f_responseId_op) {
-        this.f_responseId_op = f_responseId_op;
     }
    
     public String getF_ordedId() {
@@ -216,11 +198,11 @@ public class TblMbTransactionResponsePageInfo extends PageInfoView{
         this.f_lastUpdatedDatetime01_op = f_lastUpdatedDatetime01_op;
     }
    
-    public String getF_lastUpdatedBy() {
+    public Integer getF_lastUpdatedBy() {
         return this.f_lastUpdatedBy;
     }
     
-    public void setF_lastUpdatedBy(String f_lastUpdatedBy) {
+    public void setF_lastUpdatedBy(Integer f_lastUpdatedBy) {
         this.f_lastUpdatedBy = f_lastUpdatedBy;
     }
     

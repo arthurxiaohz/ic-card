@@ -7,9 +7,6 @@
 	<div class="viewInfo" layoutH="97">
 				
 		<dl>
-			<dt><hi:text key="通知记录id标识" entity="TblMbTransactionResponse"/>：</dt><dd>${tblMbTransactionResponse.responseId}</dd>
-		</dl>
-		<dl>
 			<dt><hi:text key="对应的系统订单号" entity="TblMbTransactionResponse"/>：</dt><dd>${tblMbTransactionResponse.ordedId}</dd>
 		</dl>
 		<dl>

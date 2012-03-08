@@ -6,9 +6,6 @@
 <div class="pageContent">
 	<div class="pageFormContent" layoutH="97">
 		<dl>
-			<dt><hi:text key="请求号" entity="TblMbTransactionRequest"/>：</dt><dd><input type="text" name="tblMbTransactionRequest.requestId" class="textInput required" value="${tblMbTransactionRequest.requestId}" maxlength="20"/></dd>
-		</dl>
-		<dl>
 			<dt><hi:text key="交易代码" entity="TblMbTransactionRequest"/>：</dt><dd><input type="text" name="tblMbTransactionRequest.trancode" class="textInput" value="${tblMbTransactionRequest.trancode}" maxlength="4"/></dd>
 		</dl>
 		<dl>
@@ -43,7 +40,7 @@
 			</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="最后修改人" entity="TblMbTransactionRequest"/>：</dt><dd><input type="text" name="tblMbTransactionRequest.lastUpdatedBy" class="textInput" value="${tblMbTransactionRequest.lastUpdatedBy}" maxlength="30"/></dd>
+			<dt><hi:text key="最后修改人" entity="TblMbTransactionRequest"/>：</dt><dd><input type="text" name="tblMbTransactionRequest.lastUpdatedBy" class="textInput integer" value="${tblMbTransactionRequest.lastUpdatedBy}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="持卡人卡号" entity="TblMbTransactionRequest"/>：</dt><dd><input type="text" name="tblMbTransactionRequest.pan" class="textInput" value="${tblMbTransactionRequest.pan}" maxlength="19"/></dd>

@@ -4,7 +4,7 @@ CREATE TABLE Tbl_Tx_PayMent_Order (
     id int auto_increment NOT NULL ,
     version int NOT NULL ,
     plTxTraceNo nvarchar (20) NOT NULL,
-    memberNO nvarchar (18)  NULL,
+    userName nvarchar (30)  NULL,
     txTypeId nvarchar (4)  NULL,
     mchtNo nvarchar (18)  NULL,
     mchtTxTime nvarchar (14)  NULL,
@@ -38,6 +38,7 @@ CREATE TABLE Tbl_Tx_PayMent_Order (
     lastUpdatedDatetime datetime   NULL,
     lastUpdatedBy int   NULL,
     bgNotifyUrl nvarchar (256)  NULL,
+    mchtName nvarchar (30)  NULL,
     creator int  NULL,
     deleted int   NULL,
     primary key (id));
@@ -49,7 +50,7 @@ CREATE TABLE Tbl_Tx_Transfer (
     id int auto_increment NOT NULL ,
     version int NOT NULL ,
     plTxTraceNo nvarchar (20) NOT NULL,
-    memberNO nvarchar (18)  NULL,
+    userName nvarchar (30)  NULL,
     txTypeId nvarchar (4)  NULL,
     mchtNo nvarchar (18)  NULL,
     mchtTxTime nvarchar (14)  NULL,
@@ -122,7 +123,6 @@ DROP TABLE IF EXISTS Tbl_Tx_Transfer_Response;
 CREATE TABLE Tbl_Tx_Transfer_Response (
     id int auto_increment NOT NULL ,
     version int NOT NULL ,
-    responseId nvarchar (20) NOT NULL,
     versionNo nvarchar (100)  NULL,
     signMsg nvarchar (1024)  NULL,
     transferResult nvarchar (1)  NULL,
@@ -172,7 +172,6 @@ DROP TABLE IF EXISTS Tbl_Tx_PayMent_Response;
 CREATE TABLE Tbl_Tx_PayMent_Response (
     id int auto_increment NOT NULL ,
     version int NOT NULL ,
-    responseId nvarchar (20) NOT NULL,
     versionNo nvarchar (100)  NULL,
     signMsg nvarchar (1024)  NULL,
     payResult int   NULL,

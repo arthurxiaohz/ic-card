@@ -10,8 +10,6 @@ public class TblTxTransferResponsePageInfo extends PageInfoView{
 
 	protected  Integer  f_id;
  	protected  String  f_id_op;
-	protected  String  f_responseId;
- 	protected  String  f_responseId_op;
 	protected  String  f_versionNo;
  	protected  String  f_versionNo_op;
 	protected  String  f_signMsg;
@@ -69,22 +67,6 @@ public class TblTxTransferResponsePageInfo extends PageInfoView{
     
     public void setF_id_op(String f_id_op) {
         this.f_id_op = f_id_op;
-    }
-   
-    public String getF_responseId() {
-        return this.f_responseId;
-    }
-    
-    public void setF_responseId(String f_responseId) {
-        this.f_responseId = f_responseId;
-    }
-    
-    public String getF_responseId_op() {
-        return this.f_responseId_op;
-    }
-    
-    public void setF_responseId_op(String f_responseId_op) {
-        this.f_responseId_op = f_responseId_op;
     }
    
     public String getF_versionNo() {

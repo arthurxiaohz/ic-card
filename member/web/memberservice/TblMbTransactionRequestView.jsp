@@ -7,9 +7,6 @@
 	<div class="viewInfo" layoutH="97">
 				
 		<dl>
-			<dt><hi:text key="请求号" entity="TblMbTransactionRequest"/>：</dt><dd>${tblMbTransactionRequest.requestId}</dd>
-		</dl>
-		<dl>
 			<dt><hi:text key="交易代码" entity="TblMbTransactionRequest"/>：</dt><dd>${tblMbTransactionRequest.trancode}</dd>
 		</dl>
 		<dl>

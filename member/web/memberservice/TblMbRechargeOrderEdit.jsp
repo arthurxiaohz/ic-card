@@ -9,7 +9,7 @@
 			<dt><hi:text key="平台交易流水号" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.plTxTraceNo" class="textInput required" value="${tblMbRechargeOrder.plTxTraceNo}" maxlength="20"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="平台会员号" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.plNo" class="textInput" value="${tblMbRechargeOrder.plNo}" maxlength="18"/></dd>
+			<dt><hi:text key="账号" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.userName" class="textInput" value="${tblMbRechargeOrder.userName}" maxlength="30"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="账户类型" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.accountType" class="textInput" value="${tblMbRechargeOrder.accountType}" maxlength="2"/></dd>
@@ -39,7 +39,7 @@
 			<dt><hi:text key="交易完成时间" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.plTxTime" class="textInput" value="${tblMbRechargeOrder.plTxTime}" maxlength="90"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="交易状态" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.txStatus" class="textInput" value="${tblMbRechargeOrder.txStatus}" maxlength="1"/></dd>
+			<dt><hi:text key="交易状态" entity="TblMbRechargeOrder"/>：</dt><dd><hi:select emu="rechargeTxStatus" name="tblMbRechargeOrder.txStatus"/></dd>			
 		</dl>
 		<dl>
 			<dt><hi:text key="异常代码" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.errorCode" class="textInput" value="${tblMbRechargeOrder.errorCode}" maxlength="10"/></dd>
@@ -51,7 +51,7 @@
 			<dt><hi:text key="结算批次号" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.settleBatchNo" class="textInput" value="${tblMbRechargeOrder.settleBatchNo}" maxlength="20"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="结算状态" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.settleStatus" class="textInput required" value="${tblMbRechargeOrder.settleStatus}" maxlength="1"/></dd>
+			<dt><hi:text key="结算状态" entity="TblMbRechargeOrder"/>：</dt><dd><hi:select emu="rechargeSettleStatus" name="tblMbRechargeOrder.settleStatus"/></dd>			
 		</dl>
 		<dl>
 			<dt><hi:text key="结算日期" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.settleDate" class="textInput" value="${tblMbRechargeOrder.settleDate}" maxlength="8"/></dd>
@@ -73,16 +73,16 @@
 			</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="最后修改人" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.lastUpdatedBy" class="textInput" value="${tblMbRechargeOrder.lastUpdatedBy}" maxlength="30"/></dd>
+			<dt><hi:text key="最后修改人" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.lastUpdatedBy" class="textInput integer" value="${tblMbRechargeOrder.lastUpdatedBy}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="银行交易状态" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.bankTxStatus" class="textInput" value="${tblMbRechargeOrder.bankTxStatus}" maxlength="1"/></dd>
+			<dt><hi:text key="银行交易状态" entity="TblMbRechargeOrder"/>：</dt><dd><hi:select emu="bankTxStatus" name="tblMbRechargeOrder.bankTxStatus"/></dd>			
 		</dl>
 		<dl>
 			<dt><hi:text key="对账批次号" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.checkBatchNo" class="textInput" value="${tblMbRechargeOrder.checkBatchNo}" maxlength="20"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="对账状态" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.checkStatus" class="textInput" value="${tblMbRechargeOrder.checkStatus}" maxlength="1"/></dd>
+			<dt><hi:text key="对账状态" entity="TblMbRechargeOrder"/>：</dt><dd><hi:select emu="checkStatus" name="tblMbRechargeOrder.checkStatus"/></dd>			
 		</dl>
 				<input type="hidden" name="tblMbRechargeOrder.id" value="${tblMbRechargeOrder.id}"/>
 				<input type="hidden" name="tblMbRechargeOrder.creator.id" value="${tblMbRechargeOrder.creator.id}"/>

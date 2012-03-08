@@ -192,6 +192,335 @@
 			<result name="success">/memberservice/TblMbTransactionResponseList.jsp</result>
 			<interceptor-ref name="modelParamsStack" />
 		</action>		
+		<!-- ============= 会员积分兑换规则对应的TblMbPointExchangeRuleAction============ --> 
+		<action name="tblMbPointExchangeRule" class="cn.net.iccard.member.action.struts.TblMbPointExchangeRuleAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMbPointExchangeRuleList"
+			class="cn.net.iccard.member.action.struts.TblMbPointExchangeRuleAction" method="tblMbPointExchangeRuleList">
+			<result name="success">/memberservice/TblMbPointExchangeRuleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbPointExchangeRuleSave"
+			class="cn.net.iccard.member.action.struts.TblMbPointExchangeRuleAction" method="saveTblMbPointExchangeRule">
+			<result name="success" type="redirect-action">tblMbPointExchangeRuleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMbPointExchangeRuleEdit"
+			class="cn.net.iccard.member.action.struts.TblMbPointExchangeRuleAction" method="viewTblMbPointExchangeRule">
+			<result name="success">/memberservice/TblMbPointExchangeRuleEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbPointExchangeRuleView"
+			class="cn.net.iccard.member.action.struts.TblMbPointExchangeRuleAction" method="viewTblMbPointExchangeRule">
+			<result name="success">/memberservice/TblMbPointExchangeRuleView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMbPointExchangeRuleRemove"
+			class="cn.net.iccard.member.action.struts.TblMbPointExchangeRuleAction" method="removeTblMbPointExchangeRule">
+			<result name="success" type="redirect-action">tblMbPointExchangeRuleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbPointExchangeRuleRemoveAll"
+			class="cn.net.iccard.member.action.struts.TblMbPointExchangeRuleAction" method="removeAllTblMbPointExchangeRule">
+			<result name="success" type="redirect-action">tblMbPointExchangeRuleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMbPointExchangeRuleLookup"
+			class="cn.net.iccard.member.action.struts.TblMbPointExchangeRuleAction" method="tblMbPointExchangeRuleList">
+			<result name="success">/memberservice/TblMbPointExchangeRuleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 会员优惠券对应的TblMbCouponAction============ --> 
+		<action name="tblMbCoupon" class="cn.net.iccard.member.action.struts.TblMbCouponAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMbCouponList"
+			class="cn.net.iccard.member.action.struts.TblMbCouponAction" method="tblMbCouponList">
+			<result name="success">/memberservice/TblMbCouponList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbCouponSave"
+			class="cn.net.iccard.member.action.struts.TblMbCouponAction" method="saveTblMbCoupon">
+			<result name="success" type="redirect-action">tblMbCouponList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMbCouponEdit"
+			class="cn.net.iccard.member.action.struts.TblMbCouponAction" method="viewTblMbCoupon">
+			<result name="success">/memberservice/TblMbCouponEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbCouponView"
+			class="cn.net.iccard.member.action.struts.TblMbCouponAction" method="viewTblMbCoupon">
+			<result name="success">/memberservice/TblMbCouponView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMbCouponRemove"
+			class="cn.net.iccard.member.action.struts.TblMbCouponAction" method="removeTblMbCoupon">
+			<result name="success" type="redirect-action">tblMbCouponList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbCouponRemoveAll"
+			class="cn.net.iccard.member.action.struts.TblMbCouponAction" method="removeAllTblMbCoupon">
+			<result name="success" type="redirect-action">tblMbCouponList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMbCouponLookup"
+			class="cn.net.iccard.member.action.struts.TblMbCouponAction" method="tblMbCouponList">
+			<result name="success">/memberservice/TblMbCouponList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 积分规则对应的TblMbPointRuleAction============ --> 
+		<action name="tblMbPointRule" class="cn.net.iccard.member.action.struts.TblMbPointRuleAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMbPointRuleList"
+			class="cn.net.iccard.member.action.struts.TblMbPointRuleAction" method="tblMbPointRuleList">
+			<result name="success">/memberservice/TblMbPointRuleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbPointRuleSave"
+			class="cn.net.iccard.member.action.struts.TblMbPointRuleAction" method="saveTblMbPointRule">
+			<result name="success" type="redirect-action">tblMbPointRuleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMbPointRuleEdit"
+			class="cn.net.iccard.member.action.struts.TblMbPointRuleAction" method="viewTblMbPointRule">
+			<result name="success">/memberservice/TblMbPointRuleEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbPointRuleView"
+			class="cn.net.iccard.member.action.struts.TblMbPointRuleAction" method="viewTblMbPointRule">
+			<result name="success">/memberservice/TblMbPointRuleView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMbPointRuleRemove"
+			class="cn.net.iccard.member.action.struts.TblMbPointRuleAction" method="removeTblMbPointRule">
+			<result name="success" type="redirect-action">tblMbPointRuleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbPointRuleRemoveAll"
+			class="cn.net.iccard.member.action.struts.TblMbPointRuleAction" method="removeAllTblMbPointRule">
+			<result name="success" type="redirect-action">tblMbPointRuleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMbPointRuleLookup"
+			class="cn.net.iccard.member.action.struts.TblMbPointRuleAction" method="tblMbPointRuleList">
+			<result name="success">/memberservice/TblMbPointRuleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 会员优惠券规则对应的TblMbCouponRuleAction============ --> 
+		<action name="tblMbCouponRule" class="cn.net.iccard.member.action.struts.TblMbCouponRuleAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMbCouponRuleList"
+			class="cn.net.iccard.member.action.struts.TblMbCouponRuleAction" method="tblMbCouponRuleList">
+			<result name="success">/memberservice/TblMbCouponRuleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbCouponRuleSave"
+			class="cn.net.iccard.member.action.struts.TblMbCouponRuleAction" method="saveTblMbCouponRule">
+			<result name="success" type="redirect-action">tblMbCouponRuleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMbCouponRuleEdit"
+			class="cn.net.iccard.member.action.struts.TblMbCouponRuleAction" method="viewTblMbCouponRule">
+			<result name="success">/memberservice/TblMbCouponRuleEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbCouponRuleView"
+			class="cn.net.iccard.member.action.struts.TblMbCouponRuleAction" method="viewTblMbCouponRule">
+			<result name="success">/memberservice/TblMbCouponRuleView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMbCouponRuleRemove"
+			class="cn.net.iccard.member.action.struts.TblMbCouponRuleAction" method="removeTblMbCouponRule">
+			<result name="success" type="redirect-action">tblMbCouponRuleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbCouponRuleRemoveAll"
+			class="cn.net.iccard.member.action.struts.TblMbCouponRuleAction" method="removeAllTblMbCouponRule">
+			<result name="success" type="redirect-action">tblMbCouponRuleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMbCouponRuleLookup"
+			class="cn.net.iccard.member.action.struts.TblMbCouponRuleAction" method="tblMbCouponRuleList">
+			<result name="success">/memberservice/TblMbCouponRuleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 会员积分对应的TblMbPointAction============ --> 
+		<action name="tblMbPoint" class="cn.net.iccard.member.action.struts.TblMbPointAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMbPointList"
+			class="cn.net.iccard.member.action.struts.TblMbPointAction" method="tblMbPointList">
+			<result name="success">/memberservice/TblMbPointList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbPointSave"
+			class="cn.net.iccard.member.action.struts.TblMbPointAction" method="saveTblMbPoint">
+			<result name="success" type="redirect-action">tblMbPointList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMbPointEdit"
+			class="cn.net.iccard.member.action.struts.TblMbPointAction" method="viewTblMbPoint">
+			<result name="success">/memberservice/TblMbPointEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbPointView"
+			class="cn.net.iccard.member.action.struts.TblMbPointAction" method="viewTblMbPoint">
+			<result name="success">/memberservice/TblMbPointView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMbPointRemove"
+			class="cn.net.iccard.member.action.struts.TblMbPointAction" method="removeTblMbPoint">
+			<result name="success" type="redirect-action">tblMbPointList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbPointRemoveAll"
+			class="cn.net.iccard.member.action.struts.TblMbPointAction" method="removeAllTblMbPoint">
+			<result name="success" type="redirect-action">tblMbPointList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMbPointLookup"
+			class="cn.net.iccard.member.action.struts.TblMbPointAction" method="tblMbPointList">
+			<result name="success">/memberservice/TblMbPointList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 会员积分明细对应的TblMbPointDetailAction============ --> 
+		<action name="tblMbPointDetail" class="cn.net.iccard.member.action.struts.TblMbPointDetailAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMbPointDetailList"
+			class="cn.net.iccard.member.action.struts.TblMbPointDetailAction" method="tblMbPointDetailList">
+			<result name="success">/memberservice/TblMbPointDetailList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbPointDetailSave"
+			class="cn.net.iccard.member.action.struts.TblMbPointDetailAction" method="saveTblMbPointDetail">
+			<result name="success" type="redirect-action">tblMbPointDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMbPointDetailEdit"
+			class="cn.net.iccard.member.action.struts.TblMbPointDetailAction" method="viewTblMbPointDetail">
+			<result name="success">/memberservice/TblMbPointDetailEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbPointDetailView"
+			class="cn.net.iccard.member.action.struts.TblMbPointDetailAction" method="viewTblMbPointDetail">
+			<result name="success">/memberservice/TblMbPointDetailView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMbPointDetailRemove"
+			class="cn.net.iccard.member.action.struts.TblMbPointDetailAction" method="removeTblMbPointDetail">
+			<result name="success" type="redirect-action">tblMbPointDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbPointDetailRemoveAll"
+			class="cn.net.iccard.member.action.struts.TblMbPointDetailAction" method="removeAllTblMbPointDetail">
+			<result name="success" type="redirect-action">tblMbPointDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMbPointDetailLookup"
+			class="cn.net.iccard.member.action.struts.TblMbPointDetailAction" method="tblMbPointDetailList">
+			<result name="success">/memberservice/TblMbPointDetailList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 会员优惠券明细对应的TblMbCouponDetailAction============ --> 
+		<action name="tblMbCouponDetail" class="cn.net.iccard.member.action.struts.TblMbCouponDetailAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMbCouponDetailList"
+			class="cn.net.iccard.member.action.struts.TblMbCouponDetailAction" method="tblMbCouponDetailList">
+			<result name="success">/memberservice/TblMbCouponDetailList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbCouponDetailSave"
+			class="cn.net.iccard.member.action.struts.TblMbCouponDetailAction" method="saveTblMbCouponDetail">
+			<result name="success" type="redirect-action">tblMbCouponDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMbCouponDetailEdit"
+			class="cn.net.iccard.member.action.struts.TblMbCouponDetailAction" method="viewTblMbCouponDetail">
+			<result name="success">/memberservice/TblMbCouponDetailEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbCouponDetailView"
+			class="cn.net.iccard.member.action.struts.TblMbCouponDetailAction" method="viewTblMbCouponDetail">
+			<result name="success">/memberservice/TblMbCouponDetailView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMbCouponDetailRemove"
+			class="cn.net.iccard.member.action.struts.TblMbCouponDetailAction" method="removeTblMbCouponDetail">
+			<result name="success" type="redirect-action">tblMbCouponDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMbCouponDetailRemoveAll"
+			class="cn.net.iccard.member.action.struts.TblMbCouponDetailAction" method="removeAllTblMbCouponDetail">
+			<result name="success" type="redirect-action">tblMbCouponDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMbCouponDetailLookup"
+			class="cn.net.iccard.member.action.struts.TblMbCouponDetailAction" method="tblMbCouponDetailList">
+			<result name="success">/memberservice/TblMbCouponDetailList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
 
 </package>
 </struts>

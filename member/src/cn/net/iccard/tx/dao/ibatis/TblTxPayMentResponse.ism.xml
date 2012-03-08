@@ -7,7 +7,6 @@
 	<resultMap id="TblTxPayMentResponse" class="TblTxPayMentResponse">
 		<result property="id" column="id"/>
 		<result property="version" column="version"/>
-		<result property="responseId" column="responseId"/>
 		<result property="versionNo" column="versionNo"/>
 		<result property="signMsg" column="signMsg"/>
 		<result property="payResult" column="payResult"/>
@@ -38,8 +37,8 @@
 	</select>
 	
 	<insert id="insTblTxPayMentResponse" parameterClass="java.util.HashMap">    
-    	insert into Tbl_Tx_PayMent_Response (id, version, responseId, versionNo, signMsg, payResult, mchtNo, merchantOrderNo, orderAmount, txTypeId, payAmount, payDatetime, ext1, ext2, errorCode, context, responseContent, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, creator, deleted) 
-		values (#id#, 1, #responseId#, #versionNo#, #signMsg#, #payResult#, #mchtNo#, #merchantOrderNo#, #orderAmount#, #txTypeId#, #payAmount#, #payDatetime#, #ext1#, #ext2#, #errorCode#, #context#, #responseContent#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#, #deleted#)
+    	insert into Tbl_Tx_PayMent_Response (id, version, versionNo, signMsg, payResult, mchtNo, merchantOrderNo, orderAmount, txTypeId, payAmount, payDatetime, ext1, ext2, errorCode, context, responseContent, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, creator, deleted) 
+		values (#id#, 1, #versionNo#, #signMsg#, #payResult#, #mchtNo#, #merchantOrderNo#, #orderAmount#, #txTypeId#, #payAmount#, #payDatetime#, #ext1#, #ext2#, #errorCode#, #context#, #responseContent#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#, #deleted#)
 		<selectKey resultClass="int"  keyProperty="id" />   
 	</insert>    
    
@@ -47,7 +46,6 @@
 	<update id="updateTblTxPayMentResponse" parameterClass="java.util.HashMap">    
 		update Tbl_Tx_PayMent_Response set
             version = #version# +1,
-			responseId = #responseId#,
 			versionNo = #versionNo#,
 			signMsg = #signMsg#,
 			payResult = #payResult#,

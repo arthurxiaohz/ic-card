@@ -32,9 +32,9 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
  	protected  String plTxTraceNo;
 
  	 /**
-	 * 平台会员号
+	 * 账号
 	 */	
- 	protected  String plNo;
+ 	protected  String userName;
 
  	 /**
 	 * 账户类型
@@ -84,7 +84,7 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
  	 /**
 	 * 交易状态
 	 */	
- 	protected  String txStatus;
+ 	protected  Integer txStatus;
 
  	 /**
 	 * 异常代码
@@ -104,7 +104,7 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
  	 /**
 	 * 结算状态
 	 */	
- 	protected  String settleStatus;
+ 	protected  Integer settleStatus;
 
  	 /**
 	 * 结算日期
@@ -114,7 +114,7 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
  	 /**
 	 * 创建时间
 	 */	
- 	protected  Timestamp createdDatetime;
+ 	protected  Timestamp createdDatetime = new Timestamp(System.currentTimeMillis());
 
  	 /**
 	 * 最后修改时间
@@ -124,12 +124,12 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
  	 /**
 	 * 最后修改人
 	 */	
- 	protected  String lastUpdatedBy;
+ 	protected  Integer lastUpdatedBy;
 
  	 /**
 	 * 银行交易状态
 	 */	
- 	protected  String bankTxStatus;
+ 	protected  Integer bankTxStatus;
 
  	 /**
 	 * 对账批次号
@@ -139,7 +139,7 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
  	 /**
 	 * 对账状态
 	 */	
- 	protected  String checkStatus;
+ 	protected  Integer checkStatus;
 
  	 /**
 	 * 创建人
@@ -191,17 +191,17 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
         this.plTxTraceNo = plTxTraceNo;
     }
     
-    public String getPlNo() {
-        return this.plNo;
+    public String getUserName() {
+        return this.userName;
     }
     
-    public void setPlNo(String plNo) {
-    		if((plNo != null && this.plNo == null) || 
-				this.plNo != null && (!this.plNo.equals(plNo) || plNo == null)){
+    public void setUserName(String userName) {
+    		if((userName != null && this.userName == null) || 
+				this.userName != null && (!this.userName.equals(userName) || userName == null)){
         		this.setDirty(true);
-        		this.oldValues.put("plNo", this.plNo);
+        		this.oldValues.put("userName", this.userName);
         	}
-        this.plNo = plNo;
+        this.userName = userName;
     }
     
     public String getAccountType() {
@@ -321,11 +321,11 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
         this.plTxTime = plTxTime;
     }
     
-    public String getTxStatus() {
+    public Integer getTxStatus() {
         return this.txStatus;
     }
     
-    public void setTxStatus(String txStatus) {
+    public void setTxStatus(Integer txStatus) {
     		if((txStatus != null && this.txStatus == null) || 
 				this.txStatus != null && (!this.txStatus.equals(txStatus) || txStatus == null)){
         		this.setDirty(true);
@@ -373,11 +373,11 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
         this.settleBatchNo = settleBatchNo;
     }
     
-    public String getSettleStatus() {
+    public Integer getSettleStatus() {
         return this.settleStatus;
     }
     
-    public void setSettleStatus(String settleStatus) {
+    public void setSettleStatus(Integer settleStatus) {
     		if((settleStatus != null && this.settleStatus == null) || 
 				this.settleStatus != null && (!this.settleStatus.equals(settleStatus) || settleStatus == null)){
         		this.setDirty(true);
@@ -425,11 +425,11 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
         this.lastUpdatedDatetime = lastUpdatedDatetime;
     }
     
-    public String getLastUpdatedBy() {
+    public Integer getLastUpdatedBy() {
         return this.lastUpdatedBy;
     }
     
-    public void setLastUpdatedBy(String lastUpdatedBy) {
+    public void setLastUpdatedBy(Integer lastUpdatedBy) {
     		if((lastUpdatedBy != null && this.lastUpdatedBy == null) || 
 				this.lastUpdatedBy != null && (!this.lastUpdatedBy.equals(lastUpdatedBy) || lastUpdatedBy == null)){
         		this.setDirty(true);
@@ -438,11 +438,11 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
         this.lastUpdatedBy = lastUpdatedBy;
     }
     
-    public String getBankTxStatus() {
+    public Integer getBankTxStatus() {
         return this.bankTxStatus;
     }
     
-    public void setBankTxStatus(String bankTxStatus) {
+    public void setBankTxStatus(Integer bankTxStatus) {
     		if((bankTxStatus != null && this.bankTxStatus == null) || 
 				this.bankTxStatus != null && (!this.bankTxStatus.equals(bankTxStatus) || bankTxStatus == null)){
         		this.setDirty(true);
@@ -464,11 +464,11 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
         this.checkBatchNo = checkBatchNo;
     }
     
-    public String getCheckStatus() {
+    public Integer getCheckStatus() {
         return this.checkStatus;
     }
     
-    public void setCheckStatus(String checkStatus) {
+    public void setCheckStatus(Integer checkStatus) {
     		if((checkStatus != null && this.checkStatus == null) || 
 				this.checkStatus != null && (!this.checkStatus.equals(checkStatus) || checkStatus == null)){
         		this.setDirty(true);
@@ -525,7 +525,7 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
        ToStringBuilder sb = new ToStringBuilder(this, ToStringStyle.DEFAULT_STYLE);
        sb.append("id", this.id)
 		.append("plTxTraceNo", this.plTxTraceNo)
-		.append("plNo", this.plNo)
+		.append("userName", this.userName)
 		.append("accountType", this.accountType)
 		.append("accountNo", this.accountNo)
 		.append("pan", this.pan)
@@ -535,16 +535,12 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
 		.append("txAmount", this.txAmount)
 		.append("txIp", this.txIp)
 		.append("plTxTime", this.plTxTime)
-		.append("txStatus", this.txStatus)
 		.append("errorCode", this.errorCode)
 		.append("errorMsg", this.errorMsg)
 		.append("settleBatchNo", this.settleBatchNo)
-		.append("settleStatus", this.settleStatus)
 		.append("settleDate", this.settleDate)
 		.append("lastUpdatedBy", this.lastUpdatedBy)
-		.append("bankTxStatus", this.bankTxStatus)
 		.append("checkBatchNo", this.checkBatchNo)
-		.append("checkStatus", this.checkStatus)
 		.append("deleted", this.deleted);
       
         return sb.toString();

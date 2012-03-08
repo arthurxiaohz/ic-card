@@ -8,7 +8,7 @@
 		<result property="id" column="id"/>
 		<result property="version" column="version"/>
 		<result property="plTxTraceNo" column="plTxTraceNo"/>
-		<result property="plNo" column="plNo"/>
+		<result property="userName" column="userName"/>
 		<result property="accountType" column="accountType"/>
 		<result property="accountNo" column="accountNo"/>
 		<result property="pan" column="pan"/>
@@ -43,8 +43,8 @@
 	</select>
 	
 	<insert id="insTblMbRechargeOrder" parameterClass="java.util.HashMap">    
-    	insert into Tbl_Mb_Recharge_Order (id, version, plTxTraceNo, plNo, accountType, accountNo, pan, chinfo, txTypeId, mchtTxTime, txAmount, txIp, plTxTime, txStatus, errorCode, errorMsg, settleBatchNo, settleStatus, settleDate, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, bankTxStatus, checkBatchNo, checkStatus, creator, deleted) 
-		values (#id#, 1, #plTxTraceNo#, #plNo#, #accountType#, #accountNo#, #pan#, #chinfo#, #txTypeId#, #mchtTxTime#, #txAmount#, #txIp#, #plTxTime#, #txStatus#, #errorCode#, #errorMsg#, #settleBatchNo#, #settleStatus#, #settleDate#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #bankTxStatus#, #checkBatchNo#, #checkStatus#, #creator#, #deleted#)
+    	insert into Tbl_Mb_Recharge_Order (id, version, plTxTraceNo, userName, accountType, accountNo, pan, chinfo, txTypeId, mchtTxTime, txAmount, txIp, plTxTime, txStatus, errorCode, errorMsg, settleBatchNo, settleStatus, settleDate, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, bankTxStatus, checkBatchNo, checkStatus, creator, deleted) 
+		values (#id#, 1, #plTxTraceNo#, #userName#, #accountType#, #accountNo#, #pan#, #chinfo#, #txTypeId#, #mchtTxTime#, #txAmount#, #txIp#, #plTxTime#, #txStatus#, #errorCode#, #errorMsg#, #settleBatchNo#, #settleStatus#, #settleDate#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #bankTxStatus#, #checkBatchNo#, #checkStatus#, #creator#, #deleted#)
 		<selectKey resultClass="int"  keyProperty="id" />   
 	</insert>    
    
@@ -53,7 +53,7 @@
 		update Tbl_Mb_Recharge_Order set
             version = #version# +1,
 			plTxTraceNo = #plTxTraceNo#,
-			plNo = #plNo#,
+			userName = #userName#,
 			accountType = #accountType#,
 			accountNo = #accountNo#,
 			pan = #pan#,

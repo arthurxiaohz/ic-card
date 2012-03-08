@@ -7,9 +7,6 @@
 	<div class="viewInfo" layoutH="97">
 				
 		<dl>
-			<dt><hi:text key="通知记录id标识" entity="TblTxPayMentResponse"/>：</dt><dd>${tblTxPayMentResponse.responseId}</dd>
-		</dl>
-		<dl>
 			<dt><hi:text key="返回接口的版本号" entity="TblTxPayMentResponse"/>：</dt><dd>${tblTxPayMentResponse.versionNo}</dd>
 		</dl>
 		<dl>

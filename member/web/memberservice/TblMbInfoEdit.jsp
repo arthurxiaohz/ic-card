@@ -6,40 +6,10 @@
 <div class="pageContent">
 	<div class="pageFormContent" layoutH="97">
 		<dl>
-			<dt><hi:text key="平台交易流水号" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.plNo" class="textInput required" value="${tblMbInfo.plNo}" maxlength="18"/></dd>
+			<dt><hi:text key="账号" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.userName" class="textInput required" value="${tblMbInfo.userName}" maxlength="30"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="平台会员号" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.userName" class="textInput required" value="${tblMbInfo.userName}" maxlength="100"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="交易类型" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.certificateTypeId" class="textInput" value="${tblMbInfo.certificateTypeId}" maxlength="1"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="证件号码" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.certificateNo" class="textInput" value="${tblMbInfo.certificateNo}" maxlength="50"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="真实姓名" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.realName" class="textInput required" value="${tblMbInfo.realName}" maxlength="30"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="性别" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.sex" class="textInput required" value="${tblMbInfo.sex}" maxlength="1"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="住址" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.address" class="textInput required" value="${tblMbInfo.address}" maxlength="256"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="邮政编码" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.zipCode" class="textInput required" value="${tblMbInfo.zipCode}" maxlength="6"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="手机" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.mobile" class="textInput required" value="${tblMbInfo.mobile}" maxlength="30"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="固定电话" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.phone" class="textInput required" value="${tblMbInfo.phone}" maxlength="50"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="Email地址" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.email" class="textInput required" value="${tblMbInfo.email}" maxlength="90"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="登录密码" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.password" class="textInput required" value="${tblMbInfo.password}" maxlength="50"/></dd>
+			<dt><hi:text key="证件类型" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.certificateTypeId" class="textInput" value="${tblMbInfo.certificateTypeId}" maxlength="1"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="卡号" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.cardNo" class="textInput required" value="${tblMbInfo.cardNo}" maxlength="30"/></dd>
@@ -72,10 +42,8 @@
 				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
 			</dd>
 		</dl>
-		<dl>
-			<dt><hi:text key="最后修改人" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.lastUpdatedBy" class="textInput required" value="${tblMbInfo.lastUpdatedBy}" maxlength="30"/></dd>
-		</dl>
 				<input type="hidden" name="tblMbInfo.id" value="${tblMbInfo.id}"/>
+				<input type="hidden" name="tblMbInfo.lastUpdatedBy.id" value="${tblMbInfo.lastUpdatedBy.id}"/>
 				<input type="hidden" name="tblMbInfo.creator.id" value="${tblMbInfo.creator.id}"/>
 				<input type="hidden" name="tblMbInfo.deleted" value="${tblMbInfo.deleted}"/>
 				<input type="hidden" name="tblMbInfo.version" value="${tblMbInfo.version}"/>
