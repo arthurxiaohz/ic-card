@@ -523,7 +523,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName></lkServiceName>
-          <lkEntityName>CleanSettleStatus</lkEntityName>
+          <lkEntityName>CleanStatus</lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
@@ -1370,8 +1370,8 @@
       </listeners>
     </org.hi.studio.hsceditor.visual.model.TableModel>
     <org.hi.studio.hsceditor.visual.model.EnumerationModel>
-      <enumName>CleanSettleStatus</enumName>
-      <enumDesc>结算状态</enumDesc>
+      <enumName>CleanStatus</enumName>
+      <enumDesc>清分状态</enumDesc>
       <error></error>
       <linkedPath></linkedPath>
       <tableName></tableName>
@@ -1381,9 +1381,9 @@
       <isCreator>true</isCreator>
       <columns>
         <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
-          <enumValue>unsettle</enumValue>
-          <enumLabel>未结算</enumLabel>
-          <enumCode>0</enumCode>
+          <enumValue>success</enumValue>
+          <enumLabel>成功</enumLabel>
+          <enumCode>1</enumCode>
           <columnName></columnName>
           <logicalName></logicalName>
           <size></size>
@@ -1409,9 +1409,9 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
         <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
-          <enumValue>settle</enumValue>
-          <enumLabel>已结算</enumLabel>
-          <enumCode>1</enumCode>
+          <enumValue>fail</enumValue>
+          <enumLabel>失败</enumLabel>
+          <enumCode>2</enumCode>
           <columnName></columnName>
           <logicalName></logicalName>
           <size></size>
