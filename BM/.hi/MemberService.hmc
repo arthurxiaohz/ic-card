@@ -292,8 +292,8 @@
         <green>255</green>
         <blue>206</blue>
       </backgroundColor>
-      <extendServiceName></extendServiceName>
-      <extendEntityName></extendEntityName>
+      <extendServiceName>organization</extendServiceName>
+      <extendEntityName>HiUser</extendEntityName>
       <entityBaseData>100100</entityBaseData>
       <constraint>
         <x>40</x>
