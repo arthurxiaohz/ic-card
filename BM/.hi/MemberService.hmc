@@ -36,31 +36,6 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>userName</columnName>
-          <logicalName>column3</logicalName>
-          <size>30</size>
-          <scale></scale>
-          <notNull>false</notNull>
-          <primaryKey>false</primaryKey>
-          <description>账号</description>
-          <autoIncrement>false</autoIncrement>
-          <defaultValue></defaultValue>
-          <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
-          <lkServiceName></lkServiceName>
-          <lkEntityName></lkEntityName>
-          <lkFieldName></lkFieldName>
-          <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
-          <isSearch>true</isSearch>
-          <isListDisplay>true</isListDisplay>
-          <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
-          <isFull>true</isFull>
-          <isMainLookup>false</isMainLookup>
-          <isParent>false</isParent>
-        </org.hi.studio.hsceditor.visual.model.ColumnModel>
-        <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>certificateTypeId</columnName>
           <logicalName>column4</logicalName>
           <size>1</size>
