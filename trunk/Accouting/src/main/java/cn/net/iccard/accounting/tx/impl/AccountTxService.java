@@ -4,16 +4,20 @@ import java.util.Date;
 
 import org.apache.tools.ant.util.DateUtils;
 import org.hi.SpringContextHolder;
-import org.springframework.transaction.annotation.Transactional;
+import org.hi.framework.dao.Filter;
+import org.hi.framework.dao.impl.FilterFactory;
 
 import cn.net.iccard.accounting.AccountException;
 import cn.net.iccard.accounting.EAccountResponse;
 import cn.net.iccard.accounting.tx.IAccountDebitCreditRequest;
 import cn.net.iccard.accounting.tx.IAccountDebitCreditResponse;
+import cn.net.iccard.accounting.tx.IAccountPaidTransferRequest;
+import cn.net.iccard.accounting.tx.IAccountPayableTransferRequest;
 import cn.net.iccard.accounting.tx.IAccountTransferRequest;
 import cn.net.iccard.accounting.tx.IAccountTransferResponse;
 import cn.net.iccard.accounting.tx.IAccountTxService;
 import cn.net.iccard.bm.accounting.model.DebitOrCredit;
+import cn.net.iccard.bm.accounting.model.SettleStatus;
 import cn.net.iccard.bm.accounting.model.TblActAccountBalance;
 import cn.net.iccard.bm.accounting.model.TblActAccountDetail;
 import cn.net.iccard.bm.accounting.model.TblActDebitCreditVoucher;
@@ -84,7 +88,8 @@ public class AccountTxService implements IAccountTxService {
 		charge(accountDebitCreditRequest.getAccountId(),
 				accountDebitCreditRequest.getAmount(), debitOrCredit,
 				VoucherType.VOUCHERTYPE_DEBITORCREDIT, tblActDebitCreditVoucher
-						.getVoucherNo(), accountDebitCreditRequest.getRemark());
+						.getVoucherNo(), accountDebitCreditRequest.getRemark(),
+				null);
 
 		return new AccountDebitCreditResponse(EAccountResponse.S0000,
 				tblActDebitCreditVoucher.getVoucherNo());
@@ -113,38 +118,127 @@ public class AccountTxService implements IAccountTxService {
 		tblActTransferVoucherMgr
 				.saveTblActTransferVoucher(tblActTransferVoucher);
 
-		// 借记
+		// 贷记
+		credit(accountTransferRequest, VoucherType.VOUCHERTYPE_TRANSFER,
+				tblActTransferVoucher.getVoucherNo(), null);
 
+		// 借记
 		debit(accountTransferRequest, VoucherType.VOUCHERTYPE_TRANSFER,
-				tblActTransferVoucher.getVoucherNo());
+				tblActTransferVoucher.getVoucherNo(), null);
+
+		return null;
+
+	}
+
+	public IAccountTransferResponse transfer(
+			IAccountPayableTransferRequest accountRcvOrPabTransferRequest) {
+
+		// 转账凭证
+		TblActTransferVoucher tblActTransferVoucher = new TblActTransferVoucher();
+
+		tblActTransferVoucher.setVoucherNo(DateUtils.format(new Date(),
+				"yyyyMMddHHmmssSSS")
+				+ getNextSeq());
+		tblActTransferVoucher.setActAccountFrom(tblActAccountBalanceMgr
+				.getActAccountById(accountRcvOrPabTransferRequest
+						.getAccountIdFrom()));
+		tblActTransferVoucher.setActAccountTo(tblActAccountBalanceMgr
+				.getActAccountById(accountRcvOrPabTransferRequest
+						.getAccountIdTo()));
+
+		tblActTransferVoucher.setAmount(accountRcvOrPabTransferRequest
+				.getAmount());
+		tblActTransferVoucher.setBizType(accountRcvOrPabTransferRequest
+				.getBizType());
+		tblActTransferVoucher.setBizLogId(accountRcvOrPabTransferRequest
+				.getBizLogId());
+		tblActTransferVoucher.setRemark(accountRcvOrPabTransferRequest
+				.getRemark());
+
+		tblActTransferVoucherMgr
+				.saveTblActTransferVoucher(tblActTransferVoucher);
 
 		// 贷记
+		credit(accountRcvOrPabTransferRequest,
+				VoucherType.VOUCHERTYPE_TRANSFER, tblActTransferVoucher
+						.getVoucherNo(), null);
 
-		credit(accountTransferRequest, VoucherType.VOUCHERTYPE_TRANSFER,
-				tblActTransferVoucher.getVoucherNo());
+		// 借记
+		debit(accountRcvOrPabTransferRequest, VoucherType.VOUCHERTYPE_TRANSFER,
+				tblActTransferVoucher.getVoucherNo(),
+				accountRcvOrPabTransferRequest.getExpiredDate());
+
+		return null;
+
+	}
+
+	public IAccountTransferResponse transfer(
+			IAccountPaidTransferRequest accountPaidTransferRequest) {
+
+		// 转账凭证
+		TblActTransferVoucher tblActTransferVoucher = new TblActTransferVoucher();
+
+		tblActTransferVoucher.setVoucherNo(DateUtils.format(new Date(),
+				"yyyyMMddHHmmssSSS")
+				+ getNextSeq());
+		tblActTransferVoucher.setActAccountFrom(tblActAccountBalanceMgr
+				.getActAccountById(accountPaidTransferRequest
+						.getAccountIdFrom()));
+		tblActTransferVoucher
+				.setActAccountTo(tblActAccountBalanceMgr
+						.getActAccountById(accountPaidTransferRequest
+								.getAccountIdTo()));
+
+		tblActTransferVoucher.setAmount(accountPaidTransferRequest.getAmount());
+		tblActTransferVoucher.setBizType(accountPaidTransferRequest
+				.getBizType());
+		tblActTransferVoucher.setBizLogId(accountPaidTransferRequest
+				.getBizLogId());
+		tblActTransferVoucher.setRemark(accountPaidTransferRequest.getRemark());
+
+		tblActTransferVoucherMgr
+				.saveTblActTransferVoucher(tblActTransferVoucher);
+
+		// 更新之前的应付状态
+		TblActAccountDetail tblActAccountDetail = (TblActAccountDetail) tblActAccountDetailMgr
+				.getObjects(
+						FilterFactory
+								.getSimpleFilter("bizLogId",
+										accountPaidTransferRequest
+												.getRelatedBizLogId(),
+										Filter.OPERATOR_EQ)).get(0);
+		tblActAccountDetail.setSettleStatus(SettleStatus.SETTLESTATUS_SETTLED);
+		tblActAccountDetailMgr.saveObject(tblActAccountDetail);
+
+		// 贷记
+		credit(accountPaidTransferRequest, VoucherType.VOUCHERTYPE_TRANSFER,
+				tblActTransferVoucher.getVoucherNo(), null);
+
+		// 借记
+		debit(accountPaidTransferRequest, VoucherType.VOUCHERTYPE_TRANSFER,
+				tblActTransferVoucher.getVoucherNo(), null);
 
 		return null;
 
 	}
 
 	private void debit(IAccountTransferRequest accountTransferRequest,
-			int voucherType, String voucherNo) {
+			int voucherType, String voucherNo, String expiredDate) {
 		charge(accountTransferRequest.getAccountIdTo(), accountTransferRequest
 				.getAmount(), DebitOrCredit.DEBITORCREDIT_DEBIT, voucherType,
-				voucherNo, accountTransferRequest.getRemark());
+				voucherNo, accountTransferRequest.getRemark(), expiredDate);
 	}
 
 	public void credit(IAccountTransferRequest accountTransferRequest,
-			int voucherType, String voucherNo) {
+			int voucherType, String voucherNo, String expiredDate) {
 		charge(accountTransferRequest.getAccountIdFrom(),
 				accountTransferRequest.getAmount(),
 				DebitOrCredit.DEBITORCREDIT_CREDIT, voucherType, voucherNo,
-				accountTransferRequest.getRemark());
+				accountTransferRequest.getRemark(), expiredDate);
 	}
 
-	@Transactional
 	public void charge(int accountId, int amount, int debitOrCredit,
-			int voucherType, String voucherNo, String remark) {
+			int voucherType, String voucherNo, String remark, String expiredDate) {
 
 		// 账户余额
 		TblActAccountBalance tblActAccountBalance = tblActAccountBalanceMgr
@@ -171,6 +265,16 @@ public class AccountTxService implements IAccountTxService {
 		tblActAccountDetail.setDebitOrCredit(debitOrCredit);
 		tblActAccountDetail.setBalance(tblActAccountBalance
 				.getAvailableBalance());
+		int settleStatus = SettleStatus.SETTLESTATUS_SETTLED;
+		if (null == expiredDate) {
+			expiredDate = DateUtils.format(new Date(), "yyyyMMdd");
+			settleStatus = SettleStatus.SETTLESTATUS_SETTLED;
+		} else {
+			settleStatus = SettleStatus.SETTLESTATUS_TOSETTLED;
+		}
+
+		tblActAccountDetail.setExpiredDate(expiredDate);
+		tblActAccountDetail.setSettleStatus(settleStatus);
 		tblActAccountDetail.setRemark(remark);
 
 		tblActAccountDetailMgr.saveTblActAccountDetail(tblActAccountDetail);

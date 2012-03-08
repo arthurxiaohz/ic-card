@@ -12,11 +12,13 @@ public class PaymentClearingAccountRequest implements
 
 	private String mchtNo;
 
+	private String userName;
+
 	private int mchtFee;
 
 	private int amount;
 
-	private int txLogId;
+	private int bizLogId;
 
 	public String getMchtNo() {
 		return mchtNo;
@@ -42,12 +44,20 @@ public class PaymentClearingAccountRequest implements
 		this.amount = amount;
 	}
 
-	public int getTxLogId() {
-		return txLogId;
+	public int getBizLogId() {
+		return bizLogId;
 	}
 
-	public void setTxLogId(int txLogId) {
-		this.txLogId = txLogId;
+	public void setBizLogId(int bizLogId) {
+		this.bizLogId = bizLogId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 }
