@@ -62,7 +62,7 @@ public interface IAccountTxService {
 	/**
 	 * 实付转账
 	 * 
-	 * 例如：预支付确认（由会员担保账户（应付）转账到商户虚拟账户）
+	 * 例如：暂时未用到
 	 * 
 	 * @param accountTransferRequest
 	 * @return
