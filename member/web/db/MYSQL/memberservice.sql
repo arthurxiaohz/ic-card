@@ -72,6 +72,7 @@ CREATE TABLE Tbl_Mb_Transaction_Request (
     accountType nvarchar (2)  NULL,
     accountNo nvarchar (20)  NULL,
     plTxTime nvarchar (30)  NULL,
+    orderId nvarchar (50)  NULL,
     creator int  NULL,
     deleted int   NULL,
     primary key (id));

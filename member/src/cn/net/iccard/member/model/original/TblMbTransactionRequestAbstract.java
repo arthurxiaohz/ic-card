@@ -107,6 +107,11 @@ public abstract class TblMbTransactionRequestAbstract extends BaseObject impleme
  	protected  String plTxTime;
 
  	 /**
+	 *  网关订单号
+	 */	
+ 	protected  String orderId;
+
+ 	 /**
 	 * 创建人
 	 */	
  	protected  HiUser creator = org.hi.framework.security.context.UserContextHelper.getUser();
@@ -351,6 +356,19 @@ public abstract class TblMbTransactionRequestAbstract extends BaseObject impleme
         this.plTxTime = plTxTime;
     }
     
+    public String getOrderId() {
+        return this.orderId;
+    }
+    
+    public void setOrderId(String orderId) {
+    		if((orderId != null && this.orderId == null) || 
+				this.orderId != null && (!this.orderId.equals(orderId) || orderId == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("orderId", this.orderId);
+        	}
+        this.orderId = orderId;
+    }
+    
     public HiUser getCreator() {
         return this.creator;
     }
@@ -412,6 +430,7 @@ public abstract class TblMbTransactionRequestAbstract extends BaseObject impleme
 		.append("accountType", this.accountType)
 		.append("accountNo", this.accountNo)
 		.append("plTxTime", this.plTxTime)
+		.append("orderId", this.orderId)
 		.append("deleted", this.deleted);
       
         return sb.toString();

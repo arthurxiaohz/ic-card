@@ -40,6 +40,7 @@ import cn.net.iccard.tx.service.TblTxPayMentOrderManager;
 import cn.net.iccard.tx.service.TblTxPayMentRequestManager;
 import cn.net.iccard.tx.service.impl.TblTxPayMentOrderManagerImpl;
 import cn.net.iccard.tx.service.impl.TblTxPayMentRequestManagerImpl;
+import cn.net.iccard.util.BankTraceNoGererator;
 import cn.net.iccard.util.DateUtil;
 import cn.net.iccard.util.PLTraceNoGererator;
 import cn.net.iccard.util.StringUtil;
@@ -62,16 +63,10 @@ public class RechargeRequestAction extends BaseAction{
 		
 		HttpServletResponse response = getResponse();
 		
-		 try {
-		      request.setCharacterEncoding("GBK");
-		      String contentType = new StringBuffer("text/html; charset=").append("GBK").toString();
-		      response.setContentType(contentType);
-		    } catch (Exception e) {
-		      //logger.error("", e);
-		    }
+		
 //		    Filter filter = FilterFactory.getSimpleFilter("userName", hiUser.getUserName(), Filter.OPERATOR_EQ);
 		    
-		    Filter filter = FilterFactory.getSimpleFilter("plNo", UserContextHelper.getUser().getUserName(), Filter.OPERATOR_EQ);
+		    Filter filter = FilterFactory.getSimpleFilter("userName", UserContextHelper.getUser().getUserName(), Filter.OPERATOR_EQ);
 		    
 		//查询个人信息
 //		    TblMbInfoPageInfo TblMbInfo = new TblMbInfoPageInfo();
@@ -86,14 +81,16 @@ public class RechargeRequestAction extends BaseAction{
 			TblMbInfo tblMbInfo = (TblMbInfo)list.get(0);
 			TblMbRechargeOrderManagerImpl TblMbRechargeOrderManagerImpl = (TblMbRechargeOrderManagerImpl)SpringContextHolder.getBean(TblMbRechargeOrderManager.class);
 			TblMbRechargeOrder tblMbRechargeOrder = new TblMbRechargeOrder();
+			
 			String plTxTraceNo = PLTraceNoGererator.generatePLTraceNo("00");
+			
 			tblMbRechargeOrder.setPlTxTraceNo(plTxTraceNo);
 			tblMbRechargeOrder.setUserName(UserContextHelper.getUser().getUserName());
 			tblMbRechargeOrder.setAccountNo(tblMbInfo.getCardNo());
 			tblMbRechargeOrder.setPan(tblMbInfo.getCardNo());
 			tblMbRechargeOrder.setChinfo(UserContextHelper.getUser().getFullName());
 			tblMbRechargeOrder.setTxTypeId("TX51");
-			tblMbRechargeOrder.setTxAmount(Integer.valueOf(request.getParameter("TxAmount")));
+			tblMbRechargeOrder.setTxAmount(Integer.valueOf(new BigDecimal(request.getParameter("TxAmount")).movePointLeft(2).toString()));
 			tblMbRechargeOrder.setMchtTxTime(DateUtil.getCurrDateTime());
 			
 			tblMbRechargeOrder.setTxStatus(RechargeTxStatus.RECHARGETXSTATUS_PAYPROCESS);
@@ -108,8 +105,9 @@ public class RechargeRequestAction extends BaseAction{
 			TblMbTransactionRequestManager tblMbTransactionRequestMgr = (TblMbTransactionRequestManager)SpringContextHolder.getBean(TblMbTransactionRequest.class);
 
 			TblMbTransactionRequest mbTransactionRequest = new TblMbTransactionRequest();
-			String requestId = PLTraceNoGererator.generatePLTraceNo("01");
+			String requestId = BankTraceNoGererator.generateALiPayTraceNo("02");
 			
+			mbTransactionRequest.setOrderId(requestId);		//网关订单号
 			mbTransactionRequest.setTrancode("TX51");		//交易类型
 			//mbTransactionRequest.setMchtNo(mchtNo);
 			mbTransactionRequest.setPan(tblMbInfo.getCardNo());
@@ -124,8 +122,14 @@ public class RechargeRequestAction extends BaseAction{
 			
 			//把请求参数打包成数组
 			Map<String, String> sParaTemp = new HashMap<String, String>();
+			
+			 sParaTemp.put("payment_type", "1");
+		     sParaTemp.put("out_trade_no", requestId);
+		     sParaTemp.put("subject", "充值");
+		     sParaTemp.put("total_fee", request.getParameter("TxAmount"));
+			
 			//请求到支付宝
-			String sHtmlText = AlipayService.create_direct_pay_by_user(sParaTemp);
+			String sHtmlText = AlipayService.create_direct_pay_by_user(sParaTemp,requestId);
 		}
 		
 	

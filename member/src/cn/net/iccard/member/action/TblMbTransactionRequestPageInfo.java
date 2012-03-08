@@ -46,6 +46,8 @@ public class TblMbTransactionRequestPageInfo extends PageInfoView{
  	protected  String  f_accountNo_op;
 	protected  String  f_plTxTime;
  	protected  String  f_plTxTime_op;
+	protected  String  f_orderId;
+ 	protected  String  f_orderId_op;
 	protected  Integer  f_deleted;
  	protected  String  f_deleted_op;
 
@@ -351,6 +353,22 @@ public class TblMbTransactionRequestPageInfo extends PageInfoView{
     
     public void setF_plTxTime_op(String f_plTxTime_op) {
         this.f_plTxTime_op = f_plTxTime_op;
+    }
+   
+    public String getF_orderId() {
+        return this.f_orderId;
+    }
+    
+    public void setF_orderId(String f_orderId) {
+        this.f_orderId = f_orderId;
+    }
+    
+    public String getF_orderId_op() {
+        return this.f_orderId_op;
+    }
+    
+    public void setF_orderId_op(String f_orderId_op) {
+        this.f_orderId_op = f_orderId_op;
     }
    
     public Integer getF_deleted() {

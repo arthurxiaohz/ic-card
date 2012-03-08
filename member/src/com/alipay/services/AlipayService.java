@@ -38,13 +38,13 @@ public class AlipayService {
      * @param sParaTemp 请求参数集合
      * @return 表单提交HTML信息
      */
-    public static String create_direct_pay_by_user(Map<String, String> sParaTemp) {
-
+    public static String create_direct_pay_by_user(Map<String, String> sParaTemp,String bankTxTraceNo) {
+    	
     	//增加基本配置
         sParaTemp.put("service", "create_direct_pay_by_user");
         sParaTemp.put("partner", AlipayConfig.partner);
-        sParaTemp.put("return_url", AlipayConfig.return_url);
-        sParaTemp.put("notify_url", AlipayConfig.notify_url);
+        sParaTemp.put("return_url", AlipayConfig.return_url+"/"+bankTxTraceNo);
+        sParaTemp.put("notify_url", AlipayConfig.notify_url+"/"+bankTxTraceNo);
         sParaTemp.put("seller_email", AlipayConfig.seller_email);
         sParaTemp.put("_input_charset", AlipayConfig.input_charset);
 

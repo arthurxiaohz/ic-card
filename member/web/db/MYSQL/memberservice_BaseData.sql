@@ -830,6 +830,10 @@ delete from HI_Language where ID = 100416;
 --
 insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100416, 0, '交易完成时间', 'TblMbTransactionRequest', 1, 0);
 --
+delete from HI_Language where ID = 100417;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100417, 0, ' 网关订单号', 'TblMbTransactionRequest', 1, 0);
+--
 delete from HI_Language where ID = 101100;
 --
 insert into HI_Language(ID, version, keyStr, creator, isSystem) values(101100, 0, '网关交易结果', 1, 0);
