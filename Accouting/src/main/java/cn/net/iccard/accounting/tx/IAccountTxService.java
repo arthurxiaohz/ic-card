@@ -49,6 +49,17 @@ public interface IAccountTxService {
 			IAccountPayableTransferRequest accountRcvOrPabTransferRequest);
 
 	/**
+	 * 应付转账撤销
+	 * 
+	 * 例如：预支付撤销（由会员担保账户（应付）转账到会员虚拟账户）
+	 * 
+	 * @param accountTransferRequest
+	 * @return
+	 */
+	IAccountTransferResponse transfer(
+			IAccountPayableCancelTransferRequest accountPayableCancelTransferRequest);
+
+	/**
 	 * 实付转账
 	 * 
 	 * 例如：预支付确认（由会员担保账户（应付）转账到商户虚拟账户）

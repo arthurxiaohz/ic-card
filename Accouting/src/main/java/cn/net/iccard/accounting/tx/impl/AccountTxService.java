@@ -12,6 +12,7 @@ import cn.net.iccard.accounting.EAccountResponse;
 import cn.net.iccard.accounting.tx.IAccountDebitCreditRequest;
 import cn.net.iccard.accounting.tx.IAccountDebitCreditResponse;
 import cn.net.iccard.accounting.tx.IAccountPaidTransferRequest;
+import cn.net.iccard.accounting.tx.IAccountPayableCancelTransferRequest;
 import cn.net.iccard.accounting.tx.IAccountPayableTransferRequest;
 import cn.net.iccard.accounting.tx.IAccountTransferRequest;
 import cn.net.iccard.accounting.tx.IAccountTransferResponse;
@@ -167,6 +168,58 @@ public class AccountTxService implements IAccountTxService {
 		debit(accountRcvOrPabTransferRequest, VoucherType.VOUCHERTYPE_TRANSFER,
 				tblActTransferVoucher.getVoucherNo(),
 				accountRcvOrPabTransferRequest.getExpiredDate());
+
+		return null;
+
+	}
+
+	public IAccountTransferResponse transfer(
+			IAccountPayableCancelTransferRequest accountPayableCancelTransferRequest) {
+
+		// 转账凭证
+		TblActTransferVoucher tblActTransferVoucher = new TblActTransferVoucher();
+
+		tblActTransferVoucher.setVoucherNo(DateUtils.format(new Date(),
+				"yyyyMMddHHmmssSSS")
+				+ getNextSeq());
+		tblActTransferVoucher.setActAccountFrom(tblActAccountBalanceMgr
+				.getActAccountById(accountPayableCancelTransferRequest
+						.getAccountIdFrom()));
+		tblActTransferVoucher.setActAccountTo(tblActAccountBalanceMgr
+				.getActAccountById(accountPayableCancelTransferRequest
+						.getAccountIdTo()));
+
+		tblActTransferVoucher.setAmount(accountPayableCancelTransferRequest
+				.getAmount());
+		tblActTransferVoucher.setBizType(accountPayableCancelTransferRequest
+				.getBizType());
+		tblActTransferVoucher.setBizLogId(accountPayableCancelTransferRequest
+				.getBizLogId());
+		tblActTransferVoucher.setRemark(accountPayableCancelTransferRequest
+				.getRemark());
+
+		tblActTransferVoucherMgr
+				.saveTblActTransferVoucher(tblActTransferVoucher);
+
+		// 更新之前的应付状态
+		TblActAccountDetail tblActAccountDetail = (TblActAccountDetail) tblActAccountDetailMgr
+				.getObjects(
+						FilterFactory.getSimpleFilter("bizLogId",
+								accountPayableCancelTransferRequest
+										.getRelatedBizLogId(),
+								Filter.OPERATOR_EQ)).get(0);
+		tblActAccountDetail.setSettleStatus(SettleStatus.SETTLESTATUS_SETTLED);
+		tblActAccountDetailMgr.saveObject(tblActAccountDetail);
+
+		// 贷记
+		credit(accountPayableCancelTransferRequest,
+				VoucherType.VOUCHERTYPE_TRANSFER, tblActTransferVoucher
+						.getVoucherNo(), null);
+
+		// 借记
+		debit(accountPayableCancelTransferRequest,
+				VoucherType.VOUCHERTYPE_TRANSFER, tblActTransferVoucher
+						.getVoucherNo(), null);
 
 		return null;
 
