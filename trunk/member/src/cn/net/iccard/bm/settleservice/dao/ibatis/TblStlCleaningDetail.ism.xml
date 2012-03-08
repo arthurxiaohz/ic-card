@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblStlCleaningDetail" type="cn.net.iccard.bm.settleservice.model.TblStlCleaningDetail"/>
+
+	<resultMap id="TblStlCleaningDetail" class="TblStlCleaningDetail">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="plTxTraceNo" column="plTxTraceNo"/>
+		<result property="mchtOrderId" column="mchtOrderId"/>
+		<result property="createdDatetime" column="createdDatetime"/>
+		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
+		<result property="lastUpdatedBy" column="lastUpdatedBy"/>
+		<result property="orderAmount" column="orderAmount"/>
+		<result property="transTime" column="transTime"/>
+		<result property="refundOrderId" column="refundOrderId"/>
+		<result property="refundOrderAmt" column="refundOrderAmt"/>
+		<result property="refundAmt" column="refundAmt"/>
+		<result property="refundFee" column="refundFee"/>
+		<result property="mchtSettleFee" column="mchtSettleFee"/>
+		<result property="reMark" column="reMark"/>
+		<result property="transType" column="transType"/>
+		<result property="userName" column="userName"/>
+		<result property="balance" column="balance"/>
+		<result property="backBalance" column="backBalance"/>
+		<result property="mchtNo" column="mchtNo"/>
+		<result property="mchtName" column="mchtName"/>
+		<result property="cleanStatus" column="cleanStatus"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="deleted" column="deleted"/>
+	</resultMap>
+    
+    <select id="select_inner_TblStlCleaningDetail" resultMap="TblStlCleaningDetail" parameterClass="int">  
+       SELECT * FROM Tbl_Stl_Cleaning_Detail  WHERE id =#value#
+    </select>
+  
+	<select id="getTblStlCleaningDetail" resultMap="TblStlCleaningDetail">
+		select * from Tbl_Stl_Cleaning_Detail WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblStlCleaningDetail" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Stl_Cleaning_Detail (id, version, plTxTraceNo, mchtOrderId, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, orderAmount, transTime, refundOrderId, refundOrderAmt, refundAmt, refundFee, mchtSettleFee, reMark, transType, userName, balance, backBalance, mchtNo, mchtName, cleanStatus, creator, deleted) 
+		values (#id#, 1, #plTxTraceNo#, #mchtOrderId#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #orderAmount#, #transTime#, #refundOrderId#, #refundOrderAmt#, #refundAmt#, #refundFee#, #mchtSettleFee#, #reMark#, #transType#, #userName#, #balance#, #backBalance#, #mchtNo#, #mchtName#, #cleanStatus#, #creator#, #deleted#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblStlCleaningDetail" parameterClass="java.util.HashMap">    
+		update Tbl_Stl_Cleaning_Detail set
+            version = #version# +1,
+			plTxTraceNo = #plTxTraceNo#,
+			mchtOrderId = #mchtOrderId#,
+			createdDatetime = #createdDatetime#,
+			lastUpdatedDatetime = #lastUpdatedDatetime#,
+			lastUpdatedBy = #lastUpdatedBy#,
+			orderAmount = #orderAmount#,
+			transTime = #transTime#,
+			refundOrderId = #refundOrderId#,
+			refundOrderAmt = #refundOrderAmt#,
+			refundAmt = #refundAmt#,
+			refundFee = #refundFee#,
+			mchtSettleFee = #mchtSettleFee#,
+			reMark = #reMark#,
+			transType = #transType#,
+			userName = #userName#,
+			balance = #balance#,
+			backBalance = #backBalance#,
+			mchtNo = #mchtNo#,
+			mchtName = #mchtName#,
+			cleanStatus = #cleanStatus#,
+			creator = #creator#,
+			deleted = #deleted#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblStlCleaningDetail" parameterClass="int">    
+		delete from Tbl_Stl_Cleaning_Detail where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblStlCleaningDetail" resultMap="TblStlCleaningDetail"/> 
+  
+	<selectExt id="countTblStlCleaningDetail" resultClass="int"/> 
+
+</sqlMap>    

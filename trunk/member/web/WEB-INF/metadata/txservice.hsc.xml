@@ -76,8 +76,8 @@
         
         
                             <field>
-            <fieldName>memberNO</fieldName>
-            <fieldLabel>平台会员号</fieldLabel>
+            <fieldName>userName</fieldName>
+            <fieldLabel>账号</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
@@ -87,7 +87,7 @@
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
-            <length>18</length>
+            <length>30</length>
             <scale></scale>
                         <isParent>false</isParent>
             <fieldType>1</fieldType>
@@ -1007,6 +1007,34 @@
                      
         
         
+                            <field>
+            <fieldName>mchtName</fieldName>
+            <fieldLabel>商户名称</fieldLabel>
+                        <isPrimaryKey>false</isPrimaryKey>
+                                    <isSearch>true</isSearch>
+                                    <isListDisplay>true</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
+                                    <isHidden>false</isHidden>
+                                    <isFull>false</isFull>
+                                    <isMainLookup>false</isMainLookup>
+                        <defaultValue></defaultValue> 
+            <validator></validator>  
+            <length>30</length>
+            <scale></scale>
+                        <isParent>false</isParent>
+            <fieldType>1</fieldType>
+            
+                        <lookupEntity>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <mainLkFieldName></mainLkFieldName>
+            </lookupEntity>
+                        
+                       </field>
+                     
+        
+        
               
               		 <field>
             <fieldName>creator</fieldName>
@@ -1125,7 +1153,7 @@
         
         
                             <field>
-            <fieldName>memberNO</fieldName>
+            <fieldName>userName</fieldName>
             <fieldLabel>平台会员号</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
@@ -1136,7 +1164,7 @@
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
-            <length>18</length>
+            <length>30</length>
             <scale></scale>
                         <isParent>false</isParent>
             <fieldType>1</fieldType>
@@ -2581,34 +2609,6 @@
         
         
                             <field>
-            <fieldName>responseId</fieldName>
-            <fieldLabel>通知记录id标识</fieldLabel>
-                        <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
-                                    <isReadOnly>false</isReadOnly>
-                                    <isHidden>false</isHidden>
-                                    <isFull>true</isFull>
-                                    <isMainLookup>false</isMainLookup>
-                        <defaultValue></defaultValue> 
-            <validator></validator>  
-            <length>20</length>
-            <scale></scale>
-                        <isParent>false</isParent>
-            <fieldType>1</fieldType>
-            
-                        <lookupEntity>
-                <lkServiceName></lkServiceName>
-                <lkEntityName></lkEntityName>
-                <isLkForeignKey>false</isLkForeignKey>
-                <mainLkFieldName></mainLkFieldName>
-            </lookupEntity>
-                        
-                       </field>
-                     
-        
-        
-                            <field>
             <fieldName>versionNo</fieldName>
             <fieldLabel>返回接口的版本号</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
@@ -3599,34 +3599,6 @@
         
         
                             <field>
-            <fieldName>responseId</fieldName>
-            <fieldLabel>通知记录id标识</fieldLabel>
-                        <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
-                                    <isReadOnly>false</isReadOnly>
-                                    <isHidden>false</isHidden>
-                                    <isFull>true</isFull>
-                                    <isMainLookup>false</isMainLookup>
-                        <defaultValue></defaultValue> 
-            <validator></validator>  
-            <length>20</length>
-            <scale></scale>
-                        <isParent>false</isParent>
-            <fieldType>1</fieldType>
-            
-                        <lookupEntity>
-                <lkServiceName></lkServiceName>
-                <lkEntityName></lkEntityName>
-                <isLkForeignKey>false</isLkForeignKey>
-                <mainLkFieldName></mainLkFieldName>
-            </lookupEntity>
-                        
-                       </field>
-                     
-        
-        
-                            <field>
             <fieldName>versionNo</fieldName>
             <fieldLabel>返回接口的版本号</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
@@ -4210,12 +4182,12 @@
 				<enumeration>
 			<enuValue>unsettle</enuValue>
 			<enuLabel>未结算</enuLabel>
-			<enuCode>1</enuCode>
+			<enuCode>0</enuCode>
 		</enumeration>
 				<enumeration>
 			<enuValue>settle</enuValue>
 			<enuLabel>已结算</enuLabel>
-			<enuCode>2</enuCode>
+			<enuCode>1</enuCode>
 		</enumeration>
 			</entity>
     
@@ -4225,17 +4197,17 @@
 		<entityName>HasCountFee</entityName>
 		<entityType>2</entityType>
 		<tableName></tableName>
-		<entityLabel>结算状态</entityLabel>
+		<entityLabel>是否已计算手续费</entityLabel>
 		<entityBaseData>201100</entityBaseData>
 				<enumeration>
 			<enuValue>unfee</enuValue>
 			<enuLabel>未计算</enuLabel>
-			<enuCode>1</enuCode>
+			<enuCode>0</enuCode>
 		</enumeration>
 				<enumeration>
 			<enuValue>fee</enuValue>
 			<enuLabel>已计算</enuLabel>
-			<enuCode>2</enuCode>
+			<enuCode>1</enuCode>
 		</enumeration>
 			</entity>
     
@@ -4245,7 +4217,7 @@
 		<entityName>TransTxStatus</entityName>
 		<entityType>2</entityType>
 		<tableName></tableName>
-		<entityLabel>结算状态</entityLabel>
+		<entityLabel>转账交易状态</entityLabel>
 		<entityBaseData>201200</entityBaseData>
 				<enumeration>
 			<enuValue>unfransfer</enuValue>

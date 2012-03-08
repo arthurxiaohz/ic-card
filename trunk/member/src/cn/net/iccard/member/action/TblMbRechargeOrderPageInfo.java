@@ -12,8 +12,8 @@ public class TblMbRechargeOrderPageInfo extends PageInfoView{
  	protected  String  f_id_op;
 	protected  String  f_plTxTraceNo;
  	protected  String  f_plTxTraceNo_op;
-	protected  String  f_plNo;
- 	protected  String  f_plNo_op;
+	protected  String  f_userName;
+ 	protected  String  f_userName_op;
 	protected  String  f_accountType;
  	protected  String  f_accountType_op;
 	protected  String  f_accountNo;
@@ -32,7 +32,7 @@ public class TblMbRechargeOrderPageInfo extends PageInfoView{
  	protected  String  f_txIp_op;
 	protected  String  f_plTxTime;
  	protected  String  f_plTxTime_op;
-	protected  String  f_txStatus;
+	protected  Integer  f_txStatus;
  	protected  String  f_txStatus_op;
 	protected  String  f_errorCode;
  	protected  String  f_errorCode_op;
@@ -40,7 +40,7 @@ public class TblMbRechargeOrderPageInfo extends PageInfoView{
  	protected  String  f_errorMsg_op;
 	protected  String  f_settleBatchNo;
  	protected  String  f_settleBatchNo_op;
-	protected  String  f_settleStatus;
+	protected  Integer  f_settleStatus;
  	protected  String  f_settleStatus_op;
 	protected  String  f_settleDate;
  	protected  String  f_settleDate_op;
@@ -52,13 +52,13 @@ public class TblMbRechargeOrderPageInfo extends PageInfoView{
  	protected  String  f_lastUpdatedDatetime_op;
 	protected  Timestamp  f_lastUpdatedDatetime01;
 	protected  String  f_lastUpdatedDatetime01_op;
-	protected  String  f_lastUpdatedBy;
+	protected  Integer  f_lastUpdatedBy;
  	protected  String  f_lastUpdatedBy_op;
-	protected  String  f_bankTxStatus;
+	protected  Integer  f_bankTxStatus;
  	protected  String  f_bankTxStatus_op;
 	protected  String  f_checkBatchNo;
  	protected  String  f_checkBatchNo_op;
-	protected  String  f_checkStatus;
+	protected  Integer  f_checkStatus;
  	protected  String  f_checkStatus_op;
 	protected  Integer  f_deleted;
  	protected  String  f_deleted_op;
@@ -97,20 +97,20 @@ public class TblMbRechargeOrderPageInfo extends PageInfoView{
         this.f_plTxTraceNo_op = f_plTxTraceNo_op;
     }
    
-    public String getF_plNo() {
-        return this.f_plNo;
+    public String getF_userName() {
+        return this.f_userName;
     }
     
-    public void setF_plNo(String f_plNo) {
-        this.f_plNo = f_plNo;
+    public void setF_userName(String f_userName) {
+        this.f_userName = f_userName;
     }
     
-    public String getF_plNo_op() {
-        return this.f_plNo_op;
+    public String getF_userName_op() {
+        return this.f_userName_op;
     }
     
-    public void setF_plNo_op(String f_plNo_op) {
-        this.f_plNo_op = f_plNo_op;
+    public void setF_userName_op(String f_userName_op) {
+        this.f_userName_op = f_userName_op;
     }
    
     public String getF_accountType() {
@@ -257,11 +257,11 @@ public class TblMbRechargeOrderPageInfo extends PageInfoView{
         this.f_plTxTime_op = f_plTxTime_op;
     }
    
-    public String getF_txStatus() {
+    public Integer getF_txStatus() {
         return this.f_txStatus;
     }
     
-    public void setF_txStatus(String f_txStatus) {
+    public void setF_txStatus(Integer f_txStatus) {
         this.f_txStatus = f_txStatus;
     }
     
@@ -321,11 +321,11 @@ public class TblMbRechargeOrderPageInfo extends PageInfoView{
         this.f_settleBatchNo_op = f_settleBatchNo_op;
     }
    
-    public String getF_settleStatus() {
+    public Integer getF_settleStatus() {
         return this.f_settleStatus;
     }
     
-    public void setF_settleStatus(String f_settleStatus) {
+    public void setF_settleStatus(Integer f_settleStatus) {
         this.f_settleStatus = f_settleStatus;
     }
     
@@ -415,11 +415,11 @@ public class TblMbRechargeOrderPageInfo extends PageInfoView{
         this.f_lastUpdatedDatetime01_op = f_lastUpdatedDatetime01_op;
     }
    
-    public String getF_lastUpdatedBy() {
+    public Integer getF_lastUpdatedBy() {
         return this.f_lastUpdatedBy;
     }
     
-    public void setF_lastUpdatedBy(String f_lastUpdatedBy) {
+    public void setF_lastUpdatedBy(Integer f_lastUpdatedBy) {
         this.f_lastUpdatedBy = f_lastUpdatedBy;
     }
     
@@ -431,11 +431,11 @@ public class TblMbRechargeOrderPageInfo extends PageInfoView{
         this.f_lastUpdatedBy_op = f_lastUpdatedBy_op;
     }
    
-    public String getF_bankTxStatus() {
+    public Integer getF_bankTxStatus() {
         return this.f_bankTxStatus;
     }
     
-    public void setF_bankTxStatus(String f_bankTxStatus) {
+    public void setF_bankTxStatus(Integer f_bankTxStatus) {
         this.f_bankTxStatus = f_bankTxStatus;
     }
     
@@ -463,11 +463,11 @@ public class TblMbRechargeOrderPageInfo extends PageInfoView{
         this.f_checkBatchNo_op = f_checkBatchNo_op;
     }
    
-    public String getF_checkStatus() {
+    public Integer getF_checkStatus() {
         return this.f_checkStatus;
     }
     
-    public void setF_checkStatus(String f_checkStatus) {
+    public void setF_checkStatus(Integer f_checkStatus) {
         this.f_checkStatus = f_checkStatus;
     }
     

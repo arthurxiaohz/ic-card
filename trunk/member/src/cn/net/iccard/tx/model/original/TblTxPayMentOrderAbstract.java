@@ -32,9 +32,9 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
  	protected  String plTxTraceNo;
 
  	 /**
-	 * 平台会员号
+	 * 账号
 	 */	
- 	protected  String memberNO;
+ 	protected  String userName;
 
  	 /**
 	 * 交易类型
@@ -202,6 +202,11 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
  	protected  String bgNotifyUrl;
 
  	 /**
+	 * 商户名称
+	 */	
+ 	protected  String mchtName;
+
+ 	 /**
 	 * 创建人
 	 */	
  	protected  HiUser creator = org.hi.framework.security.context.UserContextHelper.getUser();
@@ -251,17 +256,17 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
         this.plTxTraceNo = plTxTraceNo;
     }
     
-    public String getMemberNO() {
-        return this.memberNO;
+    public String getUserName() {
+        return this.userName;
     }
     
-    public void setMemberNO(String memberNO) {
-    		if((memberNO != null && this.memberNO == null) || 
-				this.memberNO != null && (!this.memberNO.equals(memberNO) || memberNO == null)){
+    public void setUserName(String userName) {
+    		if((userName != null && this.userName == null) || 
+				this.userName != null && (!this.userName.equals(userName) || userName == null)){
         		this.setDirty(true);
-        		this.oldValues.put("memberNO", this.memberNO);
+        		this.oldValues.put("userName", this.userName);
         	}
-        this.memberNO = memberNO;
+        this.userName = userName;
     }
     
     public String getTxTypeId() {
@@ -693,6 +698,19 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
         this.bgNotifyUrl = bgNotifyUrl;
     }
     
+    public String getMchtName() {
+        return this.mchtName;
+    }
+    
+    public void setMchtName(String mchtName) {
+    		if((mchtName != null && this.mchtName == null) || 
+				this.mchtName != null && (!this.mchtName.equals(mchtName) || mchtName == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("mchtName", this.mchtName);
+        	}
+        this.mchtName = mchtName;
+    }
+    
     public HiUser getCreator() {
         return this.creator;
     }
@@ -741,7 +759,7 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
        ToStringBuilder sb = new ToStringBuilder(this, ToStringStyle.DEFAULT_STYLE);
        sb.append("id", this.id)
 		.append("plTxTraceNo", this.plTxTraceNo)
-		.append("memberNO", this.memberNO)
+		.append("userName", this.userName)
 		.append("txTypeId", this.txTypeId)
 		.append("mchtNo", this.mchtNo)
 		.append("mchtTxTime", this.mchtTxTime)
@@ -769,6 +787,7 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
 		.append("feeAmount", this.feeAmount)
 		.append("lastUpdatedBy", this.lastUpdatedBy)
 		.append("bgNotifyUrl", this.bgNotifyUrl)
+		.append("mchtName", this.mchtName)
 		.append("deleted", this.deleted);
       
         return sb.toString();

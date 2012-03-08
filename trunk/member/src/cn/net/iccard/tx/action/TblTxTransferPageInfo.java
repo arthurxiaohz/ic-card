@@ -12,8 +12,8 @@ public class TblTxTransferPageInfo extends PageInfoView{
  	protected  String  f_id_op;
 	protected  String  f_plTxTraceNo;
  	protected  String  f_plTxTraceNo_op;
-	protected  String  f_memberNO;
- 	protected  String  f_memberNO_op;
+	protected  String  f_userName;
+ 	protected  String  f_userName_op;
 	protected  String  f_txTypeId;
  	protected  String  f_txTypeId_op;
 	protected  String  f_mchtNo;
@@ -95,20 +95,20 @@ public class TblTxTransferPageInfo extends PageInfoView{
         this.f_plTxTraceNo_op = f_plTxTraceNo_op;
     }
    
-    public String getF_memberNO() {
-        return this.f_memberNO;
+    public String getF_userName() {
+        return this.f_userName;
     }
     
-    public void setF_memberNO(String f_memberNO) {
-        this.f_memberNO = f_memberNO;
+    public void setF_userName(String f_userName) {
+        this.f_userName = f_userName;
     }
     
-    public String getF_memberNO_op() {
-        return this.f_memberNO_op;
+    public String getF_userName_op() {
+        return this.f_userName_op;
     }
     
-    public void setF_memberNO_op(String f_memberNO_op) {
-        this.f_memberNO_op = f_memberNO_op;
+    public void setF_userName_op(String f_userName_op) {
+        this.f_userName_op = f_userName_op;
     }
    
     public String getF_txTypeId() {

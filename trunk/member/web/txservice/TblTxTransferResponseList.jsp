@@ -14,10 +14,6 @@
 	<div class="searchBar">
 		<ul class="searchContent">	
 			<li>
-				<label><hi:text key="通知记录id标识" entity="TblTxTransferResponse"/>:</label>
-				<input type="text" name="pageInfo.f_responseId" value="${pageInfo.f_responseId}"/>
-			</li>	  
-			<li>
 				<label><hi:text key="返回接口的版本号" entity="TblTxTransferResponse"/>:</label>
 				<input type="text" name="pageInfo.f_versionNo" value="${pageInfo.f_versionNo}"/>
 			</li>	  
@@ -78,6 +74,9 @@
 				<label><hi:text key="最后修改人" entity="TblTxTransferResponse"/>:</label>
 				<input type="text" name="pageInfo.f_lastUpdatedBy" value="${pageInfo.f_lastUpdatedBy}"/>
 			</li>	  
+			<li>
+
+			</li>	  
 		</ul>
 		<div class="subBar">
 			<div class="buttonActive"><div class="buttonContent"><button type="submit"><hi:text key="查询"/></button></div></div>
@@ -94,7 +93,7 @@
 				<authz:authorize ifAnyGranted="TBLTXTRANSFERRESPONSE_DEL"><li><a class="delete" href="<hi:url>tblTxTransferResponseRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', responseId:'',versionNo:'',signMsg:'',transferResult:'',plTxTraceNo:'',merchantOrderNo:'',transferAmount:'',txTypeId:'',payDatetime:'',ext1:'',ext2:'',createdDatetime:'',lastUpdatedDatetime:'',lastUpdatedBy:'',errorCode:'',context:'',responseContent:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', versionNo:'',signMsg:'',transferResult:'',plTxTraceNo:'',merchantOrderNo:'',transferAmount:'',txTypeId:'',payDatetime:'',ext1:'',ext2:'',createdDatetime:'',lastUpdatedDatetime:'',lastUpdatedBy:'',errorCode:'',context:'',responseContent:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -105,7 +104,6 @@
 				<c:if test="${empty lookup}">
 				<th width="28"><input type="checkbox" group="orderIndexs" class="checkboxCtrl"></th>
 				</c:if>
-				<th orderField="responseId" class="${pageInfo.sorterName eq 'responseId' ? pageInfo.sorterDirection : ''}"><hi:text key="通知记录id标识" entity="TblTxTransferResponse"/></th>
 				<th orderField="versionNo" class="${pageInfo.sorterName eq 'versionNo' ? pageInfo.sorterDirection : ''}"><hi:text key="返回接口的版本号" entity="TblTxTransferResponse"/></th>
 				<th orderField="signMsg" class="${pageInfo.sorterName eq 'signMsg' ? pageInfo.sorterDirection : ''}"><hi:text key="签名内容" entity="TblTxTransferResponse"/></th>
 				<th orderField="transferResult" class="${pageInfo.sorterName eq 'transferResult' ? pageInfo.sorterDirection : ''}"><hi:text key="转账结果" entity="TblTxTransferResponse"/></th>
@@ -136,7 +134,6 @@
 				<c:if test="${empty lookup}">
 				<td><input name="orderIndexs" value="${item.id}" type="checkbox"></td>
 				</c:if>			
-				    <td>${item.responseId}</td>
 				    <td>${item.versionNo}</td>
 				    <td>${item.signMsg}</td>
 				    <td>${item.transferResult}</td>
@@ -167,7 +164,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', responseId:'${item.responseId}',versionNo:'${item.versionNo}',signMsg:'${item.signMsg}',transferResult:'${item.transferResult}',plTxTraceNo:'${item.plTxTraceNo}',merchantOrderNo:'${item.merchantOrderNo}',transferAmount:'${item.transferAmount}',txTypeId:'${item.txTypeId}',payDatetime:'${item.payDatetime}',ext1:'${item.ext1}',ext2:'${item.ext2}',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}',errorCode:'${item.errorCode}',context:'${item.context}',responseContent:'${item.responseContent}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', versionNo:'${item.versionNo}',signMsg:'${item.signMsg}',transferResult:'${item.transferResult}',plTxTraceNo:'${item.plTxTraceNo}',merchantOrderNo:'${item.merchantOrderNo}',transferAmount:'${item.transferAmount}',txTypeId:'${item.txTypeId}',payDatetime:'${item.payDatetime}',ext1:'${item.ext1}',ext2:'${item.ext2}',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}',errorCode:'${item.errorCode}',context:'${item.context}',responseContent:'${item.responseContent}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

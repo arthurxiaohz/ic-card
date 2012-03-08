@@ -115,7 +115,7 @@
 				<authz:authorize ifAnyGranted="TBLTXTRANSFER_DEL"><li><a class="delete" href="<hi:url>tblTxTransferRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', plTxTraceNo:'',memberNO:'',txTypeId:'',mchtNo:'',mchtTxTime:'',mchtTxTraceNo:'',txAmount:'',notifyUrl:'',txIp:'',plTxTime:'',txStatus:'',voucherNo:'',errorCode:'',errorMsg:'',settleBatchNo:'',settleStatus:'',settleDate:'',feeAmount:'',hasCountFee:'',createdDatetime:'',lastUpdatedDatetime:'',lastUpdatedBy:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', plTxTraceNo:'',userName:'',txTypeId:'',mchtNo:'',mchtTxTime:'',mchtTxTraceNo:'',txAmount:'',notifyUrl:'',txIp:'',plTxTime:'',txStatus:'',voucherNo:'',errorCode:'',errorMsg:'',settleBatchNo:'',settleStatus:'',settleDate:'',feeAmount:'',hasCountFee:'',createdDatetime:'',lastUpdatedDatetime:'',lastUpdatedBy:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -127,7 +127,7 @@
 				<th width="28"><input type="checkbox" group="orderIndexs" class="checkboxCtrl"></th>
 				</c:if>
 				<th orderField="plTxTraceNo" class="${pageInfo.sorterName eq 'plTxTraceNo' ? pageInfo.sorterDirection : ''}"><hi:text key="平台交易流水号" entity="TblTxTransfer"/></th>
-				<th orderField="memberNO" class="${pageInfo.sorterName eq 'memberNO' ? pageInfo.sorterDirection : ''}"><hi:text key="平台会员号" entity="TblTxTransfer"/></th>
+				<th orderField="userName" class="${pageInfo.sorterName eq 'userName' ? pageInfo.sorterDirection : ''}"><hi:text key="平台会员号" entity="TblTxTransfer"/></th>
 				<th orderField="txTypeId" class="${pageInfo.sorterName eq 'txTypeId' ? pageInfo.sorterDirection : ''}"><hi:text key="交易类型" entity="TblTxTransfer"/></th>
 				<th orderField="mchtNo" class="${pageInfo.sorterName eq 'mchtNo' ? pageInfo.sorterDirection : ''}"><hi:text key="商户号" entity="TblTxTransfer"/></th>
 				<th orderField="mchtTxTime" class="${pageInfo.sorterName eq 'mchtTxTime' ? pageInfo.sorterDirection : ''}"><hi:text key="交易发生时间" entity="TblTxTransfer"/></th>
@@ -163,7 +163,7 @@
 				<td><input name="orderIndexs" value="${item.id}" type="checkbox"></td>
 				</c:if>			
 				    <td>${item.plTxTraceNo}</td>
-				    <td>${item.memberNO}</td>
+				    <td>${item.userName}</td>
 				    <td>${item.txTypeId}</td>
 				    <td>${item.mchtNo}</td>
 				    <td>${item.mchtTxTime}</td>
@@ -198,7 +198,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', plTxTraceNo:'${item.plTxTraceNo}',memberNO:'${item.memberNO}',txTypeId:'${item.txTypeId}',mchtNo:'${item.mchtNo}',mchtTxTime:'${item.mchtTxTime}',mchtTxTraceNo:'${item.mchtTxTraceNo}',txAmount:'${item.txAmount}',notifyUrl:'${item.notifyUrl}',txIp:'${item.txIp}',plTxTime:'${item.plTxTime}',txStatus:'<hi:select emu="transTxStatus" name="tblTxTransfers[${s.index}].txStatus" isLabel="true"/>',voucherNo:'${item.voucherNo}',errorCode:'${item.errorCode}',errorMsg:'${item.errorMsg}',settleBatchNo:'${item.settleBatchNo}',settleStatus:'<hi:select emu="settleStatus" name="tblTxTransfers[${s.index}].settleStatus" isLabel="true"/>',settleDate:'${item.settleDate}',feeAmount:'${item.feeAmount}',hasCountFee:'<hi:select emu="hasCountFee" name="tblTxTransfers[${s.index}].hasCountFee" isLabel="true"/>',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', plTxTraceNo:'${item.plTxTraceNo}',userName:'${item.userName}',txTypeId:'${item.txTypeId}',mchtNo:'${item.mchtNo}',mchtTxTime:'${item.mchtTxTime}',mchtTxTraceNo:'${item.mchtTxTraceNo}',txAmount:'${item.txAmount}',notifyUrl:'${item.notifyUrl}',txIp:'${item.txIp}',plTxTime:'${item.plTxTime}',txStatus:'<hi:select emu="transTxStatus" name="tblTxTransfers[${s.index}].txStatus" isLabel="true"/>',voucherNo:'${item.voucherNo}',errorCode:'${item.errorCode}',errorMsg:'${item.errorMsg}',settleBatchNo:'${item.settleBatchNo}',settleStatus:'<hi:select emu="settleStatus" name="tblTxTransfers[${s.index}].settleStatus" isLabel="true"/>',settleDate:'${item.settleDate}',feeAmount:'${item.feeAmount}',hasCountFee:'<hi:select emu="hasCountFee" name="tblTxTransfers[${s.index}].hasCountFee" isLabel="true"/>',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

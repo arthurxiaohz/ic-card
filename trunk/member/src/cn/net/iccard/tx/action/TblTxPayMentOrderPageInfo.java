@@ -12,8 +12,8 @@ public class TblTxPayMentOrderPageInfo extends PageInfoView{
  	protected  String  f_id_op;
 	protected  String  f_plTxTraceNo;
  	protected  String  f_plTxTraceNo_op;
-	protected  String  f_memberNO;
- 	protected  String  f_memberNO_op;
+	protected  String  f_userName;
+ 	protected  String  f_userName_op;
 	protected  String  f_txTypeId;
  	protected  String  f_txTypeId_op;
 	protected  String  f_mchtNo;
@@ -84,6 +84,8 @@ public class TblTxPayMentOrderPageInfo extends PageInfoView{
  	protected  String  f_lastUpdatedBy_op;
 	protected  String  f_bgNotifyUrl;
  	protected  String  f_bgNotifyUrl_op;
+	protected  String  f_mchtName;
+ 	protected  String  f_mchtName_op;
 	protected  Integer  f_deleted;
  	protected  String  f_deleted_op;
 
@@ -121,20 +123,20 @@ public class TblTxPayMentOrderPageInfo extends PageInfoView{
         this.f_plTxTraceNo_op = f_plTxTraceNo_op;
     }
    
-    public String getF_memberNO() {
-        return this.f_memberNO;
+    public String getF_userName() {
+        return this.f_userName;
     }
     
-    public void setF_memberNO(String f_memberNO) {
-        this.f_memberNO = f_memberNO;
+    public void setF_userName(String f_userName) {
+        this.f_userName = f_userName;
     }
     
-    public String getF_memberNO_op() {
-        return this.f_memberNO_op;
+    public String getF_userName_op() {
+        return this.f_userName_op;
     }
     
-    public void setF_memberNO_op(String f_memberNO_op) {
-        this.f_memberNO_op = f_memberNO_op;
+    public void setF_userName_op(String f_userName_op) {
+        this.f_userName_op = f_userName_op;
     }
    
     public String getF_txTypeId() {
@@ -693,6 +695,22 @@ public class TblTxPayMentOrderPageInfo extends PageInfoView{
     
     public void setF_bgNotifyUrl_op(String f_bgNotifyUrl_op) {
         this.f_bgNotifyUrl_op = f_bgNotifyUrl_op;
+    }
+   
+    public String getF_mchtName() {
+        return this.f_mchtName;
+    }
+    
+    public void setF_mchtName(String f_mchtName) {
+        this.f_mchtName = f_mchtName;
+    }
+    
+    public String getF_mchtName_op() {
+        return this.f_mchtName_op;
+    }
+    
+    public void setF_mchtName_op(String f_mchtName_op) {
+        this.f_mchtName_op = f_mchtName_op;
     }
    
     public Integer getF_deleted() {

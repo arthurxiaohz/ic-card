@@ -7,7 +7,6 @@
 	<resultMap id="TblMbTransactionResponse" class="TblMbTransactionResponse">
 		<result property="id" column="id"/>
 		<result property="version" column="version"/>
-		<result property="responseId" column="responseId"/>
 		<result property="ordedId" column="ordedId"/>
 		<result property="orgId" column="orgId"/>
 		<result property="orgOrdedId" column="orgOrdedId"/>
@@ -31,8 +30,8 @@
 	</select>
 	
 	<insert id="insTblMbTransactionResponse" parameterClass="java.util.HashMap">    
-    	insert into Tbl_Mb_Transaction_Response (id, version, responseId, ordedId, orgId, orgOrdedId, amount, context, state, sourceIp, lastUpdatedDatetime, lastUpdatedBy, createdDatetime, creator, deleted) 
-		values (#id#, 1, #responseId#, #ordedId#, #orgId#, #orgOrdedId#, #amount#, #context#, #state#, #sourceIp#, #lastUpdatedDatetime#, #lastUpdatedBy#, #createdDatetime#, #creator#, #deleted#)
+    	insert into Tbl_Mb_Transaction_Response (id, version, ordedId, orgId, orgOrdedId, amount, context, state, sourceIp, lastUpdatedDatetime, lastUpdatedBy, createdDatetime, creator, deleted) 
+		values (#id#, 1, #ordedId#, #orgId#, #orgOrdedId#, #amount#, #context#, #state#, #sourceIp#, #lastUpdatedDatetime#, #lastUpdatedBy#, #createdDatetime#, #creator#, #deleted#)
 		<selectKey resultClass="int"  keyProperty="id" />   
 	</insert>    
    
@@ -40,7 +39,6 @@
 	<update id="updateTblMbTransactionResponse" parameterClass="java.util.HashMap">    
 		update Tbl_Mb_Transaction_Response set
             version = #version# +1,
-			responseId = #responseId#,
 			ordedId = #ordedId#,
 			orgId = #orgId#,
 			orgOrdedId = #orgOrdedId#,

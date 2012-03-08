@@ -27,11 +27,6 @@ public abstract class TblTxTransferResponseAbstract extends BaseObject implement
  	protected  Integer version;
 
  	 /**
-	 * 通知记录id标识
-	 */	
- 	protected  String responseId;
-
- 	 /**
 	 * 返回接口的版本号
 	 */	
  	protected  String versionNo;
@@ -146,19 +141,6 @@ public abstract class TblTxTransferResponseAbstract extends BaseObject implement
         		this.oldValues.put("version", this.version);
         	}
         this.version = version;
-    }
-    
-    public String getResponseId() {
-        return this.responseId;
-    }
-    
-    public void setResponseId(String responseId) {
-    		if((responseId != null && this.responseId == null) || 
-				this.responseId != null && (!this.responseId.equals(responseId) || responseId == null)){
-        		this.setDirty(true);
-        		this.oldValues.put("responseId", this.responseId);
-        	}
-        this.responseId = responseId;
     }
     
     public String getVersionNo() {
@@ -416,7 +398,6 @@ public abstract class TblTxTransferResponseAbstract extends BaseObject implement
    public String toString() {
        ToStringBuilder sb = new ToStringBuilder(this, ToStringStyle.DEFAULT_STYLE);
        sb.append("id", this.id)
-		.append("responseId", this.responseId)
 		.append("versionNo", this.versionNo)
 		.append("signMsg", this.signMsg)
 		.append("transferResult", this.transferResult)

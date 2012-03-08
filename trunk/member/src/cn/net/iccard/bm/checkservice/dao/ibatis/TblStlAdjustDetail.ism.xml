@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblStlAdjustDetail" type="cn.net.iccard.bm.checkservice.model.TblStlAdjustDetail"/>
+
+	<resultMap id="TblStlAdjustDetail" class="TblStlAdjustDetail">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="plTxTraceNo" column="plTxTraceNo"/>
+		<result property="orderId" column="orderId"/>
+		<result property="status" column="status"/>
+		<result property="createdDatetime" column="createdDatetime"/>
+		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
+		<result property="lastUpdatedBy" column="lastUpdatedBy"/>
+		<result property="description" column="description"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="deleted" column="deleted"/>
+	</resultMap>
+    
+    <select id="select_inner_TblStlAdjustDetail" resultMap="TblStlAdjustDetail" parameterClass="int">  
+       SELECT * FROM Tbl_Stl_Adjust_Detail  WHERE id =#value#
+    </select>
+  
+	<select id="getTblStlAdjustDetail" resultMap="TblStlAdjustDetail">
+		select * from Tbl_Stl_Adjust_Detail WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblStlAdjustDetail" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Stl_Adjust_Detail (id, version, plTxTraceNo, orderId, status, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, description, creator, deleted) 
+		values (#id#, 1, #plTxTraceNo#, #orderId#, #status#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #description#, #creator#, #deleted#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblStlAdjustDetail" parameterClass="java.util.HashMap">    
+		update Tbl_Stl_Adjust_Detail set
+            version = #version# +1,
+			plTxTraceNo = #plTxTraceNo#,
+			orderId = #orderId#,
+			status = #status#,
+			createdDatetime = #createdDatetime#,
+			lastUpdatedDatetime = #lastUpdatedDatetime#,
+			lastUpdatedBy = #lastUpdatedBy#,
+			description = #description#,
+			creator = #creator#,
+			deleted = #deleted#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblStlAdjustDetail" parameterClass="int">    
+		delete from Tbl_Stl_Adjust_Detail where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblStlAdjustDetail" resultMap="TblStlAdjustDetail"/> 
+  
+	<selectExt id="countTblStlAdjustDetail" resultClass="int"/> 
+
+</sqlMap>    

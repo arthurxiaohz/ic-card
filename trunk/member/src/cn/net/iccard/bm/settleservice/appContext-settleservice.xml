@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+   <!-- ===================== TblStlCleaningDetail Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.settleservice.dao.TblStlCleaningDetailDAOImpl" class="cn.net.iccard.bm.settleservice.dao.${hi.orm.package}.TblStlCleaningDetailDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.settleservice.dao.TblStlCleaningDetailDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.settleservice.dao.TblStlCleaningDetailDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.settleservice.dao.TblStlCleaningDetailDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.settleservice.model.TblStlCleaningDetail" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.settleservice.service.impl.TblStlCleaningDetailManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.settleservice.dao.TblStlCleaningDetailDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.settleservice.model.TblStlCleaningDetail"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblStlSettleBatch Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.settleservice.dao.TblStlSettleBatchDAOImpl" class="cn.net.iccard.bm.settleservice.dao.${hi.orm.package}.TblStlSettleBatchDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.settleservice.dao.TblStlSettleBatchDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.settleservice.dao.TblStlSettleBatchDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.settleservice.dao.TblStlSettleBatchDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.settleservice.model.TblStlSettleBatch" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.settleservice.service.impl.TblStlSettleBatchManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.settleservice.dao.TblStlSettleBatchDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.settleservice.model.TblStlSettleBatch"/>
+            </bean>
+        </property>
+    </bean>
+</beans>

@@ -10,7 +10,7 @@
 			<dt><hi:text key="平台交易流水号" entity="TblMbRechargeOrder"/>：</dt><dd>${tblMbRechargeOrder.plTxTraceNo}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="平台会员号" entity="TblMbRechargeOrder"/>：</dt><dd>${tblMbRechargeOrder.plNo}</dd>
+			<dt><hi:text key="账号" entity="TblMbRechargeOrder"/>：</dt><dd>${tblMbRechargeOrder.userName}</dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="账户类型" entity="TblMbRechargeOrder"/>：</dt><dd>${tblMbRechargeOrder.accountType}</dd>
@@ -40,7 +40,7 @@
 			<dt><hi:text key="交易完成时间" entity="TblMbRechargeOrder"/>：</dt><dd>${tblMbRechargeOrder.plTxTime}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="交易状态" entity="TblMbRechargeOrder"/>：</dt><dd>${tblMbRechargeOrder.txStatus}</dd>
+			<dt><hi:text key="交易状态" entity="TblMbRechargeOrder"/>：</dt><dd><hi:select emu="rechargeTxStatus" name="tblMbRechargeOrder.txStatus" isLabel="true"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="异常代码" entity="TblMbRechargeOrder"/>：</dt><dd>${tblMbRechargeOrder.errorCode}</dd>
@@ -52,7 +52,7 @@
 			<dt><hi:text key="结算批次号" entity="TblMbRechargeOrder"/>：</dt><dd>${tblMbRechargeOrder.settleBatchNo}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="结算状态" entity="TblMbRechargeOrder"/>：</dt><dd>${tblMbRechargeOrder.settleStatus}</dd>
+			<dt><hi:text key="结算状态" entity="TblMbRechargeOrder"/>：</dt><dd><hi:select emu="rechargeSettleStatus" name="tblMbRechargeOrder.settleStatus" isLabel="true"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="结算日期" entity="TblMbRechargeOrder"/>：</dt><dd>${tblMbRechargeOrder.settleDate}</dd>
@@ -67,13 +67,13 @@
 			<dt><hi:text key="最后修改人" entity="TblMbRechargeOrder"/>：</dt><dd>${tblMbRechargeOrder.lastUpdatedBy}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="银行交易状态" entity="TblMbRechargeOrder"/>：</dt><dd>${tblMbRechargeOrder.bankTxStatus}</dd>
+			<dt><hi:text key="银行交易状态" entity="TblMbRechargeOrder"/>：</dt><dd><hi:select emu="bankTxStatus" name="tblMbRechargeOrder.bankTxStatus" isLabel="true"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="对账批次号" entity="TblMbRechargeOrder"/>：</dt><dd>${tblMbRechargeOrder.checkBatchNo}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="对账状态" entity="TblMbRechargeOrder"/>：</dt><dd>${tblMbRechargeOrder.checkStatus}</dd>
+			<dt><hi:text key="对账状态" entity="TblMbRechargeOrder"/>：</dt><dd><hi:select emu="checkStatus" name="tblMbRechargeOrder.checkStatus" isLabel="true"/></dd>
 		</dl>
 
 		<div class="divider"></div>

@@ -335,11 +335,11 @@ insert into Enumeration(ID, version, enName, displayRef, description, enumeratio
 --
 delete from Enumeration where ID = 201100;
 --
-insert into Enumeration(ID, version, enName, displayRef, description, enumerationType, creator) values(201100, 0, 'hasCountFee', '结算状态', '结算状态', 0, 0);
+insert into Enumeration(ID, version, enName, displayRef, description, enumerationType, creator) values(201100, 0, 'hasCountFee', '是否已计算手续费', '是否已计算手续费', 0, 0);
 --
 delete from Enumeration where ID = 201200;
 --
-insert into Enumeration(ID, version, enName, displayRef, description, enumerationType, creator) values(201200, 0, 'transTxStatus', '结算状态', '结算状态', 0, 0);
+insert into Enumeration(ID, version, enName, displayRef, description, enumerationType, creator) values(201200, 0, 'transTxStatus', '转账交易状态', '转账交易状态', 0, 0);
 --
 
 
@@ -374,19 +374,19 @@ insert into EnumerationValue(ID, version, valueName, displayRef, description, va
 --
 delete from EnumerationValue where ID = 201000;
 --
-insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(201000, 0, 'unsettle', '未结算', '未结算', '1', 201000, 0);
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(201000, 0, 'unsettle', '未结算', '未结算', '0', 201000, 0);
 --
 delete from EnumerationValue where ID = 201001;
 --
-insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(201001, 0, 'settle', '已结算', '已结算', '2', 201000, 0);
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(201001, 0, 'settle', '已结算', '已结算', '1', 201000, 0);
 --
 delete from EnumerationValue where ID = 201100;
 --
-insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(201100, 0, 'unfee', '未计算', '未计算', '1', 201100, 0);
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(201100, 0, 'unfee', '未计算', '未计算', '0', 201100, 0);
 --
 delete from EnumerationValue where ID = 201101;
 --
-insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(201101, 0, 'fee', '已计算', '已计算', '2', 201100, 0);
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(201101, 0, 'fee', '已计算', '已计算', '1', 201100, 0);
 --
 delete from EnumerationValue where ID = 201200;
 --
@@ -412,7 +412,7 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(2
 --
 delete from HI_Language where ID = 200102;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200102, 0, '平台会员号', 'TblTxPayMentOrder', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200102, 0, '账号', 'TblTxPayMentOrder', 1, 0);
 --
 delete from HI_Language where ID = 200103;
 --
@@ -545,6 +545,10 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(2
 delete from HI_Language where ID = 200135;
 --
 insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200135, 0, '交易后台通知地址', 'TblTxPayMentOrder', 1, 0);
+--
+delete from HI_Language where ID = 200136;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200136, 0, '商户名称', 'TblTxPayMentOrder', 1, 0);
 --
 delete from HI_Language where ID = 200200;
 --
@@ -740,71 +744,67 @@ insert into HI_Language(ID, version, keyStr, creator, isSystem) values(200500, 0
 --
 delete from HI_Language where ID = 200501;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200501, 0, '通知记录id标识', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200501, 0, '返回接口的版本号', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200502;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200502, 0, '返回接口的版本号', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200502, 0, '签名内容', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200503;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200503, 0, '签名内容', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200503, 0, '转账结果', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200504;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200504, 0, '转账结果', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200504, 0, '平台交易流水号', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200505;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200505, 0, '平台交易流水号', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200505, 0, '商户订单号', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200506;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200506, 0, '商户订单号', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200506, 0, '商户转账金额', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200507;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200507, 0, '商户转账金额', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200507, 0, '交易类型', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200508;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200508, 0, '交易类型', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200508, 0, '支付完成时间', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200509;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200509, 0, '支付完成时间', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200509, 0, '扩展参数1', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200510;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200510, 0, '扩展参数1', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200510, 0, '扩展参数2', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200511;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200511, 0, '扩展参数2', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200511, 0, '创建时间', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200512;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200512, 0, '创建时间', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200512, 0, '最后修改时间', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200513;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200513, 0, '最后修改时间', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200513, 0, '最后修改人', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200514;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200514, 0, '最后修改人', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200514, 0, '错误代码', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200515;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200515, 0, '错误代码', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200515, 0, '报文内容', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200516;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200516, 0, '报文内容', 'TblTxTransferResponse', 1, 0);
---
-delete from HI_Language where ID = 200517;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200517, 0, '商户返回结果', 'TblTxTransferResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200516, 0, '商户返回结果', 'TblTxTransferResponse', 1, 0);
 --
 delete from HI_Language where ID = 200600;
 --
@@ -868,75 +868,71 @@ insert into HI_Language(ID, version, keyStr, creator, isSystem) values(200700, 0
 --
 delete from HI_Language where ID = 200701;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200701, 0, '通知记录id标识', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200701, 0, '返回接口的版本号', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200702;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200702, 0, '返回接口的版本号', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200702, 0, '签名内容', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200703;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200703, 0, '签名内容', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200703, 0, '支付结果', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200704;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200704, 0, '支付结果', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200704, 0, '商户号', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200705;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200705, 0, '商户号', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200705, 0, '商户订单号', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200706;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200706, 0, '商户订单号', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200706, 0, '商户订单金额', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200707;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200707, 0, '商户订单金额', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200707, 0, '交易类型', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200708;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200708, 0, '交易类型', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200708, 0, '在系统中的订单实际支付金额', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200709;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200709, 0, '在系统中的订单实际支付金额', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200709, 0, '支付完成时间', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200710;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200710, 0, '支付完成时间', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200710, 0, '扩展参数1', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200711;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200711, 0, '扩展参数1', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200711, 0, '扩展参数2', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200712;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200712, 0, '扩展参数2', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200712, 0, '错误代码', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200713;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200713, 0, '错误代码', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200713, 0, '报文内容', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200714;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200714, 0, '报文内容', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200714, 0, '商户返回结果', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200715;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200715, 0, '商户返回结果', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200715, 0, '创建时间', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200716;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200716, 0, '创建时间', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200716, 0, '最后修改时间', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200717;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200717, 0, '最后修改时间', 'TblTxPayMentResponse', 1, 0);
---
-delete from HI_Language where ID = 200718;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200718, 0, '最后修改人', 'TblTxPayMentResponse', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200717, 0, '最后修改人', 'TblTxPayMentResponse', 1, 0);
 --
 delete from HI_Language where ID = 200800;
 --
@@ -988,7 +984,7 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(2
 --
 delete from HI_Language where ID = 201100;
 --
-insert into HI_Language(ID, version, keyStr, creator, isSystem) values(201100, 0, '结算状态', 1, 0);
+insert into HI_Language(ID, version, keyStr, creator, isSystem) values(201100, 0, '是否已计算手续费', 1, 0);
 --
 delete from HI_Language where ID = 201101;
 --
@@ -1000,7 +996,7 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(2
 --
 delete from HI_Language where ID = 201200;
 --
-insert into HI_Language(ID, version, keyStr, creator, isSystem) values(201200, 0, '结算状态', 1, 0);
+insert into HI_Language(ID, version, keyStr, creator, isSystem) values(201200, 0, '转账交易状态', 1, 0);
 --
 delete from HI_Language where ID = 201201;
 --

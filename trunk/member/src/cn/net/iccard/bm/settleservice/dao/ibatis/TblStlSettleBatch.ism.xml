@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblStlSettleBatch" type="cn.net.iccard.bm.settleservice.model.TblStlSettleBatch"/>
+
+	<resultMap id="TblStlSettleBatch" class="TblStlSettleBatch">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="settleNo" column="settleNo"/>
+		<result property="tblMchtInfo" column="tblMchtInfo" select="select_inner_TblMchtInfo"/>
+		<result property="createdDatetime" column="createdDatetime"/>
+		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
+		<result property="lastUpdatedBy" column="lastUpdatedBy" select="select_inner_HiUser"/>
+		<result property="orderCount" column="orderCount"/>
+		<result property="balance" column="balance"/>
+		<result property="fee" column="fee"/>
+		<result property="refundCount" column="refundCount"/>
+		<result property="refundBalance" column="refundBalance"/>
+		<result property="refundFee" column="refundFee"/>
+		<result property="settleAmount" column="settleAmount"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="deleted" column="deleted"/>
+	</resultMap>
+    
+    <select id="select_inner_TblStlSettleBatch" resultMap="TblStlSettleBatch" parameterClass="int">  
+       SELECT * FROM Tbl_Stl_Settle_Batch  WHERE id =#value#
+    </select>
+  
+	<select id="getTblStlSettleBatch" resultMap="TblStlSettleBatch">
+		select * from Tbl_Stl_Settle_Batch WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblStlSettleBatch" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Stl_Settle_Batch (id, version, settleNo, tblMchtInfo, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, orderCount, balance, fee, refundCount, refundBalance, refundFee, settleAmount, creator, deleted) 
+		values (#id#, 1, #settleNo#, #tblMchtInfo#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #orderCount#, #balance#, #fee#, #refundCount#, #refundBalance#, #refundFee#, #settleAmount#, #creator#, #deleted#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblStlSettleBatch" parameterClass="java.util.HashMap">    
+		update Tbl_Stl_Settle_Batch set
+            version = #version# +1,
+			settleNo = #settleNo#,
+			tblMchtInfo = #tblMchtInfo#,
+			createdDatetime = #createdDatetime#,
+			lastUpdatedDatetime = #lastUpdatedDatetime#,
+			lastUpdatedBy = #lastUpdatedBy#,
+			orderCount = #orderCount#,
+			balance = #balance#,
+			fee = #fee#,
+			refundCount = #refundCount#,
+			refundBalance = #refundBalance#,
+			refundFee = #refundFee#,
+			settleAmount = #settleAmount#,
+			creator = #creator#,
+			deleted = #deleted#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblStlSettleBatch" parameterClass="int">    
+		delete from Tbl_Stl_Settle_Batch where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblStlSettleBatch" resultMap="TblStlSettleBatch"/> 
+  
+	<selectExt id="countTblStlSettleBatch" resultClass="int"/> 
+
+</sqlMap>    

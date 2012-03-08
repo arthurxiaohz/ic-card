@@ -34,7 +34,7 @@ public abstract class TblTxTransferAbstract extends BaseObject implements Serial
  	 /**
 	 * 平台会员号
 	 */	
- 	protected  String memberNO;
+ 	protected  String userName;
 
  	 /**
 	 * 交易类型
@@ -186,17 +186,17 @@ public abstract class TblTxTransferAbstract extends BaseObject implements Serial
         this.plTxTraceNo = plTxTraceNo;
     }
     
-    public String getMemberNO() {
-        return this.memberNO;
+    public String getUserName() {
+        return this.userName;
     }
     
-    public void setMemberNO(String memberNO) {
-    		if((memberNO != null && this.memberNO == null) || 
-				this.memberNO != null && (!this.memberNO.equals(memberNO) || memberNO == null)){
+    public void setUserName(String userName) {
+    		if((userName != null && this.userName == null) || 
+				this.userName != null && (!this.userName.equals(userName) || userName == null)){
         		this.setDirty(true);
-        		this.oldValues.put("memberNO", this.memberNO);
+        		this.oldValues.put("userName", this.userName);
         	}
-        this.memberNO = memberNO;
+        this.userName = userName;
     }
     
     public String getTxTypeId() {
@@ -507,7 +507,7 @@ public abstract class TblTxTransferAbstract extends BaseObject implements Serial
        ToStringBuilder sb = new ToStringBuilder(this, ToStringStyle.DEFAULT_STYLE);
        sb.append("id", this.id)
 		.append("plTxTraceNo", this.plTxTraceNo)
-		.append("memberNO", this.memberNO)
+		.append("userName", this.userName)
 		.append("txTypeId", this.txTypeId)
 		.append("mchtNo", this.mchtNo)
 		.append("mchtTxTime", this.mchtTxTime)

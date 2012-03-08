@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
 
-import cn.net.iccard.tx.action.special.PrepaidRequestAction;
+import cn.net.iccard.special.action.PrepaidRequestAction;
+
 
 /**
  *  检查用户名

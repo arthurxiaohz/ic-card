@@ -10,7 +10,7 @@
 			<dt><hi:text key="平台交易流水号" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.plTxTraceNo}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="平台会员号" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.memberNO}</dd>
+			<dt><hi:text key="账号" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.userName}</dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="交易类型" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.txTypeId}</dd>
@@ -43,7 +43,7 @@
 			<dt><hi:text key="交易完成时间" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.plTxTime}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="交易状态" entity="TblTxPayMentOrder"/>：</dt><dd><hi:select emu="txStatus" name="tblTxPayMentOrder.txStatus" isLabel="true"/></dd>
+			<dt><hi:text key="交易状态" entity="TblTxPayMentOrder"/>：</dt><dd><hi:select emu="orderTxStatus" name="tblTxPayMentOrder.txStatus" isLabel="true"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="凭证号" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.voucherNo}</dd>
@@ -107,6 +107,12 @@
 		</dl>
 		<dl>
 			<dt><hi:text key="最后修改人" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.lastUpdatedBy}</dd>
+		</dl>
+		<dl>
+			<dt><hi:text key="交易后台通知地址" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.bgNotifyUrl}</dd>
+		</dl>
+		<dl>
+			<dt><hi:text key="商户名称" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.mchtName}</dd>
 		</dl>
 
 		<div class="divider"></div>

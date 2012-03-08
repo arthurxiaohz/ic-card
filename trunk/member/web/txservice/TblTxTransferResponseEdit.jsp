@@ -6,9 +6,6 @@
 <div class="pageContent">
 	<div class="pageFormContent" layoutH="97">
 		<dl>
-			<dt><hi:text key="通知记录id标识" entity="TblTxTransferResponse"/>：</dt><dd><input type="text" name="tblTxTransferResponse.responseId" class="textInput required" value="${tblTxTransferResponse.responseId}" maxlength="20"/></dd>
-		</dl>
-		<dl>
 			<dt><hi:text key="返回接口的版本号" entity="TblTxTransferResponse"/>：</dt><dd><input type="text" name="tblTxTransferResponse.versionNo" class="textInput" value="${tblTxTransferResponse.versionNo}" maxlength="100"/></dd>
 		</dl>
 		<dl>

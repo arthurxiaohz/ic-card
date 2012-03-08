@@ -27,11 +27,6 @@ public abstract class TblMbTransactionResponseAbstract extends BaseObject implem
  	protected  Integer version;
 
  	 /**
-	 * 通知记录id标识
-	 */	
- 	protected  String responseId;
-
- 	 /**
 	 * 对应的系统订单号
 	 */	
  	protected  String ordedId;
@@ -74,12 +69,12 @@ public abstract class TblMbTransactionResponseAbstract extends BaseObject implem
  	 /**
 	 * 最后修改人
 	 */	
- 	protected  String lastUpdatedBy;
+ 	protected  Integer lastUpdatedBy;
 
  	 /**
 	 * 创建时间
 	 */	
- 	protected  Timestamp createdDatetime;
+ 	protected  Timestamp createdDatetime = new Timestamp(System.currentTimeMillis());
 
  	 /**
 	 * 创建人
@@ -116,19 +111,6 @@ public abstract class TblMbTransactionResponseAbstract extends BaseObject implem
         		this.oldValues.put("version", this.version);
         	}
         this.version = version;
-    }
-    
-    public String getResponseId() {
-        return this.responseId;
-    }
-    
-    public void setResponseId(String responseId) {
-    		if((responseId != null && this.responseId == null) || 
-				this.responseId != null && (!this.responseId.equals(responseId) || responseId == null)){
-        		this.setDirty(true);
-        		this.oldValues.put("responseId", this.responseId);
-        	}
-        this.responseId = responseId;
     }
     
     public String getOrdedId() {
@@ -235,11 +217,11 @@ public abstract class TblMbTransactionResponseAbstract extends BaseObject implem
         this.lastUpdatedDatetime = lastUpdatedDatetime;
     }
     
-    public String getLastUpdatedBy() {
+    public Integer getLastUpdatedBy() {
         return this.lastUpdatedBy;
     }
     
-    public void setLastUpdatedBy(String lastUpdatedBy) {
+    public void setLastUpdatedBy(Integer lastUpdatedBy) {
     		if((lastUpdatedBy != null && this.lastUpdatedBy == null) || 
 				this.lastUpdatedBy != null && (!this.lastUpdatedBy.equals(lastUpdatedBy) || lastUpdatedBy == null)){
         		this.setDirty(true);
@@ -308,7 +290,6 @@ public abstract class TblMbTransactionResponseAbstract extends BaseObject implem
    public String toString() {
        ToStringBuilder sb = new ToStringBuilder(this, ToStringStyle.DEFAULT_STYLE);
        sb.append("id", this.id)
-		.append("responseId", this.responseId)
 		.append("ordedId", this.ordedId)
 		.append("orgId", this.orgId)
 		.append("orgOrdedId", this.orgOrdedId)

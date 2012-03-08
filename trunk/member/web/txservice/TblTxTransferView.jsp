@@ -10,7 +10,7 @@
 			<dt><hi:text key="平台交易流水号" entity="TblTxTransfer"/>：</dt><dd>${tblTxTransfer.plTxTraceNo}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="平台会员号" entity="TblTxTransfer"/>：</dt><dd>${tblTxTransfer.memberNO}</dd>
+			<dt><hi:text key="平台会员号" entity="TblTxTransfer"/>：</dt><dd>${tblTxTransfer.userName}</dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="交易类型" entity="TblTxTransfer"/>：</dt><dd>${tblTxTransfer.txTypeId}</dd>
