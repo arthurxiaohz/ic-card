@@ -258,8 +258,7 @@ public class AccountTxService implements IAccountTxService {
 						FilterFactory
 								.getSimpleFilter("bizLogId",
 										accountPaidTransferRequest
-												.getRelatedBizLogId(),
-										Filter.OPERATOR_EQ)).get(0);
+												.getRelatedBizLogId())).get(0);
 		tblActAccountDetail.setSettleStatus(SettleStatus.SETTLESTATUS_SETTLED);
 		tblActAccountDetailMgr.saveObject(tblActAccountDetail);
 
@@ -318,12 +317,10 @@ public class AccountTxService implements IAccountTxService {
 		tblActAccountDetail.setDebitOrCredit(debitOrCredit);
 		tblActAccountDetail.setBalance(tblActAccountBalance
 				.getAvailableBalance());
-		int settleStatus = SettleStatus.SETTLESTATUS_SETTLED;
+		int settleStatus = SettleStatus.SETTLESTATUS_TOSETTLED;
 		if (null == expiredDate) {
 			expiredDate = DateUtils.format(new Date(), "yyyyMMdd");
 			settleStatus = SettleStatus.SETTLESTATUS_SETTLED;
-		} else {
-			settleStatus = SettleStatus.SETTLESTATUS_TOSETTLED;
 		}
 
 		tblActAccountDetail.setExpiredDate(expiredDate);
@@ -331,6 +328,57 @@ public class AccountTxService implements IAccountTxService {
 		tblActAccountDetail.setRemark(remark);
 
 		tblActAccountDetailMgr.saveTblActAccountDetail(tblActAccountDetail);
+
+	}
+
+	public IAccountDebitCreditResponse doSettle(int voucherType,
+			int originalBizType, int originalBizLogId, int bizType, int bizLogId) {
+
+		TblActAccountDetail tblActAccountDetail = null;
+		if (voucherType == VoucherType.VOUCHERTYPE_DEBITORCREDIT) {
+			// 定位借/贷凭证
+			TblActDebitCreditVoucher tblActDebitCreditVoucher = (TblActDebitCreditVoucher) tblActDebitCreditVoucherMgr
+					.getObjects(
+							FilterFactory.getSimpleFilter("bizType",
+									originalBizType).addCondition("bizLogId",
+									originalBizLogId)).get(0);
+			tblActAccountDetail = (TblActAccountDetail) tblActAccountDetailMgr
+					.getObjects(
+							FilterFactory.getSimpleFilter("voucherType",
+									voucherType).addCondition("voucherNo",
+									tblActDebitCreditVoucher.getVoucherNo()))
+					.get(0);
+
+		} else {
+			// 转账凭证
+			TblActTransferVoucher tblActTransferVoucher = (TblActTransferVoucher) tblActTransferVoucherMgr
+					.getObjects(
+							FilterFactory.getSimpleFilter("bizType",
+									originalBizType).addCondition("bizLogId",
+									originalBizLogId)).get(0);
+			tblActAccountDetail = (TblActAccountDetail) tblActAccountDetailMgr
+					.getObjects(
+							FilterFactory.getSimpleFilter("voucherType",
+									voucherType).addCondition("voucherNo",
+									tblActTransferVoucher.getVoucherNo())).get(
+							0);
+		}
+
+		tblActAccountDetail.setSettleStatus(SettleStatus.SETTLESTATUS_SETTLED);
+		tblActAccountDetailMgr.saveObject(tblActAccountDetail);
+
+		AccountDebitCreditRequest accountDebitCreditRequest = new AccountDebitCreditRequest();
+		accountDebitCreditRequest.setAccountId(tblActAccountDetail.getAmount());
+		accountDebitCreditRequest.setAmount(tblActAccountDetail.getAmount());
+		accountDebitCreditRequest.setBizType(bizType);
+		accountDebitCreditRequest.setBizLogId(bizLogId);
+		if (tblActAccountDetail.getDebitOrCredit() == DebitOrCredit.DEBITORCREDIT_DEBIT) {
+			// 生成贷记
+			return credit(accountDebitCreditRequest);
+		} else {
+			// 生成借记
+			return debit(accountDebitCreditRequest);
+		}
 
 	}
 

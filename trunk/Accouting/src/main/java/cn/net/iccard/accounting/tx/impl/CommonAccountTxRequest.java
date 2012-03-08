@@ -3,6 +3,12 @@ package cn.net.iccard.accounting.tx.impl;
 import cn.net.iccard.accounting.tx.ICommonAccountTxRequest;
 
 public class CommonAccountTxRequest implements ICommonAccountTxRequest {
+
+	/**
+	 * 商户订单金额
+	 */
+	private int mchtOrderAmount;
+
 	/**
 	 * 金额
 	 */
@@ -62,6 +68,14 @@ public class CommonAccountTxRequest implements ICommonAccountTxRequest {
 
 	public String getRemark() {
 		return remark;
+	}
+
+	public int getMchtOrderAmount() {
+		return mchtOrderAmount;
+	}
+
+	public void setMchtOrderAmount(int mchtOrderAmount) {
+		this.mchtOrderAmount = mchtOrderAmount;
 	}
 
 	public void setRemark(String remark) {

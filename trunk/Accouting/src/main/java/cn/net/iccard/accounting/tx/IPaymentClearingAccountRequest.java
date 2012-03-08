@@ -16,6 +16,8 @@ public interface IPaymentClearingAccountRequest extends Serializable {
 
 	int getMchtFee();
 
+	int getMchtOrderAmount();
+
 	int getAmount();
 
 	int getBizLogId();

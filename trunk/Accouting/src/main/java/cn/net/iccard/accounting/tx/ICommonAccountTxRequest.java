@@ -11,7 +11,16 @@ import java.io.Serializable;
 public interface ICommonAccountTxRequest extends Serializable {
 
 	/**
+	 * 商户订单金额
+	 * 
+	 * @return
+	 */
+	int getMchtOrderAmount();
+
+	/**
 	 * 金额
+	 * <p>
+	 * 会员实际支付金额，商户订单金额扣除红包等
 	 * 
 	 * @return
 	 */

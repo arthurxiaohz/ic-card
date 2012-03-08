@@ -11,6 +11,4 @@ public interface IAccountTransferRequest extends ICommonAccountTxRequest {
 	int getAccountIdFrom();
 
 	int getAccountIdTo();
-
-	String getExpiredDate();
 }

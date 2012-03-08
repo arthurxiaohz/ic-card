@@ -60,9 +60,25 @@ public interface IAccountTxService {
 			IAccountPayableCancelTransferRequest accountPayableCancelTransferRequest);
 
 	/**
+	 * 应收付确认
+	 * <p>
+	 * 
+	 * 修改原账务为已处理，并生成反向借/贷记
+	 * 
+	 * @param voucherType
+	 * @param originalBizType
+	 * @param originalBizLogId
+	 * @param bizType
+	 * @param bizLogId
+	 * @return
+	 */
+	IAccountDebitCreditResponse doSettle(int voucherType, int originalBizType,
+			int originalBizLogId, int bizType, int bizLogId);
+
+	/**
 	 * 实付转账
 	 * 
-	 * 例如：暂时未用到
+	 * 例如：暂时未用到（如果不考虑支持红包，此接口可用于支付确认）
 	 * 
 	 * @param accountTransferRequest
 	 * @return
