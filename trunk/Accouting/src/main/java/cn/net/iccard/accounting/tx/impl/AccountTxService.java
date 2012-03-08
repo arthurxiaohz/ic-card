@@ -4,19 +4,18 @@ import java.util.Date;
 
 import org.apache.tools.ant.util.DateUtils;
 import org.hi.SpringContextHolder;
-import org.hi.framework.dao.Filter;
 import org.hi.framework.dao.impl.FilterFactory;
 
 import cn.net.iccard.accounting.AccountException;
 import cn.net.iccard.accounting.EAccountResponse;
 import cn.net.iccard.accounting.tx.IAccountDebitCreditRequest;
 import cn.net.iccard.accounting.tx.IAccountDebitCreditResponse;
-import cn.net.iccard.accounting.tx.IAccountPaidTransferRequest;
 import cn.net.iccard.accounting.tx.IAccountPayableCancelTransferRequest;
 import cn.net.iccard.accounting.tx.IAccountPayableTransferRequest;
 import cn.net.iccard.accounting.tx.IAccountTransferRequest;
 import cn.net.iccard.accounting.tx.IAccountTransferResponse;
 import cn.net.iccard.accounting.tx.IAccountTxService;
+import cn.net.iccard.bm.accounting.model.BizType;
 import cn.net.iccard.bm.accounting.model.DebitOrCredit;
 import cn.net.iccard.bm.accounting.model.SettleStatus;
 import cn.net.iccard.bm.accounting.model.TblActAccountBalance;
@@ -127,7 +126,8 @@ public class AccountTxService implements IAccountTxService {
 		debit(accountTransferRequest, VoucherType.VOUCHERTYPE_TRANSFER,
 				tblActTransferVoucher.getVoucherNo(), null);
 
-		return null;
+		return new AccountTransferResponse(EAccountResponse.S0000,
+				tblActTransferVoucher.getVoucherNo());
 
 	}
 
@@ -201,13 +201,22 @@ public class AccountTxService implements IAccountTxService {
 		tblActTransferVoucherMgr
 				.saveTblActTransferVoucher(tblActTransferVoucher);
 
-		// 更新之前的应付状态
+		// 更新原账务处理的应付状态为已处理
+		// 转账凭证
+		TblActTransferVoucher tblActTransferVoucherOriginal = (TblActTransferVoucher) tblActTransferVoucherMgr
+				.getObjects(
+						FilterFactory.getSimpleFilter("bizType",
+								BizType.BIZTYPE_PREPAID).addCondition(
+								"bizLogId",
+								accountPayableCancelTransferRequest
+										.getBizLogId())).get(0);
 		TblActAccountDetail tblActAccountDetail = (TblActAccountDetail) tblActAccountDetailMgr
 				.getObjects(
-						FilterFactory.getSimpleFilter("bizLogId",
-								accountPayableCancelTransferRequest
-										.getRelatedBizLogId(),
-								Filter.OPERATOR_EQ)).get(0);
+						FilterFactory.getSimpleFilter("voucherType",
+								VoucherType.VOUCHERTYPE_TRANSFER).addCondition(
+								"voucherNo",
+								tblActTransferVoucherOriginal.getVoucherNo()))
+				.get(0);
 		tblActAccountDetail.setSettleStatus(SettleStatus.SETTLESTATUS_SETTLED);
 		tblActAccountDetailMgr.saveObject(tblActAccountDetail);
 
@@ -225,55 +234,6 @@ public class AccountTxService implements IAccountTxService {
 
 	}
 
-	public IAccountTransferResponse transfer(
-			IAccountPaidTransferRequest accountPaidTransferRequest) {
-
-		// 转账凭证
-		TblActTransferVoucher tblActTransferVoucher = new TblActTransferVoucher();
-
-		tblActTransferVoucher.setVoucherNo(DateUtils.format(new Date(),
-				"yyyyMMddHHmmssSSS")
-				+ getNextSeq());
-		tblActTransferVoucher.setActAccountFrom(tblActAccountBalanceMgr
-				.getActAccountById(accountPaidTransferRequest
-						.getAccountIdFrom()));
-		tblActTransferVoucher
-				.setActAccountTo(tblActAccountBalanceMgr
-						.getActAccountById(accountPaidTransferRequest
-								.getAccountIdTo()));
-
-		tblActTransferVoucher.setAmount(accountPaidTransferRequest.getAmount());
-		tblActTransferVoucher.setBizType(accountPaidTransferRequest
-				.getBizType());
-		tblActTransferVoucher.setBizLogId(accountPaidTransferRequest
-				.getBizLogId());
-		tblActTransferVoucher.setRemark(accountPaidTransferRequest.getRemark());
-
-		tblActTransferVoucherMgr
-				.saveTblActTransferVoucher(tblActTransferVoucher);
-
-		// 更新之前的应付状态
-		TblActAccountDetail tblActAccountDetail = (TblActAccountDetail) tblActAccountDetailMgr
-				.getObjects(
-						FilterFactory
-								.getSimpleFilter("bizLogId",
-										accountPaidTransferRequest
-												.getRelatedBizLogId())).get(0);
-		tblActAccountDetail.setSettleStatus(SettleStatus.SETTLESTATUS_SETTLED);
-		tblActAccountDetailMgr.saveObject(tblActAccountDetail);
-
-		// 贷记
-		credit(accountPaidTransferRequest, VoucherType.VOUCHERTYPE_TRANSFER,
-				tblActTransferVoucher.getVoucherNo(), null);
-
-		// 借记
-		debit(accountPaidTransferRequest, VoucherType.VOUCHERTYPE_TRANSFER,
-				tblActTransferVoucher.getVoucherNo(), null);
-
-		return null;
-
-	}
-
 	private void debit(IAccountTransferRequest accountTransferRequest,
 			int voucherType, String voucherNo, String expiredDate) {
 		charge(accountTransferRequest.getAccountIdTo(), accountTransferRequest
@@ -281,7 +241,7 @@ public class AccountTxService implements IAccountTxService {
 				voucherNo, accountTransferRequest.getRemark(), expiredDate);
 	}
 
-	public void credit(IAccountTransferRequest accountTransferRequest,
+	private void credit(IAccountTransferRequest accountTransferRequest,
 			int voucherType, String voucherNo, String expiredDate) {
 		charge(accountTransferRequest.getAccountIdFrom(),
 				accountTransferRequest.getAmount(),
@@ -336,7 +296,7 @@ public class AccountTxService implements IAccountTxService {
 
 		TblActAccountDetail tblActAccountDetail = null;
 		if (voucherType == VoucherType.VOUCHERTYPE_DEBITORCREDIT) {
-			// 定位借/贷凭证
+			// 借/贷凭证
 			TblActDebitCreditVoucher tblActDebitCreditVoucher = (TblActDebitCreditVoucher) tblActDebitCreditVoucherMgr
 					.getObjects(
 							FilterFactory.getSimpleFilter("bizType",
