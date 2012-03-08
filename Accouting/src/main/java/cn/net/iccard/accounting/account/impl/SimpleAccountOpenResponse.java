@@ -7,6 +7,11 @@ import cn.net.iccard.accounting.impl.SimpleCommonAccountResponse;
 public class SimpleAccountOpenResponse extends SimpleCommonAccountResponse
 		implements IAccountOpenResponse {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -812705862211824771L;
+
 	private int accountId;
 
 	private String accountNo;
