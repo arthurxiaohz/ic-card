@@ -61,13 +61,13 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>memberNO</columnName>
+          <columnName>userName</columnName>
           <logicalName>column3</logicalName>
-          <size>18</size>
+          <size>30</size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
-          <description>平台会员号</description>
+          <description>账号</description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
@@ -910,6 +910,31 @@
           <isMainLookup>false</isMainLookup>
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>mchtName</columnName>
+          <logicalName>column37</logicalName>
+          <size>30</size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>商户名称</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>1</hiDataType>
+          <isSearch>true</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
       </columns>
       <indices/>
       <backgroundColor>
@@ -998,9 +1023,9 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>memberNO</columnName>
+          <columnName>userName</columnName>
           <logicalName>column3</logicalName>
-          <size>18</size>
+          <size>30</size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
@@ -2251,31 +2276,6 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>responseId</columnName>
-          <logicalName>column2</logicalName>
-          <size>20</size>
-          <scale></scale>
-          <notNull>false</notNull>
-          <primaryKey>false</primaryKey>
-          <description>通知记录id标识</description>
-          <autoIncrement>false</autoIncrement>
-          <defaultValue></defaultValue>
-          <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
-          <lkServiceName></lkServiceName>
-          <lkEntityName></lkEntityName>
-          <lkFieldName></lkFieldName>
-          <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
-          <isSearch>true</isSearch>
-          <isListDisplay>true</isListDisplay>
-          <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
-          <isFull>true</isFull>
-          <isMainLookup>false</isMainLookup>
-          <isParent>false</isParent>
-        </org.hi.studio.hsceditor.visual.model.ColumnModel>
-        <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>versionNo</columnName>
           <logicalName>column4</logicalName>
           <size>100</size>
@@ -3117,31 +3117,6 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>responseId</columnName>
-          <logicalName>column2</logicalName>
-          <size>20</size>
-          <scale></scale>
-          <notNull>false</notNull>
-          <primaryKey>false</primaryKey>
-          <description>通知记录id标识</description>
-          <autoIncrement>false</autoIncrement>
-          <defaultValue></defaultValue>
-          <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
-          <lkServiceName></lkServiceName>
-          <lkEntityName></lkEntityName>
-          <lkFieldName></lkFieldName>
-          <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
-          <isSearch>true</isSearch>
-          <isListDisplay>true</isListDisplay>
-          <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
-          <isFull>true</isFull>
-          <isMainLookup>false</isMainLookup>
-          <isParent>false</isParent>
-        </org.hi.studio.hsceditor.visual.model.ColumnModel>
-        <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>versionNo</columnName>
           <logicalName>column4</logicalName>
           <size>100</size>
@@ -3878,7 +3853,7 @@
         <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
           <enumValue>unsettle</enumValue>
           <enumLabel>未结算</enumLabel>
-          <enumCode>1</enumCode>
+          <enumCode>0</enumCode>
           <columnName></columnName>
           <logicalName></logicalName>
           <size></size>
@@ -3906,7 +3881,7 @@
         <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
           <enumValue>settle</enumValue>
           <enumLabel>已结算</enumLabel>
-          <enumCode>2</enumCode>
+          <enumCode>1</enumCode>
           <columnName></columnName>
           <logicalName></logicalName>
           <size></size>
@@ -3957,7 +3932,7 @@
     </org.hi.studio.hsceditor.visual.model.EnumerationModel>
     <org.hi.studio.hsceditor.visual.model.EnumerationModel>
       <enumName>HasCountFee</enumName>
-      <enumDesc>结算状态</enumDesc>
+      <enumDesc>是否已计算手续费</enumDesc>
       <error></error>
       <linkedPath></linkedPath>
       <tableName></tableName>
@@ -3969,7 +3944,7 @@
         <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
           <enumValue>unfee</enumValue>
           <enumLabel>未计算</enumLabel>
-          <enumCode>1</enumCode>
+          <enumCode>0</enumCode>
           <columnName></columnName>
           <logicalName></logicalName>
           <size></size>
@@ -3997,7 +3972,7 @@
         <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
           <enumValue>fee</enumValue>
           <enumLabel>已计算</enumLabel>
-          <enumCode>2</enumCode>
+          <enumCode>1</enumCode>
           <columnName></columnName>
           <logicalName></logicalName>
           <size></size>
@@ -4029,8 +4004,8 @@
       <extendEntityName></extendEntityName>
       <entityBaseData>201100</entityBaseData>
       <constraint>
-        <x>463</x>
-        <y>514</y>
+        <x>411</x>
+        <y>511</y>
         <width>-1</width>
         <height>-1</height>
       </constraint>
@@ -4048,7 +4023,7 @@
     </org.hi.studio.hsceditor.visual.model.EnumerationModel>
     <org.hi.studio.hsceditor.visual.model.EnumerationModel>
       <enumName>TransTxStatus</enumName>
-      <enumDesc>结算状态</enumDesc>
+      <enumDesc>转账交易状态</enumDesc>
       <error></error>
       <linkedPath></linkedPath>
       <tableName></tableName>
