@@ -2189,7 +2189,7 @@
       <columns>
         <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
           <enumValue>toSettled</enumValue>
-          <enumLabel>待结算</enumLabel>
+          <enumLabel>待处理</enumLabel>
           <enumCode></enumCode>
           <columnName></columnName>
           <logicalName></logicalName>
@@ -2217,7 +2217,7 @@
         </org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
         <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
           <enumValue>settled</enumValue>
-          <enumLabel>已结算</enumLabel>
+          <enumLabel>已处理</enumLabel>
           <enumCode></enumCode>
           <columnName></columnName>
           <logicalName></logicalName>
