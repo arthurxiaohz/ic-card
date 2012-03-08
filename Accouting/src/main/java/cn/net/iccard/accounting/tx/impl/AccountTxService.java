@@ -328,7 +328,8 @@ public class AccountTxService implements IAccountTxService {
 		tblActAccountDetailMgr.saveObject(tblActAccountDetail);
 
 		AccountDebitCreditRequest accountDebitCreditRequest = new AccountDebitCreditRequest();
-		accountDebitCreditRequest.setAccountId(tblActAccountDetail.getAmount());
+		accountDebitCreditRequest.setAccountId(tblActAccountDetail
+				.getActAccount().getId());
 		accountDebitCreditRequest.setAmount(tblActAccountDetail.getAmount());
 		accountDebitCreditRequest.setBizType(bizType);
 		accountDebitCreditRequest.setBizLogId(bizLogId);
