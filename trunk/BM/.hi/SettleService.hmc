@@ -517,7 +517,7 @@
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
-          <description>结算状态</description>
+          <description>清分状态</description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
@@ -728,124 +728,6 @@
       <constraint>
         <x>582</x>
         <y>315</y>
-        <width>-1</width>
-        <height>-1</height>
-      </constraint>
-      <sourceConnections/>
-      <targetConnections/>
-      <listeners serialization="custom">
-        <java.beans.PropertyChangeSupport>
-          <default>
-            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-            <source class="org.hi.studio.hsceditor.visual.model.EnumerationModel" reference="../../../.."/>
-          </default>
-          <null/>
-        </java.beans.PropertyChangeSupport>
-      </listeners>
-    </org.hi.studio.hsceditor.visual.model.EnumerationModel>
-    <org.hi.studio.hsceditor.visual.model.EnumerationModel>
-      <enumName>SettleState</enumName>
-      <enumDesc>结算状态</enumDesc>
-      <error></error>
-      <linkedPath></linkedPath>
-      <tableName></tableName>
-      <logicalName></logicalName>
-      <description></description>
-      <isDeleted>false</isDeleted>
-      <isCreator>true</isCreator>
-      <columns>
-        <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
-          <enumValue>wait</enumValue>
-          <enumLabel>待结算</enumLabel>
-          <enumCode>1</enumCode>
-          <columnName></columnName>
-          <logicalName></logicalName>
-          <size></size>
-          <scale></scale>
-          <notNull>false</notNull>
-          <primaryKey>false</primaryKey>
-          <description></description>
-          <autoIncrement>false</autoIncrement>
-          <defaultValue></defaultValue>
-          <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
-          <lkServiceName></lkServiceName>
-          <lkEntityName></lkEntityName>
-          <lkFieldName></lkFieldName>
-          <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>0</hiDataType>
-          <isSearch>false</isSearch>
-          <isListDisplay>true</isListDisplay>
-          <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
-          <isFull>false</isFull>
-          <isMainLookup>false</isMainLookup>
-          <isParent>false</isParent>
-        </org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
-        <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
-          <enumValue>process</enumValue>
-          <enumLabel>结算中</enumLabel>
-          <enumCode>2</enumCode>
-          <columnName></columnName>
-          <logicalName></logicalName>
-          <size></size>
-          <scale></scale>
-          <notNull>false</notNull>
-          <primaryKey>false</primaryKey>
-          <description></description>
-          <autoIncrement>false</autoIncrement>
-          <defaultValue></defaultValue>
-          <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
-          <lkServiceName></lkServiceName>
-          <lkEntityName></lkEntityName>
-          <lkFieldName></lkFieldName>
-          <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>0</hiDataType>
-          <isSearch>false</isSearch>
-          <isListDisplay>true</isListDisplay>
-          <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
-          <isFull>false</isFull>
-          <isMainLookup>false</isMainLookup>
-          <isParent>false</isParent>
-        </org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
-        <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
-          <enumValue>finished</enumValue>
-          <enumLabel>结算完成</enumLabel>
-          <enumCode>3</enumCode>
-          <columnName></columnName>
-          <logicalName></logicalName>
-          <size></size>
-          <scale></scale>
-          <notNull>false</notNull>
-          <primaryKey>false</primaryKey>
-          <description></description>
-          <autoIncrement>false</autoIncrement>
-          <defaultValue></defaultValue>
-          <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
-          <lkServiceName></lkServiceName>
-          <lkEntityName></lkEntityName>
-          <lkFieldName></lkFieldName>
-          <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>0</hiDataType>
-          <isSearch>false</isSearch>
-          <isListDisplay>true</isListDisplay>
-          <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
-          <isFull>false</isFull>
-          <isMainLookup>false</isMainLookup>
-          <isParent>false</isParent>
-        </org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
-      </columns>
-      <indices/>
-      <extendServiceName></extendServiceName>
-      <extendEntityName></extendEntityName>
-      <entityBaseData>500400</entityBaseData>
-      <constraint>
-        <x>658</x>
-        <y>436</y>
         <width>-1</width>
         <height>-1</height>
       </constraint>
