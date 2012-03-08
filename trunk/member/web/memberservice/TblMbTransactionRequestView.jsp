@@ -54,6 +54,9 @@
 		<dl>
 			<dt><hi:text key="交易完成时间" entity="TblMbTransactionRequest"/>：</dt><dd>${tblMbTransactionRequest.plTxTime}</dd>
 		</dl>
+		<dl>
+			<dt><hi:text key=" 网关订单号" entity="TblMbTransactionRequest"/>：</dt><dd>${tblMbTransactionRequest.orderId}</dd>
+		</dl>
 
 		<div class="divider"></div>
 			</div>

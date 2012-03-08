@@ -23,6 +23,7 @@
 		<result property="accountType" column="accountType"/>
 		<result property="accountNo" column="accountNo"/>
 		<result property="plTxTime" column="plTxTime"/>
+		<result property="orderId" column="orderId"/>
 		<result property="creator" column="creator" select="select_inner_HiUser"/>
 		<result property="deleted" column="deleted"/>
 	</resultMap>
@@ -36,8 +37,8 @@
 	</select>
 	
 	<insert id="insTblMbTransactionRequest" parameterClass="java.util.HashMap">    
-    	insert into Tbl_Mb_Transaction_Request (id, version, trancode, mchtNo, amount, trxTime, txStatus, msgext, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, pan, chinfo, plTxTraceNo, currencyType, accountType, accountNo, plTxTime, creator, deleted) 
-		values (#id#, 1, #trancode#, #mchtNo#, #amount#, #trxTime#, #txStatus#, #msgext#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #pan#, #chinfo#, #plTxTraceNo#, #currencyType#, #accountType#, #accountNo#, #plTxTime#, #creator#, #deleted#)
+    	insert into Tbl_Mb_Transaction_Request (id, version, trancode, mchtNo, amount, trxTime, txStatus, msgext, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, pan, chinfo, plTxTraceNo, currencyType, accountType, accountNo, plTxTime, orderId, creator, deleted) 
+		values (#id#, 1, #trancode#, #mchtNo#, #amount#, #trxTime#, #txStatus#, #msgext#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #pan#, #chinfo#, #plTxTraceNo#, #currencyType#, #accountType#, #accountNo#, #plTxTime#, #orderId#, #creator#, #deleted#)
 		<selectKey resultClass="int"  keyProperty="id" />   
 	</insert>    
    
@@ -61,6 +62,7 @@
 			accountType = #accountType#,
 			accountNo = #accountNo#,
 			plTxTime = #plTxTime#,
+			orderId = #orderId#,
 			creator = #creator#,
 			deleted = #deleted#
     where    

@@ -63,6 +63,9 @@
 		<dl>
 			<dt><hi:text key="交易完成时间" entity="TblMbTransactionRequest"/>：</dt><dd><input type="text" name="tblMbTransactionRequest.plTxTime" class="textInput" value="${tblMbTransactionRequest.plTxTime}" maxlength="30"/></dd>
 		</dl>
+		<dl>
+			<dt><hi:text key=" 网关订单号" entity="TblMbTransactionRequest"/>：</dt><dd><input type="text" name="tblMbTransactionRequest.orderId" class="textInput" value="${tblMbTransactionRequest.orderId}" maxlength="50"/></dd>
+		</dl>
 				<input type="hidden" name="tblMbTransactionRequest.id" value="${tblMbTransactionRequest.id}"/>
 				<input type="hidden" name="tblMbTransactionRequest.creator.id" value="${tblMbTransactionRequest.creator.id}"/>
 				<input type="hidden" name="tblMbTransactionRequest.deleted" value="${tblMbTransactionRequest.deleted}"/>
