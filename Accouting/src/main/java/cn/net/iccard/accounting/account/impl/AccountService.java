@@ -9,9 +9,13 @@ import org.hi.framework.dao.Filter;
 import org.hi.framework.dao.impl.FilterFactory;
 
 import cn.net.iccard.accounting.EAccountResponse;
+import cn.net.iccard.accounting.ICommonAccountResponse;
+import cn.net.iccard.accounting.account.IAccountOpenForOrgRequest;
 import cn.net.iccard.accounting.account.IAccountOpenRequest;
-import cn.net.iccard.accounting.account.IAccountResponse;
+import cn.net.iccard.accounting.account.IAccountOpenResponse;
 import cn.net.iccard.accounting.account.IAccountService;
+import cn.net.iccard.accounting.impl.SimpleCommonAccountResponse;
+import cn.net.iccard.bm.accounting.model.AccountCatalog;
 import cn.net.iccard.bm.accounting.model.AccountPartyType;
 import cn.net.iccard.bm.accounting.model.AccountStatus;
 import cn.net.iccard.bm.accounting.model.TblActAccountBalance;
@@ -32,7 +36,8 @@ public class AccountService implements IAccountService {
 	private TblMbInfoManager tblMbInfoMgr = (TblMbInfoManager) SpringContextHolder
 			.getBean(TblMbInfo.class);
 
-	public IAccountResponse openAccount(IAccountOpenRequest accountOpenRequest) {
+	public IAccountOpenResponse openAccount(
+			IAccountOpenRequest accountOpenRequest) {
 		// TblActAccountInf和TblActAccountBalance由lookup关系修改为inheritance关系
 
 		// TblActAccountInfManager tblActAcountInfMgr =
@@ -64,6 +69,7 @@ public class AccountService implements IAccountService {
 		tblActAccountBalanceMgr.saveTblActAccountBalance(tblActAccountBalance);
 
 		if (accountOpenRequest.getAccountPartyType() == AccountPartyType.ACCOUNTPARTYTYPE_MEMBER) {
+			// 会员积分
 			TblMbPoint tblMbPoint = new TblMbPoint();
 			tblMbPoint.setTblMbInfo((HiUser) tblMbInfoMgr.getObjects(
 					FilterFactory.getSimpleFilter("userName",
@@ -76,6 +82,50 @@ public class AccountService implements IAccountService {
 		return new SimpleAccountOpenResponse(EAccountResponse.S0000,
 				tblActAccountBalance.getId(), tblActAccountBalance
 						.getAccountNo());
+	}
+
+	public ICommonAccountResponse openAccountForMcht(
+			IAccountOpenForOrgRequest accountOpenForOrgRequest) {
+
+		SimpleAccountOpenRequest simpleAccountOpenRequest = new SimpleAccountOpenRequest();
+		// 会员虚拟账户
+		simpleAccountOpenRequest
+				.setAccountCatalog(AccountCatalog.ACCOUNTCATALOG_VIRTUALACCOUNT);
+		simpleAccountOpenRequest
+				.setAccountPartyType(AccountPartyType.ACCOUNTPARTYTYPE_MEMBER);
+		simpleAccountOpenRequest.setAccountParty(accountOpenForOrgRequest
+				.getAccountParty());
+		simpleAccountOpenRequest.setAccountName(accountOpenForOrgRequest
+				.getAccountName());
+		openAccount(simpleAccountOpenRequest);
+
+		// 会员担保账户
+		simpleAccountOpenRequest
+				.setAccountCatalog(AccountCatalog.ACCOUNTCATALOG_GUARANTEEACCOUNT);
+		openAccount(simpleAccountOpenRequest);
+		return new SimpleCommonAccountResponse(EAccountResponse.S0000);
+	}
+
+	public ICommonAccountResponse openAccountForMemeber(
+			IAccountOpenForOrgRequest accountOpenForOrgRequest) {
+
+		SimpleAccountOpenRequest simpleAccountOpenRequest = new SimpleAccountOpenRequest();
+		// 商户虚拟账户
+		simpleAccountOpenRequest
+				.setAccountCatalog(AccountCatalog.ACCOUNTCATALOG_VIRTUALACCOUNT);
+		simpleAccountOpenRequest
+				.setAccountPartyType(AccountPartyType.ACCOUNTPARTYTYPE_MCHT);
+		simpleAccountOpenRequest.setAccountParty(accountOpenForOrgRequest
+				.getAccountParty());
+		simpleAccountOpenRequest.setAccountName(accountOpenForOrgRequest
+				.getAccountName());
+		openAccount(simpleAccountOpenRequest);
+
+		// 商户手续费账户
+		simpleAccountOpenRequest
+				.setAccountCatalog(AccountCatalog.ACCOUNTCATALOG_FEEACCOUNT);
+		openAccount(simpleAccountOpenRequest);
+		return new SimpleCommonAccountResponse(EAccountResponse.S0000);
 	}
 
 	private int seq = 0;
