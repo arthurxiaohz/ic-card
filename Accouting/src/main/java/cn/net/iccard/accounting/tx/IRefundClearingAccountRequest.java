@@ -14,6 +14,8 @@ public interface IRefundClearingAccountRequest extends Serializable {
 
 	String getUserName();
 
+	int getMchtOrderAmount();
+
 	int getAmount();
 
 	int getMchtFee();
