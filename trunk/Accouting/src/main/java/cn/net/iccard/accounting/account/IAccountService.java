@@ -22,7 +22,7 @@ public interface IAccountService {
 	 * 
 	 * @return
 	 */
-	ICommonAccountResponse openAccountForMemeber(
+	ICommonAccountResponse openAccountForMember(
 			IAccountOpenForOrgRequest accountOpenForOrgRequest);
 
 	/**
