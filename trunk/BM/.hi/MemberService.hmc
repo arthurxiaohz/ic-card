@@ -2936,11 +2936,11 @@
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
           <isSearch>false</isSearch>
-          <isListDisplay>true</isListDisplay>
+          <isListDisplay>false</isListDisplay>
           <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
+          <isHidden>true</isHidden>
           <isFull>false</isFull>
-          <isMainLookup>false</isMainLookup>
+          <isMainLookup>true</isMainLookup>
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
@@ -2960,12 +2960,12 @@
           <lkFieldName>fullName</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
-          <isSearch>true</isSearch>
-          <isListDisplay>true</isListDisplay>
+          <isSearch>false</isSearch>
+          <isListDisplay>false</isListDisplay>
           <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
+          <isHidden>true</isHidden>
           <isFull>false</isFull>
-          <isMainLookup>true</isMainLookup>
+          <isMainLookup>false</isMainLookup>
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
@@ -3010,10 +3010,10 @@
           <lkFieldName>mchtNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
-          <isSearch>true</isSearch>
-          <isListDisplay>true</isListDisplay>
+          <isSearch>false</isSearch>
+          <isListDisplay>false</isListDisplay>
           <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
+          <isHidden>true</isHidden>
           <isFull>false</isFull>
           <isMainLookup>true</isMainLookup>
           <isParent>false</isParent>
@@ -3036,9 +3036,9 @@
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
           <isSearch>false</isSearch>
-          <isListDisplay>true</isListDisplay>
+          <isListDisplay>false</isListDisplay>
           <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
+          <isHidden>true</isHidden>
           <isFull>false</isFull>
           <isMainLookup>false</isMainLookup>
           <isParent>false</isParent>
@@ -3061,9 +3061,9 @@
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
           <isSearch>false</isSearch>
-          <isListDisplay>true</isListDisplay>
+          <isListDisplay>false</isListDisplay>
           <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
+          <isHidden>true</isHidden>
           <isFull>false</isFull>
           <isMainLookup>false</isMainLookup>
           <isParent>false</isParent>
