@@ -16,6 +16,16 @@ public class PaymentClearingAccountRequest implements
 
 	private int mchtFee;
 
+	private int mchtOrderAmount;
+
+	public int getMchtOrderAmount() {
+		return mchtOrderAmount;
+	}
+
+	public void setMchtOrderAmount(int mchtOrderAmount) {
+		this.mchtOrderAmount = mchtOrderAmount;
+	}
+
 	private int amount;
 
 	private int bizLogId;
