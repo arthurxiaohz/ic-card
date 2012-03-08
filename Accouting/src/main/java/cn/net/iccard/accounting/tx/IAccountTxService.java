@@ -75,15 +75,4 @@ public interface IAccountTxService {
 	IAccountDebitCreditResponse doSettle(int voucherType, int originalBizType,
 			int originalBizLogId, int bizType, int bizLogId);
 
-	/**
-	 * 实付转账
-	 * 
-	 * 例如：暂时未用到（如果不考虑支持红包，此接口可用于支付确认）
-	 * 
-	 * @param accountTransferRequest
-	 * @return
-	 */
-	IAccountTransferResponse transfer(
-			IAccountPaidTransferRequest accountPaidTransferRequest);
-
 }
