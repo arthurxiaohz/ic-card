@@ -311,7 +311,7 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>mchtSettleFee</columnName>
+          <columnName>mchtSettleAmount</columnName>
           <logicalName>column24</logicalName>
           <size></size>
           <scale></scale>
