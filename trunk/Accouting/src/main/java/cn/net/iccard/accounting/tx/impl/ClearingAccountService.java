@@ -22,11 +22,14 @@ import cn.net.iccard.bm.accounting.model.ActAccount;
 import cn.net.iccard.bm.accounting.model.BizType;
 import cn.net.iccard.bm.accounting.model.VoucherType;
 import cn.net.iccard.bm.accounting.service.ActAccountManager;
-import cn.net.iccard.bm.mcht.model.SettleApplyStatus;
-import cn.net.iccard.bm.mcht.model.TblStlSettleApply;
-import cn.net.iccard.bm.mcht.service.TblStlSettleApplyManager;
+import cn.net.iccard.bm.settleservice.model.SettleApplyStatus;
+import cn.net.iccard.bm.settleservice.model.SettleBatchStatus;
 import cn.net.iccard.bm.settleservice.model.TblStlCleaningDetail;
+import cn.net.iccard.bm.settleservice.model.TblStlSettleApply;
+import cn.net.iccard.bm.settleservice.model.TblStlSettleBatch;
 import cn.net.iccard.bm.settleservice.service.TblStlCleaningDetailManager;
+import cn.net.iccard.bm.settleservice.service.TblStlSettleApplyManager;
+import cn.net.iccard.bm.settleservice.service.TblStlSettleBatchManager;
 import cn.net.iccard.tx.model.TblTxPayMentOrder;
 import cn.net.iccard.tx.service.TblTxPayMentOrderManager;
 
@@ -45,6 +48,9 @@ public class ClearingAccountService implements IClearingAccountService {
 
 	private TblStlSettleApplyManager tblStlSettleApplyMgr = (TblStlSettleApplyManager) SpringContextHolder
 			.getBean(TblStlSettleApply.class);
+
+	private TblStlSettleBatchManager tblStlSettleBatchMgr = (TblStlSettleBatchManager) SpringContextHolder
+			.getBean(TblStlSettleBatch.class);
 
 	public ICommonAccountResponse doPaymentAccountClearing(
 			IPaymentClearingAccountRequest paymentClearingAccountRequest) {
@@ -208,7 +214,8 @@ public class ClearingAccountService implements IClearingAccountService {
 
 	public ICommonAccountResponse doSettle() {
 		// 结算批次号
-		String settleBatchNo = DateUtils.format(new Date(), "yyyyMMdd")
+		Date settleDate = new Date();
+		String settleBatchNo = DateUtils.format(settleDate, "yyyyMMdd")
 				+ getNextSeq();
 		List tblStlSettleApplys = tblStlSettleApplyMgr.getObjects(FilterFactory
 				.getSimpleFilter("settleApplyStatus",
@@ -216,6 +223,16 @@ public class ClearingAccountService implements IClearingAccountService {
 		if (null == tblStlSettleApplys || tblStlSettleApplys.size() == 0) {
 			return new SimpleCommonAccountResponse(EAccountResponse.E0002);
 		}
+		TblStlSettleBatch tblStlSettleBatch = new TblStlSettleBatch();
+		tblStlSettleBatch.setSettleBatchNo(settleBatchNo);
+		int totalAmount = 0;
+		tblStlSettleBatch.setTotalAmount(totalAmount);
+		int totalCount = 0;
+		tblStlSettleBatch.setTotalCount(totalCount);
+		tblStlSettleBatch
+				.setSettleBatchStatus(SettleBatchStatus.SETTLEBATCHSTATUS_TOSETTLE);
+		tblStlSettleBatch.setSettleDate(settleDate);
+
 		for (int i = 0; i < tblStlSettleApplys.size(); i++) {
 			TblStlSettleApply tblStlSettleApply = (TblStlSettleApply) tblStlSettleApplys
 					.get(i);
@@ -249,7 +266,8 @@ public class ClearingAccountService implements IClearingAccountService {
 				// 贷记成功
 				tblStlSettleApply
 						.setSettleApplyStatus(SettleApplyStatus.SETTLEAPPLYSTATUS_SETTLING);
-
+				totalAmount = +tblStlSettleApply.getAmount();
+				totalCount++;
 			} else {
 				// 贷记失败
 				tblStlSettleApply
@@ -257,7 +275,7 @@ public class ClearingAccountService implements IClearingAccountService {
 				tblStlSettleApply.setRemark(accountDebitCreditResponse
 						.getRespMsg());
 			}
-			tblStlSettleApply.setSettleBatchNo(settleBatchNo);
+			tblStlSettleApply.setTblStlSettleBatch(tblStlSettleBatch);
 			tblStlSettleApply.setLastUpdatedDatetime(new Timestamp(System
 					.currentTimeMillis()));
 			tblStlSettleApply
@@ -267,6 +285,7 @@ public class ClearingAccountService implements IClearingAccountService {
 			tblStlSettleApplyMgr.saveTblStlSettleApply(tblStlSettleApply);
 		}
 
+		tblStlSettleBatchMgr.saveTblStlSettleBatch(tblStlSettleBatch);
 		return new SimpleCommonAccountResponse(EAccountResponse.S0000);
 	}
 
