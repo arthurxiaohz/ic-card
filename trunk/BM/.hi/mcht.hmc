@@ -2146,6 +2146,93 @@
         </java.beans.PropertyChangeSupport>
       </listeners>
     </org.hi.studio.hsceditor.visual.model.TableModel>
+    <org.hi.studio.hsceditor.visual.model.TableModel>
+      <error></error>
+      <linkedPath></linkedPath>
+      <tableName>Tbl_Mcht_User</tableName>
+      <logicalName>TblMchtUser</logicalName>
+      <description>商服用户</description>
+      <isDeleted>true</isDeleted>
+      <isCreator>true</isCreator>
+      <columns>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>id</columnName>
+          <logicalName>id</logicalName>
+          <size>20</size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>true</primaryKey>
+          <description>id</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>2</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>false</isListDisplay>
+          <isReadOnly>true</isReadOnly>
+          <isHidden>true</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>mchtNo</columnName>
+          <logicalName>column2</logicalName>
+          <size>18</size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>商户号</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>1</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>false</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+      </columns>
+      <indices/>
+      <backgroundColor>
+        <red>255</red>
+        <green>255</green>
+        <blue>206</blue>
+      </backgroundColor>
+      <extendServiceName>organization</extendServiceName>
+      <extendEntityName>HiUser</extendEntityName>
+      <entityBaseData>301100</entityBaseData>
+      <constraint>
+        <x>205</x>
+        <y>258</y>
+        <width>-1</width>
+        <height>-1</height>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections/>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+            <source class="org.hi.studio.hsceditor.visual.model.TableModel" reference="../../../.."/>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+    </org.hi.studio.hsceditor.visual.model.TableModel>
   </children>
   <dommains/>
   <dialectName></dialectName>
