@@ -632,39 +632,35 @@ insert into HI_Language(ID, version, keyStr, creator, isSystem) values(100100, 0
 --
 delete from HI_Language where ID = 100101;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100101, 0, '账号', 'TblMbInfo', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100101, 0, '证件类型', 'TblMbInfo', 1, 0);
 --
 delete from HI_Language where ID = 100102;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100102, 0, '证件类型', 'TblMbInfo', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100102, 0, '卡号', 'TblMbInfo', 1, 0);
 --
 delete from HI_Language where ID = 100103;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100103, 0, '卡号', 'TblMbInfo', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100103, 0, '实名认证状态', 'TblMbInfo', 1, 0);
 --
 delete from HI_Language where ID = 100104;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100104, 0, '实名认证状态', 'TblMbInfo', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100104, 0, '实名认证时间', 'TblMbInfo', 1, 0);
 --
 delete from HI_Language where ID = 100105;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100105, 0, '实名认证时间', 'TblMbInfo', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100105, 0, '注册时间', 'TblMbInfo', 1, 0);
 --
 delete from HI_Language where ID = 100106;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100106, 0, '注册时间', 'TblMbInfo', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100106, 0, '注册方式', 'TblMbInfo', 1, 0);
 --
 delete from HI_Language where ID = 100107;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100107, 0, '注册方式', 'TblMbInfo', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100107, 0, '创建时间', 'TblMbInfo', 1, 0);
 --
 delete from HI_Language where ID = 100108;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100108, 0, '创建时间', 'TblMbInfo', 1, 0);
---
-delete from HI_Language where ID = 100109;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100109, 0, '最后修改时间', 'TblMbInfo', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100108, 0, '最后修改时间', 'TblMbInfo', 1, 0);
 --
 delete from HI_Language where ID = 100300;
 --

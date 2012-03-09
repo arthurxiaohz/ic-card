@@ -92,3 +92,13 @@ CREATE TABLE Tbl_Mcht_Settle_Cycle_Config (
     primary key (id));
 --
 
+DROP TABLE IF EXISTS Tbl_Mcht_User;
+--
+CREATE TABLE Tbl_Mcht_User (
+    id int NOT NULL ,
+    mchtNo nvarchar (18)  NULL,
+    creator int  NULL,
+    deleted int   NULL,
+    primary key (id));
+--
+

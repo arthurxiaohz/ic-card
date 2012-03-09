@@ -1,9 +1,7 @@
 DROP TABLE IF EXISTS Tbl_Mb_Info;
 --
 CREATE TABLE Tbl_Mb_Info (
-    id int auto_increment NOT NULL ,
-    version int NOT NULL ,
-    userName nvarchar (30) NOT NULL,
+    id int NOT NULL ,
     certificateTypeId nvarchar (1)  NULL,
     cardNo nvarchar (30) NOT NULL,
     realNameStatus nvarchar (1) NOT NULL,

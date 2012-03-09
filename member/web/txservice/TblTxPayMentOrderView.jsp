@@ -31,7 +31,7 @@
 			<dt><hi:text key="原始商户交易流水号" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.lastMchtTxTraceNo}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="交易金额" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.txAmount}</dd>
+			<dt><hi:text key="订单金额" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.orderAmount}</dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="交易结果通知地址" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.notifyUrl}</dd>
@@ -113,6 +113,9 @@
 		</dl>
 		<dl>
 			<dt><hi:text key="商户名称" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.mchtName}</dd>
+		</dl>
+		<dl>
+			<dt><hi:text key="支付金额" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.payAmount}</dd>
 		</dl>
 
 		<div class="divider"></div>

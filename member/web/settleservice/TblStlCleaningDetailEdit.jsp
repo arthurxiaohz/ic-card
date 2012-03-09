@@ -31,7 +31,7 @@
 			<dt><hi:text key="最后修改人" entity="TblStlCleaningDetail"/>：</dt><dd><input type="text" name="tblStlCleaningDetail.lastUpdatedBy" class="textInput required integer" value="${tblStlCleaningDetail.lastUpdatedBy}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="金额" entity="TblStlCleaningDetail"/>：</dt><dd><input type="text" name="tblStlCleaningDetail.orderAmount" class="textInput integer" value="${tblStlCleaningDetail.orderAmount}" alt="<hi:text key="请输入整数"/>"/></dd>
+			<dt><hi:text key="订单金额" entity="TblStlCleaningDetail"/>：</dt><dd><input type="text" name="tblStlCleaningDetail.orderAmount" class="textInput integer" value="${tblStlCleaningDetail.orderAmount}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="交易时间" entity="TblStlCleaningDetail"/>：</dt><dd><input type="text" name="tblStlCleaningDetail.transTime" class="textInput" value="${tblStlCleaningDetail.transTime}" maxlength="14"/></dd>
@@ -49,7 +49,7 @@
 			<dt><hi:text key="退还的手续费用" entity="TblStlCleaningDetail"/>：</dt><dd><input type="text" name="tblStlCleaningDetail.refundFee" class="textInput integer" value="${tblStlCleaningDetail.refundFee}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="商户结算扣费金额" entity="TblStlCleaningDetail"/>：</dt><dd><input type="text" name="tblStlCleaningDetail.mchtSettleFee" class="textInput integer" value="${tblStlCleaningDetail.mchtSettleFee}" alt="<hi:text key="请输入整数"/>"/></dd>
+			<dt><hi:text key="商户结算扣费金额" entity="TblStlCleaningDetail"/>：</dt><dd><input type="text" name="tblStlCleaningDetail.mchtSettleAmount" class="textInput integer" value="${tblStlCleaningDetail.mchtSettleAmount}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="备注信息" entity="TblStlCleaningDetail"/>：</dt><dd><input type="text" name="tblStlCleaningDetail.reMark" class="textInput" value="${tblStlCleaningDetail.reMark}" maxlength="100"/></dd>
@@ -74,6 +74,12 @@
 		</dl>
 		<dl>
 			<dt><hi:text key="清分状态" entity="TblStlCleaningDetail"/>：</dt><dd><hi:select emu="cleanStatus" name="tblStlCleaningDetail.cleanStatus"/></dd>			
+		</dl>
+		<dl>
+			<dt><hi:text key="支付金额" entity="TblStlCleaningDetail"/>：</dt><dd><input type="text" name="tblStlCleaningDetail.payAmount" class="textInput integer" value="${tblStlCleaningDetail.payAmount}" alt="<hi:text key="请输入整数"/>"/></dd>
+		</dl>
+		<dl>
+			<dt><hi:text key="商户手续费" entity="TblStlCleaningDetail"/>：</dt><dd><input type="text" name="tblStlCleaningDetail.fee" class="textInput integer" value="${tblStlCleaningDetail.fee}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 				<input type="hidden" name="tblStlCleaningDetail.id" value="${tblStlCleaningDetail.id}"/>
 				<input type="hidden" name="tblStlCleaningDetail.creator.id" value="${tblStlCleaningDetail.creator.id}"/>

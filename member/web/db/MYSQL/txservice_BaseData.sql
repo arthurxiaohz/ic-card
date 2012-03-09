@@ -358,11 +358,23 @@ insert into EnumerationValue(ID, version, valueName, displayRef, description, va
 --
 delete from EnumerationValue where ID = 200803;
 --
-insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(200803, 0, 'backsuccess', '已退款', '已退款', '4', 200800, 0);
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(200803, 0, 'backsuccess', '已退款', '已退款', '7', 200800, 0);
 --
 delete from EnumerationValue where ID = 200804;
 --
 insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(200804, 0, 'revocationsuccess', '已撤销', '已撤销', '5', 200800, 0);
+--
+delete from EnumerationValue where ID = 200805;
+--
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(200805, 0, 'waitrevocation', '待撤销', '待撤销', '4', 200800, 0);
+--
+delete from EnumerationValue where ID = 200806;
+--
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(200806, 0, 'waitback', '待退款', '待退款', '6', 200800, 0);
+--
+delete from EnumerationValue where ID = 200807;
+--
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(200807, 0, 'fail', '失败', '失败', '8', 200800, 0);
 --
 delete from EnumerationValue where ID = 200900;
 --
@@ -440,7 +452,7 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(2
 --
 delete from HI_Language where ID = 200109;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200109, 0, '交易金额', 'TblTxPayMentOrder', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200109, 0, '订单金额', 'TblTxPayMentOrder', 1, 0);
 --
 delete from HI_Language where ID = 200110;
 --
@@ -549,6 +561,10 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(2
 delete from HI_Language where ID = 200136;
 --
 insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200136, 0, '商户名称', 'TblTxPayMentOrder', 1, 0);
+--
+delete from HI_Language where ID = 200137;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200137, 0, '支付金额', 'TblTxPayMentOrder', 1, 0);
 --
 delete from HI_Language where ID = 200200;
 --
@@ -957,6 +973,18 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(2
 delete from HI_Language where ID = 200805;
 --
 insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200805, 0, '已撤销', 'orderTxStatus', 1, 0);
+--
+delete from HI_Language where ID = 200806;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200806, 0, '待撤销', 'orderTxStatus', 1, 0);
+--
+delete from HI_Language where ID = 200807;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200807, 0, '待退款', 'orderTxStatus', 1, 0);
+--
+delete from HI_Language where ID = 200808;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(200808, 0, '失败', 'orderTxStatus', 1, 0);
 --
 delete from HI_Language where ID = 200900;
 --

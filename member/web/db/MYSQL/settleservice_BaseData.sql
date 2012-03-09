@@ -168,7 +168,7 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(5
 --
 delete from HI_Language where ID = 500106;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(500106, 0, '金额', 'TblStlCleaningDetail', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(500106, 0, '订单金额', 'TblStlCleaningDetail', 1, 0);
 --
 delete from HI_Language where ID = 500107;
 --
@@ -225,6 +225,14 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(5
 delete from HI_Language where ID = 500120;
 --
 insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(500120, 0, '清分状态', 'TblStlCleaningDetail', 1, 0);
+--
+delete from HI_Language where ID = 500121;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(500121, 0, '支付金额', 'TblStlCleaningDetail', 1, 0);
+--
+delete from HI_Language where ID = 500122;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(500122, 0, '商户手续费', 'TblStlCleaningDetail', 1, 0);
 --
 delete from HI_Language where ID = 500200;
 --

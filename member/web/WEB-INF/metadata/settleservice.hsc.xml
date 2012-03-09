@@ -189,7 +189,7 @@
         
                             <field>
             <fieldName>orderAmount</fieldName>
-            <fieldLabel>金额</fieldLabel>
+            <fieldLabel>订单金额</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>true</isSearch>
                                     <isListDisplay>true</isListDisplay>
@@ -356,7 +356,7 @@
         
         
                             <field>
-            <fieldName>mchtSettleFee</fieldName>
+            <fieldName>mchtSettleAmount</fieldName>
             <fieldLabel>商户结算扣费金额</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>true</isSearch>
@@ -597,6 +597,62 @@
             <fieldType>7</fieldType>
             
                          <enumerationEntity>CleanStatus</enumerationEntity>
+                        
+                       </field>
+                     
+        
+        
+                            <field>
+            <fieldName>payAmount</fieldName>
+            <fieldLabel>支付金额</fieldLabel>
+                        <isPrimaryKey>false</isPrimaryKey>
+                                    <isSearch>true</isSearch>
+                                    <isListDisplay>true</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
+                                    <isHidden>false</isHidden>
+                                    <isFull>false</isFull>
+                                    <isMainLookup>false</isMainLookup>
+                        <defaultValue></defaultValue> 
+            <validator>integer</validator>  
+            <length></length>
+            <scale></scale>
+                        <isParent>false</isParent>
+            <fieldType>2</fieldType>
+            
+                        <lookupEntity>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <mainLkFieldName></mainLkFieldName>
+            </lookupEntity>
+                        
+                       </field>
+                     
+        
+        
+                            <field>
+            <fieldName>fee</fieldName>
+            <fieldLabel>商户手续费</fieldLabel>
+                        <isPrimaryKey>false</isPrimaryKey>
+                                    <isSearch>true</isSearch>
+                                    <isListDisplay>true</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
+                                    <isHidden>false</isHidden>
+                                    <isFull>false</isFull>
+                                    <isMainLookup>false</isMainLookup>
+                        <defaultValue></defaultValue> 
+            <validator>integer</validator>  
+            <length></length>
+            <scale></scale>
+                        <isParent>false</isParent>
+            <fieldType>2</fieldType>
+            
+                        <lookupEntity>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <mainLkFieldName></mainLkFieldName>
+            </lookupEntity>
                         
                        </field>
                      

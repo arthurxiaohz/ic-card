@@ -40,7 +40,7 @@
 			<dt><hi:text key="备注" entity="TblActAccountDetail"/>：</dt><dd>${tblActAccountDetail.remark}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="截止日期" entity="TblActAccountDetail"/>：</dt><dd><fmt:formatDate value="${tblActAccountDetail.expiredDate}" pattern="yyyy-MM-dd"/></dd>				  	 
+			<dt><hi:text key="截止日期" entity="TblActAccountDetail"/>：</dt><dd>${tblActAccountDetail.expiredDate}</dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="结算状态" entity="TblActAccountDetail"/>：</dt><dd><hi:select emu="settleStatus" name="tblActAccountDetail.settleStatus" isLabel="true"/></dd>

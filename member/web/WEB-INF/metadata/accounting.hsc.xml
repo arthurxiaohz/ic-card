@@ -856,10 +856,10 @@
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
-            <length></length>
+            <length>8</length>
             <scale></scale>
                         <isParent>false</isParent>
-            <fieldType>4</fieldType>
+            <fieldType>1</fieldType>
             
                         <lookupEntity>
                 <lkServiceName></lkServiceName>
@@ -1907,8 +1907,28 @@
 		<entityLabel>业务类型</entityLabel>
 		<entityBaseData>601000</entityBaseData>
 				<enumeration>
-			<enuValue>clearing</enuValue>
-			<enuLabel>清分</enuLabel>
+			<enuValue>confirmPay</enuValue>
+			<enuLabel>确认支付</enuLabel>
+			<enuCode></enuCode>
+		</enumeration>
+				<enumeration>
+			<enuValue>prepaid</enuValue>
+			<enuLabel>预支付</enuLabel>
+			<enuCode></enuCode>
+		</enumeration>
+				<enumeration>
+			<enuValue>settlement</enuValue>
+			<enuLabel>结算</enuLabel>
+			<enuCode></enuCode>
+		</enumeration>
+				<enumeration>
+			<enuValue>cancel</enuValue>
+			<enuLabel>撤销</enuLabel>
+			<enuCode></enuCode>
+		</enumeration>
+				<enumeration>
+			<enuValue>confirmRefund</enuValue>
+			<enuLabel>确认退款</enuLabel>
 			<enuCode></enuCode>
 		</enumeration>
 			</entity>
@@ -1948,12 +1968,12 @@
 		<entityBaseData>601200</entityBaseData>
 				<enumeration>
 			<enuValue>toSettled</enuValue>
-			<enuLabel>待结算</enuLabel>
+			<enuLabel>待处理</enuLabel>
 			<enuCode></enuCode>
 		</enumeration>
 				<enumeration>
 			<enuValue>settled</enuValue>
-			<enuLabel>已结算</enuLabel>
+			<enuLabel>已处理</enuLabel>
 			<enuCode></enuCode>
 		</enumeration>
 			</entity>

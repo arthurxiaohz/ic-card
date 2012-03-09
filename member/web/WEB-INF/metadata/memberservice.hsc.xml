@@ -8,15 +8,15 @@
         
         <entity>
         <entityName>TblMbInfo</entityName>
-                <entityType>1</entityType>
+                <entityType>3</entityType>
                 <tableName>Tbl_Mb_Info</tableName>
         <entityLabel>会员信息</entityLabel>
         <entityBaseData>100100</entityBaseData>
         
                 
         <extendEntity>
-			<extendServiceName></extendServiceName>
-			<extendEntityName></extendEntityName>
+			<extendServiceName>organization</extendServiceName>
+			<extendEntityName>HiUser</extendEntityName>
 		</extendEntity> 
 		
                              <field>
@@ -35,34 +35,6 @@
             <scale></scale>
                         <isParent>false</isParent>
             <fieldType>2</fieldType>
-            
-                        <lookupEntity>
-                <lkServiceName></lkServiceName>
-                <lkEntityName></lkEntityName>
-                <isLkForeignKey>false</isLkForeignKey>
-                <mainLkFieldName></mainLkFieldName>
-            </lookupEntity>
-                        
-                       </field>
-                     
-        
-        
-                            <field>
-            <fieldName>userName</fieldName>
-            <fieldLabel>账号</fieldLabel>
-                        <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
-                                    <isReadOnly>false</isReadOnly>
-                                    <isHidden>false</isHidden>
-                                    <isFull>true</isFull>
-                                    <isMainLookup>false</isMainLookup>
-                        <defaultValue></defaultValue> 
-            <validator></validator>  
-            <length>30</length>
-            <scale></scale>
-                        <isParent>false</isParent>
-            <fieldType>1</fieldType>
             
                         <lookupEntity>
                 <lkServiceName></lkServiceName>

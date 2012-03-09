@@ -42,8 +42,8 @@
 				<input type="text" name="pageInfo.f_lastMchtTxTraceNo" value="${pageInfo.f_lastMchtTxTraceNo}"/>
 			</li>	  
 			<li>
-				<label><hi:text key="交易金额" entity="TblTxPayMentOrder"/>:</label>
-				<input type="text" name="pageInfo.f_txAmount" value="${pageInfo.f_txAmount}"/>
+				<label><hi:text key="订单金额" entity="TblTxPayMentOrder"/>:</label>
+				<input type="text" name="pageInfo.f_orderAmount" value="${pageInfo.f_orderAmount}"/>
 			</li>	  
 			<li>
 				<label><hi:text key="交易结果通知地址" entity="TblTxPayMentOrder"/>:</label>
@@ -136,7 +136,8 @@
 				<input type="text" name="pageInfo.f_mchtName" value="${pageInfo.f_mchtName}"/>
 			</li>	  
 			<li>
-
+				<label><hi:text key="支付金额" entity="TblTxPayMentOrder"/>:</label>
+				<input type="text" name="pageInfo.f_payAmount" value="${pageInfo.f_payAmount}"/>
 			</li>	  
 		</ul>
 		<div class="subBar">
@@ -154,7 +155,7 @@
 				<authz:authorize ifAnyGranted="TBLTXPAYMENTORDER_DEL"><li><a class="delete" href="<hi:url>tblTxPayMentOrderRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', plTxTraceNo:'',userName:'',txTypeId:'',mchtNo:'',mchtTxTime:'',lastMchtTxTime:'',mchtTxTraceNo:'',lastMchtTxTraceNo:'',txAmount:'',notifyUrl:'',txIp:'',plTxTime:'',txStatus:'',voucherNo:'',backVoucherNo:'',useCoupon:'',couponMsg:'',resCouponMsg:'',showUrl:'',txBody:'',payerPhone:'',verifyCode:'',confirmCode:'',orderExpireDatetime:'',errorCode:'',errorMsg:'',settleBatchNo:'',settleStatus:'',settleDate:'',feeAmount:'',hasCountFee:'',createdDatetime:'',lastUpdatedDatetime:'',lastUpdatedBy:'',bgNotifyUrl:'',mchtName:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', plTxTraceNo:'',userName:'',txTypeId:'',mchtNo:'',mchtTxTime:'',lastMchtTxTime:'',mchtTxTraceNo:'',lastMchtTxTraceNo:'',orderAmount:'',notifyUrl:'',txIp:'',plTxTime:'',txStatus:'',voucherNo:'',backVoucherNo:'',useCoupon:'',couponMsg:'',resCouponMsg:'',showUrl:'',txBody:'',payerPhone:'',verifyCode:'',confirmCode:'',orderExpireDatetime:'',errorCode:'',errorMsg:'',settleBatchNo:'',settleStatus:'',settleDate:'',feeAmount:'',hasCountFee:'',createdDatetime:'',lastUpdatedDatetime:'',lastUpdatedBy:'',bgNotifyUrl:'',mchtName:'',payAmount:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -173,7 +174,7 @@
 				<th orderField="lastMchtTxTime" class="${pageInfo.sorterName eq 'lastMchtTxTime' ? pageInfo.sorterDirection : ''}"><hi:text key="原始交易发生时间" entity="TblTxPayMentOrder"/></th>
 				<th orderField="mchtTxTraceNo" class="${pageInfo.sorterName eq 'mchtTxTraceNo' ? pageInfo.sorterDirection : ''}"><hi:text key="商户交易流水号" entity="TblTxPayMentOrder"/></th>
 				<th orderField="lastMchtTxTraceNo" class="${pageInfo.sorterName eq 'lastMchtTxTraceNo' ? pageInfo.sorterDirection : ''}"><hi:text key="原始商户交易流水号" entity="TblTxPayMentOrder"/></th>
-				<th orderField="txAmount" class="${pageInfo.sorterName eq 'txAmount' ? pageInfo.sorterDirection : ''}"><hi:text key="交易金额" entity="TblTxPayMentOrder"/></th>
+				<th orderField="orderAmount" class="${pageInfo.sorterName eq 'orderAmount' ? pageInfo.sorterDirection : ''}"><hi:text key="订单金额" entity="TblTxPayMentOrder"/></th>
 				<th orderField="notifyUrl" class="${pageInfo.sorterName eq 'notifyUrl' ? pageInfo.sorterDirection : ''}"><hi:text key="交易结果通知地址" entity="TblTxPayMentOrder"/></th>
 				<th orderField="txIp" class="${pageInfo.sorterName eq 'txIp' ? pageInfo.sorterDirection : ''}"><hi:text key="交易IP地址" entity="TblTxPayMentOrder"/></th>
 				<th orderField="plTxTime" class="${pageInfo.sorterName eq 'plTxTime' ? pageInfo.sorterDirection : ''}"><hi:text key="交易完成时间" entity="TblTxPayMentOrder"/></th>
@@ -201,6 +202,7 @@
 				<th orderField="lastUpdatedBy" class="${pageInfo.sorterName eq 'lastUpdatedBy' ? pageInfo.sorterDirection : ''}"><hi:text key="最后修改人" entity="TblTxPayMentOrder"/></th>
 				<th orderField="bgNotifyUrl" class="${pageInfo.sorterName eq 'bgNotifyUrl' ? pageInfo.sorterDirection : ''}"><hi:text key="交易后台通知地址" entity="TblTxPayMentOrder"/></th>
 				<th orderField="mchtName" class="${pageInfo.sorterName eq 'mchtName' ? pageInfo.sorterDirection : ''}"><hi:text key="商户名称" entity="TblTxPayMentOrder"/></th>
+				<th orderField="payAmount" class="${pageInfo.sorterName eq 'payAmount' ? pageInfo.sorterDirection : ''}"><hi:text key="支付金额" entity="TblTxPayMentOrder"/></th>
 				<th width="90">
 					<c:choose>
 						<c:when test="${empty lookup}"><hi:text key="操作"/></c:when>
@@ -223,7 +225,7 @@
 				    <td>${item.lastMchtTxTime}</td>
 				    <td>${item.mchtTxTraceNo}</td>
 				    <td>${item.lastMchtTxTraceNo}</td>
-				    <td>${item.txAmount}</td>
+				    <td>${item.orderAmount}</td>
 				    <td>${item.notifyUrl}</td>
 				    <td>${item.txIp}</td>
 				    <td>${item.plTxTime}</td>
@@ -251,6 +253,7 @@
 				    <td>${item.lastUpdatedBy}</td>
 				    <td>${item.bgNotifyUrl}</td>
 				    <td>${item.mchtName}</td>
+				    <td>${item.payAmount}</td>
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
@@ -265,7 +268,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', plTxTraceNo:'${item.plTxTraceNo}',userName:'${item.userName}',txTypeId:'${item.txTypeId}',mchtNo:'${item.mchtNo}',mchtTxTime:'${item.mchtTxTime}',lastMchtTxTime:'${item.lastMchtTxTime}',mchtTxTraceNo:'${item.mchtTxTraceNo}',lastMchtTxTraceNo:'${item.lastMchtTxTraceNo}',txAmount:'${item.txAmount}',notifyUrl:'${item.notifyUrl}',txIp:'${item.txIp}',plTxTime:'${item.plTxTime}',txStatus:'<hi:select emu="orderTxStatus" name="tblTxPayMentOrders[${s.index}].txStatus" isLabel="true"/>',voucherNo:'${item.voucherNo}',backVoucherNo:'${item.backVoucherNo}',useCoupon:'<hi:select emu="useCoupon" name="tblTxPayMentOrders[${s.index}].useCoupon" isLabel="true"/>',couponMsg:'${item.couponMsg}',resCouponMsg:'${item.resCouponMsg}',showUrl:'${item.showUrl}',txBody:'${item.txBody}',payerPhone:'${item.payerPhone}',verifyCode:'${item.verifyCode}',confirmCode:'${item.confirmCode}',orderExpireDatetime:'${item.orderExpireDatetime}',errorCode:'${item.errorCode}',errorMsg:'${item.errorMsg}',settleBatchNo:'${item.settleBatchNo}',settleStatus:'<hi:select emu="settleStatus" name="tblTxPayMentOrders[${s.index}].settleStatus" isLabel="true"/>',settleDate:'${item.settleDate}',feeAmount:'${item.feeAmount}',hasCountFee:'<hi:select emu="hasCountFee" name="tblTxPayMentOrders[${s.index}].hasCountFee" isLabel="true"/>',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}',bgNotifyUrl:'${item.bgNotifyUrl}',mchtName:'${item.mchtName}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', plTxTraceNo:'${item.plTxTraceNo}',userName:'${item.userName}',txTypeId:'${item.txTypeId}',mchtNo:'${item.mchtNo}',mchtTxTime:'${item.mchtTxTime}',lastMchtTxTime:'${item.lastMchtTxTime}',mchtTxTraceNo:'${item.mchtTxTraceNo}',lastMchtTxTraceNo:'${item.lastMchtTxTraceNo}',orderAmount:'${item.orderAmount}',notifyUrl:'${item.notifyUrl}',txIp:'${item.txIp}',plTxTime:'${item.plTxTime}',txStatus:'<hi:select emu="orderTxStatus" name="tblTxPayMentOrders[${s.index}].txStatus" isLabel="true"/>',voucherNo:'${item.voucherNo}',backVoucherNo:'${item.backVoucherNo}',useCoupon:'<hi:select emu="useCoupon" name="tblTxPayMentOrders[${s.index}].useCoupon" isLabel="true"/>',couponMsg:'${item.couponMsg}',resCouponMsg:'${item.resCouponMsg}',showUrl:'${item.showUrl}',txBody:'${item.txBody}',payerPhone:'${item.payerPhone}',verifyCode:'${item.verifyCode}',confirmCode:'${item.confirmCode}',orderExpireDatetime:'${item.orderExpireDatetime}',errorCode:'${item.errorCode}',errorMsg:'${item.errorMsg}',settleBatchNo:'${item.settleBatchNo}',settleStatus:'<hi:select emu="settleStatus" name="tblTxPayMentOrders[${s.index}].settleStatus" isLabel="true"/>',settleDate:'${item.settleDate}',feeAmount:'${item.feeAmount}',hasCountFee:'<hi:select emu="hasCountFee" name="tblTxPayMentOrders[${s.index}].hasCountFee" isLabel="true"/>',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}',bgNotifyUrl:'${item.bgNotifyUrl}',mchtName:'${item.mchtName}',payAmount:'${item.payAmount}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

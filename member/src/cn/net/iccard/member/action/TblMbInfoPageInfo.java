@@ -3,15 +3,13 @@ package cn.net.iccard.member.action;
 import java.sql.Timestamp;
 import java.util.Date;
 
-import org.hi.framework.web.PageInfoView;
+import org.hi.base.organization.action.HiUserPageInfo;
 import org.hi.base.organization.action.HiUserPageInfo;
 
-public class TblMbInfoPageInfo extends PageInfoView{
+public class TblMbInfoPageInfo extends HiUserPageInfo{
 
 	protected  Integer  f_id;
  	protected  String  f_id_op;
-	protected  String  f_userName;
- 	protected  String  f_userName_op;
 	protected  String  f_certificateTypeId;
  	protected  String  f_certificateTypeId_op;
 	protected  String  f_cardNo;
@@ -52,22 +50,6 @@ public class TblMbInfoPageInfo extends PageInfoView{
     
     public void setF_id_op(String f_id_op) {
         this.f_id_op = f_id_op;
-    }
-   
-    public String getF_userName() {
-        return this.f_userName;
-    }
-    
-    public void setF_userName(String f_userName) {
-        this.f_userName = f_userName;
-    }
-    
-    public String getF_userName_op() {
-        return this.f_userName_op;
-    }
-    
-    public void setF_userName_op(String f_userName_op) {
-        this.f_userName_op = f_userName_op;
     }
    
     public String getF_certificateTypeId() {

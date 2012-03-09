@@ -4,10 +4,9 @@
 
 	<typeAlias alias="TblMbInfo" type="cn.net.iccard.member.model.TblMbInfo"/>
 
-	<resultMap id="TblMbInfo" class="TblMbInfo">
+	<resultMap id="TblMbInfo" class="TblMbInfo" extends="HiUser">
 		<result property="id" column="id"/>
 		<result property="version" column="version"/>
-		<result property="userName" column="userName"/>
 		<result property="certificateTypeId" column="certificateTypeId"/>
 		<result property="cardNo" column="cardNo"/>
 		<result property="realNameStatus" column="realNameStatus"/>
@@ -30,16 +29,15 @@
 	</select>
 	
 	<insert id="insTblMbInfo" parameterClass="java.util.HashMap">    
-    	insert into Tbl_Mb_Info (id, version, userName, certificateTypeId, cardNo, realNameStatus, realNameTime, registerTime, registerWay, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, creator, deleted) 
-		values (#id#, 1, #userName#, #certificateTypeId#, #cardNo#, #realNameStatus#, #realNameTime#, #registerTime#, #registerWay#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#, #deleted#)
+    	insert into Tbl_Mb_Info (id, certificateTypeId, cardNo, realNameStatus, realNameTime, registerTime, registerWay, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, creator, deleted) 
+		values (#id#, #certificateTypeId#, #cardNo#, #realNameStatus#, #realNameTime#, #registerTime#, #registerWay#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#, #deleted#)
 		<selectKey resultClass="int"  keyProperty="id" />   
 	</insert>    
    
  
 	<update id="updateTblMbInfo" parameterClass="java.util.HashMap">    
 		update Tbl_Mb_Info set
-            version = #version# +1,
-			userName = #userName#,
+
 			certificateTypeId = #certificateTypeId#,
 			cardNo = #cardNo#,
 			realNameStatus = #realNameStatus#,

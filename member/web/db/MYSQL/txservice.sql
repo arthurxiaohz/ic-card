@@ -11,7 +11,7 @@ CREATE TABLE Tbl_Tx_PayMent_Order (
     lastMchtTxTime nvarchar (14)  NULL,
     mchtTxTraceNo nvarchar (50)  NULL,
     lastMchtTxTraceNo nvarchar (50)  NULL,
-    txAmount int   NULL,
+    orderAmount int   NULL,
     notifyUrl nvarchar (256)  NULL,
     txIp nvarchar (100)  NULL,
     plTxTime nvarchar (14)  NULL,
@@ -39,6 +39,7 @@ CREATE TABLE Tbl_Tx_PayMent_Order (
     lastUpdatedBy int   NULL,
     bgNotifyUrl nvarchar (256)  NULL,
     mchtName nvarchar (30)  NULL,
+    payAmount int   NULL,
     creator int  NULL,
     deleted int   NULL,
     primary key (id));

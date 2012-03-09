@@ -1787,5 +1787,122 @@
               
     </entity>
     
+               
+        <entity>
+        <entityName>TblMchtUser</entityName>
+                <entityType>3</entityType>
+                <tableName>Tbl_Mcht_User</tableName>
+        <entityLabel>商服用户</entityLabel>
+        <entityBaseData>301100</entityBaseData>
+        
+                
+        <extendEntity>
+			<extendServiceName>organization</extendServiceName>
+			<extendEntityName>HiUser</extendEntityName>
+		</extendEntity> 
+		
+                             <field>
+            <fieldName>id</fieldName>
+            <fieldLabel>id</fieldLabel>
+                        <isPrimaryKey>true</isPrimaryKey>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
+                                    <isReadOnly>true</isReadOnly>
+                                    <isHidden>true</isHidden>
+                                    <isFull>false</isFull>
+                                    <isMainLookup>false</isMainLookup>
+                        <defaultValue></defaultValue> 
+            <validator></validator>  
+            <length>20</length>
+            <scale></scale>
+                        <isParent>false</isParent>
+            <fieldType>2</fieldType>
+            
+                        <lookupEntity>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <mainLkFieldName></mainLkFieldName>
+            </lookupEntity>
+                        
+                       </field>
+                     
+        
+        
+                            <field>
+            <fieldName>mchtNo</fieldName>
+            <fieldLabel>商户号</fieldLabel>
+                        <isPrimaryKey>false</isPrimaryKey>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
+                                    <isHidden>false</isHidden>
+                                    <isFull>false</isFull>
+                                    <isMainLookup>false</isMainLookup>
+                        <defaultValue></defaultValue> 
+            <validator></validator>  
+            <length>18</length>
+            <scale></scale>
+                        <isParent>false</isParent>
+            <fieldType>1</fieldType>
+            
+                        <lookupEntity>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <mainLkFieldName></mainLkFieldName>
+            </lookupEntity>
+                        
+                       </field>
+                     
+        
+        
+              
+              		 <field>
+            <fieldName>creator</fieldName>
+            <fieldLabel>创建人</fieldLabel>
+            <isPrimaryKey>false</isPrimaryKey>
+            <isReadOnly>false</isReadOnly>
+            <isSearch>false</isSearch>
+            <isHidden>true</isHidden>
+            <isListDisplay>false</isListDisplay>
+            <isFull>false</isFull>
+            <isMainLookup>false</isMainLookup>
+            <fieldType>6</fieldType>
+            <length>0</length>
+            <scale>0</scale>
+            <defaultValue>org.hi.framework.security.context.UserContextHelper.getUser()</defaultValue>
+            <lookupEntity>
+                <lkServiceName>organization</lkServiceName>
+                <lkEntityName>HiUser</lkEntityName>
+                <isLkForeignKey>true</isLkForeignKey>
+                <mainLkFieldName>id</mainLkFieldName>
+            </lookupEntity>
+        </field>
+                     
+         <field>
+            <fieldName>deleted</fieldName>
+            <fieldLabel>删除标识</fieldLabel>
+            <isPrimaryKey>false</isPrimaryKey>
+            <isReadOnly>false</isReadOnly>
+            <isSearch>false</isSearch>
+            <isHidden>true</isHidden>
+            <isFull>false</isFull>
+            <isMainLookup>false</isMainLookup>
+            <fieldType>2</fieldType>
+            <length></length>
+            <scale>0</scale>
+			<defaultValue>0</defaultValue>            
+            <lookupEntity>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <mainLkFieldName></mainLkFieldName>
+            </lookupEntity>
+        </field>
+       
+              
+    </entity>
+    
            
 </service>

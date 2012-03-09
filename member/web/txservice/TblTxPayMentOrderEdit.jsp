@@ -30,7 +30,7 @@
 			<dt><hi:text key="原始商户交易流水号" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.lastMchtTxTraceNo" class="textInput" value="${tblTxPayMentOrder.lastMchtTxTraceNo}" maxlength="50"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="交易金额" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.txAmount" class="textInput integer" value="${tblTxPayMentOrder.txAmount}" alt="<hi:text key="请输入整数"/>"/></dd>
+			<dt><hi:text key="订单金额" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.orderAmount" class="textInput integer" value="${tblTxPayMentOrder.orderAmount}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="交易结果通知地址" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.notifyUrl" class="textInput" value="${tblTxPayMentOrder.notifyUrl}" maxlength="256"/></dd>
@@ -122,6 +122,9 @@
 		</dl>
 		<dl>
 			<dt><hi:text key="商户名称" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.mchtName" class="textInput" value="${tblTxPayMentOrder.mchtName}" maxlength="30"/></dd>
+		</dl>
+		<dl>
+			<dt><hi:text key="支付金额" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.payAmount" class="textInput integer" value="${tblTxPayMentOrder.payAmount}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 				<input type="hidden" name="tblTxPayMentOrder.id" value="${tblTxPayMentOrder.id}"/>
 				<input type="hidden" name="tblTxPayMentOrder.creator.id" value="${tblTxPayMentOrder.creator.id}"/>

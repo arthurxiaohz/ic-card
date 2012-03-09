@@ -3,11 +3,9 @@ package cn.net.iccard.special.action;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,14 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.hi.SpringContextHolder;
 import org.hi.framework.dao.Filter;
 import org.hi.framework.dao.impl.FilterFactory;
-import org.hi.framework.paging.PageInfo;
 import org.hi.framework.security.context.UserContextHelper;
 import org.hi.framework.web.PageInfoUtil;
 import org.hi.framework.web.struts.BaseAction;
 
 import com.alipay.services.AlipayService;
 
-import cn.net.iccard.member.action.TblMbInfoPageInfo;
 import cn.net.iccard.member.model.RechargeTxStatus;
 import cn.net.iccard.member.model.TblMbInfo;
 import cn.net.iccard.member.model.TblMbRechargeOrder;
@@ -36,14 +32,10 @@ import cn.net.iccard.tx.action.TblTxPayMentOrderPageInfo;
 import cn.net.iccard.tx.action.TblTxPayMentRequestPageInfo;
 import cn.net.iccard.tx.model.TblTxPayMentOrder;
 import cn.net.iccard.tx.model.TblTxPayMentRequest;
-import cn.net.iccard.tx.service.TblTxPayMentOrderManager;
-import cn.net.iccard.tx.service.TblTxPayMentRequestManager;
 import cn.net.iccard.tx.service.impl.TblTxPayMentOrderManagerImpl;
-import cn.net.iccard.tx.service.impl.TblTxPayMentRequestManagerImpl;
 import cn.net.iccard.util.BankTraceNoGererator;
 import cn.net.iccard.util.DateUtil;
 import cn.net.iccard.util.PLTraceNoGererator;
-import cn.net.iccard.util.StringUtil;
 
 //≥‰÷µ¥¶¿Ì
 

@@ -40,7 +40,7 @@
 				<input type="text" name="pageInfo.f_lastUpdatedBy" value="${pageInfo.f_lastUpdatedBy}"/>
 			</li>	  
 			<li>
-				<label><hi:text key="金额" entity="TblStlCleaningDetail"/>:</label>
+				<label><hi:text key="订单金额" entity="TblStlCleaningDetail"/>:</label>
 				<input type="text" name="pageInfo.f_orderAmount" value="${pageInfo.f_orderAmount}"/>
 			</li>	  
 			<li>
@@ -57,7 +57,7 @@
 			</li>	  
 			<li>
 				<label><hi:text key="商户结算扣费金额" entity="TblStlCleaningDetail"/>:</label>
-				<input type="text" name="pageInfo.f_mchtSettleFee" value="${pageInfo.f_mchtSettleFee}"/>
+				<input type="text" name="pageInfo.f_mchtSettleAmount" value="${pageInfo.f_mchtSettleAmount}"/>
 			</li>	  
 			<li>
 				<label><hi:text key="账号" entity="TblStlCleaningDetail"/>:</label>
@@ -80,6 +80,14 @@
 				<hi:search name="pageInfo.f_cleanStatus" emu="cleanStatus"/>
 			</li>	  
 			<li>
+				<label><hi:text key="支付金额" entity="TblStlCleaningDetail"/>:</label>
+				<input type="text" name="pageInfo.f_payAmount" value="${pageInfo.f_payAmount}"/>
+			</li>	  
+			<li>
+				<label><hi:text key="商户手续费" entity="TblStlCleaningDetail"/>:</label>
+				<input type="text" name="pageInfo.f_fee" value="${pageInfo.f_fee}"/>
+			</li>	  
+			<li>
 
 			</li>	  
 		</ul>
@@ -98,7 +106,7 @@
 				<authz:authorize ifAnyGranted="TBLSTLCLEANINGDETAIL_DEL"><li><a class="delete" href="<hi:url>tblStlCleaningDetailRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', plTxTraceNo:'',mchtOrderId:'',createdDatetime:'',lastUpdatedDatetime:'',lastUpdatedBy:'',orderAmount:'',transTime:'',refundOrderId:'',refundOrderAmt:'',refundAmt:'',refundFee:'',mchtSettleFee:'',reMark:'',transType:'',userName:'',balance:'',backBalance:'',mchtNo:'',mchtName:'',cleanStatus:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', plTxTraceNo:'',mchtOrderId:'',createdDatetime:'',lastUpdatedDatetime:'',lastUpdatedBy:'',orderAmount:'',transTime:'',refundOrderId:'',refundOrderAmt:'',refundAmt:'',refundFee:'',mchtSettleAmount:'',reMark:'',transType:'',userName:'',balance:'',backBalance:'',mchtNo:'',mchtName:'',cleanStatus:'',payAmount:'',fee:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -114,13 +122,13 @@
 				<th orderField="createdDatetime" class="${pageInfo.sorterName eq 'createdDatetime' ? pageInfo.sorterDirection : ''}"><hi:text key="创建时间" entity="TblStlCleaningDetail"/></th>
 				<th orderField="lastUpdatedDatetime" class="${pageInfo.sorterName eq 'lastUpdatedDatetime' ? pageInfo.sorterDirection : ''}"><hi:text key="最后修改时间" entity="TblStlCleaningDetail"/></th>
 				<th orderField="lastUpdatedBy" class="${pageInfo.sorterName eq 'lastUpdatedBy' ? pageInfo.sorterDirection : ''}"><hi:text key="最后修改人" entity="TblStlCleaningDetail"/></th>
-				<th orderField="orderAmount" class="${pageInfo.sorterName eq 'orderAmount' ? pageInfo.sorterDirection : ''}"><hi:text key="金额" entity="TblStlCleaningDetail"/></th>
+				<th orderField="orderAmount" class="${pageInfo.sorterName eq 'orderAmount' ? pageInfo.sorterDirection : ''}"><hi:text key="订单金额" entity="TblStlCleaningDetail"/></th>
 				<th orderField="transTime" class="${pageInfo.sorterName eq 'transTime' ? pageInfo.sorterDirection : ''}"><hi:text key="交易时间" entity="TblStlCleaningDetail"/></th>
 				<th orderField="refundOrderId" class="${pageInfo.sorterName eq 'refundOrderId' ? pageInfo.sorterDirection : ''}"><hi:text key="退款原始订单" entity="TblStlCleaningDetail"/></th>
 				<th orderField="refundOrderAmt" class="${pageInfo.sorterName eq 'refundOrderAmt' ? pageInfo.sorterDirection : ''}"><hi:text key="退款订单原始交易金额" entity="TblStlCleaningDetail"/></th>
 				<th orderField="refundAmt" class="${pageInfo.sorterName eq 'refundAmt' ? pageInfo.sorterDirection : ''}"><hi:text key="退款金额" entity="TblStlCleaningDetail"/></th>
 				<th orderField="refundFee" class="${pageInfo.sorterName eq 'refundFee' ? pageInfo.sorterDirection : ''}"><hi:text key="退还的手续费用" entity="TblStlCleaningDetail"/></th>
-				<th orderField="mchtSettleFee" class="${pageInfo.sorterName eq 'mchtSettleFee' ? pageInfo.sorterDirection : ''}"><hi:text key="商户结算扣费金额" entity="TblStlCleaningDetail"/></th>
+				<th orderField="mchtSettleAmount" class="${pageInfo.sorterName eq 'mchtSettleAmount' ? pageInfo.sorterDirection : ''}"><hi:text key="商户结算扣费金额" entity="TblStlCleaningDetail"/></th>
 				<th orderField="reMark" class="${pageInfo.sorterName eq 'reMark' ? pageInfo.sorterDirection : ''}"><hi:text key="备注信息" entity="TblStlCleaningDetail"/></th>
 				<th orderField="transType" class="${pageInfo.sorterName eq 'transType' ? pageInfo.sorterDirection : ''}"><hi:text key="交易类型" entity="TblStlCleaningDetail"/></th>
 				<th orderField="userName" class="${pageInfo.sorterName eq 'userName' ? pageInfo.sorterDirection : ''}"><hi:text key="账号" entity="TblStlCleaningDetail"/></th>
@@ -129,6 +137,8 @@
 				<th orderField="mchtNo" class="${pageInfo.sorterName eq 'mchtNo' ? pageInfo.sorterDirection : ''}"><hi:text key="商户号" entity="TblStlCleaningDetail"/></th>
 				<th orderField="mchtName" class="${pageInfo.sorterName eq 'mchtName' ? pageInfo.sorterDirection : ''}"><hi:text key="商户名称" entity="TblStlCleaningDetail"/></th>
 				<th orderField="cleanStatus" class="${pageInfo.sorterName eq 'cleanStatus' ? pageInfo.sorterDirection : ''}"><hi:text key="清分状态" entity="TblStlCleaningDetail"/></th>
+				<th orderField="payAmount" class="${pageInfo.sorterName eq 'payAmount' ? pageInfo.sorterDirection : ''}"><hi:text key="支付金额" entity="TblStlCleaningDetail"/></th>
+				<th orderField="fee" class="${pageInfo.sorterName eq 'fee' ? pageInfo.sorterDirection : ''}"><hi:text key="商户手续费" entity="TblStlCleaningDetail"/></th>
 				<th width="90">
 					<c:choose>
 						<c:when test="${empty lookup}"><hi:text key="操作"/></c:when>
@@ -154,7 +164,7 @@
 				    <td>${item.refundOrderAmt}</td>
 				    <td>${item.refundAmt}</td>
 				    <td>${item.refundFee}</td>
-				    <td>${item.mchtSettleFee}</td>
+				    <td>${item.mchtSettleAmount}</td>
 				    <td>${item.reMark}</td>
 				    <td>${item.transType}</td>
 				    <td>${item.userName}</td>
@@ -163,6 +173,8 @@
 				    <td>${item.mchtNo}</td>
 				    <td>${item.mchtName}</td>
 				    <td><hi:select emu="cleanStatus" name="tblStlCleaningDetails[${s.index}].cleanStatus" isLabel="true"/></td>
+				    <td>${item.payAmount}</td>
+				    <td>${item.fee}</td>
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
@@ -177,7 +189,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', plTxTraceNo:'${item.plTxTraceNo}',mchtOrderId:'${item.mchtOrderId}',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}',orderAmount:'${item.orderAmount}',transTime:'${item.transTime}',refundOrderId:'${item.refundOrderId}',refundOrderAmt:'${item.refundOrderAmt}',refundAmt:'${item.refundAmt}',refundFee:'${item.refundFee}',mchtSettleFee:'${item.mchtSettleFee}',reMark:'${item.reMark}',transType:'${item.transType}',userName:'${item.userName}',balance:'${item.balance}',backBalance:'${item.backBalance}',mchtNo:'${item.mchtNo}',mchtName:'${item.mchtName}',cleanStatus:'<hi:select emu="cleanStatus" name="tblStlCleaningDetails[${s.index}].cleanStatus" isLabel="true"/>'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', plTxTraceNo:'${item.plTxTraceNo}',mchtOrderId:'${item.mchtOrderId}',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}',orderAmount:'${item.orderAmount}',transTime:'${item.transTime}',refundOrderId:'${item.refundOrderId}',refundOrderAmt:'${item.refundOrderAmt}',refundAmt:'${item.refundAmt}',refundFee:'${item.refundFee}',mchtSettleAmount:'${item.mchtSettleAmount}',reMark:'${item.reMark}',transType:'${item.transType}',userName:'${item.userName}',balance:'${item.balance}',backBalance:'${item.backBalance}',mchtNo:'${item.mchtNo}',mchtName:'${item.mchtName}',cleanStatus:'<hi:select emu="cleanStatus" name="tblStlCleaningDetails[${s.index}].cleanStatus" isLabel="true"/>',payAmount:'${item.payAmount}',fee:'${item.fee}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

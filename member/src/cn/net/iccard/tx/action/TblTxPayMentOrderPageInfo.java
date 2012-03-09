@@ -26,8 +26,8 @@ public class TblTxPayMentOrderPageInfo extends PageInfoView{
  	protected  String  f_mchtTxTraceNo_op;
 	protected  String  f_lastMchtTxTraceNo;
  	protected  String  f_lastMchtTxTraceNo_op;
-	protected  Integer  f_txAmount;
- 	protected  String  f_txAmount_op;
+	protected  Integer  f_orderAmount;
+ 	protected  String  f_orderAmount_op;
 	protected  String  f_notifyUrl;
  	protected  String  f_notifyUrl_op;
 	protected  String  f_txIp;
@@ -86,6 +86,8 @@ public class TblTxPayMentOrderPageInfo extends PageInfoView{
  	protected  String  f_bgNotifyUrl_op;
 	protected  String  f_mchtName;
  	protected  String  f_mchtName_op;
+	protected  Integer  f_payAmount;
+ 	protected  String  f_payAmount_op;
 	protected  Integer  f_deleted;
  	protected  String  f_deleted_op;
 
@@ -235,20 +237,20 @@ public class TblTxPayMentOrderPageInfo extends PageInfoView{
         this.f_lastMchtTxTraceNo_op = f_lastMchtTxTraceNo_op;
     }
    
-    public Integer getF_txAmount() {
-        return this.f_txAmount;
+    public Integer getF_orderAmount() {
+        return this.f_orderAmount;
     }
     
-    public void setF_txAmount(Integer f_txAmount) {
-        this.f_txAmount = f_txAmount;
+    public void setF_orderAmount(Integer f_orderAmount) {
+        this.f_orderAmount = f_orderAmount;
     }
     
-    public String getF_txAmount_op() {
-        return this.f_txAmount_op;
+    public String getF_orderAmount_op() {
+        return this.f_orderAmount_op;
     }
     
-    public void setF_txAmount_op(String f_txAmount_op) {
-        this.f_txAmount_op = f_txAmount_op;
+    public void setF_orderAmount_op(String f_orderAmount_op) {
+        this.f_orderAmount_op = f_orderAmount_op;
     }
    
     public String getF_notifyUrl() {
@@ -711,6 +713,22 @@ public class TblTxPayMentOrderPageInfo extends PageInfoView{
     
     public void setF_mchtName_op(String f_mchtName_op) {
         this.f_mchtName_op = f_mchtName_op;
+    }
+   
+    public Integer getF_payAmount() {
+        return this.f_payAmount;
+    }
+    
+    public void setF_payAmount(Integer f_payAmount) {
+        this.f_payAmount = f_payAmount;
+    }
+    
+    public String getF_payAmount_op() {
+        return this.f_payAmount_op;
+    }
+    
+    public void setF_payAmount_op(String f_payAmount_op) {
+        this.f_payAmount_op = f_payAmount_op;
     }
    
     public Integer getF_deleted() {

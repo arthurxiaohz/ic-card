@@ -239,6 +239,53 @@
 			<result name="success">/mcht/TblMchtSettleCycleConfigList.jsp</result>
 			<interceptor-ref name="modelParamsStack" />
 		</action>		
+		<!-- ============= 商服用户对应的TblMchtUserAction============ --> 
+		<action name="tblMchtUser" class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMchtUserList"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction" method="tblMchtUserList">
+			<result name="success">/mcht/TblMchtUserList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtUserSave"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction" method="saveTblMchtUser">
+			<result name="success" type="redirect-action">tblMchtUserList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMchtUserEdit"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction" method="viewTblMchtUser">
+			<result name="success">/mcht/TblMchtUserEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtUserView"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction" method="viewTblMchtUser">
+			<result name="success">/mcht/TblMchtUserView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMchtUserRemove"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction" method="removeTblMchtUser">
+			<result name="success" type="redirect-action">tblMchtUserList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtUserRemoveAll"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction" method="removeAllTblMchtUser">
+			<result name="success" type="redirect-action">tblMchtUserList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMchtUserLookup"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction" method="tblMchtUserList">
+			<result name="success">/mcht/TblMchtUserList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
 
 </package>
 </struts>

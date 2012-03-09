@@ -107,4 +107,25 @@
             </bean>
         </property>
     </bean>
+
+   <!-- ===================== TblMchtUser Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.mcht.dao.TblMchtUserDAOImpl" class="cn.net.iccard.bm.mcht.dao.${hi.orm.package}.TblMchtUserDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.mcht.dao.TblMchtUserDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.mcht.dao.TblMchtUserDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.mcht.dao.TblMchtUserDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.mcht.model.TblMchtUser" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.mcht.service.impl.TblMchtUserManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.mcht.dao.TblMchtUserDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.mcht.model.TblMchtUser"/>
+            </bean>
+        </property>
+    </bean>
 </beans>
