@@ -1084,7 +1084,7 @@
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
-          <lkServiceName>mcht</lkServiceName>
+          <lkServiceName>settleservice</lkServiceName>
           <lkEntityName>TblStlSettleBatch</lkEntityName>
           <lkFieldName>id</lkFieldName>
           <isLkForeignKey>true</isLkForeignKey>
@@ -1109,7 +1109,7 @@
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
-          <lkServiceName>mcht</lkServiceName>
+          <lkServiceName>settleservice</lkServiceName>
           <lkEntityName>TblStlSettleBatch</lkEntityName>
           <lkFieldName>settleBatchNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
