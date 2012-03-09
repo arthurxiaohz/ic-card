@@ -28,4 +28,11 @@ public interface IClearingAccountService {
 	ICommonAccountResponse doRefundAccountClearing(
 			IRefundClearingAccountRequest refundClearingAccountRequest);
 
+	/**
+	 * Ω·À„
+	 * 
+	 * @return
+	 */
+	ICommonAccountResponse doSettle();
+
 }

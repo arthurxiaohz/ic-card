@@ -1,11 +1,17 @@
 package cn.net.iccard.accounting.tx.impl;
 
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
+
+import org.apache.tools.ant.util.DateUtils;
 import org.hi.SpringContextHolder;
 import org.hi.framework.dao.impl.FilterFactory;
 
 import cn.net.iccard.accounting.EAccountResponse;
 import cn.net.iccard.accounting.ICommonAccountResponse;
 import cn.net.iccard.accounting.impl.SimpleCommonAccountResponse;
+import cn.net.iccard.accounting.tx.IAccountDebitCreditResponse;
 import cn.net.iccard.accounting.tx.IAccountTxService;
 import cn.net.iccard.accounting.tx.IClearingAccountService;
 import cn.net.iccard.accounting.tx.IPaymentClearingAccountRequest;
@@ -16,6 +22,9 @@ import cn.net.iccard.bm.accounting.model.ActAccount;
 import cn.net.iccard.bm.accounting.model.BizType;
 import cn.net.iccard.bm.accounting.model.VoucherType;
 import cn.net.iccard.bm.accounting.service.ActAccountManager;
+import cn.net.iccard.bm.mcht.model.SettleApplyStatus;
+import cn.net.iccard.bm.mcht.model.TblStlSettleApply;
+import cn.net.iccard.bm.mcht.service.TblStlSettleApplyManager;
 import cn.net.iccard.bm.settleservice.model.TblStlCleaningDetail;
 import cn.net.iccard.bm.settleservice.service.TblStlCleaningDetailManager;
 import cn.net.iccard.tx.model.TblTxPayMentOrder;
@@ -33,6 +42,9 @@ public class ClearingAccountService implements IClearingAccountService {
 
 	private TblTxPayMentOrderManager tblTxPayMentOrderManager = (TblTxPayMentOrderManager) SpringContextHolder
 			.getBean(TblTxPayMentOrder.class);
+
+	private TblStlSettleApplyManager tblStlSettleApplyMgr = (TblStlSettleApplyManager) SpringContextHolder
+			.getBean(TblStlSettleApply.class);
 
 	public ICommonAccountResponse doPaymentAccountClearing(
 			IPaymentClearingAccountRequest paymentClearingAccountRequest) {
@@ -194,4 +206,76 @@ public class ClearingAccountService implements IClearingAccountService {
 		return new SimpleCommonAccountResponse(EAccountResponse.S0000);
 	}
 
+	public ICommonAccountResponse doSettle() {
+		// 结算批次号
+		String settleBatchNo = DateUtils.format(new Date(), "yyyyMMdd")
+				+ getNextSeq();
+		List tblStlSettleApplys = tblStlSettleApplyMgr.getObjects(FilterFactory
+				.getSimpleFilter("settleApplyStatus",
+						SettleApplyStatus.SETTLEAPPLYSTATUS_CHECKPASS));
+		if (null == tblStlSettleApplys || tblStlSettleApplys.size() == 0) {
+			return new SimpleCommonAccountResponse(EAccountResponse.E0002);
+		}
+		for (int i = 0; i < tblStlSettleApplys.size(); i++) {
+			TblStlSettleApply tblStlSettleApply = (TblStlSettleApply) tblStlSettleApplys
+					.get(i);
+			AccountDebitCreditRequest accountDebitCreditRequest = new AccountDebitCreditRequest();
+			// 商户虚拟账户
+			int mchtVirtualAccountId = ((ActAccount) actAccountManager
+					.getObjects(
+							FilterFactory
+									.getSimpleFilter(
+											"accountPartyType",
+											AccountPartyType.ACCOUNTPARTYTYPE_MCHT)
+									.addCondition(
+											"accountParty",
+											tblStlSettleApply.getTblMchtInfo()
+													.getMchtNo())
+									.addCondition(
+											"accountCatalog",
+											AccountCatalog.ACCOUNTCATALOG_VIRTUALACCOUNT))
+					.get(0)).getId();
+
+			accountDebitCreditRequest.setAccountId(mchtVirtualAccountId);
+			accountDebitCreditRequest.setAmount(tblStlSettleApply.getAmount());
+			accountDebitCreditRequest.setBizType(BizType.BIZTYPE_SETTLEMENT);
+			accountDebitCreditRequest.setBizLogId(tblStlSettleApply.getId());
+			accountDebitCreditRequest.setRemark("结算");
+
+			IAccountDebitCreditResponse accountDebitCreditResponse = accountTxService
+					.credit(accountDebitCreditRequest);
+			if (EAccountResponse.S0000.getValue().equals(
+					accountDebitCreditResponse.getRespCode())) {
+				// 贷记成功
+				tblStlSettleApply
+						.setSettleApplyStatus(SettleApplyStatus.SETTLEAPPLYSTATUS_SETTLING);
+
+			} else {
+				// 贷记失败
+				tblStlSettleApply
+						.setSettleApplyStatus(SettleApplyStatus.SETTLEAPPLYSTATUS_SETTLEFAIL);
+				tblStlSettleApply.setRemark(accountDebitCreditResponse
+						.getRespMsg());
+			}
+			tblStlSettleApply.setSettleBatchNo(settleBatchNo);
+			tblStlSettleApply.setLastUpdatedDatetime(new Timestamp(System
+					.currentTimeMillis()));
+			tblStlSettleApply
+					.setLastUpdatedBy(org.hi.framework.security.context.UserContextHelper
+							.getUser());
+
+			tblStlSettleApplyMgr.saveTblStlSettleApply(tblStlSettleApply);
+		}
+
+		return new SimpleCommonAccountResponse(EAccountResponse.S0000);
+	}
+
+	private int seq = 0;
+	private final int MAX_PER_SECOND = 99;
+
+	private synchronized int getNextSeq() {
+		seq++;
+		seq %= MAX_PER_SECOND;
+		return seq + 100;
+	}
 }
