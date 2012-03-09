@@ -1058,7 +1058,7 @@
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>txStatus</columnName>
           <logicalName>column13</logicalName>
-          <size>1</size>
+          <size></size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
@@ -1068,10 +1068,10 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName></lkServiceName>
-          <lkEntityName></lkEntityName>
+          <lkEntityName>RechargeTxStatus</lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
+          <hiDataType>7</hiDataType>
           <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
