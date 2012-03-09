@@ -1252,7 +1252,7 @@
     </org.hi.studio.hsceditor.visual.model.TableModel>
     <org.hi.studio.hsceditor.visual.model.EnumerationModel>
       <enumName>SettleApplyStatus</enumName>
-      <enumDesc>结算状态</enumDesc>
+      <enumDesc>结算申请状态</enumDesc>
       <error></error>
       <linkedPath></linkedPath>
       <tableName></tableName>
