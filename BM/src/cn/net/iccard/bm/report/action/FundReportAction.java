@@ -1,7 +1,9 @@
 package cn.net.iccard.bm.report.action;
 
+import java.util.Date;
 import java.util.List;
 
+import org.apache.tools.ant.util.DateUtils;
 import org.hi.SpringContextHolder;
 import org.hi.base.report.excel.action.struts.JXLSExcelBaseAction;
 import org.hi.framework.dao.impl.FilterFactory;
@@ -22,7 +24,7 @@ public class FundReportAction extends JXLSExcelBaseAction {
 
 	private TblStlSettleBatch tblStlSettleBatch;
 
-	private String currentDate;
+	private String currentDate = DateUtils.format(new Date(), "yyyy/MM/dd");
 
 	private List resultList;
 
@@ -37,7 +39,8 @@ public class FundReportAction extends JXLSExcelBaseAction {
 				.getTblStlSettleBatchById(id);
 		// Ω·À„÷–
 		resultList = tblStlSettleApplyMgr.getObjects(FilterFactory
-				.getSimpleFilter("id", id).addCondition("settleApplyStatus",
+				.getSimpleFilter("tblStlSettleBatch", id).addCondition(
+						"settleApplyStatus",
 						SettleApplyStatus.SETTLEAPPLYSTATUS_SETTLING));
 	}
 
