@@ -1573,7 +1573,7 @@
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
-          <description>结算总条数</description>
+          <description>总条数</description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
@@ -1598,7 +1598,7 @@
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
-          <description>结算总金额</description>
+          <description>总金额</description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
