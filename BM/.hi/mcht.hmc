@@ -589,8 +589,8 @@
       <extendEntityName></extendEntityName>
       <entityBaseData>300200</entityBaseData>
       <constraint>
-        <x>1037</x>
-        <y>327</y>
+        <x>1308</x>
+        <y>361</y>
         <width>-1</width>
         <height>-1</height>
       </constraint>
@@ -919,7 +919,7 @@
             <extendEntityName></extendEntityName>
             <entityBaseData>300600</entityBaseData>
             <constraint>
-              <x>1210</x>
+              <x>1308</x>
               <y>40</y>
               <width>-1</width>
               <height>-1</height>
@@ -1273,7 +1273,7 @@
             <extendEntityName></extendEntityName>
             <entityBaseData>300800</entityBaseData>
             <constraint>
-              <x>1548</x>
+              <x>1646</x>
               <y>40</y>
               <width>-1</width>
               <height>-1</height>
@@ -1502,7 +1502,7 @@
             <extendEntityName></extendEntityName>
             <entityBaseData>300300</entityBaseData>
             <constraint>
-              <x>534</x>
+              <x>970</x>
               <y>40</y>
               <width>-1</width>
               <height>-1</height>
@@ -1764,7 +1764,7 @@
       <extendEntityName></extendEntityName>
       <entityBaseData>300700</entityBaseData>
       <constraint>
-        <x>1861</x>
+        <x>534</x>
         <y>40</y>
         <width>-1</width>
         <height>-1</height>
@@ -1827,7 +1827,7 @@
       <extendEntityName></extendEntityName>
       <entityBaseData>300900</entityBaseData>
       <constraint>
-        <x>2108</x>
+        <x>779</x>
         <y>40</y>
         <width>-1</width>
         <height>-1</height>
@@ -1917,7 +1917,7 @@
       <extendEntityName></extendEntityName>
       <entityBaseData>301000</entityBaseData>
       <constraint>
-        <x>2300</x>
+        <x>1964</x>
         <y>40</y>
         <width>-1</width>
         <height>-1</height>
@@ -2129,7 +2129,7 @@
       <extendEntityName></extendEntityName>
       <entityBaseData>300400</entityBaseData>
       <constraint>
-        <x>872</x>
+        <x>2177</x>
         <y>40</y>
         <width>-1</width>
         <height>-1</height>
@@ -2216,8 +2216,8 @@
       <extendEntityName>HiUser</extendEntityName>
       <entityBaseData>301100</entityBaseData>
       <constraint>
-        <x>205</x>
-        <y>258</y>
+        <x>2515</x>
+        <y>40</y>
         <width>-1</width>
         <height>-1</height>
       </constraint>
@@ -2418,8 +2418,33 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>settleBatchNo</columnName>
+          <columnName>tblStlSettleBatch</columnName>
           <logicalName>column12</logicalName>
+          <size></size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>结算批次</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName>mcht</lkServiceName>
+          <lkEntityName>TblStlSettleBatch</lkEntityName>
+          <lkFieldName>id</lkFieldName>
+          <isLkForeignKey>true</isLkForeignKey>
+          <hiDataType>6</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>false</isListDisplay>
+          <isReadOnly>true</isReadOnly>
+          <isHidden>true</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>settleBatchNo</columnName>
+          <logicalName>settleBatchNo</logicalName>
           <size>11</size>
           <scale></scale>
           <notNull>false</notNull>
@@ -2429,17 +2454,17 @@
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
-          <lkServiceName></lkServiceName>
-          <lkEntityName></lkEntityName>
-          <lkFieldName></lkFieldName>
+          <lkServiceName>mcht</lkServiceName>
+          <lkEntityName>TblStlSettleBatch</lkEntityName>
+          <lkFieldName>settleBatchNo</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
-          <isSearch>false</isSearch>
+          <hiDataType>6</hiDataType>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
           <isFull>false</isFull>
-          <isMainLookup>false</isMainLookup>
+          <isMainLookup>true</isMainLookup>
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
@@ -2553,8 +2578,8 @@
       <extendEntityName></extendEntityName>
       <entityBaseData>301200</entityBaseData>
       <constraint>
-        <x>129</x>
-        <y>189</y>
+        <x>2713</x>
+        <y>40</y>
         <width>-1</width>
         <height>-1</height>
       </constraint>
@@ -2755,8 +2780,385 @@
       <extendEntityName></extendEntityName>
       <entityBaseData>301300</entityBaseData>
       <constraint>
-        <x>397</x>
-        <y>227</y>
+        <x>3051</x>
+        <y>40</y>
+        <width>-1</width>
+        <height>-1</height>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections/>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+            <source class="org.hi.studio.hsceditor.visual.model.EnumerationModel" reference="../../../.."/>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+    </org.hi.studio.hsceditor.visual.model.EnumerationModel>
+    <org.hi.studio.hsceditor.visual.model.TableModel>
+      <error></error>
+      <linkedPath></linkedPath>
+      <tableName>Tbl_Stl_Settle_Batch</tableName>
+      <logicalName>TblStlSettleBatch</logicalName>
+      <description>结算批次</description>
+      <isDeleted>true</isDeleted>
+      <isCreator>true</isCreator>
+      <columns>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>id</columnName>
+          <logicalName>id</logicalName>
+          <size>20</size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>true</primaryKey>
+          <description>id</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>2</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>false</isListDisplay>
+          <isReadOnly>true</isReadOnly>
+          <isHidden>true</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>settleBatchNo</columnName>
+          <logicalName>column2</logicalName>
+          <size>11</size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>结算批次号</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>1</hiDataType>
+          <isSearch>true</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>settleDate</columnName>
+          <logicalName>column6</logicalName>
+          <size></size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>结算日</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>4</hiDataType>
+          <isSearch>true</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>totalCount</columnName>
+          <logicalName>column3</logicalName>
+          <size></size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>总结算商户数</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator>integer</hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>2</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>totalAmount</columnName>
+          <logicalName>column4</logicalName>
+          <size></size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>总结算金额</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator>integer</hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>2</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>settleBatchStatus</columnName>
+          <logicalName>column5</logicalName>
+          <size></size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>状态</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName>SettleBatchStatus</lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>7</hiDataType>
+          <isSearch>true</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>remark</columnName>
+          <logicalName>column7</logicalName>
+          <size></size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>备注</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>9</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>false</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>createdDateTime</columnName>
+          <logicalName>column8</logicalName>
+          <size></size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>创建时间</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>5</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>lastUpdatedDatetime</columnName>
+          <logicalName>column9</logicalName>
+          <size></size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>最后修改时间</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>5</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>lastUpdatedBy</columnName>
+          <logicalName>column10</logicalName>
+          <size></size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>最后修改人</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName>organization</lkServiceName>
+          <lkEntityName>HiUser</lkEntityName>
+          <lkFieldName>id</lkFieldName>
+          <isLkForeignKey>true</isLkForeignKey>
+          <hiDataType>6</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>false</isListDisplay>
+          <isReadOnly>true</isReadOnly>
+          <isHidden>true</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+      </columns>
+      <indices/>
+      <backgroundColor>
+        <red>255</red>
+        <green>255</green>
+        <blue>206</blue>
+      </backgroundColor>
+      <extendServiceName></extendServiceName>
+      <extendEntityName></extendEntityName>
+      <entityBaseData>301400</entityBaseData>
+      <constraint>
+        <x>3280</x>
+        <y>40</y>
+        <width>-1</width>
+        <height>-1</height>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections/>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+            <source class="org.hi.studio.hsceditor.visual.model.TableModel" reference="../../../.."/>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+    </org.hi.studio.hsceditor.visual.model.TableModel>
+    <org.hi.studio.hsceditor.visual.model.EnumerationModel>
+      <enumName>SettleBatchStatus</enumName>
+      <enumDesc>结算批次状态</enumDesc>
+      <error></error>
+      <linkedPath></linkedPath>
+      <tableName></tableName>
+      <logicalName></logicalName>
+      <description></description>
+      <isDeleted>false</isDeleted>
+      <isCreator>true</isCreator>
+      <columns>
+        <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
+          <enumValue>toSettle</enumValue>
+          <enumLabel>待结算</enumLabel>
+          <enumCode></enumCode>
+          <columnName></columnName>
+          <logicalName></logicalName>
+          <size></size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description></description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>0</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
+        <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
+          <enumValue>settled</enumValue>
+          <enumLabel>已结算</enumLabel>
+          <enumCode></enumCode>
+          <columnName></columnName>
+          <logicalName></logicalName>
+          <size></size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description></description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>0</hiDataType>
+          <isSearch>false</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
+      </columns>
+      <indices/>
+      <extendServiceName></extendServiceName>
+      <extendEntityName></extendEntityName>
+      <entityBaseData>301500</entityBaseData>
+      <constraint>
+        <x>3618</x>
+        <y>40</y>
         <width>-1</width>
         <height>-1</height>
       </constraint>
