@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="settleservice" extends="hi" >
+		<!-- ============= 清分流水表对应的TblStlCleaningDetailAction============ --> 
+		<action name="tblStlCleaningDetail" class="cn.net.iccard.bm.settleservice.action.struts.TblStlCleaningDetailAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblStlCleaningDetailList"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlCleaningDetailAction" method="tblStlCleaningDetailList">
+			<result name="success">/settleservice/TblStlCleaningDetailList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlCleaningDetailSave"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlCleaningDetailAction" method="saveTblStlCleaningDetail">
+			<result name="success" type="redirect-action">tblStlCleaningDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblStlCleaningDetailEdit"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlCleaningDetailAction" method="viewTblStlCleaningDetail">
+			<result name="success">/settleservice/TblStlCleaningDetailEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlCleaningDetailView"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlCleaningDetailAction" method="viewTblStlCleaningDetail">
+			<result name="success">/settleservice/TblStlCleaningDetailView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblStlCleaningDetailRemove"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlCleaningDetailAction" method="removeTblStlCleaningDetail">
+			<result name="success" type="redirect-action">tblStlCleaningDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlCleaningDetailRemoveAll"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlCleaningDetailAction" method="removeAllTblStlCleaningDetail">
+			<result name="success" type="redirect-action">tblStlCleaningDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblStlCleaningDetailLookup"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlCleaningDetailAction" method="tblStlCleaningDetailList">
+			<result name="success">/settleservice/TblStlCleaningDetailList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 结算申请对应的TblStlSettleApplyAction============ --> 
+		<action name="tblStlSettleApply" class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<!-- 结算 -->
+		<action name="settle"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="settle">
+			<result name="success" type="redirect-action">tblStlSettleApplyList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+
+
+	  <action name="tblStlSettleApplyList"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="tblStlSettleApplyList">
+			<result name="success">/settleservice/TblStlSettleApplyList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlSettleApplySave"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="saveTblStlSettleApply">
+			<result name="success" type="redirect-action">tblStlSettleApplyList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblStlSettleApplyEdit"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="viewTblStlSettleApply">
+			<result name="success">/settleservice/TblStlSettleApplyEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlSettleApplyView"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="viewTblStlSettleApply">
+			<result name="success">/settleservice/TblStlSettleApplyView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblStlSettleApplyRemove"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="removeTblStlSettleApply">
+			<result name="success" type="redirect-action">tblStlSettleApplyList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlSettleApplyRemoveAll"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="removeAllTblStlSettleApply">
+			<result name="success" type="redirect-action">tblStlSettleApplyList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblStlSettleApplyLookup"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="tblStlSettleApplyList">
+			<result name="success">/settleservice/TblStlSettleApplyList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 结算批次对应的TblStlSettleBatchAction============ --> 
+		<action name="tblStlSettleBatch" class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleBatchAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblStlSettleBatchList"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleBatchAction" method="tblStlSettleBatchList">
+			<result name="success">/settleservice/TblStlSettleBatchList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlSettleBatchSave"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleBatchAction" method="saveTblStlSettleBatch">
+			<result name="success" type="redirect-action">tblStlSettleBatchList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblStlSettleBatchEdit"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleBatchAction" method="viewTblStlSettleBatch">
+			<result name="success">/settleservice/TblStlSettleBatchEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlSettleBatchView"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleBatchAction" method="viewTblStlSettleBatch">
+			<result name="success">/settleservice/TblStlSettleBatchView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblStlSettleBatchRemove"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleBatchAction" method="removeTblStlSettleBatch">
+			<result name="success" type="redirect-action">tblStlSettleBatchList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlSettleBatchRemoveAll"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleBatchAction" method="removeAllTblStlSettleBatch">
+			<result name="success" type="redirect-action">tblStlSettleBatchList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblStlSettleBatchLookup"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleBatchAction" method="tblStlSettleBatchList">
+			<result name="success">/settleservice/TblStlSettleBatchList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</struts>
