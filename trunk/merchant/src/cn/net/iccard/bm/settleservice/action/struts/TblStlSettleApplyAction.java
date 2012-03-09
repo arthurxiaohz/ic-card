@@ -17,6 +17,7 @@ import cn.net.iccard.bm.mcht.model.TblMchtUser;
 import cn.net.iccard.bm.mcht.service.TblMchtInfoManager;
 import cn.net.iccard.bm.mcht.service.TblMchtUserManager;
 import cn.net.iccard.bm.settleservice.action.TblStlSettleApplyPageInfo;
+import cn.net.iccard.bm.settleservice.model.SettleApplyStatus;
 import cn.net.iccard.bm.settleservice.model.TblStlSettleApply;
 import cn.net.iccard.bm.settleservice.service.TblStlSettleApplyManager;
 
@@ -34,6 +35,15 @@ public class TblStlSettleApplyAction extends BaseAction {
 				.getBean(TblStlSettleApply.class);
 		if (super.perExecute(tblStlSettleApply) != null)
 			return returnCommand();
+		// 新增
+		if (null == tblStlSettleApply.getId()) {
+			if (tblStlSettleApply.getAmount() > tblStlSettleApply
+					.getAvailableBalance()) {
+				returnCommand("结算金额超过账户可用余额");
+			}
+			tblStlSettleApply
+					.setSettleApplyStatus(SettleApplyStatus.SETTLEAPPLYSTATUS_CHECKING);
+		}
 		tblStlSettleApplyMgr.saveTblStlSettleApply(tblStlSettleApply);
 		super.postExecute(tblStlSettleApply);
 		return returnCommand();
