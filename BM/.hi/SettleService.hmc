@@ -989,7 +989,7 @@
           <lkFieldName>mchtName</lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>6</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -1064,6 +1064,31 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
+          <isSearch>true</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>remark</columnName>
+          <logicalName>column11</logicalName>
+          <size>200</size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>备注</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName></lkServiceName>
+          <lkEntityName></lkEntityName>
+          <lkFieldName></lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>1</hiDataType>
           <isSearch>false</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
@@ -1098,6 +1123,31 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
+          <columnName>settleDate</columnName>
+          <logicalName>settleDate</logicalName>
+          <size>0</size>
+          <scale></scale>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>结算日</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+          <mainEntityName></mainEntityName>
+          <hiValidator></hiValidator>
+          <lkServiceName>settleservice</lkServiceName>
+          <lkEntityName>TblStlSettleBatch</lkEntityName>
+          <lkFieldName>settleDate</lkFieldName>
+          <isLkForeignKey>false</isLkForeignKey>
+          <hiDataType>6</hiDataType>
+          <isSearch>true</isSearch>
+          <isListDisplay>true</isListDisplay>
+          <isReadOnly>false</isReadOnly>
+          <isHidden>false</isHidden>
+          <isFull>false</isFull>
+          <isMainLookup>false</isMainLookup>
+          <isParent>false</isParent>
+        </org.hi.studio.hsceditor.visual.model.ColumnModel>
+        <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>settleBatchNo</columnName>
           <logicalName>settleBatchNo</logicalName>
           <size>11</size>
@@ -1123,31 +1173,6 @@
           <isParent>false</isParent>
         </org.hi.studio.hsceditor.visual.model.ColumnModel>
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
-          <columnName>remark</columnName>
-          <logicalName>column11</logicalName>
-          <size>200</size>
-          <scale></scale>
-          <notNull>false</notNull>
-          <primaryKey>false</primaryKey>
-          <description>备注</description>
-          <autoIncrement>false</autoIncrement>
-          <defaultValue></defaultValue>
-          <mainEntityName></mainEntityName>
-          <hiValidator></hiValidator>
-          <lkServiceName></lkServiceName>
-          <lkEntityName></lkEntityName>
-          <lkFieldName></lkFieldName>
-          <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>1</hiDataType>
-          <isSearch>false</isSearch>
-          <isListDisplay>true</isListDisplay>
-          <isReadOnly>false</isReadOnly>
-          <isHidden>false</isHidden>
-          <isFull>false</isFull>
-          <isMainLookup>false</isMainLookup>
-          <isParent>false</isParent>
-        </org.hi.studio.hsceditor.visual.model.ColumnModel>
-        <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>createdDateTime</columnName>
           <logicalName>column8</logicalName>
           <size></size>
@@ -1165,7 +1190,7 @@
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>5</hiDataType>
           <isSearch>false</isSearch>
-          <isListDisplay>true</isListDisplay>
+          <isListDisplay>false</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
           <isFull>false</isFull>
@@ -1190,7 +1215,7 @@
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>5</hiDataType>
           <isSearch>false</isSearch>
-          <isListDisplay>true</isListDisplay>
+          <isListDisplay>false</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
           <isFull>false</isFull>
@@ -1659,7 +1684,7 @@
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>5</hiDataType>
           <isSearch>false</isSearch>
-          <isListDisplay>true</isListDisplay>
+          <isListDisplay>false</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
           <isFull>false</isFull>
@@ -1684,7 +1709,7 @@
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>5</hiDataType>
           <isSearch>false</isSearch>
-          <isListDisplay>true</isListDisplay>
+          <isListDisplay>false</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
           <isFull>false</isFull>
