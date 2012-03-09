@@ -47,7 +47,7 @@
 				<authz:authorize ifAnyGranted="TBLSTLSETTLEBATCH_DEL"><li><a class="delete" href="<hi:url>tblStlSettleBatchRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', settleBatchNo:'',settleDate:'',totalCount:'',totalAmount:'',settleBatchStatus:'',createdDateTime:'',lastUpdatedDatetime:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', settleBatchNo:'',settleDate:'',totalCount:'',totalAmount:'',settleBatchStatus:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -60,11 +60,9 @@
 				</c:if>
 				<th orderField="settleBatchNo" class="${pageInfo.sorterName eq 'settleBatchNo' ? pageInfo.sorterDirection : ''}"><hi:text key="结算批次号" entity="TblStlSettleBatch"/></th>
 				<th orderField="settleDate" class="${pageInfo.sorterName eq 'settleDate' ? pageInfo.sorterDirection : ''}"><hi:text key="结算日" entity="TblStlSettleBatch"/></th>
-				<th orderField="totalCount" class="${pageInfo.sorterName eq 'totalCount' ? pageInfo.sorterDirection : ''}"><hi:text key="总结算商户数" entity="TblStlSettleBatch"/></th>
-				<th orderField="totalAmount" class="${pageInfo.sorterName eq 'totalAmount' ? pageInfo.sorterDirection : ''}"><hi:text key="总结算金额" entity="TblStlSettleBatch"/></th>
+				<th orderField="totalCount" class="${pageInfo.sorterName eq 'totalCount' ? pageInfo.sorterDirection : ''}"><hi:text key="总条数" entity="TblStlSettleBatch"/></th>
+				<th orderField="totalAmount" class="${pageInfo.sorterName eq 'totalAmount' ? pageInfo.sorterDirection : ''}"><hi:text key="总金额" entity="TblStlSettleBatch"/></th>
 				<th orderField="settleBatchStatus" class="${pageInfo.sorterName eq 'settleBatchStatus' ? pageInfo.sorterDirection : ''}"><hi:text key="状态" entity="TblStlSettleBatch"/></th>
-				<th orderField="createdDateTime" class="${pageInfo.sorterName eq 'createdDateTime' ? pageInfo.sorterDirection : ''}"><hi:text key="创建时间" entity="TblStlSettleBatch"/></th>
-				<th orderField="lastUpdatedDatetime" class="${pageInfo.sorterName eq 'lastUpdatedDatetime' ? pageInfo.sorterDirection : ''}"><hi:text key="最后修改时间" entity="TblStlSettleBatch"/></th>
 				<th width="90">
 					<c:choose>
 						<c:when test="${empty lookup}"><hi:text key="操作"/></c:when>
@@ -84,8 +82,6 @@
 				    <td>${item.totalCount}</td>
 				    <td>${item.totalAmount}</td>
 				    <td><hi:select emu="settleBatchStatus" name="tblStlSettleBatchs[${s.index}].settleBatchStatus" isLabel="true"/></td>
-				    <td><fmt:formatDate value="${item.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-				    <td><fmt:formatDate value="${item.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
@@ -103,7 +99,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', settleBatchNo:'${item.settleBatchNo}',settleDate:'${item.settleDate}',totalCount:'${item.totalCount}',totalAmount:'${item.totalAmount}',settleBatchStatus:'<hi:select emu="settleBatchStatus" name="tblStlSettleBatchs[${s.index}].settleBatchStatus" isLabel="true"/>',createdDateTime:'${item.createdDateTime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', settleBatchNo:'${item.settleBatchNo}',settleDate:'${item.settleDate}',totalCount:'${item.totalCount}',totalAmount:'${item.totalAmount}',settleBatchStatus:'<hi:select emu="settleBatchStatus" name="tblStlSettleBatchs[${s.index}].settleBatchStatus" isLabel="true"/>'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>
