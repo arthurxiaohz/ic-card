@@ -229,8 +229,9 @@ public class ClearingAccountService implements IClearingAccountService {
 		tblStlSettleBatch.setTotalAmount(totalAmount);
 		int totalCount = 0;
 		tblStlSettleBatch.setTotalCount(totalCount);
+		// ¥˝Ω·À„‘›Œ¥”√
 		tblStlSettleBatch
-				.setSettleBatchStatus(SettleBatchStatus.SETTLEBATCHSTATUS_TOSETTLE);
+				.setSettleBatchStatus(SettleBatchStatus.SETTLEBATCHSTATUS_SETTLED);
 		tblStlSettleBatch.setSettleDate(settleDate);
 
 		for (int i = 0; i < tblStlSettleApplys.size(); i++) {
