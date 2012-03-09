@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.tools.ant.util.DateUtils;
 import org.hi.SpringContextHolder;
 import org.hi.base.report.excel.action.struts.JXLSExcelBaseAction;
+import org.hi.framework.dao.Filter;
 import org.hi.framework.dao.impl.FilterFactory;
 
 import cn.net.iccard.bm.settleservice.model.SettleApplyStatus;
@@ -37,11 +38,15 @@ public class FundReportAction extends JXLSExcelBaseAction {
 		int id = Integer.parseInt(getParameter("id"));
 		tblStlSettleBatch = tblStlSettleBatchManagerMgr
 				.getTblStlSettleBatchById(id);
-		// Ω·À„÷–
+
 		resultList = tblStlSettleApplyMgr.getObjects(FilterFactory
 				.getSimpleFilter("tblStlSettleBatch", id).addCondition(
 						"settleApplyStatus",
-						SettleApplyStatus.SETTLEAPPLYSTATUS_SETTLING));
+						SettleApplyStatus.SETTLEAPPLYSTATUS_SETTLING)
+				.addCondition("settleApplyStatus",
+						SettleApplyStatus.SETTLEAPPLYSTATUS_SETTLED,
+						Filter.OPERATOR_EQ, Filter.RELATION_OR));
+
 	}
 
 	public TblStlSettleBatch getTblStlSettleBatch() {
