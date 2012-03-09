@@ -264,8 +264,9 @@ public class ClearingAccountService implements IClearingAccountService {
 			if (EAccountResponse.S0000.getValue().equals(
 					accountDebitCreditResponse.getRespCode())) {
 				// 贷记成功
+				// 结算中暂未用
 				tblStlSettleApply
-						.setSettleApplyStatus(SettleApplyStatus.SETTLEAPPLYSTATUS_SETTLING);
+						.setSettleApplyStatus(SettleApplyStatus.SETTLEAPPLYSTATUS_SETTLED);
 				totalAmount = +tblStlSettleApply.getAmount();
 				totalCount++;
 			} else {
