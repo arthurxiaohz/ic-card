@@ -19,6 +19,8 @@ import cn.net.iccard.bm.accounting.model.AccountPartyType;
 import cn.net.iccard.bm.accounting.model.AccountStatus;
 import cn.net.iccard.bm.accounting.model.TblActAccountBalance;
 import cn.net.iccard.bm.accounting.service.TblActAccountBalanceManager;
+import cn.net.iccard.bm.mcht.model.TblMchtUser;
+import cn.net.iccard.bm.mcht.service.TblMchtUserManager;
 import cn.net.iccard.member.model.TblMbInfo;
 import cn.net.iccard.member.model.TblMbPoint;
 import cn.net.iccard.member.service.TblMbInfoManager;
@@ -34,6 +36,9 @@ public class AccountService implements IAccountService {
 
 	private TblMbInfoManager tblMbInfoMgr = (TblMbInfoManager) SpringContextHolder
 			.getBean(TblMbInfo.class);
+
+	private TblMchtUserManager tblMchtUserMgr = (TblMchtUserManager) SpringContextHolder
+			.getBean(TblMchtUser.class);
 
 	public IAccountOpenResponse openAccount(
 			IAccountOpenRequest accountOpenRequest) {
@@ -98,7 +103,7 @@ public class AccountService implements IAccountService {
 				FilterFactory.getSimpleFilter("userName",
 						accountOpenForOrgRequest.getAccountParty())).get(0));
 		tblMbPoint.setBalance(0);
-		tblMbPointMgr.saveObject(tblMbPoint);
+		tblMbPointMgr.saveTblMbPoint(tblMbPoint);
 
 		return new SimpleCommonAccountResponse(EAccountResponse.S0000);
 	}
@@ -122,6 +127,16 @@ public class AccountService implements IAccountService {
 		simpleAccountOpenRequest
 				.setAccountCatalog(AccountCatalog.ACCOUNTCATALOG_FEEACCOUNT);
 		openAccount(simpleAccountOpenRequest);
+
+		// 商户管理员
+		TblMchtUser tblMchtUser = new TblMchtUser();
+		tblMchtUser.setMchtNo(accountOpenForOrgRequest.getAccountParty());
+		tblMchtUser.setUserName(accountOpenForOrgRequest.getAccountParty()
+				+ "admin");
+		tblMchtUser.setFullName(accountOpenForOrgRequest.getAccountParty()
+				+ "admin");
+		tblMchtUserMgr.saveTblMchtUser(tblMchtUser);
+
 		return new SimpleCommonAccountResponse(EAccountResponse.S0000);
 	}
 
