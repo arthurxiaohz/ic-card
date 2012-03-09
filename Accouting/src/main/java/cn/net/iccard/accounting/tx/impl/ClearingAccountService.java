@@ -217,9 +217,10 @@ public class ClearingAccountService implements IClearingAccountService {
 		Date settleDate = new Date();
 		String settleBatchNo = DateUtils.format(settleDate, "yyyyMMdd")
 				+ getNextSeq();
+		// TODO ÃÌº”…Û∫Àπ¶ƒ‹
 		List tblStlSettleApplys = tblStlSettleApplyMgr.getObjects(FilterFactory
 				.getSimpleFilter("settleApplyStatus",
-						SettleApplyStatus.SETTLEAPPLYSTATUS_CHECKPASS));
+						SettleApplyStatus.SETTLEAPPLYSTATUS_CHECKING));
 		if (null == tblStlSettleApplys || tblStlSettleApplys.size() == 0) {
 			return new SimpleCommonAccountResponse(EAccountResponse.E0002);
 		}
