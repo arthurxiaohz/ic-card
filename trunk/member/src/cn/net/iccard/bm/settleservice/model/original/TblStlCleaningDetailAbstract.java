@@ -52,7 +52,7 @@ public abstract class TblStlCleaningDetailAbstract extends BaseObject implements
  	protected  Integer lastUpdatedBy;
 
  	 /**
-	 * 金额
+	 * 订单金额
 	 */	
  	protected  Integer orderAmount;
 
@@ -84,7 +84,7 @@ public abstract class TblStlCleaningDetailAbstract extends BaseObject implements
  	 /**
 	 * 商户结算扣费金额
 	 */	
- 	protected  Integer mchtSettleFee;
+ 	protected  Integer mchtSettleAmount;
 
  	 /**
 	 * 备注信息
@@ -125,6 +125,16 @@ public abstract class TblStlCleaningDetailAbstract extends BaseObject implements
 	 * 清分状态
 	 */	
  	protected  Integer cleanStatus;
+
+ 	 /**
+	 * 支付金额
+	 */	
+ 	protected  Integer payAmount;
+
+ 	 /**
+	 * 商户手续费
+	 */	
+ 	protected  Integer fee;
 
  	 /**
 	 * 创建人
@@ -306,17 +316,17 @@ public abstract class TblStlCleaningDetailAbstract extends BaseObject implements
         this.refundFee = refundFee;
     }
     
-    public Integer getMchtSettleFee() {
-        return this.mchtSettleFee;
+    public Integer getMchtSettleAmount() {
+        return this.mchtSettleAmount;
     }
     
-    public void setMchtSettleFee(Integer mchtSettleFee) {
-    		if((mchtSettleFee != null && this.mchtSettleFee == null) || 
-				this.mchtSettleFee != null && (!this.mchtSettleFee.equals(mchtSettleFee) || mchtSettleFee == null)){
+    public void setMchtSettleAmount(Integer mchtSettleAmount) {
+    		if((mchtSettleAmount != null && this.mchtSettleAmount == null) || 
+				this.mchtSettleAmount != null && (!this.mchtSettleAmount.equals(mchtSettleAmount) || mchtSettleAmount == null)){
         		this.setDirty(true);
-        		this.oldValues.put("mchtSettleFee", this.mchtSettleFee);
+        		this.oldValues.put("mchtSettleAmount", this.mchtSettleAmount);
         	}
-        this.mchtSettleFee = mchtSettleFee;
+        this.mchtSettleAmount = mchtSettleAmount;
     }
     
     public String getReMark() {
@@ -423,6 +433,32 @@ public abstract class TblStlCleaningDetailAbstract extends BaseObject implements
         this.cleanStatus = cleanStatus;
     }
     
+    public Integer getPayAmount() {
+        return this.payAmount;
+    }
+    
+    public void setPayAmount(Integer payAmount) {
+    		if((payAmount != null && this.payAmount == null) || 
+				this.payAmount != null && (!this.payAmount.equals(payAmount) || payAmount == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("payAmount", this.payAmount);
+        	}
+        this.payAmount = payAmount;
+    }
+    
+    public Integer getFee() {
+        return this.fee;
+    }
+    
+    public void setFee(Integer fee) {
+    		if((fee != null && this.fee == null) || 
+				this.fee != null && (!this.fee.equals(fee) || fee == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("fee", this.fee);
+        	}
+        this.fee = fee;
+    }
+    
     public HiUser getCreator() {
         return this.creator;
     }
@@ -479,7 +515,7 @@ public abstract class TblStlCleaningDetailAbstract extends BaseObject implements
 		.append("refundOrderAmt", this.refundOrderAmt)
 		.append("refundAmt", this.refundAmt)
 		.append("refundFee", this.refundFee)
-		.append("mchtSettleFee", this.mchtSettleFee)
+		.append("mchtSettleAmount", this.mchtSettleAmount)
 		.append("reMark", this.reMark)
 		.append("transType", this.transType)
 		.append("userName", this.userName)
@@ -487,6 +523,8 @@ public abstract class TblStlCleaningDetailAbstract extends BaseObject implements
 		.append("backBalance", this.backBalance)
 		.append("mchtNo", this.mchtNo)
 		.append("mchtName", this.mchtName)
+		.append("payAmount", this.payAmount)
+		.append("fee", this.fee)
 		.append("deleted", this.deleted);
       
         return sb.toString();

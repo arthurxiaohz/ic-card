@@ -24,5 +24,17 @@ public class OrderTxStatus implements Serializable{
 	 * 已撤销
 	 */
 	public static final int ORDERTXSTATUS_REVOCATIONSUCCESS = 200804;
+	/**
+	 * 待撤销
+	 */
+	public static final int ORDERTXSTATUS_WAITREVOCATION = 200805;
+	/**
+	 * 待退款
+	 */
+	public static final int ORDERTXSTATUS_WAITBACK = 200806;
+	/**
+	 * 失败
+	 */
+	public static final int ORDERTXSTATUS_FAIL = 200807;
 
 }

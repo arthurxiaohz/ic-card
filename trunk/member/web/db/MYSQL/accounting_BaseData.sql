@@ -294,7 +294,23 @@ insert into EnumerationValue(ID, version, valueName, displayRef, description, va
 --
 delete from EnumerationValue where ID = 601000;
 --
-insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(601000, 0, 'clearing', '清分', '清分', '', 601000, 0);
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(601000, 0, 'confirmPay', '确认支付', '确认支付', '', 601000, 0);
+--
+delete from EnumerationValue where ID = 601001;
+--
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(601001, 0, 'prepaid', '预支付', '预支付', '', 601000, 0);
+--
+delete from EnumerationValue where ID = 601002;
+--
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(601002, 0, 'settlement', '结算', '结算', '', 601000, 0);
+--
+delete from EnumerationValue where ID = 601003;
+--
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(601003, 0, 'cancel', '撤销', '撤销', '', 601000, 0);
+--
+delete from EnumerationValue where ID = 601004;
+--
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(601004, 0, 'confirmRefund', '确认退款', '确认退款', '', 601000, 0);
 --
 delete from EnumerationValue where ID = 601100;
 --
@@ -310,11 +326,11 @@ insert into EnumerationValue(ID, version, valueName, displayRef, description, va
 --
 delete from EnumerationValue where ID = 601200;
 --
-insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(601200, 0, 'toSettled', '待结算', '待结算', '', 601200, 0);
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(601200, 0, 'toSettled', '待处理', '待处理', '', 601200, 0);
 --
 delete from EnumerationValue where ID = 601201;
 --
-insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(601201, 0, 'settled', '已结算', '已结算', '', 601200, 0);
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(601201, 0, 'settled', '已处理', '已处理', '', 601200, 0);
 --
 delete from EnumerationValue where ID = 601300;
 --
@@ -568,7 +584,23 @@ insert into HI_Language(ID, version, keyStr, creator, isSystem) values(601000, 0
 --
 delete from HI_Language where ID = 601001;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(601001, 0, '清分', 'bizType', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(601001, 0, '确认支付', 'bizType', 1, 0);
+--
+delete from HI_Language where ID = 601002;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(601002, 0, '预支付', 'bizType', 1, 0);
+--
+delete from HI_Language where ID = 601003;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(601003, 0, '结算', 'bizType', 1, 0);
+--
+delete from HI_Language where ID = 601004;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(601004, 0, '撤销', 'bizType', 1, 0);
+--
+delete from HI_Language where ID = 601005;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(601005, 0, '确认退款', 'bizType', 1, 0);
 --
 delete from HI_Language where ID = 601100;
 --
@@ -592,11 +624,11 @@ insert into HI_Language(ID, version, keyStr, creator, isSystem) values(601200, 0
 --
 delete from HI_Language where ID = 601201;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(601201, 0, '待结算', 'settleStatus', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(601201, 0, '待处理', 'settleStatus', 1, 0);
 --
 delete from HI_Language where ID = 601202;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(601202, 0, '已结算', 'settleStatus', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(601202, 0, '已处理', 'settleStatus', 1, 0);
 --
 delete from HI_Language where ID = 601300;
 --

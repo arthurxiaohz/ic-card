@@ -67,9 +67,9 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
  	protected  String lastMchtTxTraceNo;
 
  	 /**
-	 * 交易金额
+	 * 订单金额
 	 */	
- 	protected  Integer txAmount;
+ 	protected  Integer orderAmount;
 
  	 /**
 	 * 交易结果通知地址
@@ -205,6 +205,11 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
 	 * 商户名称
 	 */	
  	protected  String mchtName;
+
+ 	 /**
+	 * 支付金额
+	 */	
+ 	protected  Integer payAmount;
 
  	 /**
 	 * 创建人
@@ -347,17 +352,17 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
         this.lastMchtTxTraceNo = lastMchtTxTraceNo;
     }
     
-    public Integer getTxAmount() {
-        return this.txAmount;
+    public Integer getOrderAmount() {
+        return this.orderAmount;
     }
     
-    public void setTxAmount(Integer txAmount) {
-    		if((txAmount != null && this.txAmount == null) || 
-				this.txAmount != null && (!this.txAmount.equals(txAmount) || txAmount == null)){
+    public void setOrderAmount(Integer orderAmount) {
+    		if((orderAmount != null && this.orderAmount == null) || 
+				this.orderAmount != null && (!this.orderAmount.equals(orderAmount) || orderAmount == null)){
         		this.setDirty(true);
-        		this.oldValues.put("txAmount", this.txAmount);
+        		this.oldValues.put("orderAmount", this.orderAmount);
         	}
-        this.txAmount = txAmount;
+        this.orderAmount = orderAmount;
     }
     
     public String getNotifyUrl() {
@@ -711,6 +716,19 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
         this.mchtName = mchtName;
     }
     
+    public Integer getPayAmount() {
+        return this.payAmount;
+    }
+    
+    public void setPayAmount(Integer payAmount) {
+    		if((payAmount != null && this.payAmount == null) || 
+				this.payAmount != null && (!this.payAmount.equals(payAmount) || payAmount == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("payAmount", this.payAmount);
+        	}
+        this.payAmount = payAmount;
+    }
+    
     public HiUser getCreator() {
         return this.creator;
     }
@@ -766,7 +784,7 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
 		.append("lastMchtTxTime", this.lastMchtTxTime)
 		.append("mchtTxTraceNo", this.mchtTxTraceNo)
 		.append("lastMchtTxTraceNo", this.lastMchtTxTraceNo)
-		.append("txAmount", this.txAmount)
+		.append("orderAmount", this.orderAmount)
 		.append("notifyUrl", this.notifyUrl)
 		.append("txIp", this.txIp)
 		.append("plTxTime", this.plTxTime)
@@ -788,6 +806,7 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
 		.append("lastUpdatedBy", this.lastUpdatedBy)
 		.append("bgNotifyUrl", this.bgNotifyUrl)
 		.append("mchtName", this.mchtName)
+		.append("payAmount", this.payAmount)
 		.append("deleted", this.deleted);
       
         return sb.toString();

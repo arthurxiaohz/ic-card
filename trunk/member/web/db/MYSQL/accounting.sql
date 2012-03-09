@@ -40,7 +40,7 @@ CREATE TABLE Tbl_Act_Account_Detail (
     debitOrCredit int   NULL,
     balance int   NULL,
     remark nvarchar (30)  NULL,
-    expiredDate datetime   NULL,
+    expiredDate nvarchar (8)  NULL,
     settleStatus int   NULL,
     createdDateTime datetime   NULL,
     lastUpdatedDatetime datetime   NULL,

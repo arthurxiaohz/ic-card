@@ -23,10 +23,8 @@ public class TblActAccountDetailPageInfo extends PageInfoView{
  	protected  String  f_balance_op;
 	protected  String  f_remark;
  	protected  String  f_remark_op;
-	protected  Date  f_expiredDate;
+	protected  String  f_expiredDate;
  	protected  String  f_expiredDate_op;
-	protected  Date  f_expiredDate01;
-	protected  String  f_expiredDate01_op;
 	protected  Integer  f_settleStatus;
  	protected  String  f_settleStatus_op;
 	protected  Timestamp  f_createdDateTime;
@@ -156,11 +154,11 @@ public class TblActAccountDetailPageInfo extends PageInfoView{
         this.f_remark_op = f_remark_op;
     }
    
-    public Date getF_expiredDate() {
+    public String getF_expiredDate() {
         return this.f_expiredDate;
     }
     
-    public void setF_expiredDate(Date f_expiredDate) {
+    public void setF_expiredDate(String f_expiredDate) {
         this.f_expiredDate = f_expiredDate;
     }
     
@@ -170,21 +168,6 @@ public class TblActAccountDetailPageInfo extends PageInfoView{
     
     public void setF_expiredDate_op(String f_expiredDate_op) {
         this.f_expiredDate_op = f_expiredDate_op;
-    }
-    public Date getF_expiredDate01() {
-        return this.f_expiredDate01;
-    }
-    
-    public void setF_expiredDate01(Date f_expiredDate01) {
-        this.f_expiredDate01 = f_expiredDate01;
-    }
-    
-    public String getF_expiredDate01_op() {
-        return this.f_expiredDate01_op;
-    }
-    
-    public void setF_expiredDate01_op(String f_expiredDate01_op) {
-        this.f_expiredDate01_op = f_expiredDate01_op;
     }
    
     public Integer getF_settleStatus() {

@@ -13,6 +13,9 @@ import org.hi.framework.web.PageInfoUtil;
 import cn.net.iccard.tx.action.TblTxPayMentRequestPageInfo;
 import cn.net.iccard.tx.model.TblTxPayMentRequest;
 import cn.net.iccard.tx.service.impl.TblTxPayMentRequestManagerImpl;
+import java.text.DecimalFormat;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class test {
 
@@ -56,5 +59,14 @@ public class test {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		
+		System.out.println((int)Math.floor(2.6)); 
+		
+		System.out.println(new BigDecimal(3.9).intValue());
+
+
+
 	}
 }

@@ -14,7 +14,7 @@ CREATE TABLE Tbl_Stl_Cleaning_Detail (
     refundOrderAmt int   NULL,
     refundAmt int   NULL,
     refundFee int   NULL,
-    mchtSettleFee int   NULL,
+    mchtSettleAmount int   NULL,
     reMark nvarchar (100)  NULL,
     transType nvarchar (30)  NULL,
     userName nvarchar (30)  NULL,
@@ -23,6 +23,8 @@ CREATE TABLE Tbl_Stl_Cleaning_Detail (
     mchtNo nvarchar (18)  NULL,
     mchtName nvarchar (30)  NULL,
     cleanStatus int   NULL,
+    payAmount int   NULL,
+    fee int   NULL,
     creator int  NULL,
     deleted int   NULL,
     primary key (id));

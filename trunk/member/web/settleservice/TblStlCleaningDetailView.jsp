@@ -22,7 +22,7 @@
 			<dt><hi:text key="最后修改人" entity="TblStlCleaningDetail"/>：</dt><dd>${tblStlCleaningDetail.lastUpdatedBy}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="金额" entity="TblStlCleaningDetail"/>：</dt><dd>${tblStlCleaningDetail.orderAmount}</dd>
+			<dt><hi:text key="订单金额" entity="TblStlCleaningDetail"/>：</dt><dd>${tblStlCleaningDetail.orderAmount}</dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="交易时间" entity="TblStlCleaningDetail"/>：</dt><dd>${tblStlCleaningDetail.transTime}</dd>
@@ -40,7 +40,7 @@
 			<dt><hi:text key="退还的手续费用" entity="TblStlCleaningDetail"/>：</dt><dd>${tblStlCleaningDetail.refundFee}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="商户结算扣费金额" entity="TblStlCleaningDetail"/>：</dt><dd>${tblStlCleaningDetail.mchtSettleFee}</dd>
+			<dt><hi:text key="商户结算扣费金额" entity="TblStlCleaningDetail"/>：</dt><dd>${tblStlCleaningDetail.mchtSettleAmount}</dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="备注信息" entity="TblStlCleaningDetail"/>：</dt><dd>${tblStlCleaningDetail.reMark}</dd>
@@ -65,6 +65,12 @@
 		</dl>
 		<dl>
 			<dt><hi:text key="清分状态" entity="TblStlCleaningDetail"/>：</dt><dd><hi:select emu="cleanStatus" name="tblStlCleaningDetail.cleanStatus" isLabel="true"/></dd>
+		</dl>
+		<dl>
+			<dt><hi:text key="支付金额" entity="TblStlCleaningDetail"/>：</dt><dd>${tblStlCleaningDetail.payAmount}</dd>
+		</dl>
+		<dl>
+			<dt><hi:text key="商户手续费" entity="TblStlCleaningDetail"/>：</dt><dd>${tblStlCleaningDetail.fee}</dd>
 		</dl>
 
 		<div class="divider"></div>

@@ -14,6 +14,10 @@ delete from MenuLink where ID = 300400;
 --
 insert into MenuLink(ID, version, linkUrl, displayRef, description, authority, sequence, menu, menuLinkType, creator) values(300400, 0, '/tblMchtSettleCycleConfigList.action', '商户结算周期配置', '商户结算周期配置', 300400, 9999, 300000, 0, 0);
 --
+delete from MenuLink where ID = 301100;
+--
+insert into MenuLink(ID, version, linkUrl, displayRef, description, authority, sequence, menu, menuLinkType, creator) values(301100, 0, '/tblMchtUserList.action', '商服用户', '商服用户', 301100, 9999, 300000, 0, 0);
+--
 
 
 
@@ -117,6 +121,26 @@ insert into HI_Authority(ID, version, authorityName, displayRef, propertedResour
 --
 insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(300404, 0, 'TBLMCHTSETTLECYCLECONFIG_LOOKUP', 'mcht.TblMchtSettleCycleConfigLookup', '', '商户结算周期配置带回', 1, 300400);
 --
+delete from HI_Authority where ID = 301100;
+--
+delete from HI_Authority where ID = 301101;
+--
+delete from HI_Authority where ID = 301102;
+--
+delete from HI_Authority where ID = 301103;
+--
+delete from HI_Authority where ID = 301104;
+--
+insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301100, 0, 'TBLMCHTUSER_LIST', 'mcht.TblMchtUserList', '', '商服用户查询', 1, 301100);
+--
+insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301101, 0, 'TBLMCHTUSER_VIEW', 'mcht.TblMchtUserView', '', '商服用户查看', 2, 301100);
+--
+insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301102, 0, 'TBLMCHTUSER_SAVE', 'mcht.TblMchtUserSave', '', '商服用户保存', 3, 301100);
+--
+insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301103, 0, 'TBLMCHTUSER_DEL', 'mcht.TblMchtUserDel', '', '商服用户删除', 4, 301100);
+--
+insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301104, 0, 'TBLMCHTUSER_LOOKUP', 'mcht.TblMchtUserLookup', '', '商服用户带回', 1, 301100);
+--
 
 delete from HI_PrivilegeResource where ID = 300200;
 --
@@ -217,6 +241,26 @@ insert into HI_PrivilegeResource(ID, version, authorityName, viewLayer, business
 insert into HI_PrivilegeResource(ID, version, authorityName, viewLayer, businessLayer) values(300403, 0, 'TBLMCHTSETTLECYCLECONFIG_DEL', '/tblMchtSettleCycleConfigRemove.action', 'cn.net.iccard.bm.mcht.service.TblMchtSettleCycleConfigManager.removeSecurityTblMchtSettleCycleConfigById');
 --
 insert into HI_PrivilegeResource(ID, version, authorityName, viewLayer) values(300404, 0, 'TBLMCHTSETTLECYCLECONFIG_LOOKUP', '/tblMchtSettleCycleConfigLookup.action');
+--
+delete from HI_PrivilegeResource where ID = 301100;
+--
+delete from HI_PrivilegeResource where ID = 301101;
+--
+delete from HI_PrivilegeResource where ID = 301102;
+--
+delete from HI_PrivilegeResource where ID = 301103;
+--
+delete from HI_PrivilegeResource where ID = 301104;
+--
+insert into HI_PrivilegeResource(ID, version, authorityName, viewLayer, businessLayer, bizExtAuthNames) values(301100, 0, 'TBLMCHTUSER_LIST', '/tblMchtUserList.action', 'cn.net.iccard.bm.mcht.service.TblMchtUserManager.getSecurityTblMchtUserList', 'TBLMCHTUSER_LOOKUP');
+--
+insert into HI_PrivilegeResource(ID, version, authorityName, viewLayer, businessLayer) values(301101, 0, 'TBLMCHTUSER_VIEW', '/tblMchtUserView.action', 'cn.net.iccard.bm.mcht.service.TblMchtUserManager.getSecurityTblMchtUserById');
+--
+insert into HI_PrivilegeResource(ID, version, authorityName, viewLayer, businessLayer) values(301102, 0, 'TBLMCHTUSER_SAVE', '/tblMchtUserSave.action', 'cn.net.iccard.bm.mcht.service.TblMchtUserManager.saveSecurityTblMchtUser');
+--
+insert into HI_PrivilegeResource(ID, version, authorityName, viewLayer, businessLayer) values(301103, 0, 'TBLMCHTUSER_DEL', '/tblMchtUserRemove.action', 'cn.net.iccard.bm.mcht.service.TblMchtUserManager.removeSecurityTblMchtUserById');
+--
+insert into HI_PrivilegeResource(ID, version, authorityName, viewLayer) values(301104, 0, 'TBLMCHTUSER_LOOKUP', '/tblMchtUserLookup.action');
 --
 
 
@@ -521,3 +565,7 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(3
 delete from HI_Language where ID = 300405;
 --
 insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300405, 0, '最后修改时间', 'TblMchtSettleCycleConfig', 1, 0);
+--
+delete from HI_Language where ID = 301100;
+--
+insert into HI_Language(ID, version, keyStr, creator, isSystem) values(301100, 0, '商服用户', 1, 0);

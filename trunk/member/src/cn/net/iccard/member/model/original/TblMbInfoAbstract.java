@@ -13,23 +13,12 @@ import org.apache.commons.lang.builder.ToStringStyle;
 import cn.net.iccard.member.model.TblMbInfo;
 import org.hi.base.organization.model.HiUser;
 
-public abstract class TblMbInfoAbstract extends BaseObject implements Serializable{
-
- 	
- 	/**
-	 * 主键id
-	 */	
-	protected  Integer id;
-
-	/**
-	 * 版本控制version
-	 */	
- 	protected  Integer version;
+public abstract class TblMbInfoAbstract extends HiUser implements Serializable{
 
  	 /**
-	 * 账号
+	 * id
 	 */	
- 	protected  String userName;
+ 	protected  Integer id;
 
  	 /**
 	 * 证件类型
@@ -98,32 +87,6 @@ public abstract class TblMbInfoAbstract extends BaseObject implements Serializab
         		this.oldValues.put("id", this.id);
         	}
         this.id = id;
-    }
-    
-     public Integer getVersion() {
-        return this.version;
-    }
-    
-    public void setVersion(Integer version) {
-    		if((version != null && this.version == null) || 
-				this.version != null && (!this.version.equals(version) || version == null)){
-        		this.setDirty(true);
-        		this.oldValues.put("version", this.version);
-        	}
-        this.version = version;
-    }
-    
-    public String getUserName() {
-        return this.userName;
-    }
-    
-    public void setUserName(String userName) {
-    		if((userName != null && this.userName == null) || 
-				this.userName != null && (!this.userName.equals(userName) || userName == null)){
-        		this.setDirty(true);
-        		this.oldValues.put("userName", this.userName);
-        	}
-        this.userName = userName;
     }
     
     public String getCertificateTypeId() {
@@ -282,7 +245,7 @@ public abstract class TblMbInfoAbstract extends BaseObject implements Serializab
    
    public int hashCode() {
         HashCodeBuilder hcb = new HashCodeBuilder(17, 37);
-        hcb.append(getId());
+        hcb.appendSuper(super.hashCode());
 		hcb.append("TblMbInfo".hashCode());
         return hcb.toHashCode();
     }
@@ -290,7 +253,6 @@ public abstract class TblMbInfoAbstract extends BaseObject implements Serializab
    public String toString() {
        ToStringBuilder sb = new ToStringBuilder(this, ToStringStyle.DEFAULT_STYLE);
        sb.append("id", this.id)
-		.append("userName", this.userName)
 		.append("certificateTypeId", this.certificateTypeId)
 		.append("cardNo", this.cardNo)
 		.append("realNameStatus", this.realNameStatus)

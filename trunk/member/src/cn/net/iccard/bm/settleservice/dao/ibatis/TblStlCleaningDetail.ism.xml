@@ -18,7 +18,7 @@
 		<result property="refundOrderAmt" column="refundOrderAmt"/>
 		<result property="refundAmt" column="refundAmt"/>
 		<result property="refundFee" column="refundFee"/>
-		<result property="mchtSettleFee" column="mchtSettleFee"/>
+		<result property="mchtSettleAmount" column="mchtSettleAmount"/>
 		<result property="reMark" column="reMark"/>
 		<result property="transType" column="transType"/>
 		<result property="userName" column="userName"/>
@@ -27,6 +27,8 @@
 		<result property="mchtNo" column="mchtNo"/>
 		<result property="mchtName" column="mchtName"/>
 		<result property="cleanStatus" column="cleanStatus"/>
+		<result property="payAmount" column="payAmount"/>
+		<result property="fee" column="fee"/>
 		<result property="creator" column="creator" select="select_inner_HiUser"/>
 		<result property="deleted" column="deleted"/>
 	</resultMap>
@@ -40,8 +42,8 @@
 	</select>
 	
 	<insert id="insTblStlCleaningDetail" parameterClass="java.util.HashMap">    
-    	insert into Tbl_Stl_Cleaning_Detail (id, version, plTxTraceNo, mchtOrderId, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, orderAmount, transTime, refundOrderId, refundOrderAmt, refundAmt, refundFee, mchtSettleFee, reMark, transType, userName, balance, backBalance, mchtNo, mchtName, cleanStatus, creator, deleted) 
-		values (#id#, 1, #plTxTraceNo#, #mchtOrderId#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #orderAmount#, #transTime#, #refundOrderId#, #refundOrderAmt#, #refundAmt#, #refundFee#, #mchtSettleFee#, #reMark#, #transType#, #userName#, #balance#, #backBalance#, #mchtNo#, #mchtName#, #cleanStatus#, #creator#, #deleted#)
+    	insert into Tbl_Stl_Cleaning_Detail (id, version, plTxTraceNo, mchtOrderId, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, orderAmount, transTime, refundOrderId, refundOrderAmt, refundAmt, refundFee, mchtSettleAmount, reMark, transType, userName, balance, backBalance, mchtNo, mchtName, cleanStatus, payAmount, fee, creator, deleted) 
+		values (#id#, 1, #plTxTraceNo#, #mchtOrderId#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #orderAmount#, #transTime#, #refundOrderId#, #refundOrderAmt#, #refundAmt#, #refundFee#, #mchtSettleAmount#, #reMark#, #transType#, #userName#, #balance#, #backBalance#, #mchtNo#, #mchtName#, #cleanStatus#, #payAmount#, #fee#, #creator#, #deleted#)
 		<selectKey resultClass="int"  keyProperty="id" />   
 	</insert>    
    
@@ -60,7 +62,7 @@
 			refundOrderAmt = #refundOrderAmt#,
 			refundAmt = #refundAmt#,
 			refundFee = #refundFee#,
-			mchtSettleFee = #mchtSettleFee#,
+			mchtSettleAmount = #mchtSettleAmount#,
 			reMark = #reMark#,
 			transType = #transType#,
 			userName = #userName#,
@@ -69,6 +71,8 @@
 			mchtNo = #mchtNo#,
 			mchtName = #mchtName#,
 			cleanStatus = #cleanStatus#,
+			payAmount = #payAmount#,
+			fee = #fee#,
 			creator = #creator#,
 			deleted = #deleted#
     where    

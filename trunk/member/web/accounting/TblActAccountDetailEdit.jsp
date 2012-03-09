@@ -57,12 +57,7 @@
 			<dt><hi:text key="备注" entity="TblActAccountDetail"/>：</dt><dd><input type="text" name="tblActAccountDetail.remark" class="textInput" value="${tblActAccountDetail.remark}" maxlength="30"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="截止日期" entity="TblActAccountDetail"/>：</dt>
-			<dd>
-				<input type="text" name="tblActAccountDetail.expiredDate" class="textInput date" readonly="readonly"
-					value="<fmt:formatDate value='${tblActAccountDetail.expiredDate}' pattern='yyyy-MM-dd'/>"/>
-				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
-			</dd>
+			<dt><hi:text key="截止日期" entity="TblActAccountDetail"/>：</dt><dd><input type="text" name="tblActAccountDetail.expiredDate" class="textInput" value="${tblActAccountDetail.expiredDate}" maxlength="8"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="结算状态" entity="TblActAccountDetail"/>：</dt><dd><hi:select emu="settleStatus" name="tblActAccountDetail.settleStatus"/></dd>			

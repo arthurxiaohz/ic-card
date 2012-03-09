@@ -15,7 +15,7 @@
 		<result property="lastMchtTxTime" column="lastMchtTxTime"/>
 		<result property="mchtTxTraceNo" column="mchtTxTraceNo"/>
 		<result property="lastMchtTxTraceNo" column="lastMchtTxTraceNo"/>
-		<result property="txAmount" column="txAmount"/>
+		<result property="orderAmount" column="orderAmount"/>
 		<result property="notifyUrl" column="notifyUrl"/>
 		<result property="txIp" column="txIp"/>
 		<result property="plTxTime" column="plTxTime"/>
@@ -43,6 +43,7 @@
 		<result property="lastUpdatedBy" column="lastUpdatedBy"/>
 		<result property="bgNotifyUrl" column="bgNotifyUrl"/>
 		<result property="mchtName" column="mchtName"/>
+		<result property="payAmount" column="payAmount"/>
 		<result property="creator" column="creator" select="select_inner_HiUser"/>
 		<result property="deleted" column="deleted"/>
 	</resultMap>
@@ -56,8 +57,8 @@
 	</select>
 	
 	<insert id="insTblTxPayMentOrder" parameterClass="java.util.HashMap">    
-    	insert into Tbl_Tx_PayMent_Order (id, version, plTxTraceNo, userName, txTypeId, mchtNo, mchtTxTime, lastMchtTxTime, mchtTxTraceNo, lastMchtTxTraceNo, txAmount, notifyUrl, txIp, plTxTime, txStatus, voucherNo, backVoucherNo, useCoupon, couponMsg, resCouponMsg, showUrl, txBody, payerPhone, verifyCode, confirmCode, orderExpireDatetime, errorCode, errorMsg, settleBatchNo, settleStatus, settleDate, feeAmount, hasCountFee, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, bgNotifyUrl, mchtName, creator, deleted) 
-		values (#id#, 1, #plTxTraceNo#, #userName#, #txTypeId#, #mchtNo#, #mchtTxTime#, #lastMchtTxTime#, #mchtTxTraceNo#, #lastMchtTxTraceNo#, #txAmount#, #notifyUrl#, #txIp#, #plTxTime#, #txStatus#, #voucherNo#, #backVoucherNo#, #useCoupon#, #couponMsg#, #resCouponMsg#, #showUrl#, #txBody#, #payerPhone#, #verifyCode#, #confirmCode#, #orderExpireDatetime#, #errorCode#, #errorMsg#, #settleBatchNo#, #settleStatus#, #settleDate#, #feeAmount#, #hasCountFee#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #bgNotifyUrl#, #mchtName#, #creator#, #deleted#)
+    	insert into Tbl_Tx_PayMent_Order (id, version, plTxTraceNo, userName, txTypeId, mchtNo, mchtTxTime, lastMchtTxTime, mchtTxTraceNo, lastMchtTxTraceNo, orderAmount, notifyUrl, txIp, plTxTime, txStatus, voucherNo, backVoucherNo, useCoupon, couponMsg, resCouponMsg, showUrl, txBody, payerPhone, verifyCode, confirmCode, orderExpireDatetime, errorCode, errorMsg, settleBatchNo, settleStatus, settleDate, feeAmount, hasCountFee, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, bgNotifyUrl, mchtName, payAmount, creator, deleted) 
+		values (#id#, 1, #plTxTraceNo#, #userName#, #txTypeId#, #mchtNo#, #mchtTxTime#, #lastMchtTxTime#, #mchtTxTraceNo#, #lastMchtTxTraceNo#, #orderAmount#, #notifyUrl#, #txIp#, #plTxTime#, #txStatus#, #voucherNo#, #backVoucherNo#, #useCoupon#, #couponMsg#, #resCouponMsg#, #showUrl#, #txBody#, #payerPhone#, #verifyCode#, #confirmCode#, #orderExpireDatetime#, #errorCode#, #errorMsg#, #settleBatchNo#, #settleStatus#, #settleDate#, #feeAmount#, #hasCountFee#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #bgNotifyUrl#, #mchtName#, #payAmount#, #creator#, #deleted#)
 		<selectKey resultClass="int"  keyProperty="id" />   
 	</insert>    
    
@@ -73,7 +74,7 @@
 			lastMchtTxTime = #lastMchtTxTime#,
 			mchtTxTraceNo = #mchtTxTraceNo#,
 			lastMchtTxTraceNo = #lastMchtTxTraceNo#,
-			txAmount = #txAmount#,
+			orderAmount = #orderAmount#,
 			notifyUrl = #notifyUrl#,
 			txIp = #txIp#,
 			plTxTime = #plTxTime#,
@@ -101,6 +102,7 @@
 			lastUpdatedBy = #lastUpdatedBy#,
 			bgNotifyUrl = #bgNotifyUrl#,
 			mchtName = #mchtName#,
+			payAmount = #payAmount#,
 			creator = #creator#,
 			deleted = #deleted#
     where    

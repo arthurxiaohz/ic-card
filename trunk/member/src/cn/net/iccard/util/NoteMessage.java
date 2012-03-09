@@ -19,7 +19,7 @@ public class NoteMessage {
 	 */
 	public static String createSmsMessage(TblTxPayMentOrder trans){
 		String merchantOrderDate = DateUtil.date2showString(trans.getCreatedDatetime());
-		String merchantAmount = MoneyUtil.parseFromReadableAmountToRMB(trans.getTxAmount().toString());
+		String merchantAmount = MoneyUtil.parseFromReadableAmountToRMB(trans.getOrderAmount().toString());
 		String merchantOrderNo = trans.getMchtNo();
 		return "《您于"+merchantOrderDate+"提交了一笔"+merchantAmount+"元的订单，订单号为"+merchantOrderNo+"，对应的短信验证码为"+trans.getVerifyCode()+"，请牢记放款确认码"+trans.getConfirmCode()+"，用于确认收货》";
 	}

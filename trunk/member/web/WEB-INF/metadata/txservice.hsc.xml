@@ -272,8 +272,8 @@
         
         
                             <field>
-            <fieldName>txAmount</fieldName>
-            <fieldLabel>交易金额</fieldLabel>
+            <fieldName>orderAmount</fieldName>
+            <fieldLabel>订单金额</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>true</isSearch>
                                     <isListDisplay>true</isListDisplay>
@@ -1023,6 +1023,34 @@
             <scale></scale>
                         <isParent>false</isParent>
             <fieldType>1</fieldType>
+            
+                        <lookupEntity>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <mainLkFieldName></mainLkFieldName>
+            </lookupEntity>
+                        
+                       </field>
+                     
+        
+        
+                            <field>
+            <fieldName>payAmount</fieldName>
+            <fieldLabel>支付金额</fieldLabel>
+                        <isPrimaryKey>false</isPrimaryKey>
+                                    <isSearch>true</isSearch>
+                                    <isListDisplay>true</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
+                                    <isHidden>false</isHidden>
+                                    <isFull>false</isFull>
+                                    <isMainLookup>false</isMainLookup>
+                        <defaultValue></defaultValue> 
+            <validator>integer</validator>  
+            <length></length>
+            <scale></scale>
+                        <isParent>false</isParent>
+            <fieldType>2</fieldType>
             
                         <lookupEntity>
                 <lkServiceName></lkServiceName>
@@ -4142,12 +4170,27 @@
 				<enumeration>
 			<enuValue>backsuccess</enuValue>
 			<enuLabel>已退款</enuLabel>
-			<enuCode>4</enuCode>
+			<enuCode>7</enuCode>
 		</enumeration>
 				<enumeration>
 			<enuValue>revocationsuccess</enuValue>
 			<enuLabel>已撤销</enuLabel>
 			<enuCode>5</enuCode>
+		</enumeration>
+				<enumeration>
+			<enuValue>waitrevocation</enuValue>
+			<enuLabel>待撤销</enuLabel>
+			<enuCode>4</enuCode>
+		</enumeration>
+				<enumeration>
+			<enuValue>waitback</enuValue>
+			<enuLabel>待退款</enuLabel>
+			<enuCode>6</enuCode>
+		</enumeration>
+				<enumeration>
+			<enuValue>fail</enuValue>
+			<enuLabel>失败</enuLabel>
+			<enuCode>8</enuCode>
 		</enumeration>
 			</entity>
     

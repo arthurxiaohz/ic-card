@@ -65,7 +65,7 @@ public abstract class TblActAccountDetailAbstract extends BaseObject implements 
  	 /**
 	 * ½ØÖ¹ÈÕÆÚ
 	 */	
- 	protected  Date expiredDate;
+ 	protected  String expiredDate;
 
  	 /**
 	 * ½áËã×´Ì¬
@@ -215,11 +215,11 @@ public abstract class TblActAccountDetailAbstract extends BaseObject implements 
         this.remark = remark;
     }
     
-    public Date getExpiredDate() {
+    public String getExpiredDate() {
         return this.expiredDate;
     }
     
-    public void setExpiredDate(Date expiredDate) {
+    public void setExpiredDate(String expiredDate) {
     		if((expiredDate != null && this.expiredDate == null) || 
 				this.expiredDate != null && (!this.expiredDate.equals(expiredDate) || expiredDate == null)){
         		this.setDirty(true);
@@ -331,6 +331,7 @@ public abstract class TblActAccountDetailAbstract extends BaseObject implements 
 		.append("amount", this.amount)
 		.append("balance", this.balance)
 		.append("remark", this.remark)
+		.append("expiredDate", this.expiredDate)
 		.append("deleted", this.deleted);
       
         return sb.toString();

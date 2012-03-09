@@ -36,8 +36,8 @@ public class TblStlCleaningDetailPageInfo extends PageInfoView{
  	protected  String  f_refundAmt_op;
 	protected  Integer  f_refundFee;
  	protected  String  f_refundFee_op;
-	protected  Integer  f_mchtSettleFee;
- 	protected  String  f_mchtSettleFee_op;
+	protected  Integer  f_mchtSettleAmount;
+ 	protected  String  f_mchtSettleAmount_op;
 	protected  String  f_reMark;
  	protected  String  f_reMark_op;
 	protected  String  f_transType;
@@ -54,6 +54,10 @@ public class TblStlCleaningDetailPageInfo extends PageInfoView{
  	protected  String  f_mchtName_op;
 	protected  Integer  f_cleanStatus;
  	protected  String  f_cleanStatus_op;
+	protected  Integer  f_payAmount;
+ 	protected  String  f_payAmount_op;
+	protected  Integer  f_fee;
+ 	protected  String  f_fee_op;
 	protected  Integer  f_deleted;
  	protected  String  f_deleted_op;
 
@@ -281,20 +285,20 @@ public class TblStlCleaningDetailPageInfo extends PageInfoView{
         this.f_refundFee_op = f_refundFee_op;
     }
    
-    public Integer getF_mchtSettleFee() {
-        return this.f_mchtSettleFee;
+    public Integer getF_mchtSettleAmount() {
+        return this.f_mchtSettleAmount;
     }
     
-    public void setF_mchtSettleFee(Integer f_mchtSettleFee) {
-        this.f_mchtSettleFee = f_mchtSettleFee;
+    public void setF_mchtSettleAmount(Integer f_mchtSettleAmount) {
+        this.f_mchtSettleAmount = f_mchtSettleAmount;
     }
     
-    public String getF_mchtSettleFee_op() {
-        return this.f_mchtSettleFee_op;
+    public String getF_mchtSettleAmount_op() {
+        return this.f_mchtSettleAmount_op;
     }
     
-    public void setF_mchtSettleFee_op(String f_mchtSettleFee_op) {
-        this.f_mchtSettleFee_op = f_mchtSettleFee_op;
+    public void setF_mchtSettleAmount_op(String f_mchtSettleAmount_op) {
+        this.f_mchtSettleAmount_op = f_mchtSettleAmount_op;
     }
    
     public String getF_reMark() {
@@ -423,6 +427,38 @@ public class TblStlCleaningDetailPageInfo extends PageInfoView{
     
     public void setF_cleanStatus_op(String f_cleanStatus_op) {
         this.f_cleanStatus_op = f_cleanStatus_op;
+    }
+   
+    public Integer getF_payAmount() {
+        return this.f_payAmount;
+    }
+    
+    public void setF_payAmount(Integer f_payAmount) {
+        this.f_payAmount = f_payAmount;
+    }
+    
+    public String getF_payAmount_op() {
+        return this.f_payAmount_op;
+    }
+    
+    public void setF_payAmount_op(String f_payAmount_op) {
+        this.f_payAmount_op = f_payAmount_op;
+    }
+   
+    public Integer getF_fee() {
+        return this.f_fee;
+    }
+    
+    public void setF_fee(Integer f_fee) {
+        this.f_fee = f_fee;
+    }
+    
+    public String getF_fee_op() {
+        return this.f_fee_op;
+    }
+    
+    public void setF_fee_op(String f_fee_op) {
+        this.f_fee_op = f_fee_op;
     }
    
     public Integer getF_deleted() {

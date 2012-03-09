@@ -49,12 +49,9 @@
 				<label><hi:text key="余额" entity="TblActAccountDetail"/>:</label>
 				<input type="text" name="pageInfo.f_balance" value="${pageInfo.f_balance}"/>
 			</li>	  
-			<li class="dateRange">
+			<li>
 				<label><hi:text key="截止日期" entity="TblActAccountDetail"/>:</label>
-				<input type="text" name="pageInfo.f_expiredDate" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_expiredDate}' pattern='yyyy-MM-dd'/>"/>
-				<input type="hidden" name="pageInfo.f_expiredDate_op" value="&gt;="><span class="limit">-</span>
-				<input type="text" name="pageInfo.f_expiredDate01" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_expiredDate01}' pattern='yyyy-MM-dd'/>"/>
-				<input type="hidden" name="pageInfo.f_expiredDate01_op" value="&lt;=">
+				<input type="text" name="pageInfo.f_expiredDate" value="${pageInfo.f_expiredDate}"/>
 			</li>	  
 			<li>
 				<label><hi:text key="结算状态" entity="TblActAccountDetail"/>:</label>
@@ -149,7 +146,7 @@
 				    <td><hi:select emu="debitOrCredit" name="tblActAccountDetails[${s.index}].debitOrCredit" isLabel="true"/></td>
 				    <td>${item.balance}</td>
 				    <td>${item.remark}</td>
-					<td><fmt:formatDate value="${item.expiredDate}" pattern="yyyy-MM-dd"/></td>
+				    <td>${item.expiredDate}</td>
 				    <td><hi:select emu="settleStatus" name="tblActAccountDetails[${s.index}].settleStatus" isLabel="true"/></td>
 				    <td><fmt:formatDate value="${item.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 				    <td><fmt:formatDate value="${item.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
