@@ -60,6 +60,8 @@ public class TblMbRechargeOrderPageInfo extends PageInfoView{
  	protected  String  f_checkBatchNo_op;
 	protected  Integer  f_checkStatus;
  	protected  String  f_checkStatus_op;
+	protected  String  f_voucherNo;
+ 	protected  String  f_voucherNo_op;
 	protected  Integer  f_deleted;
  	protected  String  f_deleted_op;
 
@@ -477,6 +479,22 @@ public class TblMbRechargeOrderPageInfo extends PageInfoView{
     
     public void setF_checkStatus_op(String f_checkStatus_op) {
         this.f_checkStatus_op = f_checkStatus_op;
+    }
+   
+    public String getF_voucherNo() {
+        return this.f_voucherNo;
+    }
+    
+    public void setF_voucherNo(String f_voucherNo) {
+        this.f_voucherNo = f_voucherNo;
+    }
+    
+    public String getF_voucherNo_op() {
+        return this.f_voucherNo_op;
+    }
+    
+    public void setF_voucherNo_op(String f_voucherNo_op) {
+        this.f_voucherNo_op = f_voucherNo_op;
     }
    
     public Integer getF_deleted() {

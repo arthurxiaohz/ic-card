@@ -11,14 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.net.iccard.special.action.PrepaidRequestAction;
+import cn.net.iccard.special.action.RechargeRequestAction;
 
 
 /**
- *  发送手机短信
+ *  接收alipay后台通知
  * 
  * 
  */
-public class PhoneServlet extends HttpServlet {
+public class AlipayNotifyServlet extends HttpServlet {
 	/**
 	 * 
 	 */
@@ -28,18 +29,17 @@ public class PhoneServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("--------PhoneServlet----doGet-----start-------------");
-		response.setContentType("text/xml; charset=GBK");// 设置字符编码和头部信息
-		response.setHeader("Cache-Control", "no-cache");
+		System.out.println("--------AlipayNotifyServlet----doGet-----start-------------");
+		
 		
 		// 主键id
 		String id = request.getParameter("tblTxPayMentOrderid");
 		String phoneNo = request.getParameter("phoneNo");
 		System.out.println(id);
 		
-		PrepaidRequestAction prepaidRequestAction = new PrepaidRequestAction();
+		RechargeRequestAction rechargeRequestAction = new RechargeRequestAction();
 		try {
-			prepaidRequestAction.saveSms(id, phoneNo);
+			rechargeRequestAction.saveRecharge(request,response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

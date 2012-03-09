@@ -1012,6 +1012,34 @@
                      
         
         
+                            <field>
+            <fieldName>voucherNo</fieldName>
+            <fieldLabel>凭证号</fieldLabel>
+                        <isPrimaryKey>false</isPrimaryKey>
+                                    <isSearch>true</isSearch>
+                                    <isListDisplay>true</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
+                                    <isHidden>false</isHidden>
+                                    <isFull>false</isFull>
+                                    <isMainLookup>false</isMainLookup>
+                        <defaultValue></defaultValue> 
+            <validator></validator>  
+            <length>30</length>
+            <scale></scale>
+                        <isParent>false</isParent>
+            <fieldType>1</fieldType>
+            
+                        <lookupEntity>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <mainLkFieldName></mainLkFieldName>
+            </lookupEntity>
+                        
+                       </field>
+                     
+        
+        
               
               		 <field>
             <fieldName>creator</fieldName>
@@ -1225,17 +1253,12 @@
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
-            <length>1</length>
+            <length></length>
             <scale></scale>
                         <isParent>false</isParent>
-            <fieldType>1</fieldType>
+            <fieldType>7</fieldType>
             
-                        <lookupEntity>
-                <lkServiceName></lkServiceName>
-                <lkEntityName></lkEntityName>
-                <isLkForeignKey>false</isLkForeignKey>
-                <mainLkFieldName></mainLkFieldName>
-            </lookupEntity>
+                         <enumerationEntity>RechargeTxStatus</enumerationEntity>
                         
                        </field>
                      
@@ -2770,11 +2793,11 @@
             <fieldLabel>帐号</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
-                                    <isHidden>false</isHidden>
+                                    <isHidden>true</isHidden>
                                     <isFull>false</isFull>
-                                    <isMainLookup>false</isMainLookup>
+                                    <isMainLookup>true</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
             <length>30</length>
@@ -2797,12 +2820,12 @@
             <fieldName>fullName</fieldName>
             <fieldLabel>姓名</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
-                                    <isHidden>false</isHidden>
+                                    <isHidden>true</isHidden>
                                     <isFull>false</isFull>
-                                    <isMainLookup>true</isMainLookup>
+                                    <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
             <length>30</length>
@@ -2853,10 +2876,10 @@
             <fieldName>mchtNo</fieldName>
             <fieldLabel>商户号</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
-                                    <isHidden>false</isHidden>
+                                    <isHidden>true</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>true</isMainLookup>
                         <defaultValue></defaultValue> 
@@ -2882,9 +2905,9 @@
             <fieldLabel>商户名称</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
-                                    <isHidden>false</isHidden>
+                                    <isHidden>true</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
@@ -2910,9 +2933,9 @@
             <fieldLabel>商户类别</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
-                                    <isHidden>false</isHidden>
+                                    <isHidden>true</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
@@ -3152,23 +3175,23 @@
             <fieldLabel>最后修改人</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
-                                    <isListDisplay>true</isListDisplay>
-                                    <isReadOnly>false</isReadOnly>
-                                    <isHidden>false</isHidden>
+                                    <isListDisplay>false</isListDisplay>
+                                    <isReadOnly>true</isReadOnly>
+                                    <isHidden>true</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
-            <validator>integer</validator>  
+            <validator></validator>  
             <length></length>
             <scale></scale>
                         <isParent>false</isParent>
-            <fieldType>2</fieldType>
+            <fieldType>6</fieldType>
             
                         <lookupEntity>
-                <lkServiceName></lkServiceName>
-                <lkEntityName></lkEntityName>
-                <isLkForeignKey>false</isLkForeignKey>
-                <mainLkFieldName></mainLkFieldName>
+                <lkServiceName>organization</lkServiceName>
+                <lkEntityName>HiUser</lkEntityName>
+                <isLkForeignKey>true</isLkForeignKey>
+                <mainLkFieldName>id</mainLkFieldName>
             </lookupEntity>
                         
                        </field>

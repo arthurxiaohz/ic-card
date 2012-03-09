@@ -19,7 +19,7 @@
 			<dt><hi:text key="交易时间" entity="TblMbTransactionRequest"/>：</dt><dd>${tblMbTransactionRequest.trxTime}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="交易状态" entity="TblMbTransactionRequest"/>：</dt><dd>${tblMbTransactionRequest.txStatus}</dd>
+			<dt><hi:text key="交易状态" entity="TblMbTransactionRequest"/>：</dt><dd><hi:select emu="rechargeTxStatus" name="tblMbTransactionRequest.txStatus" isLabel="true"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="附加信息" entity="TblMbTransactionRequest"/>：</dt><dd>${tblMbTransactionRequest.msgext}</dd>

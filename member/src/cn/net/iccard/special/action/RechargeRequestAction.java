@@ -28,11 +28,8 @@ import cn.net.iccard.member.service.TblMbRechargeOrderManager;
 import cn.net.iccard.member.service.TblMbTransactionRequestManager;
 import cn.net.iccard.member.service.impl.TblMbInfoManagerImpl;
 import cn.net.iccard.member.service.impl.TblMbRechargeOrderManagerImpl;
-import cn.net.iccard.tx.action.TblTxPayMentOrderPageInfo;
-import cn.net.iccard.tx.action.TblTxPayMentRequestPageInfo;
-import cn.net.iccard.tx.model.TblTxPayMentOrder;
-import cn.net.iccard.tx.model.TblTxPayMentRequest;
-import cn.net.iccard.tx.service.impl.TblTxPayMentOrderManagerImpl;
+import cn.net.iccard.special.service.IRechargeResponseService;
+import cn.net.iccard.special.service.impl.RechargeService;
 import cn.net.iccard.util.BankTraceNoGererator;
 import cn.net.iccard.util.DateUtil;
 import cn.net.iccard.util.PLTraceNoGererator;
@@ -40,11 +37,10 @@ import cn.net.iccard.util.PLTraceNoGererator;
 //充值处理
 
 public class RechargeRequestAction extends BaseAction{
-	private TblTxPayMentRequest tblTxPayMentRequest;
-	private TblTxPayMentRequestPageInfo pageInfo;
-	private List<TblTxPayMentRequest> tblTxPayMentRequests;
-	private String orderIndexs;
 	
+	private IRechargeResponseService rechargeResponseService = (IRechargeResponseService) SpringContextHolder
+	.getBean(RechargeService.class);
+
 
 	
 	//接收持卡人请求处理
@@ -105,7 +101,7 @@ public class RechargeRequestAction extends BaseAction{
 			mbTransactionRequest.setPan(tblMbInfo.getCardNo());
 			mbTransactionRequest.setChinfo(UserContextHelper.getUser().getFullName());
 			mbTransactionRequest.setPlTxTraceNo(plTxTraceNo);
-			mbTransactionRequest.setTxStatus("1");
+			mbTransactionRequest.setTxStatus(RechargeTxStatus.RECHARGETXSTATUS_PAYPROCESS);
 			mbTransactionRequest.setCreatedDatetime(new Timestamp(System.currentTimeMillis())); //创建时间
 			//tblTxPayMentRequest.setLastUpdatedBy();     	//最后修改人
 			mbTransactionRequest.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));//最后修改时间
@@ -124,84 +120,17 @@ public class RechargeRequestAction extends BaseAction{
 			String sHtmlText = AlipayService.create_direct_pay_by_user(sParaTemp,requestId);
 		}
 		
-	
-	//预支付 确认
-	public void upfrontCostAffirm() throws Exception {
-		
+	/**
+	 * 充值成功
+	 */
+	public String saveRecharge(HttpServletRequest request,HttpServletResponse response) throws Exception {
 
-	   
-		//1.取得请求信息
-		HttpServletRequest request = getRequest();
+//		HttpServletRequest request = getRequest();
+//		HttpServletResponse response = getResponse();
 		
-		HttpServletResponse response = getResponse();
+		rechargeResponseService.saveRechargeResponse(request, response);
 		
-		 try {
-		      request.setCharacterEncoding("GBK");
-		      String contentType = new StringBuffer("text/html; charset=").append("GBK").toString();
-		      response.setContentType(contentType);
-		    } catch (Exception e) {
-		      //logger.error("", e);
-		    }
-			
-		//取得请求信息，调用账户系统进行扣款，扣款成功后
-		String msg = request.getParameter("TxInfo");			//报文域
-		String Signature = request.getParameter("Signature");	//报文签名
-		String TxType = request.getParameter("TxType");			//交易类型
-		
-		//修改对应交易记录状态    
-		//先查询支付订单表
-		
-		TblTxPayMentOrderPageInfo tblTxPayMentOrderPageInfo= new TblTxPayMentOrderPageInfo();
-		
-		tblTxPayMentOrderPageInfo.setF_mchtTxTraceNo(request.getParameter("plTxTraceNo"));
-		
-		Filter Filter = PageInfoUtil.populateFilter(tblTxPayMentOrderPageInfo);
-		System.out.println(Filter);
-		TblTxPayMentOrderManagerImpl TblTxPayMentOrderManagerImpl = new TblTxPayMentOrderManagerImpl();
-		List list  = TblTxPayMentOrderManagerImpl.getObjects(TblTxPayMentOrder.class,Filter);
-		
-		//更新支付订单表
-		TblTxPayMentOrder TblTxPayMentOrder = (TblTxPayMentOrder)list.get(0);
-		TblTxPayMentOrder.setTxStatus(2);
-		TblTxPayMentOrder.setLastUpdatedBy(Integer.valueOf(request.getParameter("username")));
-		
-		//记录支付结果通知表并通知商户
-		
-		
-		
-		}
-		
-	
-	public TblTxPayMentRequest getTblTxPayMentRequest() {
-		return tblTxPayMentRequest;
-	}
-
-	public void setTblTxPayMentRequest(TblTxPayMentRequest tblTxPayMentRequest) {
-		this.tblTxPayMentRequest = tblTxPayMentRequest;
-	}
-	
-	public List<TblTxPayMentRequest> getTblTxPayMentRequests() {
-		return tblTxPayMentRequests;
-	}
-
-	public void setTblTxPayMentRequests(List<TblTxPayMentRequest> tblTxPayMentRequests) {
-		this.tblTxPayMentRequests = tblTxPayMentRequests;
-	}
-
-	public TblTxPayMentRequestPageInfo getPageInfo() {
-		return pageInfo;
-	}
-
-	public void setPageInfo(TblTxPayMentRequestPageInfo pageInfo) {
-		this.pageInfo = pageInfo;
-	}	
-	
-	public String getOrderIndexs() {
-		return orderIndexs;
-	}
-
-	public void setOrderIndexs(String orderIndexs) {
-		this.orderIndexs = orderIndexs;
+		return returnCommand();
 	}
 	
 }

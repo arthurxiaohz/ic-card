@@ -112,7 +112,8 @@
 				<hi:search name="pageInfo.f_checkStatus" emu="checkStatus"/>
 			</li>	  
 			<li>
-
+				<label><hi:text key="凭证号" entity="TblMbRechargeOrder"/>:</label>
+				<input type="text" name="pageInfo.f_voucherNo" value="${pageInfo.f_voucherNo}"/>
 			</li>	  
 		</ul>
 		<div class="subBar">
@@ -130,7 +131,7 @@
 				<authz:authorize ifAnyGranted="TBLMBRECHARGEORDER_DEL"><li><a class="delete" href="<hi:url>tblMbRechargeOrderRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', plTxTraceNo:'',userName:'',accountType:'',accountNo:'',pan:'',chinfo:'',txTypeId:'',mchtTxTime:'',txAmount:'',txIp:'',plTxTime:'',txStatus:'',errorCode:'',errorMsg:'',settleBatchNo:'',settleStatus:'',settleDate:'',createdDatetime:'',lastUpdatedDatetime:'',lastUpdatedBy:'',bankTxStatus:'',checkBatchNo:'',checkStatus:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', plTxTraceNo:'',userName:'',accountType:'',accountNo:'',pan:'',chinfo:'',txTypeId:'',mchtTxTime:'',txAmount:'',txIp:'',plTxTime:'',txStatus:'',errorCode:'',errorMsg:'',settleBatchNo:'',settleStatus:'',settleDate:'',createdDatetime:'',lastUpdatedDatetime:'',lastUpdatedBy:'',bankTxStatus:'',checkBatchNo:'',checkStatus:'',voucherNo:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -164,6 +165,7 @@
 				<th orderField="bankTxStatus" class="${pageInfo.sorterName eq 'bankTxStatus' ? pageInfo.sorterDirection : ''}"><hi:text key="银行交易状态" entity="TblMbRechargeOrder"/></th>
 				<th orderField="checkBatchNo" class="${pageInfo.sorterName eq 'checkBatchNo' ? pageInfo.sorterDirection : ''}"><hi:text key="对账批次号" entity="TblMbRechargeOrder"/></th>
 				<th orderField="checkStatus" class="${pageInfo.sorterName eq 'checkStatus' ? pageInfo.sorterDirection : ''}"><hi:text key="对账状态" entity="TblMbRechargeOrder"/></th>
+				<th orderField="voucherNo" class="${pageInfo.sorterName eq 'voucherNo' ? pageInfo.sorterDirection : ''}"><hi:text key="凭证号" entity="TblMbRechargeOrder"/></th>
 				<th width="90">
 					<c:choose>
 						<c:when test="${empty lookup}"><hi:text key="操作"/></c:when>
@@ -201,6 +203,7 @@
 				    <td><hi:select emu="bankTxStatus" name="tblMbRechargeOrders[${s.index}].bankTxStatus" isLabel="true"/></td>
 				    <td>${item.checkBatchNo}</td>
 				    <td><hi:select emu="checkStatus" name="tblMbRechargeOrders[${s.index}].checkStatus" isLabel="true"/></td>
+				    <td>${item.voucherNo}</td>
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
@@ -215,7 +218,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', plTxTraceNo:'${item.plTxTraceNo}',userName:'${item.userName}',accountType:'${item.accountType}',accountNo:'${item.accountNo}',pan:'${item.pan}',chinfo:'${item.chinfo}',txTypeId:'${item.txTypeId}',mchtTxTime:'${item.mchtTxTime}',txAmount:'${item.txAmount}',txIp:'${item.txIp}',plTxTime:'${item.plTxTime}',txStatus:'<hi:select emu="rechargeTxStatus" name="tblMbRechargeOrders[${s.index}].txStatus" isLabel="true"/>',errorCode:'${item.errorCode}',errorMsg:'${item.errorMsg}',settleBatchNo:'${item.settleBatchNo}',settleStatus:'<hi:select emu="rechargeSettleStatus" name="tblMbRechargeOrders[${s.index}].settleStatus" isLabel="true"/>',settleDate:'${item.settleDate}',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}',bankTxStatus:'<hi:select emu="bankTxStatus" name="tblMbRechargeOrders[${s.index}].bankTxStatus" isLabel="true"/>',checkBatchNo:'${item.checkBatchNo}',checkStatus:'<hi:select emu="checkStatus" name="tblMbRechargeOrders[${s.index}].checkStatus" isLabel="true"/>'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', plTxTraceNo:'${item.plTxTraceNo}',userName:'${item.userName}',accountType:'${item.accountType}',accountNo:'${item.accountNo}',pan:'${item.pan}',chinfo:'${item.chinfo}',txTypeId:'${item.txTypeId}',mchtTxTime:'${item.mchtTxTime}',txAmount:'${item.txAmount}',txIp:'${item.txIp}',plTxTime:'${item.plTxTime}',txStatus:'<hi:select emu="rechargeTxStatus" name="tblMbRechargeOrders[${s.index}].txStatus" isLabel="true"/>',errorCode:'${item.errorCode}',errorMsg:'${item.errorMsg}',settleBatchNo:'${item.settleBatchNo}',settleStatus:'<hi:select emu="rechargeSettleStatus" name="tblMbRechargeOrders[${s.index}].settleStatus" isLabel="true"/>',settleDate:'${item.settleDate}',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}',bankTxStatus:'<hi:select emu="bankTxStatus" name="tblMbRechargeOrders[${s.index}].bankTxStatus" isLabel="true"/>',checkBatchNo:'${item.checkBatchNo}',checkStatus:'<hi:select emu="checkStatus" name="tblMbRechargeOrders[${s.index}].checkStatus" isLabel="true"/>',voucherNo:'${item.voucherNo}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

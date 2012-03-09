@@ -6,39 +6,6 @@
 <div class="pageContent">
 	<div class="pageFormContent" layoutH="97">
 		<dl>
-			<dt><hi:text key="帐号" entity="TblMbPointRule"/>：</dt>
-			<dd>
-				<input type="text" class="textInput" name="tblMbPointRule.hi_tblMbInfo.userName" value="${tblMbPointRule.tblMbInfo.userName}" readonly="readonly"/>
-			</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="姓名" entity="TblMbPointRule"/>：</dt>
-			<dd>
-				<input type="hidden" name="tblMbPointRule.tblMbInfo.id" value="${tblMbPointRule.tblMbInfo.id}"/>
-				<input type="text" class="textInput" name="tblMbPointRule.hi_tblMbInfo.fullName" value="${tblMbPointRule.tblMbInfo.fullName}"
-					autocomplete="off" lookupGroup="tblMbPointRule" lookupName="tblMbInfo" suggestClass="org.hi.base.organization.model.HiUser" searchFields="userName,fullName"/>
-				<a class="btnLook" href="<hi:url>hiUserLookup.action?lookup=1</hi:url>" lookupGroup="tblMbPointRule" lookupName="tblMbInfo"><hi:text key="查找带回"/></a>		
-			</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="商户号" entity="TblMbPointRule"/>：</dt>
-			<dd>
-				<input type="hidden" name="tblMbPointRule.tblMchtInfo.id" value="${tblMbPointRule.tblMchtInfo.id}"/>
-				<input type="text" class="textInput" name="tblMbPointRule.hi_tblMchtInfo.mchtNo" value="${tblMbPointRule.tblMchtInfo.mchtNo}"
-					autocomplete="off" lookupGroup="tblMbPointRule" lookupName="tblMchtInfo" suggestClass="cn.net.iccard.bm.mcht.model.TblMchtInfo" searchFields="mchtNo,mchtName"/>
-				<a class="btnLook" href="<hi:url>tblMchtInfoLookup.action?lookup=1</hi:url>" lookupGroup="tblMbPointRule" lookupName="tblMchtInfo"><hi:text key="查找带回"/></a>		
-			</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="商户名称" entity="TblMbPointRule"/>：</dt>
-			<dd>
-				<input type="text" class="textInput" name="tblMbPointRule.hi_tblMchtInfo.mchtName" value="${tblMbPointRule.tblMchtInfo.mchtName}" readonly="readonly"/>
-			</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="商户类别" entity="TblMbPointRule"/>：</dt><dd><hi:select emu="mchtType" name="tblMbPointRule.mchtType"/></dd>			
-		</dl>
-		<dl>
 			<dt><hi:text key="有效期开始时间" entity="TblMbPointRule"/>：</dt>
 			<dd>
 				<input type="text" name="tblMbPointRule.startDatetime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
@@ -82,10 +49,13 @@
 				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
 			</dd>
 		</dl>
-		<dl>
-			<dt><hi:text key="最后修改人" entity="TblMbPointRule"/>：</dt><dd><input type="text" name="tblMbPointRule.lastUpdatedBy" class="textInput integer" value="${tblMbPointRule.lastUpdatedBy}" alt="<hi:text key="请输入整数"/>"/></dd>
-		</dl>
 				<input type="hidden" name="tblMbPointRule.id" value="${tblMbPointRule.id}"/>
+				<input type="hidden" name="tblMbPointRule.userName.userName" value="${tblMbPointRule.userName.userName}"/>
+				<input type="hidden" name="tblMbPointRule.fullName.fullName" value="${tblMbPointRule.fullName.fullName}"/>
+				<input type="hidden" name="tblMbPointRule.mchtNo.mchtNo" value="${tblMbPointRule.mchtNo.mchtNo}"/>
+				<input type="hidden" name="tblMbPointRule.mchtName.mchtName" value="${tblMbPointRule.mchtName.mchtName}"/>
+				<input type="hidden" name="tblMbPointRule.mchtType" value="${tblMbPointRule.mchtType}"/>
+				<input type="hidden" name="tblMbPointRule.lastUpdatedBy.id" value="${tblMbPointRule.lastUpdatedBy.id}"/>
 				<input type="hidden" name="tblMbPointRule.creator.id" value="${tblMbPointRule.creator.id}"/>
 				<input type="hidden" name="tblMbPointRule.version" value="${tblMbPointRule.version}"/>
 

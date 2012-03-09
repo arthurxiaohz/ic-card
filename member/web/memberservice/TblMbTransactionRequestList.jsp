@@ -31,7 +31,7 @@
 			</li>	  
 			<li>
 				<label><hi:text key="交易状态" entity="TblMbTransactionRequest"/>:</label>
-				<input type="text" name="pageInfo.f_txStatus" value="${pageInfo.f_txStatus}"/>
+				<hi:search name="pageInfo.f_txStatus" emu="rechargeTxStatus"/>
 			</li>	  
 			<li>
 				<label><hi:text key="附加信息" entity="TblMbTransactionRequest"/>:</label>
@@ -145,7 +145,7 @@
 				    <td>${item.mchtNo}</td>
 				    <td>${item.amount}</td>
 				    <td>${item.trxTime}</td>
-				    <td>${item.txStatus}</td>
+				    <td><hi:select emu="rechargeTxStatus" name="tblMbTransactionRequests[${s.index}].txStatus" isLabel="true"/></td>
 				    <td>${item.msgext}</td>
 				    <td><fmt:formatDate value="${item.createdDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 				    <td><fmt:formatDate value="${item.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
@@ -172,7 +172,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', trancode:'${item.trancode}',mchtNo:'${item.mchtNo}',amount:'${item.amount}',trxTime:'${item.trxTime}',txStatus:'${item.txStatus}',msgext:'${item.msgext}',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}',pan:'${item.pan}',chinfo:'${item.chinfo}',plTxTraceNo:'${item.plTxTraceNo}',currencyType:'${item.currencyType}',accountType:'${item.accountType}',accountNo:'${item.accountNo}',plTxTime:'${item.plTxTime}',orderId:'${item.orderId}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', trancode:'${item.trancode}',mchtNo:'${item.mchtNo}',amount:'${item.amount}',trxTime:'${item.trxTime}',txStatus:'<hi:select emu="rechargeTxStatus" name="tblMbTransactionRequests[${s.index}].txStatus" isLabel="true"/>',msgext:'${item.msgext}',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}',pan:'${item.pan}',chinfo:'${item.chinfo}',plTxTraceNo:'${item.plTxTraceNo}',currencyType:'${item.currencyType}',accountType:'${item.accountType}',accountNo:'${item.accountNo}',plTxTime:'${item.plTxTime}',orderId:'${item.orderId}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

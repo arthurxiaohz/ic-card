@@ -18,7 +18,7 @@
 		<result property="ruleValue" column="ruleValue"/>
 		<result property="createdDateTime" column="createdDateTime"/>
 		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
-		<result property="lastUpdatedBy" column="lastUpdatedBy"/>
+		<result property="lastUpdatedBy" column="lastUpdatedBy" select="select_inner_HiUser"/>
 		<result property="creator" column="creator" select="select_inner_HiUser"/>
 	</resultMap>
     

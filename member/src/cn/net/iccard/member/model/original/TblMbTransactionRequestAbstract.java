@@ -49,7 +49,7 @@ public abstract class TblMbTransactionRequestAbstract extends BaseObject impleme
  	 /**
 	 * 交易状态
 	 */	
- 	protected  String txStatus;
+ 	protected  Integer txStatus;
 
  	 /**
 	 * 附加信息
@@ -200,11 +200,11 @@ public abstract class TblMbTransactionRequestAbstract extends BaseObject impleme
         this.trxTime = trxTime;
     }
     
-    public String getTxStatus() {
+    public Integer getTxStatus() {
         return this.txStatus;
     }
     
-    public void setTxStatus(String txStatus) {
+    public void setTxStatus(Integer txStatus) {
     		if((txStatus != null && this.txStatus == null) || 
 				this.txStatus != null && (!this.txStatus.equals(txStatus) || txStatus == null)){
         		this.setDirty(true);
@@ -420,7 +420,6 @@ public abstract class TblMbTransactionRequestAbstract extends BaseObject impleme
 		.append("mchtNo", this.mchtNo)
 		.append("amount", this.amount)
 		.append("trxTime", this.trxTime)
-		.append("txStatus", this.txStatus)
 		.append("msgext", this.msgext)
 		.append("lastUpdatedBy", this.lastUpdatedBy)
 		.append("pan", this.pan)

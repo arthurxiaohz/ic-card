@@ -75,6 +75,9 @@
 		<dl>
 			<dt><hi:text key="对账状态" entity="TblMbRechargeOrder"/>：</dt><dd><hi:select emu="checkStatus" name="tblMbRechargeOrder.checkStatus" isLabel="true"/></dd>
 		</dl>
+		<dl>
+			<dt><hi:text key="凭证号" entity="TblMbRechargeOrder"/>：</dt><dd>${tblMbRechargeOrder.voucherNo}</dd>
+		</dl>
 
 		<div class="divider"></div>
 			</div>

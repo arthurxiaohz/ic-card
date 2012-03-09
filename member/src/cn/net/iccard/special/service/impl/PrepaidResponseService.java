@@ -96,15 +96,15 @@ public class PrepaidResponseService implements IPrepaidResponseService {
 		mchtfilter.addCondition("accountPartyType", AccountPartyType.ACCOUNTPARTYTYPE_MCHT, Filter.OPERATOR_EQ)
 					.addCondition("AccountCatalog", AccountCatalog.ACCOUNTCATALOG_GUARANTEEACCOUNT, Filter.OPERATOR_EQ);
 		
-		List<ActAccount> mchtActAccountList  = tblMchtInfoMan.getObjects(mchtfilter);	
+		List<ActAccount> mchtActAccountList  = actAccountMan.getObjects(mchtfilter);	
 		
 		ActAccount mchtActAccount = (ActAccount)mchtActAccountList.get(0);		//商户担保账户
 		
-		Filter memberfilter = FilterFactory.getSimpleFilter("accountParty", tblTxPayMentOrder.getMchtNo(), Filter.OPERATOR_EQ);
-		mchtfilter.addCondition("accountPartyType", AccountPartyType.ACCOUNTPARTYTYPE_MEMBER, Filter.OPERATOR_EQ)
+		Filter memberfilter = FilterFactory.getSimpleFilter("accountParty", tblTxPayMentOrder.getUserName(), Filter.OPERATOR_EQ);
+		memberfilter.addCondition("accountPartyType", AccountPartyType.ACCOUNTPARTYTYPE_MEMBER, Filter.OPERATOR_EQ)
 					.addCondition("AccountCatalog", AccountCatalog.ACCOUNTCATALOG_VIRTUALACCOUNT, Filter.OPERATOR_EQ);
 		
-		List<ActAccount> memberActAccountList  = tblMchtInfoMan.getObjects(memberfilter);	
+		List<ActAccount> memberActAccountList  = actAccountMan.getObjects(memberfilter);	
 		
 		ActAccount memberActAccount = (ActAccount)memberActAccountList.get(0);		//会员虚拟账户
 		
