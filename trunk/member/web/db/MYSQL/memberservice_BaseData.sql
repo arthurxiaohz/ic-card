@@ -758,6 +758,10 @@ delete from HI_Language where ID = 100323;
 --
 insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100323, 0, '对账状态', 'TblMbRechargeOrder', 1, 0);
 --
+delete from HI_Language where ID = 100324;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(100324, 0, '凭证号', 'TblMbRechargeOrder', 1, 0);
+--
 delete from HI_Language where ID = 100400;
 --
 insert into HI_Language(ID, version, keyStr, creator, isSystem) values(100400, 0, '网关交易请求', 1, 0);
@@ -976,59 +980,35 @@ insert into HI_Language(ID, version, keyStr, creator, isSystem) values(101600, 0
 --
 delete from HI_Language where ID = 101601;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101601, 0, '帐号', 'TblMbPointRule', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101601, 0, '有效期开始时间', 'TblMbPointRule', 1, 0);
 --
 delete from HI_Language where ID = 101602;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101602, 0, '姓名', 'TblMbPointRule', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101602, 0, '有效期结束时间', 'TblMbPointRule', 1, 0);
 --
 delete from HI_Language where ID = 101603;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101603, 0, '商户号', 'TblMbPointRule', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101603, 0, '起始金额', 'TblMbPointRule', 1, 0);
 --
 delete from HI_Language where ID = 101604;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101604, 0, '商户名称', 'TblMbPointRule', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101604, 0, '截止金额', 'TblMbPointRule', 1, 0);
 --
 delete from HI_Language where ID = 101605;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101605, 0, '商户类别', 'TblMbPointRule', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101605, 0, '积分规则类型', 'TblMbPointRule', 1, 0);
 --
 delete from HI_Language where ID = 101606;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101606, 0, '有效期开始时间', 'TblMbPointRule', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101606, 0, '参数值', 'TblMbPointRule', 1, 0);
 --
 delete from HI_Language where ID = 101607;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101607, 0, '有效期结束时间', 'TblMbPointRule', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101607, 0, '创建时间', 'TblMbPointRule', 1, 0);
 --
 delete from HI_Language where ID = 101608;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101608, 0, '起始金额', 'TblMbPointRule', 1, 0);
---
-delete from HI_Language where ID = 101609;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101609, 0, '截止金额', 'TblMbPointRule', 1, 0);
---
-delete from HI_Language where ID = 101610;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101610, 0, '积分规则类型', 'TblMbPointRule', 1, 0);
---
-delete from HI_Language where ID = 101611;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101611, 0, '参数值', 'TblMbPointRule', 1, 0);
---
-delete from HI_Language where ID = 101612;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101612, 0, '创建时间', 'TblMbPointRule', 1, 0);
---
-delete from HI_Language where ID = 101613;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101613, 0, '最后修改时间', 'TblMbPointRule', 1, 0);
---
-delete from HI_Language where ID = 101614;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101614, 0, '最后修改人', 'TblMbPointRule', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(101608, 0, '最后修改时间', 'TblMbPointRule', 1, 0);
 --
 delete from HI_Language where ID = 101700;
 --

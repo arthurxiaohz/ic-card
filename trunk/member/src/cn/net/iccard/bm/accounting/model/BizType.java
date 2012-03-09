@@ -24,5 +24,17 @@ public class BizType implements Serializable{
 	 * 确认退款
 	 */
 	public static final int BIZTYPE_CONFIRMREFUND = 601004;
+	/**
+	 * 网银充值
+	 */
+	public static final int BIZTYPE_BANKCHARGE = 601005;
+	/**
+	 * 现金充值
+	 */
+	public static final int BIZTYPE_CASHCHARGE = 601006;
+	/**
+	 * 线上转线下
+	 */
+	public static final int BIZTYPE_ONLINETOOFFLINE = 601007;
 
 }

@@ -312,6 +312,18 @@ delete from EnumerationValue where ID = 601004;
 --
 insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(601004, 0, 'confirmRefund', '确认退款', '确认退款', '', 601000, 0);
 --
+delete from EnumerationValue where ID = 601005;
+--
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(601005, 0, 'bankCharge', '网银充值', '网银充值', '', 601000, 0);
+--
+delete from EnumerationValue where ID = 601006;
+--
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(601006, 0, 'cashCharge', '现金充值', '现金充值', '', 601000, 0);
+--
+delete from EnumerationValue where ID = 601007;
+--
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(601007, 0, 'onlineToOffline', '线上转线下', '线上转线下', '', 601000, 0);
+--
 delete from EnumerationValue where ID = 601100;
 --
 insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(601100, 0, 'feeAccount', '手续费账户', '手续费账户', '', 601100, 0);
@@ -601,6 +613,18 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(6
 delete from HI_Language where ID = 601005;
 --
 insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(601005, 0, '确认退款', 'bizType', 1, 0);
+--
+delete from HI_Language where ID = 601006;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(601006, 0, '网银充值', 'bizType', 1, 0);
+--
+delete from HI_Language where ID = 601007;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(601007, 0, '现金充值', 'bizType', 1, 0);
+--
+delete from HI_Language where ID = 601008;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(601008, 0, '线上转线下', 'bizType', 1, 0);
 --
 delete from HI_Language where ID = 601100;
 --

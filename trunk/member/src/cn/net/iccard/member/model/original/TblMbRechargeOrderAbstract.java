@@ -142,6 +142,11 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
  	protected  Integer checkStatus;
 
  	 /**
+	 * 凭证号
+	 */	
+ 	protected  String voucherNo;
+
+ 	 /**
 	 * 创建人
 	 */	
  	protected  HiUser creator = org.hi.framework.security.context.UserContextHelper.getUser();
@@ -477,6 +482,19 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
         this.checkStatus = checkStatus;
     }
     
+    public String getVoucherNo() {
+        return this.voucherNo;
+    }
+    
+    public void setVoucherNo(String voucherNo) {
+    		if((voucherNo != null && this.voucherNo == null) || 
+				this.voucherNo != null && (!this.voucherNo.equals(voucherNo) || voucherNo == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("voucherNo", this.voucherNo);
+        	}
+        this.voucherNo = voucherNo;
+    }
+    
     public HiUser getCreator() {
         return this.creator;
     }
@@ -541,6 +559,7 @@ public abstract class TblMbRechargeOrderAbstract extends BaseObject implements S
 		.append("settleDate", this.settleDate)
 		.append("lastUpdatedBy", this.lastUpdatedBy)
 		.append("checkBatchNo", this.checkBatchNo)
+		.append("voucherNo", this.voucherNo)
 		.append("deleted", this.deleted);
       
         return sb.toString();

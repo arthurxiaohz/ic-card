@@ -18,7 +18,7 @@ public class TblMbTransactionRequestPageInfo extends PageInfoView{
  	protected  String  f_amount_op;
 	protected  String  f_trxTime;
  	protected  String  f_trxTime_op;
-	protected  String  f_txStatus;
+	protected  Integer  f_txStatus;
  	protected  String  f_txStatus_op;
 	protected  String  f_msgext;
  	protected  String  f_msgext_op;
@@ -133,11 +133,11 @@ public class TblMbTransactionRequestPageInfo extends PageInfoView{
         this.f_trxTime_op = f_trxTime_op;
     }
    
-    public String getF_txStatus() {
+    public Integer getF_txStatus() {
         return this.f_txStatus;
     }
     
-    public void setF_txStatus(String f_txStatus) {
+    public void setF_txStatus(Integer f_txStatus) {
         this.f_txStatus = f_txStatus;
     }
     

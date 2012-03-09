@@ -18,7 +18,7 @@
 			<dt><hi:text key="交易时间" entity="TblMbTransactionRequest"/>：</dt><dd><input type="text" name="tblMbTransactionRequest.trxTime" class="textInput" value="${tblMbTransactionRequest.trxTime}" maxlength="14"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="交易状态" entity="TblMbTransactionRequest"/>：</dt><dd><input type="text" name="tblMbTransactionRequest.txStatus" class="textInput" value="${tblMbTransactionRequest.txStatus}" maxlength="1"/></dd>
+			<dt><hi:text key="交易状态" entity="TblMbTransactionRequest"/>：</dt><dd><hi:select emu="rechargeTxStatus" name="tblMbTransactionRequest.txStatus"/></dd>			
 		</dl>
 		<dl>
 			<dt><hi:text key="附加信息" entity="TblMbTransactionRequest"/>：</dt><dd><input type="text" name="tblMbTransactionRequest.msgext" class="textInput" value="${tblMbTransactionRequest.msgext}" maxlength="30"/></dd>

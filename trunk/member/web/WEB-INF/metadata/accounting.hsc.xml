@@ -1931,6 +1931,21 @@
 			<enuLabel>确认退款</enuLabel>
 			<enuCode></enuCode>
 		</enumeration>
+				<enumeration>
+			<enuValue>bankCharge</enuValue>
+			<enuLabel>网银充值</enuLabel>
+			<enuCode></enuCode>
+		</enumeration>
+				<enumeration>
+			<enuValue>cashCharge</enuValue>
+			<enuLabel>现金充值</enuLabel>
+			<enuCode></enuCode>
+		</enumeration>
+				<enumeration>
+			<enuValue>onlineToOffline</enuValue>
+			<enuLabel>线上转线下</enuLabel>
+			<enuCode></enuCode>
+		</enumeration>
 			</entity>
     
                

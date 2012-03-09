@@ -85,7 +85,7 @@ public abstract class TblMbPointRuleAbstract extends BaseObject implements Seria
  	 /**
 	 * 最后修改人
 	 */	
- 	protected  Integer lastUpdatedBy;
+ 	protected  HiUser lastUpdatedBy;
 
  	 /**
 	 * 创建人
@@ -262,11 +262,11 @@ public abstract class TblMbPointRuleAbstract extends BaseObject implements Seria
         this.lastUpdatedDatetime = lastUpdatedDatetime;
     }
     
-    public Integer getLastUpdatedBy() {
+    public HiUser getLastUpdatedBy() {
         return this.lastUpdatedBy;
     }
     
-    public void setLastUpdatedBy(Integer lastUpdatedBy) {
+    public void setLastUpdatedBy(HiUser lastUpdatedBy) {
     		if((lastUpdatedBy != null && this.lastUpdatedBy == null) || 
 				this.lastUpdatedBy != null && (!this.lastUpdatedBy.equals(lastUpdatedBy) || lastUpdatedBy == null)){
         		this.setDirty(true);
@@ -311,8 +311,7 @@ public abstract class TblMbPointRuleAbstract extends BaseObject implements Seria
        sb.append("id", this.id)
 		.append("minAmount", this.minAmount)
 		.append("maxAmount", this.maxAmount)
-		.append("ruleValue", this.ruleValue)
-		.append("lastUpdatedBy", this.lastUpdatedBy);
+		.append("ruleValue", this.ruleValue);
       
         return sb.toString();
    }

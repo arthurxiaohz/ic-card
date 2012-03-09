@@ -84,6 +84,9 @@
 		<dl>
 			<dt><hi:text key="对账状态" entity="TblMbRechargeOrder"/>：</dt><dd><hi:select emu="checkStatus" name="tblMbRechargeOrder.checkStatus"/></dd>			
 		</dl>
+		<dl>
+			<dt><hi:text key="凭证号" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.voucherNo" class="textInput" value="${tblMbRechargeOrder.voucherNo}" maxlength="30"/></dd>
+		</dl>
 				<input type="hidden" name="tblMbRechargeOrder.id" value="${tblMbRechargeOrder.id}"/>
 				<input type="hidden" name="tblMbRechargeOrder.creator.id" value="${tblMbRechargeOrder.creator.id}"/>
 				<input type="hidden" name="tblMbRechargeOrder.deleted" value="${tblMbRechargeOrder.deleted}"/>

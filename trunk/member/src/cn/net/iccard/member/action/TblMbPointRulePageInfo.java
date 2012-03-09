@@ -37,11 +37,10 @@ public class TblMbPointRulePageInfo extends PageInfoView{
  	protected  String  f_lastUpdatedDatetime_op;
 	protected  Timestamp  f_lastUpdatedDatetime01;
 	protected  String  f_lastUpdatedDatetime01_op;
-	protected  Integer  f_lastUpdatedBy;
- 	protected  String  f_lastUpdatedBy_op;
 
  	protected  HiUserPageInfo tblMbInfo;
  	protected  TblMchtInfoPageInfo tblMchtInfo;
+ 	protected  HiUserPageInfo lastUpdatedBy;
  	protected  HiUserPageInfo creator;
 
     public Integer getF_id() {
@@ -264,22 +263,6 @@ public class TblMbPointRulePageInfo extends PageInfoView{
         this.f_lastUpdatedDatetime01_op = f_lastUpdatedDatetime01_op;
     }
    
-    public Integer getF_lastUpdatedBy() {
-        return this.f_lastUpdatedBy;
-    }
-    
-    public void setF_lastUpdatedBy(Integer f_lastUpdatedBy) {
-        this.f_lastUpdatedBy = f_lastUpdatedBy;
-    }
-    
-    public String getF_lastUpdatedBy_op() {
-        return this.f_lastUpdatedBy_op;
-    }
-    
-    public void setF_lastUpdatedBy_op(String f_lastUpdatedBy_op) {
-        this.f_lastUpdatedBy_op = f_lastUpdatedBy_op;
-    }
-   
 	public HiUserPageInfo getTblMbInfo() {
 		return tblMbInfo;
 	}
@@ -293,6 +276,13 @@ public class TblMbPointRulePageInfo extends PageInfoView{
 
 	public void setTblMchtInfo(TblMchtInfoPageInfo tblMchtInfo) {
 		this.tblMchtInfo = tblMchtInfo;
+	}
+	public HiUserPageInfo getLastUpdatedBy() {
+		return lastUpdatedBy;
+	}
+
+	public void setLastUpdatedBy(HiUserPageInfo lastUpdatedBy) {
+		this.lastUpdatedBy = lastUpdatedBy;
 	}
 	public HiUserPageInfo getCreator() {
 		return creator;

@@ -7,21 +7,6 @@
 	<div class="viewInfo" layoutH="97">
 				
 		<dl>
-			<dt><hi:text key="帐号" entity="TblMbPointRule"/>：</dt><dd>${tblMbPointRule.tblMbInfo.userName}</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="姓名" entity="TblMbPointRule"/>：</dt><dd>${tblMbPointRule.tblMbInfo.fullName}</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="商户号" entity="TblMbPointRule"/>：</dt><dd>${tblMbPointRule.tblMchtInfo.mchtNo}</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="商户名称" entity="TblMbPointRule"/>：</dt><dd>${tblMbPointRule.tblMchtInfo.mchtName}</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="商户类别" entity="TblMbPointRule"/>：</dt><dd><hi:select emu="mchtType" name="tblMbPointRule.mchtType" isLabel="true"/></dd>
-		</dl>
-		<dl>
 			<dt><hi:text key="有效期开始时间" entity="TblMbPointRule"/>：</dt><dd><fmt:formatDate value="${tblMbPointRule.startDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
 		</dl>
 		<dl>
@@ -44,9 +29,6 @@
 		</dl>
 		<dl>
 			<dt><hi:text key="最后修改时间" entity="TblMbPointRule"/>：</dt><dd><fmt:formatDate value="${tblMbPointRule.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
-		</dl>
-		<dl>
-			<dt><hi:text key="最后修改人" entity="TblMbPointRule"/>：</dt><dd>${tblMbPointRule.lastUpdatedBy}</dd>
 		</dl>
 
 		<div class="divider"></div>

@@ -30,6 +30,7 @@
 		<result property="bankTxStatus" column="bankTxStatus"/>
 		<result property="checkBatchNo" column="checkBatchNo"/>
 		<result property="checkStatus" column="checkStatus"/>
+		<result property="voucherNo" column="voucherNo"/>
 		<result property="creator" column="creator" select="select_inner_HiUser"/>
 		<result property="deleted" column="deleted"/>
 	</resultMap>
@@ -43,8 +44,8 @@
 	</select>
 	
 	<insert id="insTblMbRechargeOrder" parameterClass="java.util.HashMap">    
-    	insert into Tbl_Mb_Recharge_Order (id, version, plTxTraceNo, userName, accountType, accountNo, pan, chinfo, txTypeId, mchtTxTime, txAmount, txIp, plTxTime, txStatus, errorCode, errorMsg, settleBatchNo, settleStatus, settleDate, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, bankTxStatus, checkBatchNo, checkStatus, creator, deleted) 
-		values (#id#, 1, #plTxTraceNo#, #userName#, #accountType#, #accountNo#, #pan#, #chinfo#, #txTypeId#, #mchtTxTime#, #txAmount#, #txIp#, #plTxTime#, #txStatus#, #errorCode#, #errorMsg#, #settleBatchNo#, #settleStatus#, #settleDate#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #bankTxStatus#, #checkBatchNo#, #checkStatus#, #creator#, #deleted#)
+    	insert into Tbl_Mb_Recharge_Order (id, version, plTxTraceNo, userName, accountType, accountNo, pan, chinfo, txTypeId, mchtTxTime, txAmount, txIp, plTxTime, txStatus, errorCode, errorMsg, settleBatchNo, settleStatus, settleDate, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, bankTxStatus, checkBatchNo, checkStatus, voucherNo, creator, deleted) 
+		values (#id#, 1, #plTxTraceNo#, #userName#, #accountType#, #accountNo#, #pan#, #chinfo#, #txTypeId#, #mchtTxTime#, #txAmount#, #txIp#, #plTxTime#, #txStatus#, #errorCode#, #errorMsg#, #settleBatchNo#, #settleStatus#, #settleDate#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #bankTxStatus#, #checkBatchNo#, #checkStatus#, #voucherNo#, #creator#, #deleted#)
 		<selectKey resultClass="int"  keyProperty="id" />   
 	</insert>    
    
@@ -75,6 +76,7 @@
 			bankTxStatus = #bankTxStatus#,
 			checkBatchNo = #checkBatchNo#,
 			checkStatus = #checkStatus#,
+			voucherNo = #voucherNo#,
 			creator = #creator#,
 			deleted = #deleted#
     where    

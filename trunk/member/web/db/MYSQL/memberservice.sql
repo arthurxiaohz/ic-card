@@ -44,6 +44,7 @@ CREATE TABLE Tbl_Mb_Recharge_Order (
     bankTxStatus int   NULL,
     checkBatchNo nvarchar (20)  NULL,
     checkStatus int   NULL,
+    voucherNo nvarchar (30)  NULL,
     creator int  NULL,
     deleted int   NULL,
     primary key (id));
@@ -58,7 +59,7 @@ CREATE TABLE Tbl_Mb_Transaction_Request (
     mchtNo nvarchar (18)  NULL,
     amount int   NULL,
     trxTime nvarchar (14)  NULL,
-    txStatus nvarchar (1)  NULL,
+    txStatus int   NULL,
     msgext nvarchar (30)  NULL,
     createdDatetime datetime   NULL,
     lastUpdatedDatetime datetime   NULL,
@@ -147,7 +148,7 @@ CREATE TABLE Tbl_Mb_Point_Rule (
     ruleValue decimal (18,2)  NULL,
     createdDateTime datetime   NULL,
     lastUpdatedDatetime datetime   NULL,
-    lastUpdatedBy int   NULL,
+    lastUpdatedBy int  NULL,
     creator int  NULL,
     primary key (id));
 --
