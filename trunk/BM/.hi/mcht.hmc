@@ -2374,7 +2374,7 @@
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
-          <description>申请提现金额</description>
+          <description>申请结算金额</description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
           <mainEntityName></mainEntityName>
