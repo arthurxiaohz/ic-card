@@ -89,6 +89,7 @@ public class TblStlSettleApplyAction extends BaseAction {
 		tblStlSettleApply = tblStlSettleApplyMgr
 				.getTblStlSettleApplyById(tblStlSettleApply.getId());
 
+		// 新增（初始化）
 		if (null == tblStlSettleApply.getId()) {
 			TblMchtUserManager tblMchtUserMgr = (TblMchtUserManager) SpringContextHolder
 					.getBean(TblMchtUser.class);
