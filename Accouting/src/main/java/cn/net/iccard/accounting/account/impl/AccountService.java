@@ -2,9 +2,12 @@ package cn.net.iccard.accounting.account.impl;
 
 import java.util.Date;
 
+import org.acegisecurity.providers.encoding.MessageDigestPasswordEncoder;
 import org.apache.tools.ant.util.DateUtils;
 import org.hi.SpringContextHolder;
+import org.hi.base.enumeration.model.YesNo;
 import org.hi.base.organization.model.HiUser;
+import org.hi.base.organization.model.UserType;
 import org.hi.framework.dao.impl.FilterFactory;
 
 import cn.net.iccard.accounting.EAccountResponse;
@@ -131,10 +134,20 @@ public class AccountService implements IAccountService {
 		// 商户管理员
 		TblMchtUser tblMchtUser = new TblMchtUser();
 		tblMchtUser.setMchtNo(accountOpenForOrgRequest.getAccountParty());
+
 		tblMchtUser.setUserName(accountOpenForOrgRequest.getAccountParty()
 				+ "admin");
 		tblMchtUser.setFullName(accountOpenForOrgRequest.getAccountParty()
 				+ "admin");
+		tblMchtUser.setUserMgrType(UserType.USERTYPE_MANAGER);
+		tblMchtUser.setAccountEnabled(YesNo.YESNO_YES);
+		tblMchtUser.setAccountLocked(YesNo.YESNO_NO);
+
+		MessageDigestPasswordEncoder passwordEncoder = (MessageDigestPasswordEncoder) SpringContextHolder
+				.getBean("passwordEncoder");
+		// 初始默认密码，123456
+		String password = passwordEncoder.encodePassword("123456", null);
+		tblMchtUser.setPassword(password);
 		tblMchtUserMgr.saveTblMchtUser(tblMchtUser);
 
 		return new SimpleCommonAccountResponse(EAccountResponse.S0000);
