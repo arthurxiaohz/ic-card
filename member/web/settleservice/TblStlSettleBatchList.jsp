@@ -15,61 +15,18 @@
 		<ul class="searchContent">	
 			<li>
 				<label><hi:text key="结算批次号" entity="TblStlSettleBatch"/>:</label>
-				<input type="text" name="pageInfo.f_settleNo" value="${pageInfo.f_settleNo}"/>
-			</li>	  
-			<li>
-				<label><hi:text key="商户" entity="TblStlSettleBatch"/>:</label>
-				<input type="text" name="pageInfo.tblMchtInfo.f_id" value="${pageInfo.tblMchtInfo.f_id}"/>
-			</li>	  
-			<li>
-				<label><hi:text key="商户号" entity="TblStlSettleBatch"/>:</label>
-				<input type="text" name="pageInfo.tblMchtInfo.f_mchtNo" value="${pageInfo.tblMchtInfo.f_mchtNo}"/>
+				<input type="text" name="pageInfo.f_settleBatchNo" value="${pageInfo.f_settleBatchNo}"/>
 			</li>	  
 			<li class="dateRange">
-				<label><hi:text key="创建时间" entity="TblStlSettleBatch"/>:</label>
-				<input type="text" name="pageInfo.f_createdDatetime" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_createdDatetime}' pattern='yyyy-MM-dd'/>"/>
-				<input type="hidden" name="pageInfo.f_createdDatetime_op" value="&gt;="><span class="limit">-</span>
-				<input type="text" name="pageInfo.f_createdDatetime01" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_createdDatetime01}' pattern='yyyy-MM-dd'/>"/>
-				<input type="hidden" name="pageInfo.f_createdDatetime01_op" value="&lt;=">
-			</li>	  
-			<li class="dateRange">
-				<label><hi:text key="最后修改时间" entity="TblStlSettleBatch"/>:</label>
-				<input type="text" name="pageInfo.f_lastUpdatedDatetime" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_lastUpdatedDatetime}' pattern='yyyy-MM-dd'/>"/>
-				<input type="hidden" name="pageInfo.f_lastUpdatedDatetime_op" value="&gt;="><span class="limit">-</span>
-				<input type="text" name="pageInfo.f_lastUpdatedDatetime01" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_lastUpdatedDatetime01}' pattern='yyyy-MM-dd'/>"/>
-				<input type="hidden" name="pageInfo.f_lastUpdatedDatetime01_op" value="&lt;=">
+				<label><hi:text key="结算日" entity="TblStlSettleBatch"/>:</label>
+				<input type="text" name="pageInfo.f_settleDate" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_settleDate}' pattern='yyyy-MM-dd'/>"/>
+				<input type="hidden" name="pageInfo.f_settleDate_op" value="&gt;="><span class="limit">-</span>
+				<input type="text" name="pageInfo.f_settleDate01" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_settleDate01}' pattern='yyyy-MM-dd'/>"/>
+				<input type="hidden" name="pageInfo.f_settleDate01_op" value="&lt;=">
 			</li>	  
 			<li>
-				<label><hi:text key="最后修改人" entity="TblStlSettleBatch"/>:</label>
-				<input type="text" name="pageInfo.lastUpdatedBy.f_id" value="${pageInfo.lastUpdatedBy.f_id}"/>
-			</li>	  
-			<li>
-				<label><hi:text key="支付总比数" entity="TblStlSettleBatch"/>:</label>
-				<input type="text" name="pageInfo.f_orderCount" value="${pageInfo.f_orderCount}"/>
-			</li>	  
-			<li>
-				<label><hi:text key="支付总金额" entity="TblStlSettleBatch"/>:</label>
-				<input type="text" name="pageInfo.f_balance" value="${pageInfo.f_balance}"/>
-			</li>	  
-			<li>
-				<label><hi:text key="支付总手续费" entity="TblStlSettleBatch"/>:</label>
-				<input type="text" name="pageInfo.f_fee" value="${pageInfo.f_fee}"/>
-			</li>	  
-			<li>
-				<label><hi:text key="退款总笔数" entity="TblStlSettleBatch"/>:</label>
-				<input type="text" name="pageInfo.f_refundCount" value="${pageInfo.f_refundCount}"/>
-			</li>	  
-			<li>
-				<label><hi:text key="退款总金额" entity="TblStlSettleBatch"/>:</label>
-				<input type="text" name="pageInfo.f_refundBalance" value="${pageInfo.f_refundBalance}"/>
-			</li>	  
-			<li>
-				<label><hi:text key="退款总手续费" entity="TblStlSettleBatch"/>:</label>
-				<input type="text" name="pageInfo.f_refundFee" value="${pageInfo.f_refundFee}"/>
-			</li>	  
-			<li>
-				<label><hi:text key="结算金额" entity="TblStlSettleBatch"/>:</label>
-				<input type="text" name="pageInfo.f_settleAmount" value="${pageInfo.f_settleAmount}"/>
+				<label><hi:text key="状态" entity="TblStlSettleBatch"/>:</label>
+				<hi:search name="pageInfo.f_settleBatchStatus" emu="settleBatchStatus"/>
 			</li>	  
 			<li>
 
@@ -90,7 +47,7 @@
 				<authz:authorize ifAnyGranted="TBLSTLSETTLEBATCH_DEL"><li><a class="delete" href="<hi:url>tblStlSettleBatchRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', settleNo:'',mchtNo:'',mchtName:'',bankNo:'',bankName:'',bankAccountNo:'',bankAccountName:'',createdDatetime:'',lastUpdatedDatetime:'',orderCount:'',balance:'',fee:'',refundCount:'',refundBalance:'',refundFee:'',settleAmount:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', settleBatchNo:'',settleDate:'',totalCount:'',totalAmount:'',settleBatchStatus:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -101,22 +58,11 @@
 				<c:if test="${empty lookup}">
 				<th width="28"><input type="checkbox" group="orderIndexs" class="checkboxCtrl"></th>
 				</c:if>
-				<th orderField="settleNo" class="${pageInfo.sorterName eq 'settleNo' ? pageInfo.sorterDirection : ''}"><hi:text key="结算批次号" entity="TblStlSettleBatch"/></th>
-				<th orderField="tblMchtInfo.mchtNo" class="${pageInfo.sorterName eq 'tblMchtInfo.mchtNo' ? pageInfo.sorterDirection : ''}"><hi:text key="商户号" entity="TblStlSettleBatch"/></th>
-				<th orderField="tblMchtInfo.mchtName" class="${pageInfo.sorterName eq 'tblMchtInfo.mchtName' ? pageInfo.sorterDirection : ''}"><hi:text key="商户名称" entity="TblStlSettleBatch"/></th>
-				<th orderField="tblMchtInfo.bankNo" class="${pageInfo.sorterName eq 'tblMchtInfo.bankNo' ? pageInfo.sorterDirection : ''}"><hi:text key="开户行行号" entity="TblStlSettleBatch"/></th>
-				<th orderField="tblMchtInfo.bankName" class="${pageInfo.sorterName eq 'tblMchtInfo.bankName' ? pageInfo.sorterDirection : ''}"><hi:text key="开户行名称" entity="TblStlSettleBatch"/></th>
-				<th orderField="tblMchtInfo.bankAccountNo" class="${pageInfo.sorterName eq 'tblMchtInfo.bankAccountNo' ? pageInfo.sorterDirection : ''}"><hi:text key="银行账户账号" entity="TblStlSettleBatch"/></th>
-				<th orderField="tblMchtInfo.bankAccountName" class="${pageInfo.sorterName eq 'tblMchtInfo.bankAccountName' ? pageInfo.sorterDirection : ''}"><hi:text key="银行账户名称" entity="TblStlSettleBatch"/></th>
-				<th orderField="createdDatetime" class="${pageInfo.sorterName eq 'createdDatetime' ? pageInfo.sorterDirection : ''}"><hi:text key="创建时间" entity="TblStlSettleBatch"/></th>
-				<th orderField="lastUpdatedDatetime" class="${pageInfo.sorterName eq 'lastUpdatedDatetime' ? pageInfo.sorterDirection : ''}"><hi:text key="最后修改时间" entity="TblStlSettleBatch"/></th>
-				<th orderField="orderCount" class="${pageInfo.sorterName eq 'orderCount' ? pageInfo.sorterDirection : ''}"><hi:text key="支付总比数" entity="TblStlSettleBatch"/></th>
-				<th orderField="balance" class="${pageInfo.sorterName eq 'balance' ? pageInfo.sorterDirection : ''}"><hi:text key="支付总金额" entity="TblStlSettleBatch"/></th>
-				<th orderField="fee" class="${pageInfo.sorterName eq 'fee' ? pageInfo.sorterDirection : ''}"><hi:text key="支付总手续费" entity="TblStlSettleBatch"/></th>
-				<th orderField="refundCount" class="${pageInfo.sorterName eq 'refundCount' ? pageInfo.sorterDirection : ''}"><hi:text key="退款总笔数" entity="TblStlSettleBatch"/></th>
-				<th orderField="refundBalance" class="${pageInfo.sorterName eq 'refundBalance' ? pageInfo.sorterDirection : ''}"><hi:text key="退款总金额" entity="TblStlSettleBatch"/></th>
-				<th orderField="refundFee" class="${pageInfo.sorterName eq 'refundFee' ? pageInfo.sorterDirection : ''}"><hi:text key="退款总手续费" entity="TblStlSettleBatch"/></th>
-				<th orderField="settleAmount" class="${pageInfo.sorterName eq 'settleAmount' ? pageInfo.sorterDirection : ''}"><hi:text key="结算金额" entity="TblStlSettleBatch"/></th>
+				<th orderField="settleBatchNo" class="${pageInfo.sorterName eq 'settleBatchNo' ? pageInfo.sorterDirection : ''}"><hi:text key="结算批次号" entity="TblStlSettleBatch"/></th>
+				<th orderField="settleDate" class="${pageInfo.sorterName eq 'settleDate' ? pageInfo.sorterDirection : ''}"><hi:text key="结算日" entity="TblStlSettleBatch"/></th>
+				<th orderField="totalCount" class="${pageInfo.sorterName eq 'totalCount' ? pageInfo.sorterDirection : ''}"><hi:text key="总条数" entity="TblStlSettleBatch"/></th>
+				<th orderField="totalAmount" class="${pageInfo.sorterName eq 'totalAmount' ? pageInfo.sorterDirection : ''}"><hi:text key="总金额" entity="TblStlSettleBatch"/></th>
+				<th orderField="settleBatchStatus" class="${pageInfo.sorterName eq 'settleBatchStatus' ? pageInfo.sorterDirection : ''}"><hi:text key="状态" entity="TblStlSettleBatch"/></th>
 				<th width="90">
 					<c:choose>
 						<c:when test="${empty lookup}"><hi:text key="操作"/></c:when>
@@ -131,40 +77,11 @@
 				<c:if test="${empty lookup}">
 				<td><input name="orderIndexs" value="${item.id}" type="checkbox"></td>
 				</c:if>			
-				    <td>${item.settleNo}</td>
-				    <td><authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"><a href="<hi:url>tblMchtInfoView.action?tblMchtInfo.id=${item.tblMchtInfo.id}&workflow=-1</hi:url>" target="dialog"></authz:authorize>
-					${item.tblMchtInfo.mchtNo}
-					<authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"></a></authz:authorize>
-					</td>
-				    <td><authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"><a href="<hi:url>tblMchtInfoView.action?tblMchtInfo.id=${item.tblMchtInfo.id}&workflow=-1</hi:url>" target="dialog"></authz:authorize>
-					${item.tblMchtInfo.mchtName}
-					<authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"></a></authz:authorize>
-					</td>
-				    <td><authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"><a href="<hi:url>tblMchtInfoView.action?tblMchtInfo.id=${item.tblMchtInfo.id}&workflow=-1</hi:url>" target="dialog"></authz:authorize>
-					${item.tblMchtInfo.bankNo}
-					<authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"></a></authz:authorize>
-					</td>
-				    <td><authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"><a href="<hi:url>tblMchtInfoView.action?tblMchtInfo.id=${item.tblMchtInfo.id}&workflow=-1</hi:url>" target="dialog"></authz:authorize>
-					${item.tblMchtInfo.bankName}
-					<authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"></a></authz:authorize>
-					</td>
-				    <td><authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"><a href="<hi:url>tblMchtInfoView.action?tblMchtInfo.id=${item.tblMchtInfo.id}&workflow=-1</hi:url>" target="dialog"></authz:authorize>
-					${item.tblMchtInfo.bankAccountNo}
-					<authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"></a></authz:authorize>
-					</td>
-				    <td><authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"><a href="<hi:url>tblMchtInfoView.action?tblMchtInfo.id=${item.tblMchtInfo.id}&workflow=-1</hi:url>" target="dialog"></authz:authorize>
-					${item.tblMchtInfo.bankAccountName}
-					<authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"></a></authz:authorize>
-					</td>
-				    <td><fmt:formatDate value="${item.createdDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-				    <td><fmt:formatDate value="${item.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-				    <td>${item.orderCount}</td>
-				    <td>${item.balance}</td>
-				    <td>${item.fee}</td>
-				    <td>${item.refundCount}</td>
-				    <td>${item.refundBalance}</td>
-				    <td>${item.refundFee}</td>
-				    <td>${item.settleAmount}</td>
+				    <td>${item.settleBatchNo}</td>
+					<td><fmt:formatDate value="${item.settleDate}" pattern="yyyy-MM-dd"/></td>
+				    <td>${item.totalCount}</td>
+				    <td>${item.totalAmount}</td>
+				    <td><hi:select emu="settleBatchStatus" name="tblStlSettleBatchs[${s.index}].settleBatchStatus" isLabel="true"/></td>
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
@@ -179,7 +96,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', settleNo:'${item.settleNo}',mchtNo:'${item.tblMchtInfo.mchtNo}',mchtName:'${item.tblMchtInfo.mchtName}',bankNo:'${item.tblMchtInfo.bankNo}',bankName:'${item.tblMchtInfo.bankName}',bankAccountNo:'${item.tblMchtInfo.bankAccountNo}',bankAccountName:'${item.tblMchtInfo.bankAccountName}',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',orderCount:'${item.orderCount}',balance:'${item.balance}',fee:'${item.fee}',refundCount:'${item.refundCount}',refundBalance:'${item.refundBalance}',refundFee:'${item.refundFee}',settleAmount:'${item.settleAmount}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', settleBatchNo:'${item.settleBatchNo}',settleDate:'${item.settleDate}',totalCount:'${item.totalCount}',totalAmount:'${item.totalAmount}',settleBatchStatus:'<hi:select emu="settleBatchStatus" name="tblStlSettleBatchs[${s.index}].settleBatchStatus" isLabel="true"/>'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

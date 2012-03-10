@@ -1,7 +1,7 @@
 <%@ page language="java"  pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
 <%@ include file="/includes/main.jsp"%>
 
-<h2 class="contentTitle"><hi:text key="查看页面"  parameterLanguageKeys="转账请求原始报文"/></h2>
+<h2 class="contentTitle"><hi:text key="查看页面"  parameterLanguageKeys="转账交易请求"/></h2>
 <div class="pageContent">
 	
 	<div class="viewInfo" layoutH="97">

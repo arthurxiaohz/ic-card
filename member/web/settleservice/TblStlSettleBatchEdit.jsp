@@ -6,88 +6,55 @@
 <div class="pageContent">
 	<div class="pageFormContent" layoutH="97">
 		<dl>
-			<dt><hi:text key="结算批次号" entity="TblStlSettleBatch"/>：</dt><dd><input type="text" name="tblStlSettleBatch.settleNo" class="textInput required" value="${tblStlSettleBatch.settleNo}" maxlength="22"/></dd>
+			<dt><hi:text key="结算批次号" entity="TblStlSettleBatch"/>：</dt><dd><input type="text" name="tblStlSettleBatch.settleBatchNo" class="textInput" value="${tblStlSettleBatch.settleBatchNo}" maxlength="11"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="商户号" entity="TblStlSettleBatch"/>：</dt>
+			<dt><hi:text key="结算日" entity="TblStlSettleBatch"/>：</dt>
 			<dd>
-				<input type="text" class="textInput" name="tblStlSettleBatch.hi_tblMchtInfo.mchtNo" value="${tblStlSettleBatch.tblMchtInfo.mchtNo}" readonly="readonly"/>
+				<input type="text" name="tblStlSettleBatch.settleDate" class="textInput date" readonly="readonly"
+					value="<fmt:formatDate value='${tblStlSettleBatch.settleDate}' pattern='yyyy-MM-dd'/>"/>
+				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
 			</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="商户名称" entity="TblStlSettleBatch"/>：</dt>
-			<dd>
-				<input type="text" class="textInput" name="tblStlSettleBatch.hi_tblMchtInfo.mchtName" value="${tblStlSettleBatch.tblMchtInfo.mchtName}" readonly="readonly"/>
-			</dd>
+			<dt><hi:text key="总条数" entity="TblStlSettleBatch"/>：</dt><dd><input type="text" name="tblStlSettleBatch.totalCount" class="textInput integer" value="${tblStlSettleBatch.totalCount}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="开户行行号" entity="TblStlSettleBatch"/>：</dt>
-			<dd>
-				<input type="text" class="textInput" name="tblStlSettleBatch.hi_tblMchtInfo.bankNo" value="${tblStlSettleBatch.tblMchtInfo.bankNo}" readonly="readonly"/>
-			</dd>
+			<dt><hi:text key="总金额" entity="TblStlSettleBatch"/>：</dt><dd><input type="text" name="tblStlSettleBatch.totalAmount" class="textInput integer" value="${tblStlSettleBatch.totalAmount}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="开户行名称" entity="TblStlSettleBatch"/>：</dt>
-			<dd>
-				<input type="text" class="textInput" name="tblStlSettleBatch.hi_tblMchtInfo.bankName" value="${tblStlSettleBatch.tblMchtInfo.bankName}" readonly="readonly"/>
-			</dd>
+			<dt><hi:text key="状态" entity="TblStlSettleBatch"/>：</dt><dd><hi:select emu="settleBatchStatus" name="tblStlSettleBatch.settleBatchStatus"/></dd>			
 		</dl>
-		<dl>
-			<dt><hi:text key="银行账户账号" entity="TblStlSettleBatch"/>：</dt>
+		<dl  class="nowrap">
+			<dt><hi:text key="备注" entity="TblStlSettleBatch"/>：</dt>
 			<dd>
-				<input type="text" class="textInput" name="tblStlSettleBatch.hi_tblMchtInfo.bankAccountNo" value="${tblStlSettleBatch.tblMchtInfo.bankAccountNo}" readonly="readonly"/>
-			</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="银行账户名称" entity="TblStlSettleBatch"/>：</dt>
-			<dd>
-				<input type="hidden" name="tblStlSettleBatch.tblMchtInfo.id" value="${tblStlSettleBatch.tblMchtInfo.id}"/>
-				<input type="text" class="textInput" name="tblStlSettleBatch.hi_tblMchtInfo.bankAccountName" value="${tblStlSettleBatch.tblMchtInfo.bankAccountName}"
-					autocomplete="off" lookupGroup="tblStlSettleBatch" lookupName="tblMchtInfo" suggestClass="cn.net.iccard.bm.mcht.model.TblMchtInfo" searchFields="mchtNo,mchtName,bankNo,bankName,bankAccountNo,bankAccountName"/>
-				<a class="btnLook" href="<hi:url>tblMchtInfoLookup.action?lookup=1</hi:url>" lookupGroup="tblStlSettleBatch" lookupName="tblMchtInfo"><hi:text key="查找带回"/></a>		
+				<textarea class="editor" name="tblStlSettleBatch.remark" rows="8" cols="95"
+					upLinkUrl="xhEditorUpload.action" upLinkExt="zip,rar,txt" 
+					upImgUrl="xhEditorUpload.action" upImgExt="jpg,jpeg,gif,png" 
+					upFlashUrl="xhEditorUpload.action" upFlashExt="swf"
+					upMediaUrl="xhEditorUpload.action" upMediaExt:"avi" html5Upload="false">
+				${tblStlSettleBatch.remark}</textarea>
 			</dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="创建时间" entity="TblStlSettleBatch"/>：</dt>
 			<dd>
-				<input type="text" name="tblStlSettleBatch.createdDatetime" class="textInput date required" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
-					value="<fmt:formatDate value='${tblStlSettleBatch.createdDatetime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
+				<input type="text" name="tblStlSettleBatch.createdDateTime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
+					value="<fmt:formatDate value='${tblStlSettleBatch.createdDateTime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
 				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
 			</dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="最后修改时间" entity="TblStlSettleBatch"/>：</dt>
 			<dd>
-				<input type="text" name="tblStlSettleBatch.lastUpdatedDatetime" class="textInput date required" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
+				<input type="text" name="tblStlSettleBatch.lastUpdatedDatetime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
 					value="<fmt:formatDate value='${tblStlSettleBatch.lastUpdatedDatetime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
 				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
 			</dd>
 		</dl>
-		<dl>
-			<dt><hi:text key="支付总比数" entity="TblStlSettleBatch"/>：</dt><dd><input type="text" name="tblStlSettleBatch.orderCount" class="textInput integer" value="${tblStlSettleBatch.orderCount}" alt="<hi:text key="请输入整数"/>"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="支付总金额" entity="TblStlSettleBatch"/>：</dt><dd><input type="text" name="tblStlSettleBatch.balance" class="textInput" value="${tblStlSettleBatch.balance}" maxlength="30"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="支付总手续费" entity="TblStlSettleBatch"/>：</dt><dd><input type="text" name="tblStlSettleBatch.fee" class="textInput" value="${tblStlSettleBatch.fee}" maxlength="30"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="退款总笔数" entity="TblStlSettleBatch"/>：</dt><dd><input type="text" name="tblStlSettleBatch.refundCount" class="textInput integer" value="${tblStlSettleBatch.refundCount}" alt="<hi:text key="请输入整数"/>"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="退款总金额" entity="TblStlSettleBatch"/>：</dt><dd><input type="text" name="tblStlSettleBatch.refundBalance" class="textInput integer" value="${tblStlSettleBatch.refundBalance}" maxlength="30"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="退款总手续费" entity="TblStlSettleBatch"/>：</dt><dd><input type="text" name="tblStlSettleBatch.refundFee" class="textInput" value="${tblStlSettleBatch.refundFee}" maxlength="30"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="结算金额" entity="TblStlSettleBatch"/>：</dt><dd><input type="text" name="tblStlSettleBatch.settleAmount" class="textInput integer" value="${tblStlSettleBatch.settleAmount}" maxlength="30"/></dd>
-		</dl>
 				<input type="hidden" name="tblStlSettleBatch.id" value="${tblStlSettleBatch.id}"/>
 				<input type="hidden" name="tblStlSettleBatch.lastUpdatedBy.id" value="${tblStlSettleBatch.lastUpdatedBy.id}"/>
 				<input type="hidden" name="tblStlSettleBatch.creator.id" value="${tblStlSettleBatch.creator.id}"/>
-				<input type="hidden" name="tblStlSettleBatch.deleted" value="${tblStlSettleBatch.deleted}"/>
 				<input type="hidden" name="tblStlSettleBatch.version" value="${tblStlSettleBatch.version}"/>
 
 		<div class="divider"></div>

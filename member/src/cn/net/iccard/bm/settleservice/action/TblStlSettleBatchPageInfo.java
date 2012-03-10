@@ -4,41 +4,35 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import org.hi.framework.web.PageInfoView;
-import cn.net.iccard.bm.mcht.action.TblMchtInfoPageInfo;
 import org.hi.base.organization.action.HiUserPageInfo;
 
 public class TblStlSettleBatchPageInfo extends PageInfoView{
 
 	protected  Integer  f_id;
  	protected  String  f_id_op;
-	protected  String  f_settleNo;
- 	protected  String  f_settleNo_op;
-	protected  Timestamp  f_createdDatetime;
- 	protected  String  f_createdDatetime_op;
-	protected  Timestamp  f_createdDatetime01;
-	protected  String  f_createdDatetime01_op;
+	protected  String  f_settleBatchNo;
+ 	protected  String  f_settleBatchNo_op;
+	protected  Date  f_settleDate;
+ 	protected  String  f_settleDate_op;
+	protected  Date  f_settleDate01;
+	protected  String  f_settleDate01_op;
+	protected  Integer  f_totalCount;
+ 	protected  String  f_totalCount_op;
+	protected  Integer  f_totalAmount;
+ 	protected  String  f_totalAmount_op;
+	protected  Integer  f_settleBatchStatus;
+ 	protected  String  f_settleBatchStatus_op;
+	protected  String  f_remark;
+ 	protected  String  f_remark_op;
+	protected  Timestamp  f_createdDateTime;
+ 	protected  String  f_createdDateTime_op;
+	protected  Timestamp  f_createdDateTime01;
+	protected  String  f_createdDateTime01_op;
 	protected  Timestamp  f_lastUpdatedDatetime;
  	protected  String  f_lastUpdatedDatetime_op;
 	protected  Timestamp  f_lastUpdatedDatetime01;
 	protected  String  f_lastUpdatedDatetime01_op;
-	protected  Integer  f_orderCount;
- 	protected  String  f_orderCount_op;
-	protected  String  f_balance;
- 	protected  String  f_balance_op;
-	protected  String  f_fee;
- 	protected  String  f_fee_op;
-	protected  Integer  f_refundCount;
- 	protected  String  f_refundCount_op;
-	protected  String  f_refundBalance;
- 	protected  String  f_refundBalance_op;
-	protected  String  f_refundFee;
- 	protected  String  f_refundFee_op;
-	protected  String  f_settleAmount;
- 	protected  String  f_settleAmount_op;
-	protected  Integer  f_deleted;
- 	protected  String  f_deleted_op;
 
- 	protected  TblMchtInfoPageInfo tblMchtInfo;
  	protected  HiUserPageInfo lastUpdatedBy;
  	protected  HiUserPageInfo creator;
 
@@ -58,51 +52,146 @@ public class TblStlSettleBatchPageInfo extends PageInfoView{
         this.f_id_op = f_id_op;
     }
    
-    public String getF_settleNo() {
-        return this.f_settleNo;
+    public String getF_settleBatchNo() {
+        return this.f_settleBatchNo;
     }
     
-    public void setF_settleNo(String f_settleNo) {
-        this.f_settleNo = f_settleNo;
+    public void setF_settleBatchNo(String f_settleBatchNo) {
+        this.f_settleBatchNo = f_settleBatchNo;
     }
     
-    public String getF_settleNo_op() {
-        return this.f_settleNo_op;
+    public String getF_settleBatchNo_op() {
+        return this.f_settleBatchNo_op;
     }
     
-    public void setF_settleNo_op(String f_settleNo_op) {
-        this.f_settleNo_op = f_settleNo_op;
+    public void setF_settleBatchNo_op(String f_settleBatchNo_op) {
+        this.f_settleBatchNo_op = f_settleBatchNo_op;
     }
    
-    public Timestamp getF_createdDatetime() {
-        return this.f_createdDatetime;
+    public Date getF_settleDate() {
+        return this.f_settleDate;
     }
     
-    public void setF_createdDatetime(Timestamp f_createdDatetime) {
-        this.f_createdDatetime = f_createdDatetime;
+    public void setF_settleDate(Date f_settleDate) {
+        this.f_settleDate = f_settleDate;
     }
     
-    public String getF_createdDatetime_op() {
-        return this.f_createdDatetime_op;
+    public String getF_settleDate_op() {
+        return this.f_settleDate_op;
     }
     
-    public void setF_createdDatetime_op(String f_createdDatetime_op) {
-        this.f_createdDatetime_op = f_createdDatetime_op;
+    public void setF_settleDate_op(String f_settleDate_op) {
+        this.f_settleDate_op = f_settleDate_op;
     }
-    public Timestamp getF_createdDatetime01() {
-        return this.f_createdDatetime01;
-    }
-    
-    public void setF_createdDatetime01(Timestamp f_createdDatetime01) {
-        this.f_createdDatetime01 = f_createdDatetime01;
+    public Date getF_settleDate01() {
+        return this.f_settleDate01;
     }
     
-    public String getF_createdDatetime01_op() {
-        return this.f_createdDatetime01_op;
+    public void setF_settleDate01(Date f_settleDate01) {
+        this.f_settleDate01 = f_settleDate01;
     }
     
-    public void setF_createdDatetime01_op(String f_createdDatetime01_op) {
-        this.f_createdDatetime01_op = f_createdDatetime01_op;
+    public String getF_settleDate01_op() {
+        return this.f_settleDate01_op;
+    }
+    
+    public void setF_settleDate01_op(String f_settleDate01_op) {
+        this.f_settleDate01_op = f_settleDate01_op;
+    }
+   
+    public Integer getF_totalCount() {
+        return this.f_totalCount;
+    }
+    
+    public void setF_totalCount(Integer f_totalCount) {
+        this.f_totalCount = f_totalCount;
+    }
+    
+    public String getF_totalCount_op() {
+        return this.f_totalCount_op;
+    }
+    
+    public void setF_totalCount_op(String f_totalCount_op) {
+        this.f_totalCount_op = f_totalCount_op;
+    }
+   
+    public Integer getF_totalAmount() {
+        return this.f_totalAmount;
+    }
+    
+    public void setF_totalAmount(Integer f_totalAmount) {
+        this.f_totalAmount = f_totalAmount;
+    }
+    
+    public String getF_totalAmount_op() {
+        return this.f_totalAmount_op;
+    }
+    
+    public void setF_totalAmount_op(String f_totalAmount_op) {
+        this.f_totalAmount_op = f_totalAmount_op;
+    }
+   
+    public Integer getF_settleBatchStatus() {
+        return this.f_settleBatchStatus;
+    }
+    
+    public void setF_settleBatchStatus(Integer f_settleBatchStatus) {
+        this.f_settleBatchStatus = f_settleBatchStatus;
+    }
+    
+    public String getF_settleBatchStatus_op() {
+        return this.f_settleBatchStatus_op;
+    }
+    
+    public void setF_settleBatchStatus_op(String f_settleBatchStatus_op) {
+        this.f_settleBatchStatus_op = f_settleBatchStatus_op;
+    }
+   
+    public String getF_remark() {
+        return this.f_remark;
+    }
+    
+    public void setF_remark(String f_remark) {
+        this.f_remark = f_remark;
+    }
+    
+    public String getF_remark_op() {
+        return this.f_remark_op;
+    }
+    
+    public void setF_remark_op(String f_remark_op) {
+        this.f_remark_op = f_remark_op;
+    }
+   
+    public Timestamp getF_createdDateTime() {
+        return this.f_createdDateTime;
+    }
+    
+    public void setF_createdDateTime(Timestamp f_createdDateTime) {
+        this.f_createdDateTime = f_createdDateTime;
+    }
+    
+    public String getF_createdDateTime_op() {
+        return this.f_createdDateTime_op;
+    }
+    
+    public void setF_createdDateTime_op(String f_createdDateTime_op) {
+        this.f_createdDateTime_op = f_createdDateTime_op;
+    }
+    public Timestamp getF_createdDateTime01() {
+        return this.f_createdDateTime01;
+    }
+    
+    public void setF_createdDateTime01(Timestamp f_createdDateTime01) {
+        this.f_createdDateTime01 = f_createdDateTime01;
+    }
+    
+    public String getF_createdDateTime01_op() {
+        return this.f_createdDateTime01_op;
+    }
+    
+    public void setF_createdDateTime01_op(String f_createdDateTime01_op) {
+        this.f_createdDateTime01_op = f_createdDateTime01_op;
     }
    
     public Timestamp getF_lastUpdatedDatetime() {
@@ -136,141 +225,6 @@ public class TblStlSettleBatchPageInfo extends PageInfoView{
         this.f_lastUpdatedDatetime01_op = f_lastUpdatedDatetime01_op;
     }
    
-    public Integer getF_orderCount() {
-        return this.f_orderCount;
-    }
-    
-    public void setF_orderCount(Integer f_orderCount) {
-        this.f_orderCount = f_orderCount;
-    }
-    
-    public String getF_orderCount_op() {
-        return this.f_orderCount_op;
-    }
-    
-    public void setF_orderCount_op(String f_orderCount_op) {
-        this.f_orderCount_op = f_orderCount_op;
-    }
-   
-    public String getF_balance() {
-        return this.f_balance;
-    }
-    
-    public void setF_balance(String f_balance) {
-        this.f_balance = f_balance;
-    }
-    
-    public String getF_balance_op() {
-        return this.f_balance_op;
-    }
-    
-    public void setF_balance_op(String f_balance_op) {
-        this.f_balance_op = f_balance_op;
-    }
-   
-    public String getF_fee() {
-        return this.f_fee;
-    }
-    
-    public void setF_fee(String f_fee) {
-        this.f_fee = f_fee;
-    }
-    
-    public String getF_fee_op() {
-        return this.f_fee_op;
-    }
-    
-    public void setF_fee_op(String f_fee_op) {
-        this.f_fee_op = f_fee_op;
-    }
-   
-    public Integer getF_refundCount() {
-        return this.f_refundCount;
-    }
-    
-    public void setF_refundCount(Integer f_refundCount) {
-        this.f_refundCount = f_refundCount;
-    }
-    
-    public String getF_refundCount_op() {
-        return this.f_refundCount_op;
-    }
-    
-    public void setF_refundCount_op(String f_refundCount_op) {
-        this.f_refundCount_op = f_refundCount_op;
-    }
-   
-    public String getF_refundBalance() {
-        return this.f_refundBalance;
-    }
-    
-    public void setF_refundBalance(String f_refundBalance) {
-        this.f_refundBalance = f_refundBalance;
-    }
-    
-    public String getF_refundBalance_op() {
-        return this.f_refundBalance_op;
-    }
-    
-    public void setF_refundBalance_op(String f_refundBalance_op) {
-        this.f_refundBalance_op = f_refundBalance_op;
-    }
-   
-    public String getF_refundFee() {
-        return this.f_refundFee;
-    }
-    
-    public void setF_refundFee(String f_refundFee) {
-        this.f_refundFee = f_refundFee;
-    }
-    
-    public String getF_refundFee_op() {
-        return this.f_refundFee_op;
-    }
-    
-    public void setF_refundFee_op(String f_refundFee_op) {
-        this.f_refundFee_op = f_refundFee_op;
-    }
-   
-    public String getF_settleAmount() {
-        return this.f_settleAmount;
-    }
-    
-    public void setF_settleAmount(String f_settleAmount) {
-        this.f_settleAmount = f_settleAmount;
-    }
-    
-    public String getF_settleAmount_op() {
-        return this.f_settleAmount_op;
-    }
-    
-    public void setF_settleAmount_op(String f_settleAmount_op) {
-        this.f_settleAmount_op = f_settleAmount_op;
-    }
-   
-    public Integer getF_deleted() {
-        return this.f_deleted;
-    }
-    
-    public void setF_deleted(Integer f_deleted) {
-        this.f_deleted = f_deleted;
-    }
-    
-    public String getF_deleted_op() {
-        return this.f_deleted_op;
-    }
-    
-    public void setF_deleted_op(String f_deleted_op) {
-        this.f_deleted_op = f_deleted_op;
-    }
-   
-	public TblMchtInfoPageInfo getTblMchtInfo() {
-		return tblMchtInfo;
-	}
-
-	public void setTblMchtInfo(TblMchtInfoPageInfo tblMchtInfo) {
-		this.tblMchtInfo = tblMchtInfo;
-	}
 	public HiUserPageInfo getLastUpdatedBy() {
 		return lastUpdatedBy;
 	}

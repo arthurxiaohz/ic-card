@@ -1,7 +1,7 @@
 <%@ page language="java"  pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
 <%@ include file="/includes/main.jsp"%>
 
-<h2 class="contentTitle"><hi:text key="编辑页面" parameterLanguageKeys="商户请求原始报文"/></h2>
+<h2 class="contentTitle"><hi:text key="编辑页面" parameterLanguageKeys="商户交易请求"/></h2>
 <form action="tblTxPayMentRequestSave.action?navTabId=tblTxPayMentRequestList&callbackType=closeCurrent&ajax=1" method="post" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
 <div class="pageContent">
 	<div class="pageFormContent" layoutH="97">

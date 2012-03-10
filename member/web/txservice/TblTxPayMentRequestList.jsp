@@ -18,24 +18,12 @@
 				<input type="text" name="pageInfo.f_mchtTxTraceNo" value="${pageInfo.f_mchtTxTraceNo}"/>
 			</li>	  
 			<li>
-				<label><hi:text key="原始商户交易流水号" entity="TblTxPayMentRequest"/>:</label>
-				<input type="text" name="pageInfo.f_lastMchtTxTraceNo" value="${pageInfo.f_lastMchtTxTraceNo}"/>
-			</li>	  
-			<li>
 				<label><hi:text key="商户号" entity="TblTxPayMentRequest"/>:</label>
 				<input type="text" name="pageInfo.f_mchtNo" value="${pageInfo.f_mchtNo}"/>
 			</li>	  
 			<li>
 				<label><hi:text key="交易金额" entity="TblTxPayMentRequest"/>:</label>
 				<input type="text" name="pageInfo.f_amount" value="${pageInfo.f_amount}"/>
-			</li>	  
-			<li>
-				<label><hi:text key="原始交易发生时间" entity="TblTxPayMentRequest"/>:</label>
-				<input type="text" name="pageInfo.f_lastMchtTxTime" value="${pageInfo.f_lastMchtTxTime}"/>
-			</li>	  
-			<li>
-				<label><hi:text key="交易时间" entity="TblTxPayMentRequest"/>:</label>
-				<input type="text" name="pageInfo.f_mchtTxTime" value="${pageInfo.f_mchtTxTime}"/>
 			</li>	  
 			<li>
 				<label><hi:text key="交易状态" entity="TblTxPayMentRequest"/>:</label>
@@ -45,34 +33,12 @@
 				<label><hi:text key="交易类型" entity="TblTxPayMentRequest"/>:</label>
 				<input type="text" name="pageInfo.f_txTypeId" value="${pageInfo.f_txTypeId}"/>
 			</li>	  
-			<li>
-				<label><hi:text key="附加信息" entity="TblTxPayMentRequest"/>:</label>
-				<input type="text" name="pageInfo.f_msgext" value="${pageInfo.f_msgext}"/>
-			</li>	  
-			<li>
-				<label><hi:text key="原始报文" entity="TblTxPayMentRequest"/>:</label>
-				<input type="text" name="pageInfo.f_mchtRawMessage" value="${pageInfo.f_mchtRawMessage}"/>
-			</li>	  
 			<li class="dateRange">
 				<label><hi:text key="创建时间" entity="TblTxPayMentRequest"/>:</label>
 				<input type="text" name="pageInfo.f_createdDatetime" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_createdDatetime}' pattern='yyyy-MM-dd'/>"/>
 				<input type="hidden" name="pageInfo.f_createdDatetime_op" value="&gt;="><span class="limit">-</span>
 				<input type="text" name="pageInfo.f_createdDatetime01" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_createdDatetime01}' pattern='yyyy-MM-dd'/>"/>
 				<input type="hidden" name="pageInfo.f_createdDatetime01_op" value="&lt;=">
-			</li>	  
-			<li class="dateRange">
-				<label><hi:text key="最后修改时间" entity="TblTxPayMentRequest"/>:</label>
-				<input type="text" name="pageInfo.f_lastUpdatedDatetime" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_lastUpdatedDatetime}' pattern='yyyy-MM-dd'/>"/>
-				<input type="hidden" name="pageInfo.f_lastUpdatedDatetime_op" value="&gt;="><span class="limit">-</span>
-				<input type="text" name="pageInfo.f_lastUpdatedDatetime01" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_lastUpdatedDatetime01}' pattern='yyyy-MM-dd'/>"/>
-				<input type="hidden" name="pageInfo.f_lastUpdatedDatetime01_op" value="&lt;=">
-			</li>	  
-			<li>
-				<label><hi:text key="最后修改人" entity="TblTxPayMentRequest"/>:</label>
-				<input type="text" name="pageInfo.f_lastUpdatedBy" value="${pageInfo.f_lastUpdatedBy}"/>
-			</li>	  
-			<li>
-
 			</li>	  
 		</ul>
 		<div class="subBar">
@@ -86,11 +52,11 @@
 		<ul class="toolBar">
 		<c:choose>
 			<c:when test="${empty lookup}">
-				<authz:authorize ifAnyGranted="TBLTXPAYMENTREQUEST_SAVE"><li><a class="add" href="<hi:url>tblTxPayMentRequestEdit.action?tblTxPayMentRequest.id=-1</hi:url>" target="navTab" rel="tblTxPayMentRequest"><span><hi:text key="新建" parameterLanguageKeys="商户请求原始报文"/></span></a></li></authz:authorize>
+				<authz:authorize ifAnyGranted="TBLTXPAYMENTREQUEST_SAVE"><li><a class="add" href="<hi:url>tblTxPayMentRequestEdit.action?tblTxPayMentRequest.id=-1</hi:url>" target="navTab" rel="tblTxPayMentRequest"><span><hi:text key="新建" parameterLanguageKeys="商户交易请求"/></span></a></li></authz:authorize>
 				<authz:authorize ifAnyGranted="TBLTXPAYMENTREQUEST_DEL"><li><a class="delete" href="<hi:url>tblTxPayMentRequestRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', mchtTxTraceNo:'',lastMchtTxTraceNo:'',mchtNo:'',amount:'',lastMchtTxTime:'',mchtTxTime:'',txStatus:'',txTypeId:'',msgext:'',mchtRawMessage:'',createdDatetime:'',lastUpdatedDatetime:'',lastUpdatedBy:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', mchtTxTraceNo:'',mchtNo:'',amount:'',mchtTxTime:'',txStatus:'',txTypeId:'',createdDatetime:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -102,18 +68,12 @@
 				<th width="28"><input type="checkbox" group="orderIndexs" class="checkboxCtrl"></th>
 				</c:if>
 				<th orderField="mchtTxTraceNo" class="${pageInfo.sorterName eq 'mchtTxTraceNo' ? pageInfo.sorterDirection : ''}"><hi:text key="商户交易流水号" entity="TblTxPayMentRequest"/></th>
-				<th orderField="lastMchtTxTraceNo" class="${pageInfo.sorterName eq 'lastMchtTxTraceNo' ? pageInfo.sorterDirection : ''}"><hi:text key="原始商户交易流水号" entity="TblTxPayMentRequest"/></th>
 				<th orderField="mchtNo" class="${pageInfo.sorterName eq 'mchtNo' ? pageInfo.sorterDirection : ''}"><hi:text key="商户号" entity="TblTxPayMentRequest"/></th>
 				<th orderField="amount" class="${pageInfo.sorterName eq 'amount' ? pageInfo.sorterDirection : ''}"><hi:text key="交易金额" entity="TblTxPayMentRequest"/></th>
-				<th orderField="lastMchtTxTime" class="${pageInfo.sorterName eq 'lastMchtTxTime' ? pageInfo.sorterDirection : ''}"><hi:text key="原始交易发生时间" entity="TblTxPayMentRequest"/></th>
 				<th orderField="mchtTxTime" class="${pageInfo.sorterName eq 'mchtTxTime' ? pageInfo.sorterDirection : ''}"><hi:text key="交易时间" entity="TblTxPayMentRequest"/></th>
 				<th orderField="txStatus" class="${pageInfo.sorterName eq 'txStatus' ? pageInfo.sorterDirection : ''}"><hi:text key="交易状态" entity="TblTxPayMentRequest"/></th>
 				<th orderField="txTypeId" class="${pageInfo.sorterName eq 'txTypeId' ? pageInfo.sorterDirection : ''}"><hi:text key="交易类型" entity="TblTxPayMentRequest"/></th>
-				<th orderField="msgext" class="${pageInfo.sorterName eq 'msgext' ? pageInfo.sorterDirection : ''}"><hi:text key="附加信息" entity="TblTxPayMentRequest"/></th>
-				<th orderField="mchtRawMessage" class="${pageInfo.sorterName eq 'mchtRawMessage' ? pageInfo.sorterDirection : ''}"><hi:text key="原始报文" entity="TblTxPayMentRequest"/></th>
 				<th orderField="createdDatetime" class="${pageInfo.sorterName eq 'createdDatetime' ? pageInfo.sorterDirection : ''}"><hi:text key="创建时间" entity="TblTxPayMentRequest"/></th>
-				<th orderField="lastUpdatedDatetime" class="${pageInfo.sorterName eq 'lastUpdatedDatetime' ? pageInfo.sorterDirection : ''}"><hi:text key="最后修改时间" entity="TblTxPayMentRequest"/></th>
-				<th orderField="lastUpdatedBy" class="${pageInfo.sorterName eq 'lastUpdatedBy' ? pageInfo.sorterDirection : ''}"><hi:text key="最后修改人" entity="TblTxPayMentRequest"/></th>
 				<th width="90">
 					<c:choose>
 						<c:when test="${empty lookup}"><hi:text key="操作"/></c:when>
@@ -129,33 +89,27 @@
 				<td><input name="orderIndexs" value="${item.id}" type="checkbox"></td>
 				</c:if>			
 				    <td>${item.mchtTxTraceNo}</td>
-				    <td>${item.lastMchtTxTraceNo}</td>
 				    <td>${item.mchtNo}</td>
 				    <td>${item.amount}</td>
-				    <td>${item.lastMchtTxTime}</td>
 				    <td>${item.mchtTxTime}</td>
 				    <td>${item.txStatus}</td>
 				    <td>${item.txTypeId}</td>
-				    <td>${item.msgext}</td>
-				    <td>${item.mchtRawMessage}</td>
 				    <td><fmt:formatDate value="${item.createdDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-				    <td><fmt:formatDate value="${item.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-				    <td>${item.lastUpdatedBy}</td>
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
 				    <authz:authorize ifAnyGranted="TBLTXPAYMENTREQUEST_DEL">
-				      <a class="btnDel" href="<hi:url>tblTxPayMentRequestRemove.action?ajax=1&tblTxPayMentRequest.id=${item.id}</hi:url>" target="navTabTodo" title="<hi:text key="删除" parameterLanguageKeys="商户请求原始报文"/>"><hi:text key="删除"/></a>
+				      <a class="btnDel" href="<hi:url>tblTxPayMentRequestRemove.action?ajax=1&tblTxPayMentRequest.id=${item.id}</hi:url>" target="navTabTodo" title="<hi:text key="删除" parameterLanguageKeys="商户交易请求"/>"><hi:text key="删除"/></a>
 				    </authz:authorize>
 				    <authz:authorize ifAnyGranted="TBLTXPAYMENTREQUEST_VIEW">
-				      <a class="btnView" href="<hi:url>tblTxPayMentRequestView.action?tblTxPayMentRequest.id=${item.id}</hi:url>" target="navTab" rel="tblTxPayMentRequest" title="<hi:text key="查看" parameterLanguageKeys="商户请求原始报文"/>"><hi:text key="查看"/></a>
+				      <a class="btnView" href="<hi:url>tblTxPayMentRequestView.action?tblTxPayMentRequest.id=${item.id}</hi:url>" target="navTab" rel="tblTxPayMentRequest" title="<hi:text key="查看" parameterLanguageKeys="商户交易请求"/>"><hi:text key="查看"/></a>
 				    </authz:authorize>
 				    <authz:authorize ifAnyGranted="TBLTXPAYMENTREQUEST_SAVE">
-				      <a class="btnEdit" href="<hi:url>tblTxPayMentRequestEdit.action?tblTxPayMentRequest.id=${item.id}</hi:url>" target="navTab" rel="tblTxPayMentRequest" title="<hi:text key="编辑" parameterLanguageKeys="商户请求原始报文"/>"><hi:text key="编辑"/></a>
+				      <a class="btnEdit" href="<hi:url>tblTxPayMentRequestEdit.action?tblTxPayMentRequest.id=${item.id}</hi:url>" target="navTab" rel="tblTxPayMentRequest" title="<hi:text key="编辑" parameterLanguageKeys="商户交易请求"/>"><hi:text key="编辑"/></a>
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', mchtTxTraceNo:'${item.mchtTxTraceNo}',lastMchtTxTraceNo:'${item.lastMchtTxTraceNo}',mchtNo:'${item.mchtNo}',amount:'${item.amount}',lastMchtTxTime:'${item.lastMchtTxTime}',mchtTxTime:'${item.mchtTxTime}',txStatus:'${item.txStatus}',txTypeId:'${item.txTypeId}',msgext:'${item.msgext}',mchtRawMessage:'${item.mchtRawMessage}',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', mchtTxTraceNo:'${item.mchtTxTraceNo}',mchtNo:'${item.mchtNo}',amount:'${item.amount}',mchtTxTime:'${item.mchtTxTime}',txStatus:'${item.txStatus}',txTypeId:'${item.txTypeId}',createdDatetime:'${item.createdDatetime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

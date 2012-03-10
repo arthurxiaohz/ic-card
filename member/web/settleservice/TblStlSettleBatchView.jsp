@@ -7,52 +7,28 @@
 	<div class="viewInfo" layoutH="97">
 				
 		<dl>
-			<dt><hi:text key="结算批次号" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.settleNo}</dd>
+			<dt><hi:text key="结算批次号" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.settleBatchNo}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="商户号" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.tblMchtInfo.mchtNo}</dd>
+			<dt><hi:text key="结算日" entity="TblStlSettleBatch"/>：</dt><dd><fmt:formatDate value="${tblStlSettleBatch.settleDate}" pattern="yyyy-MM-dd"/></dd>				  	 
 		</dl>
 		<dl>
-			<dt><hi:text key="商户名称" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.tblMchtInfo.mchtName}</dd>
+			<dt><hi:text key="总条数" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.totalCount}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="开户行行号" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.tblMchtInfo.bankNo}</dd>
+			<dt><hi:text key="总金额" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.totalAmount}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="开户行名称" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.tblMchtInfo.bankName}</dd>
+			<dt><hi:text key="状态" entity="TblStlSettleBatch"/>：</dt><dd><hi:select emu="settleBatchStatus" name="tblStlSettleBatch.settleBatchStatus" isLabel="true"/></dd>
+		</dl>
+		<dl class="nowrap">
+			<dt><hi:text key="备注" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.remark}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="银行账户账号" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.tblMchtInfo.bankAccountNo}</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="银行账户名称" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.tblMchtInfo.bankAccountName}</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="创建时间" entity="TblStlSettleBatch"/>：</dt><dd><fmt:formatDate value="${tblStlSettleBatch.createdDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
+			<dt><hi:text key="创建时间" entity="TblStlSettleBatch"/>：</dt><dd><fmt:formatDate value="${tblStlSettleBatch.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
 		</dl>
 		<dl>
 			<dt><hi:text key="最后修改时间" entity="TblStlSettleBatch"/>：</dt><dd><fmt:formatDate value="${tblStlSettleBatch.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
-		</dl>
-		<dl>
-			<dt><hi:text key="支付总比数" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.orderCount}</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="支付总金额" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.balance}</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="支付总手续费" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.fee}</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="退款总笔数" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.refundCount}</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="退款总金额" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.refundBalance}</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="退款总手续费" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.refundFee}</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="结算金额" entity="TblStlSettleBatch"/>：</dt><dd>${tblStlSettleBatch.settleAmount}</dd>
 		</dl>
 
 		<div class="divider"></div>

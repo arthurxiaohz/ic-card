@@ -7,20 +7,16 @@
 	<resultMap id="TblStlSettleBatch" class="TblStlSettleBatch">
 		<result property="id" column="id"/>
 		<result property="version" column="version"/>
-		<result property="settleNo" column="settleNo"/>
-		<result property="tblMchtInfo" column="tblMchtInfo" select="select_inner_TblMchtInfo"/>
-		<result property="createdDatetime" column="createdDatetime"/>
+		<result property="settleBatchNo" column="settleBatchNo"/>
+		<result property="settleDate" column="settleDate"/>
+		<result property="totalCount" column="totalCount"/>
+		<result property="totalAmount" column="totalAmount"/>
+		<result property="settleBatchStatus" column="settleBatchStatus"/>
+		<result property="remark" column="remark"/>
+		<result property="createdDateTime" column="createdDateTime"/>
 		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
 		<result property="lastUpdatedBy" column="lastUpdatedBy" select="select_inner_HiUser"/>
-		<result property="orderCount" column="orderCount"/>
-		<result property="balance" column="balance"/>
-		<result property="fee" column="fee"/>
-		<result property="refundCount" column="refundCount"/>
-		<result property="refundBalance" column="refundBalance"/>
-		<result property="refundFee" column="refundFee"/>
-		<result property="settleAmount" column="settleAmount"/>
 		<result property="creator" column="creator" select="select_inner_HiUser"/>
-		<result property="deleted" column="deleted"/>
 	</resultMap>
     
     <select id="select_inner_TblStlSettleBatch" resultMap="TblStlSettleBatch" parameterClass="int">  
@@ -32,8 +28,8 @@
 	</select>
 	
 	<insert id="insTblStlSettleBatch" parameterClass="java.util.HashMap">    
-    	insert into Tbl_Stl_Settle_Batch (id, version, settleNo, tblMchtInfo, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, orderCount, balance, fee, refundCount, refundBalance, refundFee, settleAmount, creator, deleted) 
-		values (#id#, 1, #settleNo#, #tblMchtInfo#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #orderCount#, #balance#, #fee#, #refundCount#, #refundBalance#, #refundFee#, #settleAmount#, #creator#, #deleted#)
+    	insert into Tbl_Stl_Settle_Batch (id, version, settleBatchNo, settleDate, totalCount, totalAmount, settleBatchStatus, remark, createdDateTime, lastUpdatedDatetime, lastUpdatedBy, creator) 
+		values (#id#, 1, #settleBatchNo#, #settleDate#, #totalCount#, #totalAmount#, #settleBatchStatus#, #remark#, #createdDateTime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#)
 		<selectKey resultClass="int"  keyProperty="id" />   
 	</insert>    
    
@@ -41,20 +37,16 @@
 	<update id="updateTblStlSettleBatch" parameterClass="java.util.HashMap">    
 		update Tbl_Stl_Settle_Batch set
             version = #version# +1,
-			settleNo = #settleNo#,
-			tblMchtInfo = #tblMchtInfo#,
-			createdDatetime = #createdDatetime#,
+			settleBatchNo = #settleBatchNo#,
+			settleDate = #settleDate#,
+			totalCount = #totalCount#,
+			totalAmount = #totalAmount#,
+			settleBatchStatus = #settleBatchStatus#,
+			remark = #remark#,
+			createdDateTime = #createdDateTime#,
 			lastUpdatedDatetime = #lastUpdatedDatetime#,
 			lastUpdatedBy = #lastUpdatedBy#,
-			orderCount = #orderCount#,
-			balance = #balance#,
-			fee = #fee#,
-			refundCount = #refundCount#,
-			refundBalance = #refundBalance#,
-			refundFee = #refundFee#,
-			settleAmount = #settleAmount#,
-			creator = #creator#,
-			deleted = #deleted#
+			creator = #creator#
     where    
       id = #id#    
 	</update>    

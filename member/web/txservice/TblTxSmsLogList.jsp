@@ -21,10 +21,6 @@
 				<label><hi:text key="发送方流水号" entity="TblTxSmsLog"/>:</label>
 				<input type="text" name="pageInfo.f_seqNo" value="${pageInfo.f_seqNo}"/>
 			</li>	  
-			<li>
-				<label><hi:text key="短信内容" entity="TblTxSmsLog"/>:</label>
-				<input type="text" name="pageInfo.f_phoneMessage" value="${pageInfo.f_phoneMessage}"/>
-			</li>	  
 			<li class="dateRange">
 				<label><hi:text key="创建时间" entity="TblTxSmsLog"/>:</label>
 				<input type="text" name="pageInfo.f_createdDatetime" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_createdDatetime}' pattern='yyyy-MM-dd'/>"/>
@@ -32,16 +28,8 @@
 				<input type="text" name="pageInfo.f_createdDatetime01" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_createdDatetime01}' pattern='yyyy-MM-dd'/>"/>
 				<input type="hidden" name="pageInfo.f_createdDatetime01_op" value="&lt;=">
 			</li>	  
-			<li class="dateRange">
-				<label><hi:text key="最后修改时间" entity="TblTxSmsLog"/>:</label>
-				<input type="text" name="pageInfo.f_lastUpdatedDdatetime" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_lastUpdatedDdatetime}' pattern='yyyy-MM-dd'/>"/>
-				<input type="hidden" name="pageInfo.f_lastUpdatedDdatetime_op" value="&gt;="><span class="limit">-</span>
-				<input type="text" name="pageInfo.f_lastUpdatedDdatetime01" class="date" readonly="readonly" value="<fmt:formatDate value='${pageInfo.f_lastUpdatedDdatetime01}' pattern='yyyy-MM-dd'/>"/>
-				<input type="hidden" name="pageInfo.f_lastUpdatedDdatetime01_op" value="&lt;=">
-			</li>	  
 			<li>
-				<label><hi:text key="最后修改人" entity="TblTxSmsLog"/>:</label>
-				<input type="text" name="pageInfo.f_lastUpdatedBy" value="${pageInfo.f_lastUpdatedBy}"/>
+
 			</li>	  
 		</ul>
 		<div class="subBar">
@@ -59,7 +47,7 @@
 				<authz:authorize ifAnyGranted="TBLTXSMSLOG_DEL"><li><a class="delete" href="<hi:url>tblTxSmsLogRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', senderId:'',seqNo:'',phoneNum:'',phoneMessage:'',status:'',createdDatetime:'',lastUpdatedDdatetime:'',lastUpdatedBy:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', senderId:'',seqNo:'',phoneNum:'',status:'',createdDatetime:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -73,11 +61,8 @@
 				<th orderField="senderId" class="${pageInfo.sorterName eq 'senderId' ? pageInfo.sorterDirection : ''}"><hi:text key="发送方标识" entity="TblTxSmsLog"/></th>
 				<th orderField="seqNo" class="${pageInfo.sorterName eq 'seqNo' ? pageInfo.sorterDirection : ''}"><hi:text key="发送方流水号" entity="TblTxSmsLog"/></th>
 				<th orderField="phoneNum" class="${pageInfo.sorterName eq 'phoneNum' ? pageInfo.sorterDirection : ''}"><hi:text key="手机号码" entity="TblTxSmsLog"/></th>
-				<th orderField="phoneMessage" class="${pageInfo.sorterName eq 'phoneMessage' ? pageInfo.sorterDirection : ''}"><hi:text key="短信内容" entity="TblTxSmsLog"/></th>
 				<th orderField="status" class="${pageInfo.sorterName eq 'status' ? pageInfo.sorterDirection : ''}"><hi:text key="发送状态" entity="TblTxSmsLog"/></th>
 				<th orderField="createdDatetime" class="${pageInfo.sorterName eq 'createdDatetime' ? pageInfo.sorterDirection : ''}"><hi:text key="创建时间" entity="TblTxSmsLog"/></th>
-				<th orderField="lastUpdatedDdatetime" class="${pageInfo.sorterName eq 'lastUpdatedDdatetime' ? pageInfo.sorterDirection : ''}"><hi:text key="最后修改时间" entity="TblTxSmsLog"/></th>
-				<th orderField="lastUpdatedBy" class="${pageInfo.sorterName eq 'lastUpdatedBy' ? pageInfo.sorterDirection : ''}"><hi:text key="最后修改人" entity="TblTxSmsLog"/></th>
 				<th width="90">
 					<c:choose>
 						<c:when test="${empty lookup}"><hi:text key="操作"/></c:when>
@@ -95,11 +80,8 @@
 				    <td>${item.senderId}</td>
 				    <td>${item.seqNo}</td>
 				    <td>${item.phoneNum}</td>
-				    <td>${item.phoneMessage}</td>
 				    <td>${item.status}</td>
 				    <td><fmt:formatDate value="${item.createdDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-				    <td><fmt:formatDate value="${item.lastUpdatedDdatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-				    <td>${item.lastUpdatedBy}</td>
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
@@ -114,7 +96,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', senderId:'${item.senderId}',seqNo:'${item.seqNo}',phoneNum:'${item.phoneNum}',phoneMessage:'${item.phoneMessage}',status:'${item.status}',createdDatetime:'${item.createdDatetime}',lastUpdatedDdatetime:'${item.lastUpdatedDdatetime}',lastUpdatedBy:'${item.lastUpdatedBy}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', senderId:'${item.senderId}',seqNo:'${item.seqNo}',phoneNum:'${item.phoneNum}',status:'${item.status}',createdDatetime:'${item.createdDatetime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

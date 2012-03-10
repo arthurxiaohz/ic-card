@@ -11,7 +11,6 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
 import cn.net.iccard.bm.settleservice.model.TblStlSettleBatch;
-import cn.net.iccard.bm.mcht.model.TblMchtInfo;
 import org.hi.base.organization.model.HiUser;
 
 public abstract class TblStlSettleBatchAbstract extends BaseObject implements Serializable{
@@ -30,17 +29,37 @@ public abstract class TblStlSettleBatchAbstract extends BaseObject implements Se
  	 /**
 	 * 结算批次号
 	 */	
- 	protected  String settleNo;
+ 	protected  String settleBatchNo;
 
  	 /**
-	 * 商户
+	 * 结算日
 	 */	
- 	protected  TblMchtInfo tblMchtInfo;
+ 	protected  Date settleDate;
+
+ 	 /**
+	 * 总条数
+	 */	
+ 	protected  Integer totalCount;
+
+ 	 /**
+	 * 总金额
+	 */	
+ 	protected  Integer totalAmount;
+
+ 	 /**
+	 * 状态
+	 */	
+ 	protected  Integer settleBatchStatus;
+
+ 	 /**
+	 * 备注
+	 */	
+ 	protected  String remark;
 
  	 /**
 	 * 创建时间
 	 */	
- 	protected  Timestamp createdDatetime;
+ 	protected  Timestamp createdDateTime;
 
  	 /**
 	 * 最后修改时间
@@ -53,49 +72,9 @@ public abstract class TblStlSettleBatchAbstract extends BaseObject implements Se
  	protected  HiUser lastUpdatedBy;
 
  	 /**
-	 * 支付总比数
-	 */	
- 	protected  Integer orderCount;
-
- 	 /**
-	 * 支付总金额
-	 */	
- 	protected  String balance;
-
- 	 /**
-	 * 支付总手续费
-	 */	
- 	protected  String fee;
-
- 	 /**
-	 * 退款总笔数
-	 */	
- 	protected  Integer refundCount;
-
- 	 /**
-	 * 退款总金额
-	 */	
- 	protected  String refundBalance;
-
- 	 /**
-	 * 退款总手续费
-	 */	
- 	protected  String refundFee;
-
- 	 /**
-	 * 结算金额
-	 */	
- 	protected  String settleAmount;
-
- 	 /**
 	 * 创建人
 	 */	
  	protected  HiUser creator = org.hi.framework.security.context.UserContextHelper.getUser();
-
- 	 /**
-	 * 删除标识
-	 */	
- 	protected  Integer deleted = 0;
 
 
     public Integer getId() {
@@ -124,43 +103,95 @@ public abstract class TblStlSettleBatchAbstract extends BaseObject implements Se
         this.version = version;
     }
     
-    public String getSettleNo() {
-        return this.settleNo;
+    public String getSettleBatchNo() {
+        return this.settleBatchNo;
     }
     
-    public void setSettleNo(String settleNo) {
-    		if((settleNo != null && this.settleNo == null) || 
-				this.settleNo != null && (!this.settleNo.equals(settleNo) || settleNo == null)){
+    public void setSettleBatchNo(String settleBatchNo) {
+    		if((settleBatchNo != null && this.settleBatchNo == null) || 
+				this.settleBatchNo != null && (!this.settleBatchNo.equals(settleBatchNo) || settleBatchNo == null)){
         		this.setDirty(true);
-        		this.oldValues.put("settleNo", this.settleNo);
+        		this.oldValues.put("settleBatchNo", this.settleBatchNo);
         	}
-        this.settleNo = settleNo;
+        this.settleBatchNo = settleBatchNo;
     }
     
-    public TblMchtInfo getTblMchtInfo() {
-        return this.tblMchtInfo;
+    public Date getSettleDate() {
+        return this.settleDate;
     }
     
-    public void setTblMchtInfo(TblMchtInfo tblMchtInfo) {
-    		if((tblMchtInfo != null && this.tblMchtInfo == null) || 
-				this.tblMchtInfo != null && (!this.tblMchtInfo.equals(tblMchtInfo) || tblMchtInfo == null)){
+    public void setSettleDate(Date settleDate) {
+    		if((settleDate != null && this.settleDate == null) || 
+				this.settleDate != null && (!this.settleDate.equals(settleDate) || settleDate == null)){
         		this.setDirty(true);
-        		this.oldValues.put("tblMchtInfo", this.tblMchtInfo);
+        		this.oldValues.put("settleDate", this.settleDate);
         	}
-        this.tblMchtInfo = tblMchtInfo;
+        this.settleDate = settleDate;
     }
     
-    public Timestamp getCreatedDatetime() {
-        return this.createdDatetime;
+    public Integer getTotalCount() {
+        return this.totalCount;
     }
     
-    public void setCreatedDatetime(Timestamp createdDatetime) {
-    		if((createdDatetime != null && this.createdDatetime == null) || 
-				this.createdDatetime != null && (!this.createdDatetime.equals(createdDatetime) || createdDatetime == null)){
+    public void setTotalCount(Integer totalCount) {
+    		if((totalCount != null && this.totalCount == null) || 
+				this.totalCount != null && (!this.totalCount.equals(totalCount) || totalCount == null)){
         		this.setDirty(true);
-        		this.oldValues.put("createdDatetime", this.createdDatetime);
+        		this.oldValues.put("totalCount", this.totalCount);
         	}
-        this.createdDatetime = createdDatetime;
+        this.totalCount = totalCount;
+    }
+    
+    public Integer getTotalAmount() {
+        return this.totalAmount;
+    }
+    
+    public void setTotalAmount(Integer totalAmount) {
+    		if((totalAmount != null && this.totalAmount == null) || 
+				this.totalAmount != null && (!this.totalAmount.equals(totalAmount) || totalAmount == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("totalAmount", this.totalAmount);
+        	}
+        this.totalAmount = totalAmount;
+    }
+    
+    public Integer getSettleBatchStatus() {
+        return this.settleBatchStatus;
+    }
+    
+    public void setSettleBatchStatus(Integer settleBatchStatus) {
+    		if((settleBatchStatus != null && this.settleBatchStatus == null) || 
+				this.settleBatchStatus != null && (!this.settleBatchStatus.equals(settleBatchStatus) || settleBatchStatus == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("settleBatchStatus", this.settleBatchStatus);
+        	}
+        this.settleBatchStatus = settleBatchStatus;
+    }
+    
+    public String getRemark() {
+        return this.remark;
+    }
+    
+    public void setRemark(String remark) {
+    		if((remark != null && this.remark == null) || 
+				this.remark != null && (!this.remark.equals(remark) || remark == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("remark", this.remark);
+        	}
+        this.remark = remark;
+    }
+    
+    public Timestamp getCreatedDateTime() {
+        return this.createdDateTime;
+    }
+    
+    public void setCreatedDateTime(Timestamp createdDateTime) {
+    		if((createdDateTime != null && this.createdDateTime == null) || 
+				this.createdDateTime != null && (!this.createdDateTime.equals(createdDateTime) || createdDateTime == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("createdDateTime", this.createdDateTime);
+        	}
+        this.createdDateTime = createdDateTime;
     }
     
     public Timestamp getLastUpdatedDatetime() {
@@ -189,97 +220,6 @@ public abstract class TblStlSettleBatchAbstract extends BaseObject implements Se
         this.lastUpdatedBy = lastUpdatedBy;
     }
     
-    public Integer getOrderCount() {
-        return this.orderCount;
-    }
-    
-    public void setOrderCount(Integer orderCount) {
-    		if((orderCount != null && this.orderCount == null) || 
-				this.orderCount != null && (!this.orderCount.equals(orderCount) || orderCount == null)){
-        		this.setDirty(true);
-        		this.oldValues.put("orderCount", this.orderCount);
-        	}
-        this.orderCount = orderCount;
-    }
-    
-    public String getBalance() {
-        return this.balance;
-    }
-    
-    public void setBalance(String balance) {
-    		if((balance != null && this.balance == null) || 
-				this.balance != null && (!this.balance.equals(balance) || balance == null)){
-        		this.setDirty(true);
-        		this.oldValues.put("balance", this.balance);
-        	}
-        this.balance = balance;
-    }
-    
-    public String getFee() {
-        return this.fee;
-    }
-    
-    public void setFee(String fee) {
-    		if((fee != null && this.fee == null) || 
-				this.fee != null && (!this.fee.equals(fee) || fee == null)){
-        		this.setDirty(true);
-        		this.oldValues.put("fee", this.fee);
-        	}
-        this.fee = fee;
-    }
-    
-    public Integer getRefundCount() {
-        return this.refundCount;
-    }
-    
-    public void setRefundCount(Integer refundCount) {
-    		if((refundCount != null && this.refundCount == null) || 
-				this.refundCount != null && (!this.refundCount.equals(refundCount) || refundCount == null)){
-        		this.setDirty(true);
-        		this.oldValues.put("refundCount", this.refundCount);
-        	}
-        this.refundCount = refundCount;
-    }
-    
-    public String getRefundBalance() {
-        return this.refundBalance;
-    }
-    
-    public void setRefundBalance(String refundBalance) {
-    		if((refundBalance != null && this.refundBalance == null) || 
-				this.refundBalance != null && (!this.refundBalance.equals(refundBalance) || refundBalance == null)){
-        		this.setDirty(true);
-        		this.oldValues.put("refundBalance", this.refundBalance);
-        	}
-        this.refundBalance = refundBalance;
-    }
-    
-    public String getRefundFee() {
-        return this.refundFee;
-    }
-    
-    public void setRefundFee(String refundFee) {
-    		if((refundFee != null && this.refundFee == null) || 
-				this.refundFee != null && (!this.refundFee.equals(refundFee) || refundFee == null)){
-        		this.setDirty(true);
-        		this.oldValues.put("refundFee", this.refundFee);
-        	}
-        this.refundFee = refundFee;
-    }
-    
-    public String getSettleAmount() {
-        return this.settleAmount;
-    }
-    
-    public void setSettleAmount(String settleAmount) {
-    		if((settleAmount != null && this.settleAmount == null) || 
-				this.settleAmount != null && (!this.settleAmount.equals(settleAmount) || settleAmount == null)){
-        		this.setDirty(true);
-        		this.oldValues.put("settleAmount", this.settleAmount);
-        	}
-        this.settleAmount = settleAmount;
-    }
-    
     public HiUser getCreator() {
         return this.creator;
     }
@@ -291,19 +231,6 @@ public abstract class TblStlSettleBatchAbstract extends BaseObject implements Se
         		this.oldValues.put("creator", this.creator);
         	}
         this.creator = creator;
-    }
-    
-    public Integer getDeleted() {
-        return this.deleted;
-    }
-    
-    public void setDeleted(Integer deleted) {
-    		if((deleted != null && this.deleted == null) || 
-				this.deleted != null && (!this.deleted.equals(deleted) || deleted == null)){
-        		this.setDirty(true);
-        		this.oldValues.put("deleted", this.deleted);
-        	}
-        this.deleted = deleted;
     }
     
 
@@ -327,15 +254,9 @@ public abstract class TblStlSettleBatchAbstract extends BaseObject implements Se
    public String toString() {
        ToStringBuilder sb = new ToStringBuilder(this, ToStringStyle.DEFAULT_STYLE);
        sb.append("id", this.id)
-		.append("settleNo", this.settleNo)
-		.append("orderCount", this.orderCount)
-		.append("balance", this.balance)
-		.append("fee", this.fee)
-		.append("refundCount", this.refundCount)
-		.append("refundBalance", this.refundBalance)
-		.append("refundFee", this.refundFee)
-		.append("settleAmount", this.settleAmount)
-		.append("deleted", this.deleted);
+		.append("settleBatchNo", this.settleBatchNo)
+		.append("totalCount", this.totalCount)
+		.append("totalAmount", this.totalAmount);
       
         return sb.toString();
    }

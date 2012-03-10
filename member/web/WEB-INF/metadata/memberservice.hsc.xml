@@ -111,7 +111,7 @@
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
-                                    <isFull>true</isFull>
+                                    <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
@@ -139,7 +139,7 @@
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
-                                    <isFull>true</isFull>
+                                    <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
@@ -167,7 +167,7 @@
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
-                                    <isFull>true</isFull>
+                                    <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
@@ -195,7 +195,7 @@
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
-                                    <isFull>true</isFull>
+                                    <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
@@ -251,7 +251,7 @@
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
-                                    <isFull>true</isFull>
+                                    <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
@@ -811,7 +811,7 @@
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
-                                    <isFull>true</isFull>
+                                    <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
@@ -1757,7 +1757,7 @@
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
-            <length>1</length>
+            <length>30</length>
             <scale></scale>
                         <isParent>false</isParent>
             <fieldType>1</fieldType>

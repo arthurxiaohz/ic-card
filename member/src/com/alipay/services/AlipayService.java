@@ -31,7 +31,7 @@ public class AlipayService {
     /**
      * 支付宝提供给商户的服务接入网关URL(新)
      */
-    private static final String ALIPAY_GATEWAY_NEW = "https://mapi.alipay.com/gateway.do?";
+    private static final String ALIPAY_GATEWAY_NEW = "http://localhost:8080/NewTxService/BankTxControl";
 
     /**
      * 构造即时到帐接口
@@ -43,8 +43,8 @@ public class AlipayService {
     	//增加基本配置
         sParaTemp.put("service", "create_direct_pay_by_user");
         sParaTemp.put("partner", AlipayConfig.partner);
-        sParaTemp.put("return_url", AlipayConfig.return_url+"/"+bankTxTraceNo);
-        sParaTemp.put("notify_url", AlipayConfig.notify_url+"/"+bankTxTraceNo);
+        sParaTemp.put("return_url", AlipayConfig.return_url);
+        sParaTemp.put("notify_url", AlipayConfig.notify_url);
         sParaTemp.put("seller_email", AlipayConfig.seller_email);
         sParaTemp.put("_input_charset", AlipayConfig.input_charset);
 

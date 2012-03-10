@@ -12,16 +12,16 @@
 			<dt><hi:text key="卡号" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.cardNo" class="textInput required" value="${tblMbInfo.cardNo}" maxlength="30"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="实名认证状态" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.realNameStatus" class="textInput required" value="${tblMbInfo.realNameStatus}" maxlength="1"/></dd>
+			<dt><hi:text key="实名认证状态" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.realNameStatus" class="textInput" value="${tblMbInfo.realNameStatus}" maxlength="1"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="实名认证时间" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.realNameTime" class="textInput required" value="${tblMbInfo.realNameTime}" maxlength="14"/></dd>
+			<dt><hi:text key="实名认证时间" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.realNameTime" class="textInput" value="${tblMbInfo.realNameTime}" maxlength="14"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="注册时间" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.registerTime" class="textInput required" value="${tblMbInfo.registerTime}" maxlength="14"/></dd>
+			<dt><hi:text key="注册时间" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.registerTime" class="textInput" value="${tblMbInfo.registerTime}" maxlength="14"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="注册方式" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.registerWay" class="textInput required" value="${tblMbInfo.registerWay}" maxlength="1"/></dd>
+			<dt><hi:text key="注册方式" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.registerWay" class="textInput" value="${tblMbInfo.registerWay}" maxlength="1"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="创建时间" entity="TblMbInfo"/>：</dt>
@@ -34,7 +34,7 @@
 		<dl>
 			<dt><hi:text key="最后修改时间" entity="TblMbInfo"/>：</dt>
 			<dd>
-				<input type="text" name="tblMbInfo.lastUpdatedDatetime" class="textInput date required" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
+				<input type="text" name="tblMbInfo.lastUpdatedDatetime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
 					value="<fmt:formatDate value='${tblMbInfo.lastUpdatedDatetime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
 				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
 			</dd>

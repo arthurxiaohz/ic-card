@@ -1,7 +1,7 @@
 <%@ page language="java"  pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
 <%@ include file="/includes/main.jsp"%>
 
-<h2 class="contentTitle"><hi:text key="查看页面"  parameterLanguageKeys="转账查询"/></h2>
+<h2 class="contentTitle"><hi:text key="查看页面"  parameterLanguageKeys="转账交易"/></h2>
 <div class="pageContent">
 	
 	<div class="viewInfo" layoutH="97">
@@ -10,7 +10,7 @@
 			<dt><hi:text key="平台交易流水号" entity="TblTxTransfer"/>：</dt><dd>${tblTxTransfer.plTxTraceNo}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="平台会员号" entity="TblTxTransfer"/>：</dt><dd>${tblTxTransfer.userName}</dd>
+			<dt><hi:text key="会员账号" entity="TblTxTransfer"/>：</dt><dd>${tblTxTransfer.userName}</dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="交易类型" entity="TblTxTransfer"/>：</dt><dd>${tblTxTransfer.txTypeId}</dd>

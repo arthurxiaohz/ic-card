@@ -54,7 +54,7 @@ public abstract class TblTxSmsLogAbstract extends BaseObject implements Serializ
  	 /**
 	 * 创建时间
 	 */	
- 	protected  Timestamp createdDatetime;
+ 	protected  Timestamp createdDatetime = new Timestamp(System.currentTimeMillis());
 
  	 /**
 	 * 最后修改时间

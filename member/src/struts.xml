@@ -73,5 +73,9 @@
   	<include file="struts-framework-dwz.xml" />
   	<include file="struts-memberservice.xml" />
   	<include file="struts-txservice.xml" />
-  	
+  	<include file="struts-accounting.xml" />
+  	<include file="struts-checkservice.xml" />
+  	<include file="struts-mcht.xml" />
+  	<include file="struts-settle.xml" />
+	<include file="struts-txprocessor.xml" />
 </struts>

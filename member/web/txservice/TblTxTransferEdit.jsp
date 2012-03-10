@@ -1,7 +1,7 @@
 <%@ page language="java"  pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
 <%@ include file="/includes/main.jsp"%>
 
-<h2 class="contentTitle"><hi:text key="编辑页面" parameterLanguageKeys="转账查询"/></h2>
+<h2 class="contentTitle"><hi:text key="编辑页面" parameterLanguageKeys="转账交易"/></h2>
 <form action="tblTxTransferSave.action?navTabId=tblTxTransferList&callbackType=closeCurrent&ajax=1" method="post" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
 <div class="pageContent">
 	<div class="pageFormContent" layoutH="97">
@@ -9,7 +9,7 @@
 			<dt><hi:text key="平台交易流水号" entity="TblTxTransfer"/>：</dt><dd><input type="text" name="tblTxTransfer.plTxTraceNo" class="textInput required" value="${tblTxTransfer.plTxTraceNo}" maxlength="20"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="平台会员号" entity="TblTxTransfer"/>：</dt><dd><input type="text" name="tblTxTransfer.userName" class="textInput" value="${tblTxTransfer.userName}" maxlength="30"/></dd>
+			<dt><hi:text key="会员账号" entity="TblTxTransfer"/>：</dt><dd><input type="text" name="tblTxTransfer.userName" class="textInput" value="${tblTxTransfer.userName}" maxlength="30"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="交易类型" entity="TblTxTransfer"/>：</dt><dd><input type="text" name="tblTxTransfer.txTypeId" class="textInput" value="${tblTxTransfer.txTypeId}" maxlength="4"/></dd>

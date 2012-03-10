@@ -72,13 +72,13 @@ public class TblTxPayMentOrderPageInfo extends PageInfoView{
  	protected  String  f_feeAmount_op;
 	protected  Integer  f_hasCountFee;
  	protected  String  f_hasCountFee_op;
-	protected  Date  f_createdDatetime;
+	protected  Timestamp  f_createdDatetime;
  	protected  String  f_createdDatetime_op;
-	protected  Date  f_createdDatetime01;
+	protected  Timestamp  f_createdDatetime01;
 	protected  String  f_createdDatetime01_op;
-	protected  Date  f_lastUpdatedDatetime;
+	protected  Timestamp  f_lastUpdatedDatetime;
  	protected  String  f_lastUpdatedDatetime_op;
-	protected  Date  f_lastUpdatedDatetime01;
+	protected  Timestamp  f_lastUpdatedDatetime01;
 	protected  String  f_lastUpdatedDatetime01_op;
 	protected  Integer  f_lastUpdatedBy;
  	protected  String  f_lastUpdatedBy_op;
@@ -605,11 +605,11 @@ public class TblTxPayMentOrderPageInfo extends PageInfoView{
         this.f_hasCountFee_op = f_hasCountFee_op;
     }
    
-    public Date getF_createdDatetime() {
+    public Timestamp getF_createdDatetime() {
         return this.f_createdDatetime;
     }
     
-    public void setF_createdDatetime(Date f_createdDatetime) {
+    public void setF_createdDatetime(Timestamp f_createdDatetime) {
         this.f_createdDatetime = f_createdDatetime;
     }
     
@@ -620,11 +620,11 @@ public class TblTxPayMentOrderPageInfo extends PageInfoView{
     public void setF_createdDatetime_op(String f_createdDatetime_op) {
         this.f_createdDatetime_op = f_createdDatetime_op;
     }
-    public Date getF_createdDatetime01() {
+    public Timestamp getF_createdDatetime01() {
         return this.f_createdDatetime01;
     }
     
-    public void setF_createdDatetime01(Date f_createdDatetime01) {
+    public void setF_createdDatetime01(Timestamp f_createdDatetime01) {
         this.f_createdDatetime01 = f_createdDatetime01;
     }
     
@@ -636,11 +636,11 @@ public class TblTxPayMentOrderPageInfo extends PageInfoView{
         this.f_createdDatetime01_op = f_createdDatetime01_op;
     }
    
-    public Date getF_lastUpdatedDatetime() {
+    public Timestamp getF_lastUpdatedDatetime() {
         return this.f_lastUpdatedDatetime;
     }
     
-    public void setF_lastUpdatedDatetime(Date f_lastUpdatedDatetime) {
+    public void setF_lastUpdatedDatetime(Timestamp f_lastUpdatedDatetime) {
         this.f_lastUpdatedDatetime = f_lastUpdatedDatetime;
     }
     
@@ -651,11 +651,11 @@ public class TblTxPayMentOrderPageInfo extends PageInfoView{
     public void setF_lastUpdatedDatetime_op(String f_lastUpdatedDatetime_op) {
         this.f_lastUpdatedDatetime_op = f_lastUpdatedDatetime_op;
     }
-    public Date getF_lastUpdatedDatetime01() {
+    public Timestamp getF_lastUpdatedDatetime01() {
         return this.f_lastUpdatedDatetime01;
     }
     
-    public void setF_lastUpdatedDatetime01(Date f_lastUpdatedDatetime01) {
+    public void setF_lastUpdatedDatetime01(Timestamp f_lastUpdatedDatetime01) {
         this.f_lastUpdatedDatetime01 = f_lastUpdatedDatetime01;
     }
     

@@ -71,7 +71,14 @@
 					
 		<action name="tblMbRechargeOrderEdit"
 			class="cn.net.iccard.member.action.struts.TblMbRechargeOrderAction" method="viewTblMbRechargeOrder">
-			<result name="success">/memberservice/TblMbRechargeOrderEdit.jsp</result>
+			<result name="success">/charge/SpecialMbRechargeOrderEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="createCharge"
+		
+			class="cn.net.iccard.special.action.RechargeRequestAction" method="getMemberRequest">
+			<result name="success" type="redirect-action">tblMbRechargeOrderList</result>
 			<interceptor-ref name="modelParamsStack" />
 		</action>
 		

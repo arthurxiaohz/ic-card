@@ -31,13 +31,13 @@
 		<dl>
 			<dt><hi:text key="最后修改时间" entity="TblTxSmsLog"/>：</dt>
 			<dd>
-				<input type="text" name="tblTxSmsLog.lastUpdatedDdatetime" class="textInput date required" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
+				<input type="text" name="tblTxSmsLog.lastUpdatedDdatetime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
 					value="<fmt:formatDate value='${tblTxSmsLog.lastUpdatedDdatetime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
 				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
 			</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="最后修改人" entity="TblTxSmsLog"/>：</dt><dd><input type="text" name="tblTxSmsLog.lastUpdatedBy" class="textInput required integer" value="${tblTxSmsLog.lastUpdatedBy}" alt="<hi:text key="请输入整数"/>"/></dd>
+			<dt><hi:text key="最后修改人" entity="TblTxSmsLog"/>：</dt><dd><input type="text" name="tblTxSmsLog.lastUpdatedBy" class="textInput integer" value="${tblTxSmsLog.lastUpdatedBy}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 				<input type="hidden" name="tblTxSmsLog.id" value="${tblTxSmsLog.id}"/>
 				<input type="hidden" name="tblTxSmsLog.creator.id" value="${tblTxSmsLog.creator.id}"/>
