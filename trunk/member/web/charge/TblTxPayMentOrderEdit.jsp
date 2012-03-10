@@ -128,7 +128,7 @@ function changeToClick()
 												
 														<td>
 															<dl>
-			<dt><hi:text key="交易金额" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.txAmount}</dd>
+			<dt><hi:text key="交易金额" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.orderAmount/100}</dd>
 		</dl>
 														</td>
 													
@@ -141,7 +141,7 @@ function changeToClick()
 															应付总额：
 														</td>
 														<td>
-															${tblTxPayMentOrder.txAmount} 
+															${tblTxPayMentOrder.orderAmount/100} 
 														</td>
 												</tr><!-- 未付款 -->
 													
@@ -186,7 +186,7 @@ function changeToClick()
 															应付总额：
 														</td>
 														<td>
-															32.0 
+																${tblTxPayMentOrder.orderAmount/100}
 														</td>
 												</tr>
 													

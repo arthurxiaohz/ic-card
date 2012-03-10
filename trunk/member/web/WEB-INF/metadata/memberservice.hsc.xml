@@ -83,7 +83,7 @@
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
-                                    <isFull>true</isFull>
+                                    <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
@@ -107,7 +107,7 @@
             <fieldName>realNameStatus</fieldName>
             <fieldLabel>实名认证状态</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
+                                    <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -135,7 +135,7 @@
             <fieldName>realNameTime</fieldName>
             <fieldLabel>实名认证时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
+                                    <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -163,7 +163,7 @@
             <fieldName>registerTime</fieldName>
             <fieldLabel>注册时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
+                                    <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -191,7 +191,7 @@
             <fieldName>registerWay</fieldName>
             <fieldLabel>注册方式</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
+                                    <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -223,7 +223,7 @@
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
-                                    <isFull>true</isFull>
+                                    <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue> 
             <validator></validator>  
@@ -247,8 +247,8 @@
             <fieldName>lastUpdatedDatetime</fieldName>
             <fieldLabel>最后修改时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -448,8 +448,8 @@
             <fieldName>accountType</fieldName>
             <fieldLabel>账户类型</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -476,8 +476,8 @@
             <fieldName>accountNo</fieldName>
             <fieldLabel>账户号码</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -532,8 +532,8 @@
             <fieldName>chinfo</fieldName>
             <fieldLabel>持卡人个人信息</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -560,7 +560,7 @@
             <fieldName>txTypeId</fieldName>
             <fieldLabel>交易类型</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
+                                    <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -588,7 +588,7 @@
             <fieldName>mchtTxTime</fieldName>
             <fieldLabel>交易发生时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
+                                    <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -616,7 +616,7 @@
             <fieldName>txAmount</fieldName>
             <fieldLabel>交易金额</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
+                                    <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -644,8 +644,8 @@
             <fieldName>txIp</fieldName>
             <fieldLabel>交易IP地址</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -672,7 +672,7 @@
             <fieldName>plTxTime</fieldName>
             <fieldLabel>交易完成时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
+                                    <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -723,7 +723,7 @@
             <fieldName>errorCode</fieldName>
             <fieldLabel>异常代码</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
+                                    <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -751,8 +751,8 @@
             <fieldName>errorMsg</fieldName>
             <fieldLabel>实名认证状态</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -779,8 +779,8 @@
             <fieldName>settleBatchNo</fieldName>
             <fieldLabel>结算批次号</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -807,8 +807,8 @@
             <fieldName>settleStatus</fieldName>
             <fieldLabel>结算状态</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -830,8 +830,8 @@
             <fieldName>settleDate</fieldName>
             <fieldLabel>结算日期</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -862,7 +862,7 @@
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
-                                    <isFull>true</isFull>
+                                    <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue> 
             <validator></validator>  
@@ -886,8 +886,8 @@
             <fieldName>lastUpdatedDatetime</fieldName>
             <fieldLabel>最后修改时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -914,8 +914,8 @@
             <fieldName>lastUpdatedBy</fieldName>
             <fieldLabel>最后修改人</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -942,8 +942,8 @@
             <fieldName>bankTxStatus</fieldName>
             <fieldLabel>银行交易状态</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -965,8 +965,8 @@
             <fieldName>checkBatchNo</fieldName>
             <fieldLabel>对账批次号</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -993,8 +993,8 @@
             <fieldName>checkStatus</fieldName>
             <fieldLabel>对账状态</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -1016,8 +1016,8 @@
             <fieldName>voucherNo</fieldName>
             <fieldLabel>凭证号</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -1189,7 +1189,7 @@
             <fieldName>amount</fieldName>
             <fieldLabel>交易金额</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
+                                    <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -1217,7 +1217,7 @@
             <fieldName>trxTime</fieldName>
             <fieldLabel>交易时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
+                                    <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -1268,8 +1268,8 @@
             <fieldName>msgext</fieldName>
             <fieldLabel>附加信息</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -1324,8 +1324,8 @@
             <fieldName>lastUpdatedDatetime</fieldName>
             <fieldLabel>最后修改时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -1352,8 +1352,8 @@
             <fieldName>lastUpdatedBy</fieldName>
             <fieldLabel>最后修改人</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -1408,8 +1408,8 @@
             <fieldName>chinfo</fieldName>
             <fieldLabel>持卡人个人信息</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -1464,8 +1464,8 @@
             <fieldName>currencyType</fieldName>
             <fieldLabel>币种</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -1492,8 +1492,8 @@
             <fieldName>accountType</fieldName>
             <fieldLabel>账户类型</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -1520,8 +1520,8 @@
             <fieldName>accountNo</fieldName>
             <fieldLabel>账户号码</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -1777,7 +1777,7 @@
             <fieldName>amount</fieldName>
             <fieldLabel>交易金额</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
+                                    <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -1805,8 +1805,8 @@
             <fieldName>context</fieldName>
             <fieldLabel>报文的原始报文</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -1833,8 +1833,8 @@
             <fieldName>state</fieldName>
             <fieldLabel>返回报文标识订单的成功状态</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -1861,7 +1861,7 @@
             <fieldName>sourceIp</fieldName>
             <fieldLabel>发送报文的IP地址</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
+                                    <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -1889,8 +1889,8 @@
             <fieldName>lastUpdatedDatetime</fieldName>
             <fieldLabel>最后修改时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
@@ -1917,8 +1917,8 @@
             <fieldName>lastUpdatedBy</fieldName>
             <fieldLabel>最后修改人</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>true</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
