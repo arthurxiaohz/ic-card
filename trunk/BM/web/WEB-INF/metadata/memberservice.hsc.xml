@@ -2795,7 +2795,7 @@
                                     <isSearch>false</isSearch>
                                     <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
-                                    <isHidden>true</isHidden>
+                                    <isHidden>false</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>true</isMainLookup>
                         <defaultValue></defaultValue> 
@@ -2823,7 +2823,7 @@
                                     <isSearch>false</isSearch>
                                     <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
-                                    <isHidden>true</isHidden>
+                                    <isHidden>false</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
@@ -2879,7 +2879,7 @@
                                     <isSearch>false</isSearch>
                                     <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
-                                    <isHidden>true</isHidden>
+                                    <isHidden>false</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>true</isMainLookup>
                         <defaultValue></defaultValue> 
@@ -2907,7 +2907,7 @@
                                     <isSearch>false</isSearch>
                                     <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
-                                    <isHidden>true</isHidden>
+                                    <isHidden>false</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
