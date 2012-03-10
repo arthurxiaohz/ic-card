@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GBK" />
 <link rel="stylesheet" type="text/css" href="includes/style.css"  >
-<title>HI Java快速开发平台</title>
+<title>业务运营管理平台</title>
 <style type="text/css">
 <!--
 body {
