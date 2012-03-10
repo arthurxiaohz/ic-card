@@ -195,7 +195,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>1</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -220,7 +220,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -245,7 +245,7 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
-          <isSearch>false</isSearch>
+          <isSearch>true</isSearch>
           <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
@@ -520,10 +520,10 @@
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>5</hiDataType>
-          <isSearch>false</isSearch>
-          <isListDisplay>false</isListDisplay>
+          <isSearch>true</isSearch>
+          <isListDisplay>true</isListDisplay>
           <isReadOnly>true</isReadOnly>
-          <isHidden>true</isHidden>
+          <isHidden>false</isHidden>
           <isFull>false</isFull>
           <isMainLookup>false</isMainLookup>
           <isParent>false</isParent>
@@ -2151,7 +2151,7 @@
       <linkedPath></linkedPath>
       <tableName>Tbl_Mcht_User</tableName>
       <logicalName>TblMchtUser</logicalName>
-      <description>商服用户</description>
+      <description>商服操作员</description>
       <isDeleted>true</isDeleted>
       <isCreator>true</isCreator>
       <columns>
