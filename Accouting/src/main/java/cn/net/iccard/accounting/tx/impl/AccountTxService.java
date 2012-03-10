@@ -169,7 +169,8 @@ public class AccountTxService implements IAccountTxService {
 				tblActTransferVoucher.getVoucherNo(),
 				accountRcvOrPabTransferRequest.getExpiredDate());
 
-		return null;
+		return new AccountTransferResponse(EAccountResponse.S0000,
+				tblActTransferVoucher.getVoucherNo());
 
 	}
 
@@ -230,7 +231,8 @@ public class AccountTxService implements IAccountTxService {
 				VoucherType.VOUCHERTYPE_TRANSFER, tblActTransferVoucher
 						.getVoucherNo(), null);
 
-		return null;
+		return new AccountTransferResponse(EAccountResponse.S0000,
+				tblActTransferVoucher.getVoucherNo());
 
 	}
 
