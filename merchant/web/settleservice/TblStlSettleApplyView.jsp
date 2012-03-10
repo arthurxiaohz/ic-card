@@ -5,13 +5,6 @@
 <div class="pageContent">
 	
 	<div class="viewInfo" layoutH="97">
-				
-		<dl>
-			<dt><hi:text key="商户号" entity="TblStlSettleApply"/>：</dt><dd>${tblStlSettleApply.tblMchtInfo.mchtNo}</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="商户名称" entity="TblStlSettleApply"/>：</dt><dd>${tblStlSettleApply.tblMchtInfo.mchtName}</dd>
-		</dl>
 		<dl>
 			<dt><hi:text key="账户可用余额" entity="TblStlSettleApply"/>：</dt><dd>${tblStlSettleApply.availableBalance}</dd>
 		</dl>
@@ -31,13 +24,7 @@
 			<dt><hi:text key="结算日" entity="TblStlSettleApply"/>：</dt><dd>${tblStlSettleApply.tblStlSettleBatch.settleDate}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="结算批次号" entity="TblStlSettleApply"/>：</dt><dd>${tblStlSettleApply.tblStlSettleBatch.settleBatchNo}</dd>
-		</dl>
-		<dl>
 			<dt><hi:text key="创建时间" entity="TblStlSettleApply"/>：</dt><dd><fmt:formatDate value="${tblStlSettleApply.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
-		</dl>
-		<dl>
-			<dt><hi:text key="最后修改时间" entity="TblStlSettleApply"/>：</dt><dd><fmt:formatDate value="${tblStlSettleApply.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
 		</dl>
 
 		<div class="divider"></div>
