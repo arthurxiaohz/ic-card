@@ -134,7 +134,7 @@
 							</td>					
 							<td>
 								<c:if test="${roleAuthority.authority.authorityType==1}">					
-									<hi:select emu="securityScope" name="roleAuthorities[${roleAuthorityIndex.count-1}].scope" onchange="javascript:scopeChang(this)" defaultValue="2904" />
+									<hi:select maxIndex="${roleAuthority.scope}" emu="securityScope" name="roleAuthorities[${roleAuthorityIndex.count-1}].scope" onchange="javascript:scopeChang(this)" defaultValue="2904" />
 								</c:if>						
 							</td>
 							<td>
