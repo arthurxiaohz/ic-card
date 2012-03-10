@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app id="WebApp_ID">
+	<display-name>NewTxService</display-name>
+	<servlet>
+        <servlet-name>TxControl</servlet-name>
+        <display-name>TxControl</display-name>
+        <servlet-class>cn.net.iccard.txsimulator.TxControl</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+     <servlet>
+        <servlet-name>BankTxControl</servlet-name>
+        <display-name>BankTxControl</display-name>
+        <servlet-class>cn.net.iccard.txsimulator.BankTxControl</servlet-class>
+    </servlet>
+    
+     <servlet-mapping>
+        <servlet-name>TxControl</servlet-name>
+        <url-pattern>/TxControl</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BankTxControl</servlet-name>
+        <url-pattern>/BankTxControl</url-pattern>
+    </servlet-mapping>
+    
+    <welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
