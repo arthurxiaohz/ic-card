@@ -74,6 +74,6 @@
   <include file="struts-settleservice.xml" />
   <include file="struts-txservice.xml" />
   <include file="struts-report-customer.xml" />
-  
+  <include file="struts-settleservice-customer.xml" />
 </struts>
 
