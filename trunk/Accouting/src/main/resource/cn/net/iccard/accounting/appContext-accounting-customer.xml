@@ -7,6 +7,6 @@
     <bean id="cn.net.iccard.accounting.tx.impl.AccountTxService" class="cn.net.iccard.accounting.tx.impl.AccountTxService">
     </bean>
     <bean id="cn.net.iccard.accounting.tx.impl.ClearingAccountService" class="cn.net.iccard.accounting.tx.impl.ClearingAccountService">
-    	<property name="accountTxService" ref="cn.net.iccard.accounting.account.impl.AccountService"/>
+    	<property name="accountTxService" ref="cn.net.iccard.accounting.tx.impl.AccountTxService"/>
     </bean>
 </beans>
