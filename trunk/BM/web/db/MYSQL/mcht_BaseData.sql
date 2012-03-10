@@ -16,7 +16,7 @@ insert into MenuLink(ID, version, linkUrl, displayRef, description, authority, s
 --
 delete from MenuLink where ID = 301100;
 --
-insert into MenuLink(ID, version, linkUrl, displayRef, description, authority, sequence, menu, menuLinkType, creator) values(301100, 0, '/tblMchtUserList.action', '商服用户', '商服用户', 301100, 9999, 300000, 0, 0);
+insert into MenuLink(ID, version, linkUrl, displayRef, description, authority, sequence, menu, menuLinkType, creator) values(301100, 0, '/tblMchtUserList.action', '商服操作员', '商服操作员', 301100, 9999, 300000, 0, 0);
 --
 
 
@@ -131,15 +131,15 @@ delete from HI_Authority where ID = 301103;
 --
 delete from HI_Authority where ID = 301104;
 --
-insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301100, 0, 'TBLMCHTUSER_LIST', 'mcht.TblMchtUserList', '', '商服用户查询', 1, 301100);
+insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301100, 0, 'TBLMCHTUSER_LIST', 'mcht.TblMchtUserList', '', '商服操作员查询', 1, 301100);
 --
-insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301101, 0, 'TBLMCHTUSER_VIEW', 'mcht.TblMchtUserView', '', '商服用户查看', 2, 301100);
+insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301101, 0, 'TBLMCHTUSER_VIEW', 'mcht.TblMchtUserView', '', '商服操作员查看', 2, 301100);
 --
-insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301102, 0, 'TBLMCHTUSER_SAVE', 'mcht.TblMchtUserSave', '', '商服用户保存', 3, 301100);
+insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301102, 0, 'TBLMCHTUSER_SAVE', 'mcht.TblMchtUserSave', '', '商服操作员保存', 3, 301100);
 --
-insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301103, 0, 'TBLMCHTUSER_DEL', 'mcht.TblMchtUserDel', '', '商服用户删除', 4, 301100);
+insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301103, 0, 'TBLMCHTUSER_DEL', 'mcht.TblMchtUserDel', '', '商服操作员删除', 4, 301100);
 --
-insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301104, 0, 'TBLMCHTUSER_LOOKUP', 'mcht.TblMchtUserLookup', '', '商服用户带回', 1, 301100);
+insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301104, 0, 'TBLMCHTUSER_LOOKUP', 'mcht.TblMchtUserLookup', '', '商服操作员带回', 1, 301100);
 --
 
 delete from HI_PrivilegeResource where ID = 300200;
@@ -410,6 +410,10 @@ delete from HI_Language where ID = 300213;
 --
 insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300213, 0, '开户行名称', 'TblMchtInfo', 1, 0);
 --
+delete from HI_Language where ID = 300214;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300214, 0, '创建时间', 'TblMchtInfo', 1, 0);
+--
 delete from HI_Language where ID = 300300;
 --
 insert into HI_Language(ID, version, keyStr, creator, isSystem) values(300300, 0, '商户支付配置', 1, 0);
@@ -568,4 +572,4 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(3
 --
 delete from HI_Language where ID = 301100;
 --
-insert into HI_Language(ID, version, keyStr, creator, isSystem) values(301100, 0, '商服用户', 1, 0);
+insert into HI_Language(ID, version, keyStr, creator, isSystem) values(301100, 0, '商服操作员', 1, 0);
