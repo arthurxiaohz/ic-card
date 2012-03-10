@@ -76,9 +76,8 @@ public class TblTxPayMentOrderAction extends BaseAction{
 		TblTxPayMentOrderManager tblTxPayMentOrderMgr = (TblTxPayMentOrderManager)SpringContextHolder.getBean(TblTxPayMentOrder.class);
 		
 		//点击查询时，更新session中id对应订单的userName和creator
-		String idTmp = (String) getSession().getAttribute("id");
-		if (null != idTmp) {
-			int id = Integer.parseInt(idTmp);
+		Integer id = (Integer) getSession().getAttribute("id");
+		if (null != id) {
 			TblTxPayMentOrder tblTxPayMentOrderTmp = tblTxPayMentOrderMgr.getTblTxPayMentOrderById(id);
 			tblTxPayMentOrderTmp.setUserName(org.hi.framework.security.context.UserContextHelper.getUser().getUserName());
 			tblTxPayMentOrderTmp.setCreator(org.hi.framework.security.context.UserContextHelper.getUser());
