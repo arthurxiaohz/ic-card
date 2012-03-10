@@ -56,6 +56,7 @@
 			</c:otherwise>
 		</c:choose>			
 		</ul>
+		<authz:authorize ifAnyGranted="SETTLE"><li><a class="btnAttach" href="<hi:url>settle.action?ajax=1</hi:url>" target="navTabTodo" title="<hi:text key="确实要结算吗?"/>"><span>结算</span></a></li></authz:authorize>
 	</div>
 	<table class="table" width="100%" layoutH="138" targetType="${targetType}">
 		<thead>
