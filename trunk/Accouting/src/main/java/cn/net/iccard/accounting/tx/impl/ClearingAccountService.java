@@ -234,6 +234,8 @@ public class ClearingAccountService implements IClearingAccountService {
 		tblStlSettleBatch
 				.setSettleBatchStatus(SettleBatchStatus.SETTLEBATCHSTATUS_SETTLED);
 		tblStlSettleBatch.setSettleDate(settleDate);
+		
+		tblStlSettleBatchMgr.saveTblStlSettleBatch(tblStlSettleBatch);
 
 		for (int i = 0; i < tblStlSettleApplys.size(); i++) {
 			TblStlSettleApply tblStlSettleApply = (TblStlSettleApply) tblStlSettleApplys
@@ -287,7 +289,6 @@ public class ClearingAccountService implements IClearingAccountService {
 
 			tblStlSettleApplyMgr.saveTblStlSettleApply(tblStlSettleApply);
 		}
-
 		tblStlSettleBatchMgr.saveTblStlSettleBatch(tblStlSettleBatch);
 		return new SimpleCommonAccountResponse(EAccountResponse.S0000);
 	}
