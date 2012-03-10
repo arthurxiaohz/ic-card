@@ -6,7 +6,7 @@
 <div class="pageContent">
 	<div class="pageFormContent" layoutH="97">
 		<dl>
-			<dt><hi:text key="商户号" entity="TblMchtInfo"/>：</dt><dd><input <c:if test="${tblMchtInfo.id!=null}">readonly="readonly"</c:if> type="text" name="tblMchtInfo.mchtNo" class="textInput required" value="${tblMchtInfo.mchtNo}" maxlength="18"/></dd>
+			<dt><hi:text key="商户号" entity="TblMchtInfo"/>：</dt><dd><input type="text" name="tblMchtInfo.mchtNo" class="textInput required" value="${tblMchtInfo.mchtNo}" maxlength="18"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="商户名称" entity="TblMchtInfo"/>：</dt><dd><input type="text" name="tblMchtInfo.mchtName" class="textInput" value="${tblMchtInfo.mchtName}" maxlength="30"/></dd>
@@ -44,9 +44,16 @@
 		<dl>
 			<dt><hi:text key="开户行名称" entity="TblMchtInfo"/>：</dt><dd><input type="text" name="tblMchtInfo.bankName" class="textInput" value="${tblMchtInfo.bankName}" maxlength="30"/></dd>
 		</dl>
+		<dl>
+			<dt><hi:text key="创建时间" entity="TblMchtInfo"/>：</dt>
+			<dd>
+				<input type="text" name="tblMchtInfo.createdDateTime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
+					value="<fmt:formatDate value='${tblMchtInfo.createdDateTime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
+				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
+			</dd>
+		</dl>
 				<input type="hidden" name="tblMchtInfo.id" value="${tblMchtInfo.id}"/>
 				<input type="hidden" name="tblMchtInfo.feeFlag" value="${tblMchtInfo.feeFlag}"/>
-				<input type="hidden" name="tblMchtInfo.createdDateTime" value="${tblMchtInfo.createdDateTime}"/>
 				<input type="hidden" name="tblMchtInfo.lastUpdatedDatetime" value="${tblMchtInfo.lastUpdatedDatetime}"/>
 				<input type="hidden" name="tblMchtInfo.lastUpdatedBy.id" value="${tblMchtInfo.lastUpdatedBy.id}"/>
 				<input type="hidden" name="tblMchtInfo.creator.id" value="${tblMchtInfo.creator.id}"/>
