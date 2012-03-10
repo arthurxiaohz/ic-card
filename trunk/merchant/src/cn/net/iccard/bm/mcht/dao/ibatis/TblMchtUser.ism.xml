@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblMchtUser" type="cn.net.iccard.bm.mcht.model.TblMchtUser"/>
+
+	<resultMap id="TblMchtUser" class="TblMchtUser" extends="HiUser">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="mchtNo" column="mchtNo"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="deleted" column="deleted"/>
+	</resultMap>
+    
+    <select id="select_inner_TblMchtUser" resultMap="TblMchtUser" parameterClass="int">  
+       SELECT * FROM Tbl_Mcht_User  WHERE id =#value#
+    </select>
+  
+	<select id="getTblMchtUser" resultMap="TblMchtUser">
+		select * from Tbl_Mcht_User WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblMchtUser" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Mcht_User (id, mchtNo, creator, deleted) 
+		values (#id#, #mchtNo#, #creator#, #deleted#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblMchtUser" parameterClass="java.util.HashMap">    
+		update Tbl_Mcht_User set
+
+			mchtNo = #mchtNo#,
+			creator = #creator#,
+			deleted = #deleted#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblMchtUser" parameterClass="int">    
+		delete from Tbl_Mcht_User where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblMchtUser" resultMap="TblMchtUser"/> 
+  
+	<selectExt id="countTblMchtUser" resultClass="int"/> 
+
+</sqlMap>    
