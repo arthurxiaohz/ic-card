@@ -40,12 +40,12 @@ public class FundReportAction extends JXLSExcelBaseAction {
 				.getTblStlSettleBatchById(id);
 
 		resultList = tblStlSettleApplyMgr.getObjects(FilterFactory
-				.getSimpleFilter("tblStlSettleBatch", id).addCondition(
-						"settleApplyStatus",
+				.getSimpleFilter("settleApplyStatus",
 						SettleApplyStatus.SETTLEAPPLYSTATUS_SETTLING)
 				.addCondition("settleApplyStatus",
 						SettleApplyStatus.SETTLEAPPLYSTATUS_SETTLED,
-						Filter.OPERATOR_EQ, Filter.RELATION_OR));
+						Filter.OPERATOR_EQ, Filter.RELATION_OR).addCondition(
+						"tblStlSettleBatch", id));
 
 	}
 
