@@ -826,9 +826,9 @@
           <lkEntityName></lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>4</hiDataType>
+          <hiDataType>5</hiDataType>
           <isSearch>true</isSearch>
-          <isListDisplay>false</isListDisplay>
+          <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
           <isFull>false</isFull>
@@ -851,9 +851,9 @@
           <lkEntityName></lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
-          <hiDataType>4</hiDataType>
+          <hiDataType>5</hiDataType>
           <isSearch>false</isSearch>
-          <isListDisplay>false</isListDisplay>
+          <isListDisplay>true</isListDisplay>
           <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
           <isFull>false</isFull>
