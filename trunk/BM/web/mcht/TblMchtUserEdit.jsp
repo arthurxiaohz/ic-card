@@ -62,7 +62,7 @@
 			<dt><hi:text key="邮编" entity="TblMchtUser"/>：</dt><dd><input type="text" name="tblMchtUser.zip" class="textInput" value="${tblMchtUser.zip}" maxlength="30"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="身份证" entity="TblMchtUser"/>：</dt><dd><input type="text" name="tblMchtUser.sSN" class="textInput" value="${tblMchtUser.sSN}" maxlength="50"/></dd>
+			<dt><hi:text key="身份证" entity="TblMchtUser"/>：</dt><dd><input type="text" name="tblMchtUser.SSN" class="textInput" value="${tblMchtUser.SSN}" maxlength="50"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="E-Mail" entity="TblMchtUser"/>：</dt><dd><input type="text" name="tblMchtUser.mail" class="textInput" value="${tblMchtUser.mail}" maxlength="100"/></dd>
