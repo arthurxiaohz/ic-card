@@ -54,9 +54,8 @@
 			<c:otherwise>
 				<li><a class="icon" href="javascript:$.bringBack({id:'-1', mchtNo:'',mchtName:'',availableBalance:'',amount:'',settleApplyStatus:'',remark:'',settleDate:'',settleBatchNo:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
-		</c:choose>
+		</c:choose>			
 		</ul>
-		<authz:authorize ifAnyGranted="SETTLE"><a class="btnAttach" href="<hi:url>settle.action?ajax=1</hi:url>" target="navTabTodo" title="<hi:text key="确定要结算吗?"/>">结算</a></authz:authorize>
 	</div>
 	<table class="table" width="100%" layoutH="138" targetType="${targetType}">
 		<thead>

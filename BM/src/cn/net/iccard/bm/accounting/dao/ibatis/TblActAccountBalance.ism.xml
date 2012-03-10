@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblActAccountBalance" type="cn.net.iccard.bm.accounting.model.TblActAccountBalance"/>
+
+	<resultMap id="TblActAccountBalance" class="TblActAccountBalance" extends="ActAccount">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="availableBalance" column="availableBalance"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="deleted" column="deleted"/>
+	</resultMap>
+    
+    <select id="select_inner_TblActAccountBalance" resultMap="TblActAccountBalance" parameterClass="int">  
+       SELECT * FROM Tbl_Act_Account_Balance  WHERE id =#value#
+    </select>
+  
+	<select id="getTblActAccountBalance" resultMap="TblActAccountBalance">
+		select * from Tbl_Act_Account_Balance WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblActAccountBalance" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Act_Account_Balance (id, availableBalance, creator, deleted) 
+		values (#id#, #availableBalance#, #creator#, #deleted#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblActAccountBalance" parameterClass="java.util.HashMap">    
+		update Tbl_Act_Account_Balance set
+
+			availableBalance = #availableBalance#,
+			creator = #creator#,
+			deleted = #deleted#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblActAccountBalance" parameterClass="int">    
+		delete from Tbl_Act_Account_Balance where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblActAccountBalance" resultMap="TblActAccountBalance"/> 
+  
+	<selectExt id="countTblActAccountBalance" resultClass="int"/> 
+
+</sqlMap>    

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblActTransferVoucher" type="cn.net.iccard.bm.accounting.model.TblActTransferVoucher"/>
+
+	<resultMap id="TblActTransferVoucher" class="TblActTransferVoucher">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="voucherNo" column="voucherNo"/>
+		<result property="actAccountFrom" column="actAccountFrom" select="select_inner_ActAccount"/>
+		<result property="actAccountTo" column="actAccountTo" select="select_inner_ActAccount"/>
+		<result property="amount" column="amount"/>
+		<result property="bizType" column="bizType"/>
+		<result property="bizLogId" column="bizLogId"/>
+		<result property="remark" column="remark"/>
+		<result property="createdDateTime" column="createdDateTime"/>
+		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
+		<result property="lastUpdatedBy" column="lastUpdatedBy" select="select_inner_HiUser"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="deleted" column="deleted"/>
+	</resultMap>
+    
+    <select id="select_inner_TblActTransferVoucher" resultMap="TblActTransferVoucher" parameterClass="int">  
+       SELECT * FROM Tbl_Act_Transfer_Voucher  WHERE id =#value#
+    </select>
+  
+	<select id="getTblActTransferVoucher" resultMap="TblActTransferVoucher">
+		select * from Tbl_Act_Transfer_Voucher WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblActTransferVoucher" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Act_Transfer_Voucher (id, version, voucherNo, actAccountFrom, actAccountTo, amount, bizType, bizLogId, remark, createdDateTime, lastUpdatedDatetime, lastUpdatedBy, creator, deleted) 
+		values (#id#, 1, #voucherNo#, #actAccountFrom#, #actAccountTo#, #amount#, #bizType#, #bizLogId#, #remark#, #createdDateTime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#, #deleted#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblActTransferVoucher" parameterClass="java.util.HashMap">    
+		update Tbl_Act_Transfer_Voucher set
+            version = #version# +1,
+			voucherNo = #voucherNo#,
+			actAccountFrom = #actAccountFrom#,
+			actAccountTo = #actAccountTo#,
+			amount = #amount#,
+			bizType = #bizType#,
+			bizLogId = #bizLogId#,
+			remark = #remark#,
+			createdDateTime = #createdDateTime#,
+			lastUpdatedDatetime = #lastUpdatedDatetime#,
+			lastUpdatedBy = #lastUpdatedBy#,
+			creator = #creator#,
+			deleted = #deleted#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblActTransferVoucher" parameterClass="int">    
+		delete from Tbl_Act_Transfer_Voucher where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblActTransferVoucher" resultMap="TblActTransferVoucher"/> 
+  
+	<selectExt id="countTblActTransferVoucher" resultClass="int"/> 
+
+</sqlMap>    

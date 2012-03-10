@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="txservice" extends="hi" >
+		<!-- ============= 交易订单对应的TblTxPayMentOrderAction============ --> 
+		<action name="tblTxPayMentOrder" class="cn.net.iccard.tx.action.struts.TblTxPayMentOrderAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblTxPayMentOrderList"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentOrderAction" method="tblTxPayMentOrderList">
+			<result name="success">/txservice/TblTxPayMentOrderList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxPayMentOrderSave"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentOrderAction" method="saveTblTxPayMentOrder">
+			<result name="success" type="redirect-action">tblTxPayMentOrderList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblTxPayMentOrderEdit"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentOrderAction" method="viewTblTxPayMentOrder">
+			<result name="success">/txservice/TblTxPayMentOrderEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxPayMentOrderView"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentOrderAction" method="viewTblTxPayMentOrder">
+			<result name="success">/txservice/TblTxPayMentOrderView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblTxPayMentOrderRemove"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentOrderAction" method="removeTblTxPayMentOrder">
+			<result name="success" type="redirect-action">tblTxPayMentOrderList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxPayMentOrderRemoveAll"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentOrderAction" method="removeAllTblTxPayMentOrder">
+			<result name="success" type="redirect-action">tblTxPayMentOrderList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblTxPayMentOrderLookup"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentOrderAction" method="tblTxPayMentOrderList">
+			<result name="success">/txservice/TblTxPayMentOrderList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 转账交易对应的TblTxTransferAction============ --> 
+		<action name="tblTxTransfer" class="cn.net.iccard.tx.action.struts.TblTxTransferAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblTxTransferList"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferAction" method="tblTxTransferList">
+			<result name="success">/txservice/TblTxTransferList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxTransferSave"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferAction" method="saveTblTxTransfer">
+			<result name="success" type="redirect-action">tblTxTransferList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblTxTransferEdit"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferAction" method="viewTblTxTransfer">
+			<result name="success">/txservice/TblTxTransferEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxTransferView"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferAction" method="viewTblTxTransfer">
+			<result name="success">/txservice/TblTxTransferView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblTxTransferRemove"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferAction" method="removeTblTxTransfer">
+			<result name="success" type="redirect-action">tblTxTransferList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxTransferRemoveAll"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferAction" method="removeAllTblTxTransfer">
+			<result name="success" type="redirect-action">tblTxTransferList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblTxTransferLookup"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferAction" method="tblTxTransferList">
+			<result name="success">/txservice/TblTxTransferList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 短信明细对应的TblTxSmsLogAction============ --> 
+		<action name="tblTxSmsLog" class="cn.net.iccard.tx.action.struts.TblTxSmsLogAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblTxSmsLogList"
+			class="cn.net.iccard.tx.action.struts.TblTxSmsLogAction" method="tblTxSmsLogList">
+			<result name="success">/txservice/TblTxSmsLogList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxSmsLogSave"
+			class="cn.net.iccard.tx.action.struts.TblTxSmsLogAction" method="saveTblTxSmsLog">
+			<result name="success" type="redirect-action">tblTxSmsLogList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblTxSmsLogEdit"
+			class="cn.net.iccard.tx.action.struts.TblTxSmsLogAction" method="viewTblTxSmsLog">
+			<result name="success">/txservice/TblTxSmsLogEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxSmsLogView"
+			class="cn.net.iccard.tx.action.struts.TblTxSmsLogAction" method="viewTblTxSmsLog">
+			<result name="success">/txservice/TblTxSmsLogView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblTxSmsLogRemove"
+			class="cn.net.iccard.tx.action.struts.TblTxSmsLogAction" method="removeTblTxSmsLog">
+			<result name="success" type="redirect-action">tblTxSmsLogList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxSmsLogRemoveAll"
+			class="cn.net.iccard.tx.action.struts.TblTxSmsLogAction" method="removeAllTblTxSmsLog">
+			<result name="success" type="redirect-action">tblTxSmsLogList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblTxSmsLogLookup"
+			class="cn.net.iccard.tx.action.struts.TblTxSmsLogAction" method="tblTxSmsLogList">
+			<result name="success">/txservice/TblTxSmsLogList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 转账交易请求对应的TblTxTransferRequestAction============ --> 
+		<action name="tblTxTransferRequest" class="cn.net.iccard.tx.action.struts.TblTxTransferRequestAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblTxTransferRequestList"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferRequestAction" method="tblTxTransferRequestList">
+			<result name="success">/txservice/TblTxTransferRequestList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxTransferRequestSave"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferRequestAction" method="saveTblTxTransferRequest">
+			<result name="success" type="redirect-action">tblTxTransferRequestList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblTxTransferRequestEdit"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferRequestAction" method="viewTblTxTransferRequest">
+			<result name="success">/txservice/TblTxTransferRequestEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxTransferRequestView"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferRequestAction" method="viewTblTxTransferRequest">
+			<result name="success">/txservice/TblTxTransferRequestView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblTxTransferRequestRemove"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferRequestAction" method="removeTblTxTransferRequest">
+			<result name="success" type="redirect-action">tblTxTransferRequestList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxTransferRequestRemoveAll"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferRequestAction" method="removeAllTblTxTransferRequest">
+			<result name="success" type="redirect-action">tblTxTransferRequestList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblTxTransferRequestLookup"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferRequestAction" method="tblTxTransferRequestList">
+			<result name="success">/txservice/TblTxTransferRequestList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 转账交易结果通知对应的TblTxTransferResponseAction============ --> 
+		<action name="tblTxTransferResponse" class="cn.net.iccard.tx.action.struts.TblTxTransferResponseAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblTxTransferResponseList"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferResponseAction" method="tblTxTransferResponseList">
+			<result name="success">/txservice/TblTxTransferResponseList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxTransferResponseSave"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferResponseAction" method="saveTblTxTransferResponse">
+			<result name="success" type="redirect-action">tblTxTransferResponseList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblTxTransferResponseEdit"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferResponseAction" method="viewTblTxTransferResponse">
+			<result name="success">/txservice/TblTxTransferResponseEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxTransferResponseView"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferResponseAction" method="viewTblTxTransferResponse">
+			<result name="success">/txservice/TblTxTransferResponseView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblTxTransferResponseRemove"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferResponseAction" method="removeTblTxTransferResponse">
+			<result name="success" type="redirect-action">tblTxTransferResponseList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxTransferResponseRemoveAll"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferResponseAction" method="removeAllTblTxTransferResponse">
+			<result name="success" type="redirect-action">tblTxTransferResponseList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblTxTransferResponseLookup"
+			class="cn.net.iccard.tx.action.struts.TblTxTransferResponseAction" method="tblTxTransferResponseList">
+			<result name="success">/txservice/TblTxTransferResponseList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 商户交易请求对应的TblTxPayMentRequestAction============ --> 
+		<action name="tblTxPayMentRequest" class="cn.net.iccard.tx.action.struts.TblTxPayMentRequestAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblTxPayMentRequestList"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentRequestAction" method="tblTxPayMentRequestList">
+			<result name="success">/txservice/TblTxPayMentRequestList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxPayMentRequestSave"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentRequestAction" method="saveTblTxPayMentRequest">
+			<result name="success" type="redirect-action">tblTxPayMentRequestList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblTxPayMentRequestEdit"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentRequestAction" method="viewTblTxPayMentRequest">
+			<result name="success">/txservice/TblTxPayMentRequestEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxPayMentRequestView"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentRequestAction" method="viewTblTxPayMentRequest">
+			<result name="success">/txservice/TblTxPayMentRequestView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblTxPayMentRequestRemove"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentRequestAction" method="removeTblTxPayMentRequest">
+			<result name="success" type="redirect-action">tblTxPayMentRequestList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxPayMentRequestRemoveAll"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentRequestAction" method="removeAllTblTxPayMentRequest">
+			<result name="success" type="redirect-action">tblTxPayMentRequestList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblTxPayMentRequestLookup"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentRequestAction" method="tblTxPayMentRequestList">
+			<result name="success">/txservice/TblTxPayMentRequestList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 商户交易结果通知对应的TblTxPayMentResponseAction============ --> 
+		<action name="tblTxPayMentResponse" class="cn.net.iccard.tx.action.struts.TblTxPayMentResponseAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblTxPayMentResponseList"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentResponseAction" method="tblTxPayMentResponseList">
+			<result name="success">/txservice/TblTxPayMentResponseList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxPayMentResponseSave"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentResponseAction" method="saveTblTxPayMentResponse">
+			<result name="success" type="redirect-action">tblTxPayMentResponseList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblTxPayMentResponseEdit"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentResponseAction" method="viewTblTxPayMentResponse">
+			<result name="success">/txservice/TblTxPayMentResponseEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxPayMentResponseView"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentResponseAction" method="viewTblTxPayMentResponse">
+			<result name="success">/txservice/TblTxPayMentResponseView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblTxPayMentResponseRemove"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentResponseAction" method="removeTblTxPayMentResponse">
+			<result name="success" type="redirect-action">tblTxPayMentResponseList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblTxPayMentResponseRemoveAll"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentResponseAction" method="removeAllTblTxPayMentResponse">
+			<result name="success" type="redirect-action">tblTxPayMentResponseList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblTxPayMentResponseLookup"
+			class="cn.net.iccard.tx.action.struts.TblTxPayMentResponseAction" method="tblTxPayMentResponseList">
+			<result name="success">/txservice/TblTxPayMentResponseList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</struts>

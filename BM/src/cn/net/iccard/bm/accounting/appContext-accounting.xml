@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+   <!-- ===================== ActAccount Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.accounting.dao.ActAccountDAOImpl" class="cn.net.iccard.bm.accounting.dao.${hi.orm.package}.ActAccountDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.accounting.dao.ActAccountDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.accounting.dao.ActAccountDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.accounting.dao.ActAccountDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.accounting.model.ActAccount" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.accounting.service.impl.ActAccountManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.accounting.dao.ActAccountDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.accounting.model.ActAccount"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblActAccountBalance Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.accounting.dao.TblActAccountBalanceDAOImpl" class="cn.net.iccard.bm.accounting.dao.${hi.orm.package}.TblActAccountBalanceDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.accounting.dao.TblActAccountBalanceDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.accounting.dao.TblActAccountBalanceDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.accounting.dao.TblActAccountBalanceDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.accounting.model.TblActAccountBalance" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.accounting.service.impl.TblActAccountBalanceManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.accounting.dao.TblActAccountBalanceDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.accounting.model.TblActAccountBalance"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblActAccountDetail Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.accounting.dao.TblActAccountDetailDAOImpl" class="cn.net.iccard.bm.accounting.dao.${hi.orm.package}.TblActAccountDetailDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.accounting.dao.TblActAccountDetailDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.accounting.dao.TblActAccountDetailDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.accounting.dao.TblActAccountDetailDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.accounting.model.TblActAccountDetail" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.accounting.service.impl.TblActAccountDetailManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.accounting.dao.TblActAccountDetailDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.accounting.model.TblActAccountDetail"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblActDebitCreditVoucher Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.accounting.dao.TblActDebitCreditVoucherDAOImpl" class="cn.net.iccard.bm.accounting.dao.${hi.orm.package}.TblActDebitCreditVoucherDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.accounting.dao.TblActDebitCreditVoucherDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.accounting.dao.TblActDebitCreditVoucherDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.accounting.dao.TblActDebitCreditVoucherDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.accounting.model.TblActDebitCreditVoucher" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.accounting.service.impl.TblActDebitCreditVoucherManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.accounting.dao.TblActDebitCreditVoucherDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.accounting.model.TblActDebitCreditVoucher"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblActTransferVoucher Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.accounting.dao.TblActTransferVoucherDAOImpl" class="cn.net.iccard.bm.accounting.dao.${hi.orm.package}.TblActTransferVoucherDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.accounting.dao.TblActTransferVoucherDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.accounting.dao.TblActTransferVoucherDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.accounting.dao.TblActTransferVoucherDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.accounting.model.TblActTransferVoucher" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.accounting.service.impl.TblActTransferVoucherManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.accounting.dao.TblActTransferVoucherDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.accounting.model.TblActTransferVoucher"/>
+            </bean>
+        </property>
+    </bean>
+</beans>

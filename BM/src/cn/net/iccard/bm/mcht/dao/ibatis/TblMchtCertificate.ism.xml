@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblMchtCertificate" type="cn.net.iccard.bm.mcht.model.TblMchtCertificate"/>
+
+	<resultMap id="TblMchtCertificate" class="TblMchtCertificate">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="tblMchtInfo" column="tblMchtInfo" select="select_inner_TblMchtInfo"/>
+		<result property="certSn" column="certSn"/>
+		<result property="issuerCertDn" column="issuerCertDn"/>
+		<result property="certDn" column="certDn"/>
+		<result property="startTime" column="startTime"/>
+		<result property="endTime" column="endTime"/>
+		<result property="certContent" column="certContent"/>
+		<result property="createdDateTime" column="createdDateTime"/>
+		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
+		<result property="lastUpdatedBy" column="lastUpdatedBy" select="select_inner_HiUser"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+	</resultMap>
+    
+    <select id="select_inner_TblMchtCertificate" resultMap="TblMchtCertificate" parameterClass="int">  
+       SELECT * FROM Tbl_Mcht_Certificate  WHERE id =#value#
+    </select>
+  
+	<select id="getTblMchtCertificate" resultMap="TblMchtCertificate">
+		select * from Tbl_Mcht_Certificate WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblMchtCertificate" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Mcht_Certificate (id, version, tblMchtInfo, certSn, issuerCertDn, certDn, startTime, endTime, certContent, createdDateTime, lastUpdatedDatetime, lastUpdatedBy, creator) 
+		values (#id#, 1, #tblMchtInfo#, #certSn#, #issuerCertDn#, #certDn#, #startTime#, #endTime#, #certContent#, #createdDateTime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblMchtCertificate" parameterClass="java.util.HashMap">    
+		update Tbl_Mcht_Certificate set
+            version = #version# +1,
+			tblMchtInfo = #tblMchtInfo#,
+			certSn = #certSn#,
+			issuerCertDn = #issuerCertDn#,
+			certDn = #certDn#,
+			startTime = #startTime#,
+			endTime = #endTime#,
+			certContent = #certContent#,
+			createdDateTime = #createdDateTime#,
+			lastUpdatedDatetime = #lastUpdatedDatetime#,
+			lastUpdatedBy = #lastUpdatedBy#,
+			creator = #creator#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblMchtCertificate" parameterClass="int">    
+		delete from Tbl_Mcht_Certificate where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblMchtCertificate" resultMap="TblMchtCertificate"/> 
+  
+	<selectExt id="countTblMchtCertificate" resultClass="int"/> 
+
+</sqlMap>    

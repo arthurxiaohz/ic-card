@@ -54,14 +54,7 @@
 		<!-- ============= 结算申请对应的TblStlSettleApplyAction============ --> 
 		<action name="tblStlSettleApply" class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction">
 			<interceptor-ref name="modelParamsStack" />
-		</action>
-		
-		<!-- 结算 -->
-		<action name="settle"
-			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="settle">
-			<result name="success" type="redirect-action">tblStlSettleApplyList</result>
-			<interceptor-ref name="modelParamsStack" />
-		</action>
+		</action> 
 
 
 	  <action name="tblStlSettleApplyList"

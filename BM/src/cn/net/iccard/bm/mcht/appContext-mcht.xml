@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+   <!-- ===================== TblMchtInfo Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.mcht.dao.TblMchtInfoDAOImpl" class="cn.net.iccard.bm.mcht.dao.${hi.orm.package}.TblMchtInfoDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.mcht.dao.TblMchtInfoDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.mcht.dao.TblMchtInfoDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.mcht.dao.TblMchtInfoDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.mcht.model.TblMchtInfo" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.mcht.service.impl.TblMchtInfoManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.mcht.dao.TblMchtInfoDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.mcht.model.TblMchtInfo"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblMchtPaymentConfig Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.mcht.dao.TblMchtPaymentConfigDAOImpl" class="cn.net.iccard.bm.mcht.dao.${hi.orm.package}.TblMchtPaymentConfigDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.mcht.dao.TblMchtPaymentConfigDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.mcht.dao.TblMchtPaymentConfigDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.mcht.dao.TblMchtPaymentConfigDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.mcht.model.TblMchtPaymentConfig" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.mcht.service.impl.TblMchtPaymentConfigManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.mcht.dao.TblMchtPaymentConfigDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.mcht.model.TblMchtPaymentConfig"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblMchtFeeConfig Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.mcht.dao.TblMchtFeeConfigDAOImpl" class="cn.net.iccard.bm.mcht.dao.${hi.orm.package}.TblMchtFeeConfigDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.mcht.dao.TblMchtFeeConfigDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.mcht.dao.TblMchtFeeConfigDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.mcht.dao.TblMchtFeeConfigDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.mcht.model.TblMchtFeeConfig" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.mcht.service.impl.TblMchtFeeConfigManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.mcht.dao.TblMchtFeeConfigDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.mcht.model.TblMchtFeeConfig"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblMchtCertificate Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.mcht.dao.TblMchtCertificateDAOImpl" class="cn.net.iccard.bm.mcht.dao.${hi.orm.package}.TblMchtCertificateDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.mcht.dao.TblMchtCertificateDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.mcht.dao.TblMchtCertificateDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.mcht.dao.TblMchtCertificateDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.mcht.model.TblMchtCertificate" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.mcht.service.impl.TblMchtCertificateManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.mcht.dao.TblMchtCertificateDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.mcht.model.TblMchtCertificate"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblMchtSettleCycleConfig Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.mcht.dao.TblMchtSettleCycleConfigDAOImpl" class="cn.net.iccard.bm.mcht.dao.${hi.orm.package}.TblMchtSettleCycleConfigDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.mcht.dao.TblMchtSettleCycleConfigDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.mcht.dao.TblMchtSettleCycleConfigDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.mcht.dao.TblMchtSettleCycleConfigDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.mcht.model.TblMchtSettleCycleConfig" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.mcht.service.impl.TblMchtSettleCycleConfigManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.mcht.dao.TblMchtSettleCycleConfigDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.mcht.model.TblMchtSettleCycleConfig"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblMchtUser Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.mcht.dao.TblMchtUserDAOImpl" class="cn.net.iccard.bm.mcht.dao.${hi.orm.package}.TblMchtUserDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.mcht.dao.TblMchtUserDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.mcht.dao.TblMchtUserDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.mcht.dao.TblMchtUserDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.mcht.model.TblMchtUser" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.mcht.service.impl.TblMchtUserManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.mcht.dao.TblMchtUserDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.mcht.model.TblMchtUser"/>
+            </bean>
+        </property>
+    </bean>
+</beans>

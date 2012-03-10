@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblStlErrorDetail" type="cn.net.iccard.bm.checkservice.model.TblStlErrorDetail"/>
+
+	<resultMap id="TblStlErrorDetail" class="TblStlErrorDetail">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="plTxTraceNo" column="plTxTraceNo"/>
+		<result property="amount" column="amount"/>
+		<result property="orderCreateDatetime" column="orderCreateDatetime"/>
+		<result property="orgOrderId" column="orgOrderId"/>
+		<result property="connectionId" column="connectionId"/>
+		<result property="createdDatetime" column="createdDatetime"/>
+		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
+		<result property="lastUpdatedBy" column="lastUpdatedBy"/>
+		<result property="discrepancyType" column="discrepancyType"/>
+		<result property="description" column="description"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+		<result property="deleted" column="deleted"/>
+	</resultMap>
+    
+    <select id="select_inner_TblStlErrorDetail" resultMap="TblStlErrorDetail" parameterClass="int">  
+       SELECT * FROM Tbl_Stl_Error_Detail  WHERE id =#value#
+    </select>
+  
+	<select id="getTblStlErrorDetail" resultMap="TblStlErrorDetail">
+		select * from Tbl_Stl_Error_Detail WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblStlErrorDetail" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Stl_Error_Detail (id, version, plTxTraceNo, amount, orderCreateDatetime, orgOrderId, connectionId, createdDatetime, lastUpdatedDatetime, lastUpdatedBy, discrepancyType, description, creator, deleted) 
+		values (#id#, 1, #plTxTraceNo#, #amount#, #orderCreateDatetime#, #orgOrderId#, #connectionId#, #createdDatetime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #discrepancyType#, #description#, #creator#, #deleted#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblStlErrorDetail" parameterClass="java.util.HashMap">    
+		update Tbl_Stl_Error_Detail set
+            version = #version# +1,
+			plTxTraceNo = #plTxTraceNo#,
+			amount = #amount#,
+			orderCreateDatetime = #orderCreateDatetime#,
+			orgOrderId = #orgOrderId#,
+			connectionId = #connectionId#,
+			createdDatetime = #createdDatetime#,
+			lastUpdatedDatetime = #lastUpdatedDatetime#,
+			lastUpdatedBy = #lastUpdatedBy#,
+			discrepancyType = #discrepancyType#,
+			description = #description#,
+			creator = #creator#,
+			deleted = #deleted#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblStlErrorDetail" parameterClass="int">    
+		delete from Tbl_Stl_Error_Detail where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblStlErrorDetail" resultMap="TblStlErrorDetail"/> 
+  
+	<selectExt id="countTblStlErrorDetail" resultClass="int"/> 
+
+</sqlMap>    
