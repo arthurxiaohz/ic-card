@@ -239,7 +239,7 @@
 			<result name="success">/mcht/TblMchtSettleCycleConfigList.jsp</result>
 			<interceptor-ref name="modelParamsStack" />
 		</action>		
-		<!-- ============= 商服用户对应的TblMchtUserAction============ --> 
+		<!-- ============= 商服操作员对应的TblMchtUserAction============ --> 
 		<action name="tblMchtUser" class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction">
 			<interceptor-ref name="modelParamsStack" />
 		</action> 
