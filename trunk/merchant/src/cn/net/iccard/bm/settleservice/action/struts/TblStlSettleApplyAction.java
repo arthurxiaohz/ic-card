@@ -12,6 +12,7 @@ import cn.net.iccard.bm.accounting.model.AccountCatalog;
 import cn.net.iccard.bm.accounting.model.AccountPartyType;
 import cn.net.iccard.bm.accounting.model.TblActAccountBalance;
 import cn.net.iccard.bm.accounting.service.TblActAccountBalanceManager;
+import cn.net.iccard.bm.mcht.action.TblMchtInfoPageInfo;
 import cn.net.iccard.bm.mcht.model.TblMchtInfo;
 import cn.net.iccard.bm.mcht.model.TblMchtUser;
 import cn.net.iccard.bm.mcht.service.TblMchtInfoManager;
@@ -39,11 +40,25 @@ public class TblStlSettleApplyAction extends BaseAction {
 		if (null == tblStlSettleApply.getId()) {
 			if (tblStlSettleApply.getAmount() > tblStlSettleApply
 					.getAvailableBalance()) {
-				returnCommand("结算金额超过账户可用余额");
+				return returnCommand("结算金额超过账户可用余额");
 			}
 			tblStlSettleApply
 					.setSettleApplyStatus(SettleApplyStatus.SETTLEAPPLYSTATUS_CHECKING);
 		}
+
+		TblMchtUserManager tblMchtUserMgr = (TblMchtUserManager) SpringContextHolder
+				.getBean(TblMchtUser.class);
+		String mchtNo = tblMchtUserMgr.getTblMchtUserById(
+				(org.hi.framework.security.context.UserContextHelper.getUser()
+						.getId())).getMchtNo();
+
+		TblMchtInfoManager tblMchtInfoManagerMgr = (TblMchtInfoManager) SpringContextHolder
+				.getBean(TblMchtInfo.class);
+
+		tblStlSettleApply.setTblMchtInfo((TblMchtInfo) tblMchtInfoManagerMgr
+				.getObjects(FilterFactory.getSimpleFilter("mchtNo", mchtNo))
+				.get(0));
+
 		tblStlSettleApplyMgr.saveTblStlSettleApply(tblStlSettleApply);
 		super.postExecute(tblStlSettleApply);
 		return returnCommand();
@@ -133,6 +148,16 @@ public class TblStlSettleApplyAction extends BaseAction {
 				.getBean(TblStlSettleApply.class);
 		pageInfo = pageInfo == null ? new TblStlSettleApplyPageInfo()
 				: pageInfo;
+
+		// 锁定查询所属商户
+		TblMchtUserManager tblMchtUserMgr = (TblMchtUserManager) SpringContextHolder
+				.getBean(TblMchtUser.class);
+		TblMchtInfoPageInfo tblMchtInfoPageInfo = new TblMchtInfoPageInfo();
+		pageInfo.setTblMchtInfo(tblMchtInfoPageInfo);
+		tblMchtInfoPageInfo.setF_mchtNo(tblMchtUserMgr.getTblMchtUserById(
+				(org.hi.framework.security.context.UserContextHelper.getUser()
+						.getId())).getMchtNo());
+
 		PageInfo sarchPageInfo = PageInfoUtil.populate(pageInfo, this);
 
 		tblStlSettleApplys = tblStlSettleApplyMgr
