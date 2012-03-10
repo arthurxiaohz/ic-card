@@ -263,7 +263,7 @@ public class ClearingAccountService implements IClearingAccountService {
 
 			IAccountDebitCreditResponse accountDebitCreditResponse = accountTxService
 					.credit(accountDebitCreditRequest);
-			if (EAccountResponse.S0000.getValue().equals(
+			if (EAccountResponse.S0000.name().equals(
 					accountDebitCreditResponse.getRespCode())) {
 				// 贷记成功
 				// 结算中暂未用
