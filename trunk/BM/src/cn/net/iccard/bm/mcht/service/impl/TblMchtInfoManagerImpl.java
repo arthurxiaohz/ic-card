@@ -36,16 +36,6 @@ public class TblMchtInfoManagerImpl extends ManagerImpl implements
 
 	public void saveTblMchtInfo(TblMchtInfo tblMchtInfo) {
 		saveObject(tblMchtInfo);
-		// ¿ª»§
-		AccountService accountService = (AccountService) SpringContextHolder
-				.getBean(AccountService.class);
-		SimpleAccountForOrgOpenRequest simpleAccountForOrgOpenRequest = new SimpleAccountForOrgOpenRequest();
-		simpleAccountForOrgOpenRequest.setAccountParty(tblMchtInfo.getMchtNo());
-		simpleAccountForOrgOpenRequest
-				.setAccountName(tblMchtInfo.getMchtName());
-		// simpleAccountOpenRequest.setAvailableBalance(0);
-		// simpleAccountOpenRequest.setRemark();
-		accountService.openAccountForMcht(simpleAccountForOrgOpenRequest);
 	}
 
 	public void removeTblMchtInfoById(Integer id) {
