@@ -7,6 +7,8 @@ import org.hi.framework.paging.PageInfo;
 import org.hi.framework.web.PageInfoUtil;
 import org.hi.framework.web.struts.BaseAction;
 
+import cn.net.iccard.bm.mcht.model.TblMchtUser;
+import cn.net.iccard.bm.mcht.service.TblMchtUserManager;
 import cn.net.iccard.tx.action.TblTxPayMentOrderPageInfo;
 import cn.net.iccard.tx.model.TblTxPayMentOrder;
 import cn.net.iccard.tx.service.TblTxPayMentOrderManager;
@@ -73,13 +75,24 @@ public class TblTxPayMentOrderAction extends BaseAction{
 	 * 交易订单列表
 	 */
 	public String tblTxPayMentOrderList() throws Exception {
-		TblTxPayMentOrderManager tblTxPayMentOrderMgr = (TblTxPayMentOrderManager)SpringContextHolder.getBean(TblTxPayMentOrder.class);
-		pageInfo = pageInfo == null ? new TblTxPayMentOrderPageInfo() : pageInfo;
+		TblTxPayMentOrderManager tblTxPayMentOrderMgr = (TblTxPayMentOrderManager) SpringContextHolder
+				.getBean(TblTxPayMentOrder.class);
+		pageInfo = pageInfo == null ? new TblTxPayMentOrderPageInfo()
+				: pageInfo;
+
+		//锁定查询所属商户
+		TblMchtUserManager tblMchtUserMgr = (TblMchtUserManager) SpringContextHolder
+				.getBean(TblMchtUser.class);
+		pageInfo.setF_mchtNo(tblMchtUserMgr.getTblMchtUserById(
+				(org.hi.framework.security.context.UserContextHelper.getUser()
+						.getId())).getMchtNo());
+		
 		PageInfo sarchPageInfo = PageInfoUtil.populate(pageInfo, this);
-		
-		tblTxPayMentOrders = tblTxPayMentOrderMgr.getSecurityTblTxPayMentOrderList(sarchPageInfo);
-		
-		return returnCommand();	
+
+		tblTxPayMentOrders = tblTxPayMentOrderMgr
+				.getSecurityTblTxPayMentOrderList(sarchPageInfo);
+
+		return returnCommand();
 	}
 	
 	
