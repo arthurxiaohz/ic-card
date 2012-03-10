@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+   <!-- ===================== TblStlOrganization Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.checkservice.dao.TblStlOrganizationDAOImpl" class="cn.net.iccard.bm.checkservice.dao.${hi.orm.package}.TblStlOrganizationDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.checkservice.dao.TblStlOrganizationDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.checkservice.dao.TblStlOrganizationDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.checkservice.dao.TblStlOrganizationDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.checkservice.model.TblStlOrganization" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.checkservice.service.impl.TblStlOrganizationManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.checkservice.dao.TblStlOrganizationDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.checkservice.model.TblStlOrganization"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblStlCheckOrganizationControl Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.checkservice.dao.TblStlCheckOrganizationControlDAOImpl" class="cn.net.iccard.bm.checkservice.dao.${hi.orm.package}.TblStlCheckOrganizationControlDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.checkservice.dao.TblStlCheckOrganizationControlDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.checkservice.dao.TblStlCheckOrganizationControlDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.checkservice.dao.TblStlCheckOrganizationControlDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.checkservice.model.TblStlCheckOrganizationControl" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.checkservice.service.impl.TblStlCheckOrganizationControlManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.checkservice.dao.TblStlCheckOrganizationControlDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.checkservice.model.TblStlCheckOrganizationControl"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblStlCheckDetail Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.checkservice.dao.TblStlCheckDetailDAOImpl" class="cn.net.iccard.bm.checkservice.dao.${hi.orm.package}.TblStlCheckDetailDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.checkservice.dao.TblStlCheckDetailDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.checkservice.dao.TblStlCheckDetailDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.checkservice.dao.TblStlCheckDetailDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.checkservice.model.TblStlCheckDetail" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.checkservice.service.impl.TblStlCheckDetailManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.checkservice.dao.TblStlCheckDetailDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.checkservice.model.TblStlCheckDetail"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblStlErrorDetail Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.checkservice.dao.TblStlErrorDetailDAOImpl" class="cn.net.iccard.bm.checkservice.dao.${hi.orm.package}.TblStlErrorDetailDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.checkservice.dao.TblStlErrorDetailDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.checkservice.dao.TblStlErrorDetailDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.checkservice.dao.TblStlErrorDetailDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.checkservice.model.TblStlErrorDetail" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.checkservice.service.impl.TblStlErrorDetailManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.checkservice.dao.TblStlErrorDetailDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.checkservice.model.TblStlErrorDetail"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== TblStlAdjustDetail Manager And DAO Configration==================== -->  
+    <bean id="cn.net.iccard.bm.checkservice.dao.TblStlAdjustDetailDAOImpl" class="cn.net.iccard.bm.checkservice.dao.${hi.orm.package}.TblStlAdjustDetailDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="cn.net.iccard.bm.checkservice.dao.TblStlAdjustDetailDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.bm.checkservice.dao.TblStlAdjustDetailDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.bm.checkservice.dao.TblStlAdjustDetailDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.bm.checkservice.model.TblStlAdjustDetail" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.bm.checkservice.service.impl.TblStlAdjustDetailManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.bm.checkservice.dao.TblStlAdjustDetailDAO"/>
+                <property name="modelClass" value="cn.net.iccard.bm.checkservice.model.TblStlAdjustDetail"/>
+            </bean>
+        </property>
+    </bean>
+</beans>

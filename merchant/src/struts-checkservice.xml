@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="checkservice" extends="hi" >
+		<!-- ============= 发卡行支持表对应的TblStlOrganizationAction============ --> 
+		<action name="tblStlOrganization" class="cn.net.iccard.bm.checkservice.action.struts.TblStlOrganizationAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblStlOrganizationList"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlOrganizationAction" method="tblStlOrganizationList">
+			<result name="success">/checkservice/TblStlOrganizationList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlOrganizationSave"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlOrganizationAction" method="saveTblStlOrganization">
+			<result name="success" type="redirect-action">tblStlOrganizationList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblStlOrganizationEdit"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlOrganizationAction" method="viewTblStlOrganization">
+			<result name="success">/checkservice/TblStlOrganizationEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlOrganizationView"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlOrganizationAction" method="viewTblStlOrganization">
+			<result name="success">/checkservice/TblStlOrganizationView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblStlOrganizationRemove"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlOrganizationAction" method="removeTblStlOrganization">
+			<result name="success" type="redirect-action">tblStlOrganizationList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlOrganizationRemoveAll"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlOrganizationAction" method="removeAllTblStlOrganization">
+			<result name="success" type="redirect-action">tblStlOrganizationList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblStlOrganizationLookup"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlOrganizationAction" method="tblStlOrganizationList">
+			<result name="success">/checkservice/TblStlOrganizationList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 对账任务控制表对应的TblStlCheckOrganizationControlAction============ --> 
+		<action name="tblStlCheckOrganizationControl" class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckOrganizationControlAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblStlCheckOrganizationControlList"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckOrganizationControlAction" method="tblStlCheckOrganizationControlList">
+			<result name="success">/checkservice/TblStlCheckOrganizationControlList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlCheckOrganizationControlSave"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckOrganizationControlAction" method="saveTblStlCheckOrganizationControl">
+			<result name="success" type="redirect-action">tblStlCheckOrganizationControlList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblStlCheckOrganizationControlEdit"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckOrganizationControlAction" method="viewTblStlCheckOrganizationControl">
+			<result name="success">/checkservice/TblStlCheckOrganizationControlEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlCheckOrganizationControlView"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckOrganizationControlAction" method="viewTblStlCheckOrganizationControl">
+			<result name="success">/checkservice/TblStlCheckOrganizationControlView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblStlCheckOrganizationControlRemove"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckOrganizationControlAction" method="removeTblStlCheckOrganizationControl">
+			<result name="success" type="redirect-action">tblStlCheckOrganizationControlList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlCheckOrganizationControlRemoveAll"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckOrganizationControlAction" method="removeAllTblStlCheckOrganizationControl">
+			<result name="success" type="redirect-action">tblStlCheckOrganizationControlList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblStlCheckOrganizationControlLookup"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckOrganizationControlAction" method="tblStlCheckOrganizationControlList">
+			<result name="success">/checkservice/TblStlCheckOrganizationControlList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 对账明细记录表对应的TblStlCheckDetailAction============ --> 
+		<action name="tblStlCheckDetail" class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckDetailAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblStlCheckDetailList"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckDetailAction" method="tblStlCheckDetailList">
+			<result name="success">/checkservice/TblStlCheckDetailList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlCheckDetailSave"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckDetailAction" method="saveTblStlCheckDetail">
+			<result name="success" type="redirect-action">tblStlCheckDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblStlCheckDetailEdit"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckDetailAction" method="viewTblStlCheckDetail">
+			<result name="success">/checkservice/TblStlCheckDetailEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlCheckDetailView"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckDetailAction" method="viewTblStlCheckDetail">
+			<result name="success">/checkservice/TblStlCheckDetailView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblStlCheckDetailRemove"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckDetailAction" method="removeTblStlCheckDetail">
+			<result name="success" type="redirect-action">tblStlCheckDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlCheckDetailRemoveAll"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckDetailAction" method="removeAllTblStlCheckDetail">
+			<result name="success" type="redirect-action">tblStlCheckDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblStlCheckDetailLookup"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlCheckDetailAction" method="tblStlCheckDetailList">
+			<result name="success">/checkservice/TblStlCheckDetailList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 差错明细表对应的TblStlErrorDetailAction============ --> 
+		<action name="tblStlErrorDetail" class="cn.net.iccard.bm.checkservice.action.struts.TblStlErrorDetailAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblStlErrorDetailList"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlErrorDetailAction" method="tblStlErrorDetailList">
+			<result name="success">/checkservice/TblStlErrorDetailList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlErrorDetailSave"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlErrorDetailAction" method="saveTblStlErrorDetail">
+			<result name="success" type="redirect-action">tblStlErrorDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblStlErrorDetailEdit"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlErrorDetailAction" method="viewTblStlErrorDetail">
+			<result name="success">/checkservice/TblStlErrorDetailEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlErrorDetailView"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlErrorDetailAction" method="viewTblStlErrorDetail">
+			<result name="success">/checkservice/TblStlErrorDetailView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblStlErrorDetailRemove"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlErrorDetailAction" method="removeTblStlErrorDetail">
+			<result name="success" type="redirect-action">tblStlErrorDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlErrorDetailRemoveAll"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlErrorDetailAction" method="removeAllTblStlErrorDetail">
+			<result name="success" type="redirect-action">tblStlErrorDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblStlErrorDetailLookup"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlErrorDetailAction" method="tblStlErrorDetailList">
+			<result name="success">/checkservice/TblStlErrorDetailList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 调账申请表对应的TblStlAdjustDetailAction============ --> 
+		<action name="tblStlAdjustDetail" class="cn.net.iccard.bm.checkservice.action.struts.TblStlAdjustDetailAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblStlAdjustDetailList"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlAdjustDetailAction" method="tblStlAdjustDetailList">
+			<result name="success">/checkservice/TblStlAdjustDetailList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlAdjustDetailSave"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlAdjustDetailAction" method="saveTblStlAdjustDetail">
+			<result name="success" type="redirect-action">tblStlAdjustDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblStlAdjustDetailEdit"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlAdjustDetailAction" method="viewTblStlAdjustDetail">
+			<result name="success">/checkservice/TblStlAdjustDetailEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlAdjustDetailView"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlAdjustDetailAction" method="viewTblStlAdjustDetail">
+			<result name="success">/checkservice/TblStlAdjustDetailView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblStlAdjustDetailRemove"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlAdjustDetailAction" method="removeTblStlAdjustDetail">
+			<result name="success" type="redirect-action">tblStlAdjustDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlAdjustDetailRemoveAll"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlAdjustDetailAction" method="removeAllTblStlAdjustDetail">
+			<result name="success" type="redirect-action">tblStlAdjustDetailList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblStlAdjustDetailLookup"
+			class="cn.net.iccard.bm.checkservice.action.struts.TblStlAdjustDetailAction" method="tblStlAdjustDetailList">
+			<result name="success">/checkservice/TblStlAdjustDetailList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</struts>

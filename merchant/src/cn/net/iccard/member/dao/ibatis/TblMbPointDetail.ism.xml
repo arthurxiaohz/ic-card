@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="TblMbPointDetail" type="cn.net.iccard.member.model.TblMbPointDetail"/>
+
+	<resultMap id="TblMbPointDetail" class="TblMbPointDetail">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="point" column="point"/>
+		<result property="pointTxType" column="pointTxType"/>
+		<result property="voucherNo" column="voucherNo"/>
+		<result property="balance" column="balance"/>
+		<result property="createdDateTime" column="createdDateTime"/>
+		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
+		<result property="lastUpdatedBy" column="lastUpdatedBy" select="select_inner_HiUser"/>
+		<result property="tblMbInfo" column="tblMbInfo" select="select_inner_HiUser"/>
+		<result property="creator" column="creator" select="select_inner_HiUser"/>
+	</resultMap>
+    
+    <select id="select_inner_TblMbPointDetail" resultMap="TblMbPointDetail" parameterClass="int">  
+       SELECT * FROM Tbl_Mb_Point_Detail  WHERE id =#value#
+    </select>
+  
+	<select id="getTblMbPointDetail" resultMap="TblMbPointDetail">
+		select * from Tbl_Mb_Point_Detail WHERE id = #id# 
+	</select>
+	
+	<insert id="insTblMbPointDetail" parameterClass="java.util.HashMap">    
+    	insert into Tbl_Mb_Point_Detail (id, version, point, pointTxType, voucherNo, balance, createdDateTime, lastUpdatedDatetime, lastUpdatedBy, tblMbInfo, creator) 
+		values (#id#, 1, #point#, #pointTxType#, #voucherNo#, #balance#, #createdDateTime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #tblMbInfo#, #creator#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateTblMbPointDetail" parameterClass="java.util.HashMap">    
+		update Tbl_Mb_Point_Detail set
+            version = #version# +1,
+			point = #point#,
+			pointTxType = #pointTxType#,
+			voucherNo = #voucherNo#,
+			balance = #balance#,
+			createdDateTime = #createdDateTime#,
+			lastUpdatedDatetime = #lastUpdatedDatetime#,
+			lastUpdatedBy = #lastUpdatedBy#,
+			tblMbInfo = #tblMbInfo#,
+			creator = #creator#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delTblMbPointDetail" parameterClass="int">    
+		delete from Tbl_Mb_Point_Detail where id = #id#   
+	</delete>
+    
+	<selectExt id="listTblMbPointDetail" resultMap="TblMbPointDetail"/> 
+  
+	<selectExt id="countTblMbPointDetail" resultClass="int"/> 
+
+</sqlMap>    
