@@ -133,6 +133,7 @@ public class PrepaidRequestAction extends BaseAction{
 			request.getSession(true).setAttribute("plTxTraceNo", plTxTraceNo);
 			
 		}else if(TxType.equals("TX21")){
+			
 			//撤销
 			//解析
 			String MchtTxTraceNo = tBankPlain.getProperty("MchtTxTraceNo");   //商户交易流水号
@@ -165,6 +166,8 @@ public class PrepaidRequestAction extends BaseAction{
 			tblTxPayMentRequest.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));//最后修改时间
 			
 			tblTxPayMentRequestMgr.saveTblTxPayMentRequest(tblTxPayMentRequest);
+			
+			//查询原交易是否存在
 			
 			
 			//3.记录订单表
@@ -248,7 +251,7 @@ public class PrepaidRequestAction extends BaseAction{
 			TblTxPayMentOrderMan.saveTblTxPayMentOrder(TblTxPayMentOrder);
 			
 			//4.保存session
-			request.getSession(true).setAttribute("plTxTraceNo", plTxTraceNo);
+			request.getSession(true).setAttribute("id", TblTxPayMentOrder.getId());
 		}
 		return SUCCESS;
 		

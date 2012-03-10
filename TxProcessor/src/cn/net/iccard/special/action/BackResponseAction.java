@@ -22,7 +22,7 @@ public class BackResponseAction extends BaseAction{
 	/**
 	 * ÍË¿îÈ·ÈÏ
 	 */
-	public String saveTblMbInfo() throws Exception {
+	public String saveBack() throws Exception {
 //		TblMbInfoManager tblMbInfoMgr = (TblMbInfoManager)SpringContextHolder.getBean(TblMbInfo.class);
 //		if(super.perExecute(tblMbInfo)!= null) return returnCommand();
 //		tblMbInfoMgr.saveTblMbInfo(tblMbInfo);

@@ -219,6 +219,7 @@ public class BackResponseService implements IBackResponseService {
 		if(!accountResponse.getRespCode().equals(EAccountResponse.S0000)){
 			throw new Exception("账户处理失败");
 		}
+		/*
 		//组装返回
 		 StringBuffer tPlain = new StringBuffer(400);
 		 tPlain.append("PlTxTraceNo="+tblTxPayMentOrder.getPlTxTraceNo()+"|"+
@@ -287,6 +288,7 @@ public class BackResponseService implements IBackResponseService {
 			//将浏览器导向商户接收交易结果地址
 	        NotifyService.redirect(response , tblTxPayMentOrder.getNotifyUrl() , s.toString());	
 		}
+		*/
 		return "success";
 	}
 

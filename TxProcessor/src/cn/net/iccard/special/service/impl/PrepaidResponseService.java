@@ -91,14 +91,14 @@ public class PrepaidResponseService implements IPrepaidResponseService {
 		tblTxPayMentOrder.setLastUpdatedBy(UserContextHelper.getUser().getId());
 		
 		//调用账户系统
-		//查询商户担保账户及会员的虚拟账户号
-		Filter mchtfilter = FilterFactory.getSimpleFilter("accountParty", tblTxPayMentOrder.getMchtNo(), Filter.OPERATOR_EQ);
-		mchtfilter.addCondition("accountPartyType", AccountPartyType.ACCOUNTPARTYTYPE_MCHT, Filter.OPERATOR_EQ)
-					.addCondition("AccountCatalog", AccountCatalog.ACCOUNTCATALOG_GUARANTEEACCOUNT, Filter.OPERATOR_EQ);
+		//查询会员担保账户及会员的虚拟账户号
+		Filter mchtfilter = FilterFactory.getSimpleFilter("accountParty", UserContextHelper.getUser().getId(), Filter.OPERATOR_EQ);
+		mchtfilter.addCondition("accountPartyType", AccountPartyType.ACCOUNTPARTYTYPE_MEMBER, Filter.OPERATOR_EQ)
+					.addCondition("accountCatalog", AccountCatalog.ACCOUNTCATALOG_GUARANTEEACCOUNT, Filter.OPERATOR_EQ);
 		
 		List<ActAccount> mchtActAccountList  = actAccountMan.getObjects(mchtfilter);	
 		
-		ActAccount mchtActAccount = (ActAccount)mchtActAccountList.get(0);		//商户担保账户
+		ActAccount mchtActAccount = (ActAccount)mchtActAccountList.get(0);		//会员担保账户
 		
 		Filter memberfilter = FilterFactory.getSimpleFilter("accountParty", tblTxPayMentOrder.getUserName(), Filter.OPERATOR_EQ);
 		memberfilter.addCondition("accountPartyType", AccountPartyType.ACCOUNTPARTYTYPE_MEMBER, Filter.OPERATOR_EQ)

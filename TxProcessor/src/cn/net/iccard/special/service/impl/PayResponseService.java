@@ -246,7 +246,7 @@ public class PayResponseService implements IPayResponseService {
 		tblTxPayMentResponse.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));//最后修改时间
 		
 		tblTxPayMentResponseMan.saveTblTxPayMentResponse(tblTxPayMentResponse);
-		
+		/*
 		try{
 			 //记录支付结果通知表并通知商户
 			if(tblTxPayMentOrder.getBgNotifyUrl()!= null &&!tblTxPayMentOrder.getBgNotifyUrl().equals("")){
@@ -262,7 +262,7 @@ public class PayResponseService implements IPayResponseService {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-	
+	*/
 		return "success";
 		
 	}

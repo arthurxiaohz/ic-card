@@ -3,6 +3,7 @@ package cn.net.iccard.special.service.impl;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,13 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import org.acegisecurity.providers.encoding.MessageDigestPasswordEncoder;
 import org.hi.SpringContextHolder;
 import org.hi.base.enumeration.model.YesNo;
+import org.hi.base.organization.model.HiOrg;
+import org.hi.base.organization.model.HiUser;
 import org.hi.base.organization.model.UserType;
+import org.hi.base.organization.service.HiOrgManager;
+import org.hi.base.sysapp.AppSettingHelper;
 import org.hi.framework.dao.DAO;
 import org.hi.framework.dao.Filter;
 import org.hi.framework.dao.Sorter;
 import org.hi.framework.dao.impl.FilterFactory;
 import org.hi.framework.paging.Page;
 import org.hi.framework.paging.PageInfo;
+import org.hi.framework.security.dwz.service.RoleManager;
 
 import cn.net.iccard.accounting.account.IAccountService;
 import cn.net.iccard.accounting.account.impl.AccountService;
@@ -34,6 +40,12 @@ public class MbInfoService implements IMbInfoService {
 
 	private IAccountService accountService = (IAccountService) SpringContextHolder
 	.getBean(AccountService.class);
+	
+	private RoleManager roleMgr = (RoleManager) SpringContextHolder
+	.getBean(RoleManager.class);
+
+private HiOrgManager hiOrgMgr = (HiOrgManager) SpringContextHolder
+	.getBean(HiOrg.class);
 
 	public boolean savePageAccountForMemeber(HttpServletRequest pageRequest) {
 
@@ -66,7 +78,23 @@ public class MbInfoService implements IMbInfoService {
 		//tblMbInfo.setCreator((TblMbInfo)tblMbInfoManager.getObjectById(1));
 		String password = passwordEncoder.encodePassword(pageRequest.getParameter("password"), null);
 		tblMbInfo.setPassword(password);
+		//tblMbInfoManager.saveTblMbInfo(tblMbInfo);
+		
+		// 会员
+		int orgMember = Integer.parseInt(AppSettingHelper.getValue("CONSTANTS","ORG_MEMBER"));
+		tblMbInfo.setOrg(hiOrgMgr.getHiOrgById(orgMember));
+
 		tblMbInfoManager.saveTblMbInfo(tblMbInfo);
+
+		//会员角色
+		int roleMember = Integer.parseInt(AppSettingHelper.getValue(
+				"CONSTANTS", "ROLE_MEMBER"));
+
+		List<HiUser> users = new ArrayList<HiUser>();
+		users.add(tblMbInfo);
+
+		roleMgr.saveUserRole(roleMgr.getRoleById(roleMember), users);
+		
 		
 		//记录账户信息
 		SimpleAccountForOrgOpenRequest simpleAccountForOrgOpenRequest = new SimpleAccountForOrgOpenRequest();
@@ -75,6 +103,7 @@ public class MbInfoService implements IMbInfoService {
 		simpleAccountForOrgOpenRequest.setAvailableBalance(0);
 		simpleAccountForOrgOpenRequest.setRemark("open");
 		accountService.openAccountForMember(simpleAccountForOrgOpenRequest);
+		
 		
 		return true;
 	}
