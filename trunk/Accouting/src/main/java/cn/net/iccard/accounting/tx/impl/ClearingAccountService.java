@@ -300,4 +300,13 @@ public class ClearingAccountService implements IClearingAccountService {
 		seq %= MAX_PER_SECOND;
 		return seq + 100;
 	}
+
+	public IAccountTxService getAccountTxService() {
+		return accountTxService;
+	}
+
+	public void setAccountTxService(IAccountTxService accountTxService) {
+		this.accountTxService = accountTxService;
+	}
+
 }
