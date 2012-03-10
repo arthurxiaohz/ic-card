@@ -139,14 +139,7 @@ if(!checkspace(document.f.AllinpayNo.value)){
 	}
 	
 
-	if(javaTrim(document.f.NotifyURL.value)==''){
-		alert("请填写交易结果通知地址");
-		return false;
-	}
-	if(javaTrim(document.f.BGNotifyURL.value)==''){
-		alert("请填写交易结果后台通知地址");
-		return false;
-	}
+
 }
     
     f.submit();
