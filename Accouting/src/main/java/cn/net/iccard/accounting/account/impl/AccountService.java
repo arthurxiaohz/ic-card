@@ -8,8 +8,10 @@ import org.acegisecurity.providers.encoding.MessageDigestPasswordEncoder;
 import org.apache.tools.ant.util.DateUtils;
 import org.hi.SpringContextHolder;
 import org.hi.base.enumeration.model.YesNo;
+import org.hi.base.organization.model.HiOrg;
 import org.hi.base.organization.model.HiUser;
 import org.hi.base.organization.model.UserType;
+import org.hi.base.organization.service.HiOrgManager;
 import org.hi.base.sysapp.AppSettingHelper;
 import org.hi.framework.dao.impl.FilterFactory;
 import org.hi.framework.security.dwz.service.RoleManager;
@@ -49,6 +51,9 @@ public class AccountService implements IAccountService {
 
 	private RoleManager roleMgr = (RoleManager) SpringContextHolder
 			.getBean(RoleManager.class);
+
+	private HiOrgManager hiOrgMgr = (HiOrgManager) SpringContextHolder
+			.getBean(HiOrg.class);
 
 	public IAccountOpenResponse openAccount(
 			IAccountOpenRequest accountOpenRequest) {
@@ -150,26 +155,29 @@ public class AccountService implements IAccountService {
 		tblMchtUser.setAccountEnabled(YesNo.YESNO_YES);
 		tblMchtUser.setAccountLocked(YesNo.YESNO_NO);
 
+		// 密码
 		MessageDigestPasswordEncoder passwordEncoder = (MessageDigestPasswordEncoder) SpringContextHolder
 				.getBean("passwordEncoder");
 		// 初始默认密码，123456
 		String password = passwordEncoder.encodePassword("123456", null);
 		tblMchtUser.setPassword(password);
-		tblMchtUserMgr.saveTblMchtUser(tblMchtUser);
 
-		// 商户管理员角色
-		int roleMerchant = Integer.parseInt(AppSettingHelper.getValue(
-				"CONSTANTS", "ROLE_MERCHANT"));
 		// 商户部门
 		int orgMerchant = Integer.parseInt(AppSettingHelper.getValue(
 				"CONSTANTS", "ORG_MERCHANT"));
+		tblMchtUser.setOrg(hiOrgMgr.getHiOrgById(orgMerchant));
 
-		// 商户管理员
+		tblMchtUserMgr.saveTblMchtUser(tblMchtUser);
+
+		// 给商户管理员配置预设的商户管理员角色
+		// 商户管理员角色
+		int roleMerchant = Integer.parseInt(AppSettingHelper.getValue(
+				"CONSTANTS", "ROLE_MERCHANT"));
+
 		List<HiUser> users = new ArrayList<HiUser>();
 		users.add(tblMchtUser);
 
-		roleMgr.saveUserRole(roleMgr.getRoleById(roleMerchant), orgMerchant,
-				users);
+		roleMgr.saveUserRole(roleMgr.getRoleById(roleMerchant), users);
 
 		return new SimpleCommonAccountResponse(EAccountResponse.S0000);
 	}
