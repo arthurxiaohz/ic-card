@@ -45,6 +45,9 @@
 		<dl>
 			<dt><hi:text key="开户行名称" entity="TblMchtInfo"/>：</dt><dd>${tblMchtInfo.bankName}</dd>
 		</dl>
+		<dl>
+			<dt><hi:text key="创建时间" entity="TblMchtInfo"/>：</dt><dd><fmt:formatDate value="${tblMchtInfo.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
+		</dl>
 
 		<div class="divider"></div>
 		
