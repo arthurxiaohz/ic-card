@@ -78,6 +78,8 @@ public class PayResponseService implements IPayResponseService {
 	
 	//hiuser
 	HiUserManager hiMan = (HiUserManager)SpringContextHolder.getBean(HiUser.class);
+	
+	TblMchtInfoManager  tblMchtInfoMan = (TblMchtInfoManager)SpringContextHolder.getBean(TblMchtInfo.class);
 
 	public String savePayResponse(int id) throws Exception {
 
@@ -102,9 +104,17 @@ public class PayResponseService implements IPayResponseService {
 		tblTxPayMentOrder.setLastUpdatedBy(UserContextHelper.getUser().getId());
 		tblTxPayMentOrderManagerImpl.saveTblTxPayMentOrder(tblTxPayMentOrder);
 		
+		
+		//查询商户信息表
+		Filter filterno = FilterFactory.getSimpleFilter("mchtNo", tblTxPayMentOrder.getMchtNo(), Filter.OPERATOR_EQ);
+
+		List<TblMchtInfo> tblMchtInfoList  = tblMchtInfoMan.getObjects(filterno);
+		
+		TblMchtInfo tblmchtinfo = (TblMchtInfo)tblMchtInfoList.get(0);
+		
 		//记录清分流水表
 		//查询商户手续费配置表
-		Filter filter = FilterFactory.getSimpleFilter("mchtNo", tblTxPayMentOrder.getMchtNo(), Filter.OPERATOR_EQ);
+		Filter filter = FilterFactory.getSimpleFilter("tblMchtInfo", tblmchtinfo.getId(), Filter.OPERATOR_EQ);
 
 		List<TblMchtFeeConfig> tblMchtFeeList  = tblMchtFeeConfigMan.getObjects(filter);
 		
@@ -127,13 +137,14 @@ public class PayResponseService implements IPayResponseService {
 			mchtFee = tblMchtFee.getRuleValue().intValue();
 		}
 		
+		
 		//计算积分
 		Date nowDate = new Timestamp(System.currentTimeMillis());
-		Filter pointfilter = FilterFactory.getSimpleFilter("minAmount", tblTxPayMentOrder.getPayAmount(), Filter.OPERATOR_GREATER_EQ);
+		Filter pointfilter = FilterFactory.getSimpleFilter("minAmount",  tblTxPayMentOrder.getOrderAmount(), Filter.OPERATOR_LESS_EQ);
 		
-		pointfilter.addCondition("maxAmount", tblTxPayMentOrder.getPayAmount(), Filter.OPERATOR_LESS_EQ)
-				.addCondition("startDatetime", nowDate, Filter.OPERATOR_GREATER_EQ)
-				.addCondition("endDatetime", nowDate, Filter.OPERATOR_LESS_EQ);
+		pointfilter.addCondition("maxAmount", tblTxPayMentOrder.getOrderAmount(), Filter.OPERATOR_GREATER_EQ)
+				.addCondition("startDatetime", nowDate, Filter.OPERATOR_LESS_EQ)
+				.addCondition("endDatetime", nowDate, Filter.OPERATOR_GREATER_EQ);
 
 		List<TblMbPointRule> pointConfigList  = tblMbPointRuleMan.getObjects(pointfilter);
 		
@@ -151,7 +162,7 @@ public class PayResponseService implements IPayResponseService {
 		
 		//记录积分明细表
 			//查询hiuser表
-		Filter hifilter = FilterFactory.getSimpleFilter("userName", tblTxPayMentOrder.getUserName(), Filter.OPERATOR_GREATER_EQ);
+		Filter hifilter = FilterFactory.getSimpleFilter("userName", tblTxPayMentOrder.getUserName(), Filter.OPERATOR_EQ);
 		
 		List<HiUser> hiList  = hiMan.getObjects(hifilter);
 		
@@ -169,7 +180,7 @@ public class PayResponseService implements IPayResponseService {
 		tblMbPointDetailMan.saveTblMbPointDetail(tblMbPointDetail);
 		
 		//更新会员积分表
-		Filter pointbalfilter = FilterFactory.getSimpleFilter("tblMbInfo", hiuser.getId(), Filter.OPERATOR_GREATER_EQ);
+		Filter pointbalfilter = FilterFactory.getSimpleFilter("tblMbInfo", hiuser.getId(), Filter.OPERATOR_EQ);
 		
 		List<TblMbPoint> pointbalList  = tblMbPointMan.getObjects(pointbalfilter);
 		
@@ -185,14 +196,14 @@ public class PayResponseService implements IPayResponseService {
 		tblStlCleaningDetail.setMchtSettleAmount(tblTxPayMentOrder.getOrderAmount()-mchtFee);
 		tblStlCleaningDetail.setTransTime(tblTxPayMentOrder.getPlTxTime());		//交易完成时间
 		tblStlCleaningDetail.setUserName(tblTxPayMentOrder.getUserName());
-		tblStlCleaningDetail.setBalance(point);			//积分
+	//	tblStlCleaningDetail.setBalance(point);			//积分
 		tblStlCleaningDetail.setMchtNo(tblTxPayMentOrder.getMchtNo());
 		tblStlCleaningDetail.setMchtName(tblTxPayMentOrder.getMchtName());
 		tblStlCleaningDetail.setFee(mchtFee);			//手续费
-		tblStlCleaningDetail.setPayAmount(tblTxPayMentOrder.getPayAmount());
+		tblStlCleaningDetail.setPayAmount(tblTxPayMentOrder.getOrderAmount());
 		tblStlCleaningDetail.setCreatedDatetime(new Timestamp(System.currentTimeMillis())); //创建时间
 		tblStlCleaningDetail.setLastUpdatedBy(hiuser.getId());
-		tblStlCleaningDetail.setCreator(hiuser);
+	//	tblStlCleaningDetail.setCreator(hiuser);
 		tblStlCleaningDetail.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));//最后修改时间
 		tblStlCleaningDetailMan.saveTblStlCleaningDetail(tblStlCleaningDetail);
 	
@@ -206,7 +217,7 @@ public class PayResponseService implements IPayResponseService {
 		 
 		//调用账户系统
 		PaymentClearingAccountRequest paymentClearingAccountRequest = new PaymentClearingAccountRequest();
-		paymentClearingAccountRequest.setAmount(tblStlCleaningDetail.getPayAmount());
+		paymentClearingAccountRequest.setAmount(tblStlCleaningDetail.getOrderAmount());
 		paymentClearingAccountRequest.setBizLogId(cleanDetail.getId());
 		paymentClearingAccountRequest.setMchtFee(mchtFee);
 		paymentClearingAccountRequest.setMchtNo(tblStlCleaningDetail.getMchtNo());
@@ -214,9 +225,9 @@ public class PayResponseService implements IPayResponseService {
 		paymentClearingAccountRequest.setUserName(tblStlCleaningDetail.getUserName());
 		ICommonAccountResponse accountResponse = ClearingAccountService.doPaymentAccountClearing(paymentClearingAccountRequest);
 		
-		if(!accountResponse.getRespCode().equals(EAccountResponse.S0000)){
-			throw new Exception("账户处理失败");
-		}
+//		if(!accountResponse.getRespCode().equals(EAccountResponse.S0000)){
+//			throw new Exception("账户处理失败");
+//		}
 		//组装返回
 		 StringBuffer tPlain = new StringBuffer(400);
 		 tPlain.append("PlTxTraceNo="+tblTxPayMentOrder.getPlTxTraceNo()+"|"+

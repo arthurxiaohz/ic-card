@@ -130,7 +130,7 @@ public class PrepaidRequestAction extends BaseAction{
 			TblTxPayMentOrderMan.saveTblTxPayMentOrder(TblTxPayMentOrder);
 			
 			//4.±£´æsession
-			request.getSession(true).setAttribute("plTxTraceNo", plTxTraceNo);
+			request.getSession(true).setAttribute("id", TblTxPayMentOrder.getId());
 			
 		}else if(TxType.equals("TX21")){
 			

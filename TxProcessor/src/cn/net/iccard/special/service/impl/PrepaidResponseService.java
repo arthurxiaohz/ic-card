@@ -77,7 +77,7 @@ public class PrepaidResponseService implements IPrepaidResponseService {
 		}
 		tblTxPayMentOrder.setCreator(UserContextHelper.getUser());
 		tblTxPayMentOrder.setPlTxTime(PlTxTime);
-		
+		tblTxPayMentOrder.setPayAmount(tblTxPayMentOrder.getOrderAmount());
 		//查询商户信息表
 		Filter filter = FilterFactory.getSimpleFilter("mchtNo", tblTxPayMentOrder.getMchtNo(), Filter.OPERATOR_EQ);
 
@@ -92,7 +92,7 @@ public class PrepaidResponseService implements IPrepaidResponseService {
 		
 		//调用账户系统
 		//查询会员担保账户及会员的虚拟账户号
-		Filter mchtfilter = FilterFactory.getSimpleFilter("accountParty", UserContextHelper.getUser().getId(), Filter.OPERATOR_EQ);
+		Filter mchtfilter = FilterFactory.getSimpleFilter("accountParty", UserContextHelper.getUser().getUserName(), Filter.OPERATOR_EQ);
 		mchtfilter.addCondition("accountPartyType", AccountPartyType.ACCOUNTPARTYTYPE_MEMBER, Filter.OPERATOR_EQ)
 					.addCondition("accountCatalog", AccountCatalog.ACCOUNTCATALOG_GUARANTEEACCOUNT, Filter.OPERATOR_EQ);
 		
@@ -111,7 +111,7 @@ public class PrepaidResponseService implements IPrepaidResponseService {
 		AccountPayableTransferRequest accountPayableTransferRequest = new AccountPayableTransferRequest();
 		accountPayableTransferRequest.setAccountIdFrom(memberActAccount.getId());
 		accountPayableTransferRequest.setAccountIdTo(mchtActAccount.getId());
-		accountPayableTransferRequest.setAmount(tblTxPayMentOrder.getPayAmount());
+		accountPayableTransferRequest.setAmount(tblTxPayMentOrder.getOrderAmount());
 		accountPayableTransferRequest.setBizLogId(tblTxPayMentOrder.getId());
 		accountPayableTransferRequest.setBizType(BizType.BIZTYPE_PREPAID);
 		accountPayableTransferRequest.setExpiredDate(tblTxPayMentOrder.getOrderExpireDatetime());
@@ -119,12 +119,13 @@ public class PrepaidResponseService implements IPrepaidResponseService {
 		accountPayableTransferRequest.setRemark("预支付成功");
 		IAccountTransferResponse transferResponse = accountTxService.transfer(accountPayableTransferRequest);
 		
-		if(!transferResponse.getRespCode().equals(EAccountResponse.S0000)){
-			throw new Exception("账户处理失败");
-		}
-		tblTxPayMentOrder.setVoucherNo(transferResponse.getVoucherNo());
+//		if(!transferResponse.getRespCode().equals(EAccountResponse.S0000)){
+//			throw new Exception("账户处理失败");
+//		}
+		//tblTxPayMentOrder.setVoucherNo(transferResponse.getVoucherNo());
 		tblTxPayMentOrderManagerImpl.saveTblTxPayMentOrder(tblTxPayMentOrder);
 		
+		/*
 		//组装返回
 		 StringBuffer tPlain = new StringBuffer(400);
 		 tPlain.append("PlTxTraceNo="+tblTxPayMentOrder.getPlTxTraceNo()+"|"+
@@ -195,7 +196,7 @@ if(tblTxPayMentOrder.getNotifyUrl()!= null &&!tblTxPayMentOrder.getNotifyUrl().e
 			//将浏览器导向商户接收交易结果地址
 	        NotifyService.redirect(response , tblTxPayMentOrder.getNotifyUrl() , s.toString());	
 		}
-		
+		*/
 		return "success";
 		
 	}
