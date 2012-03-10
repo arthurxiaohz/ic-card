@@ -1,6 +1,8 @@
 package cn.net.iccard.accounting.account.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.acegisecurity.providers.encoding.MessageDigestPasswordEncoder;
 import org.apache.tools.ant.util.DateUtils;
@@ -8,7 +10,9 @@ import org.hi.SpringContextHolder;
 import org.hi.base.enumeration.model.YesNo;
 import org.hi.base.organization.model.HiUser;
 import org.hi.base.organization.model.UserType;
+import org.hi.base.sysapp.AppSettingHelper;
 import org.hi.framework.dao.impl.FilterFactory;
+import org.hi.framework.security.dwz.service.RoleManager;
 
 import cn.net.iccard.accounting.EAccountResponse;
 import cn.net.iccard.accounting.ICommonAccountResponse;
@@ -42,6 +46,9 @@ public class AccountService implements IAccountService {
 
 	private TblMchtUserManager tblMchtUserMgr = (TblMchtUserManager) SpringContextHolder
 			.getBean(TblMchtUser.class);
+
+	private RoleManager roleMgr = (RoleManager) SpringContextHolder
+			.getBean(RoleManager.class);
 
 	public IAccountOpenResponse openAccount(
 			IAccountOpenRequest accountOpenRequest) {
@@ -149,6 +156,20 @@ public class AccountService implements IAccountService {
 		String password = passwordEncoder.encodePassword("123456", null);
 		tblMchtUser.setPassword(password);
 		tblMchtUserMgr.saveTblMchtUser(tblMchtUser);
+
+		// 商户管理员角色
+		int roleMerchant = Integer.parseInt(AppSettingHelper.getValue(
+				"CONSTANTS", "ROLE_MERCHANT"));
+		// 商户部门
+		int orgMerchant = Integer.parseInt(AppSettingHelper.getValue(
+				"CONSTANTS", "ORG_MERCHANT"));
+
+		// 商户管理员
+		List<HiUser> users = new ArrayList<HiUser>();
+		users.add(tblMchtUser);
+
+		roleMgr.saveUserRole(roleMgr.getRoleById(roleMerchant), orgMerchant,
+				users);
 
 		return new SimpleCommonAccountResponse(EAccountResponse.S0000);
 	}
