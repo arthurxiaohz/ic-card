@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="cn.net.iccard.special.service.impl.BackResponseService" class="cn.net.iccard.special.service.impl.BackResponseService">
+    </bean>
+    <bean id="cn.net.iccard.special.service.impl.MbInfoService" class="cn.net.iccard.special.service.impl.MbInfoService">
+    </bean>
+    <bean id="cn.net.iccard.special.service.impl.PayResponseService" class="cn.net.iccard.special.service.impl.PayResponseService">
+    </bean>
+     <bean id="cn.net.iccard.special.service.impl.PrepaidResponseService" class="cn.net.iccard.special.service.impl.PrepaidResponseService">
+    </bean>
+     <bean id="cn.net.iccard.special.service.impl.RechargeService" class="cn.net.iccard.special.service.impl.RechargeService">
+    </bean>
+     <bean id="cn.net.iccard.special.service.impl.RevocationResponseService" class="cn.net.iccard.special.service.impl.RevocationResponseService">
+    </bean>
+     <bean id="cn.net.iccard.tx.dao.TblTxPayMentResponseDAOImpl" class="cn.net.iccard.tx.dao.${hi.orm.package}.TblTxPayMentResponseDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+    <bean id="cn.net.iccard.tx.dao.TblTxPayMentResponseDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="cn.net.iccard.tx.dao.TblTxPayMentResponseDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>cn.net.iccard.tx.dao.TblTxPayMentResponseDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="cn.net.iccard.tx.model.TblTxPayMentResponse" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="cn.net.iccard.tx.service.impl.TblTxPayMentResponseManagerImpl">
+                <property name="DAO" ref="cn.net.iccard.tx.dao.TblTxPayMentResponseDAO"/>
+                <property name="modelClass" value="cn.net.iccard.tx.model.TblTxPayMentResponse"/>
+            </bean>
+        </property>
+    </bean>
+    <!-- 监控线程池 -->
+	<bean id="cn.net.iccard.tx.model.special.ThreadPool" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<!-- 核心线程数 -->
+		<property name="corePoolSize" value="10" />
+		<!-- 最大线程数 -->
+		<property name="maxPoolSize" value="150" />
+		<!-- 队列最大长度 >=mainExecutor.maxSize -->
+		<property name="queueCapacity" value="100" />
+		<!-- 线程池维护线程所允许的空闲时间（秒）-->
+		<property name="keepAliveSeconds" value="60" />
+		<!-- 线程池对拒绝任务(无线程可用)的处理策略，使用默认的AbortPolicy -->
+		<property name="rejectedExecutionHandler">
+			<bean class="java.util.concurrent.ThreadPoolExecutor$AbortPolicy" />
+		</property>
+	</bean>
+</beans>

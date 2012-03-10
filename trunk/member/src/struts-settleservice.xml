@@ -51,6 +51,53 @@
 			<result name="success">/settleservice/TblStlCleaningDetailList.jsp</result>
 			<interceptor-ref name="modelParamsStack" />
 		</action>		
+		<!-- ============= 结算申请对应的TblStlSettleApplyAction============ --> 
+		<action name="tblStlSettleApply" class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblStlSettleApplyList"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="tblStlSettleApplyList">
+			<result name="success">/settleservice/TblStlSettleApplyList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlSettleApplySave"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="saveTblStlSettleApply">
+			<result name="success" type="redirect-action">tblStlSettleApplyList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblStlSettleApplyEdit"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="viewTblStlSettleApply">
+			<result name="success">/settleservice/TblStlSettleApplyEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlSettleApplyView"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="viewTblStlSettleApply">
+			<result name="success">/settleservice/TblStlSettleApplyView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblStlSettleApplyRemove"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="removeTblStlSettleApply">
+			<result name="success" type="redirect-action">tblStlSettleApplyList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblStlSettleApplyRemoveAll"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="removeAllTblStlSettleApply">
+			<result name="success" type="redirect-action">tblStlSettleApplyList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblStlSettleApplyLookup"
+			class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleApplyAction" method="tblStlSettleApplyList">
+			<result name="success">/settleservice/TblStlSettleApplyList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
 		<!-- ============= 结算批次对应的TblStlSettleBatchAction============ --> 
 		<action name="tblStlSettleBatch" class="cn.net.iccard.bm.settleservice.action.struts.TblStlSettleBatchAction">
 			<interceptor-ref name="modelParamsStack" />

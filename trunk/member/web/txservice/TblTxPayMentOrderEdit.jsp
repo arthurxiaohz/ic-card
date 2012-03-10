@@ -1,138 +1,201 @@
 <%@ page language="java"  pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
 <%@ include file="/includes/main.jsp"%>
 
-<h2 class="contentTitle"><hi:text key="编辑页面" parameterLanguageKeys="订单查询"/></h2>
-<form action="tblTxPayMentOrderSave.action?navTabId=tblTxPayMentOrderList&callbackType=closeCurrent&ajax=1" method="post" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
-<div class="pageContent">
-	<div class="pageFormContent" layoutH="97">
-		<dl>
-			<dt><hi:text key="平台交易流水号" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.plTxTraceNo" class="textInput required" value="${tblTxPayMentOrder.plTxTraceNo}" maxlength="20"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="账号" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.userName" class="textInput" value="${tblTxPayMentOrder.userName}" maxlength="30"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="交易类型" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.txTypeId" class="textInput" value="${tblTxPayMentOrder.txTypeId}" maxlength="4"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="商户号" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.mchtNo" class="textInput" value="${tblTxPayMentOrder.mchtNo}" maxlength="18"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="交易发生时间" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.mchtTxTime" class="textInput" value="${tblTxPayMentOrder.mchtTxTime}" maxlength="14"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="原始交易发生时间" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.lastMchtTxTime" class="textInput" value="${tblTxPayMentOrder.lastMchtTxTime}" maxlength="14"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="商户交易流水号" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.mchtTxTraceNo" class="textInput" value="${tblTxPayMentOrder.mchtTxTraceNo}" maxlength="50"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="原始商户交易流水号" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.lastMchtTxTraceNo" class="textInput" value="${tblTxPayMentOrder.lastMchtTxTraceNo}" maxlength="50"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="订单金额" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.orderAmount" class="textInput integer" value="${tblTxPayMentOrder.orderAmount}" alt="<hi:text key="请输入整数"/>"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="交易结果通知地址" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.notifyUrl" class="textInput" value="${tblTxPayMentOrder.notifyUrl}" maxlength="256"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="交易IP地址" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.txIp" class="textInput" value="${tblTxPayMentOrder.txIp}" maxlength="100"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="交易完成时间" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.plTxTime" class="textInput" value="${tblTxPayMentOrder.plTxTime}" maxlength="14"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="交易状态" entity="TblTxPayMentOrder"/>：</dt><dd><hi:select emu="orderTxStatus" name="tblTxPayMentOrder.txStatus"/></dd>			
-		</dl>
-		<dl>
-			<dt><hi:text key="凭证号" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.voucherNo" class="textInput" value="${tblTxPayMentOrder.voucherNo}" maxlength="30"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="撤销凭证号" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.backVoucherNo" class="textInput" value="${tblTxPayMentOrder.backVoucherNo}" maxlength="30"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="是否使用优惠券" entity="TblTxPayMentOrder"/>：</dt><dd><hi:select emu="useCoupon" name="tblTxPayMentOrder.useCoupon"/></dd>			
-		</dl>
-		<dl>
-			<dt><hi:text key="优惠券信息" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.couponMsg" class="textInput" value="${tblTxPayMentOrder.couponMsg}" maxlength="300"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="返回商户优惠券信息" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.resCouponMsg" class="textInput" value="${tblTxPayMentOrder.resCouponMsg}" maxlength="300"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="商品展示URL" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.showUrl" class="textInput" value="${tblTxPayMentOrder.showUrl}" maxlength="400"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="商品描述" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.txBody" class="textInput" value="${tblTxPayMentOrder.txBody}" maxlength="400"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="付款人手机号码" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.payerPhone" class="textInput" value="${tblTxPayMentOrder.payerPhone}" maxlength="11"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="验证码" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.verifyCode" class="textInput" value="${tblTxPayMentOrder.verifyCode}" maxlength="10"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="确认码" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.confirmCode" class="textInput" value="${tblTxPayMentOrder.confirmCode}" maxlength="50"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="确认过期时间" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.orderExpireDatetime" class="textInput" value="${tblTxPayMentOrder.orderExpireDatetime}" maxlength="14"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="异常代码" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.errorCode" class="textInput" value="${tblTxPayMentOrder.errorCode}" maxlength="10"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="异常描述" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.errorMsg" class="textInput" value="${tblTxPayMentOrder.errorMsg}" maxlength="1,000"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="结算批次号" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.settleBatchNo" class="textInput" value="${tblTxPayMentOrder.settleBatchNo}" maxlength="20"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="结算状态" entity="TblTxPayMentOrder"/>：</dt><dd><hi:select emu="settleStatus" name="tblTxPayMentOrder.settleStatus"/></dd>			
-		</dl>
-		<dl>
-			<dt><hi:text key="结算日期" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.settleDate" class="textInput" value="${tblTxPayMentOrder.settleDate}" maxlength="8"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="手续费金额" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.feeAmount" class="textInput integer" value="${tblTxPayMentOrder.feeAmount}" alt="<hi:text key="请输入整数"/>"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="是否已计算手续费" entity="TblTxPayMentOrder"/>：</dt><dd><hi:select emu="hasCountFee" name="tblTxPayMentOrder.hasCountFee"/></dd>			
-		</dl>
-		<dl>
-			<dt><hi:text key="创建时间" entity="TblTxPayMentOrder"/>：</dt>
-			<dd>
-				<input type="text" name="tblTxPayMentOrder.createdDatetime" class="textInput date" readonly="readonly"
-					value="<fmt:formatDate value='${tblTxPayMentOrder.createdDatetime}' pattern='yyyy-MM-dd'/>"/>
-				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
-			</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="最后修改时间" entity="TblTxPayMentOrder"/>：</dt>
-			<dd>
-				<input type="text" name="tblTxPayMentOrder.lastUpdatedDatetime" class="textInput date" readonly="readonly"
-					value="<fmt:formatDate value='${tblTxPayMentOrder.lastUpdatedDatetime}' pattern='yyyy-MM-dd'/>"/>
-				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
-			</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="最后修改人" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.lastUpdatedBy" class="textInput integer" value="${tblTxPayMentOrder.lastUpdatedBy}" alt="<hi:text key="请输入整数"/>"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="交易后台通知地址" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.bgNotifyUrl" class="textInput" value="${tblTxPayMentOrder.bgNotifyUrl}" maxlength="256"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="商户名称" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.mchtName" class="textInput" value="${tblTxPayMentOrder.mchtName}" maxlength="30"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="支付金额" entity="TblTxPayMentOrder"/>：</dt><dd><input type="text" name="tblTxPayMentOrder.payAmount" class="textInput integer" value="${tblTxPayMentOrder.payAmount}" alt="<hi:text key="请输入整数"/>"/></dd>
-		</dl>
-				<input type="hidden" name="tblTxPayMentOrder.id" value="${tblTxPayMentOrder.id}"/>
-				<input type="hidden" name="tblTxPayMentOrder.creator.id" value="${tblTxPayMentOrder.creator.id}"/>
-				<input type="hidden" name="tblTxPayMentOrder.deleted" value="${tblTxPayMentOrder.deleted}"/>
-				<input type="hidden" name="tblTxPayMentOrder.version" value="${tblTxPayMentOrder.version}"/>
+<script>
 
-		<div class="divider"></div>
-			</div>
+var xmlHttp;
+function cerateXMLHttpRequest(){
+
+	  alert("11111111111");
+  if(window.ActiveXObject){
+	  alert("222222222");
+     xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  else if(window.XMLHttpRequest){
+     
+     xmlHttp = new XMLHttpReqest();
+  }
+
+}
+function validate(){
+	
+	  cerateXMLHttpRequest();
+	  alert("333333333333");
+	  var phoneNo = document.getElementById("payerPhone").value;
+	  var orderid = document.getElementById("orderid").value;
+	  alert(phoneNo);
+	  if(document.getElementById("payerPhone").value==''){
+	     var mess = "";
+	     var flag = "true";
+	     setMessage(mess,flag);
+       return false; 
+    }else{
+   // alert("date = "+date);
+	  var url = "PhoneServlet?tblTxPayMentOrderid="+ orderid +"&phoneNo="+phoneNo;
+	 // alert("url = "+url);
+	  xmlHttp.open("GET",url,true);
+	  xmlHttp.onreadystatechange = callback;
+	  xmlHttp.send(null);
+	  validateCodeButtonWait()
+    }
+	}
+	
+	//校验码每隔60秒点击一次
+function validateCodeButtonWait()
+{
+	var secs=60;
+    document.getElementById("validMobileId").value = "获取验证码 [" + secs + "]";
+    	document.getElementById("validMobileId").disabled = true;
+    for( I = 1; I <= secs; I++)
+    {
+      window.setTimeout("changeSeconds(" + I + ")", I*1000);
+	}
+    window.setTimeout("changeToClick()", secs*1000);
+}
+
+function changeSeconds(num)
+{
+     var print=60-num;
+     document.getElementById("validMobileId").value = "获取验证码 [" + print + "]";
+}
+
+function changeToClick()
+{
+	 document.getElementById("validMobileId").disabled = false;
+     document.getElementById("validMobileId").value = " 获取验证码 ";
+}
+	function callback(){
+	  
+	  if(xmlHttp.readyState == 4){
+	     
+	     if(xmlHttp.status == 200){
+	       var mes = xmlHttp.responseXML.getElementsByTagName("message")[0].firstChild.data;
+	       //alert("mes="+mes);
+	       var val = xmlHttp.responseXML.getElementsByTagName("passed")[0].firstChild.data;
+	       //alert("val="+val);
+	       // alert("check="+document.commandBB100102.checkFlag.value);
+	       if(val=="true"){
+	         document.commandBB100102.checkFlag.value = "2";
+	       }
+	       if(val=="false"){
+	         //alert("=====");
+	         document.commanBB100102.checkFlag.value = "1";
+	       }
+	       //alert("checkflag="+document.commandBB100102.checkFlag.value);
+	       setMessage(mes,val);
+	     }
+	  }
+	}
+	function setMessage(message,isValid){
+	  
+	  var messageArea = message;
+	  //alert("messageArea="+messageArea);
+	  var fontColor = "green";
+	  if(isValid == "true"){
+	    fontColor = "red";
+	  }
+	  document.getElementById("dateMessage").innerHTML = "<font color=" + fontColor+">"+ message +"</font>";
+	 
+	 // alert("messageArea="+messageArea);
+	 // alert("setMessage star2");
+	}
+</script>
+<h2 class="contentTitle"><hi:text key="编辑页面" parameterLanguageKeys="订单查询"/></h2>
+<form action="prepaidTxPayMentOrderFinish.action?navTabId=tblTxPayMentOrderList&callbackType=closeCurrent&ajax=1" method="post" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
+<div class="pageContent">
+	
+	
+
+		<input type="hidden" name="functionCode" id="orderid" value="${tblTxPayMentOrder.id}"/>
+		<input type="hidden" name="orderId" id="orderid" value="${tblTxPayMentOrder.id}"/>
+		<input type="hidden" name="TxStatus" id="TxStatus" value="${tblTxPayMentOrder.txStatus}"/>
+							<div class="goumaitijiao">
+							<ul>
+									<li style="border-bottom: 1px solid rgb(204, 204, 204);">
+									</li>
+									<li>
+										<div class="contenter_a_content">
+											<table cellspacing="0" cellpadding="0" border="0"
+												width="100%" class="coupons-table">
+												<tbody>
+													<br>
+													<tr>
+														<td>
+																<dl>
+																	<dt><hi:text key="商品描述" entity="TblTxPayMentOrder"/>：</dt><dd> <a href=${tblTxPayMentOrder.showUrl} target="_blank" >${tblTxPayMentOrder.txBody}</a></dd>
+																</dl>
+														</td>
+												
+														<td>
+															<dl>
+			<dt><hi:text key="交易金额" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.orderAmount/100}</dd>
+		</dl>
+														</td>
+													
+													</tr>
+													
+												<tr height="50px;">
+														<td align="left"
+															style="font-weight: bold; padding-left: 10px; width: 200px; text-align: left"
+															bgcolor="#ffffff" colspan="5">
+															应付总额：
+														</td>
+														<td>
+															${tblTxPayMentOrder.orderAmount/100} 
+														</td>
+												</tr><!-- 未付款 -->
+													
+														<tr height="50px;">
+															<td align="left"
+																style="font-weight: bold; padding-left: 10px; width: 200px;text-align: left;"
+																bgcolor="#ffffff" colspan="5">
+																付款状态：
+															<br></td>
+															<td align="left"
+																style="font-weight: bold; padding-left: 10px; width: 200px;text-align: left;"
+																bgcolor="#ffffff" colspan="5">
+																<dl>
+			<dt><hi:text key="交易状态" entity="TblTxPayMentOrder"/>：</dt><dd><hi:select emu="orderTxStatus" name="tblTxPayMentOrder.txStatus" isLabel="true"/></dd>
+		</dl>
+															</td>
+														</tr>
+														
+														
+														<dl>
+																	<dt><hi:text key="手机号码" entity="TblTxPayMentOrder"/>：</dt><dd><input id="payerPhone"   type="text" name="tblTxPayMentOrder.payerPhone" class="textInput" value="" maxlength="13"/>
+														
+														
+															<INPUT type="button"  style="width:100px" name="validMobileId" id="validMobileId" onClick="validate(); " value="获取验证码" length="20"><span class="red" id="registerMobile"></span></dd>
+														</dl>
+														<dl>
+																	<dt><hi:text key="手机验证码" entity="TblTxPayMentOrder"/>：</dt><dd><input id="verifyCode"   type="text" name="tblTxPayMentOrder.verifyCode" class="textInput" value="" maxlength="13"/>
+														
+														
+														</dl>
+														
+														
+														<tr>
+															<th colspan="5" style="border-right:0;"> 
+																付款 <br></th>
+															<th style="border-left:0;"><br></th>
+															</tr>
+															<tr height="50px;">
+														<td align="left"
+															style="font-weight: bold; padding-left: 10px; width: 200px; text-align: left"
+															bgcolor="#ffffff" colspan="5">
+															应付总额：
+														</td>
+														<td>
+																${tblTxPayMentOrder.orderAmount/100}
+														</td>
+												</tr>
+													
+												</tbody>
+											</table>
+										</div>
+									</li>
+								</ul>
+							</div>
 	<div class="formBar">
 		<ul>
 			<li><div class="buttonActive"><div class="buttonContent"><button type="submit"><hi:text key="保存"/></button></div></div></li>

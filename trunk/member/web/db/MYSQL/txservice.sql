@@ -88,8 +88,8 @@ CREATE TABLE Tbl_Tx_Sms_Log (
     phoneMessage nvarchar (512)  NULL,
     status nvarchar (1)  NULL,
     createdDatetime datetime   NULL,
-    lastUpdatedDdatetime datetime  NOT NULL,
-    lastUpdatedBy int  NOT NULL,
+    lastUpdatedDdatetime datetime   NULL,
+    lastUpdatedBy int   NULL,
     creator int  NULL,
     deleted int   NULL,
     primary key (id));

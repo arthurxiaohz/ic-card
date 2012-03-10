@@ -89,7 +89,7 @@
 		<ul class="toolBar">
 		<c:choose>
 			<c:when test="${empty lookup}">
-				<authz:authorize ifAnyGranted="TBLTXTRANSFERRESPONSE_SAVE"><li><a class="add" href="<hi:url>tblTxTransferResponseEdit.action?tblTxTransferResponse.id=-1</hi:url>" target="navTab" rel="tblTxTransferResponse"><span><hi:text key="新建" parameterLanguageKeys="转账结果通知"/></span></a></li></authz:authorize>
+				<authz:authorize ifAnyGranted="TBLTXTRANSFERRESPONSE_SAVE"><li><a class="add" href="<hi:url>tblTxTransferResponseEdit.action?tblTxTransferResponse.id=-1</hi:url>" target="navTab" rel="tblTxTransferResponse"><span><hi:text key="新建" parameterLanguageKeys="转账交易结果通知"/></span></a></li></authz:authorize>
 				<authz:authorize ifAnyGranted="TBLTXTRANSFERRESPONSE_DEL"><li><a class="delete" href="<hi:url>tblTxTransferResponseRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
@@ -154,13 +154,13 @@
 				<c:choose>
 					<c:when test="${empty lookup}">
 				    <authz:authorize ifAnyGranted="TBLTXTRANSFERRESPONSE_DEL">
-				      <a class="btnDel" href="<hi:url>tblTxTransferResponseRemove.action?ajax=1&tblTxTransferResponse.id=${item.id}</hi:url>" target="navTabTodo" title="<hi:text key="删除" parameterLanguageKeys="转账结果通知"/>"><hi:text key="删除"/></a>
+				      <a class="btnDel" href="<hi:url>tblTxTransferResponseRemove.action?ajax=1&tblTxTransferResponse.id=${item.id}</hi:url>" target="navTabTodo" title="<hi:text key="删除" parameterLanguageKeys="转账交易结果通知"/>"><hi:text key="删除"/></a>
 				    </authz:authorize>
 				    <authz:authorize ifAnyGranted="TBLTXTRANSFERRESPONSE_VIEW">
-				      <a class="btnView" href="<hi:url>tblTxTransferResponseView.action?tblTxTransferResponse.id=${item.id}</hi:url>" target="navTab" rel="tblTxTransferResponse" title="<hi:text key="查看" parameterLanguageKeys="转账结果通知"/>"><hi:text key="查看"/></a>
+				      <a class="btnView" href="<hi:url>tblTxTransferResponseView.action?tblTxTransferResponse.id=${item.id}</hi:url>" target="navTab" rel="tblTxTransferResponse" title="<hi:text key="查看" parameterLanguageKeys="转账交易结果通知"/>"><hi:text key="查看"/></a>
 				    </authz:authorize>
 				    <authz:authorize ifAnyGranted="TBLTXTRANSFERRESPONSE_SAVE">
-				      <a class="btnEdit" href="<hi:url>tblTxTransferResponseEdit.action?tblTxTransferResponse.id=${item.id}</hi:url>" target="navTab" rel="tblTxTransferResponse" title="<hi:text key="编辑" parameterLanguageKeys="转账结果通知"/>"><hi:text key="编辑"/></a>
+				      <a class="btnEdit" href="<hi:url>tblTxTransferResponseEdit.action?tblTxTransferResponse.id=${item.id}</hi:url>" target="navTab" rel="tblTxTransferResponse" title="<hi:text key="编辑" parameterLanguageKeys="转账交易结果通知"/>"><hi:text key="编辑"/></a>
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>

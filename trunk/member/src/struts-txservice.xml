@@ -4,7 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<package name="txservice" extends="hi" >
-		<!-- ============= 订单查询对应的TblTxPayMentOrderAction============ --> 
+		<!-- ============= 交易订单对应的TblTxPayMentOrderAction============ --> 
 		<action name="tblTxPayMentOrder" class="cn.net.iccard.tx.action.struts.TblTxPayMentOrderAction">
 			<interceptor-ref name="modelParamsStack" />
 		</action> 
@@ -51,7 +51,7 @@
 			<result name="success">/txservice/TblTxPayMentOrderList.jsp</result>
 			<interceptor-ref name="modelParamsStack" />
 		</action>		
-		<!-- ============= 转账查询对应的TblTxTransferAction============ --> 
+		<!-- ============= 转账交易对应的TblTxTransferAction============ --> 
 		<action name="tblTxTransfer" class="cn.net.iccard.tx.action.struts.TblTxTransferAction">
 			<interceptor-ref name="modelParamsStack" />
 		</action> 
@@ -145,7 +145,7 @@
 			<result name="success">/txservice/TblTxSmsLogList.jsp</result>
 			<interceptor-ref name="modelParamsStack" />
 		</action>		
-		<!-- ============= 转账请求原始报文对应的TblTxTransferRequestAction============ --> 
+		<!-- ============= 转账交易请求对应的TblTxTransferRequestAction============ --> 
 		<action name="tblTxTransferRequest" class="cn.net.iccard.tx.action.struts.TblTxTransferRequestAction">
 			<interceptor-ref name="modelParamsStack" />
 		</action> 
@@ -192,7 +192,7 @@
 			<result name="success">/txservice/TblTxTransferRequestList.jsp</result>
 			<interceptor-ref name="modelParamsStack" />
 		</action>		
-		<!-- ============= 转账结果通知对应的TblTxTransferResponseAction============ --> 
+		<!-- ============= 转账交易结果通知对应的TblTxTransferResponseAction============ --> 
 		<action name="tblTxTransferResponse" class="cn.net.iccard.tx.action.struts.TblTxTransferResponseAction">
 			<interceptor-ref name="modelParamsStack" />
 		</action> 
@@ -239,7 +239,7 @@
 			<result name="success">/txservice/TblTxTransferResponseList.jsp</result>
 			<interceptor-ref name="modelParamsStack" />
 		</action>		
-		<!-- ============= 商户请求原始报文对应的TblTxPayMentRequestAction============ --> 
+		<!-- ============= 商户交易请求对应的TblTxPayMentRequestAction============ --> 
 		<action name="tblTxPayMentRequest" class="cn.net.iccard.tx.action.struts.TblTxPayMentRequestAction">
 			<interceptor-ref name="modelParamsStack" />
 		</action> 
@@ -286,7 +286,7 @@
 			<result name="success">/txservice/TblTxPayMentRequestList.jsp</result>
 			<interceptor-ref name="modelParamsStack" />
 		</action>		
-		<!-- ============= 商户结果通知对应的TblTxPayMentResponseAction============ --> 
+		<!-- ============= 商户交易结果通知对应的TblTxPayMentResponseAction============ --> 
 		<action name="tblTxPayMentResponse" class="cn.net.iccard.tx.action.struts.TblTxPayMentResponseAction">
 			<interceptor-ref name="modelParamsStack" />
 		</action> 

@@ -5,6 +5,8 @@
 <%@ page import="org.acegisecurity.AuthenticationException" %>
 <%@page import="java.util.Random"%>
 <%@page import="org.hi.framework.HiConfigHolder"%>
+<%
+String success = (String)request.getAttribute("success"); %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GBK" />
@@ -33,11 +35,18 @@ body {
 </style>
 </head>
 
+<script language='javascript'>
+function checkForm( ){
+ f.action="register.jsp";
+	    f.submit();
+}
+</script>
+
 <body>
 <%if(HiConfigHolder.getVerifyCode()){ %>
 <form action="<c:url value='j_security_check'/>" method="POST" onsubmit="return checkedImage()">
 <%}else{ %>
-<form action="<c:url value='j_security_check'/>" method="POST">
+<form action="<c:url value='j_security_check'/>" method="POST" name="f">
 <%} %>
 <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
@@ -79,7 +88,9 @@ body {
                 <td width="26%" height="22"><div align="right"><span class="STYLE1">验证码：</span></div></td>
                 <td width="36%" height="22"><div align="center">
                   <input type="text" id="checkcode" name="checkcode" style="width:105px; height:17px; background-color:#292929; border:solid 1px #7dbad7; font-size:12px; color:#6cd0ff">
+                
                 </div></td>
+                
                 <td width="38%" height="22"><div align="left"><img src="image.jsp?sRand=<%=sRand%>" width="40" height="16" border="0"></div></td>
               </tr>
               <%
@@ -89,6 +100,8 @@ body {
                 <td height="22" colspan="2" >&nbsp;</td>
                 <td height="22"><div align="left"> 
                 <input name="image" type="image" id="buttLogin" style="width:49px;height:18px;border:0px"  src="styles/images/dl.gif"  tppabs="styles/images/dl.gif"/>
+                <a class="STYLE1" href="register.jsp">注册</a>
+
                 </div></td>
               </tr> 
               <tr> 
@@ -126,6 +139,19 @@ body {
   </tr>
 </table>
 </form>
+<%
+// Popup error message window if previous request error.
+    if( success != null )  {
+        out.println("<script language=\"javascript\">");
+        out.println("<!--");
+        out.println("alert(\"" + success + "\");");
+         out.println("Window.Close();"); 
+        
+        out.println("-->");
+        out.println("</script>");
+    }
+    request.removeAttribute("success");
+%>	
 </body>
 
 <script language="javascript">

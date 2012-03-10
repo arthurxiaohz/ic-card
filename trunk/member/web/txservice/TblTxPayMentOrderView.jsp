@@ -1,7 +1,7 @@
 <%@ page language="java"  pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
 <%@ include file="/includes/main.jsp"%>
 
-<h2 class="contentTitle"><hi:text key="查看页面"  parameterLanguageKeys="订单查询"/></h2>
+<h2 class="contentTitle"><hi:text key="查看页面"  parameterLanguageKeys="交易订单"/></h2>
 <div class="pageContent">
 	
 	<div class="viewInfo" layoutH="97">
@@ -10,7 +10,7 @@
 			<dt><hi:text key="平台交易流水号" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.plTxTraceNo}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="账号" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.userName}</dd>
+			<dt><hi:text key="会员账号" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.userName}</dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="交易类型" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.txTypeId}</dd>
@@ -100,10 +100,10 @@
 			<dt><hi:text key="是否已计算手续费" entity="TblTxPayMentOrder"/>：</dt><dd><hi:select emu="hasCountFee" name="tblTxPayMentOrder.hasCountFee" isLabel="true"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="创建时间" entity="TblTxPayMentOrder"/>：</dt><dd><fmt:formatDate value="${tblTxPayMentOrder.createdDatetime}" pattern="yyyy-MM-dd"/></dd>				  	 
+			<dt><hi:text key="创建时间" entity="TblTxPayMentOrder"/>：</dt><dd><fmt:formatDate value="${tblTxPayMentOrder.createdDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
 		</dl>
 		<dl>
-			<dt><hi:text key="最后修改时间" entity="TblTxPayMentOrder"/>：</dt><dd><fmt:formatDate value="${tblTxPayMentOrder.lastUpdatedDatetime}" pattern="yyyy-MM-dd"/></dd>				  	 
+			<dt><hi:text key="最后修改时间" entity="TblTxPayMentOrder"/>：</dt><dd><fmt:formatDate value="${tblTxPayMentOrder.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
 		</dl>
 		<dl>
 			<dt><hi:text key="最后修改人" entity="TblTxPayMentOrder"/>：</dt><dd>${tblTxPayMentOrder.lastUpdatedBy}</dd>

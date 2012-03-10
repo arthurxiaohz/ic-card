@@ -32,7 +32,7 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
  	protected  String plTxTraceNo;
 
  	 /**
-	 * 账号
+	 * 会员账号
 	 */	
  	protected  String userName;
 
@@ -184,12 +184,12 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
  	 /**
 	 * 创建时间
 	 */	
- 	protected  Date createdDatetime;
+ 	protected  Timestamp createdDatetime = new Timestamp(System.currentTimeMillis());
 
  	 /**
 	 * 最后修改时间
 	 */	
- 	protected  Date lastUpdatedDatetime;
+ 	protected  Timestamp lastUpdatedDatetime;
 
  	 /**
 	 * 最后修改人
@@ -651,11 +651,11 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
         this.hasCountFee = hasCountFee;
     }
     
-    public Date getCreatedDatetime() {
+    public Timestamp getCreatedDatetime() {
         return this.createdDatetime;
     }
     
-    public void setCreatedDatetime(Date createdDatetime) {
+    public void setCreatedDatetime(Timestamp createdDatetime) {
     		if((createdDatetime != null && this.createdDatetime == null) || 
 				this.createdDatetime != null && (!this.createdDatetime.equals(createdDatetime) || createdDatetime == null)){
         		this.setDirty(true);
@@ -664,11 +664,11 @@ public abstract class TblTxPayMentOrderAbstract extends BaseObject implements Se
         this.createdDatetime = createdDatetime;
     }
     
-    public Date getLastUpdatedDatetime() {
+    public Timestamp getLastUpdatedDatetime() {
         return this.lastUpdatedDatetime;
     }
     
-    public void setLastUpdatedDatetime(Date lastUpdatedDatetime) {
+    public void setLastUpdatedDatetime(Timestamp lastUpdatedDatetime) {
     		if((lastUpdatedDatetime != null && this.lastUpdatedDatetime == null) || 
 				this.lastUpdatedDatetime != null && (!this.lastUpdatedDatetime.equals(lastUpdatedDatetime) || lastUpdatedDatetime == null)){
         		this.setDirty(true);

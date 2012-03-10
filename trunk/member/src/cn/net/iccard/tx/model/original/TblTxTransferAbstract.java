@@ -32,7 +32,7 @@ public abstract class TblTxTransferAbstract extends BaseObject implements Serial
  	protected  String plTxTraceNo;
 
  	 /**
-	 * 平台会员号
+	 * 会员账号
 	 */	
  	protected  String userName;
 
@@ -124,7 +124,7 @@ public abstract class TblTxTransferAbstract extends BaseObject implements Serial
  	 /**
 	 * 创建时间
 	 */	
- 	protected  Timestamp createdDatetime;
+ 	protected  Timestamp createdDatetime = new Timestamp(System.currentTimeMillis());
 
  	 /**
 	 * 最后修改时间

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="txprocessor" extends="hi" >
+		<action name="prepaidTxPayMentOrderList"
+		
+			class="cn.net.iccard.special.action.PrepaidRequestAction" method="getMchtRequest">
+			<result name="success">/login.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		<action name="tblMbInfoRegister"
+		
+			class="cn.net.iccard.special.action.MbInfoRequestAction" method="saveTblMbInfo">
+			<result name="success">/login.jsp</result>
+			<result name="error">/register.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		
+		
+		
+		<action name="prepaidTxPayMentOrderFinish"
+			class="cn.net.iccard.special.action.PrepaidRequestAction" method="savePrepaid">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+
+</package>
+</struts>

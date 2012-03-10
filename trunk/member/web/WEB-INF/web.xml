@@ -94,12 +94,22 @@
    <servlet>
     <servlet-name>PhoneServlet</servlet-name>
 		<servlet-class>
-			cn.net.iccard.tx.servlet.PhoneServlet
+			cn.net.iccard.special.servlet.PhoneServlet
+		</servlet-class>
+	</servlet>
+	<servlet>
+    <servlet-name>AlipayNotifyServlet</servlet-name>
+		<servlet-class>
+			cn.net.iccard.special.servlet.AlipayNotifyServlet
 		</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>PhoneServlet</servlet-name>
 		<url-pattern>/PhoneServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AlipayNotifyServlet</servlet-name>
+		<url-pattern>/AlipayNotifyServlet</url-pattern>
 	</servlet-mapping>
 
    <!--  

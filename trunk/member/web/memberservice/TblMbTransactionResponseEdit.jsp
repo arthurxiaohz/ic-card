@@ -12,7 +12,7 @@
 			<dt><hi:text key="交易系统的机构号" entity="TblMbTransactionResponse"/>：</dt><dd><input type="text" name="tblMbTransactionResponse.orgId" class="textInput integer" value="${tblMbTransactionResponse.orgId}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="交易系统的交易流水号" entity="TblMbTransactionResponse"/>：</dt><dd><input type="text" name="tblMbTransactionResponse.orgOrdedId" class="textInput" value="${tblMbTransactionResponse.orgOrdedId}" maxlength="1"/></dd>
+			<dt><hi:text key="交易系统的交易流水号" entity="TblMbTransactionResponse"/>：</dt><dd><input type="text" name="tblMbTransactionResponse.orgOrdedId" class="textInput" value="${tblMbTransactionResponse.orgOrdedId}" maxlength="30"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="交易金额" entity="TblMbTransactionResponse"/>：</dt><dd><input type="text" name="tblMbTransactionResponse.amount" class="textInput integer" value="${tblMbTransactionResponse.amount}" alt="<hi:text key="请输入整数"/>"/></dd>

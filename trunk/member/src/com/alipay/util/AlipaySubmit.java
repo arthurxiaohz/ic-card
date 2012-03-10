@@ -60,7 +60,8 @@ public class AlipaySubmit {
         StringBuffer sbHtml = new StringBuffer();
 
         sbHtml.append("<form id=\"alipaysubmit\" name=\"alipaysubmit\" action=\"" + gateway
-                      + "_input_charset=" + AlipayConfig.input_charset + "\" method=\"" + strMethod
+                       + 
+                      "\" method=\"" + strMethod
                       + "\">");
 
         for (int i = 0; i < keys.size(); i++) {
@@ -72,7 +73,7 @@ public class AlipaySubmit {
 
         //submit按钮控件请不要含有name属性
         sbHtml.append("<input type=\"submit\" value=\"" + strButtonName + "\" style=\"display:none;\"></form>");
-        sbHtml.append("<script>document.forms['alipaysubmit'].submit();</script>");
+        sbHtml.append("<script> document.forms['alipaysubmit'].target = '_blank';document.forms['alipaysubmit'].submit();</script>");
 
         return sbHtml.toString();
     }
