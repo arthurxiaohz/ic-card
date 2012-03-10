@@ -33,27 +33,11 @@
 		<dl>
 			<dt><hi:text key="参数值" entity="TblMbPointRule"/>：</dt><dd><input type="text" name="tblMbPointRule.ruleValue" class="textInput float" value="${tblMbPointRule.ruleValue}" alt="<hi:text key="请输浮点数"/>"/></dd>
 		</dl>
-		<dl>
-			<dt><hi:text key="创建时间" entity="TblMbPointRule"/>：</dt>
-			<dd>
-				<input type="text" name="tblMbPointRule.createdDateTime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
-					value="<fmt:formatDate value='${tblMbPointRule.createdDateTime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
-				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
-			</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="最后修改时间" entity="TblMbPointRule"/>：</dt>
-			<dd>
-				<input type="text" name="tblMbPointRule.lastUpdatedDatetime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
-					value="<fmt:formatDate value='${tblMbPointRule.lastUpdatedDatetime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
-				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
-			</dd>
-		</dl>
 				<input type="hidden" name="tblMbPointRule.id" value="${tblMbPointRule.id}"/>
-				<input type="hidden" name="tblMbPointRule.userName.userName" value="${tblMbPointRule.userName.userName}"/>
-				<input type="hidden" name="tblMbPointRule.fullName.fullName" value="${tblMbPointRule.fullName.fullName}"/>
-				<input type="hidden" name="tblMbPointRule.mchtNo.mchtNo" value="${tblMbPointRule.mchtNo.mchtNo}"/>
-				<input type="hidden" name="tblMbPointRule.mchtName.mchtName" value="${tblMbPointRule.mchtName.mchtName}"/>
+				<input type="hidden" name="tblMbPointRule.tblMbInfo.userName" value="${tblMbPointRule.tblMbInfo.userName}"/>
+				<input type="hidden" name="tblMbPointRule.tblMbInfo.fullName" value="${tblMbPointRule.tblMbInfo.fullName}"/>
+				<input type="hidden" name="tblMbPointRule.tblMchtInfo.mchtNo" value="${tblMbPointRule.tblMchtInfo.mchtNo}"/>
+				<input type="hidden" name="tblMbPointRule.tblMchtInfo.mchtName" value="${tblMbPointRule.tblMchtInfo.mchtName}"/>
 				<input type="hidden" name="tblMbPointRule.mchtType" value="${tblMbPointRule.mchtType}"/>
 				<input type="hidden" name="tblMbPointRule.lastUpdatedBy.id" value="${tblMbPointRule.lastUpdatedBy.id}"/>
 				<input type="hidden" name="tblMbPointRule.creator.id" value="${tblMbPointRule.creator.id}"/>
