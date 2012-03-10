@@ -1520,7 +1520,7 @@
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>orgOrdedId</columnName>
           <logicalName>column6</logicalName>
-          <size>1</size>
+          <size>30</size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
