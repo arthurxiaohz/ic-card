@@ -1544,7 +1544,7 @@
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>settleBatchNo</columnName>
           <logicalName>column2</logicalName>
-          <size>11</size>
+          <size>17</size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
