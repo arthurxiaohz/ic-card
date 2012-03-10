@@ -94,9 +94,6 @@
 				    <authz:authorize ifAnyGranted="TBLSTLSETTLEBATCH_SAVE">
 				      <a class="btnEdit" href="<hi:url>tblStlSettleBatchEdit.action?tblStlSettleBatch.id=${item.id}</hi:url>" target="navTab" rel="tblStlSettleBatch" title="<hi:text key="编辑" parameterLanguageKeys="结算批次"/>"><hi:text key="编辑"/></a>
 				    </authz:authorize>
-				    <authz:authorize ifAnyGranted="FUND_REPORT_DOWNLOAD">
-				      <a class="btnAttach" href="<hi:url>fundReport.action?id=${item.id}</hi:url>" title="下载">下载</a>
-				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
 						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', settleBatchNo:'${item.settleBatchNo}',settleDate:'${item.settleDate}',totalCount:'${item.totalCount}',totalAmount:'${item.totalAmount}',settleBatchStatus:'<hi:select emu="settleBatchStatus" name="tblStlSettleBatchs[${s.index}].settleBatchStatus" isLabel="true"/>'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>

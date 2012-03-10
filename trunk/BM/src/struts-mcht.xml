@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="mcht" extends="hi" >
+		<!-- ============= 商户对应的TblMchtInfoAction============ --> 
+		<action name="tblMchtInfo" class="cn.net.iccard.bm.mcht.action.struts.TblMchtInfoAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMchtInfoList"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtInfoAction" method="tblMchtInfoList">
+			<result name="success">/mcht/TblMchtInfoList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtInfoSave"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtInfoAction" method="saveTblMchtInfo">
+			<result name="success" type="redirect-action">tblMchtInfoList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMchtInfoEdit"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtInfoAction" method="viewTblMchtInfo">
+			<result name="success">/mcht/TblMchtInfoEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtInfoView"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtInfoAction" method="viewTblMchtInfo">
+			<result name="success">/mcht/TblMchtInfoView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMchtInfoRemove"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtInfoAction" method="removeTblMchtInfo">
+			<result name="success" type="redirect-action">tblMchtInfoList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtInfoRemoveAll"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtInfoAction" method="removeAllTblMchtInfo">
+			<result name="success" type="redirect-action">tblMchtInfoList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMchtInfoLookup"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtInfoAction" method="tblMchtInfoList">
+			<result name="success">/mcht/TblMchtInfoList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 商户支付配置对应的TblMchtPaymentConfigAction============ --> 
+		<action name="tblMchtPaymentConfig" class="cn.net.iccard.bm.mcht.action.struts.TblMchtPaymentConfigAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMchtPaymentConfigList"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtPaymentConfigAction" method="tblMchtPaymentConfigList">
+			<result name="success">/mcht/TblMchtPaymentConfigList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtPaymentConfigSave"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtPaymentConfigAction" method="saveTblMchtPaymentConfig">
+			<result name="success" type="redirect-action">tblMchtPaymentConfigList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMchtPaymentConfigEdit"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtPaymentConfigAction" method="viewTblMchtPaymentConfig">
+			<result name="success">/mcht/TblMchtPaymentConfigEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtPaymentConfigView"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtPaymentConfigAction" method="viewTblMchtPaymentConfig">
+			<result name="success">/mcht/TblMchtPaymentConfigView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMchtPaymentConfigRemove"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtPaymentConfigAction" method="removeTblMchtPaymentConfig">
+			<result name="success" type="redirect-action">tblMchtPaymentConfigList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtPaymentConfigRemoveAll"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtPaymentConfigAction" method="removeAllTblMchtPaymentConfig">
+			<result name="success" type="redirect-action">tblMchtPaymentConfigList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMchtPaymentConfigLookup"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtPaymentConfigAction" method="tblMchtPaymentConfigList">
+			<result name="success">/mcht/TblMchtPaymentConfigList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 商户手续费配置对应的TblMchtFeeConfigAction============ --> 
+		<action name="tblMchtFeeConfig" class="cn.net.iccard.bm.mcht.action.struts.TblMchtFeeConfigAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMchtFeeConfigList"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtFeeConfigAction" method="tblMchtFeeConfigList">
+			<result name="success">/mcht/TblMchtFeeConfigList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtFeeConfigSave"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtFeeConfigAction" method="saveTblMchtFeeConfig">
+			<result name="success" type="redirect-action">tblMchtFeeConfigList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMchtFeeConfigEdit"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtFeeConfigAction" method="viewTblMchtFeeConfig">
+			<result name="success">/mcht/TblMchtFeeConfigEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtFeeConfigView"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtFeeConfigAction" method="viewTblMchtFeeConfig">
+			<result name="success">/mcht/TblMchtFeeConfigView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMchtFeeConfigRemove"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtFeeConfigAction" method="removeTblMchtFeeConfig">
+			<result name="success" type="redirect-action">tblMchtFeeConfigList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtFeeConfigRemoveAll"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtFeeConfigAction" method="removeAllTblMchtFeeConfig">
+			<result name="success" type="redirect-action">tblMchtFeeConfigList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMchtFeeConfigLookup"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtFeeConfigAction" method="tblMchtFeeConfigList">
+			<result name="success">/mcht/TblMchtFeeConfigList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 商户证书对应的TblMchtCertificateAction============ --> 
+		<action name="tblMchtCertificate" class="cn.net.iccard.bm.mcht.action.struts.TblMchtCertificateAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMchtCertificateList"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtCertificateAction" method="tblMchtCertificateList">
+			<result name="success">/mcht/TblMchtCertificateList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtCertificateSave"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtCertificateAction" method="saveTblMchtCertificate">
+			<result name="success" type="redirect-action">tblMchtCertificateList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMchtCertificateEdit"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtCertificateAction" method="viewTblMchtCertificate">
+			<result name="success">/mcht/TblMchtCertificateEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtCertificateView"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtCertificateAction" method="viewTblMchtCertificate">
+			<result name="success">/mcht/TblMchtCertificateView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMchtCertificateRemove"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtCertificateAction" method="removeTblMchtCertificate">
+			<result name="success" type="redirect-action">tblMchtCertificateList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtCertificateRemoveAll"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtCertificateAction" method="removeAllTblMchtCertificate">
+			<result name="success" type="redirect-action">tblMchtCertificateList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMchtCertificateLookup"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtCertificateAction" method="tblMchtCertificateList">
+			<result name="success">/mcht/TblMchtCertificateList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 商户结算周期配置对应的TblMchtSettleCycleConfigAction============ --> 
+		<action name="tblMchtSettleCycleConfig" class="cn.net.iccard.bm.mcht.action.struts.TblMchtSettleCycleConfigAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMchtSettleCycleConfigList"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtSettleCycleConfigAction" method="tblMchtSettleCycleConfigList">
+			<result name="success">/mcht/TblMchtSettleCycleConfigList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtSettleCycleConfigSave"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtSettleCycleConfigAction" method="saveTblMchtSettleCycleConfig">
+			<result name="success" type="redirect-action">tblMchtSettleCycleConfigList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMchtSettleCycleConfigEdit"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtSettleCycleConfigAction" method="viewTblMchtSettleCycleConfig">
+			<result name="success">/mcht/TblMchtSettleCycleConfigEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtSettleCycleConfigView"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtSettleCycleConfigAction" method="viewTblMchtSettleCycleConfig">
+			<result name="success">/mcht/TblMchtSettleCycleConfigView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMchtSettleCycleConfigRemove"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtSettleCycleConfigAction" method="removeTblMchtSettleCycleConfig">
+			<result name="success" type="redirect-action">tblMchtSettleCycleConfigList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtSettleCycleConfigRemoveAll"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtSettleCycleConfigAction" method="removeAllTblMchtSettleCycleConfig">
+			<result name="success" type="redirect-action">tblMchtSettleCycleConfigList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMchtSettleCycleConfigLookup"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtSettleCycleConfigAction" method="tblMchtSettleCycleConfigList">
+			<result name="success">/mcht/TblMchtSettleCycleConfigList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 商服用户对应的TblMchtUserAction============ --> 
+		<action name="tblMchtUser" class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action> 
+
+
+	  <action name="tblMchtUserList"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction" method="tblMchtUserList">
+			<result name="success">/mcht/TblMchtUserList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtUserSave"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction" method="saveTblMchtUser">
+			<result name="success" type="redirect-action">tblMchtUserList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="tblMchtUserEdit"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction" method="viewTblMchtUser">
+			<result name="success">/mcht/TblMchtUserEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtUserView"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction" method="viewTblMchtUser">
+			<result name="success">/mcht/TblMchtUserView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="tblMchtUserRemove"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction" method="removeTblMchtUser">
+			<result name="success" type="redirect-action">tblMchtUserList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="tblMchtUserRemoveAll"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction" method="removeAllTblMchtUser">
+			<result name="success" type="redirect-action">tblMchtUserList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="tblMchtUserLookup"
+			class="cn.net.iccard.bm.mcht.action.struts.TblMchtUserAction" method="tblMchtUserList">
+			<result name="success">/mcht/TblMchtUserList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</struts>

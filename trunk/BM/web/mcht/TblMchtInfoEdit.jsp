@@ -6,7 +6,7 @@
 <div class="pageContent">
 	<div class="pageFormContent" layoutH="97">
 		<dl>
-			<dt><hi:text key="商户号" entity="TblMchtInfo"/>：</dt><dd><input <c:if test="${tblMchtInfo.id!=null}">readonly="readonly"</c:if> type="text" name="tblMchtInfo.mchtNo" class="textInput required" value="${tblMchtInfo.mchtNo}" maxlength="18"/></dd>
+			<dt><hi:text key="商户号" entity="TblMchtInfo"/>：</dt><dd><input type="text" name="tblMchtInfo.mchtNo" class="textInput required" value="${tblMchtInfo.mchtNo}" maxlength="18"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="商户名称" entity="TblMchtInfo"/>：</dt><dd><input type="text" name="tblMchtInfo.mchtName" class="textInput" value="${tblMchtInfo.mchtName}" maxlength="30"/></dd>

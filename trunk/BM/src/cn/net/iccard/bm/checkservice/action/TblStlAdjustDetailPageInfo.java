@@ -1,0 +1,218 @@
+package cn.net.iccard.bm.checkservice.action;
+
+import java.sql.Timestamp;
+import java.util.Date;
+
+import org.hi.framework.web.PageInfoView;
+import org.hi.base.organization.action.HiUserPageInfo;
+
+public class TblStlAdjustDetailPageInfo extends PageInfoView{
+
+	protected  Integer  f_id;
+ 	protected  String  f_id_op;
+	protected  String  f_plTxTraceNo;
+ 	protected  String  f_plTxTraceNo_op;
+	protected  String  f_orderId;
+ 	protected  String  f_orderId_op;
+	protected  Integer  f_status;
+ 	protected  String  f_status_op;
+	protected  Timestamp  f_createdDatetime;
+ 	protected  String  f_createdDatetime_op;
+	protected  Timestamp  f_createdDatetime01;
+	protected  String  f_createdDatetime01_op;
+	protected  Timestamp  f_lastUpdatedDatetime;
+ 	protected  String  f_lastUpdatedDatetime_op;
+	protected  Timestamp  f_lastUpdatedDatetime01;
+	protected  String  f_lastUpdatedDatetime01_op;
+	protected  Integer  f_lastUpdatedBy;
+ 	protected  String  f_lastUpdatedBy_op;
+	protected  String  f_description;
+ 	protected  String  f_description_op;
+	protected  Integer  f_deleted;
+ 	protected  String  f_deleted_op;
+
+ 	protected  HiUserPageInfo creator;
+
+    public Integer getF_id() {
+        return this.f_id;
+    }
+    
+    public void setF_id(Integer f_id) {
+        this.f_id = f_id;
+    }
+    
+    public String getF_id_op() {
+        return this.f_id_op;
+    }
+    
+    public void setF_id_op(String f_id_op) {
+        this.f_id_op = f_id_op;
+    }
+   
+    public String getF_plTxTraceNo() {
+        return this.f_plTxTraceNo;
+    }
+    
+    public void setF_plTxTraceNo(String f_plTxTraceNo) {
+        this.f_plTxTraceNo = f_plTxTraceNo;
+    }
+    
+    public String getF_plTxTraceNo_op() {
+        return this.f_plTxTraceNo_op;
+    }
+    
+    public void setF_plTxTraceNo_op(String f_plTxTraceNo_op) {
+        this.f_plTxTraceNo_op = f_plTxTraceNo_op;
+    }
+   
+    public String getF_orderId() {
+        return this.f_orderId;
+    }
+    
+    public void setF_orderId(String f_orderId) {
+        this.f_orderId = f_orderId;
+    }
+    
+    public String getF_orderId_op() {
+        return this.f_orderId_op;
+    }
+    
+    public void setF_orderId_op(String f_orderId_op) {
+        this.f_orderId_op = f_orderId_op;
+    }
+   
+    public Integer getF_status() {
+        return this.f_status;
+    }
+    
+    public void setF_status(Integer f_status) {
+        this.f_status = f_status;
+    }
+    
+    public String getF_status_op() {
+        return this.f_status_op;
+    }
+    
+    public void setF_status_op(String f_status_op) {
+        this.f_status_op = f_status_op;
+    }
+   
+    public Timestamp getF_createdDatetime() {
+        return this.f_createdDatetime;
+    }
+    
+    public void setF_createdDatetime(Timestamp f_createdDatetime) {
+        this.f_createdDatetime = f_createdDatetime;
+    }
+    
+    public String getF_createdDatetime_op() {
+        return this.f_createdDatetime_op;
+    }
+    
+    public void setF_createdDatetime_op(String f_createdDatetime_op) {
+        this.f_createdDatetime_op = f_createdDatetime_op;
+    }
+    public Timestamp getF_createdDatetime01() {
+        return this.f_createdDatetime01;
+    }
+    
+    public void setF_createdDatetime01(Timestamp f_createdDatetime01) {
+        this.f_createdDatetime01 = f_createdDatetime01;
+    }
+    
+    public String getF_createdDatetime01_op() {
+        return this.f_createdDatetime01_op;
+    }
+    
+    public void setF_createdDatetime01_op(String f_createdDatetime01_op) {
+        this.f_createdDatetime01_op = f_createdDatetime01_op;
+    }
+   
+    public Timestamp getF_lastUpdatedDatetime() {
+        return this.f_lastUpdatedDatetime;
+    }
+    
+    public void setF_lastUpdatedDatetime(Timestamp f_lastUpdatedDatetime) {
+        this.f_lastUpdatedDatetime = f_lastUpdatedDatetime;
+    }
+    
+    public String getF_lastUpdatedDatetime_op() {
+        return this.f_lastUpdatedDatetime_op;
+    }
+    
+    public void setF_lastUpdatedDatetime_op(String f_lastUpdatedDatetime_op) {
+        this.f_lastUpdatedDatetime_op = f_lastUpdatedDatetime_op;
+    }
+    public Timestamp getF_lastUpdatedDatetime01() {
+        return this.f_lastUpdatedDatetime01;
+    }
+    
+    public void setF_lastUpdatedDatetime01(Timestamp f_lastUpdatedDatetime01) {
+        this.f_lastUpdatedDatetime01 = f_lastUpdatedDatetime01;
+    }
+    
+    public String getF_lastUpdatedDatetime01_op() {
+        return this.f_lastUpdatedDatetime01_op;
+    }
+    
+    public void setF_lastUpdatedDatetime01_op(String f_lastUpdatedDatetime01_op) {
+        this.f_lastUpdatedDatetime01_op = f_lastUpdatedDatetime01_op;
+    }
+   
+    public Integer getF_lastUpdatedBy() {
+        return this.f_lastUpdatedBy;
+    }
+    
+    public void setF_lastUpdatedBy(Integer f_lastUpdatedBy) {
+        this.f_lastUpdatedBy = f_lastUpdatedBy;
+    }
+    
+    public String getF_lastUpdatedBy_op() {
+        return this.f_lastUpdatedBy_op;
+    }
+    
+    public void setF_lastUpdatedBy_op(String f_lastUpdatedBy_op) {
+        this.f_lastUpdatedBy_op = f_lastUpdatedBy_op;
+    }
+   
+    public String getF_description() {
+        return this.f_description;
+    }
+    
+    public void setF_description(String f_description) {
+        this.f_description = f_description;
+    }
+    
+    public String getF_description_op() {
+        return this.f_description_op;
+    }
+    
+    public void setF_description_op(String f_description_op) {
+        this.f_description_op = f_description_op;
+    }
+   
+    public Integer getF_deleted() {
+        return this.f_deleted;
+    }
+    
+    public void setF_deleted(Integer f_deleted) {
+        this.f_deleted = f_deleted;
+    }
+    
+    public String getF_deleted_op() {
+        return this.f_deleted_op;
+    }
+    
+    public void setF_deleted_op(String f_deleted_op) {
+        this.f_deleted_op = f_deleted_op;
+    }
+   
+	public HiUserPageInfo getCreator() {
+		return creator;
+	}
+
+	public void setCreator(HiUserPageInfo creator) {
+		this.creator = creator;
+	}
+
+}
