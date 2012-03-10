@@ -12,26 +12,14 @@
 	<form rel="pagerForm" method="post" action="tblStlSettleApplyList.action?lookup=${lookup}" onsubmit="return dwzSearch(this, '${targetType}');">
 	<input type="hidden" name="pageInfo.pageSize" value="${pageInfo.pageSize}" />
 	<div class="searchBar">
-		<ul class="searchContent">	
-			<li>
-				<label><hi:text key="商户号" entity="TblStlSettleApply"/>:</label>
-				<input type="text" name="pageInfo.tblMchtInfo.f_mchtNo" value="${pageInfo.tblMchtInfo.f_mchtNo}"/>
-			</li>	  
-			<li>
-				<label><hi:text key="商户名称" entity="TblStlSettleApply"/>:</label>
-				<input type="text" name="pageInfo.tblMchtInfo.f_mchtName" value="${pageInfo.tblMchtInfo.f_mchtName}"/>
-			</li>	  
+		<ul class="searchContent">
 			<li>
 				<label><hi:text key="状态" entity="TblStlSettleApply"/>:</label>
 				<hi:search name="pageInfo.f_settleApplyStatus" emu="settleApplyStatus"/>
-			</li>	  
+			</li>
 			<li>
 				<label><hi:text key="结算日" entity="TblStlSettleApply"/>:</label>
 				<input type="text" name="pageInfo.tblStlSettleBatch.f_settleDate" value="${pageInfo.tblStlSettleBatch.f_settleDate}"/>
-			</li>	  
-			<li>
-				<label><hi:text key="结算批次号" entity="TblStlSettleApply"/>:</label>
-				<input type="text" name="pageInfo.tblStlSettleBatch.f_settleBatchNo" value="${pageInfo.tblStlSettleBatch.f_settleBatchNo}"/>
 			</li>	  
 			<li>
 
@@ -63,14 +51,11 @@
 				<c:if test="${empty lookup}">
 				<th width="28"><input type="checkbox" group="orderIndexs" class="checkboxCtrl"></th>
 				</c:if>
-				<th orderField="tblMchtInfo.mchtNo" class="${pageInfo.sorterName eq 'tblMchtInfo.mchtNo' ? pageInfo.sorterDirection : ''}"><hi:text key="商户号" entity="TblStlSettleApply"/></th>
-				<th orderField="tblMchtInfo.mchtName" class="${pageInfo.sorterName eq 'tblMchtInfo.mchtName' ? pageInfo.sorterDirection : ''}"><hi:text key="商户名称" entity="TblStlSettleApply"/></th>
 				<th orderField="availableBalance" class="${pageInfo.sorterName eq 'availableBalance' ? pageInfo.sorterDirection : ''}"><hi:text key="账户可用余额" entity="TblStlSettleApply"/></th>
 				<th orderField="amount" class="${pageInfo.sorterName eq 'amount' ? pageInfo.sorterDirection : ''}"><hi:text key="申请结算金额" entity="TblStlSettleApply"/></th>
 				<th orderField="settleApplyStatus" class="${pageInfo.sorterName eq 'settleApplyStatus' ? pageInfo.sorterDirection : ''}"><hi:text key="状态" entity="TblStlSettleApply"/></th>
 				<th orderField="remark" class="${pageInfo.sorterName eq 'remark' ? pageInfo.sorterDirection : ''}"><hi:text key="备注" entity="TblStlSettleApply"/></th>
 				<th orderField="tblStlSettleBatch.settleDate" class="${pageInfo.sorterName eq 'tblStlSettleBatch.settleDate' ? pageInfo.sorterDirection : ''}"><hi:text key="结算日" entity="TblStlSettleApply"/></th>
-				<th orderField="tblStlSettleBatch.settleBatchNo" class="${pageInfo.sorterName eq 'tblStlSettleBatch.settleBatchNo' ? pageInfo.sorterDirection : ''}"><hi:text key="结算批次号" entity="TblStlSettleApply"/></th>
 				<th width="90">
 					<c:choose>
 						<c:when test="${empty lookup}"><hi:text key="操作"/></c:when>
@@ -85,24 +70,12 @@
 				<c:if test="${empty lookup}">
 				<td><input name="orderIndexs" value="${item.id}" type="checkbox"></td>
 				</c:if>			
-				    <td><authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"><a href="<hi:url>tblMchtInfoView.action?tblMchtInfo.id=${item.tblMchtInfo.id}&workflow=-1</hi:url>" target="dialog"></authz:authorize>
-					${item.tblMchtInfo.mchtNo}
-					<authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"></a></authz:authorize>
-					</td>
-				    <td><authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"><a href="<hi:url>tblMchtInfoView.action?tblMchtInfo.id=${item.tblMchtInfo.id}&workflow=-1</hi:url>" target="dialog"></authz:authorize>
-					${item.tblMchtInfo.mchtName}
-					<authz:authorize ifAnyGranted="TBLMCHTINFO_VIEW"></a></authz:authorize>
-					</td>
 				    <td>${item.availableBalance}</td>
 				    <td>${item.amount}</td>
 				    <td><hi:select emu="settleApplyStatus" name="tblStlSettleApplys[${s.index}].settleApplyStatus" isLabel="true"/></td>
 				    <td>${item.remark}</td>
 				    <td><authz:authorize ifAnyGranted="TBLSTLSETTLEBATCH_VIEW"><a href="<hi:url>tblStlSettleBatchView.action?tblStlSettleBatch.id=${item.tblStlSettleBatch.id}&workflow=-1</hi:url>" target="dialog"></authz:authorize>
 					${item.tblStlSettleBatch.settleDate}
-					<authz:authorize ifAnyGranted="TBLSTLSETTLEBATCH_VIEW"></a></authz:authorize>
-					</td>
-				    <td><authz:authorize ifAnyGranted="TBLSTLSETTLEBATCH_VIEW"><a href="<hi:url>tblStlSettleBatchView.action?tblStlSettleBatch.id=${item.tblStlSettleBatch.id}&workflow=-1</hi:url>" target="dialog"></authz:authorize>
-					${item.tblStlSettleBatch.settleBatchNo}
 					<authz:authorize ifAnyGranted="TBLSTLSETTLEBATCH_VIEW"></a></authz:authorize>
 					</td>
 				<td>
