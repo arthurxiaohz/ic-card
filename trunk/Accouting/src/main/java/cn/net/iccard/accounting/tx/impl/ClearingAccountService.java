@@ -215,7 +215,7 @@ public class ClearingAccountService implements IClearingAccountService {
 	public ICommonAccountResponse doSettle() {
 		// 结算批次号
 		Date settleDate = new Date();
-		String settleBatchNo = DateUtils.format(settleDate, "yyyyMMdd")
+		String settleBatchNo = DateUtils.format(settleDate, "yyyyMMddHHmmss")
 				+ getNextSeq();
 		// TODO 添加审核功能
 		List tblStlSettleApplys = tblStlSettleApplyMgr.getObjects(FilterFactory
