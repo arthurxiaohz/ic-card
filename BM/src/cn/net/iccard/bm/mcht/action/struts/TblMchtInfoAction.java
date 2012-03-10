@@ -8,6 +8,8 @@ import org.hi.framework.paging.PageInfo;
 import org.hi.framework.web.PageInfoUtil;
 import org.hi.framework.web.struts.BaseAction;
 
+import cn.net.iccard.accounting.account.impl.AccountService;
+import cn.net.iccard.accounting.account.impl.SimpleAccountForOrgOpenRequest;
 import cn.net.iccard.bm.mcht.action.TblMchtInfoPageInfo;
 import cn.net.iccard.bm.mcht.model.TblMchtInfo;
 import cn.net.iccard.bm.mcht.service.TblMchtInfoManager;
@@ -34,6 +36,16 @@ public class TblMchtInfoAction extends BaseAction {
 			if (list != null && list.size() > 0) {
 				return returnCommand("指定商户号已经存在");
 			}
+			// 开户
+			AccountService accountService = (AccountService) SpringContextHolder
+					.getBean(AccountService.class);
+			SimpleAccountForOrgOpenRequest simpleAccountForOrgOpenRequest = new SimpleAccountForOrgOpenRequest();
+			simpleAccountForOrgOpenRequest.setAccountParty(tblMchtInfo.getMchtNo());
+			simpleAccountForOrgOpenRequest
+					.setAccountName(tblMchtInfo.getMchtName());
+			// simpleAccountOpenRequest.setAvailableBalance(0);
+			// simpleAccountOpenRequest.setRemark();
+			accountService.openAccountForMcht(simpleAccountForOrgOpenRequest);
 		}
 
 		tblMchtInfoMgr.saveTblMchtInfo(tblMchtInfo);
