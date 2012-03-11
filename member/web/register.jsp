@@ -11,7 +11,7 @@ String success = (String)request.getAttribute("success"); %>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GBK" />
 <link rel="stylesheet" type="text/css" href="includes/style.css"  >
-<title>HI Java快速开发平台</title>
+<title>会员服务平台</title>
 <style type="text/css">
 <!--
 body {
@@ -49,7 +49,7 @@ function check_02(){
   <tr>
     <td><table width="962" border="0" align="center" cellpadding="0" cellspacing="0">
       <tr>
-        <td height="217"  class="toplogo"><img src="styles/images/logo.png" width="230" height="42" border="0"></td>
+        <td height="50"  class="toplogo"><img src="styles/images/logo.png" width="230" height="42" border="0"></td>
       </tr>
       <tr>
         <td height="200"><table width="100%" border="0" cellspacing="0" cellpadding="0">

@@ -11,7 +11,7 @@ String success = (String)request.getAttribute("success"); %>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GBK" />
 <link rel="stylesheet" type="text/css" href="includes/style.css"  >
-<title>HI Java快速开发平台</title>
+<title>会员服务平台</title>
 <style type="text/css">
 <!--
 body {
