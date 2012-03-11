@@ -60,14 +60,14 @@ function checkForm( ){
             <td width="351" height="115" background="styles/images/login_05.gif">&nbsp;</td>
             <td width="314" background="styles/images/login_06.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="26%" height="22"><div align="right"><span class="STYLE1">管理员姓名：</span></div></td>
+                <td width="26%" height="22"><div align="right"><span class="STYLE1">用户名：</span></div></td>
                 <td width="36%" height="22"><div align="center">
                   <input type="text" id="j_username" name="j_username" <c:if test="${not empty param.login_error}">value="<%= session.getAttribute(AuthenticationProcessingFilter.ACEGI_SECURITY_LAST_USERNAME_KEY) %>"</c:if> style="width:105px; height:17px; background-color:#292929; border:solid 1px #7dbad7; font-size:12px; color:#6cd0ff">
                 </div></td>
                 <td width="38%" height="22">&nbsp;</td>
               </tr>
               <tr>
-                <td height="22"><div align="right"><span class="STYLE1">管理员密码：</span></div></td>
+                <td height="22"><div align="right"><span class="STYLE1">用户密码：</span></div></td>
                 <td height="22"><div align="center">
                   <input type="password" id="j_password" name="j_password" style="width:105px; height:17px; background-color:#292929; border:solid 1px #7dbad7; font-size:12px; color:#6cd0ff">
                 </div></td>
