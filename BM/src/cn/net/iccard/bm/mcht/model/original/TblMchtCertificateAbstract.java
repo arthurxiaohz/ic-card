@@ -10,8 +10,8 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-import cn.net.iccard.bm.mcht.model.TblMchtCertificate;
 import cn.net.iccard.bm.mcht.model.TblMchtInfo;
+import cn.net.iccard.bm.mcht.model.TblMchtCertificate;
 import org.hi.base.organization.model.HiUser;
 
 public abstract class TblMchtCertificateAbstract extends BaseObject implements Serializable{
