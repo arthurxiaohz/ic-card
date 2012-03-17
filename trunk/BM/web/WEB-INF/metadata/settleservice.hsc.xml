@@ -1313,7 +1313,7 @@
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
             <validator></validator>  
-            <length>11</length>
+            <length>17</length>
             <scale></scale>
                         <isParent>false</isParent>
             <fieldType>1</fieldType>
