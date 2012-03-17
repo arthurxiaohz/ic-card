@@ -10,8 +10,8 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-import cn.net.iccard.bm.mcht.model.TblMchtInfo;
 import cn.net.iccard.bm.mcht.model.TblMchtFeeConfig;
+import cn.net.iccard.bm.mcht.model.TblMchtInfo;
 import org.hi.base.organization.model.HiUser;
 
 public abstract class TblMchtFeeConfigAbstract extends BaseObject implements Serializable{
