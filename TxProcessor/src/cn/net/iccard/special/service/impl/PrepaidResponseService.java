@@ -125,7 +125,7 @@ public class PrepaidResponseService implements IPrepaidResponseService {
 		//tblTxPayMentOrder.setVoucherNo(transferResponse.getVoucherNo());
 		tblTxPayMentOrderManagerImpl.saveTblTxPayMentOrder(tblTxPayMentOrder);
 		
-		/*
+		
 		//组装返回
 		 StringBuffer tPlain = new StringBuffer(400);
 		 tPlain.append("PlTxTraceNo="+tblTxPayMentOrder.getPlTxTraceNo()+"|"+
@@ -140,7 +140,7 @@ public class PrepaidResponseService implements IPrepaidResponseService {
 		
 		 
 		 String sendMsg = Base64.encode(tPlain.toString().getBytes("UTF-8"));
-		 
+		 /*
 		//记录商户响应信息表
 		 TblTxPayMentResponse  tblTxPayMentResponse= new  TblTxPayMentResponse();
 			
@@ -170,33 +170,38 @@ public class PrepaidResponseService implements IPrepaidResponseService {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+			*/
+		if(tblTxPayMentOrder.getNotifyUrl()!= null &&!tblTxPayMentOrder.getNotifyUrl().equals("")){
 			
-if(tblTxPayMentOrder.getNotifyUrl()!= null &&!tblTxPayMentOrder.getNotifyUrl().equals("")){
-			
-			//Properties tInputParams = new Properties();
+			Properties tInputParams = new Properties();
 			
 			// 取得组织银行报文的银行服务类
-//			BankComService tBankCom = new BankComService();
-//			
-//			tInputParams.setProperty("Version", "V1.0");
-//		    tInputParams.setProperty("TxType", tblTxPayMentOrder.getTxTypeId());
-//		    tInputParams.setProperty("TxInfo",sendMsg);
-//		    tInputParams.setProperty("Signature","");			//TODO 签名
+			BankComService tBankCom = new BankComService();
+			
+			tInputParams.setProperty("Version", "V1.0");
+		    tInputParams.setProperty("TxType", tblTxPayMentOrder.getTxTypeId());
+		    tInputParams.setProperty("TxInfo",sendMsg);
+		    tInputParams.setProperty("Signature","");			//TODO 签名
 		    
+			/*
 		    StringBuffer s = new StringBuffer("");
 		    
 		    s.append("  <input type=\"hidden\" name=\"").append("Version").append("\" value=\"").append("V1.0").append("\">");
 		    s.append("  <input type=\"hidden\" name=\"").append("TxType").append("\" value=\"").append(tblTxPayMentOrder.getTxTypeId()).append("\">");
 		    s.append("  <input type=\"hidden\" name=\"").append("TxInfo").append("\" value=\"").append(sendMsg).append("\">");
 		    s.append("  <input type=\"hidden\" name=\"").append("Signature").append("\" value=\"").append("").append("\">");
-
+*/
 	        // 组成没有name属性,没有ID属性的form表单
-	        //StringBuffer tFormBuffer = tBankCom.buildForm(tblTxPayMentOrder.getNotifyUrl(), tInputParams);
+	        StringBuffer tFormBuffer = tBankCom.buildForm(tblTxPayMentOrder.getNotifyUrl(), tInputParams);
 			
+	        pageRequest.getSession(true).setAttribute("formname", "form1");
+	        pageRequest.getSession(true).setAttribute("formcontents", tFormBuffer.toString());
+	        //pageRequest.setAttribute("formname", "form1");
+	        //pageRequest.setAttribute("formcontents", tFormBuffer.toString());
 			//将浏览器导向商户接收交易结果地址
-	        NotifyService.redirect(response , tblTxPayMentOrder.getNotifyUrl() , s.toString());	
+	        //NotifyService.redirect(response , tblTxPayMentOrder.getNotifyUrl() , tFormBuffer.toString());	
 		}
-		*/
+		
 		return "success";
 		
 	}

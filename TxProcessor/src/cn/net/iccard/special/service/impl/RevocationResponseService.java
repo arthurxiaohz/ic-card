@@ -62,8 +62,8 @@ public class RevocationResponseService implements IRevocationResponseService {
 
 		//修改对应交易记录状态    
 		//先查询支付订单表
-		System.out.println(pageRequest.getParameter("orderId"));
-	    TblTxPayMentOrder tblTxPayMentOrder  = (TblTxPayMentOrder) tblTxPayMentOrderManagerImpl.getObjectById(pageRequest.getParameter("orderId"));
+		System.out.println(pageRequest.getParameter("tblTxPayMentOrder.id"));
+	    TblTxPayMentOrder tblTxPayMentOrder  = (TblTxPayMentOrder) tblTxPayMentOrderManagerImpl.getObjectById(pageRequest.getParameter("tblTxPayMentOrder.id"));
 		
 		//更新支付订单表
 		String PlTxTime = DateTimeUtil.getCurrDateTime();
@@ -93,7 +93,7 @@ public class RevocationResponseService implements IRevocationResponseService {
 		mchtfilter.addCondition("accountPartyType", AccountPartyType.ACCOUNTPARTYTYPE_MEMBER, Filter.OPERATOR_EQ)
 					.addCondition("AccountCatalog", AccountCatalog.ACCOUNTCATALOG_GUARANTEEACCOUNT, Filter.OPERATOR_EQ);
 		
-		List<ActAccount> mchtActAccountList  = tblMchtInfoMan.getObjects(mchtfilter);	
+		List<ActAccount> mchtActAccountList  = actAccountMan.getObjects(mchtfilter);	
 		
 		ActAccount mchtActAccount = (ActAccount)mchtActAccountList.get(0);		//会员担保账户
 		
@@ -101,7 +101,7 @@ public class RevocationResponseService implements IRevocationResponseService {
 		memberfilter.addCondition("accountPartyType", AccountPartyType.ACCOUNTPARTYTYPE_MEMBER, Filter.OPERATOR_EQ)
 					.addCondition("AccountCatalog", AccountCatalog.ACCOUNTCATALOG_VIRTUALACCOUNT, Filter.OPERATOR_EQ);
 		
-		List<ActAccount> memberActAccountList  = tblMchtInfoMan.getObjects(memberfilter);	
+		List<ActAccount> memberActAccountList  = actAccountMan.getObjects(memberfilter);	
 		
 		ActAccount memberActAccount = (ActAccount)memberActAccountList.get(0);		//会员虚拟账户
 		

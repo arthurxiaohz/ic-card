@@ -196,7 +196,7 @@ public class PayResponseService implements IPayResponseService {
 		tblStlCleaningDetail.setMchtSettleAmount(tblTxPayMentOrder.getOrderAmount()-mchtFee);
 		tblStlCleaningDetail.setTransTime(tblTxPayMentOrder.getPlTxTime());		//交易完成时间
 		tblStlCleaningDetail.setUserName(tblTxPayMentOrder.getUserName());
-	//	tblStlCleaningDetail.setBalance(point);			//积分
+		tblStlCleaningDetail.setBalance(point);			//积分
 		tblStlCleaningDetail.setMchtNo(tblTxPayMentOrder.getMchtNo());
 		tblStlCleaningDetail.setMchtName(tblTxPayMentOrder.getMchtName());
 		tblStlCleaningDetail.setFee(mchtFee);			//手续费

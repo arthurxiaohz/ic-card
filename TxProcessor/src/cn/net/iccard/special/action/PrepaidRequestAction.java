@@ -60,11 +60,13 @@ public class PrepaidRequestAction extends BaseAction{
 		  byte[] tPlainByBase64 = Base64.decode(msg);
 	        msg = new String(tPlainByBase64,"UTF-8");
 		
+	        System.out.println(msg);
 		// 解析银行回应交易结果字段
         String[] tPlainStr = StringUtil.split(msg, "|");
         Properties tBankPlain = new Properties();
         String[] tStrTemp = null;
         for (int i = 0; i < tPlainStr.length; i++) {
+        	System.out.println(tPlainStr[i]);
             tStrTemp = StringUtil.split(tPlainStr[i], "=");
             tBankPlain.setProperty(tStrTemp[0], tStrTemp[1]);
         }
@@ -193,7 +195,7 @@ public class PrepaidRequestAction extends BaseAction{
 			TblTxPayMentOrderMan.saveTblTxPayMentOrder(TblTxPayMentOrder);
 			
 			//4.保存session
-			request.getSession(true).setAttribute("plTxTraceNo", plTxTraceNo);
+			request.getSession(true).setAttribute("id", TblTxPayMentOrder.getId());
 		}else if(TxType.equals("TX23")){
 			
 			//退款
@@ -428,7 +430,7 @@ public class PrepaidRequestAction extends BaseAction{
 		HttpServletRequest request = getRequest();
 		HttpServletResponse response = getResponse();
 		
-		prepaidResponseService.savePrepaidResponse(request, response);
+		String return1  = prepaidResponseService.savePrepaidResponse(request, response);
 		
 		return returnCommand();
 	}

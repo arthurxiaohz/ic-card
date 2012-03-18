@@ -32,7 +32,9 @@ import cn.net.iccard.bm.accounting.model.ActAccount;
 import cn.net.iccard.bm.accounting.service.ActAccountManager;
 import cn.net.iccard.bm.mcht.model.MchtFeeType;
 import cn.net.iccard.bm.mcht.model.TblMchtFeeConfig;
+import cn.net.iccard.bm.mcht.model.TblMchtInfo;
 import cn.net.iccard.bm.mcht.service.TblMchtFeeConfigManager;
+import cn.net.iccard.bm.mcht.service.TblMchtInfoManager;
 import cn.net.iccard.bm.settleservice.model.TblStlCleaningDetail;
 import cn.net.iccard.bm.settleservice.service.TblStlCleaningDetailManager;
 
@@ -82,14 +84,16 @@ public class BackResponseService implements IBackResponseService {
 	
 	//hiuser
 	HiUserManager hiMan = (HiUserManager)SpringContextHolder.getBean(HiUser.class);
+	
+	TblMchtInfoManager  tblMchtInfoMan = (TblMchtInfoManager)SpringContextHolder.getBean(TblMchtInfo.class);
 
 	public String saveBackResponse(
 			HttpServletRequest  pageRequest,HttpServletResponse response) throws Exception {
 		
-		System.out.println(pageRequest.getParameter("orderId"));
+		System.out.println(pageRequest.getParameter("tblTxPayMentOrder.id"));
 		//修改对应交易记录状态    
 		//先查询支付订单表
-	    TblTxPayMentOrder tblTxPayMentOrder  = (TblTxPayMentOrder) tblTxPayMentOrderManagerImpl.getObjectById(pageRequest.getParameter("orderId"));
+	    TblTxPayMentOrder tblTxPayMentOrder  = (TblTxPayMentOrder) tblTxPayMentOrderManagerImpl.getObjectById(pageRequest.getParameter("tblTxPayMentOrder.id"));
 		
 		//更新支付订单表
 		String PlTxTime = DateTimeUtil.getCurrDateTime();
@@ -124,7 +128,14 @@ public class BackResponseService implements IBackResponseService {
 		tblTxPayMentOrderManagerImpl.saveTblTxPayMentOrder(lastOrder);
 		
 		//查询商户手续费配置表
-		Filter filter = FilterFactory.getSimpleFilter("mchtNo", tblTxPayMentOrder.getMchtNo(), Filter.OPERATOR_EQ);
+		Filter filterno = FilterFactory.getSimpleFilter("mchtNo", tblTxPayMentOrder.getMchtNo(), Filter.OPERATOR_EQ);
+
+		List<TblMchtInfo> tblMchtInfoList  = tblMchtInfoMan.getObjects(filterno);
+		
+		TblMchtInfo tblmchtinfo = (TblMchtInfo)tblMchtInfoList.get(0);
+		
+		
+		Filter filter = FilterFactory.getSimpleFilter("tblMchtInfo", tblmchtinfo.getId(), Filter.OPERATOR_EQ);
 
 		List<TblMchtFeeConfig> tblMchtFeeList  = tblMchtFeeConfigMan.getObjects(filter);
 		
@@ -170,7 +181,7 @@ public class BackResponseService implements IBackResponseService {
 		TblStlCleaningDetail tblStlCleaningDetail = new TblStlCleaningDetail();
 		tblStlCleaningDetail.setPlTxTraceNo(tblTxPayMentOrder.getPlTxTraceNo());
 		tblStlCleaningDetail.setMchtOrderId(tblTxPayMentOrder.getMchtTxTraceNo());
-		tblStlCleaningDetail.setRefundOrderId(lastOrder.getMchtTxTraceNo());
+		tblStlCleaningDetail.setRefundOrderId(lastOrder.getPlTxTraceNo());
 		tblStlCleaningDetail.setRefundOrderAmt(tblTxPayMentOrder.getOrderAmount());
 		
 		//tblStlCleaningDetail.setOrderAmount(tblTxPayMentOrder.getOrderAmount());
@@ -194,17 +205,19 @@ public class BackResponseService implements IBackResponseService {
 		//tblStlCleaningDetail.setPayAmount(tblTxPayMentOrder.getPayAmount());
 		tblStlCleaningDetailMan.saveTblStlCleaningDetail(tblStlCleaningDetail);
 	
+		/*
 		//查询id
 		Filter cleanfilter = FilterFactory.getSimpleFilter("plTxTraceNo", tblStlCleaningDetail.getPlTxTraceNo(), Filter.OPERATOR_GREATER_EQ);
 		
 		List<TblStlCleaningDetail> cleanList  = tblStlCleaningDetailMan.getObjects(cleanfilter);
 		
 		TblStlCleaningDetail cleanDetail = (TblStlCleaningDetail)cleanList.get(0);
-		 
+		 */
 		//调用账户系统
 		RefundClearingAccountRequest refundClearingAccountRequest = new RefundClearingAccountRequest();
-		refundClearingAccountRequest.setAmount(tblStlCleaningDetail.getPayAmount());
-		refundClearingAccountRequest.setBizLogId(cleanDetail.getId());
+		//refundClearingAccountRequest.setAmount(tblStlCleaningDetail.getPayAmount());
+		refundClearingAccountRequest.setAmount(oldClean.getOrderAmount());
+		refundClearingAccountRequest.setBizLogId(tblStlCleaningDetail.getId());
 		refundClearingAccountRequest.setMchtFee(oldClean.getFee());
 		refundClearingAccountRequest.setMchtNo(tblStlCleaningDetail.getMchtNo());
 		refundClearingAccountRequest.setMchtOrderAmount(oldClean.getOrderAmount());
@@ -216,9 +229,9 @@ public class BackResponseService implements IBackResponseService {
 		refundClearingAccountRequest.setFeeReturn(flag);
 		ICommonAccountResponse accountResponse = ClearingAccountService.doRefundAccountClearing(refundClearingAccountRequest);
 		
-		if(!accountResponse.getRespCode().equals(EAccountResponse.S0000)){
-			throw new Exception("账户处理失败");
-		}
+//		if(!accountResponse.getRespCode().equals(EAccountResponse.S0000)){
+//			throw new Exception("账户处理失败");
+//		}
 		/*
 		//组装返回
 		 StringBuffer tPlain = new StringBuffer(400);
