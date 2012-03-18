@@ -10,7 +10,7 @@ CREATE TABLE Tbl_Stl_Cleaning_Detail (
     lastUpdatedBy int  NOT NULL,
     orderAmount int   NULL,
     transTime nvarchar (14)  NULL,
-    refundOrderId nvarchar (30)  NULL,
+    refundOrderId nvarchar (50)  NULL,
     refundOrderAmt int   NULL,
     refundAmt int   NULL,
     refundFee int   NULL,
@@ -27,43 +27,6 @@ CREATE TABLE Tbl_Stl_Cleaning_Detail (
     fee int   NULL,
     creator int  NULL,
     deleted int   NULL,
-    primary key (id));
---
-
-DROP TABLE IF EXISTS Tbl_Stl_Settle_Apply;
---
-CREATE TABLE Tbl_Stl_Settle_Apply (
-    id int auto_increment NOT NULL ,
-    version int NOT NULL ,
-    tblMchtInfo int  NULL,
-    availableBalance int   NULL,
-    amount int   NULL,
-    settleApplyStatus int   NULL,
-    auditOpinion text   NULL,
-    remark nvarchar (200)  NULL,
-    tblStlSettleBatch int  NULL,
-    createdDateTime datetime   NULL,
-    lastUpdatedDatetime datetime   NULL,
-    lastUpdatedBy int  NULL,
-    creator int  NULL,
-    primary key (id));
---
-
-DROP TABLE IF EXISTS Tbl_Stl_Settle_Batch;
---
-CREATE TABLE Tbl_Stl_Settle_Batch (
-    id int auto_increment NOT NULL ,
-    version int NOT NULL ,
-    settleBatchNo nvarchar (11)  NULL,
-    settleDate datetime   NULL,
-    totalCount int   NULL,
-    totalAmount int   NULL,
-    settleBatchStatus int   NULL,
-    remark text   NULL,
-    createdDateTime datetime   NULL,
-    lastUpdatedDatetime datetime   NULL,
-    lastUpdatedBy int  NULL,
-    creator int  NULL,
     primary key (id));
 --
 

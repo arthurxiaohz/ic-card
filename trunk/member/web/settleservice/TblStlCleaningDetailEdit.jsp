@@ -37,7 +37,7 @@
 			<dt><hi:text key="交易时间" entity="TblStlCleaningDetail"/>：</dt><dd><input type="text" name="tblStlCleaningDetail.transTime" class="textInput" value="${tblStlCleaningDetail.transTime}" maxlength="14"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="退款原始订单" entity="TblStlCleaningDetail"/>：</dt><dd><input type="text" name="tblStlCleaningDetail.refundOrderId" class="textInput" value="${tblStlCleaningDetail.refundOrderId}" maxlength="30"/></dd>
+			<dt><hi:text key="退款原始订单" entity="TblStlCleaningDetail"/>：</dt><dd><input type="text" name="tblStlCleaningDetail.refundOrderId" class="textInput" value="${tblStlCleaningDetail.refundOrderId}" maxlength="50"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="退款订单原始交易金额" entity="TblStlCleaningDetail"/>：</dt><dd><input type="text" name="tblStlCleaningDetail.refundOrderAmt" class="textInput integer" value="${tblStlCleaningDetail.refundOrderAmt}" alt="<hi:text key="请输入整数"/>"/></dd>
