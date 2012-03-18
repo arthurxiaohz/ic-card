@@ -198,7 +198,7 @@ function changeToClick()
 							</div>
 	<div class="formBar">
 		<ul>
-			<li><div class="buttonActive"><div class="buttonContent"><button type="submit"><hi:text key="保存"/></button></div></div></li>
+			<li><div class="buttonActive"><div class="buttonContent"><button type="submit"><hi:text key="支付"/></button></div></div></li>
 			<li><div class="button"><div class="buttonContent"><button class="close" type="button"><hi:text key="关闭"/></button></div></div></li>
 		</ul>
 	</div>  
