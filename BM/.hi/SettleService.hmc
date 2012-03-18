@@ -213,7 +213,7 @@
         <org.hi.studio.hsceditor.visual.model.ColumnModel>
           <columnName>refundOrderId</columnName>
           <logicalName>column15</logicalName>
-          <size>30</size>
+          <size>50</size>
           <scale></scale>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
