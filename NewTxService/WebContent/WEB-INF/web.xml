@@ -8,6 +8,12 @@
         <servlet-class>cn.net.iccard.txsimulator.TxControl</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>BackTxControl</servlet-name>
+        <display-name>BackTxControl</display-name>
+        <servlet-class>cn.net.iccard.txsimulator.BackTxControl</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
      <servlet>
         <servlet-name>BankTxControl</servlet-name>
         <display-name>BankTxControl</display-name>
@@ -17,6 +23,10 @@
      <servlet-mapping>
         <servlet-name>TxControl</servlet-name>
         <url-pattern>/TxControl</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>BackTxControl</servlet-name>
+        <url-pattern>/BackTxControl</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BankTxControl</servlet-name>

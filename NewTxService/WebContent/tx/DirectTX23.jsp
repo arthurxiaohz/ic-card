@@ -90,63 +90,19 @@ function javaTrim(string)
 
 
 function goProcess(){
-	   
-var CertificateNo = document.f.CertificateNo.value;	   
-var CertificateTypeID = document.f.CertificateTypeID.value;	   
+ 
 
 
-if(!checkspace(document.f.AllinpayNo.value)){
 	
-	if(javaTrim(document.f.MchtTxTraceNo.value)==''){
-		alert("请填写商户流水号");
-		document.f.MchtTxTraceNo.focus();
-		return false;
-	}
-	if(javaTrim(document.f.OrigMchtTxTraceNo.value)==''){
-		alert("请填写商户流水号");
-		document.f.MchtTxTraceNo.focus();
-		return false;
-	}
-	
-	if(javaTrim(document.f.TxAmount.value)==''){
-		alert("请填写交易金额");
-		return false;
-	}
-	
-		if(javaTrim(document.f.MerchantNo.value)==''){
-		alert("请填写商户代码");
-		return false;
-	}
-	
-	if(javaTrim(document.f.TxDate.value)==''){
-		alert("请填写交易日期");
-		return false;
-	}
-	
-	if(javaTrim(document.f.TxTime.value)==''){
-		alert("请填写交易时间");
-		return false;
-	}
-	
-	if(javaTrim(document.f.OrigTxDate.value)==''){
-		alert("请填写交易日期");
-		return false;
-	}
-	
-	if(javaTrim(document.f.OrigTxTime.value)==''){
-		alert("请填写交易时间");
-		return false;
-	}
 	
 
-
-}
-    
     f.submit();
 }
 
 	function goback(){
-	    f.action="../index.jsp";
+	
+	 f.action="tx/TX23.jsp";
+	   
 	    f.submit();
 	}
 	
@@ -174,32 +130,35 @@ if(!checkspace(document.f.AllinpayNo.value)){
          <td valign="top" class="nav_head" height="20"></td>
       </tr>
       <tr class="content-area">
-      <td valign="top" height="350" align="center">
-      <form action="<%=request.getContextPath()%>/TxControl" name="f" method="post">
+         <td valign="top" height="350" align="center">
+         <%-- tpl:put name="bodyarea" --%>
+			<form action="<%=request.getAttribute("SERVER_URL")%>" name="f" method="post">
                 <br>
-                <p align="center"><b>退款（TX23）</b></p>
+                <p align="center"><b>退款确认页面（TX23）</b></p>
 				<table cellspacing="2" cellpadding="2" border="1" style="font-size:12px" bordercolor="#808080">
 					<tr bgcolor="#8080FF"><td align="center" style="font-size:14px" height="25"><b>字段名</b></td><td align="center" style="font-size:14px"><b>字段值</b></td><td align="center" style="font-size:14px"><b>字段说明</b></td></tr>
 					<tr><td width="150"><b>报文版本</b></td><td><input type="hidden" name="Version" size="50" value="1.0"> <input type="Text" name="Version" size="50" value="1.0" disabled></td> <td>报文版本</td></tr>
 					<tr><td><b>交易类型 </b></td><td> <input type="hidden" name="TxType" size="50" value="TX23"> <input type="Text" name="TxType" size="50" value="TX23" disabled></td> <td>交易类型：TX23</td></tr>
-					<tr><td><b>商户号</b></td><td> <input type="Text" name="MerchantNo" size="50" value="100000000000000000"></td> <td></td></tr>
-                    <tr><td><b>交易日期</b></td><td> <input type="Text" name="TxDate" size="50" value="<%=cn.net.iccard.txsimulator.DateTimeUtil.getToday()%>"></td><td>交易发生时间(yyyyMMdd)</td></tr>
-                     <tr><td><b>交易时间</b></td><td> <input type="Text" name="TxTime" size="50" value="<%=cn.net.iccard.txsimulator.DateTimeUtil.getCurrDateTime().substring(8, 14)%>"></td><td>交易发生时间(HHmmss)</td></tr>
-                    <tr><td><b>原交易日期</b></td><td> <input type="Text" name="OrigTxDate" size="50" value="<%=cn.net.iccard.txsimulator.DateTimeUtil.getToday()%>"></td><td>交易发生时间(yyyyMMdd)</td></tr>
-                     <tr><td><b>原交易时间</b></td><td> <input type="Text" name="OrigTxTime" size="50" value="<%=cn.net.iccard.txsimulator.DateTimeUtil.getCurrDateTime().substring(8, 14)%>"></td><td>交易发生时间(HHmmss)</td></tr>
+					<tr><td><b>商户号</b></td><td> <input type="Text" name="MerchantNo" size="50" value="<%=request.getParameter("MerchantNo")%>" disabled></td> <td></td></tr>
+                  <tr><td><b>交易日期</b></td><td> <input type="Text"  name="TxDate" size="50" value="<%=request.getParameter("TxDate")%>" disabled></td><td>交易发生时间(yyyyMMdd)</td></tr>
+                     <tr><td><b>交易时间</b></td><td> <input type="Text" name="TxTime" size="50" value="<%=request.getParameter("TxTime")%>" disabled></td><td>交易发生时间(HHmmss)</td></tr>
+                          <tr><td><b>原交易日期</b></td><td> <input type="Text" name="OrigTxDate" size="50" value="<%=request.getParameter("OrigTxDate")%> " disabled></td><td>交易发生时间(yyyyMMdd)</td></tr>
+                     <tr><td><b>原交易时间</b></td><td> <input type="Text" name="OrigTxTime" size="50" value="<%=request.getParameter("OrigTxTime")%> " disabled> </td><td>交易发生时间(HHmmss)</td></tr>
                    
-                    <tr><td><b>商户交易流水号</b></td><td><input type="Text" name="MchtTxTraceNo" size="50" value="<%=cn.net.iccard.txsimulator.GUID.generateGUID()%>"></td><td>商户交易流水号(32位)</td></tr>
-                   		 <tr><td><b>原商户交易流水号</b></td><td><input type="Text" name="OrigMchtTxTraceNo" size="50" value="<%=cn.net.iccard.txsimulator.GUID.generateGUID()%>"></td><td>商户交易流水号(32位)</td></tr>
-                   					
-					<tr><td><b>交易金额</b></td><td> <input type="Text" name="TxAmount" size="50" value="2.00"></td><td>单位（元）</td></tr>
-					<tr><td><b>交易结果通知地址</b></td><td><input type="Text" name="NotifyURL" size="50" value="">	</td><td></td></tr>
-					<tr><td><b>交易结果后台通知地址</b></td><td> <input type="Text" name="BGNotifyURL" size="50" value=""></td><td></td></tr>
-					<tr><td><b>扩展域</b></td><td> <input type="Text" name="ExtendInfo" size="50" value=""></td><td></td></tr>
-               <tr><td><b>提交地址</b></td><td> <input type="Text" name="sendurl" size="50" value="http://localhost:8080/member/prepaidTxPayMentOrderList.action"></td><td></td></tr>
+                    <tr><td><b>商户交易流水号</b></td><td><input type="Text" name="MchtTxTraceNo" size="50" value="<%=request.getParameter("OrigTxTime")%>" disabled></td><td>商户交易流水号(32位)</td></tr>
+                   		 <tr><td><b>原商户交易流水号</b></td><td><input type="Text" name="OrigMchtTxTraceNo" size="50" value="<%=request.getParameter("OrigTxTime")%>" disabled></td><td>商户交易流水号(32位)</td></tr>
+                   										
+					<tr><td><b>交易金额</b></td><td> <input type="Text" name="TxAmount" size="50" value="<%=request.getParameter("TxAmount")%>" disabled></td><td>单位（元）</td></tr>
+					<tr><td><b>交易结果通知地址</b></td><td><input type="Text" name="NotifyURL" size="50" value="<%=request.getParameter("NotifyURL")%>" disabled>	</td><td></td></tr>
+					<tr><td><b>交易结果后台通知地址</b></td><td> <input type="Text" name="BGNotifyURL" size="50" value="<%=request.getParameter("BGNotifyURL")%>" disabled></td><td></td></tr>
+					<tr><td><b>扩展域</b></td><td> <input type="Text" name="ExtendInfo" size="50" value="<%=request.getParameter("ExtendInfo")%>" disabled></td><td></td></tr>
+               		<tr><td><b>提交地址</b></td><td> <input type="Text" name="sendurl" size="50" value="<%=request.getParameter("sendurl")%>" disabled></td><td></td></tr>
                		
                 </table>
                 <br>
-                <input type="hidden" name="TxTypeName" value="撤销">
+              
+                <input type="hidden" name="TxInfo" value="<%=request.getAttribute("TxInfo")%>">
+                <input type="hidden" name="Signature" value="<%=request.getAttribute("Signature")%>">
                 <input type="submit" value="  提交  " onClick="goProcess();return false;">&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="submit" value="  返回  " onClick="return goback();">
 			</form>

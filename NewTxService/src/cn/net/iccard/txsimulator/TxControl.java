@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.FactoryConfigurationError;
+
 
 
 
@@ -27,7 +29,7 @@ public class TxControl extends HttpServlet {
 	// ================================================================================================================================
 	// 下面的常量设置用于用户页面重定向
 	// Html头
-	public static final String sHTMLS = "<html><head></head><body OnLoad=\"OnLoadEvent();\" >";
+	public static final String sHTMLS = "<html><head></head><body OnLoad=\"document.downloadForm.submit();\" >";
 	// 第一个Form，将来可以在页面中添加提示信息
 	public static final String sFORM1S = "<form name='processing' >";
 	public static final String sFORM1E = "</form>";
@@ -54,7 +56,7 @@ public class TxControl extends HttpServlet {
         System.out.println("get transaction process object......");
         System.out.println("TxType=[" + req.getParameter("TxType") + "]");
         System.out.println("TxTraceNo=[" + req.getParameter("TxTraceNo") + "]");
-        System.out.println("TxTypeName=[" + new String(req.getParameter("TxTypeName").getBytes("UTF-8")) + "]");
+        //System.out.println("TxTypeName=[" + new String(req.getParameter("TxTypeName").getBytes("UTF-8")) + "]");
       
         //组装提交
         StringBuffer tPlain = new StringBuffer(400);
@@ -101,29 +103,27 @@ public class TxControl extends HttpServlet {
         }
         
         String sendMsg = Base64.encode(tPlain.toString().getBytes("UTF-8"));
-    	Properties tInputParams = new Properties();
-		
+    	//Properties tInputParams = new Properties();
+        System.out.println(tPlain.toString());
 		// 取得组织银行报文的银行服务类
-		BankComService tBankCom = new BankComService();
 		
-		tInputParams.setProperty("Version", "V1.0");
-	    tInputParams.setProperty("TxType", req.getParameter("TxType"));
-	    tInputParams.setProperty("TxInfo",sendMsg);
-	    tInputParams.setProperty("Signature","");			//TODO 签名
         // 组成没有name属性,没有ID属性的form表单
         //StringBuffer tFormBuffer = tBankCom.buildForm(req.getParameter("sendurl") , tInputParams);
 		
-	    StringBuffer s = new StringBuffer("");
-	    
-	    s.append("  <input type=\"hidden\" name=\"").append("Version").append("\" value=\"").append("V1.0").append("\">");
-	    s.append("  <input type=\"hidden\" name=\"").append("TxType").append("\" value=\"").append(req.getParameter("TxType")).append("\">");
-	    s.append("  <input type=\"hidden\" name=\"").append("TxInfo").append("\" value=\"").append(sendMsg).append("\">");
-	    s.append("  <input type=\"hidden\" name=\"").append("Signature").append("\" value=\"").append("").append("\">");
-        System.out.println(s.toString());
-        System.out.println( req.getParameter("sendurl"));
+	   // StringBuffer s = new StringBuffer("");
+//        req.setAttribute("", arg1);
+//        req.setAttribute("", arg1);
+        
+        req.setAttribute("TxInfo",  sendMsg);
+        req.setAttribute("Signature",  "");
+        req.setAttribute("SERVER_URL", req.getParameter("sendurl"));
+        RequestDispatcher rd =req.getRequestDispatcher("tx/Direct"+req.getParameter("TxType")+".jsp");
+    	rd.forward(req, res);
+//        System.out.println(s.toString());
+//        System.out.println( req.getParameter("sendurl"));
         
 		//将浏览器导向商户接收交易结果地址
-        redirect(res , req.getParameter("sendurl") , s.toString());	
+      //  redirect(res , req.getParameter("sendurl") , s.toString());	
         
     }
     
