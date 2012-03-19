@@ -210,7 +210,7 @@ public class AccountTxService implements IAccountTxService {
 								BizType.BIZTYPE_PREPAID).addCondition(
 								"bizLogId",
 								accountPayableCancelTransferRequest
-										.getBizLogId())).get(0);
+										.getRelatedBizLogId())).get(0);
 		TblActAccountDetail tblActAccountDetail = (TblActAccountDetail) tblActAccountDetailMgr
 				.getObjects(
 						FilterFactory.getSimpleFilter("voucherType",
