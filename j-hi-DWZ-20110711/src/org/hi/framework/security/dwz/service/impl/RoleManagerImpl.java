@@ -26,11 +26,11 @@ public class RoleManagerImpl extends org.hi.framework.security.service.impl.Role
 			{
 				if (userRole.getSecurityUser() == null )
 					continue;
-				// 如果在选中的用户当中就删除
+				// 如果不在选中的用户当中就删除
 				if (!existIn(users,userRole.getSecurityUser().getId() ))
 				{
 					userRoleMgr.removeObject(userRole);
-				}else// 如果在选中当中就将选中用户的List中删除这个记录
+				}else// 如果在选中的用户当中就将选中用户从List中删除这个记录
 				{ 
 					removeFormList(users,userRole.getSecurityUser().getId());
 				}
