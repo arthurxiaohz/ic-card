@@ -2,6 +2,7 @@ package cn.net.iccard.special.action;
 
 
 import java.math.BigDecimal;
+import java.security.MessageDigest;
 import java.sql.Timestamp;
 import java.util.Properties;
 
@@ -35,6 +36,8 @@ public class PrepaidRequestAction extends BaseAction{
 	private IPrepaidResponseService prepaidResponseService = (IPrepaidResponseService) SpringContextHolder
 	.getBean(PrepaidResponseService.class);
 	
+	public static final String Key = "1234567890";
+	
 	//接收商户请求处理
 	public String getMchtRequest() throws Exception {
 		
@@ -60,6 +63,14 @@ public class PrepaidRequestAction extends BaseAction{
 		  byte[] tPlainByBase64 = Base64.decode(msg);
 	        msg = new String(tPlainByBase64,"UTF-8");
 		
+	    String md5Msg =  msg+"|Key="+Key;
+	    String sendMsg1 = Base64.encode(md5Msg.getBytes("UTF-8"));
+	    String SignaturePl = MD5Encode(sendMsg1.toString());
+	    
+	    if(!SignaturePl.equals(Signature)){
+	    	throw new Exception("验签失败");
+	    }
+	        
 	        System.out.println(msg);
 		// 解析银行回应交易结果字段
         String[] tPlainStr = StringUtil.split(msg, "|");
@@ -435,4 +446,28 @@ public class PrepaidRequestAction extends BaseAction{
 		return returnCommand();
 	}
 	
+	
+	public static String MD5Encode(String aData) throws SecurityException {
+		String resultString = null;
+        try {
+        	MessageDigest md = MessageDigest.getInstance("MD5");
+            resultString = bytes2HexString(md.digest(aData.getBytes("UTF-8")));
+        } catch (Exception e) {
+        	e.printStackTrace();
+			throw new SecurityException("MD5运算失败");
+        }
+        return resultString;
+	}
+        
+        public static String bytes2HexString(byte[] b) {
+    		String ret = "";
+    		for (int i = 0; i < b.length; i++) {
+    			String hex = Integer.toHexString(b[i] & 0xFF);
+    			if (hex.length() == 1) {
+    				hex = '0' + hex;
+    			}
+    			ret += hex.toUpperCase();
+    		}
+    		return ret;
+    	}
 }

@@ -199,7 +199,7 @@ public class PrepaidResponseService implements IPrepaidResponseService {
 	        //pageRequest.setAttribute("formname", "form1");
 	        //pageRequest.setAttribute("formcontents", tFormBuffer.toString());
 			//将浏览器导向商户接收交易结果地址
-	        //NotifyService.redirect(response , tblTxPayMentOrder.getNotifyUrl() , tFormBuffer.toString());	
+	       // NotifyService.redirect(response , tblTxPayMentOrder.getNotifyUrl() , tFormBuffer.toString());	
 		}
 		
 		return "success";
