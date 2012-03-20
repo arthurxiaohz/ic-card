@@ -1417,13 +1417,38 @@
                 <isParent>false</isParent>
               </org.hi.studio.hsceditor.visual.model.ColumnModel>
               <org.hi.studio.hsceditor.visual.model.ColumnModel>
+                <columnName>signType</columnName>
+                <logicalName>column8</logicalName>
+                <size></size>
+                <scale></scale>
+                <notNull>false</notNull>
+                <primaryKey>false</primaryKey>
+                <description>签名方式</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+                <mainEntityName></mainEntityName>
+                <hiValidator></hiValidator>
+                <lkServiceName></lkServiceName>
+                <lkEntityName>SignType</lkEntityName>
+                <lkFieldName></lkFieldName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <hiDataType>7</hiDataType>
+                <isSearch>false</isSearch>
+                <isListDisplay>true</isListDisplay>
+                <isReadOnly>false</isReadOnly>
+                <isHidden>false</isHidden>
+                <isFull>false</isFull>
+                <isMainLookup>false</isMainLookup>
+                <isParent>false</isParent>
+              </org.hi.studio.hsceditor.visual.model.ColumnModel>
+              <org.hi.studio.hsceditor.visual.model.ColumnModel>
                 <columnName>md5</columnName>
                 <logicalName>column7</logicalName>
                 <size>30</size>
                 <scale></scale>
                 <notNull>false</notNull>
                 <primaryKey>false</primaryKey>
-                <description>md5值</description>
+                <description>MD5</description>
                 <autoIncrement>false</autoIncrement>
                 <defaultValue></defaultValue>
                 <mainEntityName></mainEntityName>
@@ -1512,31 +1537,6 @@
                 <isListDisplay>false</isListDisplay>
                 <isReadOnly>true</isReadOnly>
                 <isHidden>true</isHidden>
-                <isFull>false</isFull>
-                <isMainLookup>false</isMainLookup>
-                <isParent>false</isParent>
-              </org.hi.studio.hsceditor.visual.model.ColumnModel>
-              <org.hi.studio.hsceditor.visual.model.ColumnModel>
-                <columnName>signType</columnName>
-                <logicalName>column8</logicalName>
-                <size>30</size>
-                <scale></scale>
-                <notNull>false</notNull>
-                <primaryKey>false</primaryKey>
-                <description>签名方式</description>
-                <autoIncrement>false</autoIncrement>
-                <defaultValue></defaultValue>
-                <mainEntityName></mainEntityName>
-                <hiValidator></hiValidator>
-                <lkServiceName></lkServiceName>
-                <lkEntityName></lkEntityName>
-                <lkFieldName></lkFieldName>
-                <isLkForeignKey>false</isLkForeignKey>
-                <hiDataType>1</hiDataType>
-                <isSearch>false</isSearch>
-                <isListDisplay>true</isListDisplay>
-                <isReadOnly>false</isReadOnly>
-                <isHidden>false</isHidden>
                 <isFull>false</isFull>
                 <isMainLookup>false</isMainLookup>
                 <isParent>false</isParent>
@@ -2387,7 +2387,7 @@
       <isCreator>true</isCreator>
       <columns>
         <org.hi.studio.hsceditor.visual.model.EnumerationValueModel>
-          <enumValue>mD5</enumValue>
+          <enumValue>md5</enumValue>
           <enumLabel>MD5</enumLabel>
           <enumCode></enumCode>
           <columnName></columnName>
