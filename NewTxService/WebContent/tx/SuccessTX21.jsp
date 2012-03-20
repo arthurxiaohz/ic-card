@@ -165,32 +165,11 @@ function goProcess(){
          <%-- tpl:put name="bodyarea" --%>
 			<form action="<%=request.getContextPath()%>/TxControl" name="f" method="post">
                 <br>
-                <p align="center"><b>预支付（TX11）</b></p>
-				<table cellspacing="2" cellpadding="2" border="1" style="font-size:12px" bordercolor="#808080">
-					<tr bgcolor="#8080FF"><td align="center" style="font-size:14px" height="25"><b>字段名</b></td><td align="center" style="font-size:14px"><b>字段值</b></td><td align="center" style="font-size:14px"><b>字段说明</b></td></tr>
-					<tr><td width="150"><b>报文版本</b></td><td><input type="hidden" name="Version" size="50" value="1.0"> <input type="Text" name="Version" size="50" value="1.0" disabled></td> <td>报文版本</td></tr>
-					<tr><td><b>交易类型 </b></td><td> <input type="hidden" name="TxType" size="50" value="TX11"> <input type="Text" name="TxType" size="50" value="TX11" disabled></td> <td>交易类型：TX11</td></tr>
-					<tr><td><b>商户号</b></td><td> <input type="Text" name="MerchantNo" size="50" value="100000000000000000"></td> <td></td></tr>
-                    <tr><td><b>交易日期</b></td><td> <input type="Text" name="TxDate" size="50" value="<%=cn.net.iccard.txsimulator.DateTimeUtil.getToday()%>"></td><td>交易发生时间(yyyyMMdd)</td></tr>
-                     <tr><td><b>交易时间</b></td><td> <input type="Text" name="TxTime" size="50" value="<%=cn.net.iccard.txsimulator.DateTimeUtil.getCurrDateTime().substring(8, 14)%>"></td><td>交易发生时间(HHmmss)</td></tr>
-                   
-                    <tr><td><b>商户交易流水号</b></td><td><input type="Text" name="MchtTxTraceNo" size="50" value="<%=cn.net.iccard.txsimulator.GUID.generateGUID()%>"></td><td>商户交易流水号(32位)</td></tr>
-                    <tr><td><b>商品描述</b></td><td> <input type="Text" name="TxBody" size="50" value="baidu"></td><td></td></tr>
-					 <tr><td><b>商品展示url</b></td><td> <input type="Text" name="ShowUrl" size="50" value="http://www.baidu.com"></td><td></td></tr>
-					
-					<tr><td><b>交易金额</b></td><td> <input type="Text" name="TxAmount" size="50" value="2.00"></td><td>单位（元）</td></tr>
-					<tr><td><b>是否使用优惠券</b></td><td> <input type="Text" name="UseCoupon" size="50" value="2"></td><td>1：使用 2：不使用</td></tr>
-					<tr><td><b>可以使用的优惠券</b></td><td> <input type="Text" name="CouponMsg" size="50" value=""></td><td></td></tr>
-					<tr><td><b>不可以使用的优惠券</b></td><td> <input type="Text" name="UnCouponMsg" size="50" value=""></td><td></td></tr>
-					<tr><td><b>交易结果通知地址</b></td><td><input type="Text" name="NotifyURL" size="50" value="http://localhost:8080/NewTxService/tx/SuccessTX11.jsp">	</td><td></td></tr>
-					<tr><td><b>交易结果后台通知地址</b></td><td> <input type="Text" name="BGNotifyURL" size="50" value="http://localhost:8080/NewTxService/tx/SuccessTX11.jsp"></td><td></td></tr>
-					<tr><td><b>扩展域</b></td><td> <input type="Text" name="ExtendInfo" size="50" value=""></td><td></td></tr>
-               		<tr><td><b>提交地址</b></td><td> <input type="Text" name="sendurl" size="50" value="http://localhost:8080/member/prepaidTxPayMentOrderList.action"></td><td></td></tr>
-               		
-                </table>
+                <p align="center"><b>撤销成功（TX21）</b></p>
+				
                 <br>
-                <input type="hidden" name="TxTypeName" value="预支付请求">
-                <input type="submit" value="  提交  " onClick="goProcess();return false;">&nbsp;&nbsp;&nbsp;&nbsp;
+                撤销成功！
+                &nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="submit" value="  返回  " onClick="return goback();">
 			</form>
 

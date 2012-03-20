@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.FactoryConfigurationError;
 
+import cn.net.iccard.merchantmpi.SecurityUtil;
+
 
 
 
@@ -48,6 +50,9 @@ public class TxControl extends HttpServlet {
 	// Html尾
 	public static final String sHTMLE = "</body></html>";
 	
+	//key 
+	public static final String Key = "1234567890";
+	
     /**
      * 执行交易请求处理
      */
@@ -57,24 +62,53 @@ public class TxControl extends HttpServlet {
         System.out.println("TxType=[" + req.getParameter("TxType") + "]");
         System.out.println("TxTraceNo=[" + req.getParameter("TxTraceNo") + "]");
         //System.out.println("TxTypeName=[" + new String(req.getParameter("TxTypeName").getBytes("UTF-8")) + "]");
+      System.out.println(req.getParameter("TxBody"));
+    
+//      System.out.println("111111"+new String (req.getParameter("TxBody").getBytes("iso8859-1")));
+//      System.out.println("111111"+new String (req.getParameter("TxBody").getBytes("iso8859-1"),"UTF-8"));
+//      System.out.println("111111"+new String (req.getParameter("TxBody").getBytes("iso8859-1"),"GBK"));
+//      System.out.println("111111"+new String (req.getParameter("TxBody").getBytes("GBK")));
+//      System.out.println("111111"+new String (req.getParameter("TxBody").getBytes("utf-8")));
+//      System.out.println("111111"+new String (req.getParameter("TxBody").getBytes("utf-8"),"GBK"));  
+//      System.out.println("111111"+new String (req.getParameter("TxBody").getBytes(),"UTF-8"));
       
         //组装提交
-        StringBuffer tPlain = new StringBuffer(400);
+        StringBuffer tPlain = new StringBuffer(400);		//md5报文域
+        StringBuffer mPlain = new StringBuffer(400);		//明文
+        
         if(req.getParameter("TxType").equals("TX11")){
+        	
         	tPlain.append("MchtTxTraceNo=" +req.getParameter("MchtTxTraceNo")+"|" +
 					"TxAmount=" + req.getParameter("TxAmount")+"|" +
 					"MerchantNo=" + req.getParameter("MerchantNo")+"|" +
 					"TxDate=" + req.getParameter("TxDate")+"|" +
 					"TxTime=" + req.getParameter("TxTime")+"|" +
-					"TxBody=" + req.getParameter("TxBody")+"|" +
+					"TxBody=" + new String (req.getParameter("TxBody").getBytes("iso8859-1"),"UTF-8")+"|" +
 					"ShowUrl="+req.getParameter("ShowUrl")+"|" +
-					"UseCoupon="+""+"|" +
-					"CouponMsg="+""+"|" +
+					"UseCoupon="+req.getParameter("UseCoupon")+"|" +
+					"CouponMsg="+req.getParameter("CouponMsg")+"|" +
+					"UnCouponMsg="+req.getParameter("UnCouponMsg")+"|" +
 					"NotifyURL="+req.getParameter("NotifyURL")+"|" +
 					"BGNotifyURL="+req.getParameter("BGNotifyURL")+"|" +
 					"ExtendInfo="+req.getParameter("ExtendInfo")+"|" +
-					"CertID="+"");
+					"Key="+Key);
+        	
+        	mPlain.append("MchtTxTraceNo=" +req.getParameter("MchtTxTraceNo")+"|" +
+					"TxAmount=" + req.getParameter("TxAmount")+"|" +
+					"MerchantNo=" + req.getParameter("MerchantNo")+"|" +
+					"TxDate=" + req.getParameter("TxDate")+"|" +
+					"TxTime=" + req.getParameter("TxTime")+"|" +
+					"TxBody=" + new String (req.getParameter("TxBody").getBytes("iso8859-1"),"UTF-8")+"|" +
+					"ShowUrl="+req.getParameter("ShowUrl")+"|" +
+					"UseCoupon="+req.getParameter("UseCoupon")+"|" +
+					"CouponMsg="+req.getParameter("CouponMsg")+"|" +
+					"UnCouponMsg="+req.getParameter("UnCouponMsg")+"|" +
+					"NotifyURL="+req.getParameter("NotifyURL")+"|" +
+					"BGNotifyURL="+req.getParameter("BGNotifyURL")+"|" +
+					"ExtendInfo="+req.getParameter("ExtendInfo"));
+        	
         }else if(req.getParameter("TxType").equals("TX21")){
+        	
         	tPlain.append("MchtTxTraceNo=" +req.getParameter("MchtTxTraceNo")+"|" +
 					"OrigMchtTxTraceNo=" + req.getParameter("OrigMchtTxTraceNo")+"|" +
 					"TxAmount=" + req.getParameter("TxAmount")+"|" +
@@ -86,8 +120,22 @@ public class TxControl extends HttpServlet {
 					"NotifyURL="+req.getParameter("NotifyURL")+"|" +
 					"BGNotifyURL="+req.getParameter("BGNotifyURL")+"|" +
 					"ExtendInfo="+req.getParameter("ExtendInfo")+"|" +
-					"CertID="+"");
+					"Key="+Key);
+        	
+        	mPlain.append("MchtTxTraceNo=" +req.getParameter("MchtTxTraceNo")+"|" +
+					"OrigMchtTxTraceNo=" + req.getParameter("OrigMchtTxTraceNo")+"|" +
+					"TxAmount=" + req.getParameter("TxAmount")+"|" +
+					"MerchantNo=" + req.getParameter("MerchantNo")+"|" +
+					"OrigTxDate=" + req.getParameter("OrigTxDate")+"|" +
+					"OrigTxTime=" + req.getParameter("OrigTxTime")+"|" +
+					"TxDate="+req.getParameter("TxDate")+"|" +
+					"TxTime="+req.getParameter("TxTime")+"|" +
+					"NotifyURL="+req.getParameter("NotifyURL")+"|" +
+					"BGNotifyURL="+req.getParameter("BGNotifyURL")+"|" +
+					"ExtendInfo="+req.getParameter("ExtendInfo"));
+        	
         }else if(req.getParameter("TxType").equals("TX23")){
+        	
         	tPlain.append("MchtTxTraceNo=" +req.getParameter("MchtTxTraceNo")+"|" +
 					"OrigMchtTxTraceNo=" + req.getParameter("OrigMchtTxTraceNo")+"|" +
 					"TxAmount=" + req.getParameter("TxAmount")+"|" +
@@ -99,10 +147,23 @@ public class TxControl extends HttpServlet {
 					"NotifyURL="+req.getParameter("NotifyURL")+"|" +
 					"BGNotifyURL="+req.getParameter("BGNotifyURL")+"|" +
 					"ExtendInfo="+req.getParameter("ExtendInfo")+"|" +
-					"CertID="+"");
+					"Key="+Key);
+        	
+        	mPlain.append("MchtTxTraceNo=" +req.getParameter("MchtTxTraceNo")+"|" +
+					"OrigMchtTxTraceNo=" + req.getParameter("OrigMchtTxTraceNo")+"|" +
+					"TxAmount=" + req.getParameter("TxAmount")+"|" +
+					"MerchantNo=" + req.getParameter("MerchantNo")+"|" +
+					"OrigTxDate=" + req.getParameter("OrigTxDate")+"|" +
+					"OrigTxTime=" + req.getParameter("OrigTxTime")+"|" +
+					"TxDate="+req.getParameter("TxDate")+"|" +
+					"TxTime="+req.getParameter("TxTime")+"|" +
+					"NotifyURL="+req.getParameter("NotifyURL")+"|" +
+					"BGNotifyURL="+req.getParameter("BGNotifyURL")+"|" +
+					"ExtendInfo="+req.getParameter("ExtendInfo"));
         }
         
-        String sendMsg = Base64.encode(tPlain.toString().getBytes("UTF-8"));
+        String sendMsg = Base64.encode(mPlain.toString().getBytes("UTF-8"));
+        String sendMsg1 = Base64.encode(tPlain.toString().getBytes("UTF-8"));
     	//Properties tInputParams = new Properties();
         System.out.println(tPlain.toString());
 		// 取得组织银行报文的银行服务类
@@ -114,8 +175,9 @@ public class TxControl extends HttpServlet {
 //        req.setAttribute("", arg1);
 //        req.setAttribute("", arg1);
         
+        String Signature = SecurityUtil.MD5Encode(sendMsg1.toString());
         req.setAttribute("TxInfo",  sendMsg);
-        req.setAttribute("Signature",  "");
+        req.setAttribute("Signature",  Signature);
         req.setAttribute("SERVER_URL", req.getParameter("sendurl"));
         RequestDispatcher rd =req.getRequestDispatcher("tx/Direct"+req.getParameter("TxType")+".jsp");
     	rd.forward(req, res);

@@ -61,7 +61,7 @@ public class BankTxControl extends HttpServlet {
         
 		
      // 3.Ò³ÃæÌø×ª
-		String url = "../tx/BT11.jsp";
+		String url = "tx/BT11.jsp";
 		RequestDispatcher rd = req.getRequestDispatcher(url);
 		rd.forward(req, res);
 		

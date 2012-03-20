@@ -144,10 +144,14 @@ function goProcess(){
                      <tr><td><b>交易时间</b></td><td> <input type="Text" name="TxTime" size="50" value="<%=request.getParameter("TxTime")%>" disabled></td><td>交易发生时间(HHmmss)</td></tr>
                    
                     <tr><td><b>商户交易流水号</b></td><td><input type="Text" name="MchtTxTraceNo" size="50" value="<%=request.getParameter("MchtTxTraceNo")%>" disabled></td><td>商户交易流水号(32位)</td></tr>
-                    <tr><td><b>商品描述</b></td><td> <input type="Text" name="TxBody" size="50" value="<%=request.getParameter("TxBody")%>" disabled></td><td></td></tr>
+                    <tr><td><b>商品描述</b></td><td> <input type="Text" name="TxBody" size="50" value="<%=new String (request.getParameter("TxBody").getBytes("iso8859-1"),"UTF-8")%>" disabled></td><td></td></tr>
 					 <tr><td><b>商品展示url</b></td><td> <input type="Text" name="ShowUrl" size="50" value="<%=request.getParameter("ShowUrl")%>" disabled></td><td></td></tr>
 					
 					<tr><td><b>交易金额</b></td><td> <input type="Text" name="TxAmount" size="50" value="<%=request.getParameter("TxAmount")%>" disabled></td><td>单位（元）</td></tr>
+					<tr><td><b>是否使用优惠券</b></td><td> <input type="Text" name="UseCoupon" size="50" value="<%=request.getParameter("UseCoupon")%>"></td><td>1：使用 2：不使用</td></tr>
+					<tr><td><b>可以使用的优惠券</b></td><td> <input type="Text" name="CouponMsg" size="50" value="<%=request.getParameter("CouponMsg")%>"></td><td></td></tr>
+					<tr><td><b>不可以使用的优惠券</b></td><td> <input type="Text" name="UnCouponMsg" size="50" value="<%=request.getParameter("UnCouponMsg")%>"></td><td></td></tr>
+					
 					<tr><td><b>交易结果通知地址</b></td><td><input type="Text" name="NotifyURL" size="50" value="<%=request.getParameter("NotifyURL")%>" disabled>	</td><td></td></tr>
 					<tr><td><b>交易结果后台通知地址</b></td><td> <input type="Text" name="BGNotifyURL" size="50" value="<%=request.getParameter("BGNotifyURL")%>" disabled></td><td></td></tr>
 					<tr><td><b>扩展域</b></td><td> <input type="Text" name="ExtendInfo" size="50" value="<%=request.getParameter("ExtendInfo")%>" disabled></td><td></td></tr>
