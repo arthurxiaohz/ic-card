@@ -3,11 +3,14 @@
 <script>
 function process1(json){
 		
+		var notifyUrl1 =  document.getElementById("notifyUrl").value;		
 		
+		alert("111111");
+		alert(notifyUrl1);
+		if(notifyUrl1 != null && notifyUrl1 != ''){
 		alert("222222");
-		
 		 window.open("<%=request.getContextPath()%>/redirect.jsp");
-		
+		}
 		
 		
 		navTabAjaxDone(json);
@@ -104,10 +107,8 @@ function process1(json){
 		 -->
 		 
 		 <dl>
-			<dt><hi:text key="充值金额" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.txAmount" class="textInput" value=""/>元</dd>
+			<dt><hi:text key="交易金额" entity="TblMbRechargeOrder"/>：</dt><dd><input type="text" name="tblMbRechargeOrder.txAmount" class="textInput" value=""/></dd>
 		</dl>
-		
-		<input type="radio" name="bankType" id="zhifubao" value="zhifubao" checked="true"/><img src="button/zf1.jpg" width="160" height="25"/></a>
 				<input type="hidden" name="tblMbRechargeOrder.id" value="${tblMbRechargeOrder.id}"/>
 				<input type="hidden" name="tblMbRechargeOrder.creator.id" value="${tblMbRechargeOrder.creator.id}"/>
 				<input type="hidden" name="tblMbRechargeOrder.deleted" value="${tblMbRechargeOrder.deleted}"/>
@@ -117,7 +118,7 @@ function process1(json){
 			</div>
 	<div class="formBar">
 		<ul>
-			<li><div class="buttonActive"><div class="buttonContent"><button type="submit"><hi:text key="充值"/></button></div></div></li>
+			<li><div class="buttonActive"><div class="buttonContent"><button type="submit"><hi:text key="保存"/></button></div></div></li>
 			<li><div class="button"><div class="buttonContent"><button class="close" type="button"><hi:text key="关闭"/></button></div></div></li>
 		</ul>
 	</div>  

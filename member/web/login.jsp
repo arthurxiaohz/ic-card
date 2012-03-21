@@ -6,6 +6,7 @@
 <%@page import="java.util.Random"%>
 <%@page import="org.hi.framework.HiConfigHolder"%>
 <%
+String error = (String)request.getAttribute("error");
 String success = (String)request.getAttribute("success"); %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -139,6 +140,17 @@ function checkForm( ){
   </tr>
 </table>
 </form>
+<%
+// Popup error message window if previous request error.
+    if( error != null )  {
+        out.println("<script language=\"javascript\">");
+        out.println("<!--");
+        out.println("alert(\"" + error + "\");");
+        out.println("-->");
+        out.println("</script>");
+    }
+    request.removeAttribute("error");
+%>	
 <%
 // Popup error message window if previous request error.
     if( success != null )  {

@@ -30,7 +30,13 @@
 		</action>
 		<action name="revocationTxPayMentOrderFinish"
 			class="cn.net.iccard.special.action.RevocationResponseAction" method="saveRevocationResponse">
-			<result name="success" type="redirect-action">tblTxPayMentOrderList</result>
+				<result name="success" type="redirect-action">tblTxPayMentOrderList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="resChargeFinish"
+			class="cn.net.iccard.special.action.RechargeRequestAction" method="saveRecharge">
+			<result name="success">/chargeSuccess.jsp</result>
 			<interceptor-ref name="modelParamsStack" />
 		</action>
 		<action name="backTxPayMentOrderFinish"
