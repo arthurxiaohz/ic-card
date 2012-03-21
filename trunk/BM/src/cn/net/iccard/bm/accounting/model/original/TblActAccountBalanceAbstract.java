@@ -10,8 +10,8 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-import cn.net.iccard.bm.accounting.model.TblActAccountBalance;
 import cn.net.iccard.bm.accounting.model.ActAccount;
+import cn.net.iccard.bm.accounting.model.TblActAccountBalance;
 import org.hi.base.organization.model.HiUser;
 
 public abstract class TblActAccountBalanceAbstract extends ActAccount implements Serializable{
