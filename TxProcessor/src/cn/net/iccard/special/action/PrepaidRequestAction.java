@@ -12,9 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.hi.SpringContextHolder;
 import org.hi.framework.web.struts.BaseAction;
 
+import cn.net.iccard.bm.mcht.model.TblMchtInfo;
+import cn.net.iccard.bm.mcht.service.TblMchtInfoManager;
 import cn.net.iccard.special.service.IPrepaidResponseService;
 import cn.net.iccard.special.service.impl.NotifyService;
 import cn.net.iccard.special.service.impl.PrepaidResponseService;
+import cn.net.iccard.special.validator.StandardCheck;
 import cn.net.iccard.tx.model.OrderTxStatus;
 import cn.net.iccard.tx.model.TblTxPayMentOrder;
 import cn.net.iccard.tx.model.TblTxPayMentRequest;
@@ -35,6 +38,10 @@ public class PrepaidRequestAction extends BaseAction{
 
 	private IPrepaidResponseService prepaidResponseService = (IPrepaidResponseService) SpringContextHolder
 	.getBean(PrepaidResponseService.class);
+	
+	TblMchtInfoManager  tblMchtInfoMan = (TblMchtInfoManager)SpringContextHolder.getBean(TblMchtInfo.class);
+	
+	TblTxPayMentOrderManager tblTxPayMentOrderManagerImpl = (TblTxPayMentOrderManager)SpringContextHolder.getBean(TblTxPayMentOrder.class);
 	
 	public static final String Key = "1234567890";
 	
@@ -68,10 +75,10 @@ public class PrepaidRequestAction extends BaseAction{
 	    String SignaturePl = MD5Encode(sendMsg1.toString());
 	    
 	    if(!SignaturePl.equals(Signature)){
-	    	throw new Exception("验签失败");
+	    	request.setAttribute("error", "验签失败");
 	    }
 	        
-	        System.out.println(msg);
+	    System.out.println(msg);
 		// 解析银行回应交易结果字段
         String[] tPlainStr = StringUtil.split(msg, "|");
         Properties tBankPlain = new Properties();
@@ -91,7 +98,9 @@ public class PrepaidRequestAction extends BaseAction{
 			String TxDate = tBankPlain.getProperty("TxDate");					//交易日期
 			String TxTime = tBankPlain.getProperty("TxTime");					///交易时间
 			String TxBody = tBankPlain.getProperty("TxBody");					//商品描述
+			
 			System.out.println(TxBody);
+			
 			String ShowUrl = tBankPlain.getProperty("ShowUrl");					//商品展示URL 
 			String UseCoupon = tBankPlain.getProperty("UseCoupon");				//	是否使用优惠券					
 			String CouponMsg = tBankPlain.getProperty("CouponMsg");					//	优惠券信息
@@ -102,6 +111,56 @@ public class PrepaidRequestAction extends BaseAction{
 			//String cert = thnCertID.getProperty(certID);
 			
 			//1.验证商户请求报文
+			//1.1验证报文格式
+			//1.1.1校验交易金额
+			try{
+				StandardCheck.isNumer(StandardCheck.orderAmountPattern, TxAmount, 2);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "交易金额格式错误，请联系商户");
+				return SUCCESS;
+			}
+		
+			//1.1.2校验交易日期
+			try{
+				StandardCheck.isNumer(StandardCheck.orderAmountPattern, TxDate, 0);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "交易日期格式错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			//1.1.3校验交易时间
+			try{
+				StandardCheck.isNumer(StandardCheck.orderAmountPattern, TxTime, 0);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "交易时间格式错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			//1.2验证报文内容
+			//1.2.1 校验商户号
+			TblMchtInfo tblmchtinfo = null;
+			try{
+				 tblmchtinfo = StandardCheck.isMcht(MerchantNo, tblMchtInfoMan);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "商户号错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			//1.2.2校验商户交易是否重复
+			try{
+				 int list = StandardCheck.isOrderNo(MerchantNo, MchtTxTraceNo, TxDate+TxTime, tblTxPayMentOrderManagerImpl);
+				 if(list > 0 ){
+					 throw new Exception("trace no is error");
+				 }
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "流水号错误，请联系商户");
+				return SUCCESS;
+			}
 			
 			//2.记录请求表
 			TblTxPayMentRequestManager tblTxPayMentRequestMgr = (TblTxPayMentRequestManager)SpringContextHolder.getBean(TblTxPayMentRequest.class);
@@ -129,6 +188,7 @@ public class PrepaidRequestAction extends BaseAction{
 			TblTxPayMentOrder.setPlTxTraceNo(plTxTraceNo);
 			TblTxPayMentOrder.setTxTypeId("TX11");
 			TblTxPayMentOrder.setMchtNo(MerchantNo);
+			TblTxPayMentOrder.setMchtName(tblmchtinfo.getMchtName());
 			TblTxPayMentOrder.setMchtTxTime(TxDate+TxTime);				//商户交易日期
 			TblTxPayMentOrder.setMchtTxTraceNo(MchtTxTraceNo);
 			TblTxPayMentOrder.setOrderAmount(new BigDecimal(TxAmount).movePointRight(2).intValue());		//精确到分
@@ -162,6 +222,93 @@ public class PrepaidRequestAction extends BaseAction{
 			String ExtendInfo = tBankPlain.getProperty("ExtendInfo");				//扩展域
 			String certID = tBankPlain.getProperty("CertID");						//商户证书ID
 			//校验
+			
+			//1.验证商户请求报文
+			//1.1验证报文格式
+			//1.1.1校验交易金额
+			try{
+				StandardCheck.isNumer(StandardCheck.orderAmountPattern, TxAmount, 2);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "交易金额格式错误，请联系商户");
+				return SUCCESS;
+			}
+		
+			//1.1.2校验交易日期
+			try{
+				StandardCheck.isNumer(StandardCheck.orderAmountPattern, TxDate, 0);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "交易日期格式错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			//1.1.3校验交易时间
+			try{
+				StandardCheck.isNumer(StandardCheck.orderAmountPattern, TxTime, 0);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "交易时间格式错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			//1.1.4校验原交易日期
+			try{
+				StandardCheck.isNumer(StandardCheck.orderAmountPattern, OrigTxDate, 0);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "交易日期格式错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			//1.1.5校验原交易时间
+			try{
+				StandardCheck.isNumer(StandardCheck.orderAmountPattern, OrigTxTime, 0);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "交易时间格式错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			//1.1.6原交易时间不能与交易时间相同
+			try{
+				if((TxDate+TxTime).equals(OrigTxDate+OrigTxTime)){
+					throw new Exception("date is error");
+				}
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "交易时间格式错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			//1.2验证报文内容
+			//1.2.1 校验商户号
+			TblMchtInfo tblmchtinfo = null;
+			try{
+				 tblmchtinfo = StandardCheck.isMcht(MerchantNo, tblMchtInfoMan);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "商户号错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			//1.2.2校验商户交易是否重复
+			try{
+				 int list = StandardCheck.isOrderNo(MerchantNo, MchtTxTraceNo, TxDate+TxTime, tblTxPayMentOrderManagerImpl);
+				 if(list != 1 ){
+					 throw new Exception("trace no is error");
+				 }
+				 
+				 int newlist  =  StandardCheck.isOrderNo(MerchantNo, OrigMchtTxTraceNo, OrigTxDate+OrigTxTime, tblTxPayMentOrderManagerImpl);
+				 if(list > 0 ){
+					 throw new Exception("trace no is error");
+				 }
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "流水号错误，请联系商户");
+				return SUCCESS;
+			}
+			
 			//记录
 			//2.记录请求表
 			TblTxPayMentRequestManager tblTxPayMentRequestMgr = (TblTxPayMentRequestManager)SpringContextHolder.getBean(TblTxPayMentRequest.class);
@@ -179,9 +326,7 @@ public class PrepaidRequestAction extends BaseAction{
 			tblTxPayMentRequest.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));//最后修改时间
 			
 			tblTxPayMentRequestMgr.saveTblTxPayMentRequest(tblTxPayMentRequest);
-			
-			//查询原交易是否存在
-			
+						
 			
 			//3.记录订单表
 			TblTxPayMentOrderManager TblTxPayMentOrderMan = (TblTxPayMentOrderManager)SpringContextHolder.getBean(TblTxPayMentOrder.class);
@@ -194,6 +339,7 @@ public class PrepaidRequestAction extends BaseAction{
 			TblTxPayMentOrder.setLastMchtTxTime(OrigTxDate+OrigTxTime);
 			TblTxPayMentOrder.setTxTypeId("TX21");
 			TblTxPayMentOrder.setMchtNo(MerchantNo);
+			TblTxPayMentOrder.setMchtName(tblmchtinfo.getMchtName());
 			TblTxPayMentOrder.setMchtTxTime(TxDate+TxTime);				//商户交易日期
 			TblTxPayMentOrder.setMchtTxTraceNo(MchtTxTraceNo);
 			TblTxPayMentOrder.setOrderAmount(new BigDecimal(TxAmount).movePointRight(2).intValue());		//精确到分
@@ -223,6 +369,92 @@ public class PrepaidRequestAction extends BaseAction{
 			String ExtendInfo = tBankPlain.getProperty("ExtendInfo");				//扩展域
 			String certID = tBankPlain.getProperty("CertID");						//商户证书ID
 			
+			//1.验证商户请求报文
+			//1.1验证报文格式
+			//1.1.1校验交易金额
+			try{
+				StandardCheck.isNumer(StandardCheck.orderAmountPattern, TxAmount, 2);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "交易金额格式错误，请联系商户");
+				return SUCCESS;
+			}
+		
+			//1.1.2校验交易日期
+			try{
+				StandardCheck.isNumer(StandardCheck.orderAmountPattern, TxDate, 0);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "交易日期格式错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			//1.1.3校验交易时间
+			try{
+				StandardCheck.isNumer(StandardCheck.orderAmountPattern, TxTime, 0);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "交易时间格式错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			//1.1.4校验原交易日期
+			try{
+				StandardCheck.isNumer(StandardCheck.orderAmountPattern, OrigTxDate, 0);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "交易日期格式错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			//1.1.5校验原交易时间
+			try{
+				StandardCheck.isNumer(StandardCheck.orderAmountPattern, OrigTxTime, 0);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "交易时间格式错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			//1.1.6原交易时间不能与交易时间相同
+			try{
+				if((TxDate+TxTime).equals(OrigTxDate+OrigTxTime)){
+					throw new Exception("date is error");
+				}
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "交易时间格式错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			//1.2验证报文内容
+			//1.2.1 校验商户号
+			TblMchtInfo tblmchtinfo = null;
+			try{
+				 tblmchtinfo = StandardCheck.isMcht(MerchantNo, tblMchtInfoMan);
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "商户号错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			//1.2.2校验商户交易是否重复
+			try{
+				 int list = StandardCheck.isOrderNo(MerchantNo, MchtTxTraceNo, TxDate+TxTime, tblTxPayMentOrderManagerImpl);
+				 if(list != 1 ){
+					 throw new Exception("trace no is error");
+				 }
+				 
+				 int newlist  =  StandardCheck.isOrderNo(MerchantNo, OrigMchtTxTraceNo, OrigTxDate+OrigTxTime, tblTxPayMentOrderManagerImpl);
+				 if(list > 0 ){
+					 throw new Exception("trace no is error");
+				 }
+			}catch(Exception e){
+				System.out.println(e);
+				request.setAttribute("error", "流水号错误，请联系商户");
+				return SUCCESS;
+			}
+			
 			//2.记录请求表
 			TblTxPayMentRequestManager tblTxPayMentRequestMgr = (TblTxPayMentRequestManager)SpringContextHolder.getBean(TblTxPayMentRequest.class);
 
@@ -250,6 +482,7 @@ public class PrepaidRequestAction extends BaseAction{
 			TblTxPayMentOrder.setPlTxTraceNo(plTxTraceNo);
 			TblTxPayMentOrder.setTxTypeId("TX23");
 			TblTxPayMentOrder.setMchtNo(MerchantNo);
+			TblTxPayMentOrder.setMchtName(tblmchtinfo.getMchtName());
 			TblTxPayMentOrder.setMchtTxTime(TxDate+TxTime);				//商户交易日期
 			TblTxPayMentOrder.setMchtTxTraceNo(MchtTxTraceNo);
 			TblTxPayMentOrder.setOrderAmount(new BigDecimal(TxAmount).movePointRight(2).intValue());		//精确到分

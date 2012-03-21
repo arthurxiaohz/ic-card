@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +32,7 @@ import cn.net.iccard.member.service.impl.TblMbInfoManagerImpl;
 import cn.net.iccard.member.service.impl.TblMbRechargeOrderManagerImpl;
 import cn.net.iccard.special.service.IRechargeResponseService;
 import cn.net.iccard.special.service.impl.RechargeService;
+import cn.net.iccard.util.BankComService;
 import cn.net.iccard.util.BankTraceNoGererator;
 import cn.net.iccard.util.DateUtil;
 import cn.net.iccard.util.PLTraceNoGererator;
@@ -123,23 +125,38 @@ public class RechargeRequestAction extends BaseAction{
 			out.flush();
 			out.close();
 			*/
-			request.setAttribute("out_trade_no", requestId);
-			request.setAttribute("total_fee", request.getParameter("tblMbRechargeOrder.txAmount"));
+			Properties tInputParams = new Properties();
+			// 取得组织银行报文的银行服务类
+			BankComService tBankCom = new BankComService();
+			
+			tInputParams.setProperty("out_trade_no",requestId);
+		    tInputParams.setProperty("total_fee", request.getParameter("tblMbRechargeOrder.txAmount"));
+		    tInputParams.setProperty("orderId", tblMbRechargeOrder.getId().toString());
+		    tInputParams.setProperty("notify_url", "http://localhost:8080/member/resChargeFinish.action");
+
+		    // 组成没有name属性,没有ID属性的form表单
+	        StringBuffer tFormBuffer = tBankCom.buildForm("http://localhost:8080/NewTxService/BankTxControl", tInputParams);
+			
+	        request.getSession(true).setAttribute("formname", "form1");
+	        request.getSession(true).setAttribute("formcontents", tFormBuffer.toString());
+	        
+			//request.setAttribute("out_trade_no", requestId);
+			//request.setAttribute("total_fee", request.getParameter("tblMbRechargeOrder.txAmount"));
 			
 			//充值成功
-			RechargeService RechargeService = new RechargeService();
-			RechargeService.saveRechargeResponse(request, response);
+			//RechargeService RechargeService = new RechargeService();
+			//RechargeService.saveRechargeResponse(request, response);
 			
-			return returnCommand();
+			return  returnCommand();
 		}
 		
 	/**
 	 * 充值成功
 	 */
-	public String saveRecharge(HttpServletRequest request,HttpServletResponse response) throws Exception {
+	public String saveRecharge() throws Exception {
 
-//		HttpServletRequest request = getRequest();
-//		HttpServletResponse response = getResponse();
+		HttpServletRequest request = getRequest();
+		HttpServletResponse response = getResponse();
 		
 		rechargeResponseService.saveRechargeResponse(request, response);
 		

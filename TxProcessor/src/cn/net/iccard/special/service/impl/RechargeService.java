@@ -55,9 +55,11 @@ public class RechargeService implements IRechargeResponseService {
 			HttpServletResponse response) throws Exception {
 		//记录银行响应信息
 		String PlTxTime = DateTimeUtil.getCurrDateTime();
-		String orderId = (String) pageRequest.getAttribute("out_trade_no");
+		String orderId = (String) pageRequest.getParameter("out_trade_no");
 		
-		String txAmount = (String) pageRequest.getAttribute("total_fee");
+		String txAmount = (String) pageRequest.getParameter("total_fee");
+		
+		System.out.println(orderId);
 		//更新网关请求表
 		Filter requestfilter = FilterFactory.getSimpleFilter("orderId", orderId, Filter.OPERATOR_EQ);
 		

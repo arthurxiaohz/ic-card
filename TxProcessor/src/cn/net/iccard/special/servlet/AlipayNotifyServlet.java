@@ -39,7 +39,7 @@ public class AlipayNotifyServlet extends HttpServlet {
 		
 		RechargeRequestAction rechargeRequestAction = new RechargeRequestAction();
 		try {
-			rechargeRequestAction.saveRecharge(request,response);
+			//rechargeRequestAction.saveRecharge(request,response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
