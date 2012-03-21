@@ -4,7 +4,7 @@
  */
 
 /**
- * 普通ajax表单提交
+ * 普�1�7�ajax表单提交
  * @param {Object} form
  * @param {Object} callback
  */
@@ -26,8 +26,9 @@ function validateCallback(form, callback) {
 	return false;
 }
 
+
 /**
- * 同步ajax提交表单并返回是否成功
+ * 同步ajax提交表单并返回是否成劄1�7
  * @param {Object} form
  */
 function syncValidate(form) {
@@ -118,9 +119,9 @@ function _iframeResponse(iframe, callback){
  * navTabAjaxDone是DWZ框架中预定义的表单提交回调函数．
  * 服务器转回navTabId可以把那个navTab标记为reloadFlag=1, 下次切换到那个navTab时会重新载入内容. 
  * callbackType如果是closeCurrent就会关闭当前tab
- * 只有callbackType="forward"时需要forwardUrl值
- * navTabAjaxDone这个回调函数基本可以通用了，如果还有特殊需要也可以自定义回调函数.
- * 如果表单提交只提示操作是否成功, 就可以不指定回调函数. 框架会默认调用DWZ.ajaxDone()
+ * 只有callbackType="forward"时需要forwardUrl倄1�7
+ * navTabAjaxDone这个回调函数基本可以通用了，如果还有特殊霄1�7要也可以自定义回调函敄1�7.
+ * 如果表单提交只提示操作是否成劄1�7, 就可以不指定回调函数. 框架会默认调用DWZ.ajaxDone()
  * <form action="/user.do?method=save" onsubmit="return validateCallback(this, navTabAjaxDone)">
  * 
  * form提交后返回json数据结构statusCode=DWZ.statusCode.ok表示操作成功, 做页面跳转等操作. statusCode=DWZ.statusCode.error表示操作失败, 提示错误原因. 
@@ -133,7 +134,7 @@ function _iframeResponse(iframe, callback){
 function navTabAjaxDone(json){
 	DWZ.ajaxDone(json);
 	if (json.statusCode == DWZ.statusCode.ok){
-		if (json.navTabId){ //把指定navTab页面标记为需要“重新载入”。注意navTabId不能是当前navTab页面的
+		if (json.navTabId){ //把指定navTab页面标记为需要�1�7�重新载入�1�7��1�7�注意navTabId不能是当前navTab页面的1�7
 			navTab.reloadFlag(json.navTabId);
 		} else { //重新载入当前navTab页面
 			navTabPageBreak();
@@ -158,7 +159,7 @@ function navTabAjaxDone(json){
  * dialog上的表单提交回调函数
  * 服务器转回navTabId，可以重新载入指定的navTab. statusCode=DWZ.statusCode.ok表示操作成功, 自动关闭当前dialog
  * 
- * form提交后返回json数据结构,json格式和navTabAjaxDone一致
+ * form提交后返回json数据结构,json格式和navTabAjaxDone丄1�7臄1�7
  */
 function dialogAjaxDone(json){
 	DWZ.ajaxDone(json);
@@ -171,7 +172,7 @@ function dialogAjaxDone(json){
 }
 
 /**
- * 处理navTab弹出层上的查询, 会重新载入当前navTab
+ * 处理navTab弹出层上的查评1�7, 会重新载入当前navTab
  * @param {Object} form
  */
 function navTabSearch(form, navTabId){
@@ -180,7 +181,7 @@ function navTabSearch(form, navTabId){
 	return false;
 }
 /**
- * 处理dialog弹出层上的查询, 会重新载入当前dialog
+ * 处理dialog弹出层上的查评1�7, 会重新载入当前dialog
  * @param {Object} form
  */
 function dialogSearch(form){
@@ -212,7 +213,7 @@ function _getPagerForm($parent, args) {
 	return form;
 }
 /**
- * 处理navTab中的分页和排序
+ * 处理navTab中的分页和排庄1�7
  * @param args {pageNum:"n", numPerPage:"n", orderField:"xxx"}
  */
 function navTabPageBreak(args){
@@ -223,7 +224,7 @@ function navTabPageBreak(args){
 	if (form) navTab.reload(form.action, {data: $(form).serializeArray(), callback: args.callback});
 }
 /**
- * 处理dialog中的分页和排序
+ * 处理dialog中的分页和排庄1�7
  * @param args {pageNum:"n", numPerPage:"n", orderField:"xxx"}
  */
 function dialogPageBreak(args){

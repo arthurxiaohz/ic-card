@@ -26,8 +26,8 @@
 
 ${formcontents}
 
-<input type="hidden" name="formname" value="<%request.getAttribute("formname"); %>>" />
-<input type="hidden" name="formcontents" value="<%request.getAttribute("formcontents"); %>" />
+<input type="hidden" name="formname" value="<%session.getAttribute("formname"); %>>" />
+<input type="hidden" name="formcontents" value="<%session.getAttribute("formcontents"); %>" />
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <table width="322" border="0" cellspacing="0" cellpadding="0" align="center">
@@ -38,7 +38,7 @@ ${formcontents}
 
                         <tr> 
                             <td width="19">&nbsp;</td>                            
-                            <td width="231" class="txt">正在跳转到指定银行页面，请稍候......</td>
+                            <td width="231" class="txt">正在跳转到商户页面，请稍候......</td>
                         </tr>
                     </table>
                 </div>

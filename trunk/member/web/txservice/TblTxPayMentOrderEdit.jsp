@@ -99,26 +99,43 @@ function changeToClick()
 	 // alert("messageArea="+messageArea);
 	 // alert("setMessage star2");
 	}
+	
+	function process1(json){
+		
+		var notifyUrl1 =  document.getElementById("notifyUrl").value;		
+		
+		alert("111111");
+		alert(notifyUrl1);
+		if(notifyUrl1 != null && notifyUrl1 != ''){
+		alert("222222");
+		 window.open("<%=request.getContextPath()%>/redirect.jsp");
+		}
+		
+		
+		navTabAjaxDone(json);
+		
+	}
+	
 </script>
 <h2 class="contentTitle"><hi:text key="编辑页面" parameterLanguageKeys="订单查询"/></h2>
-<form action="prepaidTxPayMentOrderFinish.action?navTabId=tblTxPayMentOrderList&callbackType=closeCurrent&ajax=1" method="post" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
+<form action="prepaidTxPayMentOrderFinish.action?navTabId=tblTxPayMentOrderList&callbackType=closeCurrent&ajax=1" method="post" class="pageForm required-validate" onsubmit="return validateCallback(this, process1)">
 <div class="pageContent">
 	
 	
-
+<input type="hidden" name="notifyUrl" id="notifyUrl" value="${tblTxPayMentOrder.notifyUrl}"/>
 		<input type="hidden" name="functionCode" id="orderid" value="${tblTxPayMentOrder.id}"/>
 		<input type="hidden" name="orderId" id="orderid" value="${tblTxPayMentOrder.id}"/>
 		<input type="hidden" name="TxStatus" id="TxStatus" value="${tblTxPayMentOrder.txStatus}"/>
-							<div class="goumaitijiao">
+							<div align="center">
 							<ul>
-									<li style="border-bottom: 1px solid rgb(204, 204, 204);">
-									</li>
+									
 									<li>
-										<div class="contenter_a_content">
+										<div align="center">
 											<table cellspacing="0" cellpadding="0" border="0"
-												width="100%" class="coupons-table">
+												width="80%" align="center">
 												<tbody>
 													<br>
+													<!-- 
 													<tr>
 														<td>
 																<dl>
@@ -133,34 +150,86 @@ function changeToClick()
 														</td>
 													
 													</tr>
+													 -->
+													<tr height="50px;">
+														<td align="left"
+															style="font-size: 150%; font-weight: bold; padding-left: 20px; width: 250px; text-align: left"
+															bgcolor="#ffffff" colspan="20">
+															商品描述：
+														</td>
+														<td>
+															<a style="font-size: 150%;" href=${tblTxPayMentOrder.showUrl} target="_blank" >${tblTxPayMentOrder.txBody}</a>
+														</td>
+												</tr>
+												
+												<tr height="50px;">
+														<td align="left"
+															style="font-size: 150%;font-weight: bold; padding-left: 20px; width: 250px; text-align: left"
+															bgcolor="#ffffff" colspan="20">
+															手机号码：
+														</td>
+														<td style="font-size: 150%;">
+																<input id="payerPhone"   type="text" name="tblTxPayMentOrder.payerPhone" class="textInput" value="" maxlength="13"/><INPUT type="button"  style="width:100px" name="validMobileId" id="validMobileId" onClick="validate(); " value="获取验证码" length="20">
+														</td>
+														</tr>
+														
+														<tr height="50px;">
+														<td align="left"
+															style="font-size: 150%;font-weight: bold; padding-left: 20px; width: 250px; text-align: left"
+															bgcolor="#ffffff" colspan="20">
+															手机验证码：
+														</td>
+														<td style="font-size: 150%;">
+																<input id="verifyCode"   type="text" name="tblTxPayMentOrder.verifyCode" class="textInput" value="" maxlength="13"/>
+														</td>
+														</tr>
+												
+												<tr height="50px;">
+														<td align="left"
+															style="font-size: 150%;font-weight: bold; padding-left: 20px; width: 250px; text-align: left"
+															bgcolor="#ffffff" colspan="20">
+															交易金额：
+														</td>
+														<td style="font-size: 150%;">
+															${tblTxPayMentOrder.orderAmount/100}元
+														</td>
+												</tr>
+													
 													
 												<tr height="50px;">
 														<td align="left"
-															style="font-weight: bold; padding-left: 10px; width: 200px; text-align: left"
-															bgcolor="#ffffff" colspan="5">
+															style="font-size: 150%;font-weight: bold; padding-left: 20px; width: 250px; text-align: left"
+															bgcolor="#ffffff" colspan="20">
 															应付总额：
 														</td>
-														<td>
-															${tblTxPayMentOrder.orderAmount/100} 
+														<td style="font-size: 150%;">
+															${tblTxPayMentOrder.orderAmount/100} 元
 														</td>
-												</tr><!-- 未付款 -->
+												</tr>
+												<!-- 未付款 -->
 													
 														<tr height="50px;">
 															<td align="left"
-																style="font-weight: bold; padding-left: 10px; width: 200px;text-align: left;"
-																bgcolor="#ffffff" colspan="5">
+																style="font-size: 150%;font-weight: bold; padding-left: 20px; width: 250px; left;"
+																bgcolor="#ffffff" colspan="20" >
 																付款状态：
 															<br></td>
+															<td style="font-size: 150%;">
+															<hi:select emu="orderTxStatus" name="tblTxPayMentOrder.txStatus" isLabel="true"/>
+														</td>
+															
+															<!--  
 															<td align="left"
-																style="font-weight: bold; padding-left: 10px; width: 200px;text-align: left;"
-																bgcolor="#ffffff" colspan="5">
+																style="font-size: 150%;font-weight: bold; padding-left: 20px; width: 250px;text-align: left;"
+																bgcolor="#ffffff" colspan="20">
 																<dl>
-			<dt><hi:text key="交易状态" entity="TblTxPayMentOrder"/>：</dt><dd><hi:select emu="orderTxStatus" name="tblTxPayMentOrder.txStatus" isLabel="true"/></dd>
+			<dd style="font-size: 150%;"><hi:select emu="orderTxStatus" name="tblTxPayMentOrder.txStatus" isLabel="true"/></dd>
 		</dl>
 															</td>
+															-->
 														</tr>
 														
-														
+														<!-- 
 														<dl>
 																	<dt><hi:text key="手机号码" entity="TblTxPayMentOrder"/>：</dt><dd><input id="payerPhone"   type="text" name="tblTxPayMentOrder.payerPhone" class="textInput" value="" maxlength="13"/>
 														
@@ -172,23 +241,11 @@ function changeToClick()
 														
 														
 														</dl>
+														 -->
 														
 														
-														<tr>
-															<th colspan="5" style="border-right:0;"> 
-																付款 <br></th>
-															<th style="border-left:0;"><br></th>
-															</tr>
-															<tr height="50px;">
-														<td align="left"
-															style="font-weight: bold; padding-left: 10px; width: 200px; text-align: left"
-															bgcolor="#ffffff" colspan="5">
-															应付总额：
-														</td>
-														<td>
-																${tblTxPayMentOrder.orderAmount/100}
-														</td>
-												</tr>
+													
+															
 													
 												</tbody>
 											</table>
