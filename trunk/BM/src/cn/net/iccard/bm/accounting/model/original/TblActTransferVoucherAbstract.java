@@ -11,8 +11,8 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
 import cn.net.iccard.bm.accounting.model.TblActTransferVoucher;
-import org.hi.base.organization.model.HiUser;
 import cn.net.iccard.bm.accounting.model.ActAccount;
+import org.hi.base.organization.model.HiUser;
 
 public abstract class TblActTransferVoucherAbstract extends BaseObject implements Serializable{
 
