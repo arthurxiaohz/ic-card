@@ -116,7 +116,7 @@ public class RevocationResponseService implements IRevocationResponseService {
 		accountPayableCancelTransferRequest.setRemark("撤销成功");
 		IAccountTransferResponse transferResponse = accountTxService.transfer(accountPayableCancelTransferRequest);
 		
-		if(!transferResponse.getRespCode().equals(EAccountResponse.S0000)){
+		if(!transferResponse.getRespCode().equals(EAccountResponse.S0000.name())){
 			throw new Exception("账户处理失败");
 		}
 		tblTxPayMentOrder.setVoucherNo(transferResponse.getVoucherNo());

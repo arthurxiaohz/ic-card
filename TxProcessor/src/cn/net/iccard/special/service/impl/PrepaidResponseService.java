@@ -119,10 +119,10 @@ public class PrepaidResponseService implements IPrepaidResponseService {
 		accountPayableTransferRequest.setRemark("预支付成功");
 		IAccountTransferResponse transferResponse = accountTxService.transfer(accountPayableTransferRequest);
 		
-//		if(!transferResponse.getRespCode().equals(EAccountResponse.S0000)){
-//			throw new Exception("账户处理失败");
-//		}
-		//tblTxPayMentOrder.setVoucherNo(transferResponse.getVoucherNo());
+		if(!transferResponse.getRespCode().equals(EAccountResponse.S0000.name())){
+			return transferResponse.getRespMsg();
+		}
+		tblTxPayMentOrder.setVoucherNo(transferResponse.getVoucherNo());
 		tblTxPayMentOrderManagerImpl.saveTblTxPayMentOrder(tblTxPayMentOrder);
 		
 		

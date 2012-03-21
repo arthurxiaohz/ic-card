@@ -64,7 +64,7 @@ public class StandardCheck {
 	
 
 	//查询商户交易
-	public static int isOrderNo(final String MchtNo,final String mchtTxTraceNo,final String mchtTxTime,TblTxPayMentOrderManager  tblTxPayMentOrderManager)
+	public static List<TblTxPayMentOrder> isOrderNo(final String MchtNo,final String mchtTxTraceNo,final String mchtTxTime,TblTxPayMentOrderManager  tblTxPayMentOrderManager)
 	{
 		
 		Filter filterno = FilterFactory.getSimpleFilter("mchtNo", MchtNo, Filter.OPERATOR_EQ);
@@ -75,7 +75,7 @@ public class StandardCheck {
 
 		List<TblTxPayMentOrder> txPayMentOrderList  = tblTxPayMentOrderManager.getObjects(filterno);
 		
-		return txPayMentOrderList.size();
+		return txPayMentOrderList;
 			
 	}
 	

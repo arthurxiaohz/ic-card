@@ -29,7 +29,14 @@ public class RevocationResponseAction extends BaseAction{
 		HttpServletRequest request = getRequest();
 		HttpServletResponse response = getResponse();
 		
-		revocationResponse.saveRevocationResponse(request, response);
+		
+		try{
+			String return1  = revocationResponse.saveRevocationResponse(request, response);
+		}catch(Exception e){
+			//e.getMessage();
+			return returnCommand(e.getMessage());
+		}
+		
 		
 		return returnCommand();
 	}

@@ -4,6 +4,7 @@ package cn.net.iccard.special.action;
 import java.math.BigDecimal;
 import java.security.MessageDigest;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
@@ -67,8 +68,8 @@ public class PrepaidRequestAction extends BaseAction{
 		String Signature = request.getParameter("Signature");	//报文签名
 		String TxType = request.getParameter("TxType");			//交易类型
 		
-		  byte[] tPlainByBase64 = Base64.decode(msg);
-	        msg = new String(tPlainByBase64,"UTF-8");
+		byte[] tPlainByBase64 = Base64.decode(msg);
+	    msg = new String(tPlainByBase64,"UTF-8");
 		
 	    String md5Msg =  msg+"|Key="+Key;
 	    String sendMsg1 = Base64.encode(md5Msg.getBytes("UTF-8"));
@@ -152,8 +153,8 @@ public class PrepaidRequestAction extends BaseAction{
 			
 			//1.2.2校验商户交易是否重复
 			try{
-				 int list = StandardCheck.isOrderNo(MerchantNo, MchtTxTraceNo, TxDate+TxTime, tblTxPayMentOrderManagerImpl);
-				 if(list > 0 ){
+				 List<TblTxPayMentOrder> list = StandardCheck.isOrderNo(MerchantNo, MchtTxTraceNo, TxDate+TxTime, tblTxPayMentOrderManagerImpl);
+				 if(list.size() > 0 ){
 					 throw new Exception("trace no is error");
 				 }
 			}catch(Exception e){
@@ -291,21 +292,38 @@ public class PrepaidRequestAction extends BaseAction{
 				request.setAttribute("error", "商户号错误，请联系商户");
 				return SUCCESS;
 			}
+			 int mchtAmount = new BigDecimal(TxAmount).movePointRight(2).intValue();
+			 int oldAmount = 0;
 			
 			//1.2.2校验商户交易是否重复
 			try{
-				 int list = StandardCheck.isOrderNo(MerchantNo, MchtTxTraceNo, TxDate+TxTime, tblTxPayMentOrderManagerImpl);
-				 if(list != 1 ){
+				  List<TblTxPayMentOrder> list = StandardCheck.isOrderNo(MerchantNo, MchtTxTraceNo, TxDate+TxTime, tblTxPayMentOrderManagerImpl);
+				 if(list.size() >0 ){
 					 throw new Exception("trace no is error");
 				 }
 				 
-				 int newlist  =  StandardCheck.isOrderNo(MerchantNo, OrigMchtTxTraceNo, OrigTxDate+OrigTxTime, tblTxPayMentOrderManagerImpl);
-				 if(list > 0 ){
+				 List<TblTxPayMentOrder>  oldlist  =  StandardCheck.isOrderNo(MerchantNo, OrigMchtTxTraceNo, OrigTxDate+OrigTxTime, tblTxPayMentOrderManagerImpl);
+				 if(oldlist.size() != 1 ){
 					 throw new Exception("trace no is error");
 				 }
+				 TblTxPayMentOrder oldOrder =  (TblTxPayMentOrder)oldlist.get(0);
+				 
+				 oldAmount = oldOrder.getOrderAmount();
+				 
+				 //如果原交易状态不为预支付成功则非法
+				 if(oldOrder.getTxStatus()!=OrderTxStatus.ORDERTXSTATUS_PREPAYSUCCESS){
+					 request.setAttribute("error", "当前交易状态不允许撤销，请联系商户");
+						return SUCCESS;
+				 }
+				 
 			}catch(Exception e){
 				System.out.println(e);
 				request.setAttribute("error", "流水号错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			if(mchtAmount!=oldAmount){
+				request.setAttribute("error", "撤销金额与原订单金额不一致，请联系商户");
 				return SUCCESS;
 			}
 			
@@ -437,21 +455,37 @@ public class PrepaidRequestAction extends BaseAction{
 				request.setAttribute("error", "商户号错误，请联系商户");
 				return SUCCESS;
 			}
+			 int mchtAmount = new BigDecimal(TxAmount).movePointRight(2).intValue();
+			 int oldAmount = 0;
 			
 			//1.2.2校验商户交易是否重复
 			try{
-				 int list = StandardCheck.isOrderNo(MerchantNo, MchtTxTraceNo, TxDate+TxTime, tblTxPayMentOrderManagerImpl);
-				 if(list != 1 ){
+				  List<TblTxPayMentOrder> list = StandardCheck.isOrderNo(MerchantNo, MchtTxTraceNo, TxDate+TxTime, tblTxPayMentOrderManagerImpl);
+				 if(list.size() >0 ){
 					 throw new Exception("trace no is error");
 				 }
 				 
-				 int newlist  =  StandardCheck.isOrderNo(MerchantNo, OrigMchtTxTraceNo, OrigTxDate+OrigTxTime, tblTxPayMentOrderManagerImpl);
-				 if(list > 0 ){
+				 List<TblTxPayMentOrder>  oldlist  =  StandardCheck.isOrderNo(MerchantNo, OrigMchtTxTraceNo, OrigTxDate+OrigTxTime, tblTxPayMentOrderManagerImpl);
+				 if(oldlist.size() != 1 ){
 					 throw new Exception("trace no is error");
+				 }
+				 TblTxPayMentOrder oldOrder =  (TblTxPayMentOrder)oldlist.get(0);
+				 
+				 oldAmount = oldOrder.getOrderAmount();
+				 
+				 //如果原交易状态为不为确认支付则非法
+				 if(oldOrder.getTxStatus()!=OrderTxStatus.ORDERTXSTATUS_PAYSUCCESS){
+					 request.setAttribute("error", "当前交易状态不允许退款，请联系商户");
+						return SUCCESS;
 				 }
 			}catch(Exception e){
 				System.out.println(e);
 				request.setAttribute("error", "流水号错误，请联系商户");
+				return SUCCESS;
+			}
+			
+			if(mchtAmount!=oldAmount){
+				request.setAttribute("error", "退款金额与原订单金额不一致，请联系商户");
 				return SUCCESS;
 			}
 			
@@ -674,8 +708,12 @@ public class PrepaidRequestAction extends BaseAction{
 		HttpServletRequest request = getRequest();
 		HttpServletResponse response = getResponse();
 		
-		String return1  = prepaidResponseService.savePrepaidResponse(request, response);
-		
+		try{
+			String return1  = prepaidResponseService.savePrepaidResponse(request, response);
+		}catch(Exception e){
+			//e.getMessage();
+			return returnCommand(e.getMessage());
+		}
 		return returnCommand();
 	}
 	
