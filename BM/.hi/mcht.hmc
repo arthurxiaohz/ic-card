@@ -521,8 +521,8 @@
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>5</hiDataType>
           <isSearch>false</isSearch>
-          <isListDisplay>true</isListDisplay>
-          <isReadOnly>true</isReadOnly>
+          <isListDisplay>false</isListDisplay>
+          <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
           <isFull>false</isFull>
           <isMainLookup>false</isMainLookup>
@@ -546,8 +546,8 @@
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>5</hiDataType>
           <isSearch>false</isSearch>
-          <isListDisplay>true</isListDisplay>
-          <isReadOnly>true</isReadOnly>
+          <isListDisplay>false</isListDisplay>
+          <isReadOnly>false</isReadOnly>
           <isHidden>false</isHidden>
           <isFull>false</isFull>
           <isMainLookup>false</isMainLookup>
@@ -851,9 +851,9 @@
                 <isLkForeignKey>false</isLkForeignKey>
                 <hiDataType>5</hiDataType>
                 <isSearch>false</isSearch>
-                <isListDisplay>true</isListDisplay>
+                <isListDisplay>false</isListDisplay>
                 <isReadOnly>false</isReadOnly>
-                <isHidden>false</isHidden>
+                <isHidden>true</isHidden>
                 <isFull>false</isFull>
                 <isMainLookup>false</isMainLookup>
                 <isParent>false</isParent>
@@ -876,9 +876,9 @@
                 <isLkForeignKey>false</isLkForeignKey>
                 <hiDataType>5</hiDataType>
                 <isSearch>false</isSearch>
-                <isListDisplay>true</isListDisplay>
+                <isListDisplay>false</isListDisplay>
                 <isReadOnly>false</isReadOnly>
-                <isHidden>false</isHidden>
+                <isHidden>true</isHidden>
                 <isFull>false</isFull>
                 <isMainLookup>false</isMainLookup>
                 <isParent>false</isParent>
@@ -1205,9 +1205,9 @@
                 <isLkForeignKey>false</isLkForeignKey>
                 <hiDataType>5</hiDataType>
                 <isSearch>false</isSearch>
-                <isListDisplay>true</isListDisplay>
+                <isListDisplay>false</isListDisplay>
                 <isReadOnly>false</isReadOnly>
-                <isHidden>false</isHidden>
+                <isHidden>true</isHidden>
                 <isFull>false</isFull>
                 <isMainLookup>false</isMainLookup>
                 <isParent>false</isParent>
@@ -1230,9 +1230,9 @@
                 <isLkForeignKey>false</isLkForeignKey>
                 <hiDataType>5</hiDataType>
                 <isSearch>false</isSearch>
-                <isListDisplay>true</isListDisplay>
+                <isListDisplay>false</isListDisplay>
                 <isReadOnly>false</isReadOnly>
-                <isHidden>false</isHidden>
+                <isHidden>true</isHidden>
                 <isFull>false</isFull>
                 <isMainLookup>false</isMainLookup>
                 <isParent>false</isParent>
@@ -1484,9 +1484,9 @@
                 <isLkForeignKey>false</isLkForeignKey>
                 <hiDataType>5</hiDataType>
                 <isSearch>false</isSearch>
-                <isListDisplay>true</isListDisplay>
-                <isReadOnly>true</isReadOnly>
-                <isHidden>false</isHidden>
+                <isListDisplay>false</isListDisplay>
+                <isReadOnly>false</isReadOnly>
+                <isHidden>true</isHidden>
                 <isFull>false</isFull>
                 <isMainLookup>false</isMainLookup>
                 <isParent>false</isParent>
@@ -1509,9 +1509,9 @@
                 <isLkForeignKey>false</isLkForeignKey>
                 <hiDataType>5</hiDataType>
                 <isSearch>false</isSearch>
-                <isListDisplay>true</isListDisplay>
-                <isReadOnly>true</isReadOnly>
-                <isHidden>false</isHidden>
+                <isListDisplay>false</isListDisplay>
+                <isReadOnly>false</isReadOnly>
+                <isHidden>true</isHidden>
                 <isFull>false</isFull>
                 <isMainLookup>false</isMainLookup>
                 <isParent>false</isParent>
