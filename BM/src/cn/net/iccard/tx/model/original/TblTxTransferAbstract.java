@@ -10,8 +10,8 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-import cn.net.iccard.tx.model.TblTxTransfer;
 import org.hi.base.organization.model.HiUser;
+import cn.net.iccard.tx.model.TblTxTransfer;
 
 public abstract class TblTxTransferAbstract extends BaseObject implements Serializable{
 
