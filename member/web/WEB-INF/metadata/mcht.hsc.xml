@@ -57,6 +57,12 @@
 			<childForeignKey>tblMchtInfo</childForeignKey>
 		  </childEntity>
                 
+          <childEntity>
+			<childServiceName>mcht</childServiceName>
+			<childEntityName>TblMchtSettleCycleConfig</childEntityName>
+			<childForeignKey>tblMchtInfo</childForeignKey>
+		  </childEntity>
+                
         <extendEntity>
 			<extendServiceName></extendServiceName>
 			<extendEntityName></extendEntityName>
@@ -122,7 +128,7 @@
             <fieldName>mchtName</fieldName>
             <fieldLabel>商户名称</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>false</isSearch>
+                                    <isSearch>true</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -150,7 +156,7 @@
             <fieldName>status</fieldName>
             <fieldLabel>状态</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>false</isSearch>
+                                    <isSearch>true</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -173,7 +179,7 @@
             <fieldName>mchtType</fieldName>
             <fieldLabel>商户类别</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>false</isSearch>
+                                    <isSearch>true</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
@@ -472,9 +478,9 @@
             <fieldLabel>创建时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
-                                    <isListDisplay>false</isListDisplay>
+                                    <isListDisplay>true</isListDisplay>
                                     <isReadOnly>true</isReadOnly>
-                                    <isHidden>true</isHidden>
+                                    <isHidden>false</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue> 
@@ -500,9 +506,9 @@
             <fieldLabel>最后修改时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
-                                    <isListDisplay>false</isListDisplay>
+                                    <isListDisplay>true</isListDisplay>
                                     <isReadOnly>true</isReadOnly>
-                                    <isHidden>true</isHidden>
+                                    <isHidden>false</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
@@ -690,12 +696,63 @@
         
         
                             <field>
+            <fieldName>signType</fieldName>
+            <fieldLabel>签名方式</fieldLabel>
+                        <isPrimaryKey>false</isPrimaryKey>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>true</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
+                                    <isHidden>false</isHidden>
+                                    <isFull>false</isFull>
+                                    <isMainLookup>false</isMainLookup>
+                        <defaultValue></defaultValue> 
+            <validator></validator>  
+            <length></length>
+            <scale></scale>
+                        <isParent>false</isParent>
+            <fieldType>7</fieldType>
+            
+                         <enumerationEntity>SignType</enumerationEntity>
+                        
+                       </field>
+                     
+        
+        
+                            <field>
+            <fieldName>md5</fieldName>
+            <fieldLabel>MD5</fieldLabel>
+                        <isPrimaryKey>false</isPrimaryKey>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>true</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
+                                    <isHidden>false</isHidden>
+                                    <isFull>false</isFull>
+                                    <isMainLookup>false</isMainLookup>
+                        <defaultValue></defaultValue> 
+            <validator></validator>  
+            <length>30</length>
+            <scale></scale>
+                        <isParent>false</isParent>
+            <fieldType>1</fieldType>
+            
+                        <lookupEntity>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <mainLkFieldName></mainLkFieldName>
+            </lookupEntity>
+                        
+                       </field>
+                     
+        
+        
+                            <field>
             <fieldName>createdDateTime</fieldName>
             <fieldLabel>创建时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
-                                    <isReadOnly>false</isReadOnly>
+                                    <isReadOnly>true</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
@@ -723,7 +780,7 @@
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
-                                    <isReadOnly>false</isReadOnly>
+                                    <isReadOnly>true</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
@@ -1578,31 +1635,8 @@
         
         
                             <field>
-            <fieldName>settleCycleType</fieldName>
-            <fieldLabel>结算周期类型</fieldLabel>
-                        <isPrimaryKey>false</isPrimaryKey>
-                                    <isSearch>false</isSearch>
-                                    <isListDisplay>true</isListDisplay>
-                                    <isReadOnly>false</isReadOnly>
-                                    <isHidden>false</isHidden>
-                                    <isFull>false</isFull>
-                                    <isMainLookup>false</isMainLookup>
-                        <defaultValue></defaultValue> 
-            <validator></validator>  
-            <length></length>
-            <scale></scale>
-                        <isParent>false</isParent>
-            <fieldType>7</fieldType>
-            
-                         <enumerationEntity>MchtSettleCycleType</enumerationEntity>
-                        
-                       </field>
-                     
-        
-        
-                            <field>
-            <fieldName>ruleValue</fieldName>
-            <fieldLabel>参数值</fieldLabel>
+            <fieldName>settleInterval</fieldName>
+            <fieldLabel>结算频度间隔</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
@@ -1657,13 +1691,41 @@
         
         
                             <field>
-            <fieldName>createdDateTime</fieldName>
-            <fieldLabel>创建时间</fieldLabel>
+            <fieldName>excessReserve</fieldName>
+            <fieldLabel>备付金</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
                                     <isListDisplay>true</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
+                                    <isFull>false</isFull>
+                                    <isMainLookup>false</isMainLookup>
+                        <defaultValue></defaultValue> 
+            <validator>integer</validator>  
+            <length></length>
+            <scale></scale>
+                        <isParent>false</isParent>
+            <fieldType>2</fieldType>
+            
+                        <lookupEntity>
+                <lkServiceName></lkServiceName>
+                <lkEntityName></lkEntityName>
+                <isLkForeignKey>false</isLkForeignKey>
+                <mainLkFieldName></mainLkFieldName>
+            </lookupEntity>
+                        
+                       </field>
+                     
+        
+        
+                            <field>
+            <fieldName>createdDateTime</fieldName>
+            <fieldLabel>创建时间</fieldLabel>
+                        <isPrimaryKey>false</isPrimaryKey>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
+                                    <isHidden>true</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue> 
@@ -1689,9 +1751,9 @@
             <fieldLabel>最后修改时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
-                                    <isHidden>false</isHidden>
+                                    <isHidden>true</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
@@ -1736,6 +1798,32 @@
                 <mainLkFieldName>id</mainLkFieldName>
             </lookupEntity>
                         
+                       </field>
+                     
+        
+        
+                            <field>
+            <fieldName>tblMchtInfo</fieldName>
+            <fieldLabel>tblMchtInfo</fieldLabel>
+                        <isPrimaryKey>false</isPrimaryKey>
+                                    <isSearch>false</isSearch>
+                                    <isListDisplay>false</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
+                                    <isHidden>true</isHidden>
+                                    <isFull>false</isFull>
+                                    <isMainLookup>false</isMainLookup>
+                        <defaultValue></defaultValue> 
+            <validator></validator>  
+            <length></length>
+            <scale></scale>
+                        <isParent>true</isParent>
+            <fieldType>6</fieldType>
+            <lookupEntity>
+                <lkServiceName>mcht</lkServiceName>
+                <lkEntityName>TblMchtInfo</lkEntityName>
+                <isLkForeignKey>true</isLkForeignKey>
+                <mainLkFieldName>id</mainLkFieldName>
+            </lookupEntity>
                        </field>
                      
         
@@ -1792,7 +1880,7 @@
         <entityName>TblMchtUser</entityName>
                 <entityType>3</entityType>
                 <tableName>Tbl_Mcht_User</tableName>
-        <entityLabel>商服用户</entityLabel>
+        <entityLabel>商服操作员</entityLabel>
         <entityBaseData>301100</entityBaseData>
         
                 
@@ -1903,6 +1991,26 @@
        
               
     </entity>
+    
+               
+        
+    <entity>
+		<entityName>SignType</entityName>
+		<entityType>2</entityType>
+		<tableName></tableName>
+		<entityLabel>提交类型</entityLabel>
+		<entityBaseData>301200</entityBaseData>
+				<enumeration>
+			<enuValue>md5</enuValue>
+			<enuLabel>MD5</enuLabel>
+			<enuCode></enuCode>
+		</enumeration>
+				<enumeration>
+			<enuValue>certificate</enuValue>
+			<enuLabel>证书</enuLabel>
+			<enuCode></enuCode>
+		</enumeration>
+			</entity>
     
            
 </service>

@@ -7,19 +7,13 @@
 	<div class="viewInfo" layoutH="97">
 				
 		<dl>
-			<dt><hi:text key="结算周期类型" entity="TblMchtSettleCycleConfig"/>：</dt><dd><hi:select emu="mchtSettleCycleType" name="tblMchtSettleCycleConfig.settleCycleType" isLabel="true"/></dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="参数值" entity="TblMchtSettleCycleConfig"/>：</dt><dd>${tblMchtSettleCycleConfig.ruleValue}</dd>
+			<dt><hi:text key="结算频度间隔" entity="TblMchtSettleCycleConfig"/>：</dt><dd>${tblMchtSettleCycleConfig.settleInterval}</dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="最小结算金额" entity="TblMchtSettleCycleConfig"/>：</dt><dd>${tblMchtSettleCycleConfig.threshold}</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="创建时间" entity="TblMchtSettleCycleConfig"/>：</dt><dd><fmt:formatDate value="${tblMchtSettleCycleConfig.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
-		</dl>
-		<dl>
-			<dt><hi:text key="最后修改时间" entity="TblMchtSettleCycleConfig"/>：</dt><dd><fmt:formatDate value="${tblMchtSettleCycleConfig.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
+			<dt><hi:text key="备付金" entity="TblMchtSettleCycleConfig"/>：</dt><dd>${tblMchtSettleCycleConfig.excessReserve}</dd>
 		</dl>
 
 		<div class="divider"></div>

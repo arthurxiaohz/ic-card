@@ -4,7 +4,6 @@
 function process1(json){
 		
 		
-		alert("222222");
 		
 		 window.open("<%=request.getContextPath()%>/redirect.jsp");
 		

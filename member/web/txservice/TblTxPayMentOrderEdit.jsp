@@ -104,10 +104,7 @@ function changeToClick()
 		
 		var notifyUrl1 =  document.getElementById("notifyUrl").value;		
 		
-		alert("111111");
-		alert(notifyUrl1);
 		if(notifyUrl1 != null && notifyUrl1 != ''){
-		alert("222222");
 		 window.open("<%=request.getContextPath()%>/redirect.jsp");
 		}
 		
@@ -153,44 +150,44 @@ function changeToClick()
 													 -->
 													<tr height="50px;">
 														<td align="left"
-															style="font-size: 150%; font-weight: bold; padding-left: 20px; width: 250px; text-align: left"
+															style="font-size: 120%; font-weight: bold; padding-left: 20px; width: 250px; text-align: left"
 															bgcolor="#ffffff" colspan="20">
 															商品描述：
 														</td>
 														<td>
-															<a style="font-size: 150%;" href=${tblTxPayMentOrder.showUrl} target="_blank" >${tblTxPayMentOrder.txBody}</a>
+															<a style="font-size: 120%;" href=${tblTxPayMentOrder.showUrl} target="_blank" >${tblTxPayMentOrder.txBody}</a>
 														</td>
 												</tr>
 												
 												<tr height="50px;">
 														<td align="left"
-															style="font-size: 150%;font-weight: bold; padding-left: 20px; width: 250px; text-align: left"
+															style="font-size: 120%;font-weight: bold; padding-left: 20px; width: 250px; text-align: left"
 															bgcolor="#ffffff" colspan="20">
 															手机号码：
 														</td>
-														<td style="font-size: 150%;">
+														<td style="font-size: 120%;">
 																<input id="payerPhone"   type="text" name="tblTxPayMentOrder.payerPhone" class="textInput" value="" maxlength="13"/><INPUT type="button"  style="width:100px" name="validMobileId" id="validMobileId" onClick="validate(); " value="获取验证码" length="20">
 														</td>
 														</tr>
 														
 														<tr height="50px;">
 														<td align="left"
-															style="font-size: 150%;font-weight: bold; padding-left: 20px; width: 250px; text-align: left"
+															style="font-size: 120%;font-weight: bold; padding-left: 20px; width: 250px; text-align: left"
 															bgcolor="#ffffff" colspan="20">
 															手机验证码：
 														</td>
-														<td style="font-size: 150%;">
+														<td style="font-size: 120%;">
 																<input id="verifyCode"   type="text" name="tblTxPayMentOrder.verifyCode" class="textInput" value="" maxlength="13"/>
 														</td>
 														</tr>
 												
 												<tr height="50px;">
 														<td align="left"
-															style="font-size: 150%;font-weight: bold; padding-left: 20px; width: 250px; text-align: left"
+															style="font-size: 120%;font-weight: bold; padding-left: 20px; width: 250px; text-align: left"
 															bgcolor="#ffffff" colspan="20">
 															交易金额：
 														</td>
-														<td style="font-size: 150%;">
+														<td style="font-size: 120%;">
 															${tblTxPayMentOrder.orderAmount/100}元
 														</td>
 												</tr>
@@ -198,11 +195,11 @@ function changeToClick()
 													
 												<tr height="50px;">
 														<td align="left"
-															style="font-size: 150%;font-weight: bold; padding-left: 20px; width: 250px; text-align: left"
+															style="font-size: 120%;font-weight: bold; padding-left: 20px; width: 250px; text-align: left"
 															bgcolor="#ffffff" colspan="20">
 															应付总额：
 														</td>
-														<td style="font-size: 150%;">
+														<td style="font-size: 120%;">
 															${tblTxPayMentOrder.orderAmount/100} 元
 														</td>
 												</tr>
@@ -210,20 +207,20 @@ function changeToClick()
 													
 														<tr height="50px;">
 															<td align="left"
-																style="font-size: 150%;font-weight: bold; padding-left: 20px; width: 250px; left;"
+																style="font-size: 120%;font-weight: bold; padding-left: 20px; width: 250px; left;"
 																bgcolor="#ffffff" colspan="20" >
 																付款状态：
 															<br></td>
-															<td style="font-size: 150%;">
+															<td style="font-size: 120%;">
 															<hi:select emu="orderTxStatus" name="tblTxPayMentOrder.txStatus" isLabel="true"/>
 														</td>
 															
 															<!--  
 															<td align="left"
-																style="font-size: 150%;font-weight: bold; padding-left: 20px; width: 250px;text-align: left;"
+																style="font-size: 120%;font-weight: bold; padding-left: 20px; width: 250px;text-align: left;"
 																bgcolor="#ffffff" colspan="20">
 																<dl>
-			<dd style="font-size: 150%;"><hi:select emu="orderTxStatus" name="tblTxPayMentOrder.txStatus" isLabel="true"/></dd>
+			<dd style="font-size: 120%;"><hi:select emu="orderTxStatus" name="tblTxPayMentOrder.txStatus" isLabel="true"/></dd>
 		</dl>
 															</td>
 															-->

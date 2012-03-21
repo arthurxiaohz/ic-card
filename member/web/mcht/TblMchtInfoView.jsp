@@ -45,6 +45,12 @@
 		<dl>
 			<dt><hi:text key="开户行名称" entity="TblMchtInfo"/>：</dt><dd>${tblMchtInfo.bankName}</dd>
 		</dl>
+		<dl>
+			<dt><hi:text key="创建时间" entity="TblMchtInfo"/>：</dt><dd><fmt:formatDate value="${tblMchtInfo.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
+		</dl>
+		<dl>
+			<dt><hi:text key="最后修改时间" entity="TblMchtInfo"/>：</dt><dd><fmt:formatDate value="${tblMchtInfo.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
+		</dl>
 
 		<div class="divider"></div>
 		
@@ -55,6 +61,7 @@
 						<li><a href="javascript:void(0)"><span><hi:text key="商户手续费配置"/></span></a></li>
 						<li><a href="javascript:void(0)"><span><hi:text key="商户证书"/></span></a></li>
 						<li><a href="javascript:void(0)"><span><hi:text key="商户支付配置"/></span></a></li>
+						<li><a href="javascript:void(0)"><span><hi:text key="商户结算周期配置"/></span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -120,6 +127,8 @@
 						<thead>
 							<tr>
 								<th><hi:text key="是否允许接入支付平台" entity="TblMchtPaymentConfig"/></th>
+								<th><hi:text key="签名方式" entity="TblMchtPaymentConfig"/></th>
+								<th><hi:text key="MD5" entity="TblMchtPaymentConfig"/></th>
 								<th><hi:text key="创建时间" entity="TblMchtPaymentConfig"/></th>
 								<th><hi:text key="最后修改时间" entity="TblMchtPaymentConfig"/></th>
 							</tr>
@@ -128,8 +137,30 @@
 							<c:forEach var="item" items="${tblMchtInfo.tblMchtPaymentConfigs}">
 							<tr>						
 				        		<td><hi:select emu="yesNo" name="item.authorized" isLabel="true"/></td>
+				        		<td><hi:select emu="signType" name="item.signType" isLabel="true"/></td>
+								<td>${item.md5}</td>
 								<td><fmt:formatDate value="${item.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 								<td><fmt:formatDate value="${item.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+							</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+				<div style="overflow: auto">
+					<table class="list" width="100%">
+						<thead>
+							<tr>
+								<th><hi:text key="结算频度间隔" entity="TblMchtSettleCycleConfig"/></th>
+								<th><hi:text key="最小结算金额" entity="TblMchtSettleCycleConfig"/></th>
+								<th><hi:text key="备付金" entity="TblMchtSettleCycleConfig"/></th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="item" items="${tblMchtInfo.tblMchtSettleCycleConfigs}">
+							<tr>						
+								<td>${item.settleInterval}</td>
+								<td>${item.threshold}</td>
+								<td>${item.excessReserve}</td>
 							</tr>
 							</c:forEach>
 						</tbody>

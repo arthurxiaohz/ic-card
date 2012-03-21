@@ -29,6 +29,7 @@
 		<result property="tblMchtFeeConfigs" column="id" select="select_inner_TblMchtFeeConfigs"/>
 		<result property="tblMchtCertificates" column="id" select="select_inner_TblMchtCertificates"/>
 		<result property="tblMchtPaymentConfigs" column="id" select="select_inner_TblMchtPaymentConfigs"/>
+		<result property="tblMchtSettleCycleConfigs" column="id" select="select_inner_TblMchtSettleCycleConfigs"/>
 	</resultMap>
     
     <select id="select_inner_TblMchtInfo" resultMap="TblMchtInfo" parameterClass="int">  
@@ -45,6 +46,10 @@
 
     <select id="select_inner_TblMchtPaymentConfigs" resultMap="TblMchtPaymentConfig" parameterClass="int">   
        SELECT * FROM Tbl_Mcht_Payment_Config WHERE tblMchtInfo =#value#    
+    </select>  
+
+    <select id="select_inner_TblMchtSettleCycleConfigs" resultMap="TblMchtSettleCycleConfig" parameterClass="int">   
+       SELECT * FROM Tbl_Mcht_Settle_Cycle_Config WHERE tblMchtInfo =#value#    
     </select>  
   
 	<select id="getTblMchtInfo" resultMap="TblMchtInfo">

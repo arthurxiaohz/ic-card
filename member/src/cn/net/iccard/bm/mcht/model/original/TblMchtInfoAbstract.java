@@ -11,6 +11,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
 import cn.net.iccard.bm.mcht.model.TblMchtCertificate;
+import cn.net.iccard.bm.mcht.model.TblMchtSettleCycleConfig;
 import cn.net.iccard.bm.mcht.model.TblMchtInfo;
 import cn.net.iccard.bm.mcht.model.TblMchtPaymentConfig;
 import cn.net.iccard.bm.mcht.model.TblMchtFeeConfig;
@@ -127,6 +128,7 @@ public abstract class TblMchtInfoAbstract extends BaseObject implements Serializ
 	private  List<TblMchtFeeConfig> tblMchtFeeConfigs;
 	private  List<TblMchtCertificate> tblMchtCertificates;
 	private  List<TblMchtPaymentConfig> tblMchtPaymentConfigs;
+	private  List<TblMchtSettleCycleConfig> tblMchtSettleCycleConfigs;
 
     public Integer getId() {
         return this.id;
@@ -422,6 +424,13 @@ public abstract class TblMchtInfoAbstract extends BaseObject implements Serializ
 
     public List<TblMchtPaymentConfig> getTblMchtPaymentConfigs() {
         return this.tblMchtPaymentConfigs;
+    }
+    public void setTblMchtSettleCycleConfigs(List<TblMchtSettleCycleConfig> tblMchtSettleCycleConfigs) {
+        this.tblMchtSettleCycleConfigs = tblMchtSettleCycleConfigs;
+    }
+
+    public List<TblMchtSettleCycleConfig> getTblMchtSettleCycleConfigs() {
+        return this.tblMchtSettleCycleConfigs;
     }
 
    public boolean equals(Object other) {

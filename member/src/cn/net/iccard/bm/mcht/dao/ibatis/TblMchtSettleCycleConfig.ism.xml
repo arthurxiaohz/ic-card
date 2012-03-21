@@ -7,12 +7,13 @@
 	<resultMap id="TblMchtSettleCycleConfig" class="TblMchtSettleCycleConfig">
 		<result property="id" column="id"/>
 		<result property="version" column="version"/>
-		<result property="settleCycleType" column="settleCycleType"/>
-		<result property="ruleValue" column="ruleValue"/>
+		<result property="settleInterval" column="settleInterval"/>
 		<result property="threshold" column="threshold"/>
+		<result property="excessReserve" column="excessReserve"/>
 		<result property="createdDateTime" column="createdDateTime"/>
 		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
 		<result property="lastUpdatedBy" column="lastUpdatedBy" select="select_inner_HiUser"/>
+		<result property="tblMchtInfo" column="tblMchtInfo" select="select_inner_TblMchtInfo"/>
 		<result property="creator" column="creator" select="select_inner_HiUser"/>
 		<result property="deleted" column="deleted"/>
 	</resultMap>
@@ -26,8 +27,8 @@
 	</select>
 	
 	<insert id="insTblMchtSettleCycleConfig" parameterClass="java.util.HashMap">    
-    	insert into Tbl_Mcht_Settle_Cycle_Config (id, version, settleCycleType, ruleValue, threshold, createdDateTime, lastUpdatedDatetime, lastUpdatedBy, creator, deleted) 
-		values (#id#, 1, #settleCycleType#, #ruleValue#, #threshold#, #createdDateTime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#, #deleted#)
+    	insert into Tbl_Mcht_Settle_Cycle_Config (id, version, settleInterval, threshold, excessReserve, createdDateTime, lastUpdatedDatetime, lastUpdatedBy, tblMchtInfo, creator, deleted) 
+		values (#id#, 1, #settleInterval#, #threshold#, #excessReserve#, #createdDateTime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #tblMchtInfo#, #creator#, #deleted#)
 		<selectKey resultClass="int"  keyProperty="id" />   
 	</insert>    
    
@@ -35,12 +36,13 @@
 	<update id="updateTblMchtSettleCycleConfig" parameterClass="java.util.HashMap">    
 		update Tbl_Mcht_Settle_Cycle_Config set
             version = #version# +1,
-			settleCycleType = #settleCycleType#,
-			ruleValue = #ruleValue#,
+			settleInterval = #settleInterval#,
 			threshold = #threshold#,
+			excessReserve = #excessReserve#,
 			createdDateTime = #createdDateTime#,
 			lastUpdatedDatetime = #lastUpdatedDatetime#,
 			lastUpdatedBy = #lastUpdatedBy#,
+			tblMchtInfo = #tblMchtInfo#,
 			creator = #creator#,
 			deleted = #deleted#
     where    

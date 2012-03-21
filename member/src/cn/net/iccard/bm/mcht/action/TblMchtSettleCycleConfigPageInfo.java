@@ -5,17 +5,18 @@ import java.util.Date;
 
 import org.hi.framework.web.PageInfoView;
 import org.hi.base.organization.action.HiUserPageInfo;
+import cn.net.iccard.bm.mcht.action.TblMchtInfoPageInfo;
 
 public class TblMchtSettleCycleConfigPageInfo extends PageInfoView{
 
 	protected  Integer  f_id;
  	protected  String  f_id_op;
-	protected  Integer  f_settleCycleType;
- 	protected  String  f_settleCycleType_op;
-	protected  Integer  f_ruleValue;
- 	protected  String  f_ruleValue_op;
+	protected  Integer  f_settleInterval;
+ 	protected  String  f_settleInterval_op;
 	protected  Integer  f_threshold;
  	protected  String  f_threshold_op;
+	protected  Integer  f_excessReserve;
+ 	protected  String  f_excessReserve_op;
 	protected  Timestamp  f_createdDateTime;
  	protected  String  f_createdDateTime_op;
 	protected  Timestamp  f_createdDateTime01;
@@ -28,6 +29,7 @@ public class TblMchtSettleCycleConfigPageInfo extends PageInfoView{
  	protected  String  f_deleted_op;
 
  	protected  HiUserPageInfo lastUpdatedBy;
+ 	protected  TblMchtInfoPageInfo tblMchtInfo;
  	protected  HiUserPageInfo creator;
 
     public Integer getF_id() {
@@ -46,36 +48,20 @@ public class TblMchtSettleCycleConfigPageInfo extends PageInfoView{
         this.f_id_op = f_id_op;
     }
    
-    public Integer getF_settleCycleType() {
-        return this.f_settleCycleType;
+    public Integer getF_settleInterval() {
+        return this.f_settleInterval;
     }
     
-    public void setF_settleCycleType(Integer f_settleCycleType) {
-        this.f_settleCycleType = f_settleCycleType;
+    public void setF_settleInterval(Integer f_settleInterval) {
+        this.f_settleInterval = f_settleInterval;
     }
     
-    public String getF_settleCycleType_op() {
-        return this.f_settleCycleType_op;
+    public String getF_settleInterval_op() {
+        return this.f_settleInterval_op;
     }
     
-    public void setF_settleCycleType_op(String f_settleCycleType_op) {
-        this.f_settleCycleType_op = f_settleCycleType_op;
-    }
-   
-    public Integer getF_ruleValue() {
-        return this.f_ruleValue;
-    }
-    
-    public void setF_ruleValue(Integer f_ruleValue) {
-        this.f_ruleValue = f_ruleValue;
-    }
-    
-    public String getF_ruleValue_op() {
-        return this.f_ruleValue_op;
-    }
-    
-    public void setF_ruleValue_op(String f_ruleValue_op) {
-        this.f_ruleValue_op = f_ruleValue_op;
+    public void setF_settleInterval_op(String f_settleInterval_op) {
+        this.f_settleInterval_op = f_settleInterval_op;
     }
    
     public Integer getF_threshold() {
@@ -92,6 +78,22 @@ public class TblMchtSettleCycleConfigPageInfo extends PageInfoView{
     
     public void setF_threshold_op(String f_threshold_op) {
         this.f_threshold_op = f_threshold_op;
+    }
+   
+    public Integer getF_excessReserve() {
+        return this.f_excessReserve;
+    }
+    
+    public void setF_excessReserve(Integer f_excessReserve) {
+        this.f_excessReserve = f_excessReserve;
+    }
+    
+    public String getF_excessReserve_op() {
+        return this.f_excessReserve_op;
+    }
+    
+    public void setF_excessReserve_op(String f_excessReserve_op) {
+        this.f_excessReserve_op = f_excessReserve_op;
     }
    
     public Timestamp getF_createdDateTime() {
@@ -178,6 +180,13 @@ public class TblMchtSettleCycleConfigPageInfo extends PageInfoView{
 
 	public void setLastUpdatedBy(HiUserPageInfo lastUpdatedBy) {
 		this.lastUpdatedBy = lastUpdatedBy;
+	}
+	public TblMchtInfoPageInfo getTblMchtInfo() {
+		return tblMchtInfo;
+	}
+
+	public void setTblMchtInfo(TblMchtInfoPageInfo tblMchtInfo) {
+		this.tblMchtInfo = tblMchtInfo;
 	}
 	public HiUserPageInfo getCreator() {
 		return creator;
