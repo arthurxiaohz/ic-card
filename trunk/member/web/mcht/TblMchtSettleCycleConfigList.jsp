@@ -29,7 +29,7 @@
 				<authz:authorize ifAnyGranted="TBLMCHTSETTLECYCLECONFIG_DEL"><li><a class="delete" href="<hi:url>tblMchtSettleCycleConfigRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', settleCycleType:'',ruleValue:'',threshold:'',createdDateTime:'',lastUpdatedDatetime:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', settleInterval:'',threshold:'',excessReserve:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -40,11 +40,9 @@
 				<c:if test="${empty lookup}">
 				<th width="28"><input type="checkbox" group="orderIndexs" class="checkboxCtrl"></th>
 				</c:if>
-				<th orderField="settleCycleType" class="${pageInfo.sorterName eq 'settleCycleType' ? pageInfo.sorterDirection : ''}"><hi:text key="结算周期类型" entity="TblMchtSettleCycleConfig"/></th>
-				<th orderField="ruleValue" class="${pageInfo.sorterName eq 'ruleValue' ? pageInfo.sorterDirection : ''}"><hi:text key="参数值" entity="TblMchtSettleCycleConfig"/></th>
+				<th orderField="settleInterval" class="${pageInfo.sorterName eq 'settleInterval' ? pageInfo.sorterDirection : ''}"><hi:text key="结算频度间隔" entity="TblMchtSettleCycleConfig"/></th>
 				<th orderField="threshold" class="${pageInfo.sorterName eq 'threshold' ? pageInfo.sorterDirection : ''}"><hi:text key="最小结算金额" entity="TblMchtSettleCycleConfig"/></th>
-				<th orderField="createdDateTime" class="${pageInfo.sorterName eq 'createdDateTime' ? pageInfo.sorterDirection : ''}"><hi:text key="创建时间" entity="TblMchtSettleCycleConfig"/></th>
-				<th orderField="lastUpdatedDatetime" class="${pageInfo.sorterName eq 'lastUpdatedDatetime' ? pageInfo.sorterDirection : ''}"><hi:text key="最后修改时间" entity="TblMchtSettleCycleConfig"/></th>
+				<th orderField="excessReserve" class="${pageInfo.sorterName eq 'excessReserve' ? pageInfo.sorterDirection : ''}"><hi:text key="备付金" entity="TblMchtSettleCycleConfig"/></th>
 				<th width="90">
 					<c:choose>
 						<c:when test="${empty lookup}"><hi:text key="操作"/></c:when>
@@ -59,11 +57,9 @@
 				<c:if test="${empty lookup}">
 				<td><input name="orderIndexs" value="${item.id}" type="checkbox"></td>
 				</c:if>			
-				    <td><hi:select emu="mchtSettleCycleType" name="tblMchtSettleCycleConfigs[${s.index}].settleCycleType" isLabel="true"/></td>
-				    <td>${item.ruleValue}</td>
+				    <td>${item.settleInterval}</td>
 				    <td>${item.threshold}</td>
-				    <td><fmt:formatDate value="${item.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-				    <td><fmt:formatDate value="${item.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+				    <td>${item.excessReserve}</td>
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
@@ -78,7 +74,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', settleCycleType:'<hi:select emu="mchtSettleCycleType" name="tblMchtSettleCycleConfigs[${s.index}].settleCycleType" isLabel="true"/>',ruleValue:'${item.ruleValue}',threshold:'${item.threshold}',createdDateTime:'${item.createdDateTime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', settleInterval:'${item.settleInterval}',threshold:'${item.threshold}',excessReserve:'${item.excessReserve}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

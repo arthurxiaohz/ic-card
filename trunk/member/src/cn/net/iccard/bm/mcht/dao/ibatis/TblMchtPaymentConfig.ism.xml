@@ -9,6 +9,8 @@
 		<result property="version" column="version"/>
 		<result property="tblMchtInfo" column="tblMchtInfo" select="select_inner_TblMchtInfo"/>
 		<result property="authorized" column="authorized"/>
+		<result property="signType" column="signType"/>
+		<result property="md5" column="md5"/>
 		<result property="createdDateTime" column="createdDateTime"/>
 		<result property="lastUpdatedDatetime" column="lastUpdatedDatetime"/>
 		<result property="lastUpdatedBy" column="lastUpdatedBy" select="select_inner_HiUser"/>
@@ -24,8 +26,8 @@
 	</select>
 	
 	<insert id="insTblMchtPaymentConfig" parameterClass="java.util.HashMap">    
-    	insert into Tbl_Mcht_Payment_Config (id, version, tblMchtInfo, authorized, createdDateTime, lastUpdatedDatetime, lastUpdatedBy, creator) 
-		values (#id#, 1, #tblMchtInfo#, #authorized#, #createdDateTime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#)
+    	insert into Tbl_Mcht_Payment_Config (id, version, tblMchtInfo, authorized, signType, md5, createdDateTime, lastUpdatedDatetime, lastUpdatedBy, creator) 
+		values (#id#, 1, #tblMchtInfo#, #authorized#, #signType#, #md5#, #createdDateTime#, #lastUpdatedDatetime#, #lastUpdatedBy#, #creator#)
 		<selectKey resultClass="int"  keyProperty="id" />   
 	</insert>    
    
@@ -35,6 +37,8 @@
             version = #version# +1,
 			tblMchtInfo = #tblMchtInfo#,
 			authorized = #authorized#,
+			signType = #signType#,
+			md5 = #md5#,
 			createdDateTime = #createdDateTime#,
 			lastUpdatedDatetime = #lastUpdatedDatetime#,
 			lastUpdatedBy = #lastUpdatedBy#,

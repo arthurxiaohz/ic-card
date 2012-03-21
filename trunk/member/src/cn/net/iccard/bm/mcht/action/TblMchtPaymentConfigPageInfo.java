@@ -13,6 +13,10 @@ public class TblMchtPaymentConfigPageInfo extends PageInfoView{
  	protected  String  f_id_op;
 	protected  Integer  f_authorized;
  	protected  String  f_authorized_op;
+	protected  Integer  f_signType;
+ 	protected  String  f_signType_op;
+	protected  String  f_md5;
+ 	protected  String  f_md5_op;
 	protected  Timestamp  f_createdDateTime;
  	protected  String  f_createdDateTime_op;
 	protected  Timestamp  f_createdDateTime01;
@@ -56,6 +60,38 @@ public class TblMchtPaymentConfigPageInfo extends PageInfoView{
     
     public void setF_authorized_op(String f_authorized_op) {
         this.f_authorized_op = f_authorized_op;
+    }
+   
+    public Integer getF_signType() {
+        return this.f_signType;
+    }
+    
+    public void setF_signType(Integer f_signType) {
+        this.f_signType = f_signType;
+    }
+    
+    public String getF_signType_op() {
+        return this.f_signType_op;
+    }
+    
+    public void setF_signType_op(String f_signType_op) {
+        this.f_signType_op = f_signType_op;
+    }
+   
+    public String getF_md5() {
+        return this.f_md5;
+    }
+    
+    public void setF_md5(String f_md5) {
+        this.f_md5 = f_md5;
+    }
+    
+    public String getF_md5_op() {
+        return this.f_md5_op;
+    }
+    
+    public void setF_md5_op(String f_md5_op) {
+        this.f_md5_op = f_md5_op;
     }
    
     public Timestamp getF_createdDateTime() {

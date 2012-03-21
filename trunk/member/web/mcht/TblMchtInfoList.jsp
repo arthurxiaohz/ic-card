@@ -18,7 +18,16 @@
 				<input type="text" name="pageInfo.f_mchtNo" value="${pageInfo.f_mchtNo}"/>
 			</li>	  
 			<li>
-
+				<label><hi:text key="商户名称" entity="TblMchtInfo"/>:</label>
+				<input type="text" name="pageInfo.f_mchtName" value="${pageInfo.f_mchtName}"/>
+			</li>	  
+			<li>
+				<label><hi:text key="状态" entity="TblMchtInfo"/>:</label>
+				<hi:search name="pageInfo.f_status" emu="mchtStatus"/>
+			</li>	  
+			<li>
+				<label><hi:text key="商户类别" entity="TblMchtInfo"/>:</label>
+				<hi:search name="pageInfo.f_mchtType" emu="mchtType"/>
 			</li>	  
 		</ul>
 		<div class="subBar">
@@ -36,7 +45,7 @@
 				<authz:authorize ifAnyGranted="TBLMCHTINFO_DEL"><li><a class="delete" href="<hi:url>tblMchtInfoRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', mchtNo:'',mchtName:'',status:'',mchtType:'',landline:'',mobile:'',fax:'',address:'',days:'',bankAccountNo:'',bankAccountName:'',bankNo:'',bankName:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', mchtNo:'',mchtName:'',status:'',mchtType:'',landline:'',mobile:'',fax:'',address:'',days:'',bankAccountNo:'',bankAccountName:'',bankNo:'',bankName:'',createdDateTime:'',lastUpdatedDatetime:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -60,6 +69,8 @@
 				<th orderField="bankAccountName" class="${pageInfo.sorterName eq 'bankAccountName' ? pageInfo.sorterDirection : ''}"><hi:text key="银行账户名称" entity="TblMchtInfo"/></th>
 				<th orderField="bankNo" class="${pageInfo.sorterName eq 'bankNo' ? pageInfo.sorterDirection : ''}"><hi:text key="开户行行号" entity="TblMchtInfo"/></th>
 				<th orderField="bankName" class="${pageInfo.sorterName eq 'bankName' ? pageInfo.sorterDirection : ''}"><hi:text key="开户行名称" entity="TblMchtInfo"/></th>
+				<th orderField="createdDateTime" class="${pageInfo.sorterName eq 'createdDateTime' ? pageInfo.sorterDirection : ''}"><hi:text key="创建时间" entity="TblMchtInfo"/></th>
+				<th orderField="lastUpdatedDatetime" class="${pageInfo.sorterName eq 'lastUpdatedDatetime' ? pageInfo.sorterDirection : ''}"><hi:text key="最后修改时间" entity="TblMchtInfo"/></th>
 				<th width="90">
 					<c:choose>
 						<c:when test="${empty lookup}"><hi:text key="操作"/></c:when>
@@ -87,6 +98,8 @@
 				    <td>${item.bankAccountName}</td>
 				    <td>${item.bankNo}</td>
 				    <td>${item.bankName}</td>
+				    <td><fmt:formatDate value="${item.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+				    <td><fmt:formatDate value="${item.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
@@ -101,7 +114,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', mchtNo:'${item.mchtNo}',mchtName:'${item.mchtName}',status:'<hi:select emu="mchtStatus" name="tblMchtInfos[${s.index}].status" isLabel="true"/>',mchtType:'<hi:select emu="mchtType" name="tblMchtInfos[${s.index}].mchtType" isLabel="true"/>',landline:'${item.landline}',mobile:'${item.mobile}',fax:'${item.fax}',address:'${item.address}',days:'${item.days}',bankAccountNo:'${item.bankAccountNo}',bankAccountName:'${item.bankAccountName}',bankNo:'${item.bankNo}',bankName:'${item.bankName}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', mchtNo:'${item.mchtNo}',mchtName:'${item.mchtName}',status:'<hi:select emu="mchtStatus" name="tblMchtInfos[${s.index}].status" isLabel="true"/>',mchtType:'<hi:select emu="mchtType" name="tblMchtInfos[${s.index}].mchtType" isLabel="true"/>',landline:'${item.landline}',mobile:'${item.mobile}',fax:'${item.fax}',address:'${item.address}',days:'${item.days}',bankAccountNo:'${item.bankAccountNo}',bankAccountName:'${item.bankAccountName}',bankNo:'${item.bankNo}',bankName:'${item.bankName}',createdDateTime:'${item.createdDateTime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

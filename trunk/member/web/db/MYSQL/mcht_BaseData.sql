@@ -10,13 +10,9 @@ delete from MenuLink where ID = 300200;
 --
 insert into MenuLink(ID, version, linkUrl, displayRef, description, authority, sequence, menu, menuLinkType, creator) values(300200, 0, '/tblMchtInfoList.action', '商户', '商户', 300200, 9999, 300000, 0, 0);
 --
-delete from MenuLink where ID = 300400;
---
-insert into MenuLink(ID, version, linkUrl, displayRef, description, authority, sequence, menu, menuLinkType, creator) values(300400, 0, '/tblMchtSettleCycleConfigList.action', '商户结算周期配置', '商户结算周期配置', 300400, 9999, 300000, 0, 0);
---
 delete from MenuLink where ID = 301100;
 --
-insert into MenuLink(ID, version, linkUrl, displayRef, description, authority, sequence, menu, menuLinkType, creator) values(301100, 0, '/tblMchtUserList.action', '商服用户', '商服用户', 301100, 9999, 300000, 0, 0);
+insert into MenuLink(ID, version, linkUrl, displayRef, description, authority, sequence, menu, menuLinkType, creator) values(301100, 0, '/tblMchtUserList.action', '商服操作员', '商服操作员', 301100, 9999, 300000, 0, 0);
 --
 
 
@@ -131,15 +127,15 @@ delete from HI_Authority where ID = 301103;
 --
 delete from HI_Authority where ID = 301104;
 --
-insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301100, 0, 'TBLMCHTUSER_LIST', 'mcht.TblMchtUserList', '', '商服用户查询', 1, 301100);
+insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301100, 0, 'TBLMCHTUSER_LIST', 'mcht.TblMchtUserList', '', '商服操作员查询', 1, 301100);
 --
-insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301101, 0, 'TBLMCHTUSER_VIEW', 'mcht.TblMchtUserView', '', '商服用户查看', 2, 301100);
+insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301101, 0, 'TBLMCHTUSER_VIEW', 'mcht.TblMchtUserView', '', '商服操作员查看', 2, 301100);
 --
-insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301102, 0, 'TBLMCHTUSER_SAVE', 'mcht.TblMchtUserSave', '', '商服用户保存', 3, 301100);
+insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301102, 0, 'TBLMCHTUSER_SAVE', 'mcht.TblMchtUserSave', '', '商服操作员保存', 3, 301100);
 --
-insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301103, 0, 'TBLMCHTUSER_DEL', 'mcht.TblMchtUserDel', '', '商服用户删除', 4, 301100);
+insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301103, 0, 'TBLMCHTUSER_DEL', 'mcht.TblMchtUserDel', '', '商服操作员删除', 4, 301100);
 --
-insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301104, 0, 'TBLMCHTUSER_LOOKUP', 'mcht.TblMchtUserLookup', '', '商服用户带回', 1, 301100);
+insert into HI_Authority(ID, version, authorityName, displayRef, propertedResource, description, authorityType, menuLink) values(301104, 0, 'TBLMCHTUSER_LOOKUP', 'mcht.TblMchtUserLookup', '', '商服操作员带回', 1, 301100);
 --
 
 delete from HI_PrivilegeResource where ID = 300200;
@@ -285,6 +281,10 @@ delete from Enumeration where ID = 301000;
 --
 insert into Enumeration(ID, version, enName, displayRef, description, enumerationType, creator) values(301000, 0, 'feeFlag', '手续费结算方式', '手续费结算方式', 0, 0);
 --
+delete from Enumeration where ID = 301200;
+--
+insert into Enumeration(ID, version, enName, displayRef, description, enumerationType, creator) values(301200, 0, 'signType', '提交类型', '提交类型', 0, 0);
+--
 
 
 
@@ -335,6 +335,14 @@ insert into EnumerationValue(ID, version, valueName, displayRef, description, va
 delete from EnumerationValue where ID = 301001;
 --
 insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(301001, 0, 'twoLine', '收支两条线', '收支两条线', '', 301000, 0);
+--
+delete from EnumerationValue where ID = 301200;
+--
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(301200, 0, 'md5', 'MD5', 'MD5', '', 301200, 0);
+--
+delete from EnumerationValue where ID = 301201;
+--
+insert into EnumerationValue(ID, version, valueName, displayRef, description, valueCode, enumeration, creator) values(301201, 0, 'certificate', '证书', '证书', '', 301200, 0);
 --
 
 --
@@ -410,6 +418,14 @@ delete from HI_Language where ID = 300213;
 --
 insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300213, 0, '开户行名称', 'TblMchtInfo', 1, 0);
 --
+delete from HI_Language where ID = 300214;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300214, 0, '创建时间', 'TblMchtInfo', 1, 0);
+--
+delete from HI_Language where ID = 300215;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300215, 0, '最后修改时间', 'TblMchtInfo', 1, 0);
+--
 delete from HI_Language where ID = 300300;
 --
 insert into HI_Language(ID, version, keyStr, creator, isSystem) values(300300, 0, '商户支付配置', 1, 0);
@@ -420,11 +436,19 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(3
 --
 delete from HI_Language where ID = 300302;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300302, 0, '创建时间', 'TblMchtPaymentConfig', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300302, 0, '签名方式', 'TblMchtPaymentConfig', 1, 0);
 --
 delete from HI_Language where ID = 300303;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300303, 0, '最后修改时间', 'TblMchtPaymentConfig', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300303, 0, 'MD5', 'TblMchtPaymentConfig', 1, 0);
+--
+delete from HI_Language where ID = 300304;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300304, 0, '创建时间', 'TblMchtPaymentConfig', 1, 0);
+--
+delete from HI_Language where ID = 300305;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300305, 0, '最后修改时间', 'TblMchtPaymentConfig', 1, 0);
 --
 delete from HI_Language where ID = 300500;
 --
@@ -548,24 +572,28 @@ insert into HI_Language(ID, version, keyStr, creator, isSystem) values(300400, 0
 --
 delete from HI_Language where ID = 300401;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300401, 0, '结算周期类型', 'TblMchtSettleCycleConfig', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300401, 0, '结算频度间隔', 'TblMchtSettleCycleConfig', 1, 0);
 --
 delete from HI_Language where ID = 300402;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300402, 0, '参数值', 'TblMchtSettleCycleConfig', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300402, 0, '最小结算金额', 'TblMchtSettleCycleConfig', 1, 0);
 --
 delete from HI_Language where ID = 300403;
 --
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300403, 0, '最小结算金额', 'TblMchtSettleCycleConfig', 1, 0);
---
-delete from HI_Language where ID = 300404;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300404, 0, '创建时间', 'TblMchtSettleCycleConfig', 1, 0);
---
-delete from HI_Language where ID = 300405;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300405, 0, '最后修改时间', 'TblMchtSettleCycleConfig', 1, 0);
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300403, 0, '备付金', 'TblMchtSettleCycleConfig', 1, 0);
 --
 delete from HI_Language where ID = 301100;
 --
-insert into HI_Language(ID, version, keyStr, creator, isSystem) values(301100, 0, '商服用户', 1, 0);
+insert into HI_Language(ID, version, keyStr, creator, isSystem) values(301100, 0, '商服操作员', 1, 0);
+--
+delete from HI_Language where ID = 301200;
+--
+insert into HI_Language(ID, version, keyStr, creator, isSystem) values(301200, 0, '提交类型', 1, 0);
+--
+delete from HI_Language where ID = 301201;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(301201, 0, 'MD5', 'signType', 1, 0);
+--
+delete from HI_Language where ID = 301202;
+--
+insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(301202, 0, '证书', 'signType', 1, 0);

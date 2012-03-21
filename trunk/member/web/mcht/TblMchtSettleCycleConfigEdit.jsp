@@ -6,32 +6,19 @@
 <div class="pageContent">
 	<div class="pageFormContent" layoutH="97">
 		<dl>
-			<dt><hi:text key="结算周期类型" entity="TblMchtSettleCycleConfig"/>：</dt><dd><hi:select emu="mchtSettleCycleType" name="tblMchtSettleCycleConfig.settleCycleType"/></dd>			
-		</dl>
-		<dl>
-			<dt><hi:text key="参数值" entity="TblMchtSettleCycleConfig"/>：</dt><dd><input type="text" name="tblMchtSettleCycleConfig.ruleValue" class="textInput integer" value="${tblMchtSettleCycleConfig.ruleValue}" alt="<hi:text key="请输入整数"/>"/></dd>
+			<dt><hi:text key="结算频度间隔" entity="TblMchtSettleCycleConfig"/>：</dt><dd><input type="text" name="tblMchtSettleCycleConfig.settleInterval" class="textInput integer" value="${tblMchtSettleCycleConfig.settleInterval}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="最小结算金额" entity="TblMchtSettleCycleConfig"/>：</dt><dd><input type="text" name="tblMchtSettleCycleConfig.threshold" class="textInput integer" value="${tblMchtSettleCycleConfig.threshold}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="创建时间" entity="TblMchtSettleCycleConfig"/>：</dt>
-			<dd>
-				<input type="text" name="tblMchtSettleCycleConfig.createdDateTime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
-					value="<fmt:formatDate value='${tblMchtSettleCycleConfig.createdDateTime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
-				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
-			</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="最后修改时间" entity="TblMchtSettleCycleConfig"/>：</dt>
-			<dd>
-				<input type="text" name="tblMchtSettleCycleConfig.lastUpdatedDatetime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
-					value="<fmt:formatDate value='${tblMchtSettleCycleConfig.lastUpdatedDatetime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
-				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
-			</dd>
+			<dt><hi:text key="备付金" entity="TblMchtSettleCycleConfig"/>：</dt><dd><input type="text" name="tblMchtSettleCycleConfig.excessReserve" class="textInput integer" value="${tblMchtSettleCycleConfig.excessReserve}" alt="<hi:text key="请输入整数"/>"/></dd>
 		</dl>
 				<input type="hidden" name="tblMchtSettleCycleConfig.id" value="${tblMchtSettleCycleConfig.id}"/>
+				<input type="hidden" name="tblMchtSettleCycleConfig.createdDateTime" value="${tblMchtSettleCycleConfig.createdDateTime}"/>
+				<input type="hidden" name="tblMchtSettleCycleConfig.lastUpdatedDatetime" value="${tblMchtSettleCycleConfig.lastUpdatedDatetime}"/>
 				<input type="hidden" name="tblMchtSettleCycleConfig.lastUpdatedBy.id" value="${tblMchtSettleCycleConfig.lastUpdatedBy.id}"/>
+				<input type="hidden" name="tblMchtSettleCycleConfig.tblMchtInfo.id" value="${tblMchtSettleCycleConfig.tblMchtInfo.id}"/>
 				<input type="hidden" name="tblMchtSettleCycleConfig.creator.id" value="${tblMchtSettleCycleConfig.creator.id}"/>
 				<input type="hidden" name="tblMchtSettleCycleConfig.deleted" value="${tblMchtSettleCycleConfig.deleted}"/>
 				<input type="hidden" name="tblMchtSettleCycleConfig.version" value="${tblMchtSettleCycleConfig.version}"/>

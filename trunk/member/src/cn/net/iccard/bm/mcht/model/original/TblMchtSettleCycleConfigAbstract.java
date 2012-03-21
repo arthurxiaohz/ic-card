@@ -10,6 +10,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
+import cn.net.iccard.bm.mcht.model.TblMchtInfo;
 import cn.net.iccard.bm.mcht.model.TblMchtSettleCycleConfig;
 import org.hi.base.organization.model.HiUser;
 
@@ -27,19 +28,19 @@ public abstract class TblMchtSettleCycleConfigAbstract extends BaseObject implem
  	protected  Integer version;
 
  	 /**
-	 * 结算周期类型
+	 * 结算频度间隔
 	 */	
- 	protected  Integer settleCycleType;
-
- 	 /**
-	 * 参数值
-	 */	
- 	protected  Integer ruleValue;
+ 	protected  Integer settleInterval;
 
  	 /**
 	 * 最小结算金额
 	 */	
  	protected  Integer threshold;
+
+ 	 /**
+	 * 备付金
+	 */	
+ 	protected  Integer excessReserve;
 
  	 /**
 	 * 创建时间
@@ -55,6 +56,11 @@ public abstract class TblMchtSettleCycleConfigAbstract extends BaseObject implem
 	 * 最后修改人
 	 */	
  	protected  HiUser lastUpdatedBy;
+
+ 	 /**
+	 * tblMchtInfo
+	 */	
+ 	protected  TblMchtInfo tblMchtInfo;
 
  	 /**
 	 * 创建人
@@ -93,30 +99,17 @@ public abstract class TblMchtSettleCycleConfigAbstract extends BaseObject implem
         this.version = version;
     }
     
-    public Integer getSettleCycleType() {
-        return this.settleCycleType;
+    public Integer getSettleInterval() {
+        return this.settleInterval;
     }
     
-    public void setSettleCycleType(Integer settleCycleType) {
-    		if((settleCycleType != null && this.settleCycleType == null) || 
-				this.settleCycleType != null && (!this.settleCycleType.equals(settleCycleType) || settleCycleType == null)){
+    public void setSettleInterval(Integer settleInterval) {
+    		if((settleInterval != null && this.settleInterval == null) || 
+				this.settleInterval != null && (!this.settleInterval.equals(settleInterval) || settleInterval == null)){
         		this.setDirty(true);
-        		this.oldValues.put("settleCycleType", this.settleCycleType);
+        		this.oldValues.put("settleInterval", this.settleInterval);
         	}
-        this.settleCycleType = settleCycleType;
-    }
-    
-    public Integer getRuleValue() {
-        return this.ruleValue;
-    }
-    
-    public void setRuleValue(Integer ruleValue) {
-    		if((ruleValue != null && this.ruleValue == null) || 
-				this.ruleValue != null && (!this.ruleValue.equals(ruleValue) || ruleValue == null)){
-        		this.setDirty(true);
-        		this.oldValues.put("ruleValue", this.ruleValue);
-        	}
-        this.ruleValue = ruleValue;
+        this.settleInterval = settleInterval;
     }
     
     public Integer getThreshold() {
@@ -130,6 +123,19 @@ public abstract class TblMchtSettleCycleConfigAbstract extends BaseObject implem
         		this.oldValues.put("threshold", this.threshold);
         	}
         this.threshold = threshold;
+    }
+    
+    public Integer getExcessReserve() {
+        return this.excessReserve;
+    }
+    
+    public void setExcessReserve(Integer excessReserve) {
+    		if((excessReserve != null && this.excessReserve == null) || 
+				this.excessReserve != null && (!this.excessReserve.equals(excessReserve) || excessReserve == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("excessReserve", this.excessReserve);
+        	}
+        this.excessReserve = excessReserve;
     }
     
     public Timestamp getCreatedDateTime() {
@@ -171,6 +177,27 @@ public abstract class TblMchtSettleCycleConfigAbstract extends BaseObject implem
         this.lastUpdatedBy = lastUpdatedBy;
     }
     
+    public TblMchtInfo getTblMchtInfo() {
+        return this.tblMchtInfo;
+    }
+    
+    public void setTblMchtInfo(TblMchtInfo tblMchtInfo) {
+    		if((tblMchtInfo != null && this.tblMchtInfo == null) || 
+				this.tblMchtInfo != null && (!this.tblMchtInfo.equals(tblMchtInfo) || tblMchtInfo == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("tblMchtInfo", this.tblMchtInfo);
+        	}
+        this.tblMchtInfo = tblMchtInfo;
+    }
+    
+   public BaseObject getParentEntity(){
+	   return this.tblMchtInfo;
+   }
+   
+   public void setParentEntity(BaseObject parent){
+	   this.tblMchtInfo = (TblMchtInfo)parent;
+   }
+   
     public HiUser getCreator() {
         return this.creator;
     }
@@ -218,8 +245,9 @@ public abstract class TblMchtSettleCycleConfigAbstract extends BaseObject implem
    public String toString() {
        ToStringBuilder sb = new ToStringBuilder(this, ToStringStyle.DEFAULT_STYLE);
        sb.append("id", this.id)
-		.append("ruleValue", this.ruleValue)
+		.append("settleInterval", this.settleInterval)
 		.append("threshold", this.threshold)
+		.append("excessReserve", this.excessReserve)
 		.append("deleted", this.deleted);
       
         return sb.toString();

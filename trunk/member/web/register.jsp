@@ -136,7 +136,7 @@ function check_02(){
               <tr>
                 <td height="22" colspan="2" >&nbsp;</td>
                 <td height="22"><div align="left"> 
-                <input name="image" type="image" id="buttLogin" style="width:49px;height:18px;border:0px"  src="styles/images/dl.gif"  tppabs="styles/images/dl.gif"/>
+                <input name="image" type="image" id="buttLogin" style="width:49px;height:18px;border:0px"  src="styles/images/zhuce.gif"  tppabs="styles/images/zhuce.gif"/>
                 </div></td>
               </tr> 
               <tr> 

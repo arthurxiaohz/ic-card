@@ -9,6 +9,12 @@
 			<dt><hi:text key="是否允许接入支付平台" entity="TblMchtPaymentConfig"/>：</dt><dd><hi:select emu="yesNo" name="tblMchtPaymentConfig.authorized"/></dd>			
 		</dl>
 		<dl>
+			<dt><hi:text key="签名方式" entity="TblMchtPaymentConfig"/>：</dt><dd><hi:select emu="signType" name="tblMchtPaymentConfig.signType"/></dd>			
+		</dl>
+		<dl>
+			<dt><hi:text key="MD5" entity="TblMchtPaymentConfig"/>：</dt><dd><input type="text" name="tblMchtPaymentConfig.md5" class="textInput" value="${tblMchtPaymentConfig.md5}" maxlength="30"/></dd>
+		</dl>
+		<dl>
 			<dt><hi:text key="创建时间" entity="TblMchtPaymentConfig"/>：</dt>
 			<dd>
 				<input type="text" name="tblMchtPaymentConfig.createdDateTime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"

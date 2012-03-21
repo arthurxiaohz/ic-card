@@ -38,6 +38,16 @@ public abstract class TblMchtPaymentConfigAbstract extends BaseObject implements
  	protected  Integer authorized;
 
  	 /**
+	 * 签名方式
+	 */	
+ 	protected  Integer signType;
+
+ 	 /**
+	 * MD5
+	 */	
+ 	protected  String md5;
+
+ 	 /**
 	 * 创建时间
 	 */	
  	protected  Timestamp createdDateTime = new Timestamp(System.currentTimeMillis());
@@ -118,6 +128,32 @@ public abstract class TblMchtPaymentConfigAbstract extends BaseObject implements
         this.authorized = authorized;
     }
     
+    public Integer getSignType() {
+        return this.signType;
+    }
+    
+    public void setSignType(Integer signType) {
+    		if((signType != null && this.signType == null) || 
+				this.signType != null && (!this.signType.equals(signType) || signType == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("signType", this.signType);
+        	}
+        this.signType = signType;
+    }
+    
+    public String getMd5() {
+        return this.md5;
+    }
+    
+    public void setMd5(String md5) {
+    		if((md5 != null && this.md5 == null) || 
+				this.md5 != null && (!this.md5.equals(md5) || md5 == null)){
+        		this.setDirty(true);
+        		this.oldValues.put("md5", this.md5);
+        	}
+        this.md5 = md5;
+    }
+    
     public Timestamp getCreatedDateTime() {
         return this.createdDateTime;
     }
@@ -190,7 +226,8 @@ public abstract class TblMchtPaymentConfigAbstract extends BaseObject implements
 
    public String toString() {
        ToStringBuilder sb = new ToStringBuilder(this, ToStringStyle.DEFAULT_STYLE);
-       sb.append("id", this.id);
+       sb.append("id", this.id)
+		.append("md5", this.md5);
       
         return sb.toString();
    }

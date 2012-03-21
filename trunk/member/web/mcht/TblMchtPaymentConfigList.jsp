@@ -29,7 +29,7 @@
 				<authz:authorize ifAnyGranted="TBLMCHTPAYMENTCONFIG_DEL"><li><a class="delete" href="<hi:url>tblMchtPaymentConfigRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', authorized:'',createdDateTime:'',lastUpdatedDatetime:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', authorized:'',signType:'',md5:'',createdDateTime:'',lastUpdatedDatetime:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -41,6 +41,8 @@
 				<th width="28"><input type="checkbox" group="orderIndexs" class="checkboxCtrl"></th>
 				</c:if>
 				<th orderField="authorized" class="${pageInfo.sorterName eq 'authorized' ? pageInfo.sorterDirection : ''}"><hi:text key="是否允许接入支付平台" entity="TblMchtPaymentConfig"/></th>
+				<th orderField="signType" class="${pageInfo.sorterName eq 'signType' ? pageInfo.sorterDirection : ''}"><hi:text key="签名方式" entity="TblMchtPaymentConfig"/></th>
+				<th orderField="md5" class="${pageInfo.sorterName eq 'md5' ? pageInfo.sorterDirection : ''}"><hi:text key="MD5" entity="TblMchtPaymentConfig"/></th>
 				<th orderField="createdDateTime" class="${pageInfo.sorterName eq 'createdDateTime' ? pageInfo.sorterDirection : ''}"><hi:text key="创建时间" entity="TblMchtPaymentConfig"/></th>
 				<th orderField="lastUpdatedDatetime" class="${pageInfo.sorterName eq 'lastUpdatedDatetime' ? pageInfo.sorterDirection : ''}"><hi:text key="最后修改时间" entity="TblMchtPaymentConfig"/></th>
 				<th width="90">
@@ -58,6 +60,8 @@
 				<td><input name="orderIndexs" value="${item.id}" type="checkbox"></td>
 				</c:if>			
 				    <td><hi:select emu="yesNo" name="tblMchtPaymentConfigs[${s.index}].authorized" isLabel="true"/></td>
+				    <td><hi:select emu="signType" name="tblMchtPaymentConfigs[${s.index}].signType" isLabel="true"/></td>
+				    <td>${item.md5}</td>
 				    <td><fmt:formatDate value="${item.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 				    <td><fmt:formatDate value="${item.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 				<td>
@@ -74,7 +78,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', authorized:'<hi:select emu="yesNo" name="tblMchtPaymentConfigs[${s.index}].authorized" isLabel="true"/>',createdDateTime:'${item.createdDateTime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', authorized:'<hi:select emu="yesNo" name="tblMchtPaymentConfigs[${s.index}].authorized" isLabel="true"/>',signType:'<hi:select emu="signType" name="tblMchtPaymentConfigs[${s.index}].signType" isLabel="true"/>',md5:'${item.md5}',createdDateTime:'${item.createdDateTime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>
