@@ -66,6 +66,8 @@ function gofail(){
 								value='<%=request.getAttribute("total_fee")%>' />
 							<input type='hidden' name='out_trade_no' id="out_trade_no"
 								value='<%=request.getAttribute("out_trade_no")%>' />
+								<input type='hidden' name='orderId' id="orderId"
+								value='<%=request.getAttribute("orderId")%>' />
 							
 							<br>
 							<p align="center">
@@ -90,6 +92,8 @@ function gofail(){
 									<td>
 										<%=(String) request.getAttribute("total_fee")%>
 									</td>
+									</tr>
+									<tr>
 									<td>
 										<b>流水号</b>
 									</td>

@@ -58,6 +58,7 @@ public class BankTxControl extends HttpServlet {
         req.setAttribute("total_fee", req.getParameter("total_fee"));
         req.setAttribute("out_trade_no", req.getParameter("out_trade_no"));
         req.setAttribute("NotifyURL", req.getParameter("notify_url"));
+        req.setAttribute("orderId", req.getParameter("orderId"));
         
 		
      // 3.Ò³ÃæÌø×ª
