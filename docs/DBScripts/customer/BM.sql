@@ -258,6 +258,6 @@ INSERT INTO `hi_roleauthority` (`id`,`version`,`role`,`authority`,`org`,`scope`)
  (335,1,2,1101,NULL,NULL),
  (336,1,2,1102,NULL,NULL);
  
---资金划付报表
+--资金划付报表（通过页面功能，编辑修改，重新上传附件即可）
 INSERT INTO `hi_excelreportdesign` (`id`,`version`,`reportName`,`reportNum`,`template`,`createDate`,`enabled`,`actionName`,`description`,`creator`) VALUES 
  (1,4,'资金划付报表查询下载','0001','upload/report/20120311/1331406417586.xls','2012-03-01 00:00:00',3200,'cn.net.iccard.bm.report.action.FundReportAction','资金划付报表查询下载',1);
