@@ -31,7 +31,7 @@ public class SimpleAccountForOrgOpenRequest implements
 	 * 
 	 * @return
 	 */
-	// private int operator;
+	private int operator;
 	/**
 	 * ±¸×¢
 	 */
@@ -69,6 +69,14 @@ public class SimpleAccountForOrgOpenRequest implements
 
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+
+	public int getOperator() {
+		return operator;
+	}
+
+	public void setOperator(int operator) {
+		this.operator = operator;
 	}
 
 }
