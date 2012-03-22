@@ -12,6 +12,7 @@ import org.hi.base.organization.model.HiOrg;
 import org.hi.base.organization.model.HiUser;
 import org.hi.base.organization.model.UserType;
 import org.hi.base.organization.service.HiOrgManager;
+import org.hi.base.organization.service.HiUserManager;
 import org.hi.base.sysapp.AppSettingHelper;
 import org.hi.framework.dao.impl.FilterFactory;
 import org.hi.framework.security.dwz.service.RoleManager;
@@ -49,6 +50,9 @@ public class AccountService implements IAccountService {
 	private TblMchtUserManager tblMchtUserMgr = (TblMchtUserManager) SpringContextHolder
 			.getBean(TblMchtUser.class);
 
+	private HiUserManager hiUserMgr = (HiUserManager) SpringContextHolder
+			.getBean(HiUser.class);
+
 	private RoleManager roleMgr = (RoleManager) SpringContextHolder
 			.getBean(RoleManager.class);
 
@@ -85,6 +89,9 @@ public class AccountService implements IAccountService {
 		tblActAccountBalance.setAvailableBalance(accountOpenRequest
 				.getAvailableBalance());
 
+		tblActAccountBalance.setCreator(hiUserMgr
+				.getHiUserById(accountOpenRequest.getOperator()));
+
 		tblActAccountBalanceMgr.saveTblActAccountBalance(tblActAccountBalance);
 
 		return new SimpleAccountOpenResponse(EAccountResponse.S0000,
@@ -105,6 +112,8 @@ public class AccountService implements IAccountService {
 				.getAccountParty());
 		simpleAccountOpenRequest.setAccountName(accountOpenForOrgRequest
 				.getAccountName());
+		simpleAccountOpenRequest.setOperator(accountOpenForOrgRequest
+				.getOperator());
 		openAccount(simpleAccountOpenRequest);
 
 		// 会员担保账户
@@ -136,6 +145,8 @@ public class AccountService implements IAccountService {
 				.getAccountParty());
 		simpleAccountOpenRequest.setAccountName(accountOpenForOrgRequest
 				.getAccountName());
+		simpleAccountOpenRequest.setOperator(accountOpenForOrgRequest
+				.getOperator());
 		openAccount(simpleAccountOpenRequest);
 
 		// 商户手续费账户

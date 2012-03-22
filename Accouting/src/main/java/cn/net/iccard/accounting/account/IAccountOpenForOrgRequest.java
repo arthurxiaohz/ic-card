@@ -31,7 +31,8 @@ public interface IAccountOpenForOrgRequest extends Serializable {
 	 * 
 	 * @return
 	 */
-	// int getOperator();
+	int getOperator();
+
 	/**
 	 * ±¸×¢
 	 */
