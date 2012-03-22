@@ -109,7 +109,7 @@
 				<c:if test="${empty lookup}">
 				<td><input name="orderIndexs" value="${item.id}" type="checkbox"></td>
 				</c:if>			
-				    <td>${item.availableBalance}</td>
+				    <td>${item.availableBalance/100}</td>
 				    <td>${item.accountNo}</td>
 				    <td><hi:select emu="accountCatalog" name="tblActAccountBalances[${s.index}].accountCatalog" isLabel="true"/></td>
 				    <td><hi:select emu="accountPartyType" name="tblActAccountBalances[${s.index}].accountPartyType" isLabel="true"/></td>
