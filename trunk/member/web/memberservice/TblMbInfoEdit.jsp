@@ -40,7 +40,7 @@
 			</dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="帐号" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.userName" class="textInput required" value="${tblMbInfo.userName}" maxlength="30"/></dd>
+			<dt><hi:text key="帐号" entity="TblMbInfo"/>：</dt><dd><input <c:if test="${tblMbInfo.id!=null}">readonly="readonly"</c:if> type="text" name="tblMbInfo.userName" class="textInput required" value="${tblMbInfo.userName}" maxlength="30"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="国家" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.country" class="textInput" value="${tblMbInfo.country}" alt="<hi:text key="请输入整数"/>"/></dd>
@@ -93,7 +93,7 @@
 			<dt><hi:text key="邮编" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.zip" class="textInput" value="${tblMbInfo.zip}" maxlength="30"/></dd>
 		</dl>
 		<dl>
-			<dt><hi:text key="身份证" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.sSN" class="textInput" value="${tblMbInfo.sSN}" maxlength="50"/></dd>
+			<dt><hi:text key="身份证" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.SSN" class="textInput" value="${tblMbInfo.SSN}" maxlength="50"/></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="E-Mail" entity="TblMbInfo"/>：</dt><dd><input type="text" name="tblMbInfo.mail" class="textInput" value="${tblMbInfo.mail}" maxlength="100"/></dd>
