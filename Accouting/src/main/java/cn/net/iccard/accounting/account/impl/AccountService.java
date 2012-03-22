@@ -127,6 +127,8 @@ public class AccountService implements IAccountService {
 				FilterFactory.getSimpleFilter("userName",
 						accountOpenForOrgRequest.getAccountParty())).get(0));
 		tblMbPoint.setBalance(0);
+		tblMbPoint.setCreator(hiUserMgr.getHiUserById(accountOpenForOrgRequest
+				.getOperator()));
 		tblMbPointMgr.saveTblMbPoint(tblMbPoint);
 
 		return new SimpleCommonAccountResponse(EAccountResponse.S0000);
