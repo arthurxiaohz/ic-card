@@ -9,7 +9,9 @@ import org.hi.framework.web.struts.BaseAction;
 
 import cn.net.iccard.bm.mcht.action.TblMchtInfoPageInfo;
 import cn.net.iccard.bm.mcht.model.TblMchtInfo;
+import cn.net.iccard.bm.mcht.model.TblMchtUser;
 import cn.net.iccard.bm.mcht.service.TblMchtInfoManager;
+import cn.net.iccard.bm.mcht.service.TblMchtUserManager;
 
 public class TblMchtInfoAction extends BaseAction{
 	private TblMchtInfo tblMchtInfo;
@@ -75,6 +77,14 @@ public class TblMchtInfoAction extends BaseAction{
 	public String tblMchtInfoList() throws Exception {
 		TblMchtInfoManager tblMchtInfoMgr = (TblMchtInfoManager)SpringContextHolder.getBean(TblMchtInfo.class);
 		pageInfo = pageInfo == null ? new TblMchtInfoPageInfo() : pageInfo;
+		
+		//锁定查询所属商户
+		TblMchtUserManager tblMchtUserMgr = (TblMchtUserManager) SpringContextHolder
+				.getBean(TblMchtUser.class);
+		pageInfo.setF_mchtNo(tblMchtUserMgr.getTblMchtUserById(
+				(org.hi.framework.security.context.UserContextHelper.getUser()
+						.getId())).getMchtNo());
+		
 		PageInfo sarchPageInfo = PageInfoUtil.populate(pageInfo, this);
 		
 		tblMchtInfos = tblMchtInfoMgr.getSecurityTblMchtInfoList(sarchPageInfo);
