@@ -7,7 +7,7 @@
 	<div class="viewInfo" layoutH="97">
 				
 		<dl>
-			<dt><hi:text key="可用余额" entity="TblActAccountBalance"/>：</dt><dd>${tblActAccountBalance.availableBalance}</dd>
+			<dt><hi:text key="可用余额" entity="TblActAccountBalance"/>：</dt><dd>${tblActAccountBalance.availableBalance/100}</dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="账号" entity="TblActAccountBalance"/>：</dt><dd>${tblActAccountBalance.accountNo}</dd>
