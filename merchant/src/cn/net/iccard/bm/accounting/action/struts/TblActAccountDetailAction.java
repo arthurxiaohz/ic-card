@@ -7,9 +7,12 @@ import org.hi.framework.paging.PageInfo;
 import org.hi.framework.web.PageInfoUtil;
 import org.hi.framework.web.struts.BaseAction;
 
+import cn.net.iccard.bm.accounting.action.ActAccountPageInfo;
 import cn.net.iccard.bm.accounting.action.TblActAccountDetailPageInfo;
 import cn.net.iccard.bm.accounting.model.TblActAccountDetail;
 import cn.net.iccard.bm.accounting.service.TblActAccountDetailManager;
+import cn.net.iccard.bm.mcht.model.TblMchtUser;
+import cn.net.iccard.bm.mcht.service.TblMchtUserManager;
 
 public class TblActAccountDetailAction extends BaseAction{
 	private TblActAccountDetail tblActAccountDetail;
@@ -75,6 +78,16 @@ public class TblActAccountDetailAction extends BaseAction{
 	public String tblActAccountDetailList() throws Exception {
 		TblActAccountDetailManager tblActAccountDetailMgr = (TblActAccountDetailManager)SpringContextHolder.getBean(TblActAccountDetail.class);
 		pageInfo = pageInfo == null ? new TblActAccountDetailPageInfo() : pageInfo;
+		
+		//锁定查询的账户为所属商户
+		ActAccountPageInfo actAccountPageInfo = new ActAccountPageInfo();
+		TblMchtUserManager tblMchtUserMgr = (TblMchtUserManager) SpringContextHolder
+				.getBean(TblMchtUser.class);
+		actAccountPageInfo.setF_accountParty(tblMchtUserMgr.getTblMchtUserById(
+				(org.hi.framework.security.context.UserContextHelper.getUser()
+						.getId())).getMchtNo());
+		pageInfo.setActAccount(actAccountPageInfo);
+		
 		PageInfo sarchPageInfo = PageInfoUtil.populate(pageInfo, this);
 		
 		tblActAccountDetails = tblActAccountDetailMgr.getSecurityTblActAccountDetailList(sarchPageInfo);

@@ -10,6 +10,8 @@ import org.hi.framework.web.struts.BaseAction;
 import cn.net.iccard.bm.accounting.action.ActAccountPageInfo;
 import cn.net.iccard.bm.accounting.model.ActAccount;
 import cn.net.iccard.bm.accounting.service.ActAccountManager;
+import cn.net.iccard.bm.mcht.model.TblMchtUser;
+import cn.net.iccard.bm.mcht.service.TblMchtUserManager;
 
 public class ActAccountAction extends BaseAction{
 	private ActAccount actAccount;
@@ -75,6 +77,14 @@ public class ActAccountAction extends BaseAction{
 	public String actAccountList() throws Exception {
 		ActAccountManager actAccountMgr = (ActAccountManager)SpringContextHolder.getBean(ActAccount.class);
 		pageInfo = pageInfo == null ? new ActAccountPageInfo() : pageInfo;
+		
+		//锁定查询所属商户
+		TblMchtUserManager tblMchtUserMgr = (TblMchtUserManager) SpringContextHolder
+				.getBean(TblMchtUser.class);
+		pageInfo.setF_accountParty(tblMchtUserMgr.getTblMchtUserById(
+				(org.hi.framework.security.context.UserContextHelper.getUser()
+						.getId())).getMchtNo());
+		
 		PageInfo sarchPageInfo = PageInfoUtil.populate(pageInfo, this);
 		
 		actAccounts = actAccountMgr.getSecurityActAccountList(sarchPageInfo);
