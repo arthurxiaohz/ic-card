@@ -40,7 +40,7 @@ public class TblStlSettleApplyAction extends BaseAction {
 		if (null == tblStlSettleApply.getId()) {
 			if (tblStlSettleApply.getAmount() > tblStlSettleApply
 					.getAvailableBalance()) {
-				return returnCommand("结算金额超过账户可用余额");
+				return returnCommand("申请结算金额超过账户可用余额");
 			}
 			tblStlSettleApply
 					.setSettleApplyStatus(SettleApplyStatus.SETTLEAPPLYSTATUS_CHECKING);
