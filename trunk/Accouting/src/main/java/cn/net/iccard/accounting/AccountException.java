@@ -1,6 +1,8 @@
 package cn.net.iccard.accounting;
 
-public class AccountException extends RuntimeException {
+import org.hi.framework.web.BusinessException;
+
+public class AccountException extends BusinessException {
 
 	/**
 	 * 
