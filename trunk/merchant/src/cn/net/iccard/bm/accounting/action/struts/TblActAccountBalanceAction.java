@@ -10,6 +10,8 @@ import org.hi.framework.web.struts.BaseAction;
 import cn.net.iccard.bm.accounting.action.TblActAccountBalancePageInfo;
 import cn.net.iccard.bm.accounting.model.TblActAccountBalance;
 import cn.net.iccard.bm.accounting.service.TblActAccountBalanceManager;
+import cn.net.iccard.bm.mcht.model.TblMchtUser;
+import cn.net.iccard.bm.mcht.service.TblMchtUserManager;
 
 public class TblActAccountBalanceAction extends BaseAction{
 	private TblActAccountBalance tblActAccountBalance;
@@ -75,6 +77,14 @@ public class TblActAccountBalanceAction extends BaseAction{
 	public String tblActAccountBalanceList() throws Exception {
 		TblActAccountBalanceManager tblActAccountBalanceMgr = (TblActAccountBalanceManager)SpringContextHolder.getBean(TblActAccountBalance.class);
 		pageInfo = pageInfo == null ? new TblActAccountBalancePageInfo() : pageInfo;
+		
+		//锁定查询所属商户
+		TblMchtUserManager tblMchtUserMgr = (TblMchtUserManager) SpringContextHolder
+				.getBean(TblMchtUser.class);
+		pageInfo.setF_accountParty(tblMchtUserMgr.getTblMchtUserById(
+				(org.hi.framework.security.context.UserContextHelper.getUser()
+						.getId())).getMchtNo());
+		
 		PageInfo sarchPageInfo = PageInfoUtil.populate(pageInfo, this);
 		
 		tblActAccountBalances = tblActAccountBalanceMgr.getSecurityTblActAccountBalanceList(sarchPageInfo);
