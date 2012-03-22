@@ -145,8 +145,10 @@ public class AccountService implements IAccountService {
 				.getAccountParty());
 		simpleAccountOpenRequest.setAccountName(accountOpenForOrgRequest
 				.getAccountName());
-		simpleAccountOpenRequest.setOperator(accountOpenForOrgRequest
-				.getOperator());
+		// 商户开户为BM平台操作员
+		simpleAccountOpenRequest
+				.setOperator(org.hi.framework.security.context.UserContextHelper
+						.getUser().getId());
 		openAccount(simpleAccountOpenRequest);
 
 		// 商户手续费账户
