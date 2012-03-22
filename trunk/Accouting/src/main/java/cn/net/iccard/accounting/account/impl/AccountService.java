@@ -112,6 +112,7 @@ public class AccountService implements IAccountService {
 				.getAccountParty());
 		simpleAccountOpenRequest.setAccountName(accountOpenForOrgRequest
 				.getAccountName());
+		// 会员账户为会员自己
 		simpleAccountOpenRequest.setOperator(accountOpenForOrgRequest
 				.getOperator());
 		openAccount(simpleAccountOpenRequest);
@@ -127,6 +128,7 @@ public class AccountService implements IAccountService {
 				FilterFactory.getSimpleFilter("userName",
 						accountOpenForOrgRequest.getAccountParty())).get(0));
 		tblMbPoint.setBalance(0);
+		// 积分的创建者为会员自己
 		tblMbPoint.setCreator(hiUserMgr.getHiUserById(accountOpenForOrgRequest
 				.getOperator()));
 		tblMbPointMgr.saveTblMbPoint(tblMbPoint);
