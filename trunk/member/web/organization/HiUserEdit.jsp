@@ -10,7 +10,7 @@
 <div class="pageContent">
 	<div class="pageFormContent" layoutH="97">
 		<dl>
-			<dt><hi:text key="帐号" entity="HiUser"/>：</dt><dd><input type="text" name="hiUser.userName" class="textInput required" value="${hiUser.userName}" /></dd>
+			<dt><hi:text key="帐号" entity="HiUser"/>：</dt><dd><input <c:if test="${tblMchtInfo.id!=null}">readonly="readonly"</c:if> type="text" name="hiUser.userName" class="textInput required" value="${hiUser.userName}" /></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="姓名" entity="HiUser"/>：</dt><dd><input type="text" name="hiUser.fullName" class="textInput required" value="${hiUser.fullName}" /></dd>

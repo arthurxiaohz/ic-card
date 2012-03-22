@@ -10,7 +10,7 @@
 <div class="pageContent">
 	<div class="pageFormContent" layoutH="97">
 		<dl>
-			<dt><hi:text key="帐号" entity="HiUser"/>：</dt><dd><input type="text" name="hiUser.userName" class="textInput" value="${hiUser.userName}" /></dd>
+			<dt><hi:text key="帐号" entity="HiUser"/>：</dt><dd><input readonly="readonly" type="text" name="hiUser.userName" class="textInput" value="${hiUser.userName}" /></dd>
 		</dl>
 		<dl>
 			<dt><hi:text key="密码" entity="HiUser"/>：</dt><dd><input type="password" name="hiUser.newPassword" class="textInput" value="${hiUser.password}" /></dd>
