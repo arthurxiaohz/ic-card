@@ -123,9 +123,6 @@ public class ClearingAccountService implements IClearingAccountService {
 		int mchtReturnAmount = refundClearingAccountRequest
 				.getMchtOrderAmount();
 
-		TblStlCleaningDetail tblStlCleaningDetail = (TblStlCleaningDetail) tblStlCleaningDetailManager
-				.getObjectById(refundClearingAccountRequest.getBizLogId());
-
 		if (refundClearingAccountRequest.isFeeReturn()) {
 			// begin：退还商户手续费
 
@@ -149,12 +146,8 @@ public class ClearingAccountService implements IClearingAccountService {
 					- refundClearingAccountRequest.getMchtFee();
 		}
 
-		// 商户结算金额
-
-		// begin：资金从会员担保账户退回会员虚拟账户（原账务凭证改为已处理）
-		AccountPayableCancelTransferRequest accountPayableCancelTransferRequest = new AccountPayableCancelTransferRequest();
-		// 会员担保账户
-		int accountIdFrom = ((ActAccount) actAccountManager
+		// 会员虚拟账户入账
+		int memberVirtualAccountId = ((ActAccount) actAccountManager
 				.getObjects(
 						FilterFactory
 								.getSimpleFilter(
@@ -166,36 +159,15 @@ public class ClearingAccountService implements IClearingAccountService {
 												.getUserName())
 								.addCondition(
 										"accountCatalog",
-										AccountCatalog.ACCOUNTCATALOG_GUARANTEEACCOUNT))
+										AccountCatalog.ACCOUNTCATALOG_VIRTUALACCOUNT))
 				.get(0)).getId();
-		accountPayableCancelTransferRequest.setAccountIdFrom(accountIdFrom);
-		// 会员虚拟账户
-		int accountIdTo = ((ActAccount) actAccountManager.getObjects(
-				FilterFactory.getSimpleFilter("accountPartyType",
-						AccountPartyType.ACCOUNTPARTYTYPE_MEMBER).addCondition(
-						"accountParty",
-						refundClearingAccountRequest.getUserName())
-						.addCondition("accountCatalog",
-								AccountCatalog.ACCOUNTCATALOG_VIRTUALACCOUNT))
-				.get(0)).getId();
-		accountPayableCancelTransferRequest.setAccountIdTo(accountIdTo);
-		accountPayableCancelTransferRequest
-				.setAmount(refundClearingAccountRequest.getAmount());
-		accountPayableCancelTransferRequest
-				.setBizType(BizType.BIZTYPE_CONFIRMREFUND);
-		accountPayableCancelTransferRequest
-				.setBizLogId(refundClearingAccountRequest.getBizLogId());
-		int relatedBizLogId = ((TblTxPayMentOrder) tblTxPayMentOrderManager
-				.getObjects(
-						FilterFactory.getSimpleFilter("plTxTraceNo",
-								tblStlCleaningDetail.getRefundOrderId()))
-				.get(0)).getId();
-		accountPayableCancelTransferRequest.setRelatedBizLogId(relatedBizLogId);
+		accountDebitCreditRequest.setAccountId(memberVirtualAccountId);
+		accountDebitCreditRequest.setAmount(refundClearingAccountRequest
+				.getMchtOrderAmount());
 
-		accountTxService.transfer(accountPayableCancelTransferRequest);
-		// end：资金从会员担保账户退回会员虚拟账户
+		accountTxService.debit(accountDebitCreditRequest);
 
-		// 商户虚拟账户
+		// 商户虚拟账户出帐
 		int mchtVirtualAccountId = ((ActAccount) actAccountManager.getObjects(
 				FilterFactory.getSimpleFilter("accountPartyType",
 						AccountPartyType.ACCOUNTPARTYTYPE_MCHT).addCondition(
@@ -234,7 +206,7 @@ public class ClearingAccountService implements IClearingAccountService {
 		tblStlSettleBatch
 				.setSettleBatchStatus(SettleBatchStatus.SETTLEBATCHSTATUS_SETTLED);
 		tblStlSettleBatch.setSettleDate(settleDate);
-		
+
 		tblStlSettleBatchMgr.saveTblStlSettleBatch(tblStlSettleBatch);
 
 		for (int i = 0; i < tblStlSettleApplys.size(); i++) {
