@@ -318,12 +318,13 @@ public class AccountTxService implements IAccountTxService {
 							FilterFactory.getSimpleFilter("bizType",
 									originalBizType).addCondition("bizLogId",
 									originalBizLogId)).get(0);
+			// 转账时是先贷后借
 			tblActAccountDetail = (TblActAccountDetail) tblActAccountDetailMgr
 					.getObjects(
 							FilterFactory.getSimpleFilter("voucherType",
 									voucherType).addCondition("voucherNo",
 									tblActTransferVoucher.getVoucherNo())).get(
-							0);
+							1);
 		}
 
 		tblActAccountDetail.setSettleStatus(SettleStatus.SETTLESTATUS_SETTLED);
