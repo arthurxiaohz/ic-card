@@ -772,7 +772,7 @@
           <mainEntityName></mainEntityName>
           <hiValidator></hiValidator>
           <lkServiceName></lkServiceName>
-          <lkEntityName>SettleStatus</lkEntityName>
+          <lkEntityName>HandledStatus</lkEntityName>
           <lkFieldName></lkFieldName>
           <isLkForeignKey>false</isLkForeignKey>
           <hiDataType>7</hiDataType>
