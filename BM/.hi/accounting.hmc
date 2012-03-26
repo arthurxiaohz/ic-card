@@ -2261,8 +2261,8 @@
       </listeners>
     </org.hi.studio.hsceditor.visual.model.EnumerationModel>
     <org.hi.studio.hsceditor.visual.model.EnumerationModel>
-      <enumName>SettleStatus</enumName>
-      <enumDesc>结算状态</enumDesc>
+      <enumName>HandledStatus</enumName>
+      <enumDesc>处理状态</enumDesc>
       <error></error>
       <linkedPath></linkedPath>
       <tableName></tableName>
