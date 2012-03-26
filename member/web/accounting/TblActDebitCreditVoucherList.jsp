@@ -55,8 +55,10 @@
 		<ul class="toolBar">
 		<c:choose>
 			<c:when test="${empty lookup}">
+				<!-- 
 				<authz:authorize ifAnyGranted="TBLACTDEBITCREDITVOUCHER_SAVE"><li><a class="add" href="<hi:url>tblActDebitCreditVoucherEdit.action?tblActDebitCreditVoucher.id=-1</hi:url>" target="navTab" rel="tblActDebitCreditVoucher"><span><hi:text key="新建" parameterLanguageKeys="借贷凭证"/></span></a></li></authz:authorize>
 				<authz:authorize ifAnyGranted="TBLACTDEBITCREDITVOUCHER_DEL"><li><a class="delete" href="<hi:url>tblActDebitCreditVoucherRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
+				 -->
 			</c:when>
 			<c:otherwise>
 				<li><a class="icon" href="javascript:$.bringBack({id:'-1', voucherNo:'',accountNo:'',amount:'',debitOrCredit:'',bizType:'',bizLogId:'',remark:'',createdDateTime:'',lastUpdatedDatetime:''})"><span><hi:text key="重置"/></span></a></li>
@@ -106,15 +108,19 @@
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
+					<!-- 
 				    <authz:authorize ifAnyGranted="TBLACTDEBITCREDITVOUCHER_DEL">
 				      <a class="btnDel" href="<hi:url>tblActDebitCreditVoucherRemove.action?ajax=1&tblActDebitCreditVoucher.id=${item.id}</hi:url>" target="navTabTodo" title="<hi:text key="删除" parameterLanguageKeys="借贷凭证"/>"><hi:text key="删除"/></a>
 				    </authz:authorize>
+				     -->
 				    <authz:authorize ifAnyGranted="TBLACTDEBITCREDITVOUCHER_VIEW">
 				      <a class="btnView" href="<hi:url>tblActDebitCreditVoucherView.action?tblActDebitCreditVoucher.id=${item.id}</hi:url>" target="navTab" rel="tblActDebitCreditVoucher" title="<hi:text key="查看" parameterLanguageKeys="借贷凭证"/>"><hi:text key="查看"/></a>
 				    </authz:authorize>
+				    <!-- 
 				    <authz:authorize ifAnyGranted="TBLACTDEBITCREDITVOUCHER_SAVE">
 				      <a class="btnEdit" href="<hi:url>tblActDebitCreditVoucherEdit.action?tblActDebitCreditVoucher.id=${item.id}</hi:url>" target="navTab" rel="tblActDebitCreditVoucher" title="<hi:text key="编辑" parameterLanguageKeys="借贷凭证"/>"><hi:text key="编辑"/></a>
 				    </authz:authorize>
+				     -->
 					</c:when>
 					<c:otherwise>
 						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', voucherNo:'${item.voucherNo}',accountNo:'${item.actAccount.accountNo}',amount:'${item.amount}',debitOrCredit:'<hi:select emu="debitOrCredit" name="tblActDebitCreditVouchers[${s.index}].debitOrCredit" isLabel="true"/>',bizType:'<hi:select emu="bizType" name="tblActDebitCreditVouchers[${s.index}].bizType" isLabel="true"/>',bizLogId:'${item.bizLogId}',remark:'${item.remark}',createdDateTime:'${item.createdDateTime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>

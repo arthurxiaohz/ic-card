@@ -55,8 +55,10 @@
 		<ul class="toolBar">
 		<c:choose>
 			<c:when test="${empty lookup}">
+				<!-- 
 				<authz:authorize ifAnyGranted="TBLACTTRANSFERVOUCHER_SAVE"><li><a class="add" href="<hi:url>tblActTransferVoucherEdit.action?tblActTransferVoucher.id=-1</hi:url>" target="navTab" rel="tblActTransferVoucher"><span><hi:text key="新建" parameterLanguageKeys="转账凭证"/></span></a></li></authz:authorize>
 				<authz:authorize ifAnyGranted="TBLACTTRANSFERVOUCHER_DEL"><li><a class="delete" href="<hi:url>tblActTransferVoucherRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
+				 -->
 			</c:when>
 			<c:otherwise>
 				<li><a class="icon" href="javascript:$.bringBack({id:'-1', voucherNo:'',accountNoFrom:'',accountNoTo:'',amount:'',bizType:'',bizLogId:'',remark:'',createdDateTime:'',lastUpdatedDatetime:''})"><span><hi:text key="重置"/></span></a></li>
@@ -109,15 +111,19 @@
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
+					<!-- 
 				    <authz:authorize ifAnyGranted="TBLACTTRANSFERVOUCHER_DEL">
 				      <a class="btnDel" href="<hi:url>tblActTransferVoucherRemove.action?ajax=1&tblActTransferVoucher.id=${item.id}</hi:url>" target="navTabTodo" title="<hi:text key="删除" parameterLanguageKeys="转账凭证"/>"><hi:text key="删除"/></a>
 				    </authz:authorize>
+				     -->
 				    <authz:authorize ifAnyGranted="TBLACTTRANSFERVOUCHER_VIEW">
 				      <a class="btnView" href="<hi:url>tblActTransferVoucherView.action?tblActTransferVoucher.id=${item.id}</hi:url>" target="navTab" rel="tblActTransferVoucher" title="<hi:text key="查看" parameterLanguageKeys="转账凭证"/>"><hi:text key="查看"/></a>
 				    </authz:authorize>
+				    <!-- 
 				    <authz:authorize ifAnyGranted="TBLACTTRANSFERVOUCHER_SAVE">
 				      <a class="btnEdit" href="<hi:url>tblActTransferVoucherEdit.action?tblActTransferVoucher.id=${item.id}</hi:url>" target="navTab" rel="tblActTransferVoucher" title="<hi:text key="编辑" parameterLanguageKeys="转账凭证"/>"><hi:text key="编辑"/></a>
 				    </authz:authorize>
+				     -->
 					</c:when>
 					<c:otherwise>
 						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', voucherNo:'${item.voucherNo}',accountNoFrom:'${item.actAccountFrom.accountNo}',accountNoTo:'${item.actAccountTo.accountNo}',amount:'${item.amount}',bizType:'<hi:select emu="bizType" name="tblActTransferVouchers[${s.index}].bizType" isLabel="true"/>',bizLogId:'${item.bizLogId}',remark:'${item.remark}',createdDateTime:'${item.createdDateTime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
