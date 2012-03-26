@@ -66,8 +66,10 @@
 		<ul class="toolBar">
 		<c:choose>
 			<c:when test="${empty lookup}">
+				<!-- 
 				<authz:authorize ifAnyGranted="TBLACTACCOUNTBALANCE_SAVE"><li><a class="add" href="<hi:url>tblActAccountBalanceEdit.action?tblActAccountBalance.id=-1</hi:url>" target="navTab" rel="tblActAccountBalance"><span><hi:text key="新建" parameterLanguageKeys="账户余额"/></span></a></li></authz:authorize>
 				<authz:authorize ifAnyGranted="TBLACTACCOUNTBALANCE_DEL"><li><a class="delete" href="<hi:url>tblActAccountBalanceRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
+				 -->
 			</c:when>
 			<c:otherwise>
 				<li><a class="icon" href="javascript:$.bringBack({id:'-1', availableBalance:'',accountNo:'',accountCatalog:'',accountPartyType:'',accountParty:'',accountName:'',status:'',remark:'',createdDateTime:'',lastUpdatedDatetime:''})"><span><hi:text key="重置"/></span></a></li>
@@ -116,15 +118,19 @@
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
+					<!-- 
 				    <authz:authorize ifAnyGranted="TBLACTACCOUNTBALANCE_DEL">
 				      <a class="btnDel" href="<hi:url>tblActAccountBalanceRemove.action?ajax=1&tblActAccountBalance.id=${item.id}</hi:url>" target="navTabTodo" title="<hi:text key="删除" parameterLanguageKeys="账户余额"/>"><hi:text key="删除"/></a>
 				    </authz:authorize>
+				     -->
 				    <authz:authorize ifAnyGranted="TBLACTACCOUNTBALANCE_VIEW">
 				      <a class="btnView" href="<hi:url>tblActAccountBalanceView.action?tblActAccountBalance.id=${item.id}</hi:url>" target="navTab" rel="tblActAccountBalance" title="<hi:text key="查看" parameterLanguageKeys="账户余额"/>"><hi:text key="查看"/></a>
 				    </authz:authorize>
+				    <!-- 
 				    <authz:authorize ifAnyGranted="TBLACTACCOUNTBALANCE_SAVE">
 				      <a class="btnEdit" href="<hi:url>tblActAccountBalanceEdit.action?tblActAccountBalance.id=${item.id}</hi:url>" target="navTab" rel="tblActAccountBalance" title="<hi:text key="编辑" parameterLanguageKeys="账户余额"/>"><hi:text key="编辑"/></a>
 				    </authz:authorize>
+				     -->
 					</c:when>
 					<c:otherwise>
 						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', availableBalance:'${item.availableBalance}',accountNo:'${item.accountNo}',accountCatalog:'<hi:select emu="accountCatalog" name="tblActAccountBalances[${s.index}].accountCatalog" isLabel="true"/>',accountPartyType:'<hi:select emu="accountPartyType" name="tblActAccountBalances[${s.index}].accountPartyType" isLabel="true"/>',accountParty:'${item.accountParty}',accountName:'${item.accountName}',status:'<hi:select emu="accountStatus" name="tblActAccountBalances[${s.index}].status" isLabel="true"/>',remark:'${item.remark}',createdDateTime:'${item.createdDateTime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>

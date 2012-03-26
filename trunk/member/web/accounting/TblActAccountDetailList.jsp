@@ -68,8 +68,10 @@
 		<ul class="toolBar">
 		<c:choose>
 			<c:when test="${empty lookup}">
+				<!-- 
 				<authz:authorize ifAnyGranted="TBLACTACCOUNTDETAIL_SAVE"><li><a class="add" href="<hi:url>tblActAccountDetailEdit.action?tblActAccountDetail.id=-1</hi:url>" target="navTab" rel="tblActAccountDetail"><span><hi:text key="新建" parameterLanguageKeys="账户明细"/></span></a></li></authz:authorize>
 				<authz:authorize ifAnyGranted="TBLACTACCOUNTDETAIL_DEL"><li><a class="delete" href="<hi:url>tblActAccountDetailRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
+				 -->
 			</c:when>
 			<c:otherwise>
 				<li><a class="icon" href="javascript:$.bringBack({id:'-1', accountNo:'',accountCatalog:'',accountPartyType:'',accountParty:'',accountName:'',voucherType:'',voucherNo:'',amount:'',debitOrCredit:'',balance:'',remark:'',expiredDate:'',settleStatus:'',createdDateTime:'',lastUpdatedDatetime:''})"><span><hi:text key="重置"/></span></a></li>
@@ -143,15 +145,19 @@
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
+					<!-- 
 				    <authz:authorize ifAnyGranted="TBLACTACCOUNTDETAIL_DEL">
 				      <a class="btnDel" href="<hi:url>tblActAccountDetailRemove.action?ajax=1&tblActAccountDetail.id=${item.id}</hi:url>" target="navTabTodo" title="<hi:text key="删除" parameterLanguageKeys="账户明细"/>"><hi:text key="删除"/></a>
 				    </authz:authorize>
+				     -->
 				    <authz:authorize ifAnyGranted="TBLACTACCOUNTDETAIL_VIEW">
 				      <a class="btnView" href="<hi:url>tblActAccountDetailView.action?tblActAccountDetail.id=${item.id}</hi:url>" target="navTab" rel="tblActAccountDetail" title="<hi:text key="查看" parameterLanguageKeys="账户明细"/>"><hi:text key="查看"/></a>
 				    </authz:authorize>
+				    <!-- 
 				    <authz:authorize ifAnyGranted="TBLACTACCOUNTDETAIL_SAVE">
 				      <a class="btnEdit" href="<hi:url>tblActAccountDetailEdit.action?tblActAccountDetail.id=${item.id}</hi:url>" target="navTab" rel="tblActAccountDetail" title="<hi:text key="编辑" parameterLanguageKeys="账户明细"/>"><hi:text key="编辑"/></a>
 				    </authz:authorize>
+				     -->
 					</c:when>
 					<c:otherwise>
 						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', accountNo:'${item.actAccount.accountNo}',accountCatalog:'<hi:select emu="accountCatalog" name="tblActAccountDetails[${s.index}].actAccount.accountCatalog" isLabel="true"/>',accountPartyType:'<hi:select emu="accountPartyType" name="tblActAccountDetails[${s.index}].actAccount.accountPartyType" isLabel="true"/>',accountParty:'${item.actAccount.accountParty}',accountName:'${item.actAccount.accountName}',voucherType:'<hi:select emu="voucherType" name="tblActAccountDetails[${s.index}].voucherType" isLabel="true"/>',voucherNo:'${item.voucherNo}',amount:'${item.amount}',debitOrCredit:'<hi:select emu="debitOrCredit" name="tblActAccountDetails[${s.index}].debitOrCredit" isLabel="true"/>',balance:'${item.balance}',remark:'${item.remark}',expiredDate:'${item.expiredDate}',settleStatus:'<hi:select emu="settleStatus" name="tblActAccountDetails[${s.index}].settleStatus" isLabel="true"/>',createdDateTime:'${item.createdDateTime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
