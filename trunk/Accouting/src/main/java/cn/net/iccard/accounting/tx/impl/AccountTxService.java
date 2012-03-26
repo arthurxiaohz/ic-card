@@ -17,7 +17,7 @@ import cn.net.iccard.accounting.tx.IAccountTransferResponse;
 import cn.net.iccard.accounting.tx.IAccountTxService;
 import cn.net.iccard.bm.accounting.model.BizType;
 import cn.net.iccard.bm.accounting.model.DebitOrCredit;
-import cn.net.iccard.bm.accounting.model.SettleStatus;
+import cn.net.iccard.bm.accounting.model.HandledStatus;
 import cn.net.iccard.bm.accounting.model.TblActAccountBalance;
 import cn.net.iccard.bm.accounting.model.TblActAccountDetail;
 import cn.net.iccard.bm.accounting.model.TblActDebitCreditVoucher;
@@ -218,7 +218,7 @@ public class AccountTxService implements IAccountTxService {
 								"voucherNo",
 								tblActTransferVoucherOriginal.getVoucherNo()))
 				.get(0);
-		tblActAccountDetail.setSettleStatus(SettleStatus.SETTLESTATUS_SETTLED);
+		tblActAccountDetail.setSettleStatus(HandledStatus.HANDLEDSTATUS_SETTLED);
 		tblActAccountDetailMgr.saveObject(tblActAccountDetail);
 
 		// ´û¼Ç
@@ -279,10 +279,10 @@ public class AccountTxService implements IAccountTxService {
 		tblActAccountDetail.setDebitOrCredit(debitOrCredit);
 		tblActAccountDetail.setBalance(tblActAccountBalance
 				.getAvailableBalance());
-		int settleStatus = SettleStatus.SETTLESTATUS_TOSETTLED;
+		int settleStatus = HandledStatus.HANDLEDSTATUS_TOSETTLED;
 		if (null == expiredDate) {
 			expiredDate = DateUtils.format(new Date(), "yyyyMMdd");
-			settleStatus = SettleStatus.SETTLESTATUS_SETTLED;
+			settleStatus = HandledStatus.HANDLEDSTATUS_SETTLED;
 		}
 
 		tblActAccountDetail.setExpiredDate(expiredDate);
@@ -327,7 +327,7 @@ public class AccountTxService implements IAccountTxService {
 							1);
 		}
 
-		tblActAccountDetail.setSettleStatus(SettleStatus.SETTLESTATUS_SETTLED);
+		tblActAccountDetail.setSettleStatus(HandledStatus.HANDLEDSTATUS_SETTLED);
 		tblActAccountDetailMgr.saveObject(tblActAccountDetail);
 
 		AccountDebitCreditRequest accountDebitCreditRequest = new AccountDebitCreditRequest();
