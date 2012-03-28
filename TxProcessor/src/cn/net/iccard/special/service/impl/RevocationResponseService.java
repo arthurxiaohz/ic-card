@@ -72,7 +72,7 @@ public class RevocationResponseService implements IRevocationResponseService {
 			
 			tblTxPayMentOrder.setTxStatus(OrderTxStatus.ORDERTXSTATUS_REVOCATIONSUCCESS);
 			tblTxPayMentOrder.setErrorCode("0003");		//撤销成功
-		}
+		
 		tblTxPayMentOrder.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));
 		tblTxPayMentOrder.setLastUpdatedBy(UserContextHelper.getUser().getId());
 		tblTxPayMentOrder.setCreator(UserContextHelper.getUser());
@@ -106,8 +106,8 @@ public class RevocationResponseService implements IRevocationResponseService {
 		ActAccount memberActAccount = (ActAccount)memberActAccountList.get(0);		//会员虚拟账户
 		
 		AccountPayableCancelTransferRequest accountPayableCancelTransferRequest = new AccountPayableCancelTransferRequest();
-		accountPayableCancelTransferRequest.setAccountIdFrom(memberActAccount.getId());
-		accountPayableCancelTransferRequest.setAccountIdTo(mchtActAccount.getId());
+		accountPayableCancelTransferRequest.setAccountIdFrom(mchtActAccount.getId());
+		accountPayableCancelTransferRequest.setAccountIdTo(memberActAccount.getId());
 		accountPayableCancelTransferRequest.setAmount(lastOrder.getPayAmount());
 		accountPayableCancelTransferRequest.setBizLogId(tblTxPayMentOrder.getId());
 		accountPayableCancelTransferRequest.setBizType(BizType.BIZTYPE_CANCEL);
@@ -201,6 +201,7 @@ public class RevocationResponseService implements IRevocationResponseService {
 	        NotifyService.redirect(response , tblTxPayMentOrder.getNotifyUrl() , s.toString());	
 		}
 		*/
+		}
 		return "success";
 		
 	}

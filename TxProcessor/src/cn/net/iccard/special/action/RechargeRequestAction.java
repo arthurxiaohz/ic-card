@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.hi.SpringContextHolder;
+import org.hi.base.sysapp.AppSettingHelper;
 import org.hi.framework.dao.Filter;
 import org.hi.framework.dao.impl.FilterFactory;
 import org.hi.framework.security.context.UserContextHelper;
@@ -132,11 +133,12 @@ public class RechargeRequestAction extends BaseAction{
 			tInputParams.setProperty("out_trade_no",requestId);
 		    tInputParams.setProperty("total_fee", request.getParameter("tblMbRechargeOrder.txAmount"));
 		    tInputParams.setProperty("orderId", tblMbRechargeOrder.getId().toString());
-		    tInputParams.setProperty("notify_url", "http://localhost:8080/member/resChargeFinish.action");
-
+		    //tInputParams.setProperty("notify_url", "http://192.168.9.1:8080/member/AlipayNotifyServlet");
+		    tInputParams.setProperty("notify_url",  AppSettingHelper.getValue("BACKTOPLURL","ALIPAY"));
 		    // 组成没有name属性,没有ID属性的form表单
-	        StringBuffer tFormBuffer = tBankCom.buildForm("http://localhost:8080/NewTxService/BankTxControl", tInputParams);
+	        //StringBuffer tFormBuffer = tBankCom.buildForm("http://192.168.9.1:8080/NewTxService/BankTxControl", tInputParams);
 			
+		    StringBuffer tFormBuffer = tBankCom.buildForm(AppSettingHelper.getValue("SENDTOBANKURL","ALIPAY"), tInputParams);
 	        request.getSession(true).setAttribute("formname", "form1");
 	        request.getSession(true).setAttribute("formcontents", tFormBuffer.toString());
 	        

@@ -31,7 +31,7 @@ public class PayResponseAction extends BaseAction{
 //		super.postExecute(tblMbInfo);
 		HttpServletRequest request = getRequest();
 		
-		int id = Integer.valueOf(request.getParameter("tblTxPayMentOrder.id"));
+		int id = Integer.valueOf(request.getParameter("tblTxPayMentOrder.id")).intValue();
 		
 		payResponseService.savePayResponse(id);
 		

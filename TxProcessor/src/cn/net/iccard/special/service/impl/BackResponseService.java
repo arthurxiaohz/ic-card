@@ -102,7 +102,7 @@ public class BackResponseService implements IBackResponseService {
 			
 			tblTxPayMentOrder.setTxStatus(OrderTxStatus.ORDERTXSTATUS_BACKSUCCESS);
 			tblTxPayMentOrder.setErrorCode("0004");		//ÍË¿î³É¹¦
-		}
+		
 		
 		tblTxPayMentOrder.setPlTxTime(PlTxTime);
 		tblTxPayMentOrder.setCreator(UserContextHelper.getUser());
@@ -302,6 +302,7 @@ public class BackResponseService implements IBackResponseService {
 	        NotifyService.redirect(response , tblTxPayMentOrder.getNotifyUrl() , s.toString());	
 		}
 		*/
+		}
 		return "success";
 	}
 

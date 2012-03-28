@@ -76,42 +76,46 @@ public class RechargeService implements IRechargeResponseService {
 		
 		List<TblMbRechargeOrder> mbRechargeOrderList  = tblMbRechargeOrderMan.getObjects(rechargefilter);	
 		
-		TblMbRechargeOrder mbRechargeOrder = (TblMbRechargeOrder)mbRechargeOrderList.get(0);		
-		mbRechargeOrder.setTxStatus(RechargeTxStatus.RECHARGETXSTATUS_PAYSUCCESS);
-		mbRechargeOrder.setPlTxTime(PlTxTime);
-		mbRechargeOrder.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));
+		TblMbRechargeOrder mbRechargeOrder = (TblMbRechargeOrder)mbRechargeOrderList.get(0);	
 		
-		//记录网关响应信息
-		TblMbTransactionResponse  tblMbTransactionResponse= new  TblMbTransactionResponse();
-		tblMbTransactionResponse.setOrdedId(orderId);
-		tblMbTransactionResponse.setOrgOrdedId(mbRechargeOrder.getPlTxTraceNo());
-		tblMbTransactionResponse.setAmount(new BigDecimal(txAmount).movePointRight(2).intValue());
-		tblMbTransactionResponse.setCreatedDatetime(new Timestamp(System.currentTimeMillis())); //创建时间
-		tblMbTransactionResponse.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));//最后修改时间
-		tblMbTranscationResponseMan.saveTblMbTransactionResponse(tblMbTransactionResponse);
+		if(mbRechargeOrder.getTxStatus()==RechargeTxStatus.RECHARGETXSTATUS_PAYPROCESS){
+			mbRechargeOrder.setTxStatus(RechargeTxStatus.RECHARGETXSTATUS_PAYSUCCESS);
+			mbRechargeOrder.setPlTxTime(PlTxTime);
+			mbRechargeOrder.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));
 			
-		//处理银行结果
+			//记录网关响应信息
+			TblMbTransactionResponse  tblMbTransactionResponse= new  TblMbTransactionResponse();
+			tblMbTransactionResponse.setOrdedId(orderId);
+			tblMbTransactionResponse.setOrgOrdedId(mbRechargeOrder.getPlTxTraceNo());
+			tblMbTransactionResponse.setAmount(new BigDecimal(txAmount).movePointRight(2).intValue());
+			tblMbTransactionResponse.setCreatedDatetime(new Timestamp(System.currentTimeMillis())); //创建时间
+			tblMbTransactionResponse.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));//最后修改时间
+			tblMbTranscationResponseMan.saveTblMbTransactionResponse(tblMbTransactionResponse);
+				
+			//处理银行结果
+			
+			//调账户系统
+			//查询会员
+			Filter memberfilter = FilterFactory.getSimpleFilter("accountParty", mbRechargeOrder.getUserName(), Filter.OPERATOR_EQ);
+			memberfilter.addCondition("accountPartyType", AccountPartyType.ACCOUNTPARTYTYPE_MEMBER, Filter.OPERATOR_EQ)
+						.addCondition("AccountCatalog", AccountCatalog.ACCOUNTCATALOG_VIRTUALACCOUNT, Filter.OPERATOR_EQ);
+			List<ActAccount> memberActAccountList  = actAccountMan.getObjects(memberfilter);	
+			
+			ActAccount memberActAccount = (ActAccount)memberActAccountList.get(0);		//会员虚拟账户
+			
+			AccountDebitCreditRequest accountDebitCreditRequest = new AccountDebitCreditRequest();
+			accountDebitCreditRequest.setAccountId(memberActAccount.getId());
+			accountDebitCreditRequest.setAmount(new BigDecimal(txAmount).movePointRight(2).intValue());
+			accountDebitCreditRequest.setBizLogId(mbRechargeOrder.getId());
+			accountDebitCreditRequest.setBizType(BizType.BIZTYPE_BANKCHARGE);
+			//accountDebitCreditRequest.setMchtOrderAmount(new BigDecimal(txAmount).movePointRight(2).intValue());
+			accountDebitCreditRequest.setRemark("充值成功");
+			IAccountDebitCreditResponse transferResponse = accountTxService.debit(accountDebitCreditRequest);
+			
+			mbRechargeOrder.setVoucherNo(transferResponse.getVoucherNo());
+			tblMbRechargeOrderMan.saveTblMbRechargeOrder(mbRechargeOrder);
+		}
 		
-		//调账户系统
-		//查询会员
-		Filter memberfilter = FilterFactory.getSimpleFilter("accountParty", mbRechargeOrder.getUserName(), Filter.OPERATOR_EQ);
-		memberfilter.addCondition("accountPartyType", AccountPartyType.ACCOUNTPARTYTYPE_MEMBER, Filter.OPERATOR_EQ)
-					.addCondition("AccountCatalog", AccountCatalog.ACCOUNTCATALOG_VIRTUALACCOUNT, Filter.OPERATOR_EQ);
-		List<ActAccount> memberActAccountList  = actAccountMan.getObjects(memberfilter);	
-		
-		ActAccount memberActAccount = (ActAccount)memberActAccountList.get(0);		//会员虚拟账户
-		
-		AccountDebitCreditRequest accountDebitCreditRequest = new AccountDebitCreditRequest();
-		accountDebitCreditRequest.setAccountId(memberActAccount.getId());
-		accountDebitCreditRequest.setAmount(new BigDecimal(txAmount).movePointRight(2).intValue());
-		accountDebitCreditRequest.setBizLogId(mbRechargeOrder.getId());
-		accountDebitCreditRequest.setBizType(BizType.BIZTYPE_BANKCHARGE);
-		//accountDebitCreditRequest.setMchtOrderAmount(new BigDecimal(txAmount).movePointRight(2).intValue());
-		accountDebitCreditRequest.setRemark("充值成功");
-		IAccountDebitCreditResponse transferResponse = accountTxService.debit(accountDebitCreditRequest);
-		
-		mbRechargeOrder.setVoucherNo(transferResponse.getVoucherNo());
-		tblMbRechargeOrderMan.saveTblMbRechargeOrder(mbRechargeOrder);
 		return null;
 	}
 

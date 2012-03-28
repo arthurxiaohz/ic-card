@@ -102,6 +102,7 @@ private HiOrgManager hiOrgMgr = (HiOrgManager) SpringContextHolder
 		simpleAccountForOrgOpenRequest.setAccountParty(pageRequest.getParameter("UserName"));
 		simpleAccountForOrgOpenRequest.setAvailableBalance(0);
 		simpleAccountForOrgOpenRequest.setRemark("open");
+		simpleAccountForOrgOpenRequest.setOperator(tblMbInfo.getId());
 		accountService.openAccountForMember(simpleAccountForOrgOpenRequest);
 		
 		

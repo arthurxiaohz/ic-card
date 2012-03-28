@@ -4,6 +4,7 @@ package cn.net.iccard.special.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import cn.net.iccard.special.action.PrepaidRequestAction;
 import cn.net.iccard.special.action.RechargeRequestAction;
+import cn.net.iccard.special.service.impl.RechargeService;
 
 
 /**
@@ -37,15 +39,16 @@ public class AlipayNotifyServlet extends HttpServlet {
 		String phoneNo = request.getParameter("phoneNo");
 		System.out.println(id);
 		
-		RechargeRequestAction rechargeRequestAction = new RechargeRequestAction();
+		RechargeService rechargeResponseService = new RechargeService();
 		try {
-			//rechargeRequestAction.saveRecharge(request,response);
+			rechargeResponseService.saveRechargeResponse (request,response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		
+		 RequestDispatcher rd =request.getRequestDispatcher("chargeSuccess.jsp");
+	    rd.forward(request, response);
 //		// 设置要返回的字符串
 //		PrintWriter out = response.getWriter();
 //		out.println("<response>");

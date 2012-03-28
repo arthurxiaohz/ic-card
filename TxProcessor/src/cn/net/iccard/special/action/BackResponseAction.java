@@ -29,9 +29,13 @@ public class BackResponseAction extends BaseAction{
 //		super.postExecute(tblMbInfo);
 		HttpServletRequest request = getRequest();
 		HttpServletResponse response = getResponse();
-		
-		backResponseService.saveBackResponse(request, response);
-		
+	
+		try{
+		  backResponseService.saveBackResponse(request, response);
+		}catch(Exception e){
+			//e.getMessage();
+			return returnCommand(e.getMessage());
+		}
 		return returnCommand();
 	}
 	
