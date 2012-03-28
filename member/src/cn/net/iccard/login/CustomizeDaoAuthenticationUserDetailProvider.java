@@ -3,10 +3,8 @@ package cn.net.iccard.login;
 import org.acegisecurity.Authentication;
 import org.acegisecurity.userdetails.UserDetails;
 import org.hi.SpringContextHolder;
-import org.hi.base.organization.model.HiUser;
-import org.hi.base.organization.service.HiUserManager;
-import org.hi.framework.dao.impl.FilterFactory;
 import org.hi.framework.security.acegi.DaoAuthenticationUserDetailProvider;
+import org.hi.framework.security.context.UserContext;
 import org.hi.framework.web.ServletContext;
 
 import cn.net.iccard.tx.model.TblTxPayMentOrder;
@@ -25,20 +23,18 @@ public class CustomizeDaoAuthenticationUserDetailProvider extends
 		// 更新session中预支付订单id所对应订单的userName和creator
 		TblTxPayMentOrderManager tblTxPayMentOrderMgr = (TblTxPayMentOrderManager) SpringContextHolder
 				.getBean(TblTxPayMentOrder.class);
-		HiUserManager hiUserMgr = (HiUserManager) SpringContextHolder
-				.getBean(HiUser.class);
 
 		Integer id = (Integer) ServletContext.getRequest().getSession()
 				.getAttribute("id");
+
 		if (null != id) {
 			TblTxPayMentOrder tblTxPayMentOrderTmp = tblTxPayMentOrderMgr
 					.getTblTxPayMentOrderById(id);
 			if (null == tblTxPayMentOrderTmp.getCreator()) {
 
 				tblTxPayMentOrderTmp.setUserName(user.getUsername());
-				tblTxPayMentOrderTmp.setCreator((HiUser) hiUserMgr.getObjects(
-						FilterFactory.getSimpleFilter("userName", user
-								.getUsername())).get(0));
+				tblTxPayMentOrderTmp.setCreator(((UserContext) _authentication
+						.getDetails()).getUser());
 				tblTxPayMentOrderMgr
 						.saveTblTxPayMentOrder(tblTxPayMentOrderTmp);
 			}
