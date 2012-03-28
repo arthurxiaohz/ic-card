@@ -44,7 +44,7 @@
 
    <bean id="passwordEncoder" class="org.acegisecurity.providers.encoding.Md5PasswordEncoder"/>
    
-   <bean id="daoAuthenticationProvider" class="org.hi.framework.security.acegi.DaoAuthenticationUserDetailProvider">
+   <bean id="daoAuthenticationProvider" class="cn.net.iccard.login.CustomizeDaoAuthenticationUserDetailProvider">
       <property name="userDetailsService"><ref local="userContextSerivce"/></property>
       <property name="userCache"><ref local="userCache"/></property>
       <property name="passwordEncoder"><ref local="passwordEncoder"/></property>
