@@ -27,16 +27,18 @@ public class CustomizeDaoAuthenticationUserDetailProvider extends
 		if (null != id) {
 			TblTxPayMentOrder tblTxPayMentOrderTmp = tblTxPayMentOrderMgr
 					.getTblTxPayMentOrderById(id);
-			tblTxPayMentOrderTmp
-					.setUserName(org.hi.framework.security.context.UserContextHelper
-							.getUser().getUserName());
-			tblTxPayMentOrderTmp
-					.setCreator(org.hi.framework.security.context.UserContextHelper
-							.getUser());
-			tblTxPayMentOrderMgr.saveTblTxPayMentOrder(tblTxPayMentOrderTmp);
+			if (null == tblTxPayMentOrderTmp.getCreator()) {
+				tblTxPayMentOrderTmp
+						.setUserName(org.hi.framework.security.context.UserContextHelper
+								.getUser().getUserName());
+				tblTxPayMentOrderTmp
+						.setCreator(org.hi.framework.security.context.UserContextHelper
+								.getUser());
+				tblTxPayMentOrderMgr
+						.saveTblTxPayMentOrder(tblTxPayMentOrderTmp);
+			}
 		}
 
 		return _authentication;
 	}
-
 }
