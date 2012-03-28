@@ -29,7 +29,7 @@
 				<authz:authorize ifAnyGranted="TBLMCHTCERTIFICATE_DEL"><li><a class="delete" href="<hi:url>tblMchtCertificateRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', certSn:'',issuerCertDn:'',certDn:'',startTime:'',endTime:'',createdDateTime:'',lastUpdatedDatetime:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', certSn:'',issuerCertDn:'',certDn:'',startTime:'',endTime:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -45,8 +45,6 @@
 				<th orderField="certDn" class="${pageInfo.sorterName eq 'certDn' ? pageInfo.sorterDirection : ''}"><hi:text key="证书DN" entity="TblMchtCertificate"/></th>
 				<th orderField="startTime" class="${pageInfo.sorterName eq 'startTime' ? pageInfo.sorterDirection : ''}"><hi:text key="证书有效期开始时间" entity="TblMchtCertificate"/></th>
 				<th orderField="endTime" class="${pageInfo.sorterName eq 'endTime' ? pageInfo.sorterDirection : ''}"><hi:text key="证书有效期结束时间" entity="TblMchtCertificate"/></th>
-				<th orderField="createdDateTime" class="${pageInfo.sorterName eq 'createdDateTime' ? pageInfo.sorterDirection : ''}"><hi:text key="创建时间" entity="TblMchtCertificate"/></th>
-				<th orderField="lastUpdatedDatetime" class="${pageInfo.sorterName eq 'lastUpdatedDatetime' ? pageInfo.sorterDirection : ''}"><hi:text key="最后修改时间" entity="TblMchtCertificate"/></th>
 				<th width="90">
 					<c:choose>
 						<c:when test="${empty lookup}"><hi:text key="操作"/></c:when>
@@ -66,8 +64,6 @@
 				    <td>${item.certDn}</td>
 				    <td>${item.startTime}</td>
 				    <td>${item.endTime}</td>
-				    <td><fmt:formatDate value="${item.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-				    <td><fmt:formatDate value="${item.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
@@ -82,7 +78,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', certSn:'${item.certSn}',issuerCertDn:'${item.issuerCertDn}',certDn:'${item.certDn}',startTime:'${item.startTime}',endTime:'${item.endTime}',createdDateTime:'${item.createdDateTime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', certSn:'${item.certSn}',issuerCertDn:'${item.issuerCertDn}',certDn:'${item.certDn}',startTime:'${item.startTime}',endTime:'${item.endTime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

@@ -20,24 +20,10 @@
 		<dl>
 			<dt><hi:text key="退款是否退还手续费" entity="TblMchtFeeConfig"/>：</dt><dd><hi:select emu="yesNo" name="tblMchtFeeConfig.isFeeReturn"/></dd>			
 		</dl>
-		<dl>
-			<dt><hi:text key="创建时间" entity="TblMchtFeeConfig"/>：</dt>
-			<dd>
-				<input type="text" name="tblMchtFeeConfig.createdDateTime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
-					value="<fmt:formatDate value='${tblMchtFeeConfig.createdDateTime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
-				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
-			</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="最后修改时间" entity="TblMchtFeeConfig"/>：</dt>
-			<dd>
-				<input type="text" name="tblMchtFeeConfig.lastUpdatedDatetime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
-					value="<fmt:formatDate value='${tblMchtFeeConfig.lastUpdatedDatetime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
-				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
-			</dd>
-		</dl>
 				<input type="hidden" name="tblMchtFeeConfig.id" value="${tblMchtFeeConfig.id}"/>
 				<input type="hidden" name="tblMchtFeeConfig.tblMchtInfo.id" value="${tblMchtFeeConfig.tblMchtInfo.id}"/>
+				<input type="hidden" name="tblMchtFeeConfig.createdDateTime" value="${tblMchtFeeConfig.createdDateTime}"/>
+				<input type="hidden" name="tblMchtFeeConfig.lastUpdatedDatetime" value="${tblMchtFeeConfig.lastUpdatedDatetime}"/>
 				<input type="hidden" name="tblMchtFeeConfig.lastUpdatedBy.id" value="${tblMchtFeeConfig.lastUpdatedBy.id}"/>
 				<input type="hidden" name="tblMchtFeeConfig.creator.id" value="${tblMchtFeeConfig.creator.id}"/>
 				<input type="hidden" name="tblMchtFeeConfig.version" value="${tblMchtFeeConfig.version}"/>

@@ -31,24 +31,10 @@
 				${tblMchtCertificate.certContent}</textarea>
 			</dd>
 		</dl>
-		<dl>
-			<dt><hi:text key="创建时间" entity="TblMchtCertificate"/>：</dt>
-			<dd>
-				<input type="text" name="tblMchtCertificate.createdDateTime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
-					value="<fmt:formatDate value='${tblMchtCertificate.createdDateTime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
-				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
-			</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="最后修改时间" entity="TblMchtCertificate"/>：</dt>
-			<dd>
-				<input type="text" name="tblMchtCertificate.lastUpdatedDatetime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
-					value="<fmt:formatDate value='${tblMchtCertificate.lastUpdatedDatetime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
-				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
-			</dd>
-		</dl>
 				<input type="hidden" name="tblMchtCertificate.id" value="${tblMchtCertificate.id}"/>
 				<input type="hidden" name="tblMchtCertificate.tblMchtInfo.id" value="${tblMchtCertificate.tblMchtInfo.id}"/>
+				<input type="hidden" name="tblMchtCertificate.createdDateTime" value="${tblMchtCertificate.createdDateTime}"/>
+				<input type="hidden" name="tblMchtCertificate.lastUpdatedDatetime" value="${tblMchtCertificate.lastUpdatedDatetime}"/>
 				<input type="hidden" name="tblMchtCertificate.lastUpdatedBy.id" value="${tblMchtCertificate.lastUpdatedBy.id}"/>
 				<input type="hidden" name="tblMchtCertificate.creator.id" value="${tblMchtCertificate.creator.id}"/>
 				<input type="hidden" name="tblMchtCertificate.version" value="${tblMchtCertificate.version}"/>

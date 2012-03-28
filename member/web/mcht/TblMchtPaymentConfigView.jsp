@@ -15,12 +15,6 @@
 		<dl>
 			<dt><hi:text key="MD5" entity="TblMchtPaymentConfig"/>：</dt><dd>${tblMchtPaymentConfig.md5}</dd>
 		</dl>
-		<dl>
-			<dt><hi:text key="创建时间" entity="TblMchtPaymentConfig"/>：</dt><dd><fmt:formatDate value="${tblMchtPaymentConfig.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
-		</dl>
-		<dl>
-			<dt><hi:text key="最后修改时间" entity="TblMchtPaymentConfig"/>：</dt><dd><fmt:formatDate value="${tblMchtPaymentConfig.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
-		</dl>
 
 		<div class="divider"></div>
 			</div>

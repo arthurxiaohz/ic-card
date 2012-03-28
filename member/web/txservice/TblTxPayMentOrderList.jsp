@@ -21,18 +21,23 @@
 				<label><hi:text key="交易类型" entity="TblTxPayMentOrder"/>:</label>
 				<input type="text" name="pageInfo.f_txTypeId" value="${pageInfo.f_txTypeId}"/>
 			</li>	  
+			<!-- 
 			<li>
 				<label><hi:text key="商户号" entity="TblTxPayMentOrder"/>:</label>
 				<input type="text" name="pageInfo.f_mchtNo" value="${pageInfo.f_mchtNo}"/>
-			</li>	  
+			</li>
+			 -->
+			<!-- 	  
 			<li>
 				<label><hi:text key="交易发生时间" entity="TblTxPayMentOrder"/>:</label>
 				<input type="text" name="pageInfo.f_mchtTxTime" value="${pageInfo.f_mchtTxTime}"/>
 			</li>	  
+			
 			<li>
 				<label><hi:text key="原始交易发生时间" entity="TblTxPayMentOrder"/>:</label>
 				<input type="text" name="pageInfo.f_lastMchtTxTime" value="${pageInfo.f_lastMchtTxTime}"/>
-			</li>	  
+			</li>	 
+			 
 			<li>
 				<label><hi:text key="商户交易流水号" entity="TblTxPayMentOrder"/>:</label>
 				<input type="text" name="pageInfo.f_mchtTxTraceNo" value="${pageInfo.f_mchtTxTraceNo}"/>
@@ -40,7 +45,9 @@
 			<li>
 				<label><hi:text key="原始商户交易流水号" entity="TblTxPayMentOrder"/>:</label>
 				<input type="text" name="pageInfo.f_lastMchtTxTraceNo" value="${pageInfo.f_lastMchtTxTraceNo}"/>
-			</li>	  
+			</li>	
+			-->   
+			<!--
 			<li>
 				<label><hi:text key="交易金额" entity="TblTxPayMentOrder"/>:</label>
 				<input type="text" name="pageInfo.f_orderAmount" value="${pageInfo.f_orderAmount}"/>
@@ -53,10 +60,12 @@
 				<label><hi:text key="交易IP地址" entity="TblTxPayMentOrder"/>:</label>
 				<input type="text" name="pageInfo.f_txIp" value="${pageInfo.f_txIp}"/>
 			</li>	  
+			  -->
 			<li>
 				<label><hi:text key="交易状态" entity="TblTxPayMentOrder"/>:</label>
 				<hi:search name="pageInfo.f_txStatus" emu="txStatus"/>
-			</li>	  
+			</li>
+			<!-- 	  
 			<li>
 				<label><hi:text key="凭证号" entity="TblTxPayMentOrder"/>:</label>
 				<input type="text" name="pageInfo.f_voucherNo" value="${pageInfo.f_voucherNo}"/>
@@ -127,6 +136,7 @@
 				<label><hi:text key="最后修改人" entity="TblTxPayMentOrder"/>:</label>
 				<input type="text" name="pageInfo.f_lastUpdatedBy" value="${pageInfo.f_lastUpdatedBy}"/>
 			</li>	  
+			 -->
 			<li>
 
 			</li>	  
@@ -191,8 +201,12 @@
 				
 				 -->
 				<th orderField="mchtTxTime" class="${pageInfo.sorterName eq 'mchtTxTime' ? pageInfo.sorterDirection : ''}"><hi:text key="交易发生时间" entity="TblTxPayMentOrder"/></th>
+								
 								<th orderField="orderAmount" class="${pageInfo.sorterName eq 'orderAmount' ? pageInfo.sorterDirection : ''}"><hi:text key="交易金额" entity="TblTxPayMentOrder"/></th>
+								<th orderField="mchtName" class="${pageInfo.sorterName eq 'mchtName' ? pageInfo.sorterDirection : ''}"><hi:text key="商户名称" entity="TblTxPayMentOrder"/></th>
+				
 								<th orderField="txStatus" class="${pageInfo.sorterName eq 'txStatus' ? pageInfo.sorterDirection : ''}"><hi:text key="交易状态" entity="TblTxPayMentOrder"/></th>
+								
 								<th orderField="showUrl" class="${pageInfo.sorterName eq 'showUrl' ? pageInfo.sorterDirection : ''}"><hi:text key="商品展示URL" entity="TblTxPayMentOrder"/></th>
 				<th orderField="txBody" class="${pageInfo.sorterName eq 'txBody' ? pageInfo.sorterDirection : ''}"><hi:text key="商品描述" entity="TblTxPayMentOrder"/></th>
 								
@@ -245,7 +259,9 @@
 				   
 				   
 				   <td><fmt:formatDate value="${item.createdDatetime}" pattern="yyyy-MM-dd"/></td>
+				   
 				    <td>${item.orderAmount/100}</td>
+				    <td>${item.mchtName}</td>
 				   
 				    <td><hi:select emu="orderTxStatus" name="tblTxPayMentOrders[${s.index}].txStatus" isLabel="true"/></td>
 				    
@@ -264,24 +280,16 @@
 				    </authz:authorize>
 				     -->
 				  
-				    <authz:authorize ifAnyGranted="TBLTXPAYMENTORDER_SAVE">
 				      <a  href="<hi:url>tblTxPayMentOrderEdit.action?tblTxPayMentOrder.id=${item.id}</hi:url>" target="navTab" rel="tblTxPayMentOrder" title="<hi:text key="支付" parameterLanguageKeys="订单"/>">支付</a>
-				    </authz:authorize>
 				    </c:when>
 				    <c:when test="${item.txStatus==200801}">
-				      <authz:authorize ifAnyGranted="TBLTXPAYMENTORDER_SAVE">
-				      <a  href="<hi:url>payMentOrderFinish.action?tblTxPayMentOrder.id=${item.id}</hi:url>" target="navTab" rel="tblTxPayMentOrder" title="<hi:text key="支付" parameterLanguageKeys="订单"/>">确认付款</a>
-				    </authz:authorize>
+				      <a  href="<hi:url>payMentOrderFinish.action?ajax=1&tblTxPayMentOrder.id=${item.id}</hi:url>" target="navTabTodo"  rel="tblTxPayMentOrder" title="<hi:text key="确认" parameterLanguageKeys="付款"/>">确认付款</a>
 				    </c:when>
 				     <c:when test="${item.txStatus==200805}">
-				      <authz:authorize ifAnyGranted="TBLTXPAYMENTORDER_SAVE">
-				      <a  href="<hi:url>revocationTxPayMentOrderFinish.action?tblTxPayMentOrder.id=${item.id}</hi:url>" target="navTab" rel="tblTxPayMentOrder" title="<hi:text key="支付" parameterLanguageKeys="订单"/>">待撤销</a>
-				    </authz:authorize>
+				      <a  href="<hi:url>revocationTxPayMentOrderFinish.action?ajax=1&tblTxPayMentOrder.id=${item.id}</hi:url>" target="navTabTodo" rel="tblTxPayMentOrder" title="<hi:text key="确认" parameterLanguageKeys="撤销"/>">待撤销</a>
 				    </c:when>
 				     <c:when test="${item.txStatus==200806}">
-				      <authz:authorize ifAnyGranted="TBLTXPAYMENTORDER_SAVE">
-				      <a  href="<hi:url>backTxPayMentOrderFinish.action?tblTxPayMentOrder.id=${item.id}</hi:url>" target="navTab" rel="tblTxPayMentOrder" title="<hi:text key="支付" parameterLanguageKeys="订单"/>">待退款</a>
-				    </authz:authorize>
+				      <a  href="<hi:url>backTxPayMentOrderFinish.action?ajax=1&tblTxPayMentOrder.id=${item.id}</hi:url>" target="navTabTodo" rel="tblTxPayMentOrder" title="<hi:text key="确认" parameterLanguageKeys="退款"/>">待退款</a>
 				    
 					</c:when>
 					<c:otherwise>

@@ -4,8 +4,7 @@
 
 
 function goback(){
-    window.opener=null;
-    window.open('', '_self', ''); 
+  
     window.close(); 
 
 }
@@ -48,7 +47,7 @@ function goback(){
 <br>
          <td align="center">
         	 
-         </td><center><input type="submit" value="  关闭  " onClick="return goback();"></center>
+         </td><center><input type="button" value="  关闭  " onClick="return goback();"></center>
 	</form>
 </body>
 </html>
