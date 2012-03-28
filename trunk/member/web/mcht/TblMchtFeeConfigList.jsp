@@ -29,7 +29,7 @@
 				<authz:authorize ifAnyGranted="TBLMCHTFEECONFIG_DEL"><li><a class="delete" href="<hi:url>tblMchtFeeConfigRemoveAll.action?ajax=1</hi:url>" target="removeSelected" title="<hi:text key="确实要删除这些记录吗?"/>"><span><hi:text key="批量删除"/></span></a></li></authz:authorize>
 			</c:when>
 			<c:otherwise>
-				<li><a class="icon" href="javascript:$.bringBack({id:'-1', mchtFeeType:'',ruleValue:'',minVal:'',maxVal:'',isFeeReturn:'',createdDateTime:'',lastUpdatedDatetime:''})"><span><hi:text key="重置"/></span></a></li>
+				<li><a class="icon" href="javascript:$.bringBack({id:'-1', mchtFeeType:'',ruleValue:'',minVal:'',maxVal:'',isFeeReturn:''})"><span><hi:text key="重置"/></span></a></li>
 			</c:otherwise>
 		</c:choose>			
 		</ul>
@@ -45,8 +45,6 @@
 				<th orderField="minVal" class="${pageInfo.sorterName eq 'minVal' ? pageInfo.sorterDirection : ''}"><hi:text key="单笔最低收费" entity="TblMchtFeeConfig"/></th>
 				<th orderField="maxVal" class="${pageInfo.sorterName eq 'maxVal' ? pageInfo.sorterDirection : ''}"><hi:text key="单笔最高收费" entity="TblMchtFeeConfig"/></th>
 				<th orderField="isFeeReturn" class="${pageInfo.sorterName eq 'isFeeReturn' ? pageInfo.sorterDirection : ''}"><hi:text key="退款是否退还手续费" entity="TblMchtFeeConfig"/></th>
-				<th orderField="createdDateTime" class="${pageInfo.sorterName eq 'createdDateTime' ? pageInfo.sorterDirection : ''}"><hi:text key="创建时间" entity="TblMchtFeeConfig"/></th>
-				<th orderField="lastUpdatedDatetime" class="${pageInfo.sorterName eq 'lastUpdatedDatetime' ? pageInfo.sorterDirection : ''}"><hi:text key="最后修改时间" entity="TblMchtFeeConfig"/></th>
 				<th width="90">
 					<c:choose>
 						<c:when test="${empty lookup}"><hi:text key="操作"/></c:when>
@@ -66,8 +64,6 @@
 				    <td>${item.minVal}</td>
 				    <td>${item.maxVal}</td>
 				    <td><hi:select emu="yesNo" name="tblMchtFeeConfigs[${s.index}].isFeeReturn" isLabel="true"/></td>
-				    <td><fmt:formatDate value="${item.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-				    <td><fmt:formatDate value="${item.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
@@ -82,7 +78,7 @@
 				    </authz:authorize>
 					</c:when>
 					<c:otherwise>
-						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', mchtFeeType:'<hi:select emu="mchtFeeType" name="tblMchtFeeConfigs[${s.index}].mchtFeeType" isLabel="true"/>',ruleValue:'${item.ruleValue}',minVal:'${item.minVal}',maxVal:'${item.maxVal}',isFeeReturn:'<hi:select emu="yesNo" name="tblMchtFeeConfigs[${s.index}].isFeeReturn" isLabel="true"/>',createdDateTime:'${item.createdDateTime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
+						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', mchtFeeType:'<hi:select emu="mchtFeeType" name="tblMchtFeeConfigs[${s.index}].mchtFeeType" isLabel="true"/>',ruleValue:'${item.ruleValue}',minVal:'${item.minVal}',maxVal:'${item.maxVal}',isFeeReturn:'<hi:select emu="yesNo" name="tblMchtFeeConfigs[${s.index}].isFeeReturn" isLabel="true"/>'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>

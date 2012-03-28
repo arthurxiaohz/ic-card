@@ -478,8 +478,8 @@
             <fieldLabel>创建时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
-                                    <isListDisplay>true</isListDisplay>
-                                    <isReadOnly>true</isReadOnly>
+                                    <isListDisplay>false</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
@@ -506,8 +506,8 @@
             <fieldLabel>最后修改时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
-                                    <isListDisplay>true</isListDisplay>
-                                    <isReadOnly>true</isReadOnly>
+                                    <isListDisplay>false</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
                                     <isHidden>false</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
@@ -751,9 +751,9 @@
             <fieldLabel>创建时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
-                                    <isListDisplay>true</isListDisplay>
-                                    <isReadOnly>true</isReadOnly>
-                                    <isHidden>false</isHidden>
+                                    <isListDisplay>false</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
+                                    <isHidden>true</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue> 
@@ -779,9 +779,9 @@
             <fieldLabel>最后修改时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
-                                    <isListDisplay>true</isListDisplay>
-                                    <isReadOnly>true</isReadOnly>
-                                    <isHidden>false</isHidden>
+                                    <isListDisplay>false</isListDisplay>
+                                    <isReadOnly>false</isReadOnly>
+                                    <isHidden>true</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
@@ -1088,9 +1088,9 @@
             <fieldLabel>创建时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
-                                    <isHidden>false</isHidden>
+                                    <isHidden>true</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue> 
@@ -1116,9 +1116,9 @@
             <fieldLabel>最后修改时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
-                                    <isHidden>false</isHidden>
+                                    <isHidden>true</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 
@@ -1453,9 +1453,9 @@
             <fieldLabel>创建时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
-                                    <isHidden>false</isHidden>
+                                    <isHidden>true</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue>new Timestamp(System.currentTimeMillis())</defaultValue> 
@@ -1481,9 +1481,9 @@
             <fieldLabel>最后修改时间</fieldLabel>
                         <isPrimaryKey>false</isPrimaryKey>
                                     <isSearch>false</isSearch>
-                                    <isListDisplay>true</isListDisplay>
+                                    <isListDisplay>false</isListDisplay>
                                     <isReadOnly>false</isReadOnly>
-                                    <isHidden>false</isHidden>
+                                    <isHidden>true</isHidden>
                                     <isFull>false</isFull>
                                     <isMainLookup>false</isMainLookup>
                         <defaultValue></defaultValue> 

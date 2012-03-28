@@ -16,11 +16,14 @@
 			<li>
 				<label><hi:text key="平台交易流水号" entity="TblMbRechargeOrder"/>:</label>
 				<input type="text" name="pageInfo.f_plTxTraceNo" value="${pageInfo.f_plTxTraceNo}"/>
-			</li>	  
+			</li>	
+			<!--   
 			<li>
 				<label><hi:text key="账号" entity="TblMbRechargeOrder"/>:</label>
 				<input type="text" name="pageInfo.f_userName" value="${pageInfo.f_userName}"/>
-			</li>	  
+			</li>
+			 -->	  
+			<!-- 
 			<li>
 				<label><hi:text key="账户类型" entity="TblMbRechargeOrder"/>:</label>
 				<input type="text" name="pageInfo.f_accountType" value="${pageInfo.f_accountType}"/>
@@ -36,31 +39,40 @@
 			<li>
 				<label><hi:text key="持卡人个人信息" entity="TblMbRechargeOrder"/>:</label>
 				<input type="text" name="pageInfo.f_chinfo" value="${pageInfo.f_chinfo}"/>
-			</li>	  
+			</li>	
+			 -->  
 			<li>
 				<label><hi:text key="交易类型" entity="TblMbRechargeOrder"/>:</label>
 				<input type="text" name="pageInfo.f_txTypeId" value="${pageInfo.f_txTypeId}"/>
 			</li>	  
+			<!--  
 			<li>
 				<label><hi:text key="交易发生时间" entity="TblMbRechargeOrder"/>:</label>
 				<input type="text" name="pageInfo.f_mchtTxTime" value="${pageInfo.f_mchtTxTime}"/>
-			</li>	  
+			</li>
+			-->
+			<!--	  
 			<li>
 				<label><hi:text key="交易金额" entity="TblMbRechargeOrder"/>:</label>
 				<input type="text" name="pageInfo.f_txAmount" value="${pageInfo.f_txAmount}"/>
 			</li>	  
+			
 			<li>
 				<label><hi:text key="交易IP地址" entity="TblMbRechargeOrder"/>:</label>
 				<input type="text" name="pageInfo.f_txIp" value="${pageInfo.f_txIp}"/>
-			</li>	  
+			</li>	 
+			  --> 
+			  <!-- 
 			<li>
 				<label><hi:text key="交易完成时间" entity="TblMbRechargeOrder"/>:</label>
 				<input type="text" name="pageInfo.f_plTxTime" value="${pageInfo.f_plTxTime}"/>
 			</li>	  
+			 -->
 			<li>
 				<label><hi:text key="交易状态" entity="TblMbRechargeOrder"/>:</label>
 				<hi:search name="pageInfo.f_txStatus" emu="rechargeTxStatus"/>
-			</li>	  
+			</li>
+			<!--  
 			<li>
 				<label><hi:text key="异常代码" entity="TblMbRechargeOrder"/>:</label>
 				<input type="text" name="pageInfo.f_errorCode" value="${pageInfo.f_errorCode}"/>
@@ -115,6 +127,7 @@
 				<label><hi:text key="凭证号" entity="TblMbRechargeOrder"/>:</label>
 				<input type="text" name="pageInfo.f_voucherNo" value="${pageInfo.f_voucherNo}"/>
 			</li>	  
+			  -->	
 		</ul>
 		<div class="subBar">
 			<div class="buttonActive"><div class="buttonContent"><button type="submit"><hi:text key="查询"/></button></div></div>
@@ -142,19 +155,30 @@
 				<c:if test="${empty lookup}">
 				<th width="28"><input type="checkbox" group="orderIndexs" class="checkboxCtrl"></th>
 				</c:if>
+				
 				<th orderField="plTxTraceNo" class="${pageInfo.sorterName eq 'plTxTraceNo' ? pageInfo.sorterDirection : ''}"><hi:text key="平台交易流水号" entity="TblMbRechargeOrder"/></th>
+				<!--  
 				<th orderField="userName" class="${pageInfo.sorterName eq 'userName' ? pageInfo.sorterDirection : ''}"><hi:text key="账号" entity="TblMbRechargeOrder"/></th>
+				-->
+				<!-- 
 				<th orderField="accountType" class="${pageInfo.sorterName eq 'accountType' ? pageInfo.sorterDirection : ''}"><hi:text key="账户类型" entity="TblMbRechargeOrder"/></th>
 				<th orderField="accountNo" class="${pageInfo.sorterName eq 'accountNo' ? pageInfo.sorterDirection : ''}"><hi:text key="账户号码" entity="TblMbRechargeOrder"/></th>
 				<th orderField="pan" class="${pageInfo.sorterName eq 'pan' ? pageInfo.sorterDirection : ''}"><hi:text key="持卡人卡号" entity="TblMbRechargeOrder"/></th>
 				<th orderField="chinfo" class="${pageInfo.sorterName eq 'chinfo' ? pageInfo.sorterDirection : ''}"><hi:text key="持卡人个人信息" entity="TblMbRechargeOrder"/></th>
+				 -->
 				<th orderField="txTypeId" class="${pageInfo.sorterName eq 'txTypeId' ? pageInfo.sorterDirection : ''}"><hi:text key="交易类型" entity="TblMbRechargeOrder"/></th>
+				<!-- 
 				<th orderField="mchtTxTime" class="${pageInfo.sorterName eq 'mchtTxTime' ? pageInfo.sorterDirection : ''}"><hi:text key="交易发生时间" entity="TblMbRechargeOrder"/></th>
+				 -->
 				<th orderField="txAmount" class="${pageInfo.sorterName eq 'txAmount' ? pageInfo.sorterDirection : ''}"><hi:text key="交易金额" entity="TblMbRechargeOrder"/></th>
+				<!--  
 				<th orderField="txIp" class="${pageInfo.sorterName eq 'txIp' ? pageInfo.sorterDirection : ''}"><hi:text key="交易IP地址" entity="TblMbRechargeOrder"/></th>
 				<th orderField="plTxTime" class="${pageInfo.sorterName eq 'plTxTime' ? pageInfo.sorterDirection : ''}"><hi:text key="交易完成时间" entity="TblMbRechargeOrder"/></th>
+				-->
 				<th orderField="txStatus" class="${pageInfo.sorterName eq 'txStatus' ? pageInfo.sorterDirection : ''}"><hi:text key="交易状态" entity="TblMbRechargeOrder"/></th>
+				<!-- 
 				<th orderField="errorCode" class="${pageInfo.sorterName eq 'errorCode' ? pageInfo.sorterDirection : ''}"><hi:text key="异常代码" entity="TblMbRechargeOrder"/></th>
+				
 				<th orderField="errorMsg" class="${pageInfo.sorterName eq 'errorMsg' ? pageInfo.sorterDirection : ''}"><hi:text key="实名认证状态" entity="TblMbRechargeOrder"/></th>
 				<th orderField="settleBatchNo" class="${pageInfo.sorterName eq 'settleBatchNo' ? pageInfo.sorterDirection : ''}"><hi:text key="结算批次号" entity="TblMbRechargeOrder"/></th>
 				<th orderField="settleStatus" class="${pageInfo.sorterName eq 'settleStatus' ? pageInfo.sorterDirection : ''}"><hi:text key="结算状态" entity="TblMbRechargeOrder"/></th>
@@ -166,12 +190,15 @@
 				<th orderField="checkBatchNo" class="${pageInfo.sorterName eq 'checkBatchNo' ? pageInfo.sorterDirection : ''}"><hi:text key="对账批次号" entity="TblMbRechargeOrder"/></th>
 				<th orderField="checkStatus" class="${pageInfo.sorterName eq 'checkStatus' ? pageInfo.sorterDirection : ''}"><hi:text key="对账状态" entity="TblMbRechargeOrder"/></th>
 				<th orderField="voucherNo" class="${pageInfo.sorterName eq 'voucherNo' ? pageInfo.sorterDirection : ''}"><hi:text key="凭证号" entity="TblMbRechargeOrder"/></th>
+				 -->
+				 <!-- 
 				<th width="90">
 					<c:choose>
 						<c:when test="${empty lookup}"><hi:text key="操作"/></c:when>
 						<c:otherwise><hi:text key="查找带回"/></c:otherwise>
 					</c:choose>
 				</th>
+				 -->
 			</tr>
 		</thead>				
 		<tbody>
@@ -181,17 +208,26 @@
 				<td><input name="orderIndexs" value="${item.id}" type="checkbox"></td>
 				</c:if>			
 				    <td>${item.plTxTraceNo}</td>
+				    <!--
 				    <td>${item.userName}</td>
+				      -->
+				    <!-- 
 				    <td>${item.accountType}</td>
 				    <td>${item.accountNo}</td>
 				    <td>${item.pan}</td>
 				    <td>${item.chinfo}</td>
+				     -->
 				    <td>${item.txTypeId}</td>
+				    <!--
 				    <td>${item.mchtTxTime}</td>
-				    <td>${item.txAmount}</td>
+				      -->
+				    <td>${item.txAmount/100}</td>
+				    <!--  
 				    <td>${item.txIp}</td>
 				    <td>${item.plTxTime}</td>
+				    -->
 				    <td><hi:select emu="rechargeTxStatus" name="tblMbRechargeOrders[${s.index}].txStatus" isLabel="true"/></td>
+				   <!--  
 				    <td>${item.errorCode}</td>
 				    <td>${item.errorMsg}</td>
 				    <td>${item.settleBatchNo}</td>
@@ -204,6 +240,8 @@
 				    <td>${item.checkBatchNo}</td>
 				    <td><hi:select emu="checkStatus" name="tblMbRechargeOrders[${s.index}].checkStatus" isLabel="true"/></td>
 				    <td>${item.voucherNo}</td>
+				    -->
+				    <!-- 
 				<td>
 				<c:choose>
 					<c:when test="${empty lookup}">
@@ -213,15 +251,18 @@
 				    <authz:authorize ifAnyGranted="TBLMBRECHARGEORDER_VIEW">
 				      <a class="btnView" href="<hi:url>tblMbRechargeOrderView.action?tblMbRechargeOrder.id=${item.id}</hi:url>" target="navTab" rel="tblMbRechargeOrder" title="<hi:text key="查看" parameterLanguageKeys="充值订单"/>"><hi:text key="查看"/></a>
 				    </authz:authorize>
+				    
 				    <authz:authorize ifAnyGranted="TBLMBRECHARGEORDER_SAVE">
 				      <a class="btnEdit" href="<hi:url>tblMbRechargeOrderEdit.action?tblMbRechargeOrder.id=${item.id}</hi:url>" target="navTab" rel="tblMbRechargeOrder" title="<hi:text key="编辑" parameterLanguageKeys="充值订单"/>"><hi:text key="编辑"/></a>
 				    </authz:authorize>
+				    
 					</c:when>
 					<c:otherwise>
 						<a class="btnSelect" href="javascript:$.bringBack({id:'${item.id}', plTxTraceNo:'${item.plTxTraceNo}',userName:'${item.userName}',accountType:'${item.accountType}',accountNo:'${item.accountNo}',pan:'${item.pan}',chinfo:'${item.chinfo}',txTypeId:'${item.txTypeId}',mchtTxTime:'${item.mchtTxTime}',txAmount:'${item.txAmount}',txIp:'${item.txIp}',plTxTime:'${item.plTxTime}',txStatus:'<hi:select emu="rechargeTxStatus" name="tblMbRechargeOrders[${s.index}].txStatus" isLabel="true"/>',errorCode:'${item.errorCode}',errorMsg:'${item.errorMsg}',settleBatchNo:'${item.settleBatchNo}',settleStatus:'<hi:select emu="rechargeSettleStatus" name="tblMbRechargeOrders[${s.index}].settleStatus" isLabel="true"/>',settleDate:'${item.settleDate}',createdDatetime:'${item.createdDatetime}',lastUpdatedDatetime:'${item.lastUpdatedDatetime}',lastUpdatedBy:'${item.lastUpdatedBy}',bankTxStatus:'<hi:select emu="bankTxStatus" name="tblMbRechargeOrders[${s.index}].bankTxStatus" isLabel="true"/>',checkBatchNo:'${item.checkBatchNo}',checkStatus:'<hi:select emu="checkStatus" name="tblMbRechargeOrders[${s.index}].checkStatus" isLabel="true"/>',voucherNo:'${item.voucherNo}'})" title="<hi:text key="查找带回"/>"><hi:text key="选择"/></a>
 					</c:otherwise>
 				</c:choose>
 				</td>
+				 -->
 			</tr>
 			</c:forEach>
 		</tbody>

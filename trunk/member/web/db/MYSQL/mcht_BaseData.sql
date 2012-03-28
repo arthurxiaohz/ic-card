@@ -418,14 +418,6 @@ delete from HI_Language where ID = 300213;
 --
 insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300213, 0, '开户行名称', 'TblMchtInfo', 1, 0);
 --
-delete from HI_Language where ID = 300214;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300214, 0, '创建时间', 'TblMchtInfo', 1, 0);
---
-delete from HI_Language where ID = 300215;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300215, 0, '最后修改时间', 'TblMchtInfo', 1, 0);
---
 delete from HI_Language where ID = 300300;
 --
 insert into HI_Language(ID, version, keyStr, creator, isSystem) values(300300, 0, '商户支付配置', 1, 0);
@@ -441,14 +433,6 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(3
 delete from HI_Language where ID = 300303;
 --
 insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300303, 0, 'MD5', 'TblMchtPaymentConfig', 1, 0);
---
-delete from HI_Language where ID = 300304;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300304, 0, '创建时间', 'TblMchtPaymentConfig', 1, 0);
---
-delete from HI_Language where ID = 300305;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300305, 0, '最后修改时间', 'TblMchtPaymentConfig', 1, 0);
 --
 delete from HI_Language where ID = 300500;
 --
@@ -494,14 +478,6 @@ delete from HI_Language where ID = 300605;
 --
 insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300605, 0, '退款是否退还手续费', 'TblMchtFeeConfig', 1, 0);
 --
-delete from HI_Language where ID = 300606;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300606, 0, '创建时间', 'TblMchtFeeConfig', 1, 0);
---
-delete from HI_Language where ID = 300607;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300607, 0, '最后修改时间', 'TblMchtFeeConfig', 1, 0);
---
 delete from HI_Language where ID = 300700;
 --
 insert into HI_Language(ID, version, keyStr, creator, isSystem) values(300700, 0, '商户手续费类型', 1, 0);
@@ -537,14 +513,6 @@ insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(3
 delete from HI_Language where ID = 300805;
 --
 insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300805, 0, '证书有效期结束时间', 'TblMchtCertificate', 1, 0);
---
-delete from HI_Language where ID = 300806;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300806, 0, '创建时间', 'TblMchtCertificate', 1, 0);
---
-delete from HI_Language where ID = 300807;
---
-insert into HI_Language(ID, version, keyStr, entity, creator, isSystem) values(300807, 0, '最后修改时间', 'TblMchtCertificate', 1, 0);
 --
 delete from HI_Language where ID = 300900;
 --

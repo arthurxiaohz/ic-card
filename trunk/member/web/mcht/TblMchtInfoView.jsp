@@ -75,8 +75,6 @@
 								<th><hi:text key="单笔最低收费" entity="TblMchtFeeConfig"/></th>
 								<th><hi:text key="单笔最高收费" entity="TblMchtFeeConfig"/></th>
 								<th><hi:text key="退款是否退还手续费" entity="TblMchtFeeConfig"/></th>
-								<th><hi:text key="创建时间" entity="TblMchtFeeConfig"/></th>
-								<th><hi:text key="最后修改时间" entity="TblMchtFeeConfig"/></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -87,8 +85,6 @@
 								<td>${item.minVal}</td>
 								<td>${item.maxVal}</td>
 				        		<td><hi:select emu="yesNo" name="item.isFeeReturn" isLabel="true"/></td>
-								<td><fmt:formatDate value="${item.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-								<td><fmt:formatDate value="${item.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 							</tr>
 							</c:forEach>
 						</tbody>
@@ -103,8 +99,6 @@
 								<th><hi:text key="证书DN" entity="TblMchtCertificate"/></th>
 								<th><hi:text key="证书有效期开始时间" entity="TblMchtCertificate"/></th>
 								<th><hi:text key="证书有效期结束时间" entity="TblMchtCertificate"/></th>
-								<th><hi:text key="创建时间" entity="TblMchtCertificate"/></th>
-								<th><hi:text key="最后修改时间" entity="TblMchtCertificate"/></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -115,8 +109,6 @@
 								<td>${item.certDn}</td>
 								<td>${item.startTime}</td>
 								<td>${item.endTime}</td>
-								<td><fmt:formatDate value="${item.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-								<td><fmt:formatDate value="${item.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 							</tr>
 							</c:forEach>
 						</tbody>
@@ -129,8 +121,6 @@
 								<th><hi:text key="是否允许接入支付平台" entity="TblMchtPaymentConfig"/></th>
 								<th><hi:text key="签名方式" entity="TblMchtPaymentConfig"/></th>
 								<th><hi:text key="MD5" entity="TblMchtPaymentConfig"/></th>
-								<th><hi:text key="创建时间" entity="TblMchtPaymentConfig"/></th>
-								<th><hi:text key="最后修改时间" entity="TblMchtPaymentConfig"/></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -139,8 +129,6 @@
 				        		<td><hi:select emu="yesNo" name="item.authorized" isLabel="true"/></td>
 				        		<td><hi:select emu="signType" name="item.signType" isLabel="true"/></td>
 								<td>${item.md5}</td>
-								<td><fmt:formatDate value="${item.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-								<td><fmt:formatDate value="${item.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 							</tr>
 							</c:forEach>
 						</tbody>

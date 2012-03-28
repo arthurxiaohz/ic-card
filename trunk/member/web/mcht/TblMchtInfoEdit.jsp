@@ -90,8 +90,6 @@
 								<th type="text" class=" integer" name="minVal" size="12"><hi:text key="单笔最低收费" entity="TblMchtFeeConfig"/></th>
 								<th type="text" class=" integer" name="maxVal" size="12"><hi:text key="单笔最高收费" entity="TblMchtFeeConfig"/></th>
 								<th type="enum" name="isFeeReturn" enumName="yesNo" size="12"><hi:text key="退款是否退还手续费" entity="TblMchtFeeConfig"/></th>
-								<th type="datetime" class=" date" name="createdDateTime" size="12"><hi:text key="创建时间" entity="TblMchtFeeConfig"/></th>
-								<th type="datetime" class=" date" name="lastUpdatedDatetime" size="12"><hi:text key="最后修改时间" entity="TblMchtFeeConfig"/></th>
 								<th type="del" width="60"><hi:text key="操作"/></th>
 							</tr>
 						</thead>
@@ -115,16 +113,6 @@
 								<td>
 									<hi:select emu="yesNo" name="tblMchtInfo.tblMchtFeeConfigs[${s.index}].isFeeReturn" />
 								</td>
-								<td>
-									<input type="text" class="date" name="tblMchtInfo.tblMchtFeeConfigs[${s.index}].createdDateTime" class="date" pattern='yyyy-MM-dd HH:mm:ss'
-										value="<fmt:formatDate value='${item.createdDateTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" size="12"  readonly="readonly"/>
-									<a class="inputDateButton" href="javascript:void(0)"><hi:text key="选择"/></a>
-								</td>
-								<td>
-									<input type="text" class="date" name="tblMchtInfo.tblMchtFeeConfigs[${s.index}].lastUpdatedDatetime" class="date" pattern='yyyy-MM-dd HH:mm:ss'
-										value="<fmt:formatDate value='${item.lastUpdatedDatetime}' pattern='yyyy-MM-dd HH:mm:ss'/>" size="12"  readonly="readonly"/>
-									<a class="inputDateButton" href="javascript:void(0)"><hi:text key="选择"/></a>
-								</td>
 								<td><a href="<hi:url>tblMchtFeeConfigRemove.action?ajax=1&tblMchtFeeConfig.id=${item.id}</hi:url>" class="btnDel" title="<hi:text key="确定要删除吗?"/>">删除</a></td>
 							</tr>
 							</c:forEach>
@@ -140,8 +128,6 @@
 								<th type="text" class="" name="certDn" size="12" maxlength="30"><hi:text key="证书DN" entity="TblMchtCertificate"/></th>
 								<th type="text" class="" name="startTime" size="12" maxlength="30"><hi:text key="证书有效期开始时间" entity="TblMchtCertificate"/></th>
 								<th type="text" class="" name="endTime" size="12" maxlength="30"><hi:text key="证书有效期结束时间" entity="TblMchtCertificate"/></th>
-								<th type="datetime" class=" date" name="createdDateTime" size="12"><hi:text key="创建时间" entity="TblMchtCertificate"/></th>
-								<th type="datetime" class=" date" name="lastUpdatedDatetime" size="12"><hi:text key="最后修改时间" entity="TblMchtCertificate"/></th>
 								<th type="del" width="60"><hi:text key="操作"/></th>
 							</tr>
 						</thead>
@@ -165,16 +151,6 @@
 								<td>
 									<input type="text" class="" name="tblMchtInfo.tblMchtCertificates[${s.index}].endTime" value="${item.endTime}" size="12" maxlength="30"/>
 								</td>
-								<td>
-									<input type="text" class="date" name="tblMchtInfo.tblMchtCertificates[${s.index}].createdDateTime" class="date" pattern='yyyy-MM-dd HH:mm:ss'
-										value="<fmt:formatDate value='${item.createdDateTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" size="12"  readonly="readonly"/>
-									<a class="inputDateButton" href="javascript:void(0)"><hi:text key="选择"/></a>
-								</td>
-								<td>
-									<input type="text" class="date" name="tblMchtInfo.tblMchtCertificates[${s.index}].lastUpdatedDatetime" class="date" pattern='yyyy-MM-dd HH:mm:ss'
-										value="<fmt:formatDate value='${item.lastUpdatedDatetime}' pattern='yyyy-MM-dd HH:mm:ss'/>" size="12"  readonly="readonly"/>
-									<a class="inputDateButton" href="javascript:void(0)"><hi:text key="选择"/></a>
-								</td>
 								<td><a href="<hi:url>tblMchtCertificateRemove.action?ajax=1&tblMchtCertificate.id=${item.id}</hi:url>" class="btnDel" title="<hi:text key="确定要删除吗?"/>">删除</a></td>
 							</tr>
 							</c:forEach>
@@ -188,8 +164,6 @@
 								<th type="enum" name="authorized" enumName="yesNo" size="12"><hi:text key="是否允许接入支付平台" entity="TblMchtPaymentConfig"/></th>
 								<th type="enum" name="signType" enumName="signType" size="12"><hi:text key="签名方式" entity="TblMchtPaymentConfig"/></th>
 								<th type="text" class="" name="md5" size="12" maxlength="30"><hi:text key="MD5" entity="TblMchtPaymentConfig"/></th>
-								<th type="datetime" class=" date" name="createdDateTime" size="12"><hi:text key="创建时间" entity="TblMchtPaymentConfig"/></th>
-								<th type="datetime" class=" date" name="lastUpdatedDatetime" size="12"><hi:text key="最后修改时间" entity="TblMchtPaymentConfig"/></th>
 								<th type="del" width="60"><hi:text key="操作"/></th>
 							</tr>
 						</thead>
@@ -206,16 +180,6 @@
 								</td>
 								<td>
 									<input type="text" class="" name="tblMchtInfo.tblMchtPaymentConfigs[${s.index}].md5" value="${item.md5}" size="12" maxlength="30"/>
-								</td>
-								<td>
-									<input type="text" class="date" name="tblMchtInfo.tblMchtPaymentConfigs[${s.index}].createdDateTime" class="date" pattern='yyyy-MM-dd HH:mm:ss'
-										value="<fmt:formatDate value='${item.createdDateTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" size="12"  readonly="readonly"/>
-									<a class="inputDateButton" href="javascript:void(0)"><hi:text key="选择"/></a>
-								</td>
-								<td>
-									<input type="text" class="date" name="tblMchtInfo.tblMchtPaymentConfigs[${s.index}].lastUpdatedDatetime" class="date" pattern='yyyy-MM-dd HH:mm:ss'
-										value="<fmt:formatDate value='${item.lastUpdatedDatetime}' pattern='yyyy-MM-dd HH:mm:ss'/>" size="12"  readonly="readonly"/>
-									<a class="inputDateButton" href="javascript:void(0)"><hi:text key="选择"/></a>
 								</td>
 								<td><a href="<hi:url>tblMchtPaymentConfigRemove.action?ajax=1&tblMchtPaymentConfig.id=${item.id}</hi:url>" class="btnDel" title="<hi:text key="确定要删除吗?"/>">删除</a></td>
 							</tr>

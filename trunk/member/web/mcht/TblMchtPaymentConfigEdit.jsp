@@ -14,24 +14,10 @@
 		<dl>
 			<dt><hi:text key="MD5" entity="TblMchtPaymentConfig"/>：</dt><dd><input type="text" name="tblMchtPaymentConfig.md5" class="textInput" value="${tblMchtPaymentConfig.md5}" maxlength="30"/></dd>
 		</dl>
-		<dl>
-			<dt><hi:text key="创建时间" entity="TblMchtPaymentConfig"/>：</dt>
-			<dd>
-				<input type="text" name="tblMchtPaymentConfig.createdDateTime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
-					value="<fmt:formatDate value='${tblMchtPaymentConfig.createdDateTime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
-				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
-			</dd>
-		</dl>
-		<dl>
-			<dt><hi:text key="最后修改时间" entity="TblMchtPaymentConfig"/>：</dt>
-			<dd>
-				<input type="text" name="tblMchtPaymentConfig.lastUpdatedDatetime" class="textInput date" readonly="readonly" pattern="yyyy-MM-dd HH:mm:ss"
-					value="<fmt:formatDate value='${tblMchtPaymentConfig.lastUpdatedDatetime}' pattern='yyyy-MM-dd HH:mm:ss'/>"/>
-				<a href="javascript:void(0)" class="inputDateButton"><hi:text key="选择"/></a>
-			</dd>
-		</dl>
 				<input type="hidden" name="tblMchtPaymentConfig.id" value="${tblMchtPaymentConfig.id}"/>
 				<input type="hidden" name="tblMchtPaymentConfig.tblMchtInfo.id" value="${tblMchtPaymentConfig.tblMchtInfo.id}"/>
+				<input type="hidden" name="tblMchtPaymentConfig.createdDateTime" value="${tblMchtPaymentConfig.createdDateTime}"/>
+				<input type="hidden" name="tblMchtPaymentConfig.lastUpdatedDatetime" value="${tblMchtPaymentConfig.lastUpdatedDatetime}"/>
 				<input type="hidden" name="tblMchtPaymentConfig.lastUpdatedBy.id" value="${tblMchtPaymentConfig.lastUpdatedBy.id}"/>
 				<input type="hidden" name="tblMchtPaymentConfig.creator.id" value="${tblMchtPaymentConfig.creator.id}"/>
 				<input type="hidden" name="tblMchtPaymentConfig.version" value="${tblMchtPaymentConfig.version}"/>

@@ -24,12 +24,6 @@
 		<dl class="nowrap">
 			<dt><hi:text key="证书内容" entity="TblMchtCertificate"/>：</dt><dd>${tblMchtCertificate.certContent}</dd>
 		</dl>
-		<dl>
-			<dt><hi:text key="创建时间" entity="TblMchtCertificate"/>：</dt><dd><fmt:formatDate value="${tblMchtCertificate.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
-		</dl>
-		<dl>
-			<dt><hi:text key="最后修改时间" entity="TblMchtCertificate"/>：</dt><dd><fmt:formatDate value="${tblMchtCertificate.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
-		</dl>
 
 		<div class="divider"></div>
 			</div>

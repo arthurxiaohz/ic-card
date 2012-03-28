@@ -21,12 +21,6 @@
 		<dl>
 			<dt><hi:text key="退款是否退还手续费" entity="TblMchtFeeConfig"/>：</dt><dd><hi:select emu="yesNo" name="tblMchtFeeConfig.isFeeReturn" isLabel="true"/></dd>
 		</dl>
-		<dl>
-			<dt><hi:text key="创建时间" entity="TblMchtFeeConfig"/>：</dt><dd><fmt:formatDate value="${tblMchtFeeConfig.createdDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
-		</dl>
-		<dl>
-			<dt><hi:text key="最后修改时间" entity="TblMchtFeeConfig"/>：</dt><dd><fmt:formatDate value="${tblMchtFeeConfig.lastUpdatedDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></dd>				  	 
-		</dl>
 
 		<div class="divider"></div>
 			</div>
