@@ -74,16 +74,6 @@ public class TblTxPayMentOrderAction extends BaseAction{
 	 */
 	public String tblTxPayMentOrderList() throws Exception {
 		TblTxPayMentOrderManager tblTxPayMentOrderMgr = (TblTxPayMentOrderManager)SpringContextHolder.getBean(TblTxPayMentOrder.class);
-		
-		//点击查询时，更新session中id对应订单的userName和creator
-		Integer id = (Integer) getSession().getAttribute("id");
-		if (null != id) {
-			TblTxPayMentOrder tblTxPayMentOrderTmp = tblTxPayMentOrderMgr.getTblTxPayMentOrderById(id);
-			tblTxPayMentOrderTmp.setUserName(org.hi.framework.security.context.UserContextHelper.getUser().getUserName());
-			tblTxPayMentOrderTmp.setCreator(org.hi.framework.security.context.UserContextHelper.getUser());
-			tblTxPayMentOrderMgr.saveTblTxPayMentOrder(tblTxPayMentOrderTmp);
-		}
-		
 		pageInfo = pageInfo == null ? new TblTxPayMentOrderPageInfo() : pageInfo;
 		PageInfo sarchPageInfo = PageInfoUtil.populate(pageInfo, this);
 		
