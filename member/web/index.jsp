@@ -20,7 +20,7 @@ $(function(){
 			initEnv();
 			$("#themeList").theme({themeBase:"styles/dwz/themes"});
 			<c:if test="${!empty sessionScope.prepaidId}">
-				navTab.openTab('tblMchtInfo', '<hi:url>tblTxPayMentOrderEdit.action?tblTxPayMentOrder.id=${sessionScope.id}</hi:url>', {title:"<hi:text key="支付" parameterLanguageKeys="订单"/>", fresh:true});
+				navTab.openTab('tblMchtInfo', '<hi:url>tblTxPayMentOrderEdit.action?tblTxPayMentOrder.id=${sessionScope.prepaidId}</hi:url>', {title:"<hi:text key="支付" parameterLanguageKeys="订单"/>", fresh:true});
 			</c:if>
 		}
 	});
