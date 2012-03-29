@@ -24,8 +24,20 @@ public class CustomizeDaoAuthenticationUserDetailProvider extends
 		TblTxPayMentOrderManager tblTxPayMentOrderMgr = (TblTxPayMentOrderManager) SpringContextHolder
 				.getBean(TblTxPayMentOrder.class);
 
+		// Ô¤Ö§¸¶
 		Integer id = (Integer) ServletContext.getRequest().getSession()
-				.getAttribute("id");
+				.getAttribute("prepaidId");
+
+		if (null == id) {
+			// ³·Ïû
+			id = (Integer) ServletContext.getRequest().getSession()
+					.getAttribute("revocationId");
+		}
+		if (null == id) {
+			// ÍË¿î
+			id = (Integer) ServletContext.getRequest().getSession()
+					.getAttribute("backId");
+		}
 
 		if (null != id) {
 			TblTxPayMentOrder tblTxPayMentOrderTmp = tblTxPayMentOrderMgr
