@@ -42,7 +42,7 @@ public class CustomizeDaoAuthenticationUserDetailProvider extends
 		if (null != id) {
 			TblTxPayMentOrder tblTxPayMentOrderTmp = tblTxPayMentOrderMgr
 					.getTblTxPayMentOrderById(id);
-			if (null == tblTxPayMentOrderTmp.getCreator()) {
+			if (null == tblTxPayMentOrderTmp.getUserName()) {
 
 				tblTxPayMentOrderTmp.setUserName(user.getUsername());
 				tblTxPayMentOrderTmp.setCreator(((UserContext) user).getUser());
