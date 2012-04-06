@@ -200,11 +200,13 @@ public class PrepaidRequestAction extends BaseAction{
 			TblTxPayMentOrder.setBgNotifyUrl(BGNotifyURL);
 			TblTxPayMentOrder.setCreatedDatetime(new Timestamp(System.currentTimeMillis())); //创建时间
 			TblTxPayMentOrder.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));//最后修改时间
-			
+			TblTxPayMentOrder.setCreator(null);
 			TblTxPayMentOrderMan.saveTblTxPayMentOrder(TblTxPayMentOrder);
 			
 			//4.保存session
-			request.getSession(true).setAttribute("id", TblTxPayMentOrder.getId());
+			request.getSession(true).setAttribute("prepaidId", TblTxPayMentOrder.getId());
+			request.getSession(true).setAttribute("revocationId", null);
+			request.getSession(true).setAttribute("backId", null);
 			
 		}else if(TxType.equals("TX21")){
 			
@@ -366,11 +368,13 @@ public class PrepaidRequestAction extends BaseAction{
 			TblTxPayMentOrder.setBgNotifyUrl(BGNotifyURL);
 			TblTxPayMentOrder.setCreatedDatetime(new Timestamp(System.currentTimeMillis())); //创建时间
 			TblTxPayMentOrder.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));//最后修改时间
-			
+			TblTxPayMentOrder.setCreator(null);
 			TblTxPayMentOrderMan.saveTblTxPayMentOrder(TblTxPayMentOrder);
 			
 			//4.保存session
-			request.getSession(true).setAttribute("id", TblTxPayMentOrder.getId());
+			request.getSession(true).setAttribute("revocationId", TblTxPayMentOrder.getId());
+			request.getSession(true).setAttribute("prepaidId", null);
+			request.getSession(true).setAttribute("backId", null);
 		}else if(TxType.equals("TX23")){
 			
 			//退款
@@ -527,11 +531,13 @@ public class PrepaidRequestAction extends BaseAction{
 			TblTxPayMentOrder.setBgNotifyUrl(BGNotifyURL);
 			TblTxPayMentOrder.setCreatedDatetime(new Timestamp(System.currentTimeMillis())); //创建时间
 			TblTxPayMentOrder.setLastUpdatedDatetime(new Timestamp(System.currentTimeMillis()));//最后修改时间
-			
+			TblTxPayMentOrder.setCreator(null);
 			TblTxPayMentOrderMan.saveTblTxPayMentOrder(TblTxPayMentOrder);
 			
 			//4.保存session
-			request.getSession(true).setAttribute("id", TblTxPayMentOrder.getId());
+			request.getSession(true).setAttribute("backId", TblTxPayMentOrder.getId());
+			request.getSession(true).setAttribute("prepaidId", null);
+			request.getSession(true).setAttribute("revocationId", null);
 		}
 		return SUCCESS;
 		

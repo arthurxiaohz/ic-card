@@ -55,7 +55,23 @@ public class RechargeRequestAction extends BaseAction{
 		
 		HttpServletResponse response = getResponse();
 		
+		int amount  =0;
 		
+		//校验金额格式
+		try{
+			amount = Integer.valueOf(new BigDecimal(request.getParameter("tblMbRechargeOrder.txAmount")).movePointRight(2).toString());
+		}catch(Exception e){
+			//e.getMessage();
+			return returnCommand("金额格式错误");
+		}
+		
+		if(amount < 0||amount == 0){
+			return returnCommand("金额不能小于0");
+		}
+		
+		if(amount>100000000){
+			return returnCommand("金额不能大于一百万");
+		}
 //		    Filter filter = FilterFactory.getSimpleFilter("userName", hiUser.getUserName(), Filter.OPERATOR_EQ);
 		    
 		    Filter filter = FilterFactory.getSimpleFilter("userName", UserContextHelper.getUser().getUserName(), Filter.OPERATOR_EQ);
