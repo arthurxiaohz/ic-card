@@ -4,9 +4,9 @@
 function process1(json){
 		
 		
-		
+		if(json.statusCode == DWZ.statusCode.ok){
 		 window.open("<%=request.getContextPath()%>/redirect.jsp");
-		
+		}
 		
 		
 		navTabAjaxDone(json);

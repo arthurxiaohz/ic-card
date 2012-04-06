@@ -280,16 +280,16 @@
 				    </authz:authorize>
 				     -->
 				  
-				      <a  href="<hi:url>tblTxPayMentOrderEdit.action?tblTxPayMentOrder.id=${item.id}</hi:url>" target="navTab" rel="tblTxPayMentOrder" title="<hi:text key="支付" parameterLanguageKeys="订单"/>">支付</a>
+				      <a  href="<hi:url encrypt="false">tblTxPayMentOrderEdit.action?tblTxPayMentOrder.id=${item.id}</hi:url>" target="navTab" rel="tblTxPayMentOrder" title="<hi:text key="支付" parameterLanguageKeys="订单"/>">支付</a>
 				    </c:when>
 				    <c:when test="${item.txStatus==200801}">
-				      <a  href="<hi:url>payMentOrderFinish.action?ajax=1&tblTxPayMentOrder.id=${item.id}</hi:url>" target="navTabTodo"  rel="tblTxPayMentOrder" title="<hi:text key="确认" parameterLanguageKeys="付款"/>">确认付款</a>
+				      <a  href="<hi:url encrypt="false">payMentOrderFinish.action?ajax=1&tblTxPayMentOrder.id=${item.id}</hi:url>" target="navTabTodo"  rel="tblTxPayMentOrder" title="<hi:text key="确认" parameterLanguageKeys="付款"/>">确认付款</a>
 				    </c:when>
 				     <c:when test="${item.txStatus==200805}">
-				      <a  href="<hi:url>revocationTxPayMentOrderFinish.action?ajax=1&tblTxPayMentOrder.id=${item.id}</hi:url>" target="navTabTodo" rel="tblTxPayMentOrder" title="<hi:text key="确认" parameterLanguageKeys="撤销"/>">待撤销</a>
+				      <a  href="<hi:url encrypt="false">revocationTxPayMentOrderFinish.action?ajax=1&tblTxPayMentOrder.id=${item.id}</hi:url>" target="navTabTodo" rel="tblTxPayMentOrder" title="<hi:text key="确认" parameterLanguageKeys="撤销"/>">待撤销</a>
 				    </c:when>
 				     <c:when test="${item.txStatus==200806}">
-				      <a  href="<hi:url>backTxPayMentOrderFinish.action?ajax=1&tblTxPayMentOrder.id=${item.id}</hi:url>" target="navTabTodo" rel="tblTxPayMentOrder" title="<hi:text key="确认" parameterLanguageKeys="退款"/>">待退款</a>
+				      <a  href="<hi:url encrypt="false">backTxPayMentOrderFinish.action?ajax=1&tblTxPayMentOrder.id=${item.id}</hi:url>" target="navTabTodo" rel="tblTxPayMentOrder" title="<hi:text key="确认" parameterLanguageKeys="退款"/>">待退款</a>
 				    
 					</c:when>
 					<c:otherwise>
