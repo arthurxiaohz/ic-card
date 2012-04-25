@@ -3,7 +3,7 @@
 添加从j-hi.jar（平台hi4springJDBC-20110823版本）中提取的xml配置文件
 
 修改bug
-1、角色查询（用户级）中用户（非sa）看到了不是他创建的角色 
+1、用户（非sa）在角色查询（权限为用户级）中看到了不是他创建的角色 
 RoleListAction中没有调用getSecurityRoleList()，而是调用的getRoleList()，见拦截器ResourceBindleMethodSecurityInterceptor 
 这个问题在j-hi-20110703和j-hi-20110823中都未解决 
 2、角色编辑中用户（非sa）不可以编辑自己创建的角色 
