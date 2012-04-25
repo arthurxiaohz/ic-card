@@ -9,4 +9,4 @@ RoleListAction中没有调用getSecurityRoleList()，而是调用的getRoleList()，见拦截器
 2、角色编辑中用户（非sa）不可以编辑自己创建的角色 
 RoleAction.viewRole()中判断有误 
 这个问题在j-hi-20110703中未得到解决，但是j-hi-20110823中已解决 
-3、dao中乐观锁实现时，如果数据过期，抛出BusinessException，而不是仅打印日志
+3、dao中乐观锁实现时，如果数据过期，追加抛出BusinessException，而不是仅打印日志
