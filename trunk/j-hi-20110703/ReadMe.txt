@@ -10,3 +10,7 @@ RoleListAction中没有调用getSecurityRoleList()，而是调用的getRoleList()，见拦截器
 RoleAction.viewRole()中判断有误 
 这个问题在j-hi-20110703中未得到解决，但是j-hi-20110823中已解决 
 3、dao中乐观锁实现时，如果数据过期，追加抛出BusinessException，而不是仅打印日志
+org.hi.framework.dao.ibatis.BaseDAOIbatis
+org.hi.framework.dao.ibatis3.BaseDAOIbatis
+4、权限范围的传递没有延续性，比如用户a仅具有某个查询的部门级范围，但是他却可以分配给用户b某个查询的所有范围
+SelectTag
