@@ -1,0 +1,73 @@
+/*    */ package org.hi.framework.security.service.impl;
+/*    */ 
+/*    */ import java.util.List;
+/*    */ import org.hi.framework.paging.PageInfo;
+/*    */ import org.hi.framework.security.model.UserGroup;
+/*    */ import org.hi.framework.security.service.UserGroupManager;
+/*    */ import org.hi.framework.service.impl.ManagerImpl;
+/*    */ 
+/*    */ public class UserGroupManagerImpl extends ManagerImpl
+/*    */   implements UserGroupManager
+/*    */ {
+/*    */   protected void preSaveObject(Object obj)
+/*    */   {
+/* 14 */     super.preSaveObject(obj);
+/*    */   }
+/*    */ 
+/*    */   protected void postSaveObject(Object obj)
+/*    */   {
+/* 19 */     super.postSaveObject(obj);
+/*    */   }
+/*    */ 
+/*    */   protected void preRemoveObject(Object obj)
+/*    */   {
+/* 24 */     super.preRemoveObject(obj);
+/*    */   }
+/*    */ 
+/*    */   protected void postRemoveObject(Object obj)
+/*    */   {
+/* 29 */     super.postRemoveObject(obj);
+/*    */   }
+/*    */ 
+/*    */   public void saveUserGroup(UserGroup UserGroup)
+/*    */   {
+/* 34 */     saveObject(UserGroup);
+/*    */   }
+/*    */ 
+/*    */   public void removeUserGroupById(Integer id)
+/*    */   {
+/* 39 */     removeObjectById(id);
+/*    */   }
+/*    */ 
+/*    */   public UserGroup getUserGroupById(Integer id)
+/*    */   {
+/* 44 */     return (UserGroup)getObjectById(id);
+/*    */   }
+/*    */ 
+/*    */   public List<UserGroup> getUserGroupList(PageInfo pageInfo) {
+/* 48 */     return super.getList(pageInfo);
+/*    */   }
+/*    */ 
+/*    */   public void removeUserGroupByUser(Integer userId)
+/*    */   {
+/*    */   }
+/*    */ 
+/*    */   public void saveSecurityUserGroup(UserGroup userGroup)
+/*    */   {
+/* 58 */     saveObject(userGroup);
+/*    */   }
+/*    */   public void removeSecurityUserGroupById(Integer id) {
+/* 61 */     removeObjectById(id);
+/*    */   }
+/*    */   public UserGroup getSecurityUserGroupById(Integer id) {
+/* 64 */     return (UserGroup)getObjectById(id);
+/*    */   }
+/*    */   public List<UserGroup> getSecurityUserGroupList(PageInfo pageInfo) {
+/* 67 */     return super.getList(pageInfo);
+/*    */   }
+/*    */ }
+
+/* Location:           C:\Users\Angi\Desktop\hi.jar
+ * Qualified Name:     org.hi.framework.security.service.impl.UserGroupManagerImpl
+ * JD-Core Version:    0.6.0
+ */

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="RoleAuthority"> 
+
+
+	<resultMap id="RoleAuthority" type="org.hi.framework.security.model.RoleAuthority">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="scope" column="scope"/>
+		<association property="role" column="role" select="Role.select_inner_Role"/>
+		<association property="authority" column="authority" select="Authority.select_inner_Authority"/>
+		<association property="org" column="org" select="HiOrg.select_inner_HiOrg"/>
+	</resultMap>
+    
+    <select id="select_inner_RoleAuthority" resultMap="RoleAuthority" parameterType="int">  
+       SELECT * FROM HI_RoleAuthority  WHERE id = #{value}
+    </select>
+  
+	<select id="getRoleAuthority" resultMap="RoleAuthority">
+		select * from HI_RoleAuthority WHERE id = #{id}
+	</select>
+	<select id="listRoleAuthority" resultMap="RoleAuthority">#</select>
+  
+	<select id="countRoleAuthority" resultType="int">#</select> 
+	
+	<insert id="insRoleAuthority" parameterType="java.util.HashMap">    
+    	insert into HI_RoleAuthority (id, version, role, authority, org, scope) 
+		values (#{id,jdbcType=NUMERIC}, 1, #{role,jdbcType=NUMERIC}, #{authority,jdbcType=NUMERIC}, #{org,jdbcType=NUMERIC}, #{scope,jdbcType=NUMERIC})
+		<selectKey resultType="int"  keyProperty="id"/>   
+	</insert>
+	
+	<update id="updateRoleAuthority" parameterType="java.util.HashMap">
+		update HI_RoleAuthority set
+            version = #{version} +1,
+			role = #{role,jdbcType=NUMERIC},
+			authority = #{authority,jdbcType=NUMERIC},
+			org = #{org,jdbcType=NUMERIC},
+			scope = #{scope,jdbcType=NUMERIC}
+    where    
+      id = #{id}    
+	</update>    
+   
+	<delete id="delRoleAuthority" parameterType="int">    
+		delete from HI_RoleAuthority where id = #{id}
+	</delete>
+
+</mapper>    

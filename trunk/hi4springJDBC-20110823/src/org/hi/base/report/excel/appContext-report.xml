@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+   <!-- ===================== ExcelReportDesign Manager And DAO Configration==================== -->  
+    <bean id="org.hi.base.report.excel.dao.ExcelReportDesignDAOImpl" class="org.hi.base.report.excel.dao.${hi.orm.package}.ExcelReportDesignDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="org.hi.base.report.excel.dao.ExcelReportDesignDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="org.hi.base.report.excel.dao.ExcelReportDesignDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>org.hi.base.report.excel.dao.ExcelReportDesignDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="org.hi.base.report.excel.model.ExcelReportDesign" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.hi.base.report.excel.service.impl.ExcelReportDesignManagerImpl">
+                <property name="DAO" ref="org.hi.base.report.excel.dao.ExcelReportDesignDAO"/>
+                <property name="modelClass" value="org.hi.base.report.excel.model.ExcelReportDesign"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== ExcelSheet Manager And DAO Configration==================== -->  
+    <bean id="org.hi.base.report.excel.dao.ExcelSheetDAOImpl" class="org.hi.base.report.excel.dao.${hi.orm.package}.ExcelSheetDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="org.hi.base.report.excel.dao.ExcelSheetDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="org.hi.base.report.excel.dao.ExcelSheetDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>org.hi.base.report.excel.dao.ExcelSheetDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="org.hi.base.report.excel.model.ExcelSheet" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.hi.base.report.excel.service.impl.ExcelSheetManagerImpl">
+                <property name="DAO" ref="org.hi.base.report.excel.dao.ExcelSheetDAO"/>
+                <property name="modelClass" value="org.hi.base.report.excel.model.ExcelSheet"/>
+            </bean>
+        </property>
+    </bean>
+
+   <!-- ===================== ExcelCell Manager And DAO Configration==================== -->  
+    <bean id="org.hi.base.report.excel.dao.ExcelCellDAOImpl" class="org.hi.base.report.excel.dao.${hi.orm.package}.ExcelCellDAO${hi.orm.type}">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="org.hi.base.report.excel.dao.ExcelCellDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="org.hi.base.report.excel.dao.ExcelCellDAO" />
+        <property name="interceptorNames">
+            <list>
+                <value>org.hi.base.report.excel.dao.ExcelCellDAOImpl</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="org.hi.base.report.excel.model.ExcelCell" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.hi.base.report.excel.service.impl.ExcelCellManagerImpl">
+                <property name="DAO" ref="org.hi.base.report.excel.dao.ExcelCellDAO"/>
+                <property name="modelClass" value="org.hi.base.report.excel.model.ExcelCell"/>
+            </bean>
+        </property>
+    </bean>
+</beans>

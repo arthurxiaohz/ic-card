@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "com/ibatis/sqlmap/engine/builder/xml/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="MessageParameter" type="org.hi.base.sysapp.model.MessageParameter"/>
+
+	<resultMap id="MessageParameter" class="MessageParameter">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="parameterKey" column="parameterKey"/>
+		<result property="parameterValue" column="parameterValue"/>
+		<result property="message" column="message" select="select_inner_Message"/>
+	</resultMap>
+    
+    <select id="select_inner_MessageParameter" resultMap="MessageParameter" parameterClass="int">  
+       SELECT * FROM Hi_MessageParameter  WHERE id =#value#
+    </select>
+  
+	<select id="getMessageParameter" resultMap="MessageParameter">
+		select * from Hi_MessageParameter WHERE id = #id# 
+	</select>
+	
+	<insert id="insMessageParameter" parameterClass="java.util.HashMap">    
+    	insert into Hi_MessageParameter (id, version, parameterKey, parameterValue, message) 
+		values (#id#, 1, #parameterKey#, #parameterValue#, #message#)
+		<selectKey resultClass="int"  keyProperty="id" />   
+	</insert>    
+   
+ 
+	<update id="updateMessageParameter" parameterClass="java.util.HashMap">    
+		update Hi_MessageParameter set
+            version = #version# +1,
+			parameterKey = #parameterKey#,
+			parameterValue = #parameterValue#,
+			message = #message#
+    where    
+      id = #id#    
+	</update>    
+   
+	<delete id="delMessageParameter" parameterClass="int">    
+		delete from Hi_MessageParameter where id = #id#   
+	</delete>
+    
+	<selectExt id="listMessageParameter" resultMap="MessageParameter"/> 
+  
+	<selectExt id="countMessageParameter" resultClass="int"/> 
+
+</sqlMap>    

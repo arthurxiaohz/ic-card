@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sysapp" extends="hi" >
+		<!-- ============= 应用配置对应的AppSettingAction============ --> 
+	  <action name="appSetting"
+			class="org.hi.base.sysapp.action.struts.AppSettingAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+
+	  <action name="appSettingList"
+			class="org.hi.base.sysapp.action.struts.AppSettingAction" method="appSettingList">
+			<result name="success">/sysapp/AppSettingList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="appSettingSave"
+			class="org.hi.base.sysapp.action.struts.AppSettingAction" method="saveAppSetting">
+			<result name="success" type="redirect-action">appSettingList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="appSettingEdit"
+			class="org.hi.base.sysapp.action.struts.AppSettingAction" method="viewAppSetting">
+			<result name="success">/sysapp/AppSettingEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="appSettingView"
+			class="org.hi.base.sysapp.action.struts.AppSettingAction" method="viewAppSetting">
+			<result name="success">/sysapp/AppSettingView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="appSettingRemove"
+			class="org.hi.base.sysapp.action.struts.AppSettingAction" method="removeAppSetting">
+			<result name="success" type="redirect-action">appSettingList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="appSettingRemoveAll"
+			class="org.hi.base.sysapp.action.struts.AppSettingAction" method="removeAllAppSetting">
+			<result name="success" type="redirect-action">appSettingList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="appSettingLookup"
+			class="org.hi.base.sysapp.action.struts.AppSettingAction" method="appSettingList">
+			<result name="success">/sysapp/AppSettingList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 消息对应的MessageAction============ --> 
+	  <action name="message" class="org.hi.base.sysapp.action.struts.MessageAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  <action name="messageList"
+			class="org.hi.base.sysapp.action.struts.MessageAction" method="messageList">
+			<result name="success">/sysapp/MessageList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="messageSave"
+			class="org.hi.base.sysapp.action.struts.MessageAction" method="saveMessage">
+			<result name="success" type="redirect-action">messageList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="messageEdit"
+			class="org.hi.base.sysapp.action.struts.MessageAction" method="viewMessage">
+			<result name="success">/sysapp/MessageEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="messageView"
+			class="org.hi.base.sysapp.action.struts.MessageAction" method="viewMessage">
+			<result name="success">/sysapp/MessageView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="messageRemove"
+			class="org.hi.base.sysapp.action.struts.MessageAction" method="removeMessage">
+			<result name="success" type="redirect-action">messageList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="messageRemoveAll"
+			class="org.hi.base.sysapp.action.struts.MessageAction" method="removeAllMessage">
+			<result name="success" type="redirect-action">messageList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="messageLookup"
+			class="org.hi.base.sysapp.action.struts.MessageAction" method="messageList">
+			<result name="success">/sysapp/MessageList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 消息参数对应的MessageParameterAction============ --> 
+	  <action name="messageParameter" class="org.hi.base.sysapp.action.struts.MessageParameterAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+
+	  <action name="messageParameterList"
+			class="org.hi.base.sysapp.action.struts.MessageParameterAction" method="messageParameterList">
+			<result name="success">/sysapp/MessageParameterList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="messageParameterSave"
+			class="org.hi.base.sysapp.action.struts.MessageParameterAction" method="saveMessageParameter">
+			<result name="success" type="redirect-action">messageParameterList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="messageParameterEdit"
+			class="org.hi.base.sysapp.action.struts.MessageParameterAction" method="viewMessageParameter">
+			<result name="success">/sysapp/MessageParameterEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="messageParameterView"
+			class="org.hi.base.sysapp.action.struts.MessageParameterAction" method="viewMessageParameter">
+			<result name="success">/sysapp/MessageParameterView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="messageParameterRemove"
+			class="org.hi.base.sysapp.action.struts.MessageParameterAction" method="removeMessageParameter">
+			<result name="success" type="redirect-action">messageParameterList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="messageParameterRemoveAll"
+			class="org.hi.base.sysapp.action.struts.MessageParameterAction" method="removeAllMessageParameter">
+			<result name="success" type="redirect-action">messageParameterList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="messageParameterLookup"
+			class="org.hi.base.sysapp.action.struts.MessageParameterAction" method="messageParameterList">
+			<result name="success">/sysapp/MessageParameterList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 系统日志对应的HiLogAction============ --> 
+	  <action name="hiLog" class="org.hi.base.sysapp.action.struts.HiLogAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  <action name="hiLogList"
+			class="org.hi.base.sysapp.action.struts.HiLogAction" method="hiLogList">
+			<result name="success">/sysapp/HiLogList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiLogSave"
+			class="org.hi.base.sysapp.action.struts.HiLogAction" method="saveHiLog">
+			<result name="success" type="redirect-action">hiLogList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="hiLogEdit"
+			class="org.hi.base.sysapp.action.struts.HiLogAction" method="viewHiLog">
+			<result name="success">/sysapp/HiLogEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiLogView"
+			class="org.hi.base.sysapp.action.struts.HiLogAction" method="viewHiLog">
+			<result name="success">/sysapp/HiLogView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="hiLogRemove"
+			class="org.hi.base.sysapp.action.struts.HiLogAction" method="removeHiLog">
+			<result name="success" type="redirect-action">hiLogList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="hiLogRemoveAll"
+			class="org.hi.base.sysapp.action.struts.HiLogAction" method="removeAllHiLog">
+			<result name="success" type="redirect-action">hiLogList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="hiLogLookup"
+			class="org.hi.base.sysapp.action.struts.HiLogAction" method="hiLogList">
+			<result name="success">/sysapp/HiLogList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</struts>

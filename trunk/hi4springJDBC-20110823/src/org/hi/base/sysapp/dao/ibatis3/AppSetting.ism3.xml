@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="AppSetting"> 
+
+
+	<resultMap id="AppSetting" type="org.hi.base.sysapp.model.AppSetting">
+		<result property="id" column="id"/>
+		<result property="version" column="version"/>
+		<result property="appGroup" column="appGroup"/>
+		<result property="appName" column="appName"/>
+		<result property="appValue" column="appValue"/>
+		<result property="description" column="description"/>
+		<association property="creator" column="creator" select="HiUser.select_inner_HiUser"/>
+	</resultMap>
+    
+    <select id="select_inner_AppSetting" resultMap="AppSetting" parameterType="int">  
+       SELECT * FROM Hi_AppSetting  WHERE id = #{value}
+    </select>
+  
+	<select id="getAppSetting" resultMap="AppSetting">
+		select * from Hi_AppSetting WHERE id = #{id}
+	</select>
+	<select id="listAppSetting" resultMap="AppSetting">#</select>
+  
+	<select id="countAppSetting" resultType="int">#</select> 
+	
+	<insert id="insAppSetting" parameterType="java.util.HashMap">    
+    	insert into Hi_AppSetting (id, version, appGroup, appName, appValue, description, creator) 
+		values (#{id,jdbcType=NUMERIC}, 1, #{appGroup,jdbcType=LONGVARCHAR}, #{appName,jdbcType=LONGVARCHAR}, #{appValue,jdbcType=LONGVARCHAR}, #{description,jdbcType=LONGVARCHAR}, #{creator,jdbcType=NUMERIC})
+		<selectKey resultType="int"  keyProperty="id"/>   
+	</insert>
+	
+	<update id="updateAppSetting" parameterType="java.util.HashMap">
+		update Hi_AppSetting set
+            version = #{version} +1,
+			appGroup = #{appGroup,jdbcType=LONGVARCHAR},
+			appName = #{appName,jdbcType=LONGVARCHAR},
+			appValue = #{appValue,jdbcType=LONGVARCHAR},
+			description = #{description,jdbcType=LONGVARCHAR},
+			creator = #{creator,jdbcType=NUMERIC}
+    where    
+      id = #{id}    
+	</update>    
+   
+	<delete id="delAppSetting" parameterType="int">    
+		delete from Hi_AppSetting where id = #{id}
+	</delete>
+
+</mapper>    

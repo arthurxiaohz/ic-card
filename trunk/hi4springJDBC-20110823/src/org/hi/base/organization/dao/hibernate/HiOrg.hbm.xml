@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.hi.base.organization.model.HiOrg" table="HI_Org" >
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <version name="version" type="integer" column="version"/>
+        <property name="orgName" type="string">
+            <column name="orgName" length="50" not-null="true"/>
+        </property>
+        <property name="orgNum" type="string">
+            <column name="orgNum" length="30"/>
+        </property>
+        <many-to-one name="manager" class="org.hi.base.organization.model.HiUser" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="manager"  not-null="false"/>
+        </many-to-one>
+        <many-to-one name="parentOrg" class="org.hi.base.organization.model.HiOrg" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="parentOrg"  not-null="false"/>
+        </many-to-one>
+        <property name="address" type="string">
+            <column name="address" length="100"/>
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="500"/>
+        </property>
+        <many-to-one name="creator" class="org.hi.base.organization.model.HiUser" outer-join="auto"  not-null="false" not-found="ignore" fetch="select" foreign-key="none">
+            <column name="creator"  not-null="false"/>
+        </many-to-one>
+        <property name="deleted" type="integer">
+            <column name="deleted" />
+        </property>
+    
+    </class>
+</hibernate-mapping>

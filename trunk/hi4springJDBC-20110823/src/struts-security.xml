@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="security" extends="hi" >
+		<!-- ============= 权限对应的AuthorityAction============ --> 
+
+	  <action name="authorityList"
+			class="org.hi.framework.security.action.struts.AuthorityAction" method="authorityList">
+			<result name="success">/security/AuthorityList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="authoritySave"
+			class="org.hi.framework.security.action.struts.AuthorityAction" method="saveAuthority">
+			<result name="success" type="redirect-action">authorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="authorityEdit"
+			class="org.hi.framework.security.action.struts.AuthorityAction" method="viewAuthority">
+			<result name="success">/security/AuthorityEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="authorityView"
+			class="org.hi.framework.security.action.struts.AuthorityAction" method="viewAuthority">
+			<result name="success">/security/AuthorityView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="authorityRemove"
+			class="org.hi.framework.security.action.struts.AuthorityAction" method="removeAuthority">
+			<result name="success" type="redirect-action">authorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="authorityRemoveAll"
+			class="org.hi.framework.security.action.struts.AuthorityAction" method="removeAllAuthority">
+			<result name="success" type="redirect-action">authorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="authorityLookup"
+			class="org.hi.framework.security.action.struts.AuthorityAction" method="authorityList">
+			<result name="success">/security/AuthorityList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 角色对应的RoleAction============ --> 
+
+	  <action name="roleList"
+			class="org.hi.framework.security.action.struts.RoleAction" method="roleList">
+			<result name="success">/security/RoleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="roleSave"
+			class="org.hi.framework.security.action.struts.RoleAction" method="saveRole">
+			<result name="success" type="redirect-action">roleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="roleEdit"
+			class="org.hi.framework.security.action.struts.RoleAction" method="viewRole">
+			<result name="success">/security/RoleEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="roleView"
+			class="org.hi.framework.security.action.struts.RoleAction" method="viewRole">
+			<result name="success">/security/RoleView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="roleRemove"
+			class="org.hi.framework.security.action.struts.RoleAction" method="removeRole">
+			<result name="success" type="redirect-action">roleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="roleRemoveAll"
+			class="org.hi.framework.security.action.struts.RoleAction" method="removeAllRole">
+			<result name="success" type="redirect-action">roleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="roleLookup"
+			class="org.hi.framework.security.action.struts.RoleAction" method="roleList">
+			<result name="success">/security/RoleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 用户组对应的SecurityGroupAction============ --> 
+
+	  <action name="securityGroupList"
+			class="org.hi.framework.security.action.struts.SecurityGroupAction" method="securityGroupList">
+			<result name="success">/security/SecurityGroupList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="securityGroupSave"
+			class="org.hi.framework.security.action.struts.SecurityGroupAction" method="saveSecurityGroup">
+			<result name="success" type="redirect-action">securityGroupList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="securityGroupEdit"
+			class="org.hi.framework.security.action.struts.SecurityGroupAction" method="viewSecurityGroup">
+			<result name="success">/security/SecurityGroupEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="securityGroupView"
+			class="org.hi.framework.security.action.struts.SecurityGroupAction" method="viewSecurityGroup">
+			<result name="success">/security/SecurityGroupView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="securityGroupRemove"
+			class="org.hi.framework.security.action.struts.SecurityGroupAction" method="removeSecurityGroup">
+			<result name="success" type="redirect-action">securityGroupList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="securityGroupRemoveAll"
+			class="org.hi.framework.security.action.struts.SecurityGroupAction" method="removeAllSecurityGroup">
+			<result name="success" type="redirect-action">securityGroupList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="securityGroupLookup"
+			class="org.hi.framework.security.action.struts.SecurityGroupAction" method="securityGroupList">
+			<result name="success">/security/SecurityGroupList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 用户权限对应的UserAuthorityAction============ --> 
+
+	  <action name="userAuthorityList"
+			class="org.hi.framework.security.action.struts.UserAuthorityAction" method="userAuthorityList">
+			<result name="success">/security/UserAuthorityList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userAuthoritySave"
+			class="org.hi.framework.security.action.struts.UserAuthorityAction" method="saveUserAuthority">
+			<result name="success" type="redirect-action">userAuthorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="userAuthorityEdit"
+			class="org.hi.framework.security.action.struts.UserAuthorityAction" method="viewUserAuthority">
+			<result name="success">/security/UserAuthorityEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userAuthorityView"
+			class="org.hi.framework.security.action.struts.UserAuthorityAction" method="viewUserAuthority">
+			<result name="success">/security/UserAuthorityView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="userAuthorityRemove"
+			class="org.hi.framework.security.action.struts.UserAuthorityAction" method="removeUserAuthority">
+			<result name="success" type="redirect-action">userAuthorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userAuthorityRemoveAll"
+			class="org.hi.framework.security.action.struts.UserAuthorityAction" method="removeAllUserAuthority">
+			<result name="success" type="redirect-action">userAuthorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="userAuthorityLookup"
+			class="org.hi.framework.security.action.struts.UserAuthorityAction" method="userAuthorityList">
+			<result name="success">/security/UserAuthorityList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 用户角色对应的UserRoleAction============ --> 
+
+	  <action name="userRoleList"
+			class="org.hi.framework.security.action.struts.UserRoleAction" method="userRoleList">
+			<result name="success">/security/UserRoleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userRoleSave"
+			class="org.hi.framework.security.action.struts.UserRoleAction" method="saveUserRole">
+			<result name="success" type="redirect-action">userRoleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="userRoleEdit"
+			class="org.hi.framework.security.action.struts.UserRoleAction" method="viewUserRole">
+			<result name="success">/security/UserRoleEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userRoleView"
+			class="org.hi.framework.security.action.struts.UserRoleAction" method="viewUserRole">
+			<result name="success">/security/UserRoleView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="userRoleRemove"
+			class="org.hi.framework.security.action.struts.UserRoleAction" method="removeUserRole">
+			<result name="success" type="redirect-action">userRoleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userRoleRemoveAll"
+			class="org.hi.framework.security.action.struts.UserRoleAction" method="removeAllUserRole">
+			<result name="success" type="redirect-action">userRoleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="userRoleLookup"
+			class="org.hi.framework.security.action.struts.UserRoleAction" method="userRoleList">
+			<result name="success">/security/UserRoleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 用户与组对应的UserGroupAction============ --> 
+
+	  <action name="userGroupList"
+			class="org.hi.framework.security.action.struts.UserGroupAction" method="userGroupList">
+			<result name="success">/security/UserGroupList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userGroupSave"
+			class="org.hi.framework.security.action.struts.UserGroupAction" method="saveUserGroup">
+			<result name="success" type="redirect-action">userGroupList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="userGroupEdit"
+			class="org.hi.framework.security.action.struts.UserGroupAction" method="viewUserGroup">
+			<result name="success">/security/UserGroupEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userGroupView"
+			class="org.hi.framework.security.action.struts.UserGroupAction" method="viewUserGroup">
+			<result name="success">/security/UserGroupView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="userGroupRemove"
+			class="org.hi.framework.security.action.struts.UserGroupAction" method="removeUserGroup">
+			<result name="success" type="redirect-action">userGroupList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="userGroupRemoveAll"
+			class="org.hi.framework.security.action.struts.UserGroupAction" method="removeAllUserGroup">
+			<result name="success" type="redirect-action">userGroupList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="userGroupLookup"
+			class="org.hi.framework.security.action.struts.UserGroupAction" method="userGroupList">
+			<result name="success">/security/UserGroupList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 角色权限对应的RoleAuthorityAction============ --> 
+
+	  <action name="roleAuthorityList"
+			class="org.hi.framework.security.action.struts.RoleAuthorityAction" method="roleAuthorityList">
+			<result name="success">/security/RoleAuthorityList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="roleAuthoritySave"
+			class="org.hi.framework.security.action.struts.RoleAuthorityAction" method="saveRoleAuthority">
+			<result name="success" type="redirect-action">roleAuthorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="roleAuthorityEdit"
+			class="org.hi.framework.security.action.struts.RoleAuthorityAction" method="viewRoleAuthority">
+			<result name="success">/security/RoleAuthorityEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="roleAuthorityView"
+			class="org.hi.framework.security.action.struts.RoleAuthorityAction" method="viewRoleAuthority">
+			<result name="success">/security/RoleAuthorityView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="roleAuthorityRemove"
+			class="org.hi.framework.security.action.struts.RoleAuthorityAction" method="removeRoleAuthority">
+			<result name="success" type="redirect-action">roleAuthorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="roleAuthorityRemoveAll"
+			class="org.hi.framework.security.action.struts.RoleAuthorityAction" method="removeAllRoleAuthority">
+			<result name="success" type="redirect-action">roleAuthorityList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="roleAuthorityLookup"
+			class="org.hi.framework.security.action.struts.RoleAuthorityAction" method="roleAuthorityList">
+			<result name="success">/security/RoleAuthorityList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 组与角色对应的GroupRoleAction============ --> 
+
+	  <action name="groupRoleList"
+			class="org.hi.framework.security.action.struts.GroupRoleAction" method="groupRoleList">
+			<result name="success">/security/GroupRoleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="groupRoleSave"
+			class="org.hi.framework.security.action.struts.GroupRoleAction" method="saveGroupRole">
+			<result name="success" type="redirect-action">groupRoleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="groupRoleEdit"
+			class="org.hi.framework.security.action.struts.GroupRoleAction" method="viewGroupRole">
+			<result name="success">/security/GroupRoleEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="groupRoleView"
+			class="org.hi.framework.security.action.struts.GroupRoleAction" method="viewGroupRole">
+			<result name="success">/security/GroupRoleView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="groupRoleRemove"
+			class="org.hi.framework.security.action.struts.GroupRoleAction" method="removeGroupRole">
+			<result name="success" type="redirect-action">groupRoleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="groupRoleRemoveAll"
+			class="org.hi.framework.security.action.struts.GroupRoleAction" method="removeAllGroupRole">
+			<result name="success" type="redirect-action">groupRoleList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="groupRoleLookup"
+			class="org.hi.framework.security.action.struts.GroupRoleAction" method="groupRoleList">
+			<result name="success">/security/GroupRoleList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 权限资源对应的PrivilegeResourceAction============ --> 
+
+	  <action name="privilegeResourceList"
+			class="org.hi.framework.security.action.struts.PrivilegeResourceAction" method="privilegeResourceList">
+			<result name="success">/security/PrivilegeResourceList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="privilegeResourceSave"
+			class="org.hi.framework.security.action.struts.PrivilegeResourceAction" method="savePrivilegeResource">
+			<result name="success" type="redirect-action">privilegeResourceList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="privilegeResourceEdit"
+			class="org.hi.framework.security.action.struts.PrivilegeResourceAction" method="viewPrivilegeResource">
+			<result name="success">/security/PrivilegeResourceEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="privilegeResourceView"
+			class="org.hi.framework.security.action.struts.PrivilegeResourceAction" method="viewPrivilegeResource">
+			<result name="success">/security/PrivilegeResourceView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="privilegeResourceRemove"
+			class="org.hi.framework.security.action.struts.PrivilegeResourceAction" method="removePrivilegeResource">
+			<result name="success" type="redirect-action">privilegeResourceList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="privilegeResourceRemoveAll"
+			class="org.hi.framework.security.action.struts.PrivilegeResourceAction" method="removeAllPrivilegeResource">
+			<result name="success" type="redirect-action">privilegeResourceList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="privilegeResourceLookup"
+			class="org.hi.framework.security.action.struts.PrivilegeResourceAction" method="privilegeResourceList">
+			<result name="success">/security/PrivilegeResourceList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</struts>
