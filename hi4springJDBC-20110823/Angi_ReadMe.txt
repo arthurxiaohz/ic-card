@@ -1,4 +1,4 @@
-反编译于平台hi4springJDBC-20110823版本
+反编译于平台hi4springJDBC-20110823版本（集成了j-hi和hi-dwz）
 
 修改bug
 1、用户（非sa）在角色查询（权限为用户级）中看到了不是他创建的角色 
@@ -21,3 +21,6 @@ org.hi.framework.web.taglib.SelectTag
 hi.tld
 org.hi.framework.security.action.struts.RoleAction.getRoleAuthority(List<Authority>)
 
+6、修改加载jar的路径方式
+
+7、发现平台版本中有junit测试，org.hi.test.HiTestCase

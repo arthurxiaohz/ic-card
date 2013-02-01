@@ -24,7 +24,7 @@ public abstract interface PrivilegeResourceManager extends Manager
   public abstract List<PrivilegeResource> getSecurityPrivilegeResourceList(PageInfo paramPageInfo);
 }
 
-/* Location:           C:\Users\Angi\Desktop\hi.jar
+/* Location:           C:\Users\Angi\Desktop\framework-boss-core-1.0.1.jar
  * Qualified Name:     org.hi.framework.security.service.PrivilegeResourceManager
  * JD-Core Version:    0.6.0
  */

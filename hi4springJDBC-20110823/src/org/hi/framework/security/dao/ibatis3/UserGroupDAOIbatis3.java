@@ -8,7 +8,7 @@ public class UserGroupDAOIbatis3 extends BaseDAOIbatis
 {
 }
 
-/* Location:           C:\Users\Angi\Desktop\hi.jar
+/* Location:           C:\Users\Angi\Desktop\framework-boss-core-1.0.1.jar
  * Qualified Name:     org.hi.framework.security.dao.ibatis3.UserGroupDAOIbatis3
  * JD-Core Version:    0.6.0
  */

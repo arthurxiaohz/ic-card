@@ -1,7 +1,5 @@
 /*    */ package org.hi.framework.dao.hibernate;
 /*    */ 
-/*    */ import java.io.File;
-/*    */ import java.net.URI;
 /*    */ import java.net.URL;
 /*    */ import java.util.ArrayList;
 /*    */ import java.util.LinkedHashSet;
@@ -10,6 +8,7 @@
 /*    */ import org.apache.commons.logging.Log;
 /*    */ import org.hi.common.util.StringUtils;
 /*    */ import org.hi.framework.HiConfigHolder;
+/*    */ import org.hi.framework.util.FrameworkBossJarUtil;
 /*    */ import org.springframework.core.io.Resource;
 /*    */ import org.springframework.core.io.UrlResource;
 /*    */ 
@@ -45,25 +44,25 @@
 /*    */ 
 /* 48 */     for (String jarFileName : jars) {
 /* 49 */       URL hiJarUrl = null;
-/*    */       try {
-/* 51 */         File classFile = new File(getClass().getClassLoader().getResource("").toURI());
-/* 52 */         hiJarUrl = new URL(classFile.getParentFile().toURI().toString() + "/lib/" + jarFileName);
-/* 53 */         if (hiJarUrl != null)
-/* 54 */           jarResource.add(new UrlResource(hiJarUrl));
+/*    */       try
+/*    */       {
+/* 55 */         hiJarUrl = FrameworkBossJarUtil.getInstance().getFrameworkBossJarURL();
+/* 56 */         if (hiJarUrl != null)
+/* 57 */           jarResource.add(new UrlResource(hiJarUrl));
 /*    */       }
 /*    */       catch (Exception e)
 /*    */       {
-/* 58 */         this.logger.error("error:load jar file  == " + jarFileName);
+/* 61 */         this.logger.error("error:load jar file  == " + jarFileName);
 /*    */       }
 /*    */     }
 /*    */ 
-/* 62 */     this.mappingJarLocations = ((Resource[])jarResource.toArray(new Resource[jarResource.size()]));
-/* 63 */     super.setMappingJarLocations(this.mappingJarLocations);
-/* 64 */     super.afterPropertiesSet();
+/* 65 */     this.mappingJarLocations = ((Resource[])jarResource.toArray(new Resource[jarResource.size()]));
+/* 66 */     super.setMappingJarLocations(this.mappingJarLocations);
+/* 67 */     super.afterPropertiesSet();
 /*    */   }
 /*    */ }
 
-/* Location:           C:\Users\Angi\Desktop\hi.jar
+/* Location:           C:\Users\Angi\Desktop\framework-boss-core-1.0.1.jar
  * Qualified Name:     org.hi.framework.dao.hibernate.LocalSessionFactoryBean
  * JD-Core Version:    0.6.0
  */

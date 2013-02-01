@@ -30,7 +30,7 @@ public abstract interface HiUserManager extends Manager
   public abstract String getAllUserHTML();
 }
 
-/* Location:           C:\Users\Angi\Desktop\hi.jar
+/* Location:           C:\Users\Angi\Desktop\framework-boss-core-1.0.1.jar
  * Qualified Name:     org.hi.base.organization.service.HiUserManager
  * JD-Core Version:    0.6.0
  */
