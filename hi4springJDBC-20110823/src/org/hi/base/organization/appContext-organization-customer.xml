@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <bean id="treeManagerHiOrgListener" class="org.hi.base.tree.TreeManagerTargetListener" init-method="initLoadTargets">
+        <property name="targetClass" value="org.hi.base.organization.model.HiOrg" />
+        <property name="businessManager" ref="org.hi.framework.service.Manager"/>
+    </bean>
+     
+</beans>

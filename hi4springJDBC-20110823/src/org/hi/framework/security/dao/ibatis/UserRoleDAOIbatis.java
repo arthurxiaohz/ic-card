@@ -1,0 +1,14 @@
+package org.hi.framework.security.dao.ibatis;
+
+import org.hi.framework.dao.ibatis.BaseDAOIbatis;
+import org.hi.framework.security.dao.UserRoleDAO;
+
+public class UserRoleDAOIbatis extends BaseDAOIbatis
+  implements UserRoleDAO
+{
+}
+
+/* Location:           C:\Users\Angi\Desktop\hi.jar
+ * Qualified Name:     org.hi.framework.security.dao.ibatis.UserRoleDAOIbatis
+ * JD-Core Version:    0.6.0
+ */

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="schedule" extends="hi" >
+		<!-- ============= 工作项定义对应的JobDetailDefAction============ --> 
+	  <action name="jobDetailDef" class="org.hi.base.schedule.action.struts.JobDetailDefAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  <action name="jobDetailDefList"
+			class="org.hi.base.schedule.action.struts.JobDetailDefAction" method="jobDetailDefList">
+			<result name="success">/schedule/JobDetailDefList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="jobDetailDefSave"
+			class="org.hi.base.schedule.action.struts.JobDetailDefAction" method="saveJobDetailDef">
+			<result name="success" type="redirect-action">jobDetailDefList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="jobDetailDefEdit"
+			class="org.hi.base.schedule.action.struts.JobDetailDefAction" method="viewJobDetailDef">
+			<result name="success">/schedule/JobDetailDefEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="jobDetailDefView"
+			class="org.hi.base.schedule.action.struts.JobDetailDefAction" method="viewJobDetailDef">
+			<result name="success">/schedule/JobDetailDefView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="jobDetailDefRemove"
+			class="org.hi.base.schedule.action.struts.JobDetailDefAction" method="removeJobDetailDef">
+			<result name="success" type="redirect-action">jobDetailDefList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="jobDetailDefRemoveAll"
+			class="org.hi.base.schedule.action.struts.JobDetailDefAction" method="removeAllJobDetailDef">
+			<result name="success" type="redirect-action">jobDetailDefList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="jobDetailDefLookup"
+			class="org.hi.base.schedule.action.struts.JobDetailDefAction" method="jobDetailDefList">
+			<result name="success">/schedule/JobDetailDefList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		<!-- ============= 触发器对应的TriggerDefAction============ --> 
+	  <action name="triggerDef" class="org.hi.base.schedule.action.struts.TriggerDefAction">
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  <action name="triggerDefList"
+			class="org.hi.base.schedule.action.struts.TriggerDefAction" method="triggerDefList">
+			<result name="success">/schedule/TriggerDefList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="triggerDefSave"
+			class="org.hi.base.schedule.action.struts.TriggerDefAction" method="saveTriggerDef">
+			<result name="success" type="redirect-action">triggerDefList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+					
+		<action name="triggerDefEdit"
+			class="org.hi.base.schedule.action.struts.TriggerDefAction" method="viewTriggerDef">
+			<result name="success">/schedule/TriggerDefEdit.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="triggerDefView"
+			class="org.hi.base.schedule.action.struts.TriggerDefAction" method="viewTriggerDef">
+			<result name="success">/schedule/TriggerDefView.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+		
+		<action name="triggerDefRemove"
+			class="org.hi.base.schedule.action.struts.TriggerDefAction" method="removeTriggerDef">
+			<result name="success" type="redirect-action">triggerDefList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+		<action name="triggerDefRemoveAll"
+			class="org.hi.base.schedule.action.struts.TriggerDefAction" method="removeAllTriggerDef">
+			<result name="success" type="redirect-action">triggerDefList</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>
+		
+	  	<action name="triggerDefLookup"
+			class="org.hi.base.schedule.action.struts.TriggerDefAction" method="triggerDefList">
+			<result name="success">/schedule/TriggerDefList.jsp</result>
+			<interceptor-ref name="modelParamsStack" />
+		</action>		
+
+</package>
+</struts>
