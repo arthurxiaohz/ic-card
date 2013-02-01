@@ -1,0 +1,18 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+	<package name="framework-dwz" extends="hi" >
+
+	  <action name="xhEditorUpload" class="org.hi.framework.action.dwz.webwork.XHEditorUploadAction"></action>
+	  <action name="getDwzUserRoles" class="org.hi.framework.action.dwz.webwork.RoleInfoAction"></action>
+	   
+	    <action name="getDwzUserPrivileges"	class="org.hi.framework.action.dwz.webwork.PrivilegeInfoAction"></action>
+					
+	  <action name="dwzRoleAssignSave"
+			class="org.hi.framework.action.dwz.webwork.RoleAssignSaveAction">
+			<result name="success" type="redirect-action">roleList</result>
+			<interceptor-ref name="modelParamsStack" />
+	  </action>	 
+	  
+</package>
+</xwork>

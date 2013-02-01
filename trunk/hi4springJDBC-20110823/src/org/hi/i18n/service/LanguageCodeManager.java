@@ -26,7 +26,7 @@ public abstract interface LanguageCodeManager extends Manager
   public abstract List<String> getAllLanguageCode();
 }
 
-/* Location:           C:\Users\Angi\Desktop\hi.jar
+/* Location:           C:\Users\Angi\Desktop\framework-boss-core-1.0.1.jar
  * Qualified Name:     org.hi.i18n.service.LanguageCodeManager
  * JD-Core Version:    0.6.0
  */

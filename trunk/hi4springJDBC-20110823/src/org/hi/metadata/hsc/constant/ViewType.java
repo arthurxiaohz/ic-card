@@ -10,7 +10,7 @@ public class ViewType
   public static final String VIEW_TYPE_PDF = "pdf";
 }
 
-/* Location:           C:\Users\Angi\Desktop\hi.jar
+/* Location:           C:\Users\Angi\Desktop\framework-boss-core-1.0.1.jar
  * Qualified Name:     org.hi.metadata.hsc.constant.ViewType
  * JD-Core Version:    0.6.0
  */

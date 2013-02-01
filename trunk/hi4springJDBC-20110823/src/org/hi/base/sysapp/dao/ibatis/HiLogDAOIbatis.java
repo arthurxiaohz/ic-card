@@ -8,7 +8,7 @@ public class HiLogDAOIbatis extends BaseDAOIbatis
 {
 }
 
-/* Location:           C:\Users\Angi\Desktop\hi.jar
+/* Location:           C:\Users\Angi\Desktop\framework-boss-core-1.0.1.jar
  * Qualified Name:     org.hi.base.sysapp.dao.ibatis.HiLogDAOIbatis
  * JD-Core Version:    0.6.0
  */

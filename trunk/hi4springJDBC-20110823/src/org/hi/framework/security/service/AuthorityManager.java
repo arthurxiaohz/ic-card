@@ -24,7 +24,7 @@ public abstract interface AuthorityManager extends Manager
   public abstract List<Authority> getSecurityAuthorityList(PageInfo paramPageInfo);
 }
 
-/* Location:           C:\Users\Angi\Desktop\hi.jar
+/* Location:           C:\Users\Angi\Desktop\framework-boss-core-1.0.1.jar
  * Qualified Name:     org.hi.framework.security.service.AuthorityManager
  * JD-Core Version:    0.6.0
  */

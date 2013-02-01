@@ -19,7 +19,7 @@ public abstract interface IbatisHiDialect extends HiDialect
   public abstract String processInsertSqlFor3(String paramString1, String paramString2, List<ParameterMapping> paramList);
 }
 
-/* Location:           C:\Users\Angi\Desktop\hi.jar
+/* Location:           C:\Users\Angi\Desktop\framework-boss-core-1.0.1.jar
  * Qualified Name:     org.hi.framework.dao.ibatis.IbatisHiDialect
  * JD-Core Version:    0.6.0
  */

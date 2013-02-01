@@ -24,7 +24,7 @@ public abstract interface MessageParameterManager extends Manager
   public abstract List<MessageParameter> getSecurityMessageParameterList(PageInfo paramPageInfo);
 }
 
-/* Location:           C:\Users\Angi\Desktop\hi.jar
+/* Location:           C:\Users\Angi\Desktop\framework-boss-core-1.0.1.jar
  * Qualified Name:     org.hi.base.sysapp.service.MessageParameterManager
  * JD-Core Version:    0.6.0
  */

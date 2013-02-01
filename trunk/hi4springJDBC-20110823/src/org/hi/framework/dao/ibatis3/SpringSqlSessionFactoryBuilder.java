@@ -1,11 +1,9 @@
 /*     */ package org.hi.framework.dao.ibatis3;
 /*     */ 
 /*     */ import java.io.BufferedReader;
-/*     */ import java.io.File;
 /*     */ import java.io.IOException;
 /*     */ import java.io.InputStream;
 /*     */ import java.io.InputStreamReader;
-/*     */ import java.net.URI;
 /*     */ import java.net.URL;
 /*     */ import java.util.ArrayList;
 /*     */ import java.util.LinkedHashSet;
@@ -25,6 +23,7 @@
 /*     */ import org.hi.common.util.StringUtils;
 /*     */ import org.hi.framework.HiConfigHolder;
 /*     */ import org.hi.framework.dao.ibatis.IbatisHiDialect;
+/*     */ import org.hi.framework.util.FrameworkBossJarUtil;
 /*     */ import org.springframework.beans.factory.FactoryBean;
 /*     */ import org.springframework.beans.factory.InitializingBean;
 /*     */ import org.springframework.core.io.Resource;
@@ -41,136 +40,135 @@
 /*     */   private Resource[] mappingJarLocations;
 /*     */   private Resource configLocation;
 /*     */   private boolean sqlShow;
-/*  46 */   protected final Log logger = LogFactory.getLog(getClass());
+/*  47 */   protected final Log logger = LogFactory.getLog(getClass());
 /*     */ 
 /*     */   public IbatisHiDialect getDialet() {
-/*  49 */     return this.dialect;
+/*  50 */     return this.dialect;
 /*     */   }
 /*     */   public void setDialect(IbatisHiDialect dialect) {
-/*  52 */     this.dialect = dialect;
+/*  53 */     this.dialect = dialect;
 /*     */   }
 /*     */   public Resource[] getMappingLocations() {
-/*  55 */     return this.mappingLocations;
+/*  56 */     return this.mappingLocations;
 /*     */   }
 /*     */   public void setMappingLocations(Resource[] mappingLocations) {
-/*  58 */     this.mappingLocations = mappingLocations;
+/*  59 */     this.mappingLocations = mappingLocations;
 /*     */   }
 /*     */ 
 /*     */   public Resource[] getMappingJarLocations() {
-/*  62 */     return this.mappingJarLocations;
+/*  63 */     return this.mappingJarLocations;
 /*     */   }
 /*     */   public void setMappingJarLocations(Resource[] mappingJarLocations) {
-/*  65 */     this.mappingJarLocations = mappingJarLocations;
+/*  66 */     this.mappingJarLocations = mappingJarLocations;
 /*     */   }
 /*     */   public boolean isSqlShow() {
-/*  68 */     return this.sqlShow;
+/*  69 */     return this.sqlShow;
 /*     */   }
 /*     */   public void setSqlShow(boolean sqlShow) {
-/*  71 */     this.sqlShow = sqlShow;
+/*  72 */     this.sqlShow = sqlShow;
 /*     */   }
 /*     */ 
 /*     */   public void setConfigLocation(Resource configLocation) {
-/*  75 */     this.configLocation = configLocation;
+/*  76 */     this.configLocation = configLocation;
 /*     */   }
 /*     */ 
 /*     */   public ServletContext getServletContext()
 /*     */   {
-/*  80 */     return SpringContextHolder.getServletContext();
+/*  81 */     return SpringContextHolder.getServletContext();
 /*     */   }
 /*     */   public void setProperties(Properties properties) {
-/*  83 */     this.properties = properties;
+/*  84 */     this.properties = properties;
 /*     */   }
 /*     */ 
 /*     */   public void setDataSource(DataSource dataSource) {
-/*  87 */     this.dataSource = dataSource;
+/*  88 */     this.dataSource = dataSource;
 /*     */   }
 /*     */ 
 /*     */   public SqlSessionFactory getObject() throws Exception {
-/*  91 */     return this.sqlSessionFactory;
+/*  92 */     return this.sqlSessionFactory;
 /*     */   }
 /*     */ 
 /*     */   public Class<? extends SqlSessionFactory> getObjectType() {
-/*  95 */     return this.sqlSessionFactory == null ? SqlSessionFactory.class : 
-/*  96 */       this.sqlSessionFactory.getClass();
+/*  96 */     return this.sqlSessionFactory == null ? SqlSessionFactory.class : 
+/*  97 */       this.sqlSessionFactory.getClass();
 /*     */   }
 /*     */ 
 /*     */   public boolean isSingleton() {
-/* 100 */     return true;
+/* 101 */     return true;
 /*     */   }
 /*     */ 
 /*     */   public void afterPropertiesSet()
 /*     */     throws IOException
 /*     */   {
-/* 106 */     if (this.dialect == null) {
-/* 107 */       String dialectValue = this.properties.getProperty("ibatis.dialect");
-/* 108 */       if (dialectValue != null) {
-/* 109 */         this.dialect = ((IbatisHiDialect)BeanUtil.CreateObject(dialectValue));
+/* 107 */     if (this.dialect == null) {
+/* 108 */       String dialectValue = this.properties.getProperty("ibatis.dialect");
+/* 109 */       if (dialectValue != null) {
+/* 110 */         this.dialect = ((IbatisHiDialect)BeanUtil.CreateObject(dialectValue));
 /*     */       }
 /*     */     }
-/* 112 */     List jarResource = new ArrayList();
+/* 113 */     List jarResource = new ArrayList();
 /*     */ 
-/* 114 */     Set jars = new LinkedHashSet();
-/* 115 */     if (HiConfigHolder.getJarFile() != null) {
-/* 116 */       jars = StringUtils.strToSet(HiConfigHolder.getJarFile().trim());
+/* 115 */     Set jars = new LinkedHashSet();
+/* 116 */     if (HiConfigHolder.getJarFile() != null) {
+/* 117 */       jars = StringUtils.strToSet(HiConfigHolder.getJarFile().trim());
 /*     */     }
 /*     */ 
-/* 119 */     if (this.mappingJarLocations != null) {
-/* 120 */       for (Resource resource : this.mappingJarLocations) {
-/* 121 */         if (jars.contains(resource.getFilename()))
+/* 120 */     if (this.mappingJarLocations != null) {
+/* 121 */       for (Resource resource : this.mappingJarLocations) {
+/* 122 */         if (jars.contains(resource.getFilename()))
 /*     */           continue;
-/* 123 */         jarResource.add(resource);
+/* 124 */         jarResource.add(resource);
 /*     */       }
 /*     */ 
 /*     */     }
 /*     */ 
-/* 129 */     for (String jarFileName : jars) {
-/* 130 */       URL hiJarUrl = null;
-/*     */       try {
-/* 132 */         File classFile = new File(getClass().getClassLoader().getResource("").toURI());
-/* 133 */         hiJarUrl = new URL(classFile.getParentFile().toURI().toString() + "/lib/" + jarFileName);
-/*     */ 
-/* 135 */         if (hiJarUrl != null)
-/* 136 */           jarResource.add(new UrlResource(hiJarUrl));
+/* 130 */     for (String jarFileName : jars) {
+/* 131 */       URL hiJarUrl = null;
+/*     */       try
+/*     */       {
+/* 137 */         hiJarUrl = FrameworkBossJarUtil.getInstance().getFrameworkBossJarURL();
+/* 138 */         if (hiJarUrl != null)
+/* 139 */           jarResource.add(new UrlResource(hiJarUrl));
 /*     */       }
 /*     */       catch (Exception e)
 /*     */       {
-/* 140 */         this.logger.error("error:load jar file  == " + jarFileName);
+/* 143 */         this.logger.error("error:load jar file  == " + jarFileName);
 /*     */       }
 /*     */     }
-/* 143 */     this.mappingJarLocations = ((Resource[])jarResource.toArray(new Resource[jarResource.size()]));
+/* 146 */     this.mappingJarLocations = ((Resource[])jarResource.toArray(new Resource[jarResource.size()]));
 /*     */ 
-/* 148 */     if (this.configLocation == null) {
-/* 149 */       throw new IllegalArgumentException(
-/* 150 */         "Property 'configLocation' is required");
+/* 151 */     if (this.configLocation == null) {
+/* 152 */       throw new IllegalArgumentException(
+/* 153 */         "Property 'configLocation' is required");
 /*     */     }
-/* 152 */     if (this.dataSource == null) {
-/* 153 */       throw new IllegalArgumentException(
-/* 154 */         "Property 'dataSource' is required");
+/* 155 */     if (this.dataSource == null) {
+/* 156 */       throw new IllegalArgumentException(
+/* 157 */         "Property 'dataSource' is required");
 /*     */     }
 /*     */ 
-/* 157 */     InputStream xx = this.configLocation.getInputStream();
-/* 158 */     InputStreamReader x = new InputStreamReader(xx);
-/* 159 */     BufferedReader dis = new BufferedReader(x);
+/* 160 */     InputStream xx = this.configLocation.getInputStream();
+/* 161 */     InputStreamReader x = new InputStreamReader(xx);
+/* 162 */     BufferedReader dis = new BufferedReader(x);
 /*     */ 
-/* 162 */     XMLConfigBuilder parser = new XMLConfigBuilder(dis, null, this.properties);
-/* 163 */     Configuration config = parser.parse();
+/* 165 */     XMLConfigBuilder parser = new XMLConfigBuilder(dis, null, this.properties);
+/* 166 */     Configuration config = parser.parse();
 /*     */ 
-/* 170 */     config.setEnvironment(null);
+/* 173 */     config.setEnvironment(null);
 /*     */ 
-/* 172 */     this.sqlSessionFactory = new DefaultSqlSessionFactory(config, this.dataSource);
+/* 175 */     this.sqlSessionFactory = new DefaultSqlSessionFactory(config, this.dataSource);
 /*     */   }
 /*     */   public SqlSessionFactory getSqlSessionFactory() {
-/* 175 */     return this.sqlSessionFactory;
+/* 178 */     return this.sqlSessionFactory;
 /*     */   }
 /*     */   public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
-/* 178 */     this.sqlSessionFactory = sqlSessionFactory;
+/* 181 */     this.sqlSessionFactory = sqlSessionFactory;
 /*     */   }
 /*     */   public DataSource getDataSource() {
-/* 181 */     return this.dataSource;
+/* 184 */     return this.dataSource;
 /*     */   }
 /*     */ }
 
-/* Location:           C:\Users\Angi\Desktop\hi.jar
+/* Location:           C:\Users\Angi\Desktop\framework-boss-core-1.0.1.jar
  * Qualified Name:     org.hi.framework.dao.ibatis3.SpringSqlSessionFactoryBuilder
  * JD-Core Version:    0.6.0
  */

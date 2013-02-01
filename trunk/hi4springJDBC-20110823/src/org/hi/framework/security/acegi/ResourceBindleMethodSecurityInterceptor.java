@@ -2,8 +2,6 @@
 /*    */ 
 /*    */ import java.io.File;
 /*    */ import java.io.IOException;
-/*    */ import java.net.URL;
-/*    */ import java.net.URLDecoder;
 /*    */ import java.util.ArrayList;
 /*    */ import java.util.Iterator;
 /*    */ import java.util.List;
@@ -13,6 +11,7 @@
 /*    */ import org.hi.framework.HiConfigHolder;
 /*    */ import org.hi.framework.spring.JarResource;
 /*    */ import org.hi.framework.util.DataInputStreamUtil;
+/*    */ import org.hi.framework.util.FrameworkBossJarUtil;
 /*    */ import org.springframework.core.io.Resource;
 /*    */ 
 /*    */ public class ResourceBindleMethodSecurityInterceptor extends MethodSecurityInterceptor
@@ -24,60 +23,60 @@
 /*    */   public void setMappingLocations(Resource[] mappingLocations)
 /*    */     throws IOException
 /*    */   {
-/* 47 */     this.mappingLocations = mappingLocations;
-/* 48 */     setObjectDefinitionSource();
+/* 48 */     this.mappingLocations = mappingLocations;
+/* 49 */     setObjectDefinitionSource();
 /*    */   }
 /*    */ 
 /*    */   private void setObjectDefinitionSource() throws IOException {
-/* 52 */     MethodDefinitionSourceEditor mdsEditor = new MethodDefinitionSourceEditor();
+/* 53 */     MethodDefinitionSourceEditor mdsEditor = new MethodDefinitionSourceEditor();
 /*    */ 
-/* 54 */     List allMappingLocations = new ArrayList();
+/* 55 */     List allMappingLocations = new ArrayList();
 /*    */     String hiJarUrl;
-/* 57 */     if (HiConfigHolder.getJarFile() != null) {
-/* 58 */       List jarUrls = new ArrayList();
-/* 59 */       String[] jars = HiConfigHolder.getJarFile().trim().split("[,]");
+/* 58 */     if (HiConfigHolder.getJarFile() != null) {
+/* 59 */       List jarUrls = new ArrayList();
+/* 60 */       String[] jars = HiConfigHolder.getJarFile().trim().split("[,]");
 /*    */       String hiJarUrl;
-/* 60 */       for (String jarFileName : jars) {
-/* 61 */         hiJarUrl = null;
-/*    */         try {
-/* 63 */           hiJarUrl = URLDecoder.decode(getClass().getClassLoader().getResource("../lib/" + jarFileName).getFile(), "utf-8");
-/* 64 */           if (hiJarUrl != null)
-/* 65 */             jarUrls.add(hiJarUrl);
+/* 61 */       for (String jarFileName : jars) {
+/* 62 */         hiJarUrl = null;
+/*    */         try
+/*    */         {
+/* 67 */           hiJarUrl = FrameworkBossJarUtil.getInstance().getFrameworkBossJarPath();
+/* 68 */           if (hiJarUrl != null)
+/* 69 */             jarUrls.add(hiJarUrl);
 /*    */         }
 /*    */         catch (Exception localException)
 /*    */         {
 /*    */         }
 /*    */       }
-/* 71 */       if (jarUrls.size() > 0) {
-/* 72 */         for (Iterator localIterator = jarUrls.iterator(); localIterator.hasNext(); ) { hiJarUrl = (String)localIterator.next();
-/* 73 */           if (hiJarUrl != null) {
-/* 74 */             Object jarResources = JarResource.getInstance(new File(hiJarUrl), "*-security.properties");
+/* 75 */       if (jarUrls.size() > 0) {
+/* 76 */         for (Iterator localIterator = jarUrls.iterator(); localIterator.hasNext(); ) { hiJarUrl = (String)localIterator.next();
+/* 77 */           if (hiJarUrl != null) {
+/* 78 */             Object jarResources = JarResource.getInstance(new File(hiJarUrl), "*-security.properties");
 /*    */             Object localObject1;
-/* 75 */             localException = (localObject1 = jarResources).length; for (hiJarUrl = 0; hiJarUrl < localException; hiJarUrl++) { Resource resource = localObject1[hiJarUrl];
-/* 76 */               allMappingLocations.add(resource);
+/* 79 */             localException = (localObject1 = jarResources).length; for (hiJarUrl = 0; hiJarUrl < localException; hiJarUrl++) { Resource resource = localObject1[hiJarUrl];
+/* 80 */               allMappingLocations.add(resource);
 /*    */             }
 /*    */           }
 /*    */         }
 /*    */       }
 /*    */     }
-/* 82 */     for (int i = 0; i < this.mappingLocations.length; i++) {
-/* 83 */       allMappingLocations.add(this.mappingLocations[i]);
+/* 86 */     for (int i = 0; i < this.mappingLocations.length; i++) {
+/* 87 */       allMappingLocations.add(this.mappingLocations[i]);
 /*    */     }
 /*    */ 
-/* 86 */     StringBuffer sb = new StringBuffer();
-/* 87 */     for (Resource resource : allMappingLocations) {
-/* 88 */       sb.append(
-/* 90 */         DataInputStreamUtil.getInputStreameSegment(resource, 
-/* 89 */         "BUSINESS_SECURITY", 
-/* 90 */         "BUSINESS_SECURITY_END"));
+/* 90 */     StringBuffer sb = new StringBuffer();
+/* 91 */     for (Resource resource : allMappingLocations) {
+/* 92 */       sb.append(DataInputStreamUtil.getInputStreameSegment(resource, 
+/* 93 */         "BUSINESS_SECURITY", 
+/* 94 */         "BUSINESS_SECURITY_END"));
 /*    */     }
 /*    */ 
-/* 93 */     mdsEditor.setAsText(sb.toString());
-/* 94 */     setObjectDefinitionSource((MethodDefinitionSource)mdsEditor.getValue());
+/* 97 */     mdsEditor.setAsText(sb.toString());
+/* 98 */     setObjectDefinitionSource((MethodDefinitionSource)mdsEditor.getValue());
 /*    */   }
 /*    */ }
 
-/* Location:           C:\Users\Angi\Desktop\hi.jar
+/* Location:           C:\Users\Angi\Desktop\framework-boss-core-1.0.1.jar
  * Qualified Name:     org.hi.framework.security.acegi.ResourceBindleMethodSecurityInterceptor
  * JD-Core Version:    0.6.0
  */
